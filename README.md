@@ -16,13 +16,13 @@ This repository contains all lab instructions for the following content:
 
 # Navigation
 
-
+---
 
 ## John Strand's Intro Labs From His [PFWYC Classes](https://www.antisyphontraining.com/pay-what-you-can)
 
 ### For the Intro Labs Navigation File go [Here](/IntroClassFiles/navigation.md)
 
-
+---
 
 ## Backdoors And Breaches - Competitive Labs - Our Very Own Table-Top Game Meant For ANYONE
 
