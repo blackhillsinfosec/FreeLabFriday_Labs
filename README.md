@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
-# FreeLabFriday Labs
+# Free Lab Friday Labs
 
 ### Need 1 lab?? Maybe 2???? Well we've got 100+ so go crazy!
 
