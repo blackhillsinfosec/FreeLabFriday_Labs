@@ -51,4 +51,4 @@ Viewing alerts and logs is key to detecting suspicious activity on a system. Too
 </br>
 [Click here for the Previous Section](/courseFiles/Section_00-welcome/welcome.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
