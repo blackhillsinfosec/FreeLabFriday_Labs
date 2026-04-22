@@ -28,3 +28,9 @@ This repository contains all lab instructions for the following content:
 ## Now with Labs for ANYONE!!!
 
 ### For Card Navigation go [Here](/card_navigation.md)
+
+--- 
+
+## Also Some Labs Meant Specifically For SOC Analysts
+
+### For SOC Analyst Navigation go [Here](/SocAnalystLabs/coursenavigation.md)
