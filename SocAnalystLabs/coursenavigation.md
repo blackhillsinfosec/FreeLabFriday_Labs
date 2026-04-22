@@ -3,13 +3,13 @@
 
 # Course Navigation
 
-### [Welcome](/courseFiles/Section_00-welcome/welcome.md)
+### [Welcome](courseFiles/Section_00-welcome/welcome.md)
 
 - [Start Here!](courseFiles/Section_00-welcome/welcome.md#start-here)
 - [Getting Support](courseFiles/Section_00-welcome/welcome.md#getting-support)
 
 ***
-### [Log Analysis Basics](/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
+### [Log Analysis Basics](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
 
 - [Windows Event Logs](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md#windows-event-logs)
 - [Sysmon Logs](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md#sysmon-logs)
@@ -18,7 +18,7 @@
 - [Log Analysis Lab](courseFiles/Section_01-logAnalysis_Basics/logAnalysisBasics_Lab.md)
 
 ***
-### [Security Tools & Foundational Platforms](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
+### [Security Tools & Foundational Platforms](courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
 
 - [Intro](courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md#intro)
 - [LimaCharlie Hands-On](courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md#limacharlie-hands-on)
@@ -32,7 +32,7 @@
 - [Lima Charlie Lab part 2](courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part2.md)
 
 ***
-### [Introduction to Detection & Threat Behavior](/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
+### [Introduction to Detection & Threat Behavior](courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
 
 - [Intro Lab](courseFiles/Sectionb_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md#intro)
 - [The MITRE ATT&CK Framework](courseFiles/Section_03-detectionAndThreatBehavior/MITRE_ATT&CK.md)
@@ -40,7 +40,7 @@
 - [Open Source Projects](courseFiles/Section_03-detectionAndThreatBehavior/MITRE_ATT%26CK.md#open-source-projects)
 
 ***
-### [Scripting for SOC Tasks](/courseFiles/Section_04-socScripting/socScripting.md)
+### [Scripting for SOC Tasks](courseFiles/Section_04-socScripting/socScripting.md)
 
 - [Intro](courseFiles/Section_04-socScripting/socScripting.md#intro)
 - [Python Scripting Basics](courseFiles/Section_04-socScripting/socScripting.md#python-scripting-basics)
@@ -56,7 +56,7 @@
 
 
 ***
-### [Networking & Telemetry 101](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
+### [Networking & Telemetry 101](courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
 
 - [Understanding Key Network Protocols](courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md#understanding-key-network-protocols)
 - [Identifying Network Logs](courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md#identifying-network-logs)
@@ -69,7 +69,7 @@
 - [Zeek Lab Results](courseFiles/Section_05-networkingAndTelemetry/zeek_lab_results.md)
 
 ***
-### [Web Security](/courseFiles/Section_06-webSecurity/webSecurity.md) 
+### [Web Security](courseFiles/Section_06-webSecurity/webSecurity.md) 
 
 - [Overview](/courseFiles/Section_06-webSecurity/webSecurity.md#overview)
 - [Types of Attacks](/courseFiles/Section_06-webSecurity/webSecurity.md#types-of-attacks)
@@ -100,7 +100,7 @@
 
 
 ***
-### [Forensics Fundamentals](/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md) 
+### [Forensics Fundamentals](courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md) 
 
 - [Overview](/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md#overview)
 - [Order of Volatility](/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md#order-of-volatility)
