@@ -215,7 +215,7 @@ Get-Content (Get-PSReadLineOption).HistorySavePath | Select-String "gost.exe"
 We can clearly see exactly the commands the attacket typed into the powershell. 
 
 - the **Invoke-WebRequest** that saved the tunneling tool into  TEMP; 
-- the exact port gost was connected to - 900;
+- the exact port gost was connected to - 9000;
 - the IP of our Ubuntu VM;
 
 ---
