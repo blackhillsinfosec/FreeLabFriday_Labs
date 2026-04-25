@@ -1,4 +1,8 @@
-### Please go though the documenation and setup for the [Cloud Version](/courseFiles/tools/Elastic_Doc_Cloud.md)
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+### Please go though the documenation and setup for the [Cloud Version](/SocAnalystLabs/courseFiles/tools/Elastic_Doc_Cloud.md)
+
+# Elastic Cloud Lab
 
 ## GOAL
 - Set up and use Elastic SIEM on your system
@@ -80,11 +84,13 @@ Some examples of useful rules are
 - `event.code: 11 and file.path : ("C:\\Users\\Public\\*" or "C:\\Windows\\Temp\\*.exe")` - Dropped executables in Temp or User folders
 
 ---
-[Back to the Section](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
 
 
 
+---
 
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
 
 
 
