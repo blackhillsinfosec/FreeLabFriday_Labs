@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # Introduction to MITRE ATT&CK Framework
 
 **MITRE ATT&CK** (Adversarial Tactics, Techniques, and Common Knowledge) is a globally recognized framework that documents how real-world adversaries operate during cyberattacks.
