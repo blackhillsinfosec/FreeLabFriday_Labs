@@ -121,11 +121,11 @@ cd C:\Users\Administrator\Downloads\Sysmon\
 
 ## That's it!
 
-As a continuation, take onto the hands-on lab for [Elastic](/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md)
+As a continuation, take onto the hands-on lab for [Elastic](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md)
 
 
 ---
-[Back to the Section](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
 
 
 
