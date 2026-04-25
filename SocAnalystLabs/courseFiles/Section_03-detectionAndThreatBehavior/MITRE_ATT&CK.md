@@ -76,4 +76,4 @@ Several open-source tools and projects help integrate ATT&CK into detection, ana
                                                                                                       
 
 ---
-[Back to the Section Lab](/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
+[Back to the Section Lab](/SocAnalystLabs/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
