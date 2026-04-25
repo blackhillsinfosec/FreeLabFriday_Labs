@@ -1,4 +1,7 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # Security Tools & Foundational Platforms
+
 **Security tools and foundational platforms** are the core technologies used to detect, investigate, and respond to cyber threats. These include tools that collect and analyze data from endpoints, networks, and systems to provide visibility into suspicious activity
 <br><br>
 
@@ -15,7 +18,7 @@ This lab introduces interns to **foundational tools and platforms** used daily i
 ## LimaCharlie Hands-On
 LimaCharlie is a cutting-edge cybersecurity operations and infrastructure platform made to assist security teams in identifying, addressing, and managing threats on a large scale. With features designed for security engineers and SOC analysts, it provides an adaptable, API-driven substitute for conventional Endpoint Detection and Response (EDR) systems
 
-For a LC hands-on lab, try the 2 part [Lima Charlie Lab](/courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part1.md)
+For a LC hands-on lab, try the 2 part [Lima Charlie Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part1.md)
 
 ### LimaCharlie Rules Examples
 
@@ -74,9 +77,9 @@ actions:
 ```
 
 ## Elastic SIEM Hands-On
-[Elastic SIEM Docs](/courseFiles/tools/Elastic_Doc_Cloud.md), part of the Elastic Stack (Elasticsearch, Logstash, Kibana), provides a flexible and powerful SIEM solution for log ingestion, search, visualization, and detection
+[Elastic SIEM Docs](/SocAnalystLabs/courseFiles/tools/Elastic_Doc_Cloud.md), part of the Elastic Stack (Elasticsearch, Logstash, Kibana), provides a flexible and powerful SIEM solution for log ingestion, search, visualization, and detection
 
-After setting it up, you can try the Elastic Labs for the [Cloud Version Lab](/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md) to run on our VM, or the [Local Version Lab](/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md) in case you want to install it locally on your system
+After setting it up, you can try the Elastic Labs for the [Cloud Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md) to run on our VM, or the [Local Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md) in case you want to install it locally on your system
 
 ### Elastic Rules Examples
 
@@ -150,11 +153,11 @@ Key Skills
 
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
 
