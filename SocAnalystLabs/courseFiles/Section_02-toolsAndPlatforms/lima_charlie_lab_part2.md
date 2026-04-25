@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
 # **Lima Charlie meets Atomic Red**
 
@@ -190,4 +191,4 @@ These are often indicators of **potential malicious activity** and warrant furth
 
 
 ---
-[Back to the Section](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
