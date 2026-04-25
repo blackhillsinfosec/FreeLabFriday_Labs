@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # Lab: Introduction to Detection & Threat Behavior
 
 ## Goal
@@ -174,17 +176,17 @@ https://www.virtualbox.org/
 
 ---
 
-For learning more about MITRE ATT&CK Framework check out [MITRE_ATT&CK.md](/courseFiles/Section_03-detectionAndThreatBehavior/MITRE_ATT&CK.md)
+For learning more about MITRE ATT&CK Framework check out [MITRE_ATT&CK.md](/SocAnalystLabs/courseFiles/Section_03-detectionAndThreatBehavior/MITRE_ATT&CK.md)
 
 
 ***                                                       
 
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_04-socScripting/socScripting.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
