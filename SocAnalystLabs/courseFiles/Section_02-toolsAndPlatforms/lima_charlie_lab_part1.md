@@ -1,3 +1,4 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
 # **LimaCharlie Lab**
 
@@ -179,4 +180,4 @@ Return to your browser. You should see a confirmation message:
 > **Important**: Always destroy your lab environment after completing exercises.
 
 ---
-[Back to the Section](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
