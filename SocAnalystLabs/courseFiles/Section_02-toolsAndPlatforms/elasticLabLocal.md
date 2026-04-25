@@ -1,4 +1,8 @@
-### Please go though the documenation and setup for the [Local Version](/courseFiles/tools/Elastic_Doc_Local.md)
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+# Elastic Local Lab
+
+### Please go though the documenation and setup for the [Local Version](/SocAnalystLabs/courseFiles/tools/Elastic_Doc_Local.md)
 
 ### Now that we have set up **Elastic**, **Kibana** and **Filebeat**, we can finally get our hands dirty and learn how a SOC analysts deals with logs in Elastic
 
@@ -85,11 +89,14 @@ Now if you go over to alerts you can see your Rule's work!
 
 
 ---
-[Back to the Section](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
 
 
 
 
+---
+
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
 
 
 
