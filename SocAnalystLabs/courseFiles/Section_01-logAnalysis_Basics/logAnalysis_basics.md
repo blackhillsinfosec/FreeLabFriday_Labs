@@ -1,5 +1,7 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # Log Analysis Basics
-### Hands-On Lab : [Log Analysis Hayabusa Lab](/courseFiles/Section_01-logAnalysis_Basics/logAnalysisBasics_Lab.md)
+### Hands-On Lab : [Log Analysis Hayabusa Lab](/SocAnalystLabs/courseFiles/Section_01-logAnalysis_Basics/logAnalysisBasics_Lab.md)
 
 
 Log analysis involves reviewing system and security logs to detect unusual or malicious activity. Each log entry typically includes a timestamp, source, user account, event type, and a unique Event ID.
@@ -11,7 +13,7 @@ Most important IDs are:
 
 Effective log analysis involves:
 - Filtering noise
-- Correlating events over time (easy using special tools like [Hayabusa](/courseFiles/tools/Hayabusa.md)
+- Correlating events over time (easy using special tools like [Hayabusa](/SocAnalystLabs/courseFiles/tools/Hayabusa.md)
 - Flagging anomalies like brute-force logins or unusual logon times
 
 
@@ -38,17 +40,17 @@ Identity breaches may be detected with the help of this information. For instanc
 
 
 ## Tools to Learn
-Viewing alerts and logs is key to detecting suspicious activity on a system. Tools like [Hayabusa](/courseFiles/tools/Hayabusa.md) allow analysts to quickly analyze Windows event logs (.evtx), apply detection rules, and generate timelines or alerts for threats such as privilege escalation, malware, or lateral movement as well as the built in [Windows Event Viewer](/courseFiles/tools/WinEventViewer.md).
+Viewing alerts and logs is key to detecting suspicious activity on a system. Tools like [Hayabusa](/SocAnalystLabs/courseFiles/tools/Hayabusa.md) allow analysts to quickly analyze Windows event logs (.evtx), apply detection rules, and generate timelines or alerts for threats such as privilege escalation, malware, or lateral movement as well as the built in [Windows Event Viewer](/SocAnalystLabs/courseFiles/tools/WinEventViewer.md).
 
 
 ***                                                       
 
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_00-welcome/welcome.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_00-welcome/welcome.md)
 
 <b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
