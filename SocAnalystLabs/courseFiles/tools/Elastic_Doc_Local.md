@@ -1,3 +1,7 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+# Elastic Local Documentation
+
 Elasticsearch is a distributed search and analytics engine, scalable data store, and vector database built on Apache Lucene. It’s optimized for speed and relevance on production-scale workloads. Use Elasticsearch to search, index, store, and analyze data of all shapes and sizes in near real time. Kibana is the graphical user interface for Elasticsearch. It’s a powerful tool for visualizing and analyzing your data, and for managing and monitoring the Elastic Stack.
 
 Elasticsearch is the heart of the Elastic Stack. Combined with Kibana, it powers these Elastic solutions and use cases:
@@ -166,10 +170,13 @@ sudo journalctl -u kibana | grep verification
 - Sign in into elastic and that's it! user: `elastic` , pass: `<your_saved_password>`
 <img width="473" height="509" alt="image" src="https://github.com/user-attachments/assets/69809bd7-4de6-4682-b8c3-c93b653235f8" />
 
-- As a continuation, take onto the hands-on lab for [Elastic](/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md)
+- As a continuation, take onto the hands-on lab for [Elastic](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md)
 
 ---
-[Back to the Section](/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
 
 
+---
+
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
 
