@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # Scripting for SOC Tasks
 
 ## Intro
@@ -100,36 +102,36 @@ Explanation:
 
 ---
 
-Also check out [Powershell for SOC](/courseFiles/Lab_04-socScripting/powershell_for_soc.md) for more useful commands to learn.
+Also check out [Powershell for SOC](/SocAnalystLabs/courseFiles/Lab_04-socScripting/powershell_for_soc.md) for more useful commands to learn.
 
 ## Labs and Tools
 
 
-[Lab 1](/courseFiles/Section_04-socScripting/lab1_detect_brute_force.md)
+[Lab 1](/SocAnalystLabs/courseFiles/Section_04-socScripting/lab1_detect_brute_force.md)
 
-[Lab 1 Solution](/courseFiles/Section_04-socScripting/lab1_solution_step_by_step.md)
+[Lab 1 Solution](/SocAnalystLabs/courseFiles/Section_04-socScripting/lab1_solution_step_by_step.md)
 
-[Lab 2](/courseFiles/Section_04-socScripting/lab2_collect_system_info.md)
+[Lab 2](/SocAnalystLabs/courseFiles/Section_04-socScripting/lab2_collect_system_info.md)
 
-[Lab 2 Solution](/courseFiles/Section_04-socScripting/lab2_solution_steb_by_step.md)
+[Lab 2 Solution](/SocAnalystLabs/courseFiles/Section_04-socScripting/lab2_solution_steb_by_step.md)
 
-[Scapy Documentation part 1](/courseFiles/tools/scapy_documentation_part1.md)
+[Scapy Documentation part 1](/SocAnalystLabs/courseFiles/tools/scapy_documentation_part1.md)
 
-[Scapy Documentation part 2](/courseFiles/tools/scapy_documentation_part2.md)
+[Scapy Documentation part 2](/SocAnalystLabs/courseFiles/tools/scapy_documentation_part2.md)
 
-[Scapy Lab](/courseFiles/Section_04-socScripting/scapy_lab.md)
+[Scapy Lab](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab.md)
 
-[Scapy Lab solution](/courseFiles/Section_04-socScripting/scapy_lab_solution.md)
+[Scapy Lab solution](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab_solution.md)
 
 
 ***                                                       
 
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
