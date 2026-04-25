@@ -130,7 +130,8 @@ Following up this lead we can get to the same results as earlier, or use it to g
 ### Also try finding everything you found in this lab by using [Windows Event Viewer](../tools/WinEventViewer.md)
 
 ---
-[Back to the Section](/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
 
+---
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
