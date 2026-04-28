@@ -34,7 +34,7 @@
 ***
 ### [Introduction to Detection & Threat Behavior](courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
 
-- [Intro Lab](courseFiles/Sectionb_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md#intro)
+- [Intro Lab](courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md#intro)
 - [The MITRE ATT&CK Framework](courseFiles/Section_03-detectionAndThreatBehavior/MITRE_ATT&CK.md)
 - [Mapping Log Events to ATT&CK Techniques](courseFiles/Section_03-detectionAndThreatBehavior/MITRE_ATT%26CK.md#mapping-log-events-to-attck-techniques)
 - [Open Source Projects](courseFiles/Section_03-detectionAndThreatBehavior/MITRE_ATT%26CK.md#open-source-projects)
