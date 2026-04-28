@@ -1,3 +1,7 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+# Autopsy Documentation
+
 **Autopsy** is one of the most widely used open-source digital forensics platforms. It is built on top of The Sleuth Kit (TSK) and provides a graphical interface for investigating digital evidence. Its modular design allows analysts to process disk images, extract artifacts, and generate reports in a streamlined, repeatable fashion
 
 In Security Operations Center (SOC) workflows, Autopsy is often leveraged for:
@@ -56,4 +60,8 @@ sudo snap install autopsy
 
 
 ---
-[Back to the section](/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
+
+---
+
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
