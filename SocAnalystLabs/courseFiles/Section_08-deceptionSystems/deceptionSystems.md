@@ -37,13 +37,13 @@ Examples
 
 ## Active Defense & Cyber Deception
 Active defense shifts from passive monitoring to proactive engagement, it includes
-- **Tarpitting** - Slowing attacker tools and scripts using low-interaction decoys ***([Dionaea](/courseFiles/tools/Dionaea.md))***
+- **Tarpitting** - Slowing attacker tools and scripts using low-interaction decoys ***([Dionaea](/SocAnalystLabs/courseFiles/tools/Dionaea.md))***
 - **Misattribution** - Feeding attackers false information ***(PortSpoof, SpiderTrap)***
 - **Adversary Engagement** - Actively observing and sometimes manipulating adversaries in controlled environments ***(Thinkst Canary)***
 
 By upsetting adversary decision cycles and making them doubt the reliability of their information and actions, these tactics enhance conventional defenses
 
-Another tool that we introduce through a hands-on lab is on [beelzebub](/courseFiles/Section_08-deceptionSystems/beelzebubLab.md), an advanced SSH honeypot
+Another tool that we introduce through a hands-on lab is on [beelzebub](/SocAnalystLabs/courseFiles/Section_08-deceptionSystems/beelzebubLab.md), an advanced SSH honeypot
 
 ## Legal Notes
 ### Legality of Deception
@@ -89,10 +89,10 @@ Best advice I can give is use the MITRE Engage framework for designing ethical, 
 ***
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
