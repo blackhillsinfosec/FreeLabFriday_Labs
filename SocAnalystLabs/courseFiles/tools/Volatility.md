@@ -1,3 +1,7 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+# Volatility Documentation
+
 **Volatility** is the world's most widely used framework for extracting digital artifacts from volatile memory (RAM) samples. The extraction techniques are performed completely independent of the system being investigated but offer visibility into the runtime state of the system. The framework is intended to introduce people to the techniques and complexities associated with extracting digital artifacts from volatile memory samples and provide a platform for further work into this exciting area of research
 
 [Volatility Main Github Repo](https://github.com/volatilityfoundation/volatility3)
@@ -208,7 +212,11 @@ python3 vol.py -f /path/to/memdump $SYMS linux.pslist.PsList
 ### Notes
 Volatility does not provide the ability to acquire memory, for that best use scenario is [LiME](https://github.com/504ensicsLabs/LiME), and for windows [WinPmem](https://github.com/Velocidex/WinPmem) from Velociraptor
 
-# Try our [Volatility Lab](/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)
+# Try our [Volatility Lab](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)
 
 ---
-[Back to the section](/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
+
+---
+
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
