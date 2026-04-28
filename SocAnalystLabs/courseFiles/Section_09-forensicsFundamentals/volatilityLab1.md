@@ -1,8 +1,12 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+# Volatility
+
 # For the Ubuntu VM
 
-[Part1](/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)   [Part2](/courseFiles/Section_09-forensicsFundamentals/volatilityLab2.md)   [Part3](/courseFiles/Section_09-forensicsFundamentals/volatilityLab3.md)   [Part4](/courseFiles/Section_09-forensicsFundamentals/volatilityLab4.md)
+[Part1](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)   [Part2](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab2.md)   [Part3](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab3.md)   [Part4](/courseFiles/Section_09-forensicsFundamentals/volatilityLab4.md)
 
-This lab should be done as a continuation of the [Volatility Documentation](/courseFiles/tools/Volatility.md)
+This lab should be done as a continuation of the [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md)
 
 This is the 1st of 4 parts
 
@@ -25,7 +29,7 @@ python3 vol.py -f "$IMG" $SYMS linux.something
 ```
 
 ## Your turn
-Try to find the malware using the commands in the [Volatility Documentation](/courseFiles/tools/Volatility.md) and then scroll down to see what you should've looked for
+Try to find the malware using the commands in the [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md) and then scroll down to see what you should've looked for
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -40,3 +44,7 @@ You can detect it using ``linux.pslist.PsList``, the name standing out immediate
 Obvious malware is often trivial to spot
 
 Basic **process enumeration** is key to and usually the first step to any memdump analysis
+
+---
+
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
