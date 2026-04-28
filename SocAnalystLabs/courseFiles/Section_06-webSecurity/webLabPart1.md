@@ -51,7 +51,7 @@ You will need to use the **IP** you got from **tailscale status**
 
 To connect to the site open ``http://100.116.161.87:8000`` **NOTE THAT YOUR IP MAY BE DIFFERENT**
 
-## Go to [Part 2](/courseFiles/Section_06-webSecurity/webLabPart2.md)
+## Go to [Part 2](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webLabPart2.md)
 
 ---
-[Back to the section](/courseFiles/Section_06-webSecurity/webSecurity.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webSecurity.md)
