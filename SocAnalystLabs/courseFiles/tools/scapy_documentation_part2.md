@@ -1,8 +1,8 @@
 # Scapy - part 2
 
 - For part 1, check out [scapy_documentation_part1.md](./scapy_documentation_part1.md)
-- For lab, check out [scapy_lab.md](/courseFiles/Section_04-socScripting/scapy_lab.md)
-- For lab solution, check out [scapy_lab_solution.md](/courseFiles/Section_04-socScripting/scapy_lab_solution.md)
+- For lab, check out [scapy_lab.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab.md)
+- For lab solution, check out [scapy_lab_solution.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab_solution.md)
 
 # Common Modules, Classes & Functions (API Reference)
 
@@ -435,22 +435,22 @@ Below are practical scripts I'Ve made,intended for educational use!! — change 
 ### Script A — ARP discovery scanner (print live hosts)
 
 
-- Check out [arp_discovery.py](/courseFiles/Section_04-socScripting/arp_discovery.py)
+- Check out [arp_discovery.py](/SocAnalystLabs/courseFiles/Section_04-socScripting/arp_discovery.py)
 
 
 ### Script B — SYN port scanner with CSV output
 
-- Check out [syn_scan.py](/courseFiles/Section_04-socScripting/syn_scan.py)
+- Check out [syn_scan.py](/SocAnalystLabs/courseFiles/Section_04-socScripting/syn_scan.py)
 
 
 
 ### Script C — DNS exfil simulation (split payload across subdomains)
 
-- Check out [dns_exfil.py](/courseFiles/Section_04-socScripting/dns_exfil.py)
+- Check out [dns_exfil.py](/SocAnalystLabs/courseFiles/Section_04-socScripting/dns_exfil.py)
 
 ### Script D — PCAP reader & indicator extractor (HTTP Host, DNS queries)
 
-- Check out [extract_iocs.py](/courseFiles/Section_04-socScripting/extract_iocs.py)
+- Check out [extract_iocs.py](/SocAnalystLabs/courseFiles/Section_04-socScripting/extract_iocs.py)
 
 ---
 
@@ -462,9 +462,9 @@ Also check out [this official Scapy documentation](https://scapy.readthedocs.io/
 
 *End of Part 2. For part 1, check out [scapy_documentation_part1.md](./scapy_documentation_part1.md)*
 
-*For lab, check out [scapy_lab.md](/courseFiles/Section_04-socScripting/scapy_lab.md)*
+*For lab, check out [scapy_lab.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab.md)*
 
-*For lab solution, check out [scapy_lab_solution.md](/courseFiles/Section_04-socScripting/scapy_lab_solution.md)*
+*For lab solution, check out [scapy_lab_solution.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab_solution.md)*
 
 ---
-[Back to the Section](/courseFiles/Section_04-socScripting/socScripting.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
