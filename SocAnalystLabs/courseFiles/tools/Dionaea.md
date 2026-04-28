@@ -1,3 +1,7 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+# Dionaea Documentation
+
 # About
 **Dionaea** is a low-interaction honeypot designed to capture malware and exploits targeting services such as
 - SMB (port 445)
@@ -101,7 +105,11 @@ sudo nano /usr/local/etc/dionaea/dionaea.cfg
  - Delete anything emu related from modules and processors, should have 4 references from the start
 
 ## I know that was a lot... Now you can move over to the lab!
-### [Dionaea Lab](/courseFiles/Section_08-deceptionSystems/dionaeaLab.md)
+### [Dionaea Lab](/SocAnalystLabs/courseFiles/Section_08-deceptionSystems/dionaeaLab.md)
 
 ---
-[Back to the Section](/courseFiles/Section_08-deceptionSystems/deceptionSystems.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_08-deceptionSystems/deceptionSystems.md)
+
+---
+
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
