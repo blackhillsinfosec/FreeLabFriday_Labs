@@ -88,15 +88,15 @@ Timeline(from public findings)
 [Wiki Page](https://en.wikipedia.org/wiki/2018_SingHealth_data_breach)
 
 ## Your turn
-### Try this hands-on [Documentation Lab](/courseFiles/Section_12-documentationAndCaseNotes/documentationLab.md)
+### Try this hands-on [Documentation Lab](/SocAnalystLabs/courseFiles/Section_12-documentationAndCaseNotes/documentationLab.md)
 
 ***
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_13-softSkills/softSkills.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_13-softSkills/softSkills.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_11-malwareForensics/malwareForensics.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_11-malwareForensics/malwareForensics.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
