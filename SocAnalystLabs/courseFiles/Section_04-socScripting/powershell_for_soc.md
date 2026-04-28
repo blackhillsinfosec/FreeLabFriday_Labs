@@ -124,4 +124,4 @@ resources:
 - https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.5
 
 ---
-[Back to the Section](/courseFiles/Section_04-socScripting/socScripting.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
