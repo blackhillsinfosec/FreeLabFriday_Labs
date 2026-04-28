@@ -101,7 +101,7 @@ Host: attacker-site.com
 
 ---
 
- >[Networking Protocols](/courseFiles/Section_05-networkingAndTelemetry/network_protocols.md)
+ >[Networking Protocols](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/network_protocols.md)
 
 
 
@@ -144,11 +144,11 @@ Network logs are structured records of events and traffic observed by network de
 - **SIEM Aggregated Logs**: Centralized log aggregation, correlation, alerting
 
 
- >[Network Logs](/courseFiles/Section_05-networkingAndTelemetry/network_logs.md)
+ >[Network Logs](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/network_logs.md)
 
  ## Examining Packet Captures
  
- Check out the [Wireshark LDAP Lab](/courseFiles/Section_05-networkingAndTelemetry/wireshark_ldap_lab.md)
+ Check out the [Wireshark LDAP Lab](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/wireshark_ldap_lab.md)
 
  ## Metadata NetFlow vs Full Packet Capture
  
@@ -214,20 +214,20 @@ Packets: 10
 
 ---
 
- >[Netflow vs Full Packet Capture](/courseFiles/Section_05-networkingAndTelemetry/netflow_vs_full_packet_capture.md)
+ >[Netflow vs Full Packet Capture](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/netflow_vs_full_packet_capture.md)
 
  ## Labs
 
- [Wireshark LDAP Lab](/courseFiles/Section_05-networkingAndTelemetry/wireshark_ldap_lab.md)
+ [Wireshark LDAP Lab](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/wireshark_ldap_lab.md)
 
- [Wireshark LDAP Lab Solution](/courseFiles/Section_05-networkingAndTelemetry/wireshark_ldap_lab_solution.md)
+ [Wireshark LDAP Lab Solution](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/wireshark_ldap_lab_solution.md)
 
- [IDS Snort/Suricata Lab](/courseFiles/Section_05-networkingAndTelemetry/ids_lab.md)
+ [IDS Snort/Suricata Lab](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/ids_lab.md)
 
- [Zeek Lab](/courseFiles/Section_05-networkingAndTelemetry/zeek_lab.md)
- [Zeek Lab Results](/courseFiles/Section_05-networkingAndTelemetry/zeek_lab_results.md)
+ [Zeek Lab](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/zeek_lab.md)
+ [Zeek Lab Results](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/zeek_lab_results.md)
 
- [Rita Lab](/courseFiles/Section_05-networkingAndTelemetry/rita_lab/ritaLab1.md)
+ [Rita Lab](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/rita_lab/ritaLab1.md)
 
 ## Tools Documentations
 
@@ -242,10 +242,10 @@ Packets: 10
 
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_06-webSecurity/webSecurity.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webSecurity.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_04-socScripting/socScripting.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
