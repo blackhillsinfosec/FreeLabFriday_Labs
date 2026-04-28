@@ -35,7 +35,7 @@ FTK Imager is an open-source software by AccessData that is used for creating ac
 - Generate MD5/SHA256 hash
 - Save in E01 format for further analysis in Autopsy
 
-If interested check out our [FTK Imager Documentation](/courseFiles/tools/FTK-Imager.md)
+If interested check out our [FTK Imager Documentation](/SocAnalystLabs/courseFiles/tools/FTK-Imager.md)
 
 ## Autopsy – Evidence Analysis
 **Purpose:** Open-source digital forensics platform for disk and file analysis
@@ -51,7 +51,7 @@ Practical Use Case:
 - Run a keyword search for suspicious domains or filenames
 - Reconstruct a timeline of user activity around an incident
 
-Check out our [Autopsy Documentation](/courseFiles/tools/Autopsy.md)
+Check out our [Autopsy Documentation](/SocAnalystLabs/courseFiles/tools/Autopsy.md)
 
 ## Memory Forensics (Volatility Framework)
 **Purpose:** Extract and analyze volatile memory from live systems or dumps
@@ -67,7 +67,7 @@ Check out our [Autopsy Documentation](/courseFiles/tools/Autopsy.md)
 - Dump suspicious DLLs for malware analysis
 - Find malicious processes
 
-Make use of our [Volatility Documentation](/courseFiles/tools/Volatility.md) and hour [Volatility Hands-On Lab](/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)
+Make use of our [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md) and hour [Volatility Hands-On Lab](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)
 
 ## Common Artifacts
 - **Windows:** Event Logs, Registry, Prefetch, LNK files
@@ -93,10 +93,10 @@ Make use of our [Volatility Documentation](/courseFiles/tools/Volatility.md) and
 ***
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_10-emailFundamentals/emailFundamentals.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_10-emailFundamentals/emailFundamentals.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_08-deceptionSystems/deceptionSystems.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_08-deceptionSystems/deceptionSystems.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
