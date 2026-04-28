@@ -1,3 +1,9 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+# Azure
+
+# Any VM
+
 # Setup
 
 - First things first, create an account here: https://azure.microsoft.com/en-us/pricing/free-services
@@ -105,7 +111,7 @@
 
 
 ---
-[Back to the section](/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)
 
 
 
