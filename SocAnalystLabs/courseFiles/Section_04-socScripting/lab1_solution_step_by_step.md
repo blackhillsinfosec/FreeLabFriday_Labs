@@ -147,4 +147,4 @@ else:
 ![lab1 test script](https://i.ibb.co/ym8PXnSZ/image.png)
 
 ---
-[Back to the Section](/courseFiles/Section_04-socScripting/socScripting.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
