@@ -99,7 +99,7 @@ for s in bv.strings:
 
 
 ---
-[Back to the Section](/courseFiles/Section_11-malwareForensics/malwareForensics.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_11-malwareForensics/malwareForensics.md)
 
 
 
