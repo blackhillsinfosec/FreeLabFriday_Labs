@@ -46,9 +46,9 @@ rita view icedid
 
 Continue with [Part 4](./ritaLab4.md)
 
-<b><i>Looking for a different lab? </br>[Lab Directory](/coursenavigation.md)</i></b>
+<b><i>Looking for a different lab? </br>[Lab Directory](/SocAnalystLabs/coursenavigation.md)</i></b>
 
 ---
-[Back to the section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
