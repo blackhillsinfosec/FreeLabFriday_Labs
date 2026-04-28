@@ -67,4 +67,4 @@ Suspicious IPs detected:
 Once you are finished, you can check out the [solution](./lab1_solution_step_by_step.md). The solution contains step by step guidence!
 
 ---
-[Back to the Section](/courseFiles/Section_04-socScripting/socScripting.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
