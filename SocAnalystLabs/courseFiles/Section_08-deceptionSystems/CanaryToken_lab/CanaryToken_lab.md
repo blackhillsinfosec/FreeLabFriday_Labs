@@ -1,6 +1,8 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # Deploying a JS Cloned Website CanaryToken
 
-
+# Any VM
 
 ## Step 1: Create the CanaryToken
 
@@ -141,4 +143,4 @@ Your token should now be triggered!
 ![Alert](Pasted%20Graphic%2013.png)
 
 ---
-[Back to the Section](/courseFiles/Section_08-deceptionSystems/deceptionSystems.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_08-deceptionSystems/deceptionSystems.md)
