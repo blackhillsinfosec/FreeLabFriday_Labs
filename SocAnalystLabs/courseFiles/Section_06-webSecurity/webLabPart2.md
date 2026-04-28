@@ -1,4 +1,4 @@
-If you didn't do the **1st Part**, go [back](/courseFiles/Section_06-webSecurity/webLabPart1.md)
+If you didn't do the **1st Part**, go [back](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webLabPart1.md)
 
 
 ### We have **4 routes**:
@@ -86,6 +86,6 @@ The WHERE clause remains exactly what we wrote: ``username = <value> AND passwor
 Also a real world example is [Equifax 2017](https://en.wikipedia.org/wiki/2017_Equifax_data_breach) where there was a Data Breach of 147M Records because of SQLi
 
 ---
-[Back to the section](/courseFiles/Section_06-webSecurity/webSecurity.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webSecurity.md)
 
 
