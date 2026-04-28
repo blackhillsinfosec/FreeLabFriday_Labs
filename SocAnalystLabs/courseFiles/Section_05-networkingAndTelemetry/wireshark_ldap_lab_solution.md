@@ -338,4 +338,4 @@ alert tcp any any -> any 389 (
 - https://www.okta.com/identity-101/what-is-ldap/
 
 ---
-[Back to the section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
