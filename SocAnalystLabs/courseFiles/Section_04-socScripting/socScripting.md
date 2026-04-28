@@ -102,7 +102,7 @@ Explanation:
 
 ---
 
-Also check out [Powershell for SOC](/SocAnalystLabs/courseFiles/Lab_04-socScripting/powershell_for_soc.md) for more useful commands to learn.
+Also check out [Powershell for SOC](/SocAnalystLabs/courseFiles/Section_04-socScripting/powershell_for_soc.md) for more useful commands to learn.
 
 ## Labs and Tools
 
