@@ -127,4 +127,4 @@ When you're done, check out the **step-by-step solution** [here](./wireshark_lda
 - https://www.okta.com/identity-101/what-is-ldap/
 
 ---
-[Back to the section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
