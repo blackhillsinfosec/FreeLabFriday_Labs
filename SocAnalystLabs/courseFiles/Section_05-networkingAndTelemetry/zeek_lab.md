@@ -224,4 +224,4 @@ zeek-cut ts id.orig_h host method uri status_code < http.log | awk '$4=="POST"{p
 Check out  [Zeek Lab Results](./zeek_lab_results.md) for a better understaning.
 
 ---
-[Back to the section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
