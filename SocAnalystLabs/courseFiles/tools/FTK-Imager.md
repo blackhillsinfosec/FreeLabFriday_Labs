@@ -82,3 +82,6 @@ Tick the box and click **Finish**
 ---
 [Back to the section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
 
+---
+
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
