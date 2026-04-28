@@ -1,3 +1,10 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+# SQL Injection Lab
+
+# Windows VM
+
+
 If you didn't do the **1st Part**, go [back](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webLabPart1.md)
 
 
