@@ -76,5 +76,5 @@ Tick the box and click **Finish**
 
 
 ---
-[Back to the section](/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
 
