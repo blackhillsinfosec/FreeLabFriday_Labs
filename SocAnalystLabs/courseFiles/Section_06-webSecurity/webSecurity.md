@@ -33,7 +33,7 @@ WAF/IDS alerts (rules for sqlmap user-agent)
 
 Prevention: Use parameterized queries, ORM, and DB least privilege</pre>
 
-### Try this SQL Injection [Hands-on Lab](/courseFiles/Section_06-webSecurity/webLabPart1.md)
+### Try this SQL Injection [Hands-on Lab](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webLabPart1.md)
 
 ---
 
@@ -142,17 +142,17 @@ Antivirus alerts on uploaded files</pre>
 **Prevention:** Network segmentation, allowlists(never rely only on denylists)
 
 ## Browser malware
-Check it out and do the lab for it [Here](/courseFiles/Section_06-webSecurity/browser_malware.md)
+Check it out and do the lab for it [Here](/SocAnalystLabs/courseFiles/Section_06-webSecurity/browser_malware.md)
 
 
 ***
 
 <b><i>Continuing the course?</b>
 </br>
-[Click here for the Next Section](/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)</i>
+[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)</i>
 
 <b><i>Want to go back?</b>
 </br>
-[Click here for the Previous Section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
+[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
 
-<b><i>Looking for a different Section? </b></br>[Back to Section Directory](/coursenavigation.md)</i>
+<b><i>Looking for a different Section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
