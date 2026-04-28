@@ -290,4 +290,4 @@ sudo ip netns del ns2
 *For the lab, check out [scapy_lab.md](./scapy_lab.md)*
 
 ---
-[Back to the Section](/courseFiles/Section_04-socScripting/socScripting.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
