@@ -51,4 +51,4 @@ Network logs are structured records of events and traffic observed by network de
 - [ibm blog releted to netflow](https://www.ibm.com/think/topics/netflow)
 
 ---
-[Back to the section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
+[Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
