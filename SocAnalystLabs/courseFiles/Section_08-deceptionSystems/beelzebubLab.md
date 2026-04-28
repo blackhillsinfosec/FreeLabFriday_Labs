@@ -121,7 +121,9 @@ Take your time into analyzing the logs and seeing how they are being built
 
 
 ---
-[Back to the Section](/courseFiles/Section_08-deceptionSystems/deceptionSystems.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_08-deceptionSystems/deceptionSystems.md)
 
 
+---
 
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
