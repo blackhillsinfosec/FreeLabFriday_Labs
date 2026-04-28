@@ -105,4 +105,4 @@ It converts binary executables into human-readable assembly code, helping analys
 
 
 ---
-[Back to the Section](/courseFiles/Section_11-malwareForensics/malwareForensics.md)
+[Back to the Section](/SocAnalystLabs/courseFiles/Section_11-malwareForensics/malwareForensics.md)
