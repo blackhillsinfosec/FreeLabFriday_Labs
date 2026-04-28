@@ -1,8 +1,12 @@
-# For the Ubuntu VM
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
-[Part1](/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)   [Part2](/courseFiles/Section_09-forensicsFundamentals/volatilityLab2.md)   [Part3](/courseFiles/Section_09-forensicsFundamentals/volatilityLab3.md)   [Part4](/courseFiles/Section_09-forensicsFundamentals/volatilityLab4.md)
+# Volatility Part 2
 
-This lab should be done as a continuation of the [Volatility Documentation](/courseFiles/tools/Volatility.md)
+# Ubuntu VM
+
+[Part1](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)   [Part2](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab2.md)   [Part3](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab3.md)   [Part4](/courseFiles/Section_09-forensicsFundamentals/volatilityLab4.md)
+
+This lab should be done as a continuation of the [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md)
 
 This is the 2nd of 4 parts
 
@@ -21,7 +25,7 @@ python3 vol.py -f "$IMG" $SYMS linux.something
 ```
 
 ## Your turn
-Try to find the malware using the commands in the [Volatility Documentation](/courseFiles/tools/Volatility.md) and then scroll down to see what you should've looked for
+Try to find the malware using the commands in the [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md) and then scroll down to see what you should've looked for
 
 <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
@@ -38,3 +42,7 @@ A SOC Analyst should be curious and run ``linux.envars.Envars --pid 1050`` to se
 <img width="549" height="266" alt="image" src="https://github.com/user-attachments/assets/1b4df2ae-693e-497a-aa17-548a3e6646d7" />
 
 This confirms it is a reverse shell!
+
+---
+
+> Created By Turcu Știolică Alexandru - Black Hills Information Security
