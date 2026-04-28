@@ -60,6 +60,7 @@ Continue with [Part 2](./ritaLab2.md)
 ---
 [Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
 
+---
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
 
