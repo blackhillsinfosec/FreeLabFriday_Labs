@@ -2,7 +2,6 @@
 
 # Burp Suite
 
-
 # Burp Suite Community Edition
 
 # Ubuntu VM
@@ -75,17 +74,21 @@ Open `http://localhost:3000` in any browser to verify the site loads
 
 Go back to **Burp Suite**
 
-Burp Community ships a pre-configured Chromium browser. Using it means you **don't** have to install Burp's CA certificate or fiddle with proxy settings - those are pre-set.
+Burp Community ships a pre-configured Chromium browser. Using it means you **don't** have to install Burp's CA certificate or fiddle with proxy settings - those are pre-set
 
 In Burp:
-1. Click the **Proxy** tab (top).
-2. Click the **Open browser** button. A new Chromium window opens.
+1. Click the **Proxy** tab (top)
+2. Click the **Open browser** button. A new Chromium window opens ( it can take a while, be patient )
+
+<img width="1908" height="351" alt="image" src="https://github.com/user-attachments/assets/e66a2ee7-bba3-4945-985f-8dadc1e244f5" />
+
+
 3. In that browser, navigate to:
 ```
 http://localhost:3000
 ```
 
-You should see Juice Shop. From now on, **always use this browser** for the lab - it's the one Burp can see.
+You should see Juice Shop. From now on, **always use this browser** for the lab - it's the one Burp can see
 
 *(Insert screenshot of "Open browser" button highlighted)*
 
