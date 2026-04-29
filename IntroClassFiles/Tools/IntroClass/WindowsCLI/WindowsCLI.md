@@ -116,7 +116,7 @@ We also need to set the **RHOST IP** for the Windows system by using the followi
 set RHOST <WIN IP>
 ```
 
->[!IMPORNANT]
+>[!IMPORTANT]
 >Your IP will differ
 
 <img width="711" height="108" alt="2026-03-15_23-39" src="https://github.com/user-attachments/assets/68a2b59f-01ae-4500-88cc-563275be4cb7" />
