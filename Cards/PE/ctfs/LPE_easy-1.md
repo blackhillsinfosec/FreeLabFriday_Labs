@@ -6,13 +6,13 @@ You have low-privileged shell access on a Linux server as user `student`
 
 While enumerating the system, you run:
 
-```
+```bash
 ls -l /etc/passwd
 ```
 
 Output:
 
-```
+```bash
 -rw-rw-r-- 1 root root 2480 /etc/passwd
 ```
 
