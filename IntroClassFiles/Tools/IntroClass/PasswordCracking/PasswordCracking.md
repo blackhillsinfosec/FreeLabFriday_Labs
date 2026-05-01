@@ -41,8 +41,9 @@ hashcat -a 0 -m 0 -r /usr/share/hashcat/rules/Incisive-leetspeak.rule MD5.txt pa
 
 The result will look like this:
 
-<img width="1335" height="838" alt="2026-02-10_13-54" src="https://github.com/user-attachments/assets/65ce6739-e080-4861-93c8-2ff424d6c497" />
+<img width="2288" height="994" alt="img1" src="https://github.com/user-attachments/assets/32be0203-98e3-4718-ae2a-307df15cb1a7" />
 
+<img width="1253" height="1018" alt="img2" src="https://github.com/user-attachments/assets/2e343326-6910-4a4d-9e4f-c29892cea473" />
 
 Lets crack some NT hashes.  These are the hashes that almost all modern **Windows** systems store these days.  Older systems may store **LANMAN**, but that is very rare.
 
@@ -54,7 +55,9 @@ hashcat -a 0 -m 1000 -r/usr/share/hashcat/rules/Incisive-leetspeak.rule sam.txt 
 
 When this command is complete, it should look like this:
 
-<img width="1333" height="821" alt="image" src="https://github.com/user-attachments/assets/af468a02-3513-4705-ac6d-ceba91684ad2" />
+<img width="1158" height="347" alt="img1" src="https://github.com/user-attachments/assets/37d01dca-7ffd-4dc3-a88e-5212d88b40d7" />
+
+<img width="573" height="329" alt="img2" src="https://github.com/user-attachments/assets/7f20975c-c121-406d-937d-e251455166fe" />
 
 
 ***                                                                 
