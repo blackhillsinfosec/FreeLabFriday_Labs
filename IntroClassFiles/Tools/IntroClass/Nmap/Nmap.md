@@ -73,7 +73,7 @@ You can hit the spacebar to see status.
 
 It should look like this:
 
-<img width="604" height="443" alt="2026-02-23_12-50" src="https://github.com/user-attachments/assets/e3cfa5e0-5130-496f-bddc-bcf6c2853857" />
+<img width="461" height="329" alt="nmap_fw_on" src="https://github.com/user-attachments/assets/fe0eecfc-1fb7-4db6-a506-7a63466aee34" />
 
 Please note the open ports. These are ports and services that an attacker could use to authenticate to your system or attack if an exploit is available. 
 
@@ -83,7 +83,7 @@ Now, using the same process as before, let’s disable the **Windows** firewall 
 netsh advfirewall set allprofiles state off
 ```
 
-<img width="620" height="463" alt="2026-02-23_13-04" src="https://github.com/user-attachments/assets/dc9909ed-8732-496b-8876-c20c19df8416" />
+<img width="462" height="346" alt="nmap_fw_off" src="https://github.com/user-attachments/assets/57c7c36d-cf84-4740-bdea-2fadf2be3eac" />
 
 - As we can see, there is one more service shown open on port **5357** and also, the other **985** ports are shown as directly as **closed**, not **filtered**
 
