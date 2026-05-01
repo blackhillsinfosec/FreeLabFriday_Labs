@@ -103,6 +103,14 @@ Let's disable AV.
 Set-MpPreference -DisableRealtimeMonitoring $true
 ```
 
+>[!NOTE]
+>
+>You can verify that it is disabled with the following command:
+>
+>Get-MpComputerStatus | Select-Object RealTimeProtectionEnabled
+
+The output must be `False`.
+
 Next, let's make sure that firewall is off.
 
 ```ps
