@@ -126,8 +126,7 @@ It should look like this:
 ipconfig
 ```
 
-<img width="639" height="154" alt="Get_IpWIN" src="https://github.com/user-attachments/assets/ad0b348b-cc4f-40e3-9625-c9bbc42e3e0a" />
-
+<img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/25a9d909-663b-46d2-8c7d-13c88fef36db" />
 
 Now, let's open a Linux terminal:
 
