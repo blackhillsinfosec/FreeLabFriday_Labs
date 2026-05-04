@@ -33,9 +33,10 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 This will disable **Defender** for this session.
 
 >[!Note]
+>
 >If you get angry red errors, that is **Ok**, it means **Defender** is not running.
 
-<br>
+
 Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/3d9509ba-9139-4304-8f52-6854fee2b43c" />
@@ -52,21 +53,30 @@ Next, set a password for the Administrator account that you can remember
 net user Administrator password1234
 ```
 
-Please note, that is a very bad password.  Come up with something better. But, please remember it.
+>[!Note]
+>
+>That is a very bad password.  Come up with something better. But, please remember it.
 
 
 
 
-- To open a **Linux Shell**, either **double-click** `Ubuntu Shell` on Desktop
+Next, open a **Linux Shell** with one of the following methods: 
+
+Method 1:
+
+1. **Double-click** `Ubuntu Shell` on Desktop
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
+<br>
 
-- Or open **Command Prompt**
+Method 2:
+
+1. Open **Command Prompt**
 
 <img width="85" height="103" alt="image" src="https://github.com/user-attachments/assets/b2c7dbad-d57b-40d0-9318-ca8d40176c22" />
 
-- **SSH** into the **Linux** machine
+2. **SSH** into the **Linux** machine
 ```bash
 ssh ubuntu@linux.cloudlab.lan
 ```
@@ -77,9 +87,9 @@ ssh ubuntu@linux.cloudlab.lan
 
 
 
+##
 
-
-Let's start by getting root access in our terminal.
+ONce our terminal is open, let's start by getting root access in our terminal.
 
 ```bash
 sudo su -
@@ -93,10 +103,17 @@ ifconfig
 
 <img width="716" height="175" alt="2026-02-23_10-33" src="https://github.com/user-attachments/assets/eb5b0547-6da5-4f35-8ce4-43580c8a97d7" />
 
+<br>
 
-**REMEMBER: YOUR IP WILL BE DIFFERENT**
+>[!Note]
+>
+>REMEMBER: YOUR IP WILL BE DIFFERENT**
 
 Now, run the following commands to start a simple backdoor and backdoor listener: 
+
+>[!Tip]
+>
+>Feel free to open a second terminal/shell window to make this section easier!
 
 ```bash
 cd /tmp/
