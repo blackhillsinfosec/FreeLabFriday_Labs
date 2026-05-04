@@ -32,8 +32,10 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 
 This will disable **Defender** for this session.
 
-If you get angry red errors, that is **Ok**, it means **Defender** is not running.
+>[!Note]
+>If you get angry red errors, that is **Ok**, it means **Defender** is not running.
 
+<br>
 Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/3d9509ba-9139-4304-8f52-6854fee2b43c" />
