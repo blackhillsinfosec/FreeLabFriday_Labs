@@ -36,6 +36,9 @@ https://www.pingcastle.com/PingCastleFiles/ad_hc_test.mysmartlogon.com.html
 
 You should see a dashboard that looks something like this - a global **risk score** at the top, followed by several risk categories below.
 
+<img width="1645" height="896" alt="image" src="https://github.com/user-attachments/assets/ca09e137-c0a5-4c22-82b8-6300057b528d" />
+
+
 > [!TIP]
 >
 > The **lower the score, the better**.  
@@ -46,42 +49,31 @@ Take a moment to look at the overall score and the four category scores before m
 
 ---
 
-## Part 2 - Empty Passwords
+## Part 2 - Passwords That Never Expire
 
-**Where to look:** Scroll down to **User Information** -> click **Account Analysis**
+**Where to look:** Scroll down to **User Information** -> **Account Analysis**
 
-Here you will find a breakdown of all user account states in the domain.
+<img width="1319" height="431" alt="image" src="https://github.com/user-attachments/assets/b63d310f-a84a-4e70-b2ee-4015f3b7d4d3" />
 
-Look for the row labeled **"Accounts with an empty password"**.
+Look at the table - specifically the "Nb pwd never Expire" column
 
-You should find **two accounts** with no password set at all.
+<img width="1295" height="588" alt="image" src="https://github.com/user-attachments/assets/777a41d5-2199-4902-890f-e0ac575f9bf5" />
 
-> This is about as bad as it gets. An account with no password means **anyone** - on the network or sometimes even over the internet - can authenticate as that user without knowing anything.  
-> In a medical clinic, a hospital, or any environment handling sensitive data, this is an immediate critical finding.
+You will find 47 accounts with passwords set to never expire.
 
----
+> This is extremely common in real environments - especially for service accounts.
+> A service account runs a background process (a database, a backup job, an AV agent) and rotating its password requires updating every system that uses it.
+> That operational pain is why admins often just tick "Password never expires" and move on.
+> **The risk:** if that account is compromised, the attacker has indefinite access with a credential that will never be forced to rotate.
+> **How to address it:** Use Managed Service Accounts (MSAs) or Group Managed Service Accounts (gMSAs) - Windows rotates their passwords automatically, so you get the convenience without the risk.
 
-## Part 3 - Passwords That Never Expire
+Also notice the "Nb Inactive" column - 43 accounts haven't been used in over 6 months. Click "Inactive objects (Last usage > 6 months)" to see them listed. Inactive accounts that are never cleaned up are free real estate for an attacker - valid credentials, no one watching
 
-**Where to look:** Same section - **User Information** -> **Account Analysis**
-
-Look for **"Accounts with a password that never expires"**.
-
-You will find several accounts configured this way.
-
-> [!NOTE]
->
-> This is extremely common in real environments - especially for **service accounts**.  
-> A service account runs a background process (a database, a backup job, an AV agent) and rotating its password requires updating every system that uses it.  
-> That operational pain is why admins often just tick "Password never expires" and move on.  
->
-> The risk: if that account is compromised, the attacker has indefinite access with a credential that will **never** be forced to rotate.  
->
-> **How to address it:** Use **Managed Service Accounts (MSAs)** or **Group Managed Service Accounts (gMSAs)** - Windows rotates their passwords automatically, so you get the convenience without the risk.
+<img width="1304" height="674" alt="image" src="https://github.com/user-attachments/assets/b6a7c9b7-2087-4b04-9eca-0757c499565c" />
 
 ---
 
-## Part 4 - What Does "Everyone" Actually Mean?
+## Part 3 - What Does "Everyone" Actually Mean?
 
 Before looking at the next finding, we need to understand what **Everyone** means in Active Directory - because it is not what most people assume.
 
@@ -91,53 +83,57 @@ In Windows, the **Everyone** group includes:
 - All local users  
 - **Unauthenticated users** - people who have not logged in at all
 
-Yes. You read that correctly.  
-**Everyone** literally means everyone, including anonymous connections.
+Yes. You read that correctly
+**Everyone** literally means everyone, including anonymous connections
 
 A safer alternative is **Authenticated Users**, which restricts access to accounts that have actually proven their identity by logging in.
 
 > [!IMPORTANT]
 >
-> Whenever you see **Everyone** assigned permissions anywhere in an AD environment - on a share, a GPO, an object - treat it as a finding worth investigating.  
-> Nine times out of ten it was not intentional.
+> Whenever you see **Everyone** assigned permissions anywhere in an AD environment - on a share, a GPO, an object - treat it as a finding worth investigating
+> Nine times out of ten it was not intentional
 
 ---
 
-## Part 5 - Everyone Privileges
+## Part 4 - Everyone Privileges
 
-**Where to look:** Scroll to **Privileged Accounts** -> click **Privileged Accounts rule details**
+**Where to look:** Scroll to **Privileged Accounts** -> **Privileged Accounts rule details**
 
-Here you will see a breakdown of which principals have been granted privileged access.
+<img width="1318" height="773" alt="image" src="https://github.com/user-attachments/assets/cbc81e20-47dc-402d-ba39-63efc97210e1" />
 
-Look for any entries showing **Everyone** as the assigned principal.
 
-Granting **Everyone** any kind of elevated right means you have handed that privilege to unauthenticated users. In a live environment, this is an immediate remediation item.
+Here you will see a breakdown of which principals have been granted privileged access
+
+Look for any entries showing **Everyone** as the assigned principal
+
+Granting **Everyone** any kind of elevated right means you have handed that privilege to unauthenticated users. In a live environment, this is an immediate remediation item
 
 ---
 
-## Part 6 - Old Passwords
+## Part 5 - Old Passwords
 
-**Where to look:** Scroll to **Stale Objects** -> click **Stale Objects rule details**
+**Where to look:** Scroll to **Stale Objects** -> **Stale Objects rule details**
+
+<img width="1318" height="771" alt="image" src="https://github.com/user-attachments/assets/8ab19293-5244-4f12-aacd-c0fd93ce7991" />
+
 
 Here you will see accounts whose passwords have not been changed in a very long time.
 
-> At penetration testing firms like **Black Hills Information Security**, stale passwords are one of the most reliable ways into an environment.  
-> Doctors, developers, service accounts, CEOs - accounts that "can't be touched" accumulate for years.  
-> A password last set in 2017 has likely been reused elsewhere, leaked in a breach, or cracked from an old dump.
+> At penetration testing firms like **Black Hills Information Security**, stale passwords are one of the most reliable ways into an environment
+> Doctors, developers, service accounts, CEOs - accounts that "can't be touched" accumulate for years
+> A password last set in 2017 has likely been reused elsewhere, leaked in a breach, or cracked from an old dump
 >
-> From a defender's perspective: **stale accounts that are no longer needed should be disabled**, and active accounts should be subject to a password policy that enforces regular rotation or - better - pushed toward **passphrase-based policies** with longer minimum lengths instead of arbitrary 90-day resets.
+> From a defender's perspective: **stale accounts that are no longer needed should be disabled**, and active accounts should be subject to a password policy that enforces regular rotation or - better - pushed toward **passphrase-based policies** with longer minimum lengths instead of arbitrary 90-day resets
 
 ---
 
 > [!TIP]
 >
-> In a real engagement, **PingCastle** is typically one of the first tools run after getting a domain-joined foothold.  
-> The report gives you a prioritized list of weaknesses in minutes - without needing admin rights, without touching endpoints, and without triggering AV.  
-> As a SOC analyst, it is equally valuable: run it quarterly and track your score over time.
+> In a real engagement, **PingCastle** is typically one of the first tools run after getting a domain-joined foothold
+> The report gives you a prioritized list of weaknesses in minutes - without needing admin rights, without touching endpoints, and without triggering AV
+> As a SOC analyst, it is equally valuable: run it quarterly and track your score over time
 
 ---
-
-***
 
 <b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/README.md)</i></b>
 
