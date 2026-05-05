@@ -117,6 +117,7 @@ Also notice this entry:
 **Kerberoasting** is an attack where anyone with a domain account can request a Kerberos service ticket for certain accounts, then take that ticket offline and crack it to recover the plaintext password - no special privileges required
 
 When a domain admin account is Kerberoastable, it means an attacker with the lowest possible foothold on the domain can potentially crack their way to full admin access without ever touching a domain controller
+
 ---
 
 ## Part 5 - Old Passwords
