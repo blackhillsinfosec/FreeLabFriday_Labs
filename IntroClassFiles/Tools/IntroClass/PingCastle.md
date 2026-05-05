@@ -110,6 +110,13 @@ Look for any entries showing **Everyone** as the assigned principal
 
 Granting **Everyone** any kind of elevated right means you have handed that privilege to unauthenticated users. In a live environment, this is an immediate remediation item
 
+Also notice this entry:
+
+> "At least one member of an admin group is vulnerable to the Kerberoast attack" - +15 Points
+
+**Kerberoasting** is an attack where anyone with a domain account can request a Kerberos service ticket for certain accounts, then take that ticket offline and crack it to recover the plaintext password - no special privileges required
+
+When a domain admin account is Kerberoastable, it means an attacker with the lowest possible foothold on the domain can potentially crack their way to full admin access without ever touching a domain controller
 ---
 
 ## Part 5 - Old Passwords
