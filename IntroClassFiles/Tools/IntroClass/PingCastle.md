@@ -2,9 +2,9 @@
 
 ---
 
-This is a lab from **John Strand**'s **SOC Core Skills** Course:
+This is a lab from **John Strand**'s **Information Security Core Skillss** Course:
 
-https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
+https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 ---
 
