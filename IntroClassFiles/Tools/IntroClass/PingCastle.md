@@ -1,136 +1,154 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
+---
 
-# Ping Castle
+This is a lab from **John Strand**'s **SOC Core Skills** Course:
 
-In this lab we will be looking at ping castle.
-
-Ping Castle is a fantastic tool that can be used to quickly identify security issues in Active Directory.
-
-This is a “freeish” tool for local use. 
-
-However, if you are going to use it in a commercial setting it needs to be paid for.
-
-Which is not much of a problem as it is very affordable.
-
-PingCastle operates by analyzing an AD environment and generating a security risk assessment report. It does this using several key methodologies:
-
-1. Data Collection
-   
-	•	PingCastle gathers information from the AD environment using LDAP queries. Because all AD is is LDAP with Kerberos
-
-	•	It collects details about users, groups, domain controllers, policies, trust relationships, and security configurations.
-
-	•	The tool does not require administrative privileges, making it non-intrusive.
-
-
-3. Security Scoring & Risk Analysis
-   
-	•	The tool assigns a security score based on the AD configuration.
-
-	•	It evaluates risk factors such as:
-
-	◦	Aging objects (e.g., old, inactive accounts).
-
-	◦	Privilege escalation risks (e.g., users with excessive permissions).
-
-	◦	Weak configurations (e.g., poor password policies, weak delegation settings).
-
-	◦	Trust relationships (e.g., insecure inter-domain trusts).
-
-
-For this lab, we will be reviewing the following report:
-
-https://www.pingcastle.com/PingCastleFiles/ad_hc_test.mysmartlogon.com.html
-
-Review the report and answer the following questions.
-
-1. Any systems with empty passwords? 	
-2. Any accounts with passwords that never expire? 
-3. What does Everyone and Anyone mean in Active Directory?
-5. Any Everyone privs?
-6. Any Old Passwords?
-
-
-
-Answers below...
-
-
-
-
-
-No Cheating....
-
-
-
-# 1. Any systems with empty passwords?
-
-Yes, Yes there are.   And that is bad.  I think we can all agree on that.  Right?
-
-We can find this under User Information > Account Analysis.
-
-We see two.
-
-![image](https://github.com/user-attachments/assets/f5cf89f0-c1d0-4a4f-8cc6-393a5202100a)
-
-In our testing at Black Hills Information Security we see this all of the time.
-
-Next question!!!!
-
-# 2. Any accounts with passwords that never expire? 
-
-Same place as above.  
-
-User Information > Account Analysis.
-
-![image](https://github.com/user-attachments/assets/211786d0-1f32-4356-ac5d-9770342eb983)
-
-
-This is also bad. However, we see it all the time for things like service accounts.
-
-
-
-# 3. What does Everyone and Anyone mean in Active Directory?
-
-Anyone.  Everyone.  Yes.  EVERY ONE. Even users without a password. 
-
-You read that right.  Not a typo.
-
-A better approach is Authenticated Users, which is restricting access to people who have actually...  You know...  Authenticated.
-
-
-# 5. Any Everyone privs?
-
-To see this we need to go to Priviliged Accounts > Privileged Accounts rule details
-
-
-![image](https://github.com/user-attachments/assets/0cf1c0c2-4d0a-4d19-a0d3-2add50744b65)
-
-
-
-# 6. Any Old Passwords?
-
-At BHIS we see "old" passwords all of the time.  There are a ton of accounts for services, doctors, CEOs and developers who just cannot be bothered to change their passwords every 90 days.
-
-And we, as a pentest company, are grateful.
-
-This is under Stale Objects > Stale Objects rule details
-
-![image](https://github.com/user-attachments/assets/09b8c64c-a69f-4e38-b2f5-f63421ef33f7)
+https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
 ---
 
-[Return To Lab List](/IntroClassFiles/navigation.md)
+# PingCastle
 
+In this lab we will be using **PingCastle** to review the security posture of an **Active Directory** environment.
 
+**PingCastle** is a tool that rapidly identifies security misconfigurations in **Active Directory**.  
+It works by running **LDAP queries** against the domain - no admin rights required - and produces a scored **HTML risk report** you can open in any browser.
 
+> [!NOTE]
+>
+> PingCastle is free for personal and educational use.  
+> Commercial use requires a license - but it is very affordable.
 
+For this lab, we are **not** running PingCastle against a live domain.  
+Instead, we will be reviewing a **pre-generated report** from a test environment.  
+This is the same kind of report you would get if you ran it yourself.
 
+---
 
+## Part 1 - Open the Report
 
+Open your browser and navigate to:
 
+```
+https://www.pingcastle.com/PingCastleFiles/ad_hc_test.mysmartlogon.com.html
+```
 
+You should see a dashboard that looks something like this - a global **risk score** at the top, followed by several risk categories below.
 
+> [!TIP]
+>
+> The **lower the score, the better**.  
+> A score of **0** means no issues were found in that category.  
+> A score of **100** is the worst possible.
 
+Take a moment to look at the overall score and the four category scores before moving on.
 
+---
 
+## Part 2 - Empty Passwords
+
+**Where to look:** Scroll down to **User Information** -> click **Account Analysis**
+
+Here you will find a breakdown of all user account states in the domain.
+
+Look for the row labeled **"Accounts with an empty password"**.
+
+You should find **two accounts** with no password set at all.
+
+> This is about as bad as it gets. An account with no password means **anyone** - on the network or sometimes even over the internet - can authenticate as that user without knowing anything.  
+> In a medical clinic, a hospital, or any environment handling sensitive data, this is an immediate critical finding.
+
+---
+
+## Part 3 - Passwords That Never Expire
+
+**Where to look:** Same section - **User Information** -> **Account Analysis**
+
+Look for **"Accounts with a password that never expires"**.
+
+You will find several accounts configured this way.
+
+> [!NOTE]
+>
+> This is extremely common in real environments - especially for **service accounts**.  
+> A service account runs a background process (a database, a backup job, an AV agent) and rotating its password requires updating every system that uses it.  
+> That operational pain is why admins often just tick "Password never expires" and move on.  
+>
+> The risk: if that account is compromised, the attacker has indefinite access with a credential that will **never** be forced to rotate.  
+>
+> **How to address it:** Use **Managed Service Accounts (MSAs)** or **Group Managed Service Accounts (gMSAs)** - Windows rotates their passwords automatically, so you get the convenience without the risk.
+
+---
+
+## Part 4 - What Does "Everyone" Actually Mean?
+
+Before looking at the next finding, we need to understand what **Everyone** means in Active Directory - because it is not what most people assume.
+
+In Windows, the **Everyone** group includes:
+
+- All domain users
+- All local users  
+- **Unauthenticated users** - people who have not logged in at all
+
+Yes. You read that correctly.  
+**Everyone** literally means everyone, including anonymous connections.
+
+A safer alternative is **Authenticated Users**, which restricts access to accounts that have actually proven their identity by logging in.
+
+> [!IMPORTANT]
+>
+> Whenever you see **Everyone** assigned permissions anywhere in an AD environment - on a share, a GPO, an object - treat it as a finding worth investigating.  
+> Nine times out of ten it was not intentional.
+
+---
+
+## Part 5 - Everyone Privileges
+
+**Where to look:** Scroll to **Privileged Accounts** -> click **Privileged Accounts rule details**
+
+Here you will see a breakdown of which principals have been granted privileged access.
+
+Look for any entries showing **Everyone** as the assigned principal.
+
+Granting **Everyone** any kind of elevated right means you have handed that privilege to unauthenticated users. In a live environment, this is an immediate remediation item.
+
+---
+
+## Part 6 - Old Passwords
+
+**Where to look:** Scroll to **Stale Objects** -> click **Stale Objects rule details**
+
+Here you will see accounts whose passwords have not been changed in a very long time.
+
+> At penetration testing firms like **Black Hills Information Security**, stale passwords are one of the most reliable ways into an environment.  
+> Doctors, developers, service accounts, CEOs - accounts that "can't be touched" accumulate for years.  
+> A password last set in 2017 has likely been reused elsewhere, leaked in a breach, or cracked from an old dump.
+>
+> From a defender's perspective: **stale accounts that are no longer needed should be disabled**, and active accounts should be subject to a password policy that enforces regular rotation or - better - pushed toward **passphrase-based policies** with longer minimum lengths instead of arbitrary 90-day resets.
+
+---
+
+> [!TIP]
+>
+> In a real engagement, **PingCastle** is typically one of the first tools run after getting a domain-joined foothold.  
+> The report gives you a prioritized list of weaknesses in minutes - without needing admin rights, without touching endpoints, and without triggering AV.  
+> As a SOC analyst, it is equally valuable: run it quarterly and track your score over time.
+
+---
+
+***
+
+<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/README.md)</i></b>
+
+<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/ACHCEIntroClass/ACHunterCE.md)</i></b>
+
+<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
+
+***Finished with the Labs?***
+
+Please be sure to destroy the lab environment!
+
+[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
+
+---
