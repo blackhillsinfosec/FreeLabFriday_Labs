@@ -1,3 +1,13 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+---
+
+This is a lab from **John Strand**'s **Information Security Core Skillss** Course:
+
+https://www.antisyphontraining.com/product/information-security-core-skills-tm/
+
+---
+
 # Azure login activity logs
 
 [*Download the log file to follow along*](./logs/InteractiveSignIns_Domain_spray_logs.csv)

@@ -1,134 +1,160 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
+---
 
-# Ping Castle
+This is a lab from **John Strand**'s **Information Security Core Skillss** Course:
 
-In this lab we will be looking at ping castle.
+https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
-Ping Castle is a fantastic tool that can be used to quickly identify security issues in Active Directory.
+---
 
-This is a “freeish” tool for local use. 
+# PingCastle
 
-However, if you are going to use it in a commercial setting it needs to be paid for.
+# Any VM
 
-Which is not much of a problem as it is very affordable.
+In this lab we will be using **PingCastle** to review the security posture of an **Active Directory** environment.
 
-PingCastle operates by analyzing an AD environment and generating a security risk assessment report. It does this using several key methodologies:
+**PingCastle** is a tool that rapidly identifies security misconfigurations in **Active Directory**.  
+It works by running **LDAP queries** against the domain - no admin rights required - and produces a scored **HTML risk report** you can open in any browser.
 
-1. Data Collection
-   
-	•	PingCastle gathers information from the AD environment using LDAP queries. Because all AD is is LDAP with Kerberos
+> [!NOTE]
+>
+> PingCastle is free for personal and educational use.  
+> Commercial use requires a license - but it is very affordable.
 
-	•	It collects details about users, groups, domain controllers, policies, trust relationships, and security configurations.
+For this lab, we are **not** running PingCastle against a live domain.  
+Instead, we will be reviewing a **pre-generated report** from a test environment.  
+This is the same kind of report you would get if you ran it yourself.
 
-	•	The tool does not require administrative privileges, making it non-intrusive.
+---
 
+## Part 1 - Open the Report
 
-3. Security Scoring & Risk Analysis
-   
-	•	The tool assigns a security score based on the AD configuration.
+Open your browser and navigate to:
 
-	•	It evaluates risk factors such as:
-
-	◦	Aging objects (e.g., old, inactive accounts).
-
-	◦	Privilege escalation risks (e.g., users with excessive permissions).
-
-	◦	Weak configurations (e.g., poor password policies, weak delegation settings).
-
-	◦	Trust relationships (e.g., insecure inter-domain trusts).
-
-
-For this lab, we will be reviewing the following report:
-
+```
 https://www.pingcastle.com/PingCastleFiles/ad_hc_test.mysmartlogon.com.html
+```
 
-Review the report and answer the following questions.
+You should see a dashboard that looks something like this - a global **risk score** at the top, followed by several risk categories below.
 
-1. Any systems with empty passwords? 	
-2. Any accounts with passwords that never expire? 
-3. What does Everyone and Anyone mean in Active Directory?
-5. Any Everyone privs?
-6. Any Old Passwords?
+<img width="1645" height="896" alt="image" src="https://github.com/user-attachments/assets/ca09e137-c0a5-4c22-82b8-6300057b528d" />
 
 
+> [!TIP]
+>
+> The **lower the score, the better**.  
+> A score of **0** means no issues were found in that category.  
+> A score of **100** is the worst possible.
 
-Answers below...
+Take a moment to look at the overall score and the four category scores before moving on.
 
+---
 
+## Part 2 - Passwords That Never Expire
 
+**Where to look:** Scroll down to **User Information** -> **Account Analysis**
 
+<img width="1319" height="431" alt="image" src="https://github.com/user-attachments/assets/b63d310f-a84a-4e70-b2ee-4015f3b7d4d3" />
 
-No Cheating....
+Look at the table - specifically the "Nb pwd never Expire" column
 
+<img width="1295" height="588" alt="image" src="https://github.com/user-attachments/assets/777a41d5-2199-4902-890f-e0ac575f9bf5" />
 
+You will find 47 accounts with passwords set to never expire.
 
-# 1. Any systems with empty passwords?
+> This is extremely common in real environments - especially for service accounts.
+> A service account runs a background process (a database, a backup job, an AV agent) and rotating its password requires updating every system that uses it.
+> That operational pain is why admins often just tick "Password never expires" and move on.
+> **The risk:** if that account is compromised, the attacker has indefinite access with a credential that will never be forced to rotate.
+> **How to address it:** Use Managed Service Accounts (MSAs) or Group Managed Service Accounts (gMSAs) - Windows rotates their passwords automatically, so you get the convenience without the risk.
 
-Yes, Yes there are.   And that is bad.  I think we can all agree on that.  Right?
+Also notice the "Nb Inactive" column - 43 accounts haven't been used in over 6 months. Click "Inactive objects (Last usage > 6 months)" to see them listed. Inactive accounts that are never cleaned up are free real estate for an attacker - valid credentials, no one watching
 
-We can find this under User Information > Account Analysis.
+<img width="1304" height="674" alt="image" src="https://github.com/user-attachments/assets/b6a7c9b7-2087-4b04-9eca-0757c499565c" />
 
-We see two.
+---
 
-![image](https://github.com/user-attachments/assets/f5cf89f0-c1d0-4a4f-8cc6-393a5202100a)
+## Part 3 - What Does "Everyone" Actually Mean?
 
-In our testing at Black Hills Information Security we see this all of the time.
+Before looking at the next finding, we need to understand what **Everyone** means in Active Directory - because it is not what most people assume.
 
-Next question!!!!
+In Windows, the **Everyone** group includes:
 
-# 2. Any accounts with passwords that never expire? 
+- All domain users
+- All local users  
+- **Unauthenticated users** - people who have not logged in at all
 
-Same place as above.  
+Yes. You read that correctly
+**Everyone** literally means everyone, including anonymous connections
 
-User Information > Account Analysis.
+A safer alternative is **Authenticated Users**, which restricts access to accounts that have actually proven their identity by logging in.
 
-![image](https://github.com/user-attachments/assets/211786d0-1f32-4356-ac5d-9770342eb983)
+> [!IMPORTANT]
+>
+> Whenever you see **Everyone** assigned permissions anywhere in an AD environment - on a share, a GPO, an object - treat it as a finding worth investigating
+> Nine times out of ten it was not intentional
 
+---
 
-This is also bad. However, we see it all the time for things like service accounts.
+## Part 4 - Everyone Privileges
 
+**Where to look:** Scroll to **Privileged Accounts** -> **Privileged Accounts rule details**
 
-
-# 3. What does Everyone and Anyone mean in Active Directory?
-
-Anyone.  Everyone.  Yes.  EVERY ONE. Even users without a password. 
-
-You read that right.  Not a typo.
-
-A better approach is Authenticated Users, which is restricting access to people who have actually...  You know...  Authenticated.
-
-
-# 5. Any Everyone privs?
-
-To see this we need to go to Priviliged Accounts > Privileged Accounts rule details
-
-
-![image](https://github.com/user-attachments/assets/0cf1c0c2-4d0a-4d19-a0d3-2add50744b65)
-
-
-
-# 6. Any Old Passwords?
-
-At BHIS we see "old" passwords all of the time.  There are a ton of accounts for services, doctors, CEOs and developers who just cannot be bothered to change their passwords every 90 days.
-
-And we, as a pentest company, are grateful.
-
-This is under Stale Objects > Stale Objects rule details
-
-![image](https://github.com/user-attachments/assets/09b8c64c-a69f-4e38-b2f5-f63421ef33f7)
-
-[Return To Lab List](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/navigation.md)
+<img width="1318" height="773" alt="image" src="https://github.com/user-attachments/assets/cbc81e20-47dc-402d-ba39-63efc97210e1" />
 
 
+Here you will see a breakdown of which principals have been granted privileged access
+
+Look for any entries showing **Everyone** as the assigned principal
+
+Granting **Everyone** any kind of elevated right means you have handed that privilege to unauthenticated users. In a live environment, this is an immediate remediation item
+
+Also notice this entry:
+
+> "At least one member of an admin group is vulnerable to the Kerberoast attack" - +15 Points
+
+**Kerberoasting** is an attack where anyone with a domain account can request a Kerberos service ticket for certain accounts, then take that ticket offline and crack it to recover the plaintext password - no special privileges required
+
+When a domain admin account is Kerberoastable, it means an attacker with the lowest possible foothold on the domain can potentially crack their way to full admin access without ever touching a domain controller
+
+---
+
+## Part 5 - Old Passwords
+
+**Where to look:** Scroll to **Stale Objects** -> **Stale Objects rule details**
+
+<img width="1318" height="771" alt="image" src="https://github.com/user-attachments/assets/8ab19293-5244-4f12-aacd-c0fd93ce7991" />
 
 
+Here you will see accounts whose passwords have not been changed in a very long time.
 
+> At penetration testing firms like **Black Hills Information Security**, stale passwords are one of the most reliable ways into an environment
+> Doctors, developers, service accounts, CEOs - accounts that "can't be touched" accumulate for years
+> A password last set in 2017 has likely been reused elsewhere, leaked in a breach, or cracked from an old dump
+>
+> From a defender's perspective: **stale accounts that are no longer needed should be disabled**, and active accounts should be subject to a password policy that enforces regular rotation or - better - pushed toward **passphrase-based policies** with longer minimum lengths instead of arbitrary 90-day resets
 
+---
 
+> [!TIP]
+>
+> In a real engagement, **PingCastle** is typically one of the first tools run after getting a domain-joined foothold
+> The report gives you a prioritized list of weaknesses in minutes - without needing admin rights, without touching endpoints, and without triggering AV
+> As a SOC analyst, it is equally valuable: run it quarterly and track your score over time
 
+---
 
+<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/README.md)</i></b>
 
+<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/ACHCEIntroClass/ACHunterCE.md)</i></b>
 
+<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
+***Finished with the Labs?***
 
+Please be sure to destroy the lab environment!
+
+[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
+
+---

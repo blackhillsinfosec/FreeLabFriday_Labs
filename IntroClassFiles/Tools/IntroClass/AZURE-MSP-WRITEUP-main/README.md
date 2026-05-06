@@ -1,3 +1,13 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
+---
+
+This is a lab from **John Strand**'s **Information Security Core Skillss** Course:
+
+https://www.antisyphontraining.com/product/information-security-core-skills-tm/
+
+---
+
 # Azure AD Lab - Hackable MSP
 
 In this lab we will navigate through log files of an attack simulation on an MSP to illustrate how an attacker got in and compromised the network. From initial intrusion all the way to full network exploitation, we are going to explore the techniques used by the attacker(s) and how they were able to compromise our Azure MSP

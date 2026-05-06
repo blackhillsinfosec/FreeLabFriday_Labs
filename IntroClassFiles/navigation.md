@@ -18,11 +18,11 @@
   - [Hunting DCSync, Sharepoint and Kerberoasting](https://github.com/strandjs/IntroLabs/tree/master/IntroClassFiles/Tools/IntroClass/PoisoningtheWellIR-main)
   - [Scapy](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/scapy.md)
 <!--  - [Temp](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/temp.md) -->
-  - [Hayabusa](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/hayabusa.md)
-  - [RITA2](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/rita_Part2.md)
-  - [Email Analysis](https://github.com/doergestim/SOC_Analyst_Labs/blob/main/courseFiles/Section_10-emailFundamentals/phishing_email_lab.md)
+  - [Hayabusa](/IntroClassFiles/Tools/IntroClass/hayabusa.md)
+  - [RITA2](/IntroClassFiles/Tools/IntroClass/rita_Part2.md)
+  - [Email Analysis](/SOCAnalystLabs/courseFiles/Section_10-emailFundamentals/phishing_email_lab.md)
 
-  - [ACHunter2](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/RITA/ACHunter2.md)
+  - [ACHunter2](/IntroClassFiles/Tools/IntroClass/RITA/ACHunter2.md)
 
 <br><br>
 ## [Information Security Core Skills]()
@@ -40,9 +40,9 @@
  - [Sysmon](Tools/IntroClass/Sysmon/Sysmon.md)
  - [Web Testing](Tools/IntroClass/WebTestingIntroClass/WebTesting.md)
  - [AC Hunter CE](Tools/IntroClass/ACHCEIntroClass/ACHunterCE.md)
- - [PingCastle](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/PingCastle.md)
+ - [PingCastle](/IntroClassFiles/Tools/IntroClass/PingCastle.md)
  - [Azure IR](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/README.md)
- - [Wireless](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/Wireless.md)
+ - [Wireless](/IntroClassFiles/Tools/IntroClass/Wireless.md)
 
 <br><br>
 ## [Cyber Deception/Active Defense]()
@@ -78,7 +78,7 @@
 
 ### Phishing / Social-engineering  
   - [Canarytokens](Tools/IntroClass/ADHD/canarytokens/Canarytokens.md)
-  - [Canary Token Cloner](https://github.com/strandjs/SOC_Analyst_Labs/blob/main/courseFiles/Section_08-deceptionSystems/CanaryToken_lab/CanaryToken_lab.md)
+  - [Canary Token Cloner](/SOC_Analyst_Labs/blob/main/courseFiles/Section_08-deceptionSystems/CanaryToken_lab/CanaryToken_lab.md)
   - [GoPhish](Tools/IntroClass/ADHD/GoPhish.md)
   - [Mailoney](Tools/IntroClass/ADHD/Mailoney.md)
   
