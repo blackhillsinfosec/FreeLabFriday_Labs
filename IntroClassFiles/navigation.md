@@ -7,7 +7,6 @@
   - [Web Log Review](Tools/IntroClass/WebLogReview/WebLogReview.md)
   - [WindowsCLI](Tools/IntroClass/WindowsCLI/WindowsCLI.md)
   - [Wireshark](Tools/IntroClass/Wireshark/Wireshark.md)
- <!-- - [RITA And AC Hunter](Tools/IntroClass/RITA/RITA.md) -->
   - [Nessus](Tools/IntroClass/nessus/Nessus.md)
   - [DeepBlueCLI](Tools/IntroClass/deepbluecli/DeepBlueCLI.md)
   - [Domain Log Review](Tools/IntroClass/DomainLogReview/DomainLogReview.md)
@@ -17,12 +16,12 @@
   - [AC Hunter CE](Tools/IntroClass/ACHCE/ACHunterCE.md)
   - [Hunting DCSync, Sharepoint and Kerberoasting](https://github.com/strandjs/IntroLabs/tree/master/IntroClassFiles/Tools/IntroClass/PoisoningtheWellIR-main)
   - [Scapy](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/scapy.md)
-<!--  - [Temp](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/temp.md) -->
   - [Hayabusa](/IntroClassFiles/Tools/IntroClass/hayabusa.md)
   - [RITA2](/IntroClassFiles/Tools/IntroClass/rita_Part2.md)
   - [Email Analysis](/SOCAnalystLabs/courseFiles/Section_10-emailFundamentals/phishing_email_lab.md)
-
   - [ACHunter2](/IntroClassFiles/Tools/IntroClass/RITA/ACHunter2.md)
+<!-- - [RITA And AC Hunter](Tools/IntroClass/RITA/RITA.md) -->
+<!--  - [Temp](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/temp.md) -->
 
 <br><br>
 ## [Information Security Core Skills]()
