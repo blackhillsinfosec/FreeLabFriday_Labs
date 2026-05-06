@@ -25,7 +25,7 @@
   - [ACHunter2](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/RITA/ACHunter2.md)
 
 <br><br>
-## [Intro To Security]()
+## [Information Security Core Skills]()
 
  - [Applocker](Tools/IntroClass/AppLocker/AppLocker.md)
  - [Atomic RedTeam and Bluespawn](Tools/IntroClass/bluespawnIntroClass/Bluespawn.md)
