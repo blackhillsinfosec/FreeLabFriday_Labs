@@ -39,8 +39,10 @@ We will connect both machines to our Wazuh Cloud instance.
 
 ## Wazuh Cloud account setup: 
 
-For this lab, you will need to make an account and activate the ****
+For this lab, you will need to make an account and use the **Free Trial**. If you would like to see more of what you can do with 
+*Wazuh Cloud*, check out the [Wazuh Cloud Service Documentation](https://documentation.wazuh.com/current/cloud-service/index.html).
 
+- To start, click on [this link](https://console.cloud.wazuh.com/sign-up?landing=trial). You will be taken to this page: 
 ---
 
 ## Phase 1 : Setup and Agent Enrollment
