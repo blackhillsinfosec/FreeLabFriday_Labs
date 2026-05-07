@@ -62,7 +62,7 @@
 ## Initial Compromise
 - [Exploitation of Missing HTTP Strict Transport Security (HSTS)](/Decks/Green_Expansion_v2/V2Deck/IC/Exploitation_Of_Missing_HSTS.md)
 - [Supply Chain Attack](/Decks/Green_Expansion_v2/V2Deck/IC/Supply_Chain_Attack.md)
-- [Physical Access](/Decks/Green_Expansion_v2/V2Deck/IC/Physical_Access)
+- [Physical Access](/Decks/Green_Expansion_v2/V2Deck/IC/Physical_Access.md)
 
 
 
