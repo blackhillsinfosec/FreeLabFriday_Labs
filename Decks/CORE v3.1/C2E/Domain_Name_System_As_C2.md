@@ -92,9 +92,9 @@ DNS as C2 is a good example of how attackers use the infrastructure that keeps n
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/C2E/HTTPS_As_Exfil.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/C2E/HTTPS_As_Exfil.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 
