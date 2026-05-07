@@ -91,9 +91,9 @@ Social engineering succeeds when people become the weakest link. Understanding h
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/IC/Bring_Your_Own_Exploited_Device.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Bring_Your_Own_Exploited_Device.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/IC/Trusted_Relationship.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/Trusted_Relationship.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

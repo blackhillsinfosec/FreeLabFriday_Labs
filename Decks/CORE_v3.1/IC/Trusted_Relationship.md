@@ -84,9 +84,9 @@ Trusted relationships are necessary for modern organizations, but they expand th
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/IC/Social_Engineering.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Social_Engineering.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/IC/External_Password_Spray.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/External_Password_Spray.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

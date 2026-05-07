@@ -87,7 +87,7 @@ Hands-on practice with the tools from this card:
 Accessibility feature hijacking is one of those techniques that feels obscure until you realize how effective it is. A cheap USB device, thirty seconds of physical access, and an attacker has a persistent SYSTEM shell waiting for them. Physical security is not separate from cybersecurity - it is part of it.
 
 ***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PER/Malicious_Firmware.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Malicious_Firmware.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

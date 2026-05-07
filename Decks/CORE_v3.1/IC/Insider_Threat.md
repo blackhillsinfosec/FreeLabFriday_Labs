@@ -79,9 +79,9 @@ Insider threats are difficult because the attacker looks like a normal user. Lea
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/IC/External_Password_Spray.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/External_Password_Spray.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/IC/Unauthorized_Cloud_Access.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/Unauthorized_Cloud_Access.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

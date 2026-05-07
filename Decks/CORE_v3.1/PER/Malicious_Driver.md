@@ -83,9 +83,9 @@ Hands-on practice with each tool:
 Malicious drivers are not common in every attack, but when they show up, they signal a serious and skilled threat. Defenders who understand how kernel-level persistence works are far better equipped to catch it before the damage compounds.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PER/New_User_Added.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/New_User_Added.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PER/Dynamic_Link_Library_Hijacking.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Dynamic_Link_Library_Hijacking.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

@@ -90,9 +90,9 @@ Hands-on exercises with the tools from the card:
 Malicious browser plugins are a good example of how attackers move up the stack - instead of breaking into the OS, they compromise the application layer where users spend most of their time. The access they get is limited in scope but extremely high in value. Knowing how they work is half the battle in detecting and stopping them.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PER/Logon_Scripts.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Logon_Scripts.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PER/Application_Shimming.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Application_Shimming.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

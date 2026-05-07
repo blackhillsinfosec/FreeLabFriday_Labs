@@ -124,9 +124,9 @@ Understanding it is essential for both attackers and defenders working in Active
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PE/Broadcast-Multicast_Protocol_Poisoning.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Broadcast-Multicast_Protocol_Poisoning.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PE/Internal_Password_Spray.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Internal_Password_Spray.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

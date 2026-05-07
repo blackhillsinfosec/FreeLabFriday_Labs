@@ -82,9 +82,9 @@ You will solve four challenges related to network isolation and containment:
 Isolation is a time-sensitive decision. The longer a compromised host stays connected, the more damage compounds. Understanding how to apply it quickly and correctly - at the network, host, or endpoint level - is one of the most practical skills you can build as a defender.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/Crisis_Management.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Crisis_Management.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/Endpoint_Analysis.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Endpoint_Analysis.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

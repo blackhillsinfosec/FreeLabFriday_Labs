@@ -82,9 +82,9 @@ Hands-on practice with the tools from the card:
 Memory analysis is one of those skills that separates a thorough investigation from a shallow one. Disk artifacts can be wiped. Memory captures a moment in time that attackers rarely think to clean up.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/Cloud_Event_Log_Analysis.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Cloud_Event_Log_Analysis.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/Crisis_Management.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Crisis_Management.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

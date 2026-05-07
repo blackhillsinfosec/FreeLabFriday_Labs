@@ -74,9 +74,9 @@ Hands-on practice with the tools used by attackers and defenders:
 Logon scripts are one of those techniques that fly under the radar until it's too late. They are well-documented, widely used in real attacks, and worth understanding deeply - both to execute in a lab environment and to recognize in the wild.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PER/Malicious_Firmware.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Malicious_Firmware.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PER/Malicious_Browser_Plugins.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Malicious_Browser_Plugins.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

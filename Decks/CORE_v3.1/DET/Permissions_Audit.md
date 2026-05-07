@@ -95,7 +95,7 @@ Hands-on practice with the tools from the card:
 Permissions problems are almost never dramatic. There's no exploit, no zero-day. Someone just has access they shouldn't, and nobody noticed until it was too late. That's what makes this kind of audit so important - and so easy to skip.
 
 ***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Cloud_Event_Logs_Analysis.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Cloud_Event_Logs_Analysis.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

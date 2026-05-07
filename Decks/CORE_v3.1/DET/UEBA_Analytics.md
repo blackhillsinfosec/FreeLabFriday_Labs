@@ -79,9 +79,9 @@ One lab per tool. Each one is hands-on and self-contained:
 Behavior doesn't lie the way logs can. An attacker can delete a file - they can't easily fake two years of normal login patterns. That's the core idea behind UEBA, and it's why it catches what everything else misses.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Endpoint_Analysis.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Endpoint_Analysis.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Endpoint_Security_Protection_Analysis.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Endpoint_Security_Protection_Analysis.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

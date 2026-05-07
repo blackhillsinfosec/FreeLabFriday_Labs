@@ -69,7 +69,7 @@ Hands-on practice with the tools from the card:
 Password spraying is one of those techniques that feels simple on paper but causes real damage in practice. Understanding it from both sides - how it's done and how it's caught - is essential for anyone working in security.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PE/Kerberoasting.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Kerberoasting.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

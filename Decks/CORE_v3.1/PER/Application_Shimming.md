@@ -92,9 +92,9 @@ Application shimming shows how built-in operating system features can be abused.
 Understanding it helps you recognize when normal functionality is being used in abnormal ways.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PER/Malicious_Browser_Plugins.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Malicious_Browser_Plugins.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PER/New_User_Added.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/New_User_Added.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

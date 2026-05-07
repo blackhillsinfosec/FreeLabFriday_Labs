@@ -78,9 +78,9 @@ Hands-on practice with the tools used by both attackers and defenders:
 AD attacks are some of the most common techniques seen in real-world breaches. Understanding how attackers map and abuse directory services is just as important for defenders as it is for red teamers. The goal isn't just to know the tools - it's to understand why the misconfigurations exist in the first place.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PE/Credential_Harvesting.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Credential_Harvesting.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PE/Broadcast-Multicast_Protocol_Poisoning.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Broadcast-Multicast_Protocol_Poisoning.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

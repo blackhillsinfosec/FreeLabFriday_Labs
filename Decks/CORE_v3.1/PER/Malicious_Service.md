@@ -93,7 +93,7 @@ Malicious services are a classic persistence technique because they work. They'v
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PER/Dynamic_Link_Library_Hijacking.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Dynamic_Link_Library_Hijacking.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

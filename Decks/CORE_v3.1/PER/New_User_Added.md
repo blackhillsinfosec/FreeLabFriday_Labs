@@ -96,9 +96,9 @@ Account creation is one of those techniques that looks boring on paper but shows
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PER/Application_Shimming.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Application_Shimming.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PER/Malicious_Driver.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Malicious_Driver.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

@@ -83,9 +83,9 @@ Hands-on practice with the tools from the card:
 Broadcast and multicast poisoning attacks are low-effort, high-reward. They often require nothing more than being on the same network and running a script. Understanding how they work - and how to spot them - is essential in any environment running Windows.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PE/Weaponizing_Active_Directory.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Weaponizing_Active_Directory.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PE/Kerberoasting.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Kerberoasting.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

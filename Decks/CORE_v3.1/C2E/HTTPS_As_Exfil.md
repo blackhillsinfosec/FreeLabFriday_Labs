@@ -83,9 +83,9 @@ HTTPS exfiltration is effective precisely because it hides in plain sight. Under
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/Domain_Name_System_As_C2.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/Domain_Name_System_As_C2.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/C2E/HTTP_As_Exfil.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/C2E/HTTP_As_Exfil.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

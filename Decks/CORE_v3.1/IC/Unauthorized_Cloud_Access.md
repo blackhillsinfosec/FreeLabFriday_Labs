@@ -88,9 +88,9 @@ Unauthorized cloud access is one of the fastest ways attackers take control of m
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/IC/Insider_Threat.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Insider_Threat.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/IC/Compromised_Web_Server.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/Compromised_Web_Server.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

@@ -70,9 +70,9 @@ Hands-on practice with the tools from the card:
 Service-based persistence is one of those techniques that shows up constantly in real incident reports. It's not flashy, but it works - and it works because defenders often underestimate how much noise is already in their service list. Knowing how to create it means you know how to find it.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PE/Local_Privilege_Escalation.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Local_Privilege_Escalation.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PE/Credential_Harvesting.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Credential_Harvesting.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

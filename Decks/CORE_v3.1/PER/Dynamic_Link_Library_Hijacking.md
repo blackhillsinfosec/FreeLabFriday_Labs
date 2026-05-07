@@ -85,9 +85,9 @@ Hands-on work with the tools from the card:
 DLL Hijacking sits at an awkward intersection - it is technically simple, but hard to catch. A single misconfigured directory or a missing DLL can hand an attacker everything they need. Understanding how it works is the first step toward making sure it does not work on your systems.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PER/Malicious_Driver.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Malicious_Driver.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PER/Malicious_Service.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Malicious_Service.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

@@ -112,7 +112,7 @@ Understanding how it works — and how to prevent it — is a core skill for any
 
 
 ***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PE/New_Service_Creation-Modification.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/New_Service_Creation-Modification.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

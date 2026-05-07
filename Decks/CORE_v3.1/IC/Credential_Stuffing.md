@@ -106,7 +106,7 @@ Credential stuffing is simple in concept but highly effective at scale. Understa
 
 
 ***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Cards/IC/External_Service_Exploitation.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

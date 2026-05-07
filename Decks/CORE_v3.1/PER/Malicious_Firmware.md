@@ -88,9 +88,9 @@ Hands-on practice with the tools from the card:
 Malicious firmware attacks are rare, but they represent some of the most persistent and stealthy techniques in existence. Understanding how they work - even at a conceptual level - changes how you think about what "fully compromised" actually means.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PER/Accesibility_Features.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Accesibility_Features.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PER/Logon_Scripts.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Logon_Scripts.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

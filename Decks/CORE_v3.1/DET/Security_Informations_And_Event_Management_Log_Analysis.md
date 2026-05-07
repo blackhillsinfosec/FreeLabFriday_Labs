@@ -81,9 +81,9 @@ SIEM log analysis is less about memorizing alerts and more about understanding b
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Firewall_Log_Analysis.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Firewall_Log_Analysis.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Server_Analysis.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Server_Analysis.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

@@ -79,7 +79,7 @@ Domain fronting is a good example of how attackers do not always break things â€
 
 
 ***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/C2E/Cloud_Based_Services_As_Exfil.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/C2E/Cloud_Based_Services_As_Exfil.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

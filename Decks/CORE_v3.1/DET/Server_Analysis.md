@@ -93,7 +93,7 @@ Server analysis is about understanding behavior, not memorizing commands. The fa
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Security_Informations_And_Event_Management_Log_Analysis.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Security_Informations_And_Event_Management_Log_Analysis.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

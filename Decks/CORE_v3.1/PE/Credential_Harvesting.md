@@ -86,9 +86,9 @@ Hands-on practice with the tools from the card:
 Credential harvesting is quiet, fast, and hard to reverse once it's happened. By the time you find the harvested credentials being used, the attacker may have already moved on. Understanding how it works is the first step to stopping it.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/PE/New_Service_Creation-Modification.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/New_Service_Creation-Modification.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/PE/Weaponizing_Active_Directory.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Weaponizing_Active_Directory.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 
