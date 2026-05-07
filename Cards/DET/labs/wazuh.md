@@ -19,22 +19,29 @@
 
 If you want to dive a bit deeper, check the [Wazuh Documentation](https://github.com/wazuh/wazuh).
 
->[!WHY?]
+>[!NOTE]
 >In the real world, attackers often attempt to modify critical system configuration files to maintain persistence (e.g., adding a new user to /etc/passwd on Linux) or drop malicious payloads on user endpoints (Windows). Being able to detect both simultaneously in a single dashboard is the primary advantage of a centralized SIEM.
 
 ---
 
 ### SCENARIO :
- - In this lab, we are simulating a multi-stage incident. The Windows VM represents a corporate workstation, and the Ubuntu VM represents an internal database/web server.
-
- - We will connect both machines to our Wazuh Cloud instance.
+In this lab, we are simulating a multi-stage incident. The Windows VM represents a corporate workstation, and the Ubuntu VM represents an internal database/web server.
+We will connect both machines to our Wazuh Cloud instance.
 
  - *The Attack:* We will simulate an attacker downloading a known malicious payload on the Windows endpoint. Simultaneously, we will simulate an attacker who has gained SSH access to the Ubuntu server and is modifying a highly sensitive configuration file to establish a backdoor.
 
-The Defense: We will switch to the Blue Team perspective, log into the Wazuh Cloud Dashboard, and hunt down these specific Indicators of Compromise (IoCs).
+ - *The Defense:* We will switch to the Blue Team perspective, log into the Wazuh Cloud Dashboard, and hunt down these specific Indicators of Compromise (IoCs).
 
 >[!IMPORTANT]
->All actions will be performed from the Windows VM. You will use the Google Chrome browser to view the Wazuh Cloud Dashboard, Windows PowerShell for the Windows attack simulation, and the "Ubuntu Shell" Desktop shortcut (SSH) to interact with the Ubuntu VM. You do not need the Ubuntu GUI for this lab.
+>All actions will be performed from the Windows VM. **To demonstrate how Wazuh detects malware, we will pretend the Windows VM is already compromised**. You will use the Google Chrome browser to view the Wazuh Cloud Dashboard, Windows PowerShell for the Windows attack simulation, and the "Ubuntu Shell" Desktop shortcut (SSH) to interact with the Ubuntu VM. You do not need the Ubuntu GUI for this lab.
+
+---
+
+## Wazuh Cloud account setup: 
+
+For this lab, you will need to make an account and activate the ****
+
+---
 
 ## Phase 1 : Setup and Agent Enrollment
 First, we need to deploy the Wazuh Agents to our endpoints so they can start forwarding telemetry to the cloud.
