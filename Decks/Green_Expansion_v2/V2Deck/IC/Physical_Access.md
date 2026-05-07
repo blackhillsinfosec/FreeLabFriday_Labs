@@ -8,7 +8,7 @@
 
 
 ***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Cards/Expansions/V2Deck/IC/Supply_Chain_Attack.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/Green_Expansion_v2/V2Deck/IC/Supply_Chain_Attack.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 
