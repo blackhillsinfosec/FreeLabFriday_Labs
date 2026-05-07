@@ -1,4 +1,4 @@
-# All cards of the V3 Core Deck by Category
+# All cards of the V3 Core Deck
 
 ## Initial Compromise
 - [Phishing](/Cards/IC/Phishing.md)
@@ -55,3 +55,38 @@
 - [Memory Analysis](/Cards/DET/Memory_Analysis.md)
 - [Cloud Event Log Analysis](/Cards/DET/Cloud_Event_Log_Analysis.md)
 - [Permissions Audit](/Cards/DET/Permissions_Audit.md)
+
+
+# Expansion Deck V2
+
+## Initial Compromise
+- [Exploitation of Missing HTTP Strict Transport Security (HSTS)](/Cards/Expansions/V2Deck/IC/Exploitation_Of_Missing_HSTS.md)
+- [Supply Chain Attack](/Cards/Expansions/V2Deck/IC/Supply_Chain_Attack.md)
+- [Physical Access](/Cards/Expansions/V2Deck/IC/Physical_Access)
+
+
+
+## Pivot & Escalate
+- [Server Message Block (SMB) Abuse](/Cards/Expansions/V2Deck/PE/SMB_Abuse.md)
+- [Internal Spearphishing](/Cards/Expansions/V2Deck/PE/Internal_Spearphishing.md)
+- [Access Token Manipulation](/Cards/Expansions/V2Deck/PE/Access_Token_Manipulation.md)
+- [Stale Network Address Configurations (SNAC) Attack](/Cards/Expansions/V2Deck/PE/SNAC_Attack)
+- [Cleartext Passwords in Files](/Cards/Expansions/V2Deck/PE/Cleartext_Passwords_in_Files.md)
+
+
+## C2 & Exfil
+- [Physical Medium as Exfil](/Cards/Expansions/V2Deck/C2E/Physical_Medium_as_Exfil.md)
+
+
+## Persistence
+- [Dormant Malware](/Cards/Expansions/V2Deck/PER/Dormant_Malware.md)
+- [Third-Party Malware Injection](/Cards/Expansions/V2Deck/PER/Third-Party_Malware_Injection.md)
+- [Malicious Email Rules](/Cards/Expansions/V2Deck/PER/Malicious_Email_Rules.md)
+- [Service Recovery Hijacking](/Cards/Expansions/V2Deck/PER/Service_Recovery_Hijacking.md)
+- [Startup Registry Injection](/Cards/Expansions/V2Deck/PER/Startup_Registry_Injection.md)
+
+
+
+## Detection
+- [Physical Security Review](/Cards/Expansions/V2Deck/DET/Physical_Security_Review.md)
+- [Site Walkthrough](/Cards/Expansions/V2Deck/DET/Site_Walkthrough.md)
