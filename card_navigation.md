@@ -70,7 +70,7 @@
 - [Server Message Block (SMB) Abuse](/Decks/Green_Expansion_v2/V2Deck/PE/SMB_Abuse.md)
 - [Internal Spearphishing](/Decks/Green_Expansion_v2/V2Deck/PE/Internal_Spearphishing.md)
 - [Access Token Manipulation](/Decks/Green_Expansion_v2/V2Deck/PE/Access_Token_Manipulation.md)
-- [Stale Network Address Configurations (SNAC) Attack](/Decks/Green_Expansion_v2/V2Deck/PE/SNAC_Attack)
+- [Stale Network Address Configurations (SNAC) Attack](/Decks/Green_Expansion_v2/V2Deck/PE/SNAC_Attack.md)
 - [Cleartext Passwords in Files](/Decks/Green_Expansion_v2/V2Deck/PE/Cleartext_Passwords_in_Files.md)
 
 
