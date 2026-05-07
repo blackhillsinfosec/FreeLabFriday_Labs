@@ -401,5 +401,5 @@ In this lab, you successfully built a professional-grade C2 infrastructure. You 
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/C2E/Cloud_Based_Services_As_Exfil.md)
+[Back to Card's Main Page](/Cards/C2E/Domain_Fronting_As_C2.md)
 
