@@ -81,9 +81,9 @@ By learning deception techniques, defenders gain visibility where traditional co
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Endpoint_Security_Protection_Analysis.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/Endpoint_Security_Protection_Analysis.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Network_Threat_Hunting.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/Network_Threat_Hunting.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

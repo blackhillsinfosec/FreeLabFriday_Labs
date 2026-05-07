@@ -82,9 +82,9 @@ Hands-on practice with the tools from the card:
 Endpoint analysis is not glamorous work. It is methodical, detail-oriented, and sometimes slow. But it is how real incidents get understood and contained. The attacker only needs to get lucky once - the defender needs to find them anyway.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Isolation.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/Isolation.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/UEBA_Analytics.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/UEBA_Analytics.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

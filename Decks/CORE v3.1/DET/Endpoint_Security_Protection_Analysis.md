@@ -73,9 +73,9 @@ Hands-on time with the tools defenders actually use:
 Attackers spend the most time on endpoints. That's where they run tools, steal data, and build persistence. Getting good at endpoint analysis means you can follow their trail - and cut it off.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/UEBA_Analytics.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/UEBA_Analytics.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Active_Defense_And_Cyber_Deception.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/Active_Defense_And_Cyber_Deception.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

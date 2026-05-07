@@ -96,7 +96,7 @@ Learning to recognize normal-looking traffic that isn’t normal is a core skill
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/C2E/HTTPS_As_Exfil.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/C2E/HTTPS_As_Exfil.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

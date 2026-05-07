@@ -76,9 +76,9 @@ Crisis management is not glamorous, but it is what separates a recoverable incid
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Memory_Analysis.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/Memory_Analysis.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Isolation.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/Isolation.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

@@ -79,9 +79,9 @@ Firewall logs are often the first place where defenders notice that something is
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Network_Threat_Hunting.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/Network_Threat_Hunting.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Security_Informations_And_Event_Management_Log_Analysis.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/Security_Informations_And_Event_Management_Log_Analysis.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

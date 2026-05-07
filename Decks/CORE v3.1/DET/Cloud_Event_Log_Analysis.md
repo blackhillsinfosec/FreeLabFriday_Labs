@@ -93,9 +93,9 @@ Hands-on with the tools from the card:
 Cloud logs don't lie - but they won't speak up on their own. The work is in knowing what to look for and building systems that surface it fast enough to matter.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Permissions_Audit.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/Permissions_Audit.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Memory_Analysis.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/Memory_Analysis.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

@@ -84,9 +84,9 @@ Hands-on exercises using tools commonly used for network threat hunting:
 Threat hunting is not about chasing every anomaly. It is about learning how attackers use networks and developing the ability to spot subtle signals before they become incidents.
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/DET/Active_Defense_And_Cyber_Deception.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE%20v3.1/DET/Active_Defense_And_Cyber_Deception.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Cards/DET/Firewall_Log_Analysis.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/CORE%20v3.1/DET/Firewall_Log_Analysis.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 
