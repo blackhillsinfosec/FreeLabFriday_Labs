@@ -239,6 +239,6 @@ In this lab, you successfully simulated a stealthy data exfiltration attack. You
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/C2E/Cloud_Based_Services_As_Exfil.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Cloud_Based_Services_As_Exfil.md)
 
 
