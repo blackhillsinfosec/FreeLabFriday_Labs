@@ -232,9 +232,9 @@ head -1 /tmp/auth_server.log && tail -1 /tmp/auth_server.log
 
 # Finished?
 
-[Back to External_Password_Spray's Main Page](/Cards/IC/External_Password_Spray.md)
+[Back to External_Password_Spray's Main Page](/Decks/CORE_v3.1/IC/External_Password_Spray.md)
 
-[Back to Credential_Stuffing's Main Page](/Cards/IC/Credential_Stuffing.md)
+[Back to Credential_Stuffing's Main Page](/Decks/CORE_v3.1/IC/Credential_Stuffing.md)
 
 ---
 

@@ -52,4 +52,4 @@ Correct Flag: **B**
 ---
 
 # Finished?
-[Back to Card's Main Page](/Cards/C2E/Domain_Name_System_As_C2.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Domain_Name_System_As_C2.md)

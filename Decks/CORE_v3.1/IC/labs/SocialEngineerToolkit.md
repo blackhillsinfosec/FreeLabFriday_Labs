@@ -215,7 +215,7 @@ Type `99` or press `CTRL+C` to exit without sending anything
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/IC/Phishing.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Phishing.md)
 
 
 

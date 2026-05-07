@@ -42,4 +42,4 @@ Correct Flag: **D**
 
 # Finished?
 [Next Question](NSC_medium.md)  
-[Back to Card's Main Page](/Cards/PE/New_Service_Creation-Modification.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PE/New_Service_Creation-Modification.md)

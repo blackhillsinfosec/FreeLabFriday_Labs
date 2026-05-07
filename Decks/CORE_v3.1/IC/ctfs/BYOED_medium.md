@@ -41,4 +41,4 @@ Correct Flag: **A**
 
 [Next Question](BYOED_hard.md)
 
-[Back to Card's Main Page](/Cards/IC/Bring_Your_Own_Exploited_Device.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Bring_Your_Own_Exploited_Device.md)

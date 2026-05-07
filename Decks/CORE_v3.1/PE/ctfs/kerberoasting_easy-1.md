@@ -38,4 +38,4 @@ Correct Flag: **B**
 
 [Next Question](kerberoasting_easy-2.md)
 
-[Back to Card's Main Page](/Cards/PE/Kerberoasting.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Kerberoasting.md)

@@ -42,4 +42,4 @@ Correct Flag: **D**
 
 # Finished?
 [Next Question](IPS_hard.md)  
-[Back to Card's Main Page](/Cards/PE/Internal_Password_Spray.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Internal_Password_Spray.md)

@@ -40,4 +40,4 @@ Correct Flag: **C**
 
 [Next Question](kerberoasting_medium.md)
 
-[Back to Card's Main Page](/Cards/IC/Kerberoasting.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Kerberoasting.md)

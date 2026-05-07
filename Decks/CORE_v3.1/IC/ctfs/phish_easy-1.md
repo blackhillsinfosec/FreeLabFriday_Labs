@@ -40,4 +40,4 @@ Correct Flag: **B**
 
 [Next Question](phish_easy-2.md)
 
-[Back to Card's Main Page](/Cards/IC/Phishing.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Phishing.md)

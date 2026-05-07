@@ -52,4 +52,4 @@ When this command is complete, it should look like this:
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/PE/Kerberoasting.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Kerberoasting.md)

@@ -39,4 +39,4 @@ Correct Flag: **A**
 
 [Next Question](EPS_easy-2.md)
 
-[Back to Card's Main Page](/Cards/IC/External_Password_Spray.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Password_Spray.md)

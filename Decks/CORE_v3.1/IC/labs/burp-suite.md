@@ -274,9 +274,9 @@ For deeper structured practice, the free **PortSwigger Web Security Academy** (<
 
 # Finished?
 
-[Back to Compromised Web Server's Main Page](/Cards/IC/Compromised_Web_Server.md)
+[Back to Compromised Web Server's Main Page](/Decks/CORE_v3.1/IC/Compromised_Web_Server.md)
 
-[Back to Credential Stuffing's Main Page](/Cards/IC/Credential_Stuffing.md)
+[Back to Credential Stuffing's Main Page](/Decks/CORE_v3.1/IC/Credential_Stuffing.md)
 
 ---
 

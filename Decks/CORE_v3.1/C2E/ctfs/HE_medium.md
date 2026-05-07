@@ -39,4 +39,4 @@ Correct Flag: **D**
 
 # Finished?
 [Next Question](HE_hard.md)  
-[Back to Card's Main Page](/Cards/C2E/HTTPS_As_Exfil.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/HTTPS_As_Exfil.md)

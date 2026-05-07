@@ -45,4 +45,4 @@ Correct Flag: **B**
 
 [Next Question](ESE_medium.md)
 
-[Back to Card's Main Page](/Cards/IC/External_Service_Exploitation.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)

@@ -120,9 +120,9 @@ This is how defenders:
 
 # Finished?
 
-[Back to Compromised_Web_Server's Main Page](/Cards/IC/Compromised_Web_Server.md)
+[Back to Compromised_Web_Server's Main Page](/Decks/CORE_v3.1/IC/Compromised_Web_Server.md)
 
-[Back to External_Service_Exploitation's Main Page](/Cards/IC/External_Service_Exploitation.md)
+[Back to External_Service_Exploitation's Main Page](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)
 
 ---
 

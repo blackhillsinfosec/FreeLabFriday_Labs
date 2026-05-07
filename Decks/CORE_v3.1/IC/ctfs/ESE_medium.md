@@ -49,4 +49,4 @@ Correct Flag: **C**
 
 [Next Question](ESE_hard.md)
 
-[Back to Card's Main Page](/Cards/IC/External_Service_Exploitation.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)

@@ -35,4 +35,4 @@ Correct Flag: **A**
 
 [Next Question](AS_easy-2.md)
 
-[Back to Card's Main Page](/Cards/PER/Application_Shimming.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PER/Application_Shimming.md)

@@ -42,4 +42,4 @@ Correct Flag: **C**
 
 [Next Question](phish_hard.md)
 
-[Back to Card's Main Page](/Cards/IC/Phishing.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Phishing.md)

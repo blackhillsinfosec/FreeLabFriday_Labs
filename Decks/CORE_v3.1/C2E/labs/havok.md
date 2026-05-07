@@ -49,7 +49,7 @@ If you want to dive a bit deeper, check the [Havoc Official GitHub](https://gith
 
 ## AWS Setup: 
 
-Before we dive in to the actual Lab Exercise, we need an **AWS Free Tier Account**. If you don't have an AWS Account and want a step by step guide for the AWS Free Tier account, check out **Phase 1** of the [ScoutSuite Lab](/Cards/IC/labs/scoutsuite.md). Start the **Ubuntu VM** only after you have your *AWS Account* set up.
+Before we dive in to the actual Lab Exercise, we need an **AWS Free Tier Account**. If you don't have an AWS Account and want a step by step guide for the AWS Free Tier account, check out **Phase 1** of the [ScoutSuite Lab](/Decks/CORE_v3.1/IC/labs/scoutsuite.md). Start the **Ubuntu VM** only after you have your *AWS Account* set up.
 
 >[!NOTE] 
 >You will need a *Credit/Debit Card*, Amazon Web Services will withdraw $1 from your account and will hold it for 3-5 days, then return it in order to ensure you are a real person.

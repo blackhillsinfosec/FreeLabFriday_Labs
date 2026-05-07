@@ -31,4 +31,4 @@ Correct Flag: **D**
 
 # Finished?
 [Next Question](WAD_medium.md)  
-[Back to Card's Main Page](/Cards/PE/Weaponizing_Active_Directory.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Weaponizing_Active_Directory.md)

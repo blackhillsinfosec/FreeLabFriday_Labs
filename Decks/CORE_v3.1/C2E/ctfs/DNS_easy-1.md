@@ -36,4 +36,4 @@ Correct Flag: **C**
 
 # Finished?
 [Next Question](DNS_easy-2.md)  
-[Back to Card's Main Page](/Cards/C2E/Domain_Name_System_As_C2.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Domain_Name_System_As_C2.md)

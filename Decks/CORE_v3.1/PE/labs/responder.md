@@ -79,7 +79,7 @@ As we can see we have the new captured data showing up.
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/PE/Broadcast-Multicast_Protocol_Poisoning.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Broadcast-Multicast_Protocol_Poisoning.md)
 
 ---
 

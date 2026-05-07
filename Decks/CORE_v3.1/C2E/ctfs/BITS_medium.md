@@ -49,4 +49,4 @@ Correct Flag: **D**
 
 # Finished?
 [Next Question](BITS_hard.md)  
-[Back to Card's Main Page](/Cards/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)

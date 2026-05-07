@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
-[Part1](/Cards/DET/labs/volatilityLab1.md)   [Part2](/Cards/DET/labs/volatilityLab2.md)   [Part3](/Cards/DET/labs/volatilityLab3.md)   [Part4](/Cards/DET/labs/volatilityLab4.md)
+[Part1](/Decks/CORE_v3.1/DET/labs/volatilityLab1.md)   [Part2](/Decks/CORE_v3.1/DET/labs/volatilityLab2.md)   [Part3](/Decks/CORE_v3.1/DET/labs/volatilityLab3.md)   [Part4](/Decks/CORE_v3.1/DET/labs/volatilityLab4.md)
 
 This is the 1st of 4 parts
 

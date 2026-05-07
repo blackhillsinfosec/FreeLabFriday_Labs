@@ -39,4 +39,4 @@ Correct Flag: **C**
 
 [Next Question](IT_medium.md)
 
-[Back to Card's Main Page](/Cards/IC/Insider_Threat.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Insider_Threat.md)

@@ -32,4 +32,4 @@ Correct Flag: **B**
 
 ---
 
-[Back to Card's Main Page](/Cards/PE/Local_Privilege_Escalation.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Local_Privilege_Escalation.md)

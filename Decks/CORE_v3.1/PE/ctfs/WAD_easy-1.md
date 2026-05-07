@@ -39,4 +39,4 @@ Correct Flag: **A**
 
 # Finished?
 [Next Question](WAD_easy-2.md)  
-[Back to Card's Main Page](/Cards/PE/Weaponizing_Active_Directory.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Weaponizing_Active_Directory.md)

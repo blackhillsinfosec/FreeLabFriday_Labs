@@ -8,7 +8,7 @@
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Cards/Expansions/V2Deck/PE/Internal_Spearphishing.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/Expansions/V2Deck/PE/Internal_Spearphishing.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 

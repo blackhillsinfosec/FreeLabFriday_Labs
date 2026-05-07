@@ -40,4 +40,4 @@ Correct Flag: **A**
 
 [Next Question](http-exfil_easy-2.md)
 
-[Back to Card's Main Page](/Cards/C2E/HTTP_As_Exfil.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/HTTP_As_Exfil.md)

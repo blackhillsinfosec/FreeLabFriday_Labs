@@ -38,4 +38,4 @@ Correct Flag: **A**
 
 [Next Question](CRED_medium.md)
 
-[Back to Card's Main Page](/Cards/IC/Credential_Stuffing.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Credential_Stuffing.md)
