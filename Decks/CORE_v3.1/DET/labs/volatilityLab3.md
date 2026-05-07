@@ -54,4 +54,4 @@ You see the attacker used ``unshare`` (to isolate namespaces), mounted ``/proc``
 The presence of /tmp/kworker ties into the persistence/stealth part of Stage 3
 
 ---
-[Back to the Card](/Cards/DET/Memory_Analysis.md)
+[Back to the Card](/Decks/CORE_v3.1/DET/Memory_Analysis.md)

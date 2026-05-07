@@ -75,4 +75,4 @@ Which single action in this chain was the **critical control failure** that made
 ---
 
 # Finished?
-[Back to Card's Main Page](/Cards/DET/UEBA_Analytics.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/UEBA_Analytics.md)

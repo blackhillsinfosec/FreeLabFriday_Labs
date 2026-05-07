@@ -31,5 +31,5 @@ Correct Flag: **D**
 ---
 
 # Finished?
-[Back to Card's Main Page](/Cards/DET/Isolation.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Isolation.md)
 [Return to Card Directory](/card_navigation.md)

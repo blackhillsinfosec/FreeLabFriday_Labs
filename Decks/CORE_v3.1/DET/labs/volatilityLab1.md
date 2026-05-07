@@ -40,4 +40,4 @@ Obvious malware is often trivial to spot
 Basic **process enumeration** is key to and usually the first step to any memdump analysis
 
 ---
-[Back to the Card](/Cards/DET/Memory_Analysis.md)
+[Back to the Card](/Decks/CORE_v3.1/DET/Memory_Analysis.md)

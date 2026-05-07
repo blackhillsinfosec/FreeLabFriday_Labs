@@ -39,5 +39,5 @@ Correct Flag: **C**
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/DET/Security_Informations_And_Event_Management_Log_Analysis.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Security_Informations_And_Event_Management_Log_Analysis.md)
 

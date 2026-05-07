@@ -131,6 +131,6 @@ Following up this lead we can get to the same results as earlier, or use it to g
 
 
 ---
-[Back to the Card](/Cards/DET/UEBA_Analytics.md)
+[Back to the Card](/Decks/CORE_v3.1/DET/UEBA_Analytics.md)
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security

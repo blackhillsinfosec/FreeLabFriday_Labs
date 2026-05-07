@@ -37,4 +37,4 @@ Correct Flag: **B**
 
 [Next Question](SA_medium.md)
 
-[Back to Card's Main Page](/Cards/DET/Server_Analysis.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Server_Analysis.md)

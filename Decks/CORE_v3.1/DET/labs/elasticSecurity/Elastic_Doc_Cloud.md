@@ -129,7 +129,7 @@ As a continuation, take onto the hands-on lab for [Elastic](./elastic-security.m
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/DET/Endpoint_Security_Protection_Analysis.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Endpoint_Security_Protection_Analysis.md)
 
 
 

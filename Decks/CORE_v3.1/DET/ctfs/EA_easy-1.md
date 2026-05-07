@@ -37,4 +37,4 @@ Correct Flag: **B**
 
 # Finished?
 [Next Question](EA_easy-2.md)  
-[Back to Card's Main Page](/Cards/EA/Endpoint_Analysis.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/EA/Endpoint_Analysis.md)

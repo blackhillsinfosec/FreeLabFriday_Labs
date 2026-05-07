@@ -29,4 +29,4 @@ Correct Flag: **A**
 
 # Finished?
 [Next Question](CM_medium.md)  
-[Back to Card's Main Page](/Cards/DET/Crisis_Management.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Crisis_Management.md)

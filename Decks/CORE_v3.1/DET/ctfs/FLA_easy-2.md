@@ -35,4 +35,4 @@ Correct Flag: **C**
 
 [Next Question](FLA_medium.md)
 
-[Back to Card's Main Page](/Cards/DET/Firewall_Log_Analysis.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Firewall_Log_Analysis.md)

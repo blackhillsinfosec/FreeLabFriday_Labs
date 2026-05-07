@@ -42,4 +42,4 @@ What does this activity most likely indicate?
 
 # Finished?
 [Next Question](UEBA_medium.md)  
-[Back to Card's Main Page](/Cards/DET/UEBA_Analytics.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/UEBA_Analytics.md)

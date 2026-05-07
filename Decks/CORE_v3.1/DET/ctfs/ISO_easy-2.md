@@ -35,4 +35,4 @@ Correct Flag: **C**
 
 # Finished?
 [Next Question](ISO_medium.md)
-[Back to Card's Main Page](/Cards/DET/Isolation.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Isolation.md)

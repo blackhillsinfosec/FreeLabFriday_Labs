@@ -53,4 +53,4 @@ Which action from the timeline represents the **highest-priority indicator** tha
 
 # Finished?
 [Next Question](UEBA_hard.md)  
-[Back to Card's Main Page](/Cards/DET/UEBA_Analytics.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/UEBA_Analytics.md)

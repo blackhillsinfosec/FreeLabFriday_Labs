@@ -69,4 +69,4 @@ We see that ``kworker/5:2`` was spawned not even a second later than the launche
 
 
 ---
-[Back to the Card](/Cards/DET/Memory_Analysis.md)
+[Back to the Card](/Decks/CORE_v3.1/DET/Memory_Analysis.md)

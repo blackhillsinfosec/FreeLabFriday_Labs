@@ -41,4 +41,4 @@ Correct Flag: **C**
 
 # Finished?
 [Next Question](CELA_hard.md)  
-[Back to Card's Main Page](/Cards/DET/Cloud_Event_Log_Analysis.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Cloud_Event_Log_Analysis.md)

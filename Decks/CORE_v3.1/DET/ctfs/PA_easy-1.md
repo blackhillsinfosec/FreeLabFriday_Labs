@@ -36,4 +36,4 @@ Correct Flag: **C**
 
 # Finished?
 [Next Question](PA_easy-2.md)  
-[Back to Card's Main Page](/Cards/DET/Permissions_Audit.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Permissions_Audit.md)

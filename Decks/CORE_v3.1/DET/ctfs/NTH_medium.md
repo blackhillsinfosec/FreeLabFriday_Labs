@@ -39,4 +39,4 @@ Correct Flag: **C**
 
 [Next Question](NTH_hard.md)
 
-[Back to Card's Main Page](/Cards/DET/Network_Threat_Hunting.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Network_Threat_Hunting.md)

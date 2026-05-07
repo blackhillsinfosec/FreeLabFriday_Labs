@@ -89,9 +89,9 @@ Some examples of useful rules are
 
 # Finished?
 
-[Back to Endpoint_Security_Protection_Analysis's Main Page](/Cards/DET/Endpoint_Security_Protection_Analysis.md)
+[Back to Endpoint_Security_Protection_Analysis's Main Page](/Decks/CORE_v3.1/DET/Endpoint_Security_Protection_Analysis.md)
 
-[Back to Firewall_Log_Analysis's Main Page](/Cards/DET/Firewall_Log_Analysis.md)
+[Back to Firewall_Log_Analysis's Main Page](/Decks/CORE_v3.1/DET/Firewall_Log_Analysis.md)
 
 
 

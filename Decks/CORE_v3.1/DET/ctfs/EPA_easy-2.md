@@ -36,4 +36,4 @@ Correct Flag: **C**
 
 # Finished?
 [Next Question](EPA_medium.md)  
-[Back to Card's Main Page](/Cards/DET/Endpoint_Security_Protection_Analysis.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Endpoint_Security_Protection_Analysis.md)

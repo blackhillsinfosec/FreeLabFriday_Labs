@@ -119,6 +119,6 @@ In a few moments you should get an email alert: 
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/DET/Active_Defense_And_Cyber_Deception.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Active_Defense_And_Cyber_Deception.md)
 
 ---

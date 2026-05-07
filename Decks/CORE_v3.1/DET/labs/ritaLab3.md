@@ -50,6 +50,6 @@ Continue with [Part 4](./ritaLab4.md)
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/DET/Network_Threat_Hunting.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Network_Threat_Hunting.md)
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security

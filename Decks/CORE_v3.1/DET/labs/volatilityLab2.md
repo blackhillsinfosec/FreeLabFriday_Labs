@@ -39,4 +39,4 @@ This confirms it is a reverse shell!
 
 
 ---
-[Back to the Card](/Cards/DET/Memory_Analysis.md)
+[Back to the Card](/Decks/CORE_v3.1/DET/Memory_Analysis.md)

@@ -37,4 +37,4 @@ Correct Flag: **D**
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/DET/Firewall_Log_Analysis.md)
+[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Firewall_Log_Analysis.md)
