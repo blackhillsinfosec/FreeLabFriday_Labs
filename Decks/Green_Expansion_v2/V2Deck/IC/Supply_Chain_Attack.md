@@ -7,9 +7,9 @@
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/Expansions/V2Deck/IC/Physical_Access)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/Green_Expansion_v2/V2Deck/IC/Physical_Access.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/Expansions/V2Deck/IC/Exploitation_Of_Missing_HSTS.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/Green_Expansion_v2/V2Deck/IC/Exploitation_Of_Missing_HSTS.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 
