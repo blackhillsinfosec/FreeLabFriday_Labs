@@ -42,7 +42,11 @@ We will connect both machines to our Wazuh Cloud instance.
 For this lab, you will need to make an account and use the **Free Trial**. If you would like to see more of what you can do with 
 *Wazuh Cloud*, check out the [Wazuh Cloud Service Documentation](https://documentation.wazuh.com/current/cloud-service/index.html).
 
-- To start, click on [this link](https://console.cloud.wazuh.com/sign-up?landing=trial). You will be taken to this page: 
+- To start, click on [this link](https://console.cloud.wazuh.com/sign-up?landing=trial). Fill the fields with your information. In the "Company" section, you can input some dummy text like **WazuhLab**, and in the "Business email" section just enter your regular email. 
+
+<img width="1314" height="642" alt="image" src="https://github.com/user-attachments/assets/d4a027e6-80ee-4229-b1bf-7af2d086408d" />
+
+  
 ---
 
 ## Phase 1 : Setup and Agent Enrollment
@@ -53,7 +57,7 @@ Open Google Chrome on your Windows VM, log into your Wazuh Cloud Console, and na
 Select Windows, put in your Wazuh Manager address, and copy the generated PowerShell command. Open an Administrator PowerShell terminal and paste it to install and start the agent:
 
 ``` PowerShell
-Invoke-WebRequest -Uri [https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi](https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi) -OutFile ${env.tmp}\wazuh-agent.msi; msiexec.exe /i ${env.tmp}\wazuh-agent.msi /q WAZUH_MANAGER='<YOUR_WAZUH_CLOUD_URL>' WAZUH_REGISTRATION_SERVER='<YOUR_WAZUH_CLOUD_URL>' 
+Invoke-WebRequest -Uri [https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi](https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi) -OutFile ${env.tmp}\wazuh-agent.msi; msiexec.exe /i ${env.tmp}\wazuh-agent.msi /q WAZUH_MANAGER='<YOUR_WAZUH_CLOUD_URL>' WAZUH_REGISTRATION_SERVER='<YOUR_WAZUH_CLOUD_URL>' ; 
 NET START WazuhSvc 
 ```
 
