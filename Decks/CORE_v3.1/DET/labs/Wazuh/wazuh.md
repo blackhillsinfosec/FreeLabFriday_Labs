@@ -122,6 +122,36 @@ icacls "havoc-key.pem" /grant:r "${env:USERNAME}:R"6
 
 ---
 
+## Back to the AWS & Wazuh Setup : 
+
+- We need to move [this script](../Wazuh/wazuh_cloudformation_setup.yaml) into the *Windows VM*. This is the cloudformation script. Open up **Windows Powershell** and type this command : 
+
+```Powershell
+cd Downloads ; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/blackhillsinfosec/FreeLabFriday_Labs/refs/heads/main/Decks/CORE_v3.1/DET/labs/Wazuh/wazuh_cloudformation_setup.yaml" -OutFile "wazuh_cloudformation_setup.yaml"
+```
+<img width="1196" height="391" alt="image" src="https://github.com/user-attachments/assets/f7856e6d-0aee-4802-8ab9-050b1f7f2e2e" />
+
+- Let's use it. Navigate to the **Cloudformation Console** : 
+
+<img width="1707" height="944" alt="image" src="https://github.com/user-attachments/assets/fb146dce-8e13-4485-a204-b4788da9d15c" />
+
+- Press **Create Stack** and select **Upload File**. Upload the file that we stored in *Downloads* earlier:
+   
+<img width="1342" height="655" alt="image" src="https://github.com/user-attachments/assets/f6b68df8-4783-4289-b2a5-15b88c4e99cd" /> 
+
+<img width="944" height="513" alt="image" src="https://github.com/user-attachments/assets/484c58b1-1c1c-4597-8290-6f2856a80647" />
+
+- Fill in **Wazuh-server** for yout *Stack name*, and click on the drop-down menu to choose the **RSA key** you just created: 
+
+<img width="1343" height="631" alt="image" src="https://github.com/user-attachments/assets/23d3e1d8-7eee-4850-a443-e26e48239303" />
+
+- Click **Next**, then click **Next** again. When reaching the **Review and Create** tab, click Submit: 
+
+<img width="1487" height="264" alt="image" src="https://github.com/user-attachments/assets/37fef7bf-70d6-4c8d-bdce-fe612c0f862d" />
+
+
+---
+
 ## Phase 1 : Setup and Agent Enrollment
 First, we need to deploy the Wazuh Agents to our endpoints so they can start forwarding telemetry to the cloud.
 
