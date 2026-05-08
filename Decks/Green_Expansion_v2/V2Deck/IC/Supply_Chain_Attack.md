@@ -77,9 +77,6 @@ Four challenges to test your understanding:
 
 Hands-on practice with the detection tools from the card:
 
-- [Endpoint Security Protection Analysis Lab](labs/endpoint-security-protection-analysis.md)
-- [Endpoint Analysis Lab](labs/endpoint-analysis.md)
-- [Network Threat Hunting Lab](labs/network-threat-hunting.md)
 - [SUNBURST & SUPERNOVA IOC Lab](labs/sunburst-supernova.md)
 
 ---
