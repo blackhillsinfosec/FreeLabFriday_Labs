@@ -26,26 +26,20 @@ If you want to dive a bit deeper, check the [Wazuh Documentation](https://github
 
 ### SCENARIO :
 In this lab, we are simulating a multi-stage incident. The Windows VM represents a corporate workstation, and the Ubuntu VM represents an internal database/web server.
-We will connect both machines to our Wazuh Cloud instance.
+We will connect both machines (with *Wazuh Agents* Installed) to a *Wazuh Manager* instance that we'll run in an *AWS EC2*.
 
  - *The Attack:* We will simulate an attacker downloading a known malicious payload on the Windows endpoint. Simultaneously, we will simulate an attacker who has gained SSH access to the Ubuntu server and is modifying a highly sensitive configuration file to establish a backdoor.
 
- - *The Defense:* We will switch to the Blue Team perspective, log into the Wazuh Cloud Dashboard, and hunt down these specific Indicators of Compromise (IoCs).
+ - *The Defense:* We will switch to the Blue Team perspective, log into the Wazuh Manager Dashboard, and hunt down these specific Indicators of Compromise (IoCs).
 
 >[!IMPORTANT]
->All actions will be performed from the Windows VM. **To demonstrate how Wazuh detects malware, we will pretend the Windows VM is already compromised**. You will use the Google Chrome browser to view the Wazuh Cloud Dashboard, Windows PowerShell for the Windows attack simulation, and the "Ubuntu Shell" Desktop shortcut (SSH) to interact with the Ubuntu VM. You do not need the Ubuntu GUI for this lab.
+>All actions will be performed from the Windows VM. **To demonstrate how Wazuh detects malware, we will pretend the Windows VM is already compromised**. You will use the *Windows Powershell* to connect to the AWS EC2 and use the **Wazuh Manager Dashboard**, Windows PowerShell for the Windows attack simulation, and the "Ubuntu Shell" Desktop shortcut (SSH) to interact with the Ubuntu VM.
 
 ---
 
-## Wazuh Cloud account setup: 
+## Wazuh Manager and AWS setup 
 
-For this lab, you will need to make an account and use the **Free Trial**. If you would like to see more of what you can do with 
-*Wazuh Cloud*, check out the [Wazuh Cloud Service Documentation](https://documentation.wazuh.com/current/cloud-service/index.html).
-
-- To start, click on [this link](https://console.cloud.wazuh.com/sign-up?landing=trial). Fill the fields with your information. In the "Company" section, you can input some dummy text like **WazuhLab**, and in the "Business email" section just enter your regular email. 
-
-<img width="1314" height="642" alt="image" src="https://github.com/user-attachments/assets/d4a027e6-80ee-4229-b1bf-7af2d086408d" />
-
+**!!!** -> You will need an AWS *Free Tier Account*. If you want the step by step instructions for that, check [Phase 1 of the ScoutSuite Lab]()
   
 ---
 
