@@ -1,0 +1,84 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Deploys a Wazuh Manager on an EC2 m7i-flex.large instance with required Security Groups and automated installation via UserData.'
+
+Parameters:
+  KeyName:
+    Description: 'Name of an existing EC2 KeyPair to enable SSH access to the instance.'
+    Type: 'AWS::EC2::KeyPair::KeyName'
+    ConstraintDescription: 'Must be the name of an existing EC2 KeyPair.'
+
+  AllowedIP:
+    Description: 'The IP address range that can connect via SSH (e.g., 0.0.0.0/0 for anywhere, or your specific IP).'
+    Type: String
+    Default: '0.0.0.0/0'
+
+  LatestUbuntuAmiId:
+    Type: 'AWS::SSM::Parameter::Value<AWS::EC2::Image::Id>'
+    Default: '/aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id'
+    Description: 'Dynamically fetches the latest Ubuntu 22.04 LTS AMI ID for the deployment region.'
+
+Resources:
+  # 1. Security Group for Wazuh
+  WazuhSecurityGroup:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: 'Allow SSH, Wazuh Dashboard (HTTPS), and Agent communication ports.'
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: !Ref AllowedIP # SSH Access
+        - IpProtocol: tcp
+          FromPort: 443
+          ToPort: 443
+          CidrIp: '0.0.0.0/0'    # Wazuh Dashboard (HTTPS)
+        - IpProtocol: tcp
+          FromPort: 1514
+          ToPort: 1514
+          CidrIp: '0.0.0.0/0'    # Agent log collection
+        - IpProtocol: tcp
+          FromPort: 1515
+          ToPort: 1515
+          CidrIp: '0.0.0.0/0'    # Agent registration
+
+# 2. EC2 Instance
+  WazuhInstance:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      InstanceType: 'm7i-flex.large' # 2 vCPU, 8GB RAM
+      ImageId: !Ref LatestUbuntuAmiId
+      KeyName: !Ref KeyName
+      SecurityGroups:
+        - !Ref WazuhSecurityGroup
+      BlockDeviceMappings:
+        - DeviceName: '/dev/sda1'
+          Ebs:
+            VolumeSize: 30 # 30GB to stay within Free Tier limits while accommodating the indexer
+            VolumeType: 'gp3'
+      # 3. Automated Installation Script (UserData)
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash
+          apt-get update -y
+          apt-get install -y curl
+
+          # Install Wazuh automatically
+          curl -sO https://packages.wazuh.com/4.9/wazuh-install.sh
+          bash wazuh-install.sh -a > /home/ubuntu/wazuh_install_info.txt 2>&1
+
+          # Set appropriate permissions so the default ubuntu user can read them
+          chown ubuntu:ubuntu /home/ubuntu/wazuh_install_info.txt
+
+          # Leave a quick note for the user
+          echo "Wazuh installation finished. Check wazuh_install_info.txt or extract passwords using the tar archive." > /home/ubuntu/README.txt
+          chown ubuntu:ubuntu /home/ubuntu/README.txt
+
+Outputs:
+  DashboardURL:
+    Description: 'Wazuh Dashboard URL (HTTPS)'
+    Value: !Sub 'https://${WazuhInstance.PublicIp}'
+  PublicIP:
+    Description: 'Public IP of the Wazuh Server'
+    Value: !GetAtt WazuhInstance.PublicIp
+
+
