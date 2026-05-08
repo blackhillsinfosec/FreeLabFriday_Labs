@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # Wazuh Cloud SIEM & XDR
 # Ubuntu & Windows VM
 ## The objective of this lab is to deploy Wazuh Agents to a cloud-hosted SIEM environment, configure File Integrity Monitoring (FIM), simulate malicious activities across two different OS environments, and perform Blue Team analysis on the generated alerts.
@@ -39,8 +41,85 @@ We will connect both machines (with *Wazuh Agents* Installed) to a *Wazuh Manage
 
 ## Wazuh Manager and AWS setup 
 
-**!!!** -> You will need an AWS *Free Tier Account*. If you want the step by step instructions for that, check [Phase 1 of the ScoutSuite Lab]()
+**!!!** -> You will need an AWS *Free Tier Account*. If you want the step by step instructions for that, check [Phase 1 of the ScoutSuite Lab](https://github.com/blackhillsinfosec/FreeLabFriday_Labs/blob/main/Decks/CORE_v3.1/IC/labs/scoutsuite.md). 
+
+- Once you have the account set up, log in and let's make some **key pairs** for the EC2. Navigate to the **EC2 Dashboard**:
   
+<img width="1513" height="688" alt="image" src="https://github.com/user-attachments/assets/ae61bd2f-a8d2-4c78-9056-5bf89b92fa27" />
+
+- In the *Network & Security* section, in the down left part of the menu, click on **Key Pairs**:
+
+<img width="863" height="996" alt="image" src="https://github.com/user-attachments/assets/ad749dec-8474-4c40-a388-537ab7e661fc" />
+
+- Click on **Create Key Pair**:
+
+<img width="1615" height="240" alt="image" src="https://github.com/user-attachments/assets/381879be-b431-46ff-84d9-cb344027950f" />
+
+- Give the Key pair a simple name like **wazuh-key**, leave the *Key pair type* on **RSA**, and the *Private key file format* on **.pem**:
+
+<img width="736" height="686" alt="image" src="https://github.com/user-attachments/assets/58bdae7c-b744-4d57-afaf-8dfebb5082fc" />
+
+
+---
+
+## Moving the Key : 
+
+>[!IMPORTANT]
+> Once you recieve *havoc-key.pem*, **you NEED to move it to your personal computer**.
+> If there is a network error, or the VM idles too long and closes, **you risk losing the RSA Private Key, and therefore access to your AWS EC2 instance**. If that happens you need to **delete the key and reconfigure the AWS EC2**.
+
+🔑 Securing the SSH Key (havoc-key.): 
+ - The *RSA Key* should be in your *Downloads* folder on the VM :
+   
+ <img width="1222" height="645" alt="image" src="https://github.com/user-attachments/assets/29004727-2cb8-49b0-bbdb-5b2246d9cdc2" />
+
+   We will use the **VM's clipboard** to copy the .pem file. Move the *.pem* file to the **lab directory (~/BnB/Havoc)**
+ - To *open or close* the clipboard of the VM press **ctrl+alt+shift** and a small window will pop up: 
+
+ <img width="526" height="826" alt="image" src="https://github.com/user-attachments/assets/9ce6ed1f-9a0a-4e46-80a0-39d65c95b40d" />
+ 
+ - Open the file with notepad and copy the contents. Make sure to copy the **---BEGIN...---** and **---END...---** parts of the key. 
+
+ <img width="811" height="710" alt="image" src="https://github.com/user-attachments/assets/5ccc2f0a-0bf2-438a-a638-613f52383f4c" />
+
+ - Copy the contents of the file using **ctrl+c**, and you will see that when you open your clipboard, the contents of the file will be listed there : 
+
+ <img width="524" height="662" alt="image" src="https://github.com/user-attachments/assets/f104722a-7ed5-417c-aa21-a6a8a83dd6d7" />
+
+Use your cursor to **copy the contents of the VM clipboard with ctrl+a, then ctrl+c**, and paste them into a file on your personal machine. 
+
+>[!NOTE]
+>After creating the havoc-key.pem file on your host machine using the Copy-Paste method, you must set the correct file permissions. SSH clients are designed to ignore private keys that are "too readable" by other users on the system. If you skip this step, your connection will be rejected.
+
+Depending on your operating system, this proccess will differ : 
+
+### Option A: Linux / macOS Users
+
+- On Linux / macOS, open a folder of your choosing in the terminal, type **nano havoc-key.pem**, paste the content into a the file, press **ctrl+o, Enter, then ctrl+x**. After that, type:
+
+``` bash
+chmod 400 havoc-key.pem
+```
+
+ - You should now see the that **only the root user has reading permission**: 
+
+<img width="507" height="25" alt="image" src="https://github.com/user-attachments/assets/a0768c8f-1124-4544-8f4a-2ea0fec2baa8" />
+
+
+### Option B: Windows Users (PowerShell)
+Open a PowerShell terminal in the folder containing your key and run these two commands. This will disable permission inheritance and ensure only your current user profile has access:
+
+```PowerShell
+# 1. Disable permission inheritance
+icacls "havoc-key.pem" /inheritance:r
+
+# 2. Grant read access only to the current user
+icacls "havoc-key.pem" /grant:r "${env:USERNAME}:R"6
+```
+
+⚠️ Important Security Note: 
+ - These "Strict Permissions" ensure that you are the only one who can read this file. If you attempt to connect and see an error like Permissions 0644 for 'havoc-key.pem' are too open, it means the steps above were not completed successfully.
+
 ---
 
 ## Phase 1 : Setup and Agent Enrollment
