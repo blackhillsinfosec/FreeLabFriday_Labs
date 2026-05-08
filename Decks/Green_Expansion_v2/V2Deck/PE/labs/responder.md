@@ -81,11 +81,6 @@ As we can see we have the new captured data showing up.
 
 [Back to Card's Main Page](/Decks/Green_Expansion_v2/V2Deck/PE/SMB_Abuse.md)
 
----
-
-> Created by Turcu-Stiolica Alexandru
-
-
 
 <!--
 
