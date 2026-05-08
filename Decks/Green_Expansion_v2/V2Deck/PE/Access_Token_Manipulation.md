@@ -10,7 +10,7 @@
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/Green_Expansion_v2/V2Deck/PE/SNAC_Attack)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/Green_Expansion_v2/V2Deck/PE/SNAC_Attack.md)</i></b>
 
 <b><i>Want to go back? </br>[Previous Card](/Decks/Green_Expansion_v2/V2Deck/PE/Internal_Spearphishing.md)</i></b>
 
