@@ -41,7 +41,7 @@ If you want to learn a bit about this tool check the [Scout Suite Documentation]
 <img width="625" height="424" alt="image" src="https://github.com/user-attachments/assets/d9a41ce2-ddae-4a7b-8946-0ceb9c8d0898" />
 
 - You should now have access to the **Amazon Web Services**. This will grant you : 
-  - USD $100 in credits 
+  - $100 in credits 
   - access to 30+ AWS services
     
 >[!TIP] 
