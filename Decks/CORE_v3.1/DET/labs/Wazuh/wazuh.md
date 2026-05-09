@@ -40,7 +40,7 @@ We will connect both machines (with *Wazuh Agents* Installed) to a *Wazuh Manage
 ---
 
 ## Wazuh Manager and AWS setup 
-
+.
 **!!!** -> You will need an AWS *Free Tier Account*. If you want the step by step instructions for that, check [Phase 1 of the ScoutSuite Lab](https://github.com/blackhillsinfosec/FreeLabFriday_Labs/blob/main/Decks/CORE_v3.1/IC/labs/scoutsuite.md). 
 
 - Once you have the account set up, log in and let's make some **key pairs** for the EC2. Navigate to the **EC2 Dashboard**:
@@ -149,123 +149,170 @@ cd Downloads ; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/blackhi
 
 <img width="1487" height="264" alt="image" src="https://github.com/user-attachments/assets/37fef7bf-70d6-4c8d-bdce-fe612c0f862d" />
 
+- You will be taken to the *events* tab of the *deployment timeline*. Once it is done deploying, click on outputs to see your **public IP**: 
 
+<img width="951" height="516" alt="image" src="https://github.com/user-attachments/assets/67fda621-6e9e-4026-a58f-d3d250ad85e5" />
+  
 ---
 
-## Phase 1 : Setup and Agent Enrollment
-First, we need to deploy the Wazuh Agents to our endpoints so they can start forwarding telemetry to the cloud.
+## Phase 1 : Agent Enrollment & System Check
 
-Open Google Chrome on your Windows VM, log into your Wazuh Cloud Console, and navigate to Agents -> Deploy New Agent.
+Now that the CloudFormation stack is complete, the AWS EC2 instance is running. However, because Wazuh generates a random password during its automated installation, we need to SSH into the server to retrieve it and verify the manager is running correctly.
 
-Select Windows, put in your Wazuh Manager address, and copy the generated PowerShell command. Open an Administrator PowerShell terminal and paste it to install and start the agent:
+- Open your Windows PowerShell and ensure you are in the directory where you saved havoc-key.pem (the Downloads folder).
 
-``` PowerShell
-Invoke-WebRequest -Uri [https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi](https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi) -OutFile ${env.tmp}\wazuh-agent.msi; msiexec.exe /i ${env.tmp}\wazuh-agent.msi /q WAZUH_MANAGER='<YOUR_WAZUH_CLOUD_URL>' WAZUH_REGISTRATION_SERVER='<YOUR_WAZUH_CLOUD_URL>' ; 
-NET START WazuhSvc 
+<img width="636" height="299" alt="image" src="https://github.com/user-attachments/assets/4a3feb14-1875-4e09-a6c5-17714490022d" />
+
+<img width="441" height="78" alt="image" src="https://github.com/user-attachments/assets/7232e309-becf-4fae-8f48-8754da064df8" />
+
+
+- Run the following command to connect to your EC2 instance. Make sure to replace <YOUR_EC2_PUBLIC_IP> with the actual IP from the **CloudFormation Outputs** tab:
+
+```PowerShell
+ssh -i wazuh-key.pem ubuntu@<YOUR_EC2_PUBLIC_IP>
 ```
 
- - Now, open your Ubuntu Shell shortcut on the Windows Desktop. Select Debian/Ubuntu in the Wazuh Cloud interface, copy the Linux enrollment command, and paste it into the Ubuntu shell:
+>[!NOTE]
+>Upon your first connection, SSH will warn you about the host's authenticity. Type yes and press Enter to continue.
+
+<img width="815" height="161" alt="image" src="https://github.com/user-attachments/assets/c03ad282-d34f-4900-8b0c-887cfab38099" />
+
+- You should now see your terminal prompt change to something like ubuntu@ip-172-31-x-x:~$, indicating you are successfully logged into the AWS Linux server.
+
+**Step 1**: Verify the Manager Status
+Let's ensure the Wazuh Manager service installed successfully and is actively running. Run the following command:
 
 ```Bash
-curl -so wazuh-agent-4.x.deb [https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.x.deb](https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.x.deb) && sudo WAZUH_MANAGER='<YOUR_WAZUH_CLOUD_URL>' dpkg -i ./wazuh-agent-4.x.deb
+sudo systemctl status wazuh-manager
+```
+> (You should see a green active (running) status. Press q to exit the status screen).
+
+<img width="1189" height="628" alt="image" src="https://github.com/user-attachments/assets/8d9b8f75-9ace-4411-b18b-154d5d13402b" />
+
+**Step 2**: Retrieve the Dashboard Password
+Our automated setup script saved the installation output, including the web dashboard credentials, directly into your home directory. Read the file by typing:
+
+```Bash
+cat /home/ubuntu/wazuh_install_info.txt
+```
+
+Scroll through the output in your terminal and look for the User (admin) and the newly generated Password. Copy this password to your clipboard — you will need it in the next step.
+
+<img width="1195" height="519" alt="image" src="https://github.com/user-attachments/assets/179baf20-d312-485a-827a-8f7410dbd888" />
+
+- Once you have the password, you can type exit to close the SSH connection, or simply minimize the PowerShell window.
+
+First, we need to deploy the Wazuh Agents to our endpoints so they can start forwarding telemetry to our newly created AWS manager. Open Google Chrome on your Windows VM and let's start logging into your **Wazuh Manager Dashboard**. 
+
+- To do this, navigate to `https://<YOUR_EC2_PUBLIC_IP>:<WAZUH_MANAGER_SPECIFIED_PORT>` and input the credentials. (You can find the default login credentials in the Outputs tab of your AWS CloudFormation stack, along with the port that you can access). You will see the **Your connection is not private** warning, click **Advanced** and then **Proceed to <IP>(unsafe)**. 
+
+<img width="993" height="720" alt="image" src="https://github.com/user-attachments/assets/3f06f09c-badf-4132-8b67-ede94b2d65b9" />
+
+
+- Once logged in, navigate to **Wazuh -> Agents -> Deploy New Agent**.
+
+- Select **Windows**, input your EC2 Public IP as the server address, and copy the generated PowerShell command. Open an Administrator PowerShell terminal and paste it to install and start the agent:
+
+```PowerShell
+Invoke-WebRequest -Uri "https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi" -OutFile "$env:TEMP\wazuh-agent.msi"; msiexec.exe /i "$env:TEMP\wazuh-agent.msi" /q WAZUH_MANAGER='<YOUR_EC2_PUBLIC_IP>' WAZUH_REGISTRATION_SERVER='<YOUR_EC2_PUBLIC_IP>' ; 
+NET START WazuhSvc
+```
+
+- Now, open your Ubuntu Shell shortcut on the Windows Desktop. Select Debian/Ubuntu in the Wazuh interface, copy the Linux enrollment command, and paste it into the Ubuntu shell:
+
+```bash 
+curl -so wazuh-agent-4.x.deb "https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.x.deb" && sudo WAZUH_MANAGER='<YOUR_EC2_PUBLIC_IP>' dpkg -i ./wazuh-agent-4.x.deb
 sudo systemctl daemon-reload
 sudo systemctl enable wazuh-agent
 sudo systemctl start wazuh-agent
 ```
 
- - Go back to the Wazuh Cloud Dashboard. You should now see both agents marked as Active.
+- Go back to the Wazuh Manager Dashboard. You should now see both agents marked as Active.
 
 ## Phase 2: Configuring File Integrity Monitoring (FIM)
 By default, Wazuh monitors certain system directories. We want to explicitly monitor a custom "sensitive" directory on our Ubuntu VM to simulate a targeted data breach or config alteration.
 
- - In your Ubuntu Shell, let's create a fake sensitive file:
+In your Ubuntu Shell, let's create a fake sensitive file:
 
-```Bash
+```bash
 sudo mkdir -p /var/www/html/secure_portal
 sudo touch /var/www/html/secure_portal/db_config.php
 sudo nano /var/www/html/secure_portal/db_config.php
 ```
 
- - **Add some dummy text inside** (like db_password=SuperSecret), save, and exit.
+Add some dummy text inside (like db_password=SuperSecret), save, and exit.
 
- - Now, we tell the Wazuh Agent to watch this specific directory. Open the agent configuration file:
+Now, we tell the Wazuh Agent to watch this specific directory. Open the agent configuration file:
 
-```Bash
+```bash
 sudo nano /var/ossec/etc/ossec.conf
 ```
 
- - Scroll down to the <syscheck> section (which handles FIM) and add the following line to monitor our new directory in real-time:
+Scroll down to the <syscheck> section (which handles FIM) and add the following line to monitor our new directory in real-time:
 
-```XML
+```
 <directories check_all="yes" realtime="yes">/var/www/html/secure_portal</directories>
 ```
 
- - Restart the Wazuh agent to apply the changes:
+Restart the Wazuh agent to apply the changes:
 
-```Bash
+```bash
 sudo systemctl restart wazuh-agent
 ```
 
 >[!NOTE]
->FIM takes a few minutes to run its initial baseline scan. It hashes all the files in that directory so it has something to compare against when a change happens.
+>FIM takes a few minutes to run its initial baseline scan. **It hashes all the files in that directory** so it has something to compare against when a change happens.
 
 ## Phase 3: Execution (Simulating the Attack)
 Now we play the role of the attacker on both machines.
 
-**Attack 1**: Malware Drop on Windows
+### Attack 1: Malware Drop on Windows
 
 The attacker manages to execute a script on the Windows endpoint that downloads a malicious payload. We will simulate this using the standard EICAR test file (a harmless file flagged as malware by all security vendors).
 
- - Open your Windows PowerShell and run:
+- Open your Windows PowerShell and run:
 
-```PowerShell
+```Powershell
 Invoke-WebRequest -Uri "[https://secure.eicar.org/eicar.com](https://secure.eicar.org/eicar.com)" -OutFile "$env:USERPROFILE\Desktop\malware_payload.exe"
 ```
 
-**Attack 2**: Backdoor Configuration on Ubuntu
+### Attack 2: Backdoor Configuration on Ubuntu
 
 The attacker (already SSH'd into the system via the Ubuntu Shell) modifies the database configuration file to route traffic to their own server.
 
-```Bash
+```bash
 echo "db_password=HACKED_PASSWORD_123" | sudo tee -a /var/www/html/secure_portal/db_config.php
 ```
 
 ## Phase 4: Blue Team Detection
+The attacks are complete. Now, switch to your Google Chrome browser on Windows and open the Wazuh Manager Dashboard.
 
-**The attacks are complete**. Now, switch to your Google Chrome browser on Windows and open the Wazuh Cloud Dashboard.
-
-Hunting the Windows Malware:
-Navigate to Modules -> Security Events. Filter by agent: Windows VM.
+**Hunting the Windows Malware:**
+- Navigate to Modules -> Security Events. Filter by agent: Windows VM.
 Look for alerts labeled with Rule: 100201 or mentions of malicious files. You will clearly see an alert showing that a known threat (EICAR) was created on the Desktop.
 
-Hunting the Ubuntu FIM Violation:
-Navigate to Modules -> Integrity Monitoring. Filter by agent: Ubuntu VM.
-You will see a critical alert showing that /var/www/html/secure_portal/db_config.php was modified.
+**Hunting the Ubuntu FIM Violation:**
+- Navigate to Modules -> Integrity Monitoring. Filter by agent: Ubuntu VM.
+You will see a critical alert showing that */var/www/html/secure_portal/db_config.php* was modified.
 If you expand the alert, Wazuh will show you the exact timestamp, the user who made the change (root, via sudo), and even the hash differences before and after the attack.
 
-Analysis: As a SOC Analyst, seeing a sudden malware drop on an endpoint correlated with a critical configuration change on an internal server within minutes would immediately trigger a High-Severity Incident Response plan.
+>[!IMPORTANT]
+>Analysis: As a SOC Analyst, seeing a sudden malware drop on an endpoint correlated with a critical configuration change on an internal server within minutes would immediately trigger a High-Severity Incident Response plan.
 
-Cleanup
+## Cleanup
 Let's clean up the environment so no alerts continue to trigger.
 
-On the Windows VM: Delete the fake malware payload from your Desktop.
+- On the Windows VM: Delete the fake malware payload from your Desktop.
 
-```PowerShell
-Remove-Item "$env:USERPROFILE\Desktop\malware_payload.exe"
-```
-
+Fragment de cod
+Remove-Item "$env:USERPROFILE\Desktop\malware_payload.exe" -ErrorAction SilentlyContinue
 On the Ubuntu VM: Delete the fake sensitive directory.
 
-```Bash
+Fragment de cod
 sudo rm -rf /var/www/html/secure_portal
-```
-(Optional) If you want to remove the Wazuh agents completely, you can uninstall them via appwiz.cpl on Windows and sudo apt remove wazuh-agent on Ubuntu.
-
-
----
+(Optional) If you want to free up space and remove the Wazuh agents completely, you can uninstall them via appwiz.cpl on Windows and sudo apt remove wazuh-agent on Ubuntu.
 
 ## Conclusion
-In this lab, you successfully deployed an enterprise-grade SIEM/XDR architecture using Wazuh Cloud. You learned how to configure File Integrity Monitoring (FIM) to protect sensitive server configurations over an SSH connection, and you simulated a malware infection on a Windows endpoint. Most importantly, you navigated the Wazuh Dashboard to perform threat hunting, proving that centralized logging is essential for detecting multi-vector attacks across different operating systems.
-
+In this lab, you successfully deployed an enterprise-grade SIEM/XDR architecture using a cloud-hosted Wazuh Manager on AWS EC2. You learned how to configure File Integrity Monitoring (FIM) to protect sensitive server configurations over an SSH connection, and you simulated a malware infection on a Windows endpoint. Most importantly, you navigated the Wazuh Dashboard to perform threat hunting, proving that centralized logging is essential for detecting multi-vector attacks across different operating systems.
 
 Finished?
