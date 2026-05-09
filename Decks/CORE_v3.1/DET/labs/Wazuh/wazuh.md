@@ -17,7 +17,7 @@
 
  - *Malware Detection*: Wazuh uses out-of-the-box integration with various threat intelligence sources to detect known malicious files (like malware or ransomware) dropped onto the filesystem.
 
- - *Cloud Deployment* : Instead of hosting the heavy server components locally, we are using Wazuh Cloud to process and index our logs. The endpoints only run a lightweight agent.
+ - *Cloud Deployment* : Instead of hosting the heavy server components locally, we are using an AWS EC2 loaded up with a Wazuh Manager Unit to process and index our logs. The endpoints only run a lightweight agent.
 
 If you want to dive a bit deeper, check the [Wazuh Documentation](https://github.com/wazuh/wazuh).
 
@@ -245,7 +245,7 @@ First, we need to deploy the Wazuh Agents to our endpoints so they can start for
 ## Phase 2: Configuring File Integrity Monitoring (FIM)
 By default, Wazuh monitors certain system directories. We want to explicitly monitor a custom "sensitive" directory on our Ubuntu VM to simulate a targeted data breach or config alteration.
 
-In your Ubuntu Shell, let's create a fake sensitive file:
+- In your Ubuntu Shell, let's create a fake sensitive file:
 
 ```bash
 sudo mkdir -p /var/www/html/secure_portal
@@ -253,21 +253,28 @@ sudo touch /var/www/html/secure_portal/db_config.php
 sudo nano /var/www/html/secure_portal/db_config.php
 ```
 
-Add some dummy text inside (like db_password=SuperSecret), save, and exit.
+Add some dummy text inside (like db_password=SuperSecret), save, and exit:
 
-Now, we tell the Wazuh Agent to watch this specific directory. Open the agent configuration file:
+<img width="1346" height="340" alt="image" src="https://github.com/user-attachments/assets/072ee6db-6067-4092-85e7-5ea5d5d9ef66" />
+
+- Now, we tell the Wazuh Agent to watch this specific directory. Open the agent configuration file:
 
 ```bash
 sudo nano /var/ossec/etc/ossec.conf
 ```
+<img width="888" height="569" alt="image" src="https://github.com/user-attachments/assets/56665fe0-3d98-4d15-b723-8feb80aad143" />
 
-Scroll down to the <syscheck> section (which handles FIM) and add the following line to monitor our new directory in real-time:
+- Scroll down to the <syscheck> section (which handles FIM) and add the following line to monitor our new directory in real-time:
 
 ```
 <directories check_all="yes" realtime="yes">/var/www/html/secure_portal</directories>
 ```
 
-Restart the Wazuh agent to apply the changes:
+<img width="1106" height="916" alt="image" src="https://github.com/user-attachments/assets/7389b00e-f33b-41a4-8e14-e20edc76063d" />
+
+Press **ctrl+s to save the changes, then ctrl+x to exit.**
+
+- Restart the Wazuh agent to apply the changes:
 
 ```bash
 sudo systemctl restart wazuh-agent
@@ -275,6 +282,9 @@ sudo systemctl restart wazuh-agent
 
 >[!NOTE]
 >FIM takes a few minutes to run its initial baseline scan. **It hashes all the files in that directory** so it has something to compare against when a change happens.
+
+<img width="946" height="178" alt="image" src="https://github.com/user-attachments/assets/b675590b-753d-4946-bc89-d061eb578939" />
+
 
 ## Phase 3: Execution (Simulating the Attack)
 Now we play the role of the attacker on both machines.
