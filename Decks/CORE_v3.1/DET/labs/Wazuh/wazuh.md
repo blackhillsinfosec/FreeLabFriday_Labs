@@ -243,7 +243,7 @@ First, we need to deploy the Wazuh Agents to our endpoints so they can start for
 <img width="1844" height="561" alt="image" src="https://github.com/user-attachments/assets/c0dfff83-0431-4275-afc4-e544b7e2819a" />
 
 ## Phase 2: Configuring File Integrity Monitoring (FIM)
-By default, Wazuh monitors certain system directories. We want to explicitly monitor a custom "sensitive" directory on our Ubuntu VM to simulate a targeted data breach or config alteration.
+By default, Wazuh monitors certain system directories. We want to explicitly monitor a custom "sensitive" directory on our Ubuntu VM to simulate a targeted data breach or config alteration, but we also want to monitor added malware files on the desktop of the Windows VM..
 
 - In your Ubuntu Shell, let's create a fake sensitive file:
 
@@ -286,6 +286,31 @@ sudo systemctl restart wazuh-agent
 <img width="946" height="178" alt="image" src="https://github.com/user-attachments/assets/b675590b-753d-4946-bc89-d061eb578939" />
 
 
+- Now on to the Windows VM. Open up *Powershell* and let's modify the agent's configuration so that it checks the Desktop in real time, instead of every 12 hours (*which is the default*). 
+
+```powershell 
+notepad "C:\Program Files (x86)\ossec-agent\ossec.conf"
+```
+
+- Notepad will open up. Scroll down, under "File integrity monitoring", under the line that contains the text "%PROGRAMDATA%", insert the following line: 
+
+```
+<directories check_all="yes" realtime="yes">C:\Users\Administrator\Desktop</directories>
+```
+
+<img width="1259" height="992" alt="image" src="https://github.com/user-attachments/assets/35d9f634-7ed1-4cc6-bb3f-4d3f8a042582" />
+
+- Press **File** and save.
+
+<img width="548" height="317" alt="image" src="https://github.com/user-attachments/assets/c1f430af-75e2-4fd9-ade3-7d5c505da3ef" />
+
+-  We now need to refresh the **Wazuh agent**. In powershell, type:
+
+```Powershell
+Restart-Service WazuhSvc
+```
+
+
 ## Phase 3: Execution (Simulating the Attack)
 Now we play the role of the attacker on both machines.
 
@@ -315,8 +340,21 @@ echo "db_password=HACKED_PASSWORD_123" | sudo tee -a /var/www/html/secure_portal
 The attacks are complete. Now, switch to your Google Chrome browser on Windows and refresh the Wazuh Manager Dashboard.
 
 **Hunting the Windows Malware:**
-- Navigate to Modules -> Security Events. Filter by agent: Windows VM.
-Look for alerts labeled with Rule: 100201 or mentions of malicious files. You will clearly see an alert showing that a known threat (EICAR) was created on the Desktop.
+- In the *Dashboard*, go to "Agents Summary" and click on **Active**: 
+  
+<img width="522" height="273" alt="image" src="https://github.com/user-attachments/assets/a94e5a6c-08db-437e-b959-f0dc23ba6096" />
+
+- Click on the *Windows Agent*:
+  
+<img width="1819" height="377" alt="image" src="https://github.com/user-attachments/assets/03137e0d-0476-4d58-bf67-f3ca2c9ae1a0" />
+
+- Go to *Threat Hunting*: 
+
+<img width="933" height="838" alt="image" src="https://github.com/user-attachments/assets/857705c7-3102-4810-a2e1-63db3d4bc2e8" />
+
+- 
+
+Look for alerts labeled with Rule: 554 or mentions of malicious files. You will clearly see an alert showing that a known threat (EICAR) was created on the Desktop.
 
 **Hunting the Ubuntu FIM Violation:**
 - Navigate to the **File Integrity Monitoring** under **Endpoint security**:
