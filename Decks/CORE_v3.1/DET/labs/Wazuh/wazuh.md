@@ -296,19 +296,23 @@ The attacker manages to execute a script on the Windows endpoint that downloads 
 - Open your Windows PowerShell and run:
 
 ```Powershell
-Invoke-WebRequest -Uri "[https://secure.eicar.org/eicar.com](https://secure.eicar.org/eicar.com)" -OutFile "$env:USERPROFILE\Desktop\malware_payload.exe"
+Invoke-WebRequest -Uri "https://secure.eicar.org/eicar.com" -OutFile "$env:USERPROFILE\Desktop\malware_payload.exe"
 ```
+<img width="1203" height="114" alt="image" src="https://github.com/user-attachments/assets/538c36ab-24ab-4cf8-893d-33b7149fafac" />
 
 ### Attack 2: Backdoor Configuration on Ubuntu
 
 The attacker (already SSH'd into the system via the Ubuntu Shell) modifies the database configuration file to route traffic to their own server.
 
+- In the **Ubuntu shell**, type this command :
+
 ```bash
 echo "db_password=HACKED_PASSWORD_123" | sudo tee -a /var/www/html/secure_portal/db_config.php
 ```
+<img width="769" height="292" alt="image" src="https://github.com/user-attachments/assets/987cfb02-054f-4598-ac87-177455485463" />
 
 ## Phase 4: Blue Team Detection
-The attacks are complete. Now, switch to your Google Chrome browser on Windows and open the Wazuh Manager Dashboard.
+The attacks are complete. Now, switch to your Google Chrome browser on Windows and refresh the Wazuh Manager Dashboard.
 
 **Hunting the Windows Malware:**
 - Navigate to Modules -> Security Events. Filter by agent: Windows VM.
