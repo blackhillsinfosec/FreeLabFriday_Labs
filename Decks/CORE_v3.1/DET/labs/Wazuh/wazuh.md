@@ -204,30 +204,43 @@ Scroll through the output in your terminal and look for the User (admin) and the
 
 First, we need to deploy the Wazuh Agents to our endpoints so they can start forwarding telemetry to our newly created AWS manager. Open Google Chrome on your Windows VM and let's start logging into your **Wazuh Manager Dashboard**. 
 
+>[!NOTE]
+>**Do NOT close the dashboard until we are done installing the agents.**
+
 - To do this, navigate to `https://<YOUR_EC2_PUBLIC_IP>:<WAZUH_MANAGER_SPECIFIED_PORT>` and input the credentials. (You can find the default login credentials in the Outputs tab of your AWS CloudFormation stack, along with the port that you can access). You will see the **Your connection is not private** warning, click **Advanced** and then **Proceed to <IP>(unsafe)**. 
 
 <img width="993" height="720" alt="image" src="https://github.com/user-attachments/assets/3f06f09c-badf-4132-8b67-ede94b2d65b9" />
 
+- Once logged in, navigate to the lateral menu and roll down the **Server Management** section. Click on **Endpoints Summary**. Then, click **Deploy new agent**.
 
-- Once logged in, navigate to **Wazuh -> Agents -> Deploy New Agent**.
+<img width="1194" height="900" alt="image" src="https://github.com/user-attachments/assets/125ade31-b093-450e-bae4-914144689f0d" />
 
-- Select **Windows**, input your EC2 Public IP as the server address, and copy the generated PowerShell command. Open an Administrator PowerShell terminal and paste it to install and start the agent:
+<img width="741" height="380" alt="image" src="https://github.com/user-attachments/assets/1e74c97a-53bc-4340-9e2a-a7987b8e23c8" />
 
-```PowerShell
-Invoke-WebRequest -Uri "https://packages.wazuh.com/4.x/windows/wazuh-agent-4.x.msi" -OutFile "$env:TEMP\wazuh-agent.msi"; msiexec.exe /i "$env:TEMP\wazuh-agent.msi" /q WAZUH_MANAGER='<YOUR_EC2_PUBLIC_IP>' WAZUH_REGISTRATION_SERVER='<YOUR_EC2_PUBLIC_IP>' ; 
-NET START WazuhSvc
-```
+- Select **Windows**, input your EC2 Public IP as the server address and copy the generated PowerShell command:
+- 
+<img width="942" height="829" alt="image" src="https://github.com/user-attachments/assets/328cb46c-3354-4328-8daa-a5a82c1b85a9" />
+<img width="938" height="766" alt="image" src="https://github.com/user-attachments/assets/d64659eb-d95a-4851-acbb-1a071eff2e02" />
+<img width="966" height="217" alt="image" src="https://github.com/user-attachments/assets/9654c5e1-3815-4ef2-baaf-f40805a4ea82" />
 
-- Now, open your Ubuntu Shell shortcut on the Windows Desktop. Select Debian/Ubuntu in the Wazuh interface, copy the Linux enrollment command, and paste it into the Ubuntu shell:
+- Open an Administrator PowerShell terminal and paste it to install and start the agent:
+  
+<img width="821" height="254" alt="image" src="https://github.com/user-attachments/assets/202a842d-3055-40b8-8aca-730861dee1d4" />
 
-```bash 
-curl -so wazuh-agent-4.x.deb "https://packages.wazuh.com/4.x/apt/pool/main/w/wazuh-agent/wazuh-agent_4.x.deb" && sudo WAZUH_MANAGER='<YOUR_EC2_PUBLIC_IP>' dpkg -i ./wazuh-agent-4.x.deb
-sudo systemctl daemon-reload
-sudo systemctl enable wazuh-agent
-sudo systemctl start wazuh-agent
-```
+- Now, to do the same for the **Ubuntu VM**, don't close the tab, just select the **Linux DEB amd64** installation package:
 
-- Go back to the Wazuh Manager Dashboard. You should now see both agents marked as Active.
+<img width="908" height="497" alt="image" src="https://github.com/user-attachments/assets/e75442d6-5895-4709-bc63-be9f12c92038" />
+
+- You will have to input the *Ubuntu commands* in the **Ubuntu shell** in order to start the agent. Close the powershell terminal and click on the **Ubuntu shell shortcut**:
+
+<img width="530" height="549" alt="image" src="https://github.com/user-attachments/assets/820cf867-aed5-4d11-9eda-63264b3bfc8b" />
+   
+- Copy the Linux enrollment commands, and paste it into the Ubuntu shell:
+
+<img width="753" height="141" alt="image" src="https://github.com/user-attachments/assets/842cb2aa-2933-46a2-98f2-e6fd9f91da80" />
+
+- Go back to the Wazuh Manager Dashboard (click *close*). You should now see both agents marked as Active:
+<img width="1844" height="561" alt="image" src="https://github.com/user-attachments/assets/c0dfff83-0431-4275-afc4-e544b7e2819a" />
 
 ## Phase 2: Configuring File Integrity Monitoring (FIM)
 By default, Wazuh monitors certain system directories. We want to explicitly monitor a custom "sensitive" directory on our Ubuntu VM to simulate a targeted data breach or config alteration.
