@@ -319,24 +319,29 @@ The attacks are complete. Now, switch to your Google Chrome browser on Windows a
 Look for alerts labeled with Rule: 100201 or mentions of malicious files. You will clearly see an alert showing that a known threat (EICAR) was created on the Desktop.
 
 **Hunting the Ubuntu FIM Violation:**
-- Navigate to Modules -> Integrity Monitoring. Filter by agent: Ubuntu VM.
-You will see a critical alert showing that */var/www/html/secure_portal/db_config.php* was modified.
-If you expand the alert, Wazuh will show you the exact timestamp, the user who made the change (root, via sudo), and even the hash differences before and after the attack.
+- Navigate to the **File Integrity Monitoring** under **Endpoint security**:
 
->[!IMPORTANT]
->Analysis: As a SOC Analyst, seeing a sudden malware drop on an endpoint correlated with a critical configuration change on an internal server within minutes would immediately trigger a High-Severity Incident Response plan.
+<img width="557" height="946" alt="image" src="https://github.com/user-attachments/assets/3d748f81-53f5-4f55-bf4b-31ec61e8f5a9" />
+
+- Click on **Events** and you should see that **the only event is the fact that the file at /var/www/html/secure_portal/db_config.php was modified**.
+
+<img width="1841" height="878" alt="image" src="https://github.com/user-attachments/assets/f48e3190-6a28-4d1f-ac93-55e8f94afb22" />
+
+Wazuh will show you the exact timestamp, the user who made the change (root, via sudo), and even the hash differences before and after the attack.
 
 ## Cleanup
 Let's clean up the environment so no alerts continue to trigger.
 
 - On the Windows VM: Delete the fake malware payload from your Desktop.
 
-Fragment de cod
+```
 Remove-Item "$env:USERPROFILE\Desktop\malware_payload.exe" -ErrorAction SilentlyContinue
+```
 On the Ubuntu VM: Delete the fake sensitive directory.
 
-Fragment de cod
+```
 sudo rm -rf /var/www/html/secure_portal
+```
 (Optional) If you want to free up space and remove the Wazuh agents completely, you can uninstall them via appwiz.cpl on Windows and sudo apt remove wazuh-agent on Ubuntu.
 
 ## Conclusion
