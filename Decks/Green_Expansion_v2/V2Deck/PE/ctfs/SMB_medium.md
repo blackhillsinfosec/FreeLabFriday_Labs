@@ -39,4 +39,4 @@ Correct Flag: **D**
 
 # Finished?
 [Next Question](SMB_hard.md)
-[Back to Card's Main Page](/Cards/SMB_Abuse.md)
+[Back to Card's Main Page](../SMB_Abuse.md)
