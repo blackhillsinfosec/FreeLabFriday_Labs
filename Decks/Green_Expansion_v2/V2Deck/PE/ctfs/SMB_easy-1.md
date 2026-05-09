@@ -37,4 +37,4 @@ Correct Flag: **C**
 
 # Finished?
 [Next Question](SMB_easy-2.md)
-[Back to Card's Main Page](/Cards/SMB_Abuse.md)
+[Back to Card's Main Page](../SMB_Abuse.md)
