@@ -17,12 +17,12 @@ BlueSpawn will monitor the system for "weird" behavior and note it when it occur
 In this lab, we will be starting BlueSpawn and then running Atomic Red Team to trigger a lot of alerts.
 
 First, we need to disable Defender. 
-Start by opening up <b>Windows Powershell</b>.
+Start by opening up <b>Windows Powershell</b> by clicking the icon in the taskbar:
 
-<img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/685d264c-661c-4dbf-aa79-54f925cefdb1" />
+![](attachments/powershelltaskbar.png)
 
 
-Next, run the following command:
+Next, run the following two commands:
 
 ```ps
 Set-MpPreference -DisableRealtimeMonitoring $true
@@ -34,6 +34,7 @@ Set-MpPreference -DisableBehaviorMonitoring $true
 
 <img width="824" height="155" alt="2026-03-26_09-47" src="https://github.com/user-attachments/assets/d83571b4-0a39-4e4b-a9ef-cf6763954e2c" />
 
+<br>
 
 This will disable Defender for this session.
 
@@ -41,10 +42,15 @@ This will disable Defender for this session.
 >
 >If you get angry red errors, that is Ok, it means Defender is not running.
 
+>[!WARNING]
+>
+>**Defender** has a habit of starting itself back up. <br>
+>You *might* have to run this command again later in the lab.
 
-Now, let's open a **command prompt**:
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/f62f8205-8828-4a2b-97f0-e7137ec466e5" />
+Now, let's open a **command prompt** by double-clicking the icon on the desktop:
+
+![](attachments/opencommandprompt.png)
 
  
 Next, let’s change directories to tools and start Bluespawn:
@@ -54,12 +60,12 @@ cd \IntroLabs
 ```
 
 ```bash
-BLUESPAWN-client-x64.exe --monitor --aggressiveness cursory
+BLUESPAWN-client-x64.exe --monitor --aggressiveness Normal
 ```
 
 You should see something like this:
 
-<img width="862" height="638" alt="2026-03-26_09-50" src="https://github.com/user-attachments/assets/a3419596-b4ca-4ea1-8d2a-832046873f76" />
+![](attachments/launchbluespawn.png)
 
 
 If you made it this far, perfect! That means Bluespawn is up and running.
@@ -68,9 +74,10 @@ Now, let’s use Atomic Red Team to test the monitoring with BlueSpawn:
 
 First, we need to open a PowerShell terminal. 
 
-You can do this by selecting the icon in the taskbar/desktop:
+You can do this by clicking the icon in the taskbar:
 
-<img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/685d264c-661c-4dbf-aa79-54f925cefdb1" />
+![](attachments/powershelltaskbar.png)
+
 
 Now we need to install and update Atomic Red Team. Run the following:
 
@@ -103,10 +110,6 @@ Then, install the proper `yaml` modules by running the following:
 ```ps
 Install-Module -Name powershell-yaml
 ```
-
->[!NOTE]
->
->When prompted, press Y to install the modules.
 
 ```ps
 Import-Module .\Invoke-AtomicRedTeam.psm1
@@ -187,6 +190,7 @@ You should be getting a lot of alerts with Bluespawn! Switch tabs in your Termin
 
 <img width="1096" height="631" alt="2026-03-26_10-09" src="https://github.com/user-attachments/assets/135ce716-47fb-4840-b6a2-1c00c999bc87" />
 
+<br>
 
 Now, let’s go back to the PowerShell window and clean up:
 
