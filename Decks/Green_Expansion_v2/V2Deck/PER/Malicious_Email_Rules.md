@@ -8,9 +8,9 @@
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/Expansions/V2Deck/PER/Service_Recovery_Hijacking.md)</i></b>
+<b><i>Continuing the course? </br>[Next Card](/Decks/Green_Expansion_v2/V2Deck/PER/Service_Recovery_Hijacking.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/Expansions/V2Deck/PER/Third-Party_Malware_Injection.md)</i></b>
+<b><i>Want to go back? </br>[Previous Card](/Decks/Green_Expansion_v2/V2Deck/PER/Third-Party_Malware_Injection.md)</i></b>
 
 <b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
 
