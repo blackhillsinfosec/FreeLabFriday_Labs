@@ -15,9 +15,7 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 In this lab we will be getting started with the fundamentals of password cracking.  We will be using **Hashcat** to do this.
 
-After you open a terminal, we need to gain root access by running the following:
-
-Now, let's delete any old leftover pot files
+Before we begin, let's delete any old leftover pot files
 
 ```bash
 rm ~/.local/share/hashcat/hashcat.potfile  
@@ -44,6 +42,8 @@ The result will look like this:
 <img width="2288" height="994" alt="img1" src="https://github.com/user-attachments/assets/32be0203-98e3-4718-ae2a-307df15cb1a7" />
 
 <img width="1253" height="1018" alt="img2" src="https://github.com/user-attachments/assets/2e343326-6910-4a4d-9e4f-c29892cea473" />
+
+<br>
 
 Lets crack some NT hashes.  These are the hashes that almost all modern **Windows** systems store these days.  Older systems may store **LANMAN**, but that is very rare.
 
