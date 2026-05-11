@@ -143,7 +143,7 @@ set LHOST [Your Linux IP Address]
 
 >[!Note]
 >
->REMEMBER - YOUR IP WILL LIKELY BE DIFFERENT!**
+>**REMEMBER - YOUR IP WILL LIKELY BE DIFFERENT!**
 
 Go ahead and run the exploit:
 
