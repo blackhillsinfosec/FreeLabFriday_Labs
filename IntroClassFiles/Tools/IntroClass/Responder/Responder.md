@@ -16,12 +16,9 @@ In this lab we are going to walk through how quickly an attacker can take advant
 
 Specifically, we are looking to take advantage of **"LLMNR"**.  
 
-We will need to load our **linux terminal** and start responder.
+We will need to load our **Linux terminal** and start Responder.
 
-
-
-
-- **Double-click** `Ubuntu Shell` on Desktop
+To do this, **Double-click** `Ubuntu Shell` on the desktop.
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
@@ -42,18 +39,25 @@ You should see this:
 
 <img width="313" height="541" alt="resp" src="https://github.com/user-attachments/assets/ca8c62ef-e845-4ad2-8a2a-59102a1e5d6d" />
 
+<br>
 
 Let's open **Windows File Explorer** and put in the string ```\\Linux-IP\Noooo``` into the address bar at the top.
+
+>[!Note]
+>
+>If you don't know your Linux IP, look at the header of your terminal! You should see it there!
 
 <img width="502" height="55" alt="OpeningFileExplorer" src="https://github.com/user-attachments/assets/2de27ae0-5e58-4488-b7f3-ee6b313bec1e" />
 
 <img width="929" height="488" alt="file_exp" src="https://github.com/user-attachments/assets/002bd08e-5d6a-4b31-9593-1feb0d979d47" />
 
+<br>
 
 It will pop up a windows to write the credentials. Fill them and switch back to your **Linux** terminal window.
 
 <img width="374" height="337" alt="creds" src="https://github.com/user-attachments/assets/27799627-9ed3-4313-bd39-e7c6a0f841b7" />
 
+<br>
 
 After a few moments, you should see some captured data showing up.  
 
@@ -61,6 +65,7 @@ After a few moments, you should see some captured data showing up.
 
 <img width="911" height="323" alt="file_exp_logs" src="https://github.com/user-attachments/assets/d2e3df52-44a3-4d6f-9ae0-af49c87e3898" />
 
+<br>
 
 We can do the same thing from the Windows Terminal by running the following command:
 
