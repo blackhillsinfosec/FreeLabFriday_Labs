@@ -430,7 +430,7 @@ nxc smb 10.10.83.124 -u 'NetExecAdmin' -p 'BeSur3T0Ch@ng31t' -x 'systeminfo'
 
 ![image](./attachments/img29.png)
 
-Run the following commands with the `-x` parameter:
+Run the following commands with the `-X` parameter:
 
 ```bash
 nxc smb 10.10.83.124 -u 'NetExecAdmin' -p 'BeSur3T0Ch@ng31t' -X 'Get-LocalUser'
@@ -475,4 +475,5 @@ cd C:\Users\Administrator\Desktop\Labs\netexec
 # Finished?
 
 [Back to Internal_Password_Spray Main Page](/Decks/CORE_v3.1/PE/Internal_Password_Spray.md)
+
 [Back to Kerberoasting Main Page](/Decks/CORE_v3.1/PE/Kerberoasting.md)
