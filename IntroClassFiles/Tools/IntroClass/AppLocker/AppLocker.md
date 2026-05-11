@@ -37,7 +37,7 @@ This will disable **Defender**.
 >[!WARNING]
 >
 >**Defender** has a habit of starting itself back up. <br>
->We will run this command again later in the lab.
+>You *might* have to run this command again later in the lab.
 
 
 Next, lets ensure the firewall is disabled. 
