@@ -54,7 +54,7 @@ Let's open **Windows File Explorer** and put in the string ```\\Linux-IP\Noooo``
 
 <br>
 
-It will pop up a windows to write the credentials. Fill them with a user of 'user' and a password of 'password' and switch back to your **Linux** terminal window.
+It will pop up a windows to write the credentials. Fill them with a user of 'admin' and a password of 'password' and switch back to your **Linux** terminal window.
 
 <img width="374" height="337" alt="creds" src="https://github.com/user-attachments/assets/27799627-9ed3-4313-bd39-e7c6a0f841b7" />
 
