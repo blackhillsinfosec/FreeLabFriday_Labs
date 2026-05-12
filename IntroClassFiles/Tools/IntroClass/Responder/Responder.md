@@ -50,6 +50,8 @@ Let's open **Windows File Explorer** and put in the string ```\\Linux-IP\Noooo``
 <img width="350" height="86" alt="image" src="https://github.com/user-attachments/assets/49d76a2b-913a-4d4a-b32f-10caaad72208" />
 
 
+
+
 <img width="502" height="55" alt="OpeningFileExplorer" src="https://github.com/user-attachments/assets/2de27ae0-5e58-4488-b7f3-ee6b313bec1e" />
 
 <img width="929" height="488" alt="file_exp" src="https://github.com/user-attachments/assets/002bd08e-5d6a-4b31-9593-1feb0d979d47" />
