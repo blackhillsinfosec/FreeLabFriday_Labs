@@ -16,19 +16,13 @@ In this lab we will be standing up a simple **Python Web Server** and a vulnerab
 
 While a full intro to web attacks is out of the scope of this class, it is great to show you how to use tools like **ZAP** to automatically look for some vulnerabilities, and to show you that automated tools do not always catch everything.
 
-You will need to start an **Linux** terminal.
+You will need to start an **Linux** terminal. 
 
-
-
-
-- **Double-click** `Ubuntu Shell` on Desktop
+Do this by double-clicking on the **Ubuntu Shell** icon on the desktop:
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
-
-
-
-
+<br>
 
 Navigate into the proper directory:
 
@@ -44,12 +38,13 @@ ifconfig
 
 <img width="1534" height="372" alt="Get_IPLinuxFromWindows" src="https://github.com/user-attachments/assets/03a424b9-3dcd-4d64-a2eb-4f9e2282b1e2" />
 
+<br>
 
 >[!NOTE]
 >
 >**YOUR IP WILL BE DIFFERENT!**
 
-Launch the python script
+Launch the python script by running the following:
 
 ```bash
 python3 ./dsvw.py
@@ -57,10 +52,14 @@ python3 ./dsvw.py
 
 <img width="696" height="141" alt="2026-03-14_14-38" src="https://github.com/user-attachments/assets/a74a0640-3091-4182-89d8-e595141f31e7" />
 
+<br>
+
 
 It's time to start **ZAP**! Go ahead and launch it from the desktop icon.
 
 <img width="77" height="97" alt="2026-03-14_14-26" src="https://github.com/user-attachments/assets/29673ac5-f788-453c-8f79-e7291bf7b329" />
+
+
 
 Once **ZAP** loads, you will see this pop-up on your screen. Ensure that **No, I do not want to persist this session at this moment in time** option is selected, and hit **"Start"**
 
@@ -82,11 +81,18 @@ Then, select **"Use traditional spider"** and then select **"Attack"**:
 
 
 >[!IMPORTANT]
->The scan will probably break **DSVW**, you might have to start it again during during the scan:
+>
+>The scan will probably break **DSVW**, you might have to start it again during during the scan.
+>
+>You will know this happened if you get a pop up error mentioning Firefox. Disregard this and run the following:
+
+<pre>sudo python3 ./dsvw.py</pre>
+
+<br>
 
 <img width="697" height="426" alt="2026-03-14_14-41" src="https://github.com/user-attachments/assets/f155ab76-3722-445a-9f4b-0cb18ea0e37c" />
 
-
+<br>
 
 Scan progress will be shown by the progress bar in the center of your screen.
 When it gets done crawling and scanning, select **"Alerts"**:
