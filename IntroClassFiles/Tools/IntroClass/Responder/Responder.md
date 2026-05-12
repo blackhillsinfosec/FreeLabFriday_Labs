@@ -47,11 +47,6 @@ Let's open **Windows File Explorer** and put in the string ```\\Linux-IP\Noooo``
 >
 >If you don't know your Linux IP, look at the header of your terminal! You should see it there!
 
-<img width="350" height="86" alt="image" src="https://github.com/user-attachments/assets/49d76a2b-913a-4d4a-b32f-10caaad72208" />
-
-<br>
-<br>
-
 
 <img width="502" height="55" alt="OpeningFileExplorer" src="https://github.com/user-attachments/assets/2de27ae0-5e58-4488-b7f3-ee6b313bec1e" />
 
