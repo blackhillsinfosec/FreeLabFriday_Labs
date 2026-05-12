@@ -80,6 +80,36 @@ As we can see we have the new captured data showing up.
 
 <img width="910" height="160" alt="testing_log" src="https://github.com/user-attachments/assets/19ba8e38-f46d-4e32-a402-1b036d9aee23" />
 
+Now, let's crack some hashes!
+
+Back in your Linux system kill your Responder session by pressing ctrl+c.
+
+Then, type the following:
+
+```bash
+cd ~/Intro_To_Security/Password_Cracking
+```
+
+Then, we will crack the NTLMv2 hashes:
+
+```bash
+hashcat -a 0 -m 5600 -r /usr/share/hashcat/rules/Incisive-leetspeak.rule ~/Intro_To_Security/Responder/logs/SMB-NTLMv2-SSP-10.10.82.154.txt password.lst
+```
+Remember!!!!  The IP address in the command will be different!  It should be your Windows systems IP address.  If you do not know it, open a Command Prompt on your Windows system and type 'ipconfig'
+
+It should look like this.
+
+<img width="1110" height="405" alt="image" src="https://github.com/user-attachments/assets/17b24419-6a94-4f99-965f-e386a2374537" />
+
+
+After a moment it should crack the "easy" password we gave it. When I say moment. It can take a couple minutes.
+
+<img width="1111" height="312" alt="image" src="https://github.com/user-attachments/assets/cae610b8-fc1a-4efe-b5ad-4d0256397ab9" />
+
+Once it has cracked the easy password it is time to kill the session. 
+
+Please press ctrl+c.
+
 
 ***                                                                 
 <b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/RITAIntroClass/RITA.md)</i></b>
