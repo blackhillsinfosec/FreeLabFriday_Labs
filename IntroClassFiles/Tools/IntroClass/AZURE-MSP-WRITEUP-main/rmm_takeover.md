@@ -19,7 +19,7 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 - Let's crack open the **log** and confirm our worst fears and suspicions.
 
 >[!NOTE]
->Once again, the logs file is unique to this part of the lab. Please **download** with the link above and open in notepad or another text editor.**
+>Once again, the logs file is unique to this part of the lab. Please **download** with the link above and open in notepad or another text editor.
 
 ![rmm execution](./images/fullpwn.PNG)
 
