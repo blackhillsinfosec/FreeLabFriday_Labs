@@ -19,13 +19,7 @@ Let's get started by opening **Windows Powershell**.
 Next, we need to navigate to the **IntroLabs** directory:
 
 ```ps
-cd \IntroLabs
-```
-
-Then, continue into the **DeepBlueCLI-master** directory:
-
-```ps
-cd .\DeepBlueCLI
+cd \IntroLabs\DeepBlueCLI
 ```
 
 Run the following command:
