@@ -74,6 +74,7 @@ For fun, let’s look at how **DeepBlueCLI** detects various encoding tactics th
 
 ![](attachments/deepblue_powershell-invokeobfuscation.png)
 
+Now, take each of the encoding examples and send them through and AI platform of your choice.  What is the obfuscation and what is it doing?
 
 ***                                                                 
 <b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/DomainLogReview/DomainLogReview.md)</i></b>
