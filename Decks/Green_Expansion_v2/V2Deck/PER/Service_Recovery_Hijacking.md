@@ -61,13 +61,6 @@ Four challenges to test your understanding, from basic to advanced:
 - [Medium - Tracing the Execution Chain](ctfs/SRH_medium.md)
 - [Hard - Full Attack Reconstruction](ctfs/SRH_hard.md)
 
----
-
-## Labs
-
-Hands-on practice with the tool used in this technique:
-
-- [Windows Service Recovery Actions Lab](labs/windows-service-recovery-actions.md)
 
 ---
 
