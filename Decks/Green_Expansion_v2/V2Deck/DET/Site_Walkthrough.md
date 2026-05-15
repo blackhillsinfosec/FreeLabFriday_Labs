@@ -3,10 +3,6 @@
 
 
 
-
-
-# Site Walkthrough
-
 # Site Walkthrough
 
 A **site walkthrough** is when the defenders physically go to the location being investigated. They walk through the space, inspect hardware, check logs on-site, and look for anything that does not belong - things that a remote investigation would simply miss.
