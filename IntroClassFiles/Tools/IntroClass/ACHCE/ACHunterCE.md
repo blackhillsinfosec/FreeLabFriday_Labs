@@ -414,7 +414,7 @@ Now, surf to your **AC-Hunter system**!!!
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Lab](https://github.com/strandjs/IntroLabs/tree/master/IntroClassFiles/Tools/IntroClass/PoisoningtheWellIR-main)</i></b>
+<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/PoisoningtheWellIR-main/navigate.md)</i></b>
 
 <b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/FirewallLog/FirewallLog.md)</i></b>
 

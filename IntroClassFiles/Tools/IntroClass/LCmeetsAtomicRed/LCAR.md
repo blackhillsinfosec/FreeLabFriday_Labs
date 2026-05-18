@@ -1,6 +1,6 @@
 # Lima Charlie meets Atomic Red
 
-This is part 2 of a 2 part series. Please complete <a href="https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/limacharlie/limacharlie.md">Part 1</a> of this lab first
+This is part 2 of a 2 part series. Please complete [Part 1](/IntroClassFiles/Tools/IntroClass/limacharlie/limacharlie.md) of this lab first
 
 ---
 
@@ -21,7 +21,7 @@ Scroll down until you see the Atomic Red plugin. Click the **"ext-atomic-red-tea
 
 ![](attachments/AR.PNG)
 
-Take a minute to look at the different plugins and see the full capabillities and features Lima Charlie has to offer.
+Take a minute to look at the different plugins and see the full capabilities and features Lima Charlie has to offer.
 
 Locate the subscribe button on the right side of the page, and click **"Subscribe"**.
 
@@ -55,11 +55,11 @@ Then move over to the **"Detections"** tab on the left and start going through e
 
 There will be a lot of events.  Every single time the page is refreshed more attacks will appear.
 
-Looking through all of the logs and note the **cmd.exe** or **powershell** invokes are taking place. These are **(usually)** indications of something malicious occuring and needs to be examined further.
+Looking through all of the logs and note the **cmd.exe** or **powershell** invokes are taking place. These are **(usually)** indications of something malicious occurring and needs to be examined further.
 
 ![](attachments/DETECTED.PNG)
 
-Lima Charlie is an amazing tool because of its versatillity. It has an easy to use interface. It allows a user to dig deeper to see whats happening before, during, and after an attack. Its abillity to be used on small and large scale is a great feature. 
+Lima Charlie is an amazing tool because of its versatility. It has an easy to use interface. It allows a user to dig deeper to see whats happening before, during, and after an attack. Its ability to be used on small and large scale is a great feature. 
 
 Many plugins allow for different uses both small and large, and automating the difficult tasks.
 
