@@ -16,6 +16,18 @@ The goal is to show you how a system is very different to the network with a fir
 
 Remember, treat your internal network as hostile, because it is.
 
+**TEMPORARY FIX**
+**RUN THIS IN POWERSHELL**
+```ps
+New-NetFirewallRule -DisplayName "Block WSDAPI TCP 5357" `
+  -Direction Inbound `
+  -Protocol TCP `
+  -LocalPort 5357 `
+  -Action Block
+
+Get-NetFirewallRule -DisplayName "Block WSDAPI TCP 5357"
+```
+
 Let's get started by opening a command prompt terminal. You can do this by clicking the icon in the taskbar.
 
 

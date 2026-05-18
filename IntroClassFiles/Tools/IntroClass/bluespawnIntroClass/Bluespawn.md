@@ -192,17 +192,6 @@ You should be getting a lot of alerts with Bluespawn! Switch tabs in your Termin
 
 <br>
 
-Now, let’s go back to the PowerShell window and clean up:
-
-```ps
-Invoke-AtomicTest All -Cleanup
-```
-
-It should look like this:
-
-<img width="1093" height="444" alt="2026-03-26_10-06" src="https://github.com/user-attachments/assets/2dd53a33-3c40-4cf8-9d86-bb18c3bb7ec5" />
-
-
 # If you have more time
 
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:

@@ -19,13 +19,7 @@ Let's get started by opening **Windows Powershell**.
 Next, we need to navigate to the **IntroLabs** directory:
 
 ```ps
-cd \IntroLabs
-```
-
-Then, continue into the **DeepBlueCLI-master** directory:
-
-```ps
-cd .\DeepBlueCLI
+cd \IntroLabs\DeepBlueCLI
 ```
 
 Run the following command:
@@ -80,6 +74,7 @@ For fun, let’s look at how **DeepBlueCLI** detects various encoding tactics th
 
 ![](attachments/deepblue_powershell-invokeobfuscation.png)
 
+Now, take each of the encoding examples and send them through and AI platform of your choice.  What is the obfuscation and what is it doing?
 
 ***                                                                 
 <b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/DomainLogReview/DomainLogReview.md)</i></b>
