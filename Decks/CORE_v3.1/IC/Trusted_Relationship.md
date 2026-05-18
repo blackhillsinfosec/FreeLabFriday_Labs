@@ -1,7 +1,7 @@
 <img width="300" height="414" alt="BNB_CARDS_v3 1_6" src="https://github.com/user-attachments/assets/e5b4047c-db37-48b7-91e0-664282afa56c" />
 
 
-# Trusted Relationship
+# Compromised Trusted Relationship
 
 A **trusted relationship** issue happens when attackers abuse access that already exists between an organization and a third party - for example a vendor, contractor, or partner. Instead of breaking in directly, they use a trusted account or connection to enter the environment.
 
