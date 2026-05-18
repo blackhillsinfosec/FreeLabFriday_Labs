@@ -417,7 +417,7 @@ Now, surf to your **AC-Hunter system**!!!
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Lab](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/PingCastle.md)</i></b>
+<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/PingCastle.md)</i></b>
 
 <b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/WebTestingIntroClass/WebTesting.md)</i></b>
 
