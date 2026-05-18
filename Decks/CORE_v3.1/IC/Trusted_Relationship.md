@@ -1,4 +1,4 @@
-<img width="300" height="414" alt="BNB_CARDS_v3_06" src="https://github.com/user-attachments/assets/efcc4be1-88bb-4eb4-a5bf-03c1d2738385" />
+<img width="300" height="414" alt="BNB_CARDS_v3 1_6" src="https://github.com/user-attachments/assets/e5b4047c-db37-48b7-91e0-664282afa56c" />
 
 
 # Trusted Relationship
