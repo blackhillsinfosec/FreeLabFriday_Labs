@@ -169,3 +169,7 @@ Network Adapter -> IPv4 Properties -> Advanced -> WINS tab
 # Finished?
 
 [Back to Card's Main Page](/Decks/CORE_v3.1/PE/Broadcast-Multicast_Protocol_Poisoning.md)
+
+---
+
+> Created by Turcu-Stiolica Alexandru
