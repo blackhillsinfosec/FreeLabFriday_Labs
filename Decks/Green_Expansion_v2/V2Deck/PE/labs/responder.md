@@ -12,6 +12,8 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 # Responder
 
+# Both VMs
+
 In this lab we are going to walk through how quickly an attacker can take advantage of a common misconfiguration to gain access to a system via a **weak** password.
 
 Specifically, we are looking to take advantage of **"LLMNR"**.  
