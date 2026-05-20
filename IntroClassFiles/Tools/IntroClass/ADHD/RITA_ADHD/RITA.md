@@ -10,118 +10,77 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # RITA and AC Hunter
 
-In this lab, we are going to look at detecting command and control traffic on a network.
-
-We will be using **Real Intelligence Threat Analytics** (RITA) for this lab.
-
-To start we first need to open Windows File Explorer and navigate to the tools directory.
-
-First, open File Explorer:
-
-<img width="534" height="48" alt="OpenFileExplorer" src="https://github.com/user-attachments/assets/bd5ac519-825a-4921-bed6-3b8baf52a4b7" />
-
-Then, select the IntroLabs directory:
-
-![](attachments/rita_navintrolabs.png)
-
-Then, select rita-html-report:
-
-<img width="1116" height="535" alt="2026-02-23_15-18" src="https://github.com/user-attachments/assets/8a35fc63-ff0f-4cda-92fe-2d658131d050" />
-
-Then, select **index.html**:
-
-![](attachments/rita_navindex.png)
-
-Let’s select **VSAGENT-2017-3-15**.
-
-![](attachments/rita_vsagent.png)
-
-The tabs across the top allow you to review the output for all the different analysis modules of RITA.
-For **VSAgent** we will be focusing on **Beacons**, **Blacklisted** and **User Agents**.
-
-Please select the **Beacons** tab.
-
-![](attachments/rita_beaconview.png)
-
-Some backdoors have a very strong **“heartbeat”**. This is where a backdoor will constantly reconnect to get commands from an attacker at a specific interval. The interval consistency of the **“heartbeat”** is the TS score where a value of **1** is perfect. The top value in this set is the **VSAgent** communication. We will talk about the other connections in a few moments.
-
-We also have the number of connections. While some beacons have a **“strong”** heartbeat, they are very short in nature. Our VSAgent connection had a very large number of connections which had very strong intervals, while some of the others (e.g. the 64.4.54.253 addresses) had a strong **"heartbeat"**, but not as many connections. We will also talk about TS Duration. This is detecting how consistent each connection duration is. For example, if every connection is 2 seconds and there are 8000+ it would have a very strong **TS Duration** score.
-
-The other fields are statistical analysis fields showing things like mode range and skew.
-
-Now, lets navigate back to the first menu by clicking the **RITA** tab. 
-
-![](attachments/rita_rita.png)
-
-Then, select **DNSCat-2017-03-21**. We are going to review a backdoor which does not quite fit the same mold as **VSAgent**.
-
-![](attachments/rita_dnscat.png)
-
-This does not beacon back to a specific IP address, but rather it beacons through a DNS server. It is very crafty and will highlight how we can review the RAR compressed Bro logs used to generate the RITA data.
-
-We are going to jump right to the DNS tab. It gives us the clearest look at this backdoor.
-
-![](attachments/rita_dns.png)
-
-![](attachments/rita_dnsview.png)
-
-A couple of things should jump out at an investigator straight away. First, there were over 40K requests for **cat.nanobotninjas.com.** This is an absurd number for a specific domain. Sure, there are lots of requests for com and org and net and uk, but that is to be expected.
 
 Now, let's play with AC Hunter!
 
 Please go to 
 
-<pre>https://training.aihhosted.com/</pre>
+<pre>https://138.68.61.95/</pre>
 
 You might be prompted by a warning stating that your connection isn't private. This is **Okay**. 
 
-Simply click **Advanced** and then click **Continue to trainin.aihhosted.com**
+Simply click **Advanced** and then click **Continue**
 
-![](attachments/advanced.png)
+<img width="668" height="521" alt="advanced" src="https://github.com/user-attachments/assets/155e92e9-5a3d-4e38-942d-f622cbf99938" />
+
 
 The creds are:
 
-email = **training@blackhillsinfosec.com**
+demo@acm.re
 
-PW = **gotbeacons?**
+ThreatHuntAtMileHigh!
 
-![](attachments/rita_achunterlogin.png)
+<img width="632" height="459" alt="image" src="https://github.com/user-attachments/assets/9579c8cf-3f72-41b4-b548-e4b101e1deb8" />
 
-When logged in, you will be prompted to select a dataset. 
 
-Select **vsagent** and hit confirm.
+To load a dataset select one from the upper left corner 
 
-![](attachments/rita_datasetselection.png)
+Select **DNSCat2**.
 
->[!NOTE]
->
->If this is not what you see, select the house icon in the bottom left of your screen, followed by the gear in the upper right.
+<img width="257" height="299" alt="image" src="https://github.com/user-attachments/assets/7fb854c2-e0d2-44b0-8265-8afeb45f7186" />
 
-![](attachments/rita_wrongplace.png)
+
 
 This will open the overall scoring screen, as seen below. This screen allows you to see the systems that have the top scores across all areas from beacons to cyber deception.
 
-Please select **10.55.100.111**, then click on Beacon Score on the right.
+Please select **r-1x.com**.
 
-![](attachments/rita_selectingbeacon.png)
+<img width="884" height="155" alt="image" src="https://github.com/user-attachments/assets/b4b2f2d3-e175-46c5-b9d4-79d4f7494917" />
 
-This will open the beacon score for this system.
 
-![](attachments/rita_beaconscore.png)
+This will open the score for this system.
 
-Notice the **histogram** on the bottom and the scoring criteria in the middle. 
+<img width="1498" height="820" alt="image" src="https://github.com/user-attachments/assets/d4341e17-78fb-4eeb-bef6-5d0416cc2a56" />
 
-Notice how on the bottom you can see multiple aspects of this systems connections.  For example, you can see if there are any connections that had a threat intel hit, or if there are any connections that have beacons to a fully qualified domain.
+Now, click the back arrow in the upper left corner:
+
+<img width="189" height="64" alt="image" src="https://github.com/user-attachments/assets/778fc86d-1470-40b2-ae84-2cde7c5ebbd7" />
+
+THen select the asyncrat dataset:
+
+<img width="273" height="287" alt="image" src="https://github.com/user-attachments/assets/bf9e1460-96e1-4ee6-aab7-dcd7a194d9fd" />
+
+Now select the top row:
+
+<img width="1051" height="142" alt="image" src="https://github.com/user-attachments/assets/e6044cf6-b6f6-4bc5-811c-9579f2b17941" />
+
+
+Notice the **histogram** on the right and the scoring criteria in the middle. 
+
+<img width="564" height="390" alt="image" src="https://github.com/user-attachments/assets/fcdc9a73-614f-48d8-8767-01864ed52d1b" />
+
 
 Now, using **AC Hunter**, answer the following questions:
 
-1. In the winlab-agent dataset, what is the connection interval for 10.10.98.30?
+1. In the asyncrat dataset, what is the connection interval for 192.168.100.136? What is the dispersion?  What can the dispersion tell us?
 
-2. In the gcat dataset, what is the historic fqdn for the beacon on 10.55.100.111?
+2. In the XenoRAT dataset, what is the the connection interval for 172.208.51.75? How is that different from the asyncrat C2?
 
-3. For the dnscat2-ja3-strobe-agent dataset, what domain has the highest lookup count?
-4. Who is doing the lookups?
+3. For the dnscat2 dataset, what domain has the highest lookup count? Who is doing the lookups? What does the DNS Lookups look like? Why is there "random" strings in the lookups?
 
+4. In the whattime dataset what is the FQDN for the C2 server?  What does the interval look like? Why would an attacker use a domain like this?
+
+5. In the fiestac2 dataset what is the issues with the MIME data for 68.183.138.51?  Also, what is the issue with the user agent strings? *Hint* hover over the i for more information.
 
 ***                                                                 
 
