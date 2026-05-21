@@ -30,7 +30,7 @@ If you want to dive a bit deeper, check the [Wazuh Documentation](https://github
 In this lab, we are simulating a multi-stage incident. The Windows VM represents a corporate workstation, and the Ubuntu VM represents an internal database/web server.
 We will connect both machines (with *Wazuh Agents* Installed) to a *Wazuh Manager* instance that we'll run in an *AWS EC2*.
 
- - *The Attack:* We will simulate an attacker downloading a known malicious payload on the Windows endpoint. Simultaneously, we will simulate an attacker who has gained SSH access to the Ubuntu server and is modifying a highly sensitive configuration file to establish a backdoor.
+ - *The Attack:* We will simulate an attacker clearing system logs on the Windows endpoint. Simultaneously, we will simulate an attacker who has gained SSH access to the Ubuntu server and is modifying a highly sensitive configuration file to establish a backdoor.
 
  - *The Defense:* We will switch to the Blue Team perspective, log into the Wazuh Manager Dashboard, and hunt down these specific Indicators of Compromise (IoCs).
 
@@ -218,7 +218,7 @@ First, we need to deploy the Wazuh Agents to our endpoints so they can start for
 <img width="741" height="380" alt="image" src="https://github.com/user-attachments/assets/1e74c97a-53bc-4340-9e2a-a7987b8e23c8" />
 
 - Select **Windows**, input your EC2 Public IP as the server address and copy the generated PowerShell command:
-- 
+  
 <img width="942" height="829" alt="image" src="https://github.com/user-attachments/assets/328cb46c-3354-4328-8daa-a5a82c1b85a9" />
 <img width="938" height="766" alt="image" src="https://github.com/user-attachments/assets/d64659eb-d95a-4851-acbb-1a071eff2e02" />
 <img width="966" height="217" alt="image" src="https://github.com/user-attachments/assets/9654c5e1-3815-4ef2-baaf-f40805a4ea82" />
@@ -286,44 +286,25 @@ sudo systemctl restart wazuh-agent
 <img width="946" height="178" alt="image" src="https://github.com/user-attachments/assets/b675590b-753d-4946-bc89-d061eb578939" />
 
 
-- Now on to the Windows VM. Open up *Powershell* and let's modify the agent's configuration so that it checks the Desktop in real time, instead of every 12 hours (*which is the default*). 
-
-```powershell 
-notepad "C:\Program Files (x86)\ossec-agent\ossec.conf"
-```
-
-- Notepad will open up. Scroll down, under "File integrity monitoring", under the line that contains the text "%PROGRAMDATA%", insert the following line: 
-
-```
-<directories check_all="yes" realtime="yes">C:\Users\Administrator\Desktop</directories>
-```
-
-<img width="1259" height="992" alt="image" src="https://github.com/user-attachments/assets/35d9f634-7ed1-4cc6-bb3f-4d3f8a042582" />
-
-- Press **File** and save.
-
-<img width="548" height="317" alt="image" src="https://github.com/user-attachments/assets/c1f430af-75e2-4fd9-ade3-7d5c505da3ef" />
-
--  We now need to refresh the **Wazuh agent**. In powershell, type:
-
-```Powershell
-Restart-Service WazuhSvc
-```
-
 
 ## Phase 3: Execution (Simulating the Attack)
 Now we play the role of the attacker on both machines.
 
-### Attack 1: Malware Drop on Windows
+#### Attack 1: Security Log Wipe on Windows
 
-The attacker manages to execute a script on the Windows endpoint that downloads a malicious payload. We will simulate this using the standard EICAR test file (a harmless file flagged as malware by all security vendors).
+To hide their tracks, attackers often clear Windows Event Logs immediately after compromising a system. This technique, known as *Defense Evasion*, is a massive red flag for any Blue Team. We will simulate this by completely wiping the local Security logs on the Windows endpoint.
 
-- Open your Windows PowerShell and run:
+- Open your **Windows PowerShell** (ensure you are running it as Administrator) and execute the following command:
 
-```Powershell
-Invoke-WebRequest -Uri "https://secure.eicar.org/eicar.com" -OutFile "$env:USERPROFILE\Desktop\malware_payload.exe"
+```powershell
+Clear-EventLog -LogName Security
 ```
-<img width="1203" height="114" alt="image" src="https://github.com/user-attachments/assets/538c36ab-24ab-4cf8-893d-33b7149fafac" />
+
+>[!NOTE]
+>Clearing the event logs interacts directly with the core Windows auditing system. Although the attacker's goal is to delete historical data, the action of clearing the log generates a final, un-erasable system event (Event ID >1102) stating that the audit log was cleared. Wazuh monitors this natively and will immediately trigger a critical alert.
+
+
+---
 
 ### Attack 2: Backdoor Configuration on Ubuntu
 
@@ -350,11 +331,17 @@ The attacks are complete. Now, switch to your Google Chrome browser on Windows a
 
 - Go to *Threat Hunting*: 
 
-<img width="933" height="838" alt="image" src="https://github.com/user-attachments/assets/857705c7-3102-4810-a2e1-63db3d4bc2e8" />
+<img width="836" height="475" alt="image" src="https://github.com/user-attachments/assets/6479e772-a420-4b4b-ab0b-942327b9560a" />
 
-- 
+- You will the log wipe show up in the **Top 5 Alerts** section: 
 
-Look for alerts labeled with Rule: 554 or mentions of malicious files. You will clearly see an alert showing that a known threat (EICAR) was created on the Desktop.
+<img width="1096" height="803" alt="image" src="https://github.com/user-attachments/assets/94a516a2-0b01-450b-8b92-6519d1de13c6" />
+
+- Hovering above the alert will show more data about the findings : 
+
+<img width="648" height="428" alt="image" src="https://github.com/user-attachments/assets/3b64a52b-0cde-4788-a052-55e976121224" />
+
+**We've detected the system log wipe.**
 
 **Hunting the Ubuntu FIM Violation:**
 - Navigate to the **File Integrity Monitoring** under **Endpoint security**:
