@@ -153,7 +153,7 @@ python3 credmaster.py \
 
 Watch **both perspectives** as it runs:
 
-**Attacker terminal** - CredMaster will find multiple hits since 15 accounts all share the weak passwords:
+**Attacker terminal** - CredMaster will find multiple hits since 5 accounts share weak passwords:
 
 <img width="1067" height="862" alt="2026-04-10_13-21" src="https://github.com/user-attachments/assets/a3626ff1-6c82-4e03-9227-3716a2d18792" />
 
@@ -177,7 +177,9 @@ After the run completes, check what CredMaster saved:
 cat ~/BnB/credMaster/CredMaster/credmaster-success.txt
 ```
 
-You should see all 15 compromised accounts listed
+You should see all 5 compromised accounts listed
+
+<img width="152" height="82" alt="image" src="https://github.com/user-attachments/assets/b387e261-c5ac-462b-bd4e-8c18606c97ae" />
 
 View the complete log:
 
