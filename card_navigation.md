@@ -56,6 +56,7 @@
 - [Cloud Event Log Analysis](/Decks/CORE_v3.1/DET/Cloud_Event_Log_Analysis.md)
 - [Permissions Audit](/Decks/CORE_v3.1/DET/Permissions_Audit.md)
 
+---
 
 # Green Expansion Deck V2
 
@@ -85,8 +86,56 @@
 - [Service Recovery Hijacking](/Decks/Green_Expansion_v2/V2Deck/PER/Service_Recovery_Hijacking.md)
 - [Startup Registry Injection](/Decks/Green_Expansion_v2/V2Deck/PER/Startup_Registry_Injection.md)
 
-
-
 ## Detection
 - [Physical Security Review](/Decks/Green_Expansion_v2/V2Deck/DET/Physical_Security_Review.md)
 - [Site Walkthrough](/Decks/Green_Expansion_v2/V2Deck/DET/Site_Walkthrough.md)
+
+---
+
+```
+UNDER MAINTENECE VVV
+```
+
+# Cloud Security Expansion
+
+## Initial Compromise
+- [Cloud Service Password Spray](/Decks/Cloud_Security/IC/Cloud_Service_Password_Spray.md)
+- [Malicious OAuth Application](/Decks/Cloud_Security/IC/Malicious_OAuth_Application.md)
+- [Misconfigured MFA](/Decks/Cloud_Security/IC/Misconfigured_MFA.md)
+- [Cloud Service Provider Vulnerability](/Decks/Cloud_Security/IC/Cloud_Service_Provider_Vulnerability.md)
+- [Out-of-Band Phish](/Decks/Cloud_Security/IC/Out-of-Band_Phish.md)
+- [Credentials Posted Publicly In A Code Repository](/Decks/Cloud_Security/IC/Credentials_Posted_Publicly_In_A_Code_Repository.md)
+- [Public Storage Bucket Exposed](/Decks/Cloud_Security/IC/Public_Storage_Bucket_Exposed.md)
+
+
+
+## Pivot & Escalate
+- [Search and Pillage Email](/Decks/Cloud_Security/PE/Search_and_Pillage_Email.md)
+- [Query of Cloud APIs](/Decks/Cloud_Security/PE/Query_of_Cloud_APIs.md)
+- [Misconfigured Container Image Compromise](/Decks/Cloud_Security/PE/Misconfigured_Container_Image_Compromise.md)
+- [Credentials Exposed in Environment Variables](/Decks/Cloud_Security/PE/Credentials_Exposed_in_Environment_Variables.md)
+- [Instance Metadata Service (IMDS) Access](/Decks/Cloud_Security/PE/Instance_Metadata_Service_Access.md)
+- [Credential Store Compromise](/Decks/Cloud_Security/PE/Credential_Store_Compromise.md)
+- [Identity and Access Management (IAM) Policy Abuse](/Decks/Cloud_Security/PE/Identity_and_Access_Management_Policy_Abuse.md)
+- [Malicious File Upload to Shared File Service](/Decks/Cloud_Security/PE/Malicious_File_Upload_to_Shared_File_Service.md)
+
+
+## C2 & Exfil
+- [Create Inbox Rule to Forward Emails](/Decks/Cloud_Security/C2E/Create_Inbox_Rule_to_Forward_Emails.md)
+- [Virtual Machine Access via Web Portal](/Decks/Cloud_Security/C2E/Virtual_Machine_Access_via_Web_Portal.md)
+- [Malicious Serverless Function](/Decks/Cloud_Security/C2E/Malicious_Serverless_Function)
+
+
+## Persistence
+- [MFA Bypass: App Password Creation](/Decks/Cloud_Security/PER/MFA_Bypass-App_Password_Creation.md)
+- [Backdoored Container Image](/Decks/Cloud_Security/PER/Backdoored_Container_Image.md)
+- [Secondary Access Key Creation](/Decks/Cloud_Security/PER/Secondary_Access_Key_Creation.md)
+- [Cross-Tenant Access](/Decks/Cloud_Security/PER/Cross-Tenant_Access.md)
+
+## Detection
+- [Cloud Event Log Analysis](/Decks/Cloud_Security/DET/Cloud_Event_Log_Analysis.md)
+- [Permissions Audit](/Decks/Cloud_Security/DET/Permissions_Audit.md)
+
+
+
+
