@@ -40,7 +40,7 @@ We will connect both machines (with *Wazuh Agents* Installed) to a *Wazuh Manage
 ---
 
 ## Wazuh Manager and AWS setup 
-.
+
 **!!!** -> You will need an AWS *Free Tier Account*. If you want the step by step instructions for that, check [Phase 1 of the ScoutSuite Lab](https://github.com/blackhillsinfosec/FreeLabFriday_Labs/blob/main/Decks/CORE_v3.1/IC/labs/scoutsuite.md). 
 
 - Once you have the account set up, log in and let's make some **key pairs** for the EC2. Navigate to the **EC2 Dashboard**:
