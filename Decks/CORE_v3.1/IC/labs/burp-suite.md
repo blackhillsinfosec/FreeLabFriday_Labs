@@ -168,25 +168,38 @@ Click any row to see the **full request/response pair**. You can see exactly wha
 
 1. In **HTTP history**, find your `POST /rest/user/login` request.
 2. Right-click it -> **Send to Repeater**.
-3. Click the **Repeater** tab at the top.
+
+<img width="985" height="708" alt="image" src="https://github.com/user-attachments/assets/f0bc381f-6222-4fcb-bfbc-e5d8566af9ab" />
+
+4. Click the **Repeater** tab at the top.
 
 You now see the request on the left, an empty response panel on the right.
 
 Try this classic SQL-injection-style payload - change the JSON body to:
+
 ```json
-{"email":"' OR 1=1--","password":"anything"}
+{
+  "email": "' OR 1=1--",
+  "password": "anything"
+}
 ```
-Click **Send**.
+
+**Click Send**.
 
 Look at the response. If you see something like `HTTP/1.1 200 OK` with a JSON body containing `authentication` and a token, **you just logged in as admin without knowing the password**. Juice Shop's login is vulnerable to a simple SQL injection in the email field.
 
+<img width="1367" height="848" alt="image" src="https://github.com/user-attachments/assets/3c92500c-3b45-4add-adf8-dea00e8a092c" />
+
 Try another payload to see how the response changes:
 ```json
-{"email":"admin@juice-sh.op","password":"anything"}
+{
+  "email": "admin@juice-sh.op",
+  "password": "anything"
+}
 ```
 This one fails (no SQLi this time) - compare the responses. That comparison-by-eye is the core skill Repeater builds.
 
-*(Insert screenshot of successful SQLi response in Repeater)*
+<img width="1186" height="451" alt="image" src="https://github.com/user-attachments/assets/0dca5923-ed30-477a-a259-ba506404560f" />
 
 ---
 
@@ -201,13 +214,15 @@ YWRtaW5AanVpY2Utc2gub3A6YWRtaW4xMjM=
 ```
 3. On the right, click **Decode as... -> Base64**.
 
+<img width="1732" height="431" alt="image" src="https://github.com/user-attachments/assets/f18b9b55-4315-431e-a10c-0d47d2a5a1e4" />
+
 You should see the decoded value (a fake `email:password` pair). Now try the reverse:
 - Type your name in a fresh Decoder pane.
 - Click **Encode as... -> Base64**, then **Encode as... -> URL**.
 
 This is exactly what you'll do dozens of times in real testing - credentials, JWT payloads, and hidden parameters all live in encoded form.
 
-*(Insert screenshot of Decoder with Base64 decode)*
+<img width="1728" height="374" alt="image" src="https://github.com/user-attachments/assets/b8af873d-ffae-4747-a270-f7ba7ea0c2d3" />
 
 ---
 
@@ -215,14 +230,17 @@ This is exactly what you'll do dozens of times in real testing - credentials, JW
 
 When two responses *almost* match, Comparer shows you exactly what changed.
 
-1. Go back to **Repeater**. Send two different login attempts (e.g. one valid email, one invalid).
-2. Right-click the first response -> **Send to Comparer (response)**.
-3. Right-click the second response -> **Send to Comparer (response)**.
-4. Click the **Comparer** tab -> select both items -> click **Words** (bottom right).
+1. Go back to **Repeater**. Send two different login attempts (e.g. one valid email, one invalid). Right-click each of them -> **Send to Comparer (response)**.
+
+<img width="1352" height="786" alt="image" src="https://github.com/user-attachments/assets/6a07bbe9-2d08-4aed-a456-ff34c389baf6" />
+ 
+<img width="1424" height="820" alt="image" src="https://github.com/user-attachments/assets/b3fe9be3-a73d-4821-b45e-05848eb5e958" />
+
+2. Click the **Comparer** tab -> select both items -> click **Words** (bottom right).
 
 You'll get a side-by-side colored diff. Useful for spotting things like a single header changing on a successful auth, or a different error message hinting at user enumeration.
 
-*(Insert screenshot of Comparer diff view)*
+<img width="1733" height="960" alt="image" src="https://github.com/user-attachments/assets/b375dfc5-fdd8-41da-af9b-bf56b0cddd3a" />
 
 ---
 
