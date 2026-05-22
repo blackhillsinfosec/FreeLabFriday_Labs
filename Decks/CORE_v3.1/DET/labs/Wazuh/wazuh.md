@@ -355,21 +355,36 @@ The attacks are complete. Now, switch to your Google Chrome browser on Windows a
 Wazuh will show you the exact timestamp, the user who made the change (root, via sudo), and even the hash differences before and after the attack.
 
 ## Cleanup
-Let's clean up the environment so no alerts continue to trigger.
 
-- On the Windows VM: Delete the fake malware payload from your Desktop.
+Since this lab relies on cloud infrastructure that incurs hourly costs, it is **critical** to properly destroy your environment once you have finished analyzing the alerts. 
 
-```
-Remove-Item "$env:USERPROFILE\Desktop\malware_payload.exe" -ErrorAction SilentlyContinue
-```
-On the Ubuntu VM: Delete the fake sensitive directory.
+>[!IMPORTANT]
+>Do not forget to destroy the lab environment once you're done.
 
-```
-sudo rm -rf /var/www/html/secure_portal
-```
-(Optional) If you want to free up space and remove the Wazuh agents completely, you can uninstall them via appwiz.cpl on Windows and sudo apt remove wazuh-agent on Ubuntu.
+### AWS Infrastructure Cleanup (CRITICAL)
+The Wazuh Manager was deployed on a large EC2 instance. If you leave this running, it will rapidly consume your AWS Free Tier limits and generate real-world charges. To properly destroy the server, we must delete the CloudFormation stack, which will automatically terminate the EC2 instance attached to it:
+
+- In your browser, navigate back to the AWS CloudFormation Console.
+
+- Select the Wazuh-server stack you created at the beginning of the lab.
+
+- Click the Delete button at the top right, then confirm by clicking Delete stack.
+
+<img width="1646" height="573" alt="image" src="https://github.com/user-attachments/assets/59555a7b-f3d7-4b74-a1d3-8098df004dbf" />
+
+>[!IMPORTANT]
+> Verification: To ensure you don't get billed, navigate to your EC2 Dashboard -> Instances. You should see your Wazuh instance state change to Shutting-down and eventually Terminated. Once it says terminated, AWS has stopped billing you for that compute time.
+
+(Optional) Clean up the SSH Key:
+
+1. In the EC2 Dashboard, scroll down on the left menu to Key Pairs.
+
+2. Select your wazuh-key (or whatever you named it) and select Actions -> Delete.
+
+3. You can now safely delete the .pem file from your personal computer's Downloads folder.
 
 ## Conclusion
-In this lab, you successfully deployed an enterprise-grade SIEM/XDR architecture using a cloud-hosted Wazuh Manager on AWS EC2. You learned how to configure File Integrity Monitoring (FIM) to protect sensitive server configurations over an SSH connection, and you simulated a malware infection on a Windows endpoint. Most importantly, you navigated the Wazuh Dashboard to perform threat hunting, proving that centralized logging is essential for detecting multi-vector attacks across different operating systems.
+In this lab, you successfully deployed an enterprise-grade SIEM/XDR architecture using a cloud-hosted Wazuh Manager on AWS EC2. You learned how to configure File Integrity Monitoring (FIM) to protect sensitive server configurations on a Linux machine, and you simulated a Defense Evasion attack (Log Clearing) on a Windows endpoint. Most importantly, you navigated the Wazuh Dashboard to perform threat hunting, proving that centralized logging is absolutely essential for detecting multi-vector attacks across different operating systems.
 
-Finished?
+# Finished?
+[Back to Card's Main Page](https://github.com/blackhillsinfosec/FreeLabFriday_Labs/blob/main/Decks/CORE_v3.1/DET/Cloud_Event_Log_Analysis.md)
