@@ -68,29 +68,35 @@ Open `http://localhost:3000` in any browser to verify the site loads
 
 <img width="1916" height="943" alt="image" src="https://github.com/user-attachments/assets/b6baa41a-3a84-4a85-856b-34432f291a6b" />
 
+Once you have verified that the site loads, **you can close this browser**.
+
 ---
 
-## Part 3 - Use Burp's built-in browser (the easy path)
+## Part 3 - Configure Firefox & FoxyProxy
 
-Go back to **Burp Suite**
+There are two ways to intercept the trafic from *localhost* : **Chromium** or  **Firefox with FoxyProxy**. Chromium is the *built in browser for BurpSuite*, normally we'd use it for convenience, but since the actual interaction with **Burp** is the 
+exact same, we'll use **FoxyProxy** to intercept the packets. 
 
-Burp Community ships a pre-configured Chromium browser. Using it means you **don't** have to install Burp's CA certificate or fiddle with proxy settings - those are pre-set
+### Step 1: Activate FoxyProxy
+1. In Firefox, click the **FoxyProxy icon** (the fox head) in the top-right corner of Firefox.
+2. Select the **burp** profile. **All traffic is now routed through Burp Suite.**
 
-In Burp:
-1. Click the **Proxy** tab (top)
-2. Click the **Open browser** button. A new Chromium window opens ( it can take a while, be patient )
+<img width="393" height="427" alt="image" src="https://github.com/user-attachments/assets/934b91d7-98a2-45a5-8e20-0de54bba0eeb" />
 
-<img width="1908" height="351" alt="image" src="https://github.com/user-attachments/assets/e66a2ee7-bba3-4945-985f-8dadc1e244f5" />
+### Step 2: Prepare Burp Suite
+1. Go back to **Burp Suite**.
+2. Click the **Proxy** tab, then ensure **Intercept is off** (the button should be grey/disabled for now so it doesn't freeze your background traffic).
+3. Switch to the **HTTP history** tab next to it. This is your traffic log.
 
+<img width="1737" height="432" alt="image" src="https://github.com/user-attachments/assets/7f7a3437-9561-4573-97e3-00a7b33dcf91" />
 
-3. In that browser, navigate to:
+4. Back in FireFox, navigate to:
+
 ```
 http://localhost:3000
 ```
 
 You should see Juice Shop. From now on, **always use this browser** for the lab - it's the one Burp can see
-
-*(Insert screenshot of "Open browser" button highlighted)*
 
 ---
 
@@ -98,12 +104,21 @@ You should see Juice Shop. From now on, **always use this browser** for the lab 
 
 This is the canonical Burp move: pause a request mid-flight, change it, then let it through.
 
-1. In Burp, go to **Proxy -> Intercept**.
-2. Click **Intercept is off** so it toggles to **Intercept is on**.
-3. In Burp's browser, on the Juice Shop site, click anywhere - for example, click the **Account** menu, then **Login**.
-4. Type any email and password (e.g. `test@test.com` / `wrongpass`) and click **Log in**.
+1. In Firefox on the **Burp** profile, on the Juice Shop site, click anywhere - for example, click the **Account** menu, then **Login**.
 
-The browser will appear to hang. That's because Burp is holding the request. Switch to Burp - you'll see the raw HTTP request:
+<img width="423" height="292" alt="image" src="https://github.com/user-attachments/assets/e2679bff-5b1f-4650-9d03-2d9c4fe0c673" />
+
+2. Type any email and password (e.g. `test@test.com` / `wrongpass`) in the input field. **Do not click LOGIN yet**.
+3. In Burp, go to **Proxy -> Intercept**.
+4. Click **Intercept is off** so it toggles to **Intercept is on**.
+5. Go back to Firefox and click **Log In**. **It should be fairly visible that the site appears to lag a bit before responding. It is just Burp Intercepting the traffic**
+6. Check *BurpSuite*, there should be a *POST* packet visible that was intercepted.
+
+<img width="1734" height="960" alt="image" src="https://github.com/user-attachments/assets/9500677e-12e4-4363-970d-f6737b4bd9ab" />
+
+<img width="1728" height="407" alt="image" src="https://github.com/user-attachments/assets/04aabda7-57d5-4463-886e-586ed3f9f942" />
+
+8. Click on the request and scroll down to see details. The **HTTP Request** should look like this : 
 
 ```
 POST /rest/user/login HTTP/1.1
@@ -111,16 +126,19 @@ Host: localhost:3000
 ...
 {"email":"test@test.com","password":"wrongpass"}
 ```
+<img width="916" height="455" alt="image" src="https://github.com/user-attachments/assets/456f1b59-9905-4b35-8719-caca1ea72dce" />
 
 Now **modify it before forwarding**. Change the password to something else, e.g.:
 ```
 {"email":"test@test.com","password":"hacked"}
 ```
+<img width="767" height="333" alt="image" src="https://github.com/user-attachments/assets/bf3314da-ef98-4e32-bfca-1db9a758088d" />
+
 Click **Forward**. The (modified) request hits the server. The server still rejects it (wrong creds), but you just demonstrated full request control.
 
-Toggle **Intercept is off** when you're done so the browser stops hanging on every click.
+<img width="955" height="847" alt="image" src="https://github.com/user-attachments/assets/9b543ecf-59d5-4a68-a83c-bca85bcc3e5f" />
 
-*(Insert screenshot of intercepted request in Burp)*
+Toggle **Intercept is off** when you're done so the browser stops hanging on every click.
 
 ---
 
@@ -129,12 +147,18 @@ Toggle **Intercept is off** when you're done so the browser stops hanging on eve
 Even when intercept is **off**, Burp logs everything that passed through.
 
 1. Go to **Proxy -> HTTP history**.
-2. Browse Juice Shop normally for 30 seconds - click around products, add things to a cart.
+2. Browse Juice Shop normally for 30 seconds - click around products, go to other pages on the site, read reviews, etc.
 3. Watch the history table populate.
 
-Click any row to see the **full request/response pair**. Try filtering - for example, type `login` in the filter bar to find your earlier login attempt.
+Click any row to see the **full request/response pair**. You can see exactly what you modified and where : 
 
-*(Insert screenshot of HTTP history populated)*
+<img width="1734" height="808" alt="image" src="https://github.com/user-attachments/assets/87c8683d-7738-4ad7-a3ad-aa85a6699798" />
+
+>[!NOTE]
+>Try filtering - for example, type `login` in the filter bar to find your earlier login attempt without scrolling to see what you've modified.
+>Click on **Filter Settings** and input **Login** in the **Filter by search term** field.
+
+<img width="1723" height="880" alt="image" src="https://github.com/user-attachments/assets/db5edd1f-9a89-4133-9a7f-641959431543" />
 
 ---
 
