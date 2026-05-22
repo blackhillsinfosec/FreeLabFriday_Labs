@@ -250,13 +250,16 @@ You'll get a side-by-side colored diff. Useful for spotting things like a single
 
 > 🔴 **Heads up:** In Burp Suite **Community**, Intruder runs at a heavily throttled rate (intentionally slowed by PortSwigger to push you to Pro). It still works for learning purposes - it'll just be slow.
 
-1. From **HTTP history**, find a `POST /rest/user/login` request.
+1. From **HTTP history**, find the `POST /rest/user/login` request.
 2. Right-click -> **Send to Intruder**.
 3. Open the **Intruder** tab -> **Positions** sub-tab.
 4. Burp auto-marks "insertion points" with `§` symbols. Click **Clear §** to remove them.
 5. Highlight just the password value in the body - for example highlight `anything` in `"password":"anything"` - then click **Add §**. Now only the password is a payload position.
+
+<img width="1221" height="738" alt="image" src="https://github.com/user-attachments/assets/4eed69e0-dea6-4e5b-8d3f-8cee554aed99" />
+
 6. Switch to the **Payloads** sub-tab.
-7. Under **Payload settings**, paste a few candidate passwords, one per line:
+7. Under **Payload configuration**, paste a few candidate passwords, one per line:
 ```
 admin
 admin123
@@ -266,9 +269,11 @@ letmein
 ```
 8. Click **Start attack**.
 
-A new window opens, firing one request per password. Sort the results table by **Length** - successful logins typically have a different response length than failures. That's how you spot a hit in a sea of attempts.
+<img width="1695" height="710" alt="image" src="https://github.com/user-attachments/assets/e2936e61-2deb-422f-ae4c-d03615b367e7" />
 
-*(Insert screenshot of Intruder results sorted by length)*
+A new window opens, firing one request per password. Successful logins typically have a different response length than failures. That's how you spot a hit in a sea of attempts.
+
+<img width="1635" height="462" alt="image" src="https://github.com/user-attachments/assets/92e2c24e-2159-4e58-ac4b-59fd287e4d65" />
 
 ---
 
