@@ -179,7 +179,7 @@ As we can see, we have a simple dashboard that is accessible only with a valid s
 
 ![image](./attachments/img11.png)
 
-Indeed, if we open the developer tools and navigate to the `Storage` panel, we will see under the `Cookies` field our session cookie with the name `training_session`.
+Indeed, if we open the developer tools and navigate to the `Storage` panel, we will see under the `Cookies` tab our session cookie with the name `training_session`.
 
 ![image](./attachments/img12.png)
 
@@ -363,9 +363,9 @@ Now we have a phishing link. Let's open it in the browser.
 
 ### Accessing The Lure
 
-Open a new tab in the broser and access the generated URL.
+Open a new tab in the browser and access the generated URL.
 
-Again we have the same warning due to the self-signed certificate. Press `Advanced` and `Proceed to official.cloudservice.com (Risky)`.
+Again, we have the same warning due to the self-signed certificate. Press `Advanced` and `Proceed to official.cloudservice.com (Risky)`.
 
 ![image](./attachments/img28.png)
 
@@ -375,17 +375,17 @@ Now we are at the phishing login page.
 
 ![image](./attachments/img30.png)
 
-As we can see this our phishing domain `official.cloudservice.com` and the original one `cloudservice.com`!
+As we can see, this is our phishing domain `official.cloudservice.com` and the original one `cloudservice.com`!
 
-We will put again our credentials from the account we created at the legitimate website and login.
+We will put our credentials again from the account we created at the legitimate website and log in.
 
 ![image](./attachments/img31.png)
 
-Like before we see our dashboard, seems that's nothing happened...
+Like before, we see our dashboard, it seems that nothing has happened...
 
 ![image](./attachments/img32.png)
 
-But if we go back to the Evilginx we will see that we have capture the credentials and a session token.
+But if we go back to the Evilginx, we will see that we have captured the credentials and a session token.
 
 ![image](./attachments/img33.png)
 
@@ -397,9 +397,9 @@ sessions
 
 ![image](./attachments/img34.png)
 
-This ensure us that we have capture the user's credentials and the session token.
+This ensures that we have captured the user's credentials and the session token.
 
-To see more detailed informations about this session execute the following command:
+To see more detailed information about this session, execute the following command:
 
 ```bash
 sessions <session_ID>
@@ -411,7 +411,7 @@ In our case:
 sessions 1
 ```
 
-We can observe that there are much more informations, between them and the session token. That means, we can connect to the dashboard without providing the credentials!
+We can observe that there is much more information. Between them and the session token. That means, we can connect to the dashboard without providing the credentials!
 
 ![image](./attachments/img35.png)
 
@@ -433,7 +433,7 @@ Go back to the original website.
 
 ![image](./attachments/img36.png)
 
-Open the dev tools and go at the `Storage` panel under the `Cookies` tab.
+Open the dev tools and go to the `Storage` panel under the `Cookies` tab.
 
 ![image](./attachments/img37.png)
 
@@ -444,9 +444,9 @@ Then press the plus button to add a new cookie and add the captured one. Use the
 
 >[!Note]
 >
->Your session token value will be different, use yours!
+>Your session token value will be different. Use yours!
 
-After creating the session token access the dashboard:
+After creating the session token, access the dashboard:
 
 ```
 https://cloudservice.com/dashboard
@@ -456,7 +456,7 @@ https://cloudservice.com/dashboard
 
 >[!Note]
 >
->The session token expires after 30 minutes! If expires, just login again from the phishing login page.
+>The session token expires after 30 minutes! If it expires, just log in again from the phishing login page.
 
 We logged in without the credentials at the original website!
 
