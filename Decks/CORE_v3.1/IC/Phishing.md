@@ -60,7 +60,9 @@ You will solve four phishing-related challenges:
 - [Easy 1 – Fake Login Page](ctfs/phish_easy-1.md)  
 - [Easy 2 – Suspicious Email Analysis](ctfs/phish_easy-2.md)  
 - [Medium – Credential Harvesting Campaign](ctfs/phish_medium.md)  
-- [Hard – Phish to Network Access](ctfs/phish_hard.md)  
+- [Hard – Phish to Network Access](ctfs/phish_hard.md)
+
+- [Test - CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/initial-compromise/phishing?client=bb-box-panorama&page=2)
 
 ---
 
