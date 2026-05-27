@@ -71,7 +71,7 @@ You will solve four phishing-related challenges:
 Hands-on labs using real phishing tools:
 
 - [Modlishka Lab](labs/Evilginx.md)
-- [Evilginx Lab](labs/Evilginx.md)  
+- [Evilginx Lab](labs/Evilginx/Evilginx.md)  
 - [Gophish Lab](labs/GoPhish.md)  
 - [Social Engineer Toolkit (SET) Lab](labs/SocialEngineerToolkit.md)  
 
