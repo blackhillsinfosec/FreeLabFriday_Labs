@@ -109,6 +109,10 @@ Session tokens are the most important part because if an attacker captures them,
 
 For the lab demonstration, we will use a custom website hosted on a docker.
 
+```bash
+cd ~/BnB/evilginx/evilginx_lab/
+```
+
 Run the docker:
 
 ```bash
