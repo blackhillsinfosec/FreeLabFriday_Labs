@@ -60,13 +60,20 @@ Detection is hard. That's the whole point of this technique. But it's not imposs
 
 ## CTF Challenges
 
-Test what you know with four scenarios built around HTTPS exfiltration:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/c2-exfiltration/https-as-exfil?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Spot the Beacon](ctfs/HE_easy-1.md)
 - [Easy 2 – Log Pattern Analysis](ctfs/HE_easy-2.md)
 - [Medium – C2 Traffic Investigation](ctfs/HE_medium.md)
 - [Hard – Full Exfil Hunt](ctfs/HE_hard.md)
-
+-->
 ---
 
 ## Labs

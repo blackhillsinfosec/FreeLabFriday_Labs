@@ -70,13 +70,20 @@ The tools listed on this card all help you do one or more of these things.
 
 ## CTF Challenges
 
-Put it into practice:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/cloud-event-log-analysis?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Suspicious Login](ctfs/CELA_easy-1.md)
 - [Easy 2 – Noisy API](ctfs/CELA_easy-2.md)
 - [Medium – Privilege Escalation Trail](ctfs/CELA_medium.md)
 - [Hard – Full Cloud Intrusion](ctfs/CELA_hard.md)
-
+-->
 ---
 
 ## Labs

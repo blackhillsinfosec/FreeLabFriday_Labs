@@ -54,13 +54,20 @@ The objective is observation and detection — not retaliation.
 
 ## CTF Challenges
 
-You will complete four challenges that introduce deception and active defense concepts:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/active-defense-and-cyber-deception?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – First Interaction with a Decoy](ctfs/ADCD_easy-1.md)
 - [Easy 2 – Finding the Canary](ctfs/ADCD_easy-2.md)
 - [Medium – Tracking Attacker Movement](ctfs/ADCD_medium.md)
 - [Hard – Deception-Based Detection Scenario](ctfs/ADCD_hard.md)
-
+-->
 ---
 
 ## Labs
