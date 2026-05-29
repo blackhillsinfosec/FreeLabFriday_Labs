@@ -56,13 +56,20 @@ Three frameworks commonly seen with domain fronting:
 
 ## CTF Challenges
 
-Test your understanding with these challenges:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/c2-exfiltration/domain-fronting-as-c2?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Spot the Front](ctfs/DF_easy-1.md)
 - [Easy 2 – Log Analysis Basics](ctfs/DF_easy-2.md)
 - [Medium – Hunting the Beacon](ctfs/DF_medium.md)
 - [Hard – Full C2 Takedown](ctfs/DF_hard.md)
-
+-->
 ---
 
 ## Labs

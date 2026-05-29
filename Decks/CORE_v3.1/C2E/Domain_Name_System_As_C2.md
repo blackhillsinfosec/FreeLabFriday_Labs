@@ -70,13 +70,21 @@ A single weird DNS query probably won't trigger anything. Defenders look for pat
 
 ## CTF Challenges
 
-Four challenges to test what you've learned:
+Put your knowledge of the topic to the test with this online quiz!
+
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/c2-exfiltration/domain-name-system-dns-as-c2?client=bb-box-panorama&page=2)
+
+<!--
 
 - [Easy 1 – DNS Query Analysis](ctfs/DNS_easy-1.md)
 - [Easy 2 – Spotting Tunneled Traffic](ctfs/DNS_easy-2.md)
 - [Medium – C2 Beacon Identification](ctfs/DNS_medium.md)
 - [Hard – Full DNS C2 Reconstruction](ctfs/DNS_hard.md)
-
+-->
 ---
 
 ## Labs
