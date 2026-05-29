@@ -55,13 +55,20 @@ The goal is to move from individual log lines to a clear story of what happened 
 
 ## CTF Challenges
 
-You will complete four challenges focused on investigating firewall logs and finding attacker behavior:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/firewall-log-analysis?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Suspicious Connection Hunt](ctfs/FLA_easy-1.md)  
 - [Easy 2 – Blocked Traffic Investigation](ctfs/FLA_easy-2.md)  
 - [Medium – Lateral Movement Detection](ctfs/FLA_medium.md)  
 - [Hard – Incident Timeline Reconstruction](ctfs/FLA_hard.md)
-
+-->
 ---
 
 ## Labs

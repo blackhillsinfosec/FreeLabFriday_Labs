@@ -70,13 +70,20 @@ Restoring a system before the root cause is understood is one of the most common
 
 ## CTF Challenges
 
-You will solve four challenges related to network isolation and containment:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/isolation?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Blocked but Not Gone](ctfs/ISO_easy-1.md)
 - [Easy 2 – Firewall Rule Reconstruction](ctfs/ISO_easy-2.md)
 - [Medium – Lateral Movement Interrupted](ctfs/ISO_medium.md)
 - [Hard – Containment Under Fire](ctfs/ISO_hard.md)
-
+-->
 ---
 
 Isolation is a time-sensitive decision. The longer a compromised host stays connected, the more damage compounds. Understanding how to apply it quickly and correctly - at the network, host, or endpoint level - is one of the most practical skills you can build as a defender.

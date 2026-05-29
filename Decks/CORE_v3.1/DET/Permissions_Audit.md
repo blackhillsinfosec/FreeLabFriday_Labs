@@ -72,13 +72,20 @@ Cloud environments add a layer of complexity because permissions are often defin
 
 ## CTF Challenges
 
-Put the theory to work:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/permissions-audit?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Find the Overprivileged Account](ctfs/PA_easy-1.md)
 - [Easy 2 – Stale Credentials](ctfs/PA_easy-2.md)
 - [Medium – AD Attack Path](ctfs/PA_medium.md)
 - [Hard – Cloud IAM Escalation](ctfs/PA_hard.md)
-
+-->
 ---
 
 ## Labs

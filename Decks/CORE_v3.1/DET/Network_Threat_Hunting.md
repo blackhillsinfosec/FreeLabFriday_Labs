@@ -61,13 +61,20 @@ Good hunting combines curiosity, context, and repeatable analysis - not guesswor
 
 ## CTF Challenges
 
-You will complete four challenges focused on network-based investigations and hunting techniques:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/network-threat-hunting?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Suspicious Connection Hunt](ctfs/NTH_easy-1.md)  
 - [Easy 2 – Basic C2 Detection](ctfs/NTH_easy-2.md)  
 - [Medium – Lateral Movement Discovery](ctfs/NTH_medium.md)  
 - [Hard – Data Exfiltration Investigation](ctfs/NTH_hard.md)
-
+-->
 ---
 
 ## Labs
