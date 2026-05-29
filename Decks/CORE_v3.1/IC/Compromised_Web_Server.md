@@ -58,13 +58,20 @@ In many real cases, the compromise is only discovered after damage has already b
 
 ## CTF Challenges
 
-You will solve four challenges related to compromised web servers:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/initial-compromise/compromised-web-server?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Simple Web Exploit](ctfs/CWS_easy-1.md)
 - [Easy 2 – Basic Log Investigation](ctfs/CWS_easy-2.md)
 - [Medium – Post-Exploitation](ctfs/CWS_medium.md)
 - [Hard – Full Server Takeover](ctfs/CWS_hard.md)
-
+-->
 ---
 
 ## Labs

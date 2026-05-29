@@ -60,13 +60,20 @@ Detection depends heavily on understanding what “normal” third-party activit
 
 ## CTF Challenges
 
-You will complete four challenges focused on trusted relationship abuse:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/initial-compromise/compromised-trusted-relationship?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Suspicious Vendor Login](ctfs/TR_easy-1.md)
 - [Easy 2 – Service Account Misuse](ctfs/TR_easy-2.md)
 - [Medium – Partner Pivot Scenario](ctfs/TR_medium.md)
 - [Hard – Supply Chain Access Abuse](ctfs/TR_hard.md)
-
+-->
 ---
 
 ## Labs
