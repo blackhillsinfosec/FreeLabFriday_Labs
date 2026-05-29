@@ -60,13 +60,20 @@ The trickier part is that legitimate broadcast traffic happens all the time. Det
 
 ## CTF Challenges
 
-Apply what you've learned:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/pivot-escalate/broadcastmulticast-protocol-poisoning?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Capturing a Hash](ctfs/BMPP_easy-1.md)
 - [Easy 2 – Identifying Poisoning Traffic](ctfs/BMPP_easy-2.md)
 - [Medium – NTLM Relay Attack](ctfs/BMPP_medium.md)
 - [Hard – Full Network Takeover via DHCPv6](ctfs/BMPP_hard.md)
-
+-->
 ---
 
 ## Labs

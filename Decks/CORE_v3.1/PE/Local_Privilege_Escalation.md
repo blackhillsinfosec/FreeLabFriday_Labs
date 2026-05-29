@@ -86,13 +86,20 @@ In many cases, LPE is only found **after** a breach investigation starts
 
 ## CTF Challenges
 
-You will solve four challenges focused on local privilege escalation:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/pivot-escalate/local-privilege-escalation-lpe?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Insecure Permissions](ctfs/LPE_easy-1.md)
 - [Easy 2 – Misconfigured Service](ctfs/LPE_easy-2.md)
 - [Medium – Enumeration to Exploit](ctfs/LPE_medium.md)
 - [Hard – Chained Escalation](ctfs/LPE_hard.md)
-
+-->
 ---
 
 ## Labs

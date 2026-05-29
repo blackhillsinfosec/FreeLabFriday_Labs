@@ -71,13 +71,20 @@ None of these tools "create a user" in a magic way. They just wrap the same oper
 
 ## CTF Challenges
 
-Four challenges, increasing in difficulty:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/new-user-added?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Spot the Account](ctfs/NUA_easy-1.md)
 - [Easy 2 – Log Hunt](ctfs/NUA_easy-2.md)
 - [Medium – Persistence Chain](ctfs/NUA_medium.md)
 - [Hard – Full Intrusion Timeline](ctfs/NUA_hard.md)
-
+-->
 ---
 
 ## Labs

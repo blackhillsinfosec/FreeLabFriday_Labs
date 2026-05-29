@@ -59,13 +59,20 @@ Attackers use a mix of tools to pull this off:
 
 ## CTF Challenges
 
-Four challenges to test what you have learned:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/malicious-driver?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Spot the Suspicious Driver](ctfs/MDR_easy-1.md)
 - [Easy 2 – Registry Persistence Hunt](ctfs/MDR_easy-2.md)
 - [Medium – Memory Forensics](ctfs/MDR_medium.md)
 - [Hard – Full Kernel Rootkit Investigation](ctfs/MDR_hard.md)
-
+-->
 ---
 
 ## Labs

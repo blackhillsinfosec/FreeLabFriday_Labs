@@ -67,13 +67,20 @@ Because legitimate administrators may also use compatibility features, context m
 
 ## CTF Challenges
 
-You will complete four challenges focused on identifying and abusing application shimming techniques:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/application-shimming?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Suspicious Compatibility Entry](ctfs/AS_easy-1.md)  
 - [Easy 2 – Hidden File Trick](ctfs/AS_easy-2.md)  
 - [Medium – Malicious Shim Database](ctfs/AS_medium.md)  
 - [Hard – Full Defense Evasion Scenario](ctfs/AS_hard.md)  
-
+-->
 ---
 
 ## Labs

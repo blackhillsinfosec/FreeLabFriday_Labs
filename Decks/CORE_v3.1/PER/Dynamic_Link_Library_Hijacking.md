@@ -62,13 +62,20 @@ Since the technique hides inside legitimate processes, defenders have to look ca
 
 ## CTF Challenges
 
-Put the theory into practice:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/dynamic-link-library-dll-hijacking?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Wrong Place, Right Name](ctfs/DLL_easy-1.md)
 - [Easy 2 – Missing DLL Hunt](ctfs/DLL_easy-2.md)
 - [Medium – Privilege Through a Hijacked Load](ctfs/DLL_medium.md)
 - [Hard – Persistence via Boot-Time Hijack](ctfs/DLL_hard.md)
-
+-->
 ---
 
 ## Labs

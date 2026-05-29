@@ -69,13 +69,20 @@ Each of these has a lab below where you can see how they work in a controlled en
 
 ## CTF Challenges
 
-Test what you've learned by solving these challenges:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/malicious-service?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Spot the Service](ctfs/MS_easy-1.md)
 - [Easy 2 – Event Log Dig](ctfs/MS_easy-2.md)
 - [Medium – Registry and Service Abuse](ctfs/MS_medium.md)
 - [Hard – Full Persistence Chain](ctfs/MS_hard.md)
-
+-->
 ---
 
 ## Labs

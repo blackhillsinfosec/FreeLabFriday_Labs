@@ -65,13 +65,20 @@ Detection usually comes down to whether endpoint monitoring is properly configur
 
 ## CTF Challenges
 
-Put what you learned to the test:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/accessibility-features?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 - Spot the Swap](ctfs/AF_easy-1.md)
 - [Easy 2 - USB Drop Investigation](ctfs/AF_easy-2.md)
 - [Medium - Persistence via Sticky Keys](ctfs/AF_medium.md)
 - [Hard - Full Physical Attack Simulation](ctfs/AF_hard.md)
-
+-->
 ---
 
 ## Labs

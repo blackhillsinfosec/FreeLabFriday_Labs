@@ -51,13 +51,20 @@ Log review is key here. A script being added or changed in a place it has no rea
 
 ## CTF Challenges
 
-Put your knowledge to the test:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/logon-scripts?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Suspicious Startup Script](ctfs/LS_easy-1.md)
 - [Easy 2 – Registry Trail](ctfs/LS_easy-2.md)
 - [Medium – GPO Abuse](ctfs/LS_medium.md)
 - [Hard – Domain-Wide Persistence](ctfs/LS_hard.md)
-
+-->
 ---
 
 ## Labs

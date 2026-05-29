@@ -92,13 +92,20 @@ Good detection focuses on **behavior**, not single events.
 
 ## CTF Challenges
 
-You will solve four challenges related to Kerberoasting:
+Put your knowledge of the topic to the test with this online quiz!
 
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/pivot-escalate/kerberoasting?client=bb-box-panorama&page=2)
+
+<!--
 - [Easy 1 – Finding SPNs](ctfs/kerberoasting_easy-1.md)
 - [Easy 2 – Ticket Extraction](ctfs/kerberoasting_easy-2.md)
 - [Medium – Offline Cracking](ctfs/kerberoasting_medium.md)
 - [Hard – Domain Escalation Path](ctfs/kerberoasting_hard.md)
-
+-->
 ---
 
 ## Labs
