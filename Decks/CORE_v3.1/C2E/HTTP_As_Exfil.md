@@ -72,13 +72,21 @@ Security teams usually rely on multiple sources to spot this:
 
 ## CTF Challenges
 
-You will complete four challenges focused on HTTP-based exfiltration scenarios:
+Put your knowledge of the topic to the test with this online quiz!
+
+>[!Note]
+>
+>You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+
+[Take me to the CTF Quiz!](http://learning.antisyphontraining.com/learn/course/bb-ctf-labs/c2-exfiltration/http-as-exfil?client=bb-box-panorama&page=2)
+
+<!--
 
 - [Easy 1 – Suspicious Outbound Request](ctfs/http-exfil_easy-1.md)  
 - [Easy 2 – Log-Based Detection](ctfs/http-exfil_easy-2.md)  
 - [Medium – Hidden Data in Traffic](ctfs/http-exfil_medium.md)  
 - [Hard – Full Exfiltration Investigation](ctfs/http-exfil_hard.md)
-
+-->
 ---
 
 ## Labs
