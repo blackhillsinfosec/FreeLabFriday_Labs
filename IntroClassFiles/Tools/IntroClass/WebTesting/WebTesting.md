@@ -34,7 +34,7 @@ Please note your **Linux** IP:
 ifconfig
 ```
 
-![Get_IPLinux.png](https://github.zendesk.com/attachments/token/n6uvR4jpusDEqeTL91GtzfodH/?name=Get_IPLinux.png)
+<img width="518" height="127" alt="img01" src="https://github.com/user-attachments/assets/84eb3f8c-314a-4dd5-bdfb-bf8084651706" />
 
 >[!NOTE]
 >
@@ -46,8 +46,7 @@ Launch the python script
 python3 ./dsvw.py
 ```
 
-<img width="696" height="141" alt="2026-03-14_14-38" src="https://github.com/user-attachments/assets/a74a0640-3091-4182-89d8-e595141f31e7" />
-
+<img width="782" height="110" alt="img02" src="https://github.com/user-attachments/assets/d90a8bac-2196-4b5b-ab65-65e5f2ca6b52" />
 
 It's time to start **ZAP**! Go ahead and launch it from the desktop icon.
 
@@ -69,20 +68,17 @@ Put in **your** Linux IP and port **"65412"** in as the URL to attack.
 
 Then, select **"Use traditional spider"** and then select **"Attack"**:
 
-![](attachments/AutomatedScanSetup.png)
-
+<img width="797" height="256" alt="img03" src="https://github.com/user-attachments/assets/78c90981-02bf-468d-8383-8922323130e5" />
 
 >[!IMPORTANT]
 >The scan will probably break **DSVW**, you might have to start it again during during the scan:
 
-<img width="697" height="426" alt="2026-03-14_14-41" src="https://github.com/user-attachments/assets/f155ab76-3722-445a-9f4b-0cb18ea0e37c" />
-
-
+<img width="823" height="330" alt="img04" src="https://github.com/user-attachments/assets/0d8031ef-1cf0-4725-9fc7-747113363431" />
 
 Scan progress will be shown by the progress bar in the center of your screen.
 When it gets done crawling and scanning, select **"Alerts"**:
 
-![](attachments/Alerts.png)
+<img width="1277" height="586" alt="img05" src="https://github.com/user-attachments/assets/1f3e5aa0-66f6-4432-8aad-0ccb5f486276" />
 
 This shows that **ZAP** does a pretty good job of finding the easy to identify vulnerabilities.
 
