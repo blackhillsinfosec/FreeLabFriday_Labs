@@ -83,7 +83,8 @@ First, notice the high number of requests from an IP address in a very, very sho
 
 Also, look for odd things like below:
 
-![](attachments/Clipboard_2020-12-11-06-52-26.png)
+<img width="608" height="256" alt="logs_boxed_suspicious" src="https://github.com/user-attachments/assets/77b5bc01-2dda-4d7d-9684-e7e97747bdae" />
+
 
 But what would qualify as odd? Let's think this through. First, look at timing. Notice how fast the connections are comming in from a single IP. Also, notice how many of the same connections are going after the exact same thing again and again. Now, lets look for odd encodings. Looking for characters like %. Finally. spend some time getting to know what attacks look like at OWASP.
 
