@@ -194,7 +194,7 @@ Let's get the Process ID **(PID)** from the output of our **"netstat -naob"** co
 
 >[!TIP]
 >
->Look for port **4444**, it is the number right after `ESTABLISHED`
+>Look for port **4444**, it is the number right before `ESTABLISHED`
 
 We will start with tasklist  
 
