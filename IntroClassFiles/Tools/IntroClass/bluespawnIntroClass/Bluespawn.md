@@ -8,6 +8,13 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 ---
 
+
+This is a lab from **John Strand**'s **Active Defense and Cyber Deception** Course:
+
+https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/
+
+---
+
 # Atomic Red Team And Bluespawn
 
 In this lab we will be using Bluespawn as a stand-in for an EDR system.  Normally full EDRs like Cylance and Crowdstrike are very expensive and tend not to show up in classes like this.  However, the folks at University of Virginia have done an outstanding job with BlueSpawn. 
