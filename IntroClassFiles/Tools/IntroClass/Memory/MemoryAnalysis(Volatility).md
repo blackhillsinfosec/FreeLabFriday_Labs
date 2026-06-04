@@ -86,11 +86,6 @@ You can see the **dll's** associated with the **TrustMe.exe** process.
 We can also see the command line invocation of this process. These lines tell us any flags used to start the process as well as where on the system it was executed from.  
 
 ***                                                                 
-
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/TCPDump/TCPDump.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/LinuxCLI/LinuxCLI.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
