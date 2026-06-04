@@ -30,7 +30,7 @@
  - [Applocker](Tools/IntroClass/AppLocker/AppLocker.md)
  - [Atomic RedTeam and Bluespawn](Tools/IntroClass/bluespawnIntroClass/Bluespawn.md)
  - [DeepBlueCLI](Tools/IntroClass/deepbluecli/DeepBlueCLI.md)
- - [Nessus](Tools/IntroClass/nessusIntroClass/Nessus.md)
+ - [Nessus](Tools/IntroClass/nessus/Nessus.md)
  - [Host Firewalls and Nmap](Tools/IntroClass/Nmap/Nmap.md)
  - [Password Cracking](Tools/IntroClass/PasswordCracking/PasswordCracking.md)
  - [Password Spraying](Tools/IntroClass/PasswordSpray/PasswordSpray.md)
@@ -84,7 +84,7 @@
   
   
 ### Red/Purple team detection testing
-  - [Bluespawn](Tools/IntroClass/ADHD/bluespawn/Bluespawn.md)
+  - [Bluespawn](Tools/IntroClass/bluespawnIntroClass/Bluespawn.md)
   - [Caldera](Tools/IntroClass/ADHD/Caldera.md)
 
 
