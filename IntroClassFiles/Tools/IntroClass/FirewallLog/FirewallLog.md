@@ -108,8 +108,6 @@ There are a lot of commands you can use to alter your view of the logs.
 
 ***                                                              
 
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/Velociraptor/Velociraptor.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
