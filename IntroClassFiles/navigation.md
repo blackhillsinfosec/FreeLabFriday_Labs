@@ -28,7 +28,7 @@
 
  - [Applocker](Tools/IntroClass/AppLocker/AppLocker.md)
  - [Atomic RedTeam and Bluespawn](Tools/IntroClass/bluespawnIntroClass/Bluespawn.md)
- - [DeepBlueCLI](Tools/IntroClass/deepbluecliIntroClass/DeepBlueCLI.md)
+ - [DeepBlueCLI](Tools/IntroClass/deepbluecli/DeepBlueCLI.md)
  - [Nessus](Tools/IntroClass/nessusIntroClass/Nessus.md)
  - [Host Firewalls and Nmap](Tools/IntroClass/Nmap/Nmap.md)
  - [Password Cracking](Tools/IntroClass/PasswordCracking/PasswordCracking.md)
