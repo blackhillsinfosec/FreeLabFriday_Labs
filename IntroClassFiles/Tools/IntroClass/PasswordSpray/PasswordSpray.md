@@ -107,10 +107,6 @@ Let this run all the way through.
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/Responder/Responder.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/PasswordCracking/PasswordCracking.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
