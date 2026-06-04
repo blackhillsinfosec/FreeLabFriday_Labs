@@ -179,11 +179,6 @@ To reveal more information in the output, press **"enter"**.
 - Press **q** to go back
 
 ***                                                                 
-
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/Memory/MemoryAnalysis(Volatility).md)</i></b>
-
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
 ***Finished with the Labs?***
 
 Please be sure to destroy the lab environment!
