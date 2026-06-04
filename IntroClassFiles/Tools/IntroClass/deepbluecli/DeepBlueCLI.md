@@ -8,6 +8,14 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
 ---
 
+This is a lab from **John Strand**'s **Information Security Core Skills** Course:
+
+https://www.antisyphontraining.com/product/information-security-core-skills-tm/
+
+---
+
+
+
 # DeepBlueCLI
 
 DeepBlueCLI is a free tool by **Eric Conrad** that demonstrates some amazing detection capabilities.  It also has some checks that are effective for showing how **UEBA** style techniques can be in your environment. 
@@ -19,7 +27,13 @@ Let's get started by opening **Windows Powershell**.
 Next, we need to navigate to the **IntroLabs** directory:
 
 ```ps
-cd \IntroLabs\DeepBlueCLI
+cd \IntroLabs
+```
+
+Then, continue into the **DeepBlueCLI-master** directory:
+
+```ps
+cd .\DeepBlueCLI
 ```
 
 Run the following command:
@@ -74,8 +88,6 @@ For fun, let’s look at how **DeepBlueCLI** detects various encoding tactics th
 
 ![](attachments/deepblue_powershell-invokeobfuscation.png)
 
-Now, take each of the encoding examples and send them through and AI platform of your choice.  What is the obfuscation and what is it doing?
-
 ***                                                                 
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
@@ -86,6 +98,3 @@ Please be sure to destroy the lab environment!
 [Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
 
 ---
-
-
-
