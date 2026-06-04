@@ -83,11 +83,6 @@ Now, using **AC Hunter**, answer the following questions:
 5. In the fiestac2 dataset what is the issues with the MIME data for 68.183.138.51?  Also, what is the issue with the user agent strings? *Hint* hover over the i for more information.
 
 ***                                                                 
-
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/ADHD/DNSChef.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/ADHD/CuckooSandbox.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
