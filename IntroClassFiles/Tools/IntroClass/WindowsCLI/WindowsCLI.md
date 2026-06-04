@@ -254,11 +254,6 @@ Lets go through the steps we took to hunt for a malicious process
 4. We dug deeper to see all processes making connections, and confirmed our suspicions that the **process** was used **maliciously**, because `rundll32.exe` should never be making outbound **TCP connections**
 
 ***                                                                 
-
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/Wireshark/Wireshark.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/WebLogReview/WebLogReview.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
