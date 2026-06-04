@@ -84,10 +84,6 @@ This shows that **ZAP** does a pretty good job of finding the easy to identify v
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/deepbluecli/DeepBlueCLI.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/nessus/Nessus.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
