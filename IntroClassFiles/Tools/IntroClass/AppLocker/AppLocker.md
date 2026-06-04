@@ -301,10 +301,6 @@ As you can see, an error was generated, meaning that we were successful!
 
 
 ***                                                                 
-
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/bluespawnIntroClass/Bluespawn.md)</i></b>
-
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
@@ -312,22 +308,3 @@ As you can see, an error was generated, meaning that we were successful!
 Please be sure to destroy the lab environment!
 
 [Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
