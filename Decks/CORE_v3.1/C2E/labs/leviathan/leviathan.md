@@ -57,11 +57,10 @@ As an attacker, you need a server capable of understanding the specific protocol
 
 - Open up an Ubuntu Shell terminal:
 
-- Navigate to the Lab Directory and start the C2 Python server. We need to run it with sudo because BITS prefers standard HTTP port 80.
-
+- Navigate to the Lab Directory and start the C2 Python server (you will find it in the *lab directory*). We need to run it with sudo because BITS prefers standard HTTP port 80.
 
 ``` Bash
-cd ~/Desktop/LeviathanLab
+cd ~/BnB/Leviathan
 sudo python3 c2_server.py --port 80
 ```
 >[!NOTE]
@@ -118,7 +117,7 @@ You will see a JSON output confirming that passwords.txt has been received.
 bitsadmin /list /allusers /verbose
 ```
 
-    What are we looking at?
+What are we looking at?
 
 - In the verbose output, you can see a massive Indicator of Compromise (IoC):
 
