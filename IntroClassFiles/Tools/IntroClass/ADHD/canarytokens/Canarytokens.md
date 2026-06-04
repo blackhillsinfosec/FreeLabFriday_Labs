@@ -123,10 +123,6 @@ In a few moments you should get an email alert: 
 <img width="565" height="1207" alt="web_token_triggered" src="https://github.com/user-attachments/assets/b48928af-8ad7-4da9-a137-1f0f7bab9060" />
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/ADHD/GoPhish.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/ADHD/FakeNet-NG.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
