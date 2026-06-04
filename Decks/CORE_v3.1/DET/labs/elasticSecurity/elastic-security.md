@@ -1,4 +1,4 @@
-### Please go though the documenation and setup for the [Cloud Version](./Elastic_Doc_Cloud.md)
+### Please go though the documentation and setup for the [Cloud Version](./Elastic_Doc_Cloud.md)
 
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
