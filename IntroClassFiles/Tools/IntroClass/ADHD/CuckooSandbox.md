@@ -1,10 +1,6 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
 
-
-
-
-
 # Cuckoo Sandbox
 
 > **Goal:** See how Cuckoo Sandbox automatically analyzes suspicious files in an isolated Windows VM, and how an analyst can read the results.
@@ -359,10 +355,6 @@ rm -rf ~/samples
 
 
 ***                                                                 
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/ADHD/RITA_ADHD/RITA.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/ADHD/dionaea.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
