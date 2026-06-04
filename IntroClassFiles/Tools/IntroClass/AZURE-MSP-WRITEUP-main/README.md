@@ -21,8 +21,6 @@ In this lab we will navigate through log files of an attack simulation on an MSP
 ***                                                                 
 <b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/azure_logs.md)</i></b>
 
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/PingCastle.md)</i></b>
-
 <b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
 ***Finished with the Labs?***
