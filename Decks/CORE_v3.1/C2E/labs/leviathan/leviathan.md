@@ -76,14 +76,51 @@ source ./venv/bin/activate
 
 <img width="1140" height="264" alt="image" src="https://github.com/user-attachments/assets/0c96569c-b57e-4d10-a2af-33ce513f67c6" />
 
-- Run the scan in the **Ubuntu shell** : 
+- Open up Leviathan in the **Ubuntu shell** using sudo: 
 
 ```bash
-cd ./leviathan_framework
-python3 -W ignore leviathan.py --target <WINDOWS_IP> --scan
+cd leviathan_framework
+sudo ../venv/bin/python3 -W ignore leviathan.py
 ```
 
-Leviathan will scan the most common service ports at high speed. You should see at least two open services in the output:
+- Once the interactive menu loads, follow these steps to map the target:
+1. Type `1` (Discovery) and press Enter.
+
+<img width="839" height="842" alt="image" src="https://github.com/user-attachments/assets/52a0c929-9f5a-413a-b7b1-7b309be6ff9a" />
+
+2. Select the option for **Masscan** -> 3 (Local discovery):
+
+<img width="862" height="778" alt="image" src="https://github.com/user-attachments/assets/5f850b6d-3319-48e2-ad17-790de85a5871" />
+
+3. When prompted, enter your `<WINDOWS_IP>`.
+4. Select the protocols : We'll start with ssh
+
+<img width="675" height="513" alt="image" src="https://github.com/user-attachments/assets/59cb958b-9578-4e82-91a4-e718e57c2cb2" />
+
+5. Wait for the scan to finish. Note the path of the save file. Type **"CTRL+C"** to exit the menu. Let's read the results:
+
+<img width="921" height="455" alt="image" src="https://github.com/user-attachments/assets/5ca90787-b56a-45d9-b49f-d913dfb5f99c" />
+<img width="931" height="98" alt="image" src="https://github.com/user-attachments/assets/b13896a3-e772-4373-88e6-9add9c2749fa" />
+
+>[!NOTE]
+> **What happened ? Why is only the Windows VM IP in the file ?**
+> Unlike **Nmap**, Leviathan does not have a user friendly interface. **It determined that port 22 (ssh) is open and therefore added the Windows VM IP to the "Hit List"**.
+> This list is the list of victims that **Ncrack** will use to find the password using brute force. 
+
+---
+## Use what you've learned to find out if port 21 is open (FTP).
+1. Restart the framework using the command 
+```
+sudo ../venv/bin/python3 -W ignore leviathan.py
+```
+2. Navigate the interface, in the **Discovery** section input the **<WINDOWS_IP>** and select the **FTP** service.
+3. Read the result file.
+
+<img width="925" height="732" alt="image" src="https://github.com/user-attachments/assets/d8a54bbb-966e-4b66-80ef-1d63ff9aefd7" />
+
+---
+
+We now know that two ports are open : 
 
 | Port | Service | Implication                          |
 |------|---------|--------------------------------------|
@@ -94,8 +131,6 @@ Leviathan will scan the most common service ports at high speed. You should see 
 > **This is what separates a framework from a single tool.** The attacker did not guess that SSH was running — they *discovered* it. This service map is the intelligence that will directly feed Phase 2. Nothing is assumed.
 
 Note down the discovered open ports before continuing.
-
-
 
 ## Phase 2: Initial Access via Leviathan — Multi-Service Brute Force - Ubuntu VM
 
