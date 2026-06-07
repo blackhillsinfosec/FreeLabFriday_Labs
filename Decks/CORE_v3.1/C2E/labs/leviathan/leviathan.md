@@ -54,10 +54,32 @@ Before launching any attack, a skilled threat actor **profiles the target first*
 >[!NOTE]
 > `masscan` requires raw socket access and must run with elevated privileges. Depending on your Leviathan version, you may need to prefix the command with `sudo`.
 
-- In your Ubuntu terminal (venv active), run a service discovery scan against the Windows VM:
+- First we must access the *Ubuntu VM*. On your Windows machine, click on **Ubuntu Shell**: 
+
+<img width="605" height="430" alt="image" src="https://github.com/user-attachments/assets/7d481c7f-8887-4820-90ea-6d2ed6122534" />
+
+- Switch to the **Lab Directory** and activate the virtual environment for **Leviathan**. Type the following command: 
 
 ```bash
-cd ~/BnB/Leviathan/leviathan_framework
+cd ~/BnB/Leviathan
+source ./venv/bin/activate
+```
+
+<img width="479" height="106" alt="image" src="https://github.com/user-attachments/assets/3a86815f-5488-454a-84e9-4a0f3ea0ab03" />
+
+- Now we can use **Leviathan Framework**. Run a service discovery scan against the Windows VM:
+
+>[!IMPORTANT]
+> You must replace **<WINDOWS_IP>** with the actual IP of your Windows VM instance. You can find it by typing **"ipconfig"** in the **Powershell terminal of the Windows VM**. You will find your specific IP in the
+>"Ethernet adapter Ethernet" section. Take the IP and replace **<WINDOWS_IP>** with it. Note that yours will differ.
+
+
+<img width="1140" height="264" alt="image" src="https://github.com/user-attachments/assets/0c96569c-b57e-4d10-a2af-33ce513f67c6" />
+
+- Run the scan in the **Ubuntu shell** : 
+
+```bash
+cd ./leviathan_framework
 python3 -W ignore leviathan.py --target <WINDOWS_IP> --scan
 ```
 
