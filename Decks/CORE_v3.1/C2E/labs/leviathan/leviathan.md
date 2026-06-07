@@ -23,15 +23,17 @@
 
 >[!IMPORTANT]
 > **You** will start on the Windows VM just to activate the lab environment, then do all the hacking from the Ubuntu VM. All tools and sensitive data are located in the **Lab Directories**.
+> Each Phase specifies the environment (Ubuntu or Windows) in the title.
 
-
-## Phase 0: Activating the Target
+## Phase 0: Activating the Target - Windows VM
 
 Before we attack, we need to activate the vulnerable state on the target machine. 
 
-1. Open the **Windows VM**.
-2. Open PowerShell as **Administrator**.
-3. Navigate to `C:\Users\Administrator\Desktop\Labs\Leviathan` and run the start script:
+1. Open up **Powershell**.
+
+<img width="508" height="307" alt="image" src="https://github.com/user-attachments/assets/c6d65979-da30-464d-a6e0-1eac9a46f4ff" />
+
+2. Navigate to `C:\Users\Administrator\Desktop\Labs\Leviathan` and run the start script:
 
 ```powershell
 cd C:\Users\Administrator\Desktop\Labs\Leviathan
@@ -40,8 +42,12 @@ cd C:\Users\Administrator\Desktop\Labs\Leviathan
 
 Wait for the installation to finish. At the end, the script will output the Exact SSH Command you will need later. Note it down!
 
+<img width="912" height="495" alt="image" src="https://github.com/user-attachments/assets/b3efe2a2-a2ef-459d-a76b-149a0098cfb8" />
 
-## Phase 1: Reconnaissance — Service Discovery
+>[!IMPORTANT]
+> We now have a **vulnerable user with a weak password**. Note that despite the fact that the script provides the password, in a real scenario **we use Leviathan to determine the password**.
+
+## Phase 1: Reconnaissance — Service Discovery - Ubuntu VM
 
 Before launching any attack, a skilled threat actor **profiles the target first**. We don't yet know which services are running or which ports are exposed. We'll use Leviathan's integrated **masscan** to rapidly map the Windows machine's attack surface.
 
@@ -69,7 +75,7 @@ Note down the discovered open ports before continuing.
 
 
 
-## Phase 2: Initial Access via Leviathan — Multi-Service Brute Force
+## Phase 2: Initial Access via Leviathan — Multi-Service Brute Force - Ubuntu VM
 
 Armed with the service map from Phase 1, we now launch a credential attack. Leviathan's **ncrack** integration will simultaneously brute-force **all discovered services** using its built-in wordlists, targeting every exposed protocol in a single pass.
 
@@ -104,7 +110,7 @@ ssh victim@<WINDOWS_IP>
 powershell
 ```
 
-## Phase 3: Staging the C2 Server
+## Phase 3: Staging the C2 Server - Ubuntu VM
 
 Now that you have access to the target, you need a server capable of understanding the specific protocol BITS uses for uploads.
 
@@ -128,7 +134,7 @@ Copy your '<UBUNTU_IP>', you will need it to know where to exfiltrate the data f
 
 
 
-## Phase 4: Exfiltration via BITS
+## Phase 4: Exfiltration via BITS - Windows VM
 
 Switch back to the terminal where you are connected to the Windows machine via SSH. We don't need to download any malware; the tool we need (bitsadmin.exe) is already built into the operating system.
 
@@ -158,7 +164,7 @@ bitsadmin /resume exfil
 
 
 
-## Phase 5: Verification
+## Phase 5: Verification - Ubuntu VM
 
 Let's verify that the data successfully reached the attacker:
 
@@ -175,7 +181,7 @@ http://127.0.0.1/status
 
 
 
-## Phase 6: Blue Team Detection
+## Phase 6: Blue Team Detection - Windows VM
 
 >[!IMPORTANT]
 >Because the network traffic looked completely legitimate (HTTP traffic from svchost.exe), the firewall did not generate any alerts. As a Blue Teamer, detection relies entirely on Endpoint Analysis.
