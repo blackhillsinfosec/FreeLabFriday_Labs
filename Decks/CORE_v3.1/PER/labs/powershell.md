@@ -261,6 +261,16 @@ Lets go through the steps we took to hunt for a malicious process
 
 [Back to Malicious Driver's Main Page](/Decks/CORE_v3.1/PER/Malicious_Driver.md)
 
+[Back to Application Shimming's Main Page](/Decks/CORE_v3.1/PER/Application_Shimming.md)
+
+[Back to Malicious Browser Plugins's Main Page](/Decks/CORE_v3.1/PER/Malicious_Browser_Plugins.md)
+
+[Back to Malicious_Firmware's Main Page](/Decks/CORE_v3.1/PER/Malicious_Firmware.md)
+
+
+
+
+
 
 
 
