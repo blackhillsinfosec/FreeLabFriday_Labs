@@ -260,4 +260,4 @@ Run this as a one-liner. You now have a quick DNS profile of the target in secon
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/IC/Social_Engineering.md)
+[Back to Card's Main Page](../Social_Engineering.md)
