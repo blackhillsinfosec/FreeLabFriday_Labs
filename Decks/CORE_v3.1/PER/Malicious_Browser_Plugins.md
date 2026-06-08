@@ -90,7 +90,7 @@ Hands-on exercises with the tools from the card:
 - [Metasploit Lab](labs/metasploit.md)
 - [PowerShell Lab](labs/powershell.md)
 - [BeEF Lab](labs/beef.md)
-- [Evilginx Lab](labs/evilginx.md)
+- [Evilginx Lab](labs/Evilginx/evilginx.md)
 
 ---
 
