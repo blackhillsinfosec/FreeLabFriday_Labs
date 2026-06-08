@@ -14,43 +14,50 @@ In this lab, we will be looking at some basic **tcpdump** filters that every SOC
 
 Let’s get started by opening a Terminal.
 
-![](attachments/OpeningKaliInstance.png)
+<img width="49" height="49" alt="image" src="https://github.com/user-attachments/assets/07e58580-5e41-41a2-ae2a-b9017983b271" />
 
-Alternatively, you can click on the Kali logo in the taskbar.
-
-![](attachments/TaskbarKaliIcon.png)
 
 We need to get into the root shell. 
 
-<pre>sudo su -</pre>
+```bash
+sudo su -
+```
 
 Then, navigate to the appropriate directory. 
 
-<pre>cd /opt/tcpdump</pre>
+```bash
+cd ~/Intro_To_SOC/
+```
 
 We are going to start with a very basic filter that simply shows us the data associated with a specific host.
 
 The filter in this case, is host.
 
-<pre>tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52</pre>
+```bash
+tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52
+```
 
 For this command, we are telling **tcpdump** to do two things: do not resolve hostnames **(-n)** and read in the data from a file **(-r)**.
 
-![](attachments/tcpdump_pcaphost.png)
+<img width="1389" height="554" alt="image" src="https://github.com/user-attachments/assets/2bcd6e52-c127-4d7c-82f0-2ebda51e3a33" />
+
 
 What exactly is this showing us?
 
 Well, it is showing each packet's timestamp:
 
-![](attachments/tcpdump_timestamp.png)
+<img width="157" height="24" alt="image" src="https://github.com/user-attachments/assets/fa38f4e7-bc78-4275-8796-11902d856a9a" />
+
 
 Its protocol:
 
-![](attachments/tcpdump_protocol.png)
+<img width="32" height="179" alt="image" src="https://github.com/user-attachments/assets/22989634-6a47-4150-bc60-605e4cdeb514" />
+
 
 Its **source** IP address + port direction and **destination** IP address + port :
 
-![](attachments/tcpdump_addressport.png)
+<img width="404" height="22" alt="image" src="https://github.com/user-attachments/assets/c5d66759-2315-41b8-ba9c-b306a05613e3" />
+
 
 Its control bit flags and sequence numbers:
 
@@ -64,7 +71,9 @@ We can get the filter to be a bit more granular.  In fact, you can create filter
 
 Let's add port number.
 
-<pre>tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80</pre>
+```bash
+tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80
+```
 
 ![](attachments/tcpdump_port80.png)
 
@@ -74,7 +83,9 @@ While getting the overall metadata from the packets is nice, we can get the full
 
 On one hand, getting the metadata from the packets is nice.  On the other hand, why not get the full ASCII decode and payload of the packet?
 
-<pre>tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80 -A</pre>
+```bash
+tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80 -A
+```
 
 >[!TIP]
 >You can hit **ctrl + c** after a few seconds.
@@ -95,7 +106,9 @@ Furthermore, it looks like there is **Base64** data.
 
 Still not enough?  We can also see the raw **Hex** values with the -X flag:
 
-<pre>tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80 -AX</pre>
+```bash
+tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80 -AX
+```
 
 >[!TIP]
 >You can hit **ctrl + c** after a few seconds.
@@ -106,7 +119,9 @@ We can also show specific protocols of interest.
 
 For example:
 
-<pre>tcpdump -n -r magnitude_1hr.pcap ip6</pre>
+```bash
+tcpdump -n -r magnitude_1hr.pcap ip6
+```
 
 ![](attachments/tcpdump_ip6.png)
 
@@ -116,7 +131,9 @@ We can show network ranges.  This is very useful when you are seeing traffic eit
 
 Think of an attacker using multiple systems on a network range to disperse their **C2** traffic.
 
-<pre>tcpdump -n -r magnitude_1hr.pcap net 192.168.99.0/24</pre>
+```bash
+tcpdump -n -r magnitude_1hr.pcap net 192.168.99.0/24
+```
 
 ![](attachments/tcpdump_netrange.png)
 
