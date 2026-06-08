@@ -1,8 +1,10 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # Havoc Framework
 
 # Ubuntu VM, Windows VM & AWS Cloud
 
-## The objective of this lab is to establish a modern Command & Control (C2) infrastructure using a cloud-based backend (AWS EC2). You will learn how to bypass network defenses, execute a payload on a compromised Windows machine, exfiltrate data using the Havoc UI, and ultimately hunt for the malicious process as a Blue Teamer.
+### The objective of this lab is to establish a modern Command & Control (C2) infrastructure using a cloud-based backend (AWS EC2). You will learn how to bypass network defenses, execute a payload on a compromised Windows machine, exfiltrate data using the Havoc UI, and ultimately hunt for the malicious process as a Blue Teamer.
 ---
 
 >[!IMPORTANT]
