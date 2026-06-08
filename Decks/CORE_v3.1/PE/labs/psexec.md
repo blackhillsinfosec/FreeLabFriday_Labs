@@ -51,7 +51,7 @@ PsExec-style execution works by:
 
 Before running remote execution, restrict which machine can connect to the Windows target.
 
-# Part 1 — Limit allowed IPs on Windows Firewall
+# Part 1 - Limit allowed IPs on Windows Firewall
 
 On the **Windows target**:
 
@@ -84,7 +84,7 @@ reg add "HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System" /v Loca
 
 ---
 
-# Part 2 — Prepare the Linux Attacker
+# Part 2 - Prepare the Linux Attacker
 
 Run these commands on the **Linux attacker VM**.
 
@@ -123,7 +123,7 @@ which psexec.py
 
 ---
 
-# Part 3 — Connectivity Tests
+# Part 3 - Connectivity Tests
 
 Replace `<TARGET_IP>` with the Windows target IP.
 
@@ -157,7 +157,7 @@ If this succeeds, the Linux attacker can authenticate to the Windows target over
 
 ---
 
-# Part 4 — Basic Impacket PsExec Usage
+# Part 4 - Basic Impacket PsExec Usage
 
 ## Open a remote shell
 
@@ -185,7 +185,7 @@ You should see that commands are executing on the **Windows target**, not on Lin
 
 ---
 
-# Part 5 — Use a Predictable Service Name
+# Part 5 - Use a Predictable Service Name
 
 By default, Impacket may use a temporary service name.  
 For lab analysis, use a predictable service name.
@@ -207,7 +207,7 @@ This makes the service easier to find in logs and artifact analysis.
 
 ---
 
-# Part 6 — Run Single Commands
+# Part 6 - Run Single Commands
 
 You can also run a specific command instead of working interactively.
 
@@ -227,7 +227,7 @@ This is useful for quick remote checks.
 
 ---
 
-# Part 7 — Useful Impacket PsExec Options
+# Part 7 - Useful Impacket PsExec Options
 
 ## Use hashes instead of a password
 
@@ -256,7 +256,7 @@ This requires a valid Kerberos ticket.
 
 ---
 
-# Part 8 — Artifact Analysis on the Windows Target
+# Part 8 - Artifact Analysis on the Windows Target
 
 Now inspect what happened on the **Windows target**.
 
@@ -298,7 +298,7 @@ You can filter the logs, using 'Filter Current Log...' option
 
 ---
 
-# Part 9 — Detection Thinking
+# Part 9 - Detection Thinking
 
 PsExec-style activity can be detected through:
 
