@@ -30,6 +30,7 @@ The most common beginner-friendly agent is **Apollo**, which runs on Windows and
 Clone the Mythic repository:
 
 ```bash
+rm -rf ~/.local/share/Trash/
 cd ~/BnB/
 git clone https://github.com/its-a-feature/Mythic
 cd Mythic
@@ -44,7 +45,7 @@ sudo make
 Start Mythic:
 
 ```bash
-sudo ./mythic-cli start mythic_postgres mythic_rabbitmq mythic_server mythic_react mythic_nginx mythic_graphql
+sudo ./mythic-cli start
 ```
 
 This pulls all rquired Docker containers and starts the Mythic server. It will take 2-5 minutes the first time.
