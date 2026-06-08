@@ -31,17 +31,19 @@ Basically, it is key to learn and know both.
 
 Let's get started.
 
-First, either double click or right click + open the wireshark icon on the desktop:
+First, open wireshark:
 
-![](attachments/wireshark_open.png)
+<img width="513" height="590" alt="2026-06-08_17-12" src="https://github.com/user-attachments/assets/7ac5463b-08e7-47e8-b67b-b3d8becd994e" />
+
 
 Once Wireshark opens, go to File > Open
 
 ![](attachments/wireshark_fileopen.png)
 
-Then, select **magnitude_1hr** in the Open Capture File box. The file is in the **C:/IntroLabs** folder if you cannot find it.
+Then, select **magnitude_1hr** in the Open Capture File box. The file is in the **/home/ubuntu/Intro_To_SOC** folder if you cannot find it.
 
-![](attachments/wireshark_opencapturefile.png)
+<img width="699" height="196" alt="image" src="https://github.com/user-attachments/assets/b1aba4f7-8a13-4048-84f3-6ef496bef72c" />
+
 
 When Wireshark opens, you will see packets represented in three different windows:
 
