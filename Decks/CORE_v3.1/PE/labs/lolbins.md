@@ -284,4 +284,4 @@ exit
 
 # Finished?
 
-[Back to Card's Main Page](/Cards/PE/Internal_Password_Spray.md)
+[Back to Card's Main Page](../Internal_Password_Spray.md)
