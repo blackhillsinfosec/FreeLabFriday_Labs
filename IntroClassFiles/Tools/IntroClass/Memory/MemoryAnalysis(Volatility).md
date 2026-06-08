@@ -25,11 +25,8 @@ To do this, we need to decompress it and use **Volatility** to examine the netwo
 
 To start, we will open a terminal. 
 
-![](attachments/OpeningKaliInstance.png)
+<img width="45" height="51" alt="image" src="https://github.com/user-attachments/assets/d8073cce-6bb4-4515-8121-79b0e1b60481" />
 
-Alternatively, you can click on the **Kali** logo in the taskbar.
-
-![](attachments/TaskbarKaliIcon.png)
 
 Gain root access by using the following command.
 
@@ -40,50 +37,66 @@ sudo su -
 Next, we need to navigate to the appropriate directory. 
 
 ```bash
-cd /opt/volatility3-1.0.0
+cd Intro_To_SOC/
+```
+
+Download and unzip volatility(copy-paste is your firned:
+
+```bash
+wget https://github.com/volatilityfoundation/volatility3/archive/refs/tags/v1.0.0.zip
+unzip v1.0.0.zip
+cd volatility3-1.0.0
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install --upgrade pip setuptools wheel
+python -m pip install pycryptodome
 ```
 
 Lets begin by finding pages in the memory that have read, write, and execute privileges.
 
 ```bash
-python3 vol.py -f ./memdump.vmem windows.malfind.Malfind
+python3 vol.py -f ../memdump.vmem windows.malfind.Malfind
 ```
 
 Patience, Padawan! This can take up to several minutes to complete.
 
-![](attachments/MemAnalysis_Malfind.png)
+<img width="1268" height="134" alt="2026-06-08_14-36" src="https://github.com/user-attachments/assets/f4636815-21b3-49d6-9ded-28dc80cb6009" />
+
 
 Right away, we notice that the file **"TrustMe.exe"** looks very suspicious.
 
 Let's continue by looking at the network connections.
 
 ```bash
-python3 vol.py -f ./memdump.vmem windows.netscan
+python3 vol.py -f ../memdump.vmem windows.netscan
 ```
 
-![](attachments/MemAnalysis_Netscan.png)
+<img width="1310" height="135" alt="2026-06-08_14-43" src="https://github.com/user-attachments/assets/c2aaf0b1-5b90-4f03-a974-629e0426b35b" />
+
 
 The above screenshot is... concerning.
 
- Because there is a SMB (port 445) connection to another computer, we need to investigate further. We know it is compromised, (because it is a lab), but any time a **"suspect"** computer has another open connection to an internal system it is, without question, a cause for concern.
+Because there is a SMB (port 445) connection to another computer, we need to investigate further. We know it is compromised, (because it is a lab), but any time a **"suspect"** computer has another open connection to an internal system it is, without question, a cause for concern.
 
 Now, let's look at the processes on this system.
 
 ```bash
-python3 vol.py -f ./memdump.vmem windows.pslist
+python3 vol.py -f ../memdump.vmem windows.pslist
 ```
 
-![](attachments/MemAnalysis_plist.png)
+<img width="1493" height="250" alt="2026-06-08_14-44" src="https://github.com/user-attachments/assets/71eb5cc5-e7d3-4f73-87d7-17de1f997312" />
+
 
 The **cmd.exe** should catch your attention. Generally, usage of a system does not spawn a **cmd.exe** session. There is a chance that it can appear briefly as part of a sysadmin script, but it is not a normal sight and very often not seen in day-to-day life.  
 
 Let's look at **pstree** to see a bit more detail on what spawned what.
 
 ```bash
-python3 vol.py -f ./memdump.vmem windows.pstree
+python3 vol.py -f ../memdump.vmem windows.pstree
 ```
 
-![](attachments/MemAnalysis_pstree.png)
+<img width="1478" height="555" alt="2026-06-08_14-46" src="https://github.com/user-attachments/assets/ed8ceb76-2841-443f-a372-a366c9196ea6" />
+
 
 You can see that we traced back the parent process for one of the cmd.exe files back to **TrustMe.exe**. When hunting down these processes it helps to track the parent processes. It can help create a sort of timeline for the actions on the system.
 
@@ -92,10 +105,11 @@ In the above example, we can also see that the parent process for **TrustMe.exe*
 Let's now dive into the **TrustMe.exe** process a bit further with **dlllist**. For this command, we will use the PID of **TrustMe.exe**, which is 5452.
 
 ```bash
-python3 vol.py -f ./memdump.vmem dlllist --pid 5452
+python3 vol.py -f ../memdump.vmem dlllist --pid 5452
 ```
 
-![](attachments/MemAnalysis_dlllist.png)
+<img width="1453" height="220" alt="image" src="https://github.com/user-attachments/assets/e2280049-0c81-4588-9902-08f02d38a3d2" />
+
 
 You can see the **dll's** associated with the **TrustMe.exe** process.
 
