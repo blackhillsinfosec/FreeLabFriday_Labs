@@ -76,7 +76,6 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on labs using real phishing tools:
 
-- [Modlishka Lab](labs/Evilginx.md)
 - [Evilginx Lab](labs/Evilginx/Evilginx.md)  
 - [Gophish Lab](labs/GoPhish.md)  
 - [Social Engineer Toolkit (SET) Lab](labs/SocialEngineerToolkit.md)  
