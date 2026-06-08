@@ -475,6 +475,8 @@ sudo docker stop evilginx-lab
 ```
 
 
+---
 
+# Finished?
 
-[Back to Phishing Main Page](/Decks/CORE_v3.1/PER/Malicious_Browser_Plugins.md)
+[Back to Malicious_Browser_Plugins's Main Page](/Decks/CORE_v3.1/PER/Malicious_Browser_Plugins.md)
