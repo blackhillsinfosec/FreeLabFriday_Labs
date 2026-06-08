@@ -37,7 +37,7 @@ sudo su -
 Next, we need to navigate to the appropriate directory. 
 
 ```bash
-cd Intro_To_SOC/
+cd ~/Intro_To_SOC/
 ```
 
 Download and unzip volatility(copy-paste is your firned:
