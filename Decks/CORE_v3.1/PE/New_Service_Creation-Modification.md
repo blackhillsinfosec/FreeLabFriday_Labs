@@ -71,6 +71,7 @@ Put your knowledge of the topic to the test with this online quiz!
 Hands-on practice with the tools from the card:
 
 - [PsExec Lab](labs/psexec.md)
+- [PowerShell Lab](labs/powershell.md)
   
 ---
 
