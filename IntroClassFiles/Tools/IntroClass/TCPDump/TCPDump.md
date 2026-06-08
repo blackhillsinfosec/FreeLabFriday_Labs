@@ -61,11 +61,13 @@ Its **source** IP address + port direction and **destination** IP address + port
 
 Its control bit flags and sequence numbers:
 
-![](attachments/tcpdump_flagssequence.png)
+<img width="350" height="24" alt="image" src="https://github.com/user-attachments/assets/5d09835f-022c-4158-8b52-fa9635040d75" />
+
 
 And data size:
 
-![](attachments/Clipboard_2020-12-09-18-18-51.png)
+<img width="119" height="29" alt="image" src="https://github.com/user-attachments/assets/507e5c82-a09b-47f3-a4bf-1a14cbcdc939" />
+
 
 We can get the filter to be a bit more granular.  In fact, you can create filters for literally every part of a packet!
 
@@ -75,7 +77,8 @@ Let's add port number.
 tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80
 ```
 
-![](attachments/tcpdump_port80.png)
+<img width="1903" height="506" alt="image" src="https://github.com/user-attachments/assets/3c44c256-c0f9-4e04-b074-bf59f2f9e848" />
+
 
 In the screenshot above, you can see we now have all the packets that are either sent or received by port 80 on 192.168.99.52.
 
@@ -90,7 +93,8 @@ tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80 -A
 >[!TIP]
 >You can hit **ctrl + c** after a few seconds.
 
-![](attachments/tcpdump_-a.png)
+<img width="1905" height="447" alt="2026-06-08_17-00" src="https://github.com/user-attachments/assets/6dab42d3-9f37-49a8-82c5-de9eea919868" />
+
 
 As you can see above, we now can see the actual http GET requests and the responses.  
 
@@ -98,22 +102,25 @@ Lets dig into the packet with the timestamp of 15:14:32.638976
 
 Ouch, it looks like **PowerShell!!!**  A favorite of attackers and pentesters alike.  
 
-![](attachments/tcpdump_powershell.png)
+<img width="1905" height="317" alt="2026-06-08_17-01" src="https://github.com/user-attachments/assets/13a1996e-422f-43c4-be4b-7138d5b8efd8" />
+
 
 Furthermore, it looks like there is **Base64** data.
 
-![](attachments/tcpdump_base64.png)
+<img width="1903" height="273" alt="2026-06-08_17-02" src="https://github.com/user-attachments/assets/647b1033-f9e9-4fc5-ab77-36849c42a1da" />
+
 
 Still not enough?  We can also see the raw **Hex** values with the -X flag:
 
 ```bash
-tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80 -AX
+tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52 and port 80 -AX | less
 ```
 
 >[!TIP]
->You can hit **ctrl + c** after a few seconds.
+> Press **q** to exit the **less** interface
 
-![](attachments/tcpdump_hex.png)
+<img width="1901" height="882" alt="Screenshot 2026-06-08 170423" src="https://github.com/user-attachments/assets/0a0e30c4-9ad2-406c-9822-81aeed388a9b" />
+
 
 We can also show specific protocols of interest.
 
@@ -123,7 +130,8 @@ For example:
 tcpdump -n -r magnitude_1hr.pcap ip6
 ```
 
-![](attachments/tcpdump_ip6.png)
+<img width="1375" height="547" alt="image" src="https://github.com/user-attachments/assets/f56d3f6f-d417-483e-b96b-75c550d7d440" />
+
 
 This is showing all the **ipv6** traffic.
 
@@ -135,7 +143,8 @@ Think of an attacker using multiple systems on a network range to disperse their
 tcpdump -n -r magnitude_1hr.pcap net 192.168.99.0/24
 ```
 
-![](attachments/tcpdump_netrange.png)
+<img width="1388" height="726" alt="image" src="https://github.com/user-attachments/assets/ce386eb3-413d-4e2a-8ab4-8e2adf61a57a" />
+
 
 Want to play with some more pcaps?  Cool.
 
