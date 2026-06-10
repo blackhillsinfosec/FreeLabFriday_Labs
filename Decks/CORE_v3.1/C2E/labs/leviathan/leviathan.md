@@ -144,35 +144,91 @@ Crucially, **Leviathan has already done the hard part in Phase 1**: it produced 
  
 ### Step 1 — Locate the Leviathan hit list files
  
-Leviathan saves masscan results to its `lists/` directory. Find the files produced in Phase 1:
+Leviathan saves masscan results to its `assets/discovered` directory. Find the files produced in Phase 1:
  
 ```bash
-ls -lh ~/BnB/Leviathan/leviathan_framework/lists/
+ls -lh ~/BnB/Leviathan/leviathan_framework/assets/discovered
 ```
+
+<img width="912" height="157" alt="image" src="https://github.com/user-attachments/assets/430865e5-e263-4f51-bbcd-510278a7e84a" />
+
  
 You should see one file per service scan you performed. Confirm each file contains your Windows VM IP before proceeding:
  
 ```bash
-cat ~/BnB/Leviathan/leviathan_framework/lists/<ssh_output_file>.txt
-cat ~/BnB/Leviathan/leviathan_framework/lists/<ftp_output_file>.txt
+cat ~/BnB/Leviathan/leviathan_framework/assets/discovered/<ssh_output_file
+cat ~/BnB/Leviathan/leviathan_framework/assets/discovered/<ftp_output_file>.txt
 ```
  
 > [!IMPORTANT]
 > Replace `<ssh_output_file>` and `<ftp_output_file>` with the exact filenames shown during Phase 1. Both files should contain a single line: your `<WINDOWS_IP>`.
- 
+
+<img width="1072" height="135" alt="image" src="https://github.com/user-attachments/assets/406b19e5-d7f1-462c-b89b-703262ce4412" />
+
 ---
  
-### Step 2 — Locate the Leviathan wordlists
+### Step 2 — Build the Attack Wordlists
  
-The Leviathan framework ships with its own credential wordlists. List them so you know the exact filenames before constructing the attack command:
+Real-world attackers do not spray millions of passwords blindly against a target — that triggers lockout policies and generates enormous log noise. Instead, they build **targeted wordlists**: a curated set of credentials that reflect the most likely passwords for the specific environment they are attacking.
+ 
+**Leviathan** allows you to input your own wordlists and passwords. That is what we will now do : 
+ 
+- Create the `wordlist/` directory inside the Leviathan framework folder:
  
 ```bash
-ls ~/BnB/Leviathan/leviathan_framework/wordlist/
+mkdir -p ~/BnB/Leviathan/leviathan_framework/wordlist
 ```
  
-Note the names of the files — you will substitute them in the commands below where you see `<wordlist_file>`.
+- Create the **username list**. You discovered the account name `victim` during Phase 0, but a real attacker would try several plausible candidates:
+ 
+```bash
+cat > ~/BnB/Leviathan/leviathan_framework/wordlist/users.txt << 'EOF'
+admin
+administrator
+user
+guest
+victim
+EOF
+```
+
+Create the **password list**. This is a realistic set of 15 candidate passwords — the kind generated from OSINT on a target company (e.g. company name, common seasons, standard complexity patterns). One of them will crack:
+ 
+```bash
+cat > ~/BnB/Leviathan/leviathan_framework/wordlist/passwords.txt << 'EOF'
+Welcome1!
+admin123
+Summer2025!
+Corporate1!
+letmein99
+Qwerty123!
+Password123!
+January2025
+Passw0rd!
+Monkey123
+Login2025!
+dragon99
+123456789
+Test@1234
+Winter2024!
+EOF
+```
+
+Verify both files look correct before launching the attack:
+ 
+```bash
+cat ~/BnB/Leviathan/leviathan_framework/wordlist/users.txt
+cat ~/BnB/Leviathan/leviathan_framework/wordlist/passwords.txt
+```
+
+<img width="909" height="230" alt="image" src="https://github.com/user-attachments/assets/c0e93c1a-02b8-4067-9868-9c379209f93f" />
+
+<img width="908" height="423" alt="image" src="https://github.com/user-attachments/assets/f7c877e6-cae5-4601-a8bb-e06c237f9f78" />
+
+> [!NOTE]
+> Notice that `Password123!` is not the first entry in the list. ncrack works through the file top to bottom — you will be able to watch it attempt and fail on earlier entries before landing the correct credential. This is exactly how a real brute-force attack progresses.
  
 ---
+
  
 ### Step 3 — Brute-force SSH (port 22)
  
