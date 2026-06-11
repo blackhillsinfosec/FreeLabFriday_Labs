@@ -1,5 +1,3 @@
-<img width="791" height="750" alt="2026-06-11_17-08" src="https://github.com/user-attachments/assets/fc9d2a60-4bda-4e08-8bb9-50381060c1f5" />![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
-
 # SharPersist
 
 # Windows VM
