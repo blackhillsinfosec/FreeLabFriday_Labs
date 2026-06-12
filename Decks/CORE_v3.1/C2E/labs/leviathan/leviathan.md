@@ -424,6 +424,8 @@ schtasks /delete /tn "BITSCleanup" /f
 schtasks /delete /tn "WindowsUpdateHelper" /f
 ```
 
+<img width="963" height="238" alt="image" src="https://github.com/user-attachments/assets/cdd3e85e-17fc-48cd-987a-1cca973b4f7b" />
+
 - On the Ubuntu VM, press CTRL+C in the terminal running the C2 server to stop it.
 
 ## Conclusion
