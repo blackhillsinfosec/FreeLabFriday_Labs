@@ -379,6 +379,8 @@ Let's verify that the data successfully reached the attacker:
 >[!IMPORTANT]
 >Because the network traffic looked completely legitimate (HTTP traffic from svchost.exe), the firewall did not generate any alerts. As a Blue Teamer, detection relies entirely on Endpoint Analysis.
 
+Let's analyse the bitusers list a bit deeper : 
+
 - In your Windows SSH session, hunt for suspicious BITS jobs. The /allusers flag is critical — without it, you would not see jobs created under SYSTEM:
 
 ```Powershell
@@ -390,6 +392,9 @@ In the verbose output, look for these Indicators of Compromise:
 - The remote URL pointing to a non-Microsoft, internal IP address
 - The local file path pointing to a sensitive document (passwords.txt)
 - The job owner is SYSTEM — a standard user exfiltrating data through SYSTEM is itself suspicious
+
+
+<img width="961" height="558" alt="image" src="https://github.com/user-attachments/assets/91670709-29c6-4b4d-8d4e-62a0948a7fbe" />
 
 Alternatively, query BITS via PowerShell cmdlets:
 ```
