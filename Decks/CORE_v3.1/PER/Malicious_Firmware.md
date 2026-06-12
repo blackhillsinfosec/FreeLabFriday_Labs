@@ -84,7 +84,6 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [CHIPSEC Lab](labs/chipsec.md)
 - [Flashrom Lab](labs/flashrom.md)
 - [Impacket Lab](labs/impacket.md)
 - [PowerShell Lab](labs/powershell.md)
