@@ -357,26 +357,22 @@ schtasks /run /tn "WindowsUpdateHelper"
 
 <img width="853" height="294" alt="image" src="https://github.com/user-attachments/assets/ce4fb753-9f11-4133-8f6a-a3f2a5c50cfd" />
 
-- Wait a few seconds, then confirm the BITS job was created and the transfer was initiated:
+-  Wait a few seconds. Confirm the BITS job was created and the transfer was initiated: 
 
 ```powershell
-Start-Sleep -Seconds 3
 bitsadmin /list /allusers /verbose
 ```
+
+<img width="967" height="558" alt="image" src="https://github.com/user-attachments/assets/ba177065-f0fa-4d7d-8a83-d08b9df945cc" />
 
 ## Phase 5: Verification - Ubuntu VM
 Let's verify that the data successfully reached the attacker:
 
-- Go back to your Ubuntu VM and look at the terminal running the C2 server. You should see logs indicating a BITS SESSION CREATED, followed by the chunk transfers, and finally a TRANSFER COMPLETE message:
+-  In the c2_server terminal you should see the **TRANSFER COMPLETE | passwords.txt | 80 bytes** message: 
 
+<img width="752" height="529" alt="image" src="https://github.com/user-attachments/assets/fa1f12fd-e4c3-4ec6-8547-eb31099e0b92" />
 
-Open a web browser on your Ubuntu VM and navigate to the C2 Dashboard:
-
-```
-http://127.0.0.1/status
-```
-
-You will see a JSON output confirming that passwords.txt has been received.
+**Exfiltration successful >:D**
 
 ## Phase 6: Blue Team Detection - Windows VM
 
