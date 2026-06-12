@@ -91,8 +91,8 @@ Hands-on walkthroughs for each tool:
 
 - [SharpStay Lab](labs/sharpstayPER.md)
 - [SharPersist Lab](labs/sharpersist.md)
-- [StayKit Lab](labs/staykit.md)
 - [PsExec Lab](labs/psexec.md)
+- StayKit is basically just an extension of **SharpStay**
 
 ---
 
