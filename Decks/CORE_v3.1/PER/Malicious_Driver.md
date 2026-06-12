@@ -83,7 +83,7 @@ Hands-on practice with each tool:
 - [PowerShell Lab](labs/powershell.md)
 - [Metasploit Lab](labs/metasploit.md)
 - [KDU Lab](labs/kdu.md)
-- [SharpStay Lab](labs/sharpstay.md)
+- **StayKit** is basically just an extension of **SharpStay**
 
 ---
 
