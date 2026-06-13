@@ -131,15 +131,13 @@ The CloudFormation template (`mythic_cloudformation_config.yaml`) creates:
 3. Click **Next** and fill in the parameters:
    - **Stack name** : give the server a simple name (ex : MythicServer)
    - **KeyName** : select your existing key pair from the dropdown.
-   - **InstanceType** : leave as `t3.large` (required for Mythic's Docker workload).
-
-<img width="1138" height="643" alt="image" src="https://github.com/user-attachments/assets/dacc8c87-c84b-426e-b69b-ac3d5f914e12" />
+   - **InstanceType** : leave as `m7i-flex.large` (required for Mythic's Docker workload).
 
 4. Click through the remaining screens and hit **Create stack**.
 Wait until the stack status shows `CREATE_COMPLETE` (~2 minutes).
- 
+
 ### Grab the outputs
- 
+
 Go to the **Outputs** tab of the newly created stack. Note down:
  
 | Output key | What it is |
@@ -147,7 +145,9 @@ Go to the **Outputs** tab of the newly created stack. Note down:
 | `PublicIP` | The EC2 instance's public IP — you will use this everywhere |
 | `SSHCommand` | Ready-to-paste SSH command |
 | `MythicUI` | Direct link to the Mythic web UI |
- 
+
+<img width="1537" height="391" alt="image" src="https://github.com/user-attachments/assets/599cf2a3-dc19-4fc4-a739-471e63c40cfa" />
+
 ---
  
 ## Part 2 — Connect to the EC2 Instance
