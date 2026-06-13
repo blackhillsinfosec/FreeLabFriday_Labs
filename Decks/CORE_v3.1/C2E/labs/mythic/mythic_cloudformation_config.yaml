@@ -8,9 +8,9 @@ Parameters:
     Description: Select the name of an existing Key Pair in your AWS account for SSH access.
     Type: AWS::EC2::KeyPair::KeyName
   InstanceType:
-    Description: The EC2 instance type (Recommended t3.large for 8GB RAM).
+    Description: The EC2 instance type (Recommended m7i-flex.large for 8GB RAM).
     Type: String
-    Default: t3.large
+    Default: m7i-flex.large
     AllowedValues:
       - t3.medium
       - t3.large
