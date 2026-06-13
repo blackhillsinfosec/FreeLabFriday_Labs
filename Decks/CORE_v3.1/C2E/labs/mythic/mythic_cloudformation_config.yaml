@@ -1,0 +1,61 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: >
+  Infrastructure for C2 Laboratory - Mythic Framework. 
+  Creates an Ubuntu 22.04 EC2 instance with 8GB RAM (t3.large), 30GB storage, and opens ports 22, 80, and 7443.
+
+Parameters:
+  KeyName:
+    Description: Select the name of an existing Key Pair in your AWS account for SSH access.
+    Type: AWS::EC2::KeyPair::KeyName
+  InstanceType:
+    Description: The EC2 instance type (Recommended t3.large for 8GB RAM).
+    Type: String
+    Default: t3.large
+    AllowedValues:
+      - t3.medium
+      - t3.large
+      - m7i-flex.large
+
+Resources:
+  MythicSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties:
+      GroupDescription: Allows traffic for SSH, HTTP (C2 Agent) and HTTPS (Mythic Web UI)
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 80
+          ToPort: 80
+          CidrIp: 0.0.0.0/0
+        - IpProtocol: tcp
+          FromPort: 7443
+          ToPort: 7443
+          CidrIp: 0.0.0.0/0
+
+  MythicInstance:
+    Type: AWS::EC2::Instance
+    Properties:
+      InstanceType: !Ref InstanceType
+      KeyName: !Ref KeyName
+      SecurityGroupIds:
+        - !Ref MythicSecurityGroup
+      ImageId: 'resolve:ssm:/aws/service/canonical/ubuntu/server/22.04/stable/current/amd64/hvm/ebs-gp2/ami-id'
+      BlockDeviceMappings:
+        - DeviceName: /dev/sda1
+          Ebs:
+            VolumeSize: 30
+            VolumeType: gp3
+
+Outputs:
+  PublicIP:
+    Description: The public IP of your Mythic Server instance.
+    Value: !GetAtt MythicInstance.PublicIp
+  SSHCommand:
+    Description: SSH connection command (replace your_key_name.pem with your file).
+    Value: !Sub 'ssh -i "your_key_name.pem" ubuntu@${MythicInstance.PublicIp}'
+  MythicUI:
+    Description: The URL for the Mythic web interface (available after manual installation).
+    Value: !Sub 'https://${MythicInstance.PublicIp}:7443'
