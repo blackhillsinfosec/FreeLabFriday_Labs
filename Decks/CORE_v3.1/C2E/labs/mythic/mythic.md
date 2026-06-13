@@ -108,7 +108,12 @@ icacls "havoc-key.pem" /grant:r "${env:USERNAME}:R"6
 ---
  
 ## Part 1 — Deploy the Mythic Server with CloudFormation
- 
+
+>[!NOTE]
+> You can finish this part of the lab **on your personal computer or on the Windows VM**.
+
+- Download the **lab cloudformation configuration script** using [this link](/Decks/CORE_v3.1/C2E/labs/mythic/mythic_cloudformation_config.yaml)
+
 The CloudFormation template (`mythic_cloudformation_config.yaml`) creates:
 - An EC2 `t3.large` instance (8 GB RAM, 30 GB gp3 disk) running Ubuntu 22.04
 - A Security Group that opens ports **22** (SSH), **80** (agent callbacks), and **7443** (Mythic Web UI)
