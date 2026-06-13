@@ -57,7 +57,7 @@ If you do not have an AWS account yet, complete **[ScoutSuite Lab — Phase 1](/
 ### 🔑 Securing the SSH Key (havoc-key.pem) : 
  - The *RSA Key* should be in your *Downloads* folder (either on the VM or on your personal computer):
    
- <img width="859" height="304" alt="image" src="https://github.com/user-attachments/assets/45364ac4-85e5-4305-8cda-b470c38a09c4" />
+ <img width="743" height="251" alt="image" src="https://github.com/user-attachments/assets/9e6d048b-4966-4aa3-9f11-40d3f1dff6f3" />
 
    We will use the **VM's clipboard** to copy the .pem file. Move the *.pem* file to the **lab directory (~/BnB/Havoc)**
  - To *open or close* the clipboard of the VM press **ctrl+alt+shift** and a small window will pop up: 
@@ -66,7 +66,7 @@ If you do not have an AWS account yet, complete **[ScoutSuite Lab — Phase 1](/
  
  - Use **cat** and copy the contents of the file. Make sure to copy the **---BEGIN...---** and **---END...---** parts of the key. 
 
- <img width="808" height="694" alt="image" src="https://github.com/user-attachments/assets/d18635c4-679c-4088-be72-9c9a93ad2275" />
+ <img width="775" height="637" alt="image" src="https://github.com/user-attachments/assets/b3dc24ed-57f2-409f-be29-8ce8cdb1f73d" />
 
  - Copy the contents of the file using **ctrl+shift+c**, and you will see that when you open your clipboard, the contents of the file will be listed there : 
 
@@ -83,13 +83,12 @@ Depending on your operating system, this proccess will differ :
 - On Linux / macOS, open a folder of your choosing in the terminal, type **nano havoc-key.pem**, paste the content into a the file, press **ctrl+o, Enter, then ctrl+x**. After that, type:
 
 ``` bash
-chmod 400 havoc-key.pem
+chmod 400 LabKey-1.pem
 ```
 
  - You should now see the that **only the root user has reading permission**: 
 
- <img width="551" height="23" alt="image" src="https://github.com/user-attachments/assets/a8407052-8dc2-4793-9a48-b127315db08d" />
-
+ <img width="632" height="23" alt="image" src="https://github.com/user-attachments/assets/ba2237a6-b905-4f17-8b58-04a7ddf60725" />
 
 ### Option B: Windows Users (PowerShell)
 Open a PowerShell terminal in the folder containing your key and run these two commands. This will disable permission inheritance and ensure only your current user profile has access:
@@ -159,7 +158,9 @@ ssh -i "your_key.pem" ubuntu@<EC2_PUBLIC_IP>
 ```
  
 > Replace `<EC2_PUBLIC_IP>` with the value from the `PublicIP` output. You will use this IP address in every step that follows.
- 
+
+<img width="767" height="686" alt="image" src="https://github.com/user-attachments/assets/6eb52301-7c6e-4d41-92f9-1ae7a05406fe" />
+
 ---
  
 ## Part 3 — Install and Start Mythic on EC2
@@ -171,10 +172,14 @@ cd ~
 git clone https://github.com/its-a-feature/Mythic
 cd Mythic
 ```
- 
+
+<img width="736" height="227" alt="image" src="https://github.com/user-attachments/assets/78f67117-b67c-458f-af87-8ef5c9d76ec7" />
+
 Install the Mythic CLI:
  
 ```bash
+sudo apt update
+sudo apt install -y make
 sudo make
 ```
  
