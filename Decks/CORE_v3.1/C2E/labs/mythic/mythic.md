@@ -119,11 +119,22 @@ The CloudFormation template (`mythic_cloudformation_config.yaml`) creates:
 - A Security Group that opens ports **22** (SSH), **80** (agent callbacks), and **7443** (Mythic Web UI)
 ### Deploy the stack
  
-1. Open the **AWS Console** and navigate to **CloudFormation → Stacks → Create stack → With new resources (standard)**.
+1. Open the **AWS Console** and navigate to **CloudFormation → Stacks → Create stack**.
+
+<img width="1087" height="568" alt="image" src="https://github.com/user-attachments/assets/eaf8154c-340a-4500-8788-20692a5447c5" />
+<img width="1893" height="555" alt="image" src="https://github.com/user-attachments/assets/0a310691-692d-48d2-ba29-41b5f2833a16" />
+
 2. Under *Specify template*, choose **Upload a template file** and upload `mythic_cloudformation_config.yaml`.
+
+<img width="1409" height="742" alt="image" src="https://github.com/user-attachments/assets/1227545f-33bf-49f8-9009-e9825de57bbd" />
+
 3. Click **Next** and fill in the parameters:
-   - **KeyName** — select your existing key pair from the dropdown.
-   - **InstanceType** — leave as `t3.large` (required for Mythic's Docker workload).
+   - **Stack name** : give the server a simple name (ex : MythicServer)
+   - **KeyName** : select your existing key pair from the dropdown.
+   - **InstanceType** : leave as `t3.large` (required for Mythic's Docker workload).
+
+<img width="1138" height="643" alt="image" src="https://github.com/user-attachments/assets/dacc8c87-c84b-426e-b69b-ac3d5f914e12" />
+
 4. Click through the remaining screens and hit **Create stack**.
 Wait until the stack status shows `CREATE_COMPLETE` (~2 minutes).
  
