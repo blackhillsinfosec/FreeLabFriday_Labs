@@ -431,6 +431,9 @@ schtasks /delete /tn "WindowsUpdateHelper" /f
 ## Conclusion
 
 In this lab, you successfully gained Initial Access using the Leviathan Framework and executed a "Living off the Land" exfiltration using a built-in Windows service. You saw how BITS can bypass network defenses by masquerading as standard system updates. More importantly, you learned that when network detection fails, rigorous Endpoint Analysis—specifically monitoring BITS job queues and their destinations—is the key to catching advanced threat actors like Leviathan.
-Finished?
 
-[Back to Card's Main Page]()
+--- 
+
+## Finished?
+
+[Back to Card's Main Page](https://github.com/blackhillsinfosec/FreeLabFriday_Labs/blob/main/Decks/CORE_v3.1/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)
