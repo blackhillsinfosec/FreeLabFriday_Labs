@@ -175,14 +175,21 @@ cd Mythic
 
 <img width="736" height="227" alt="image" src="https://github.com/user-attachments/assets/78f67117-b67c-458f-af87-8ef5c9d76ec7" />
 
-Install the Mythic CLI:
+Install the Mythic CLI (since the **Ubuntu AWS EC2** is empty, we need to install **make** and **docker**):
  
 ```bash
 sudo apt update
+# Install Make
 sudo apt install -y make
+# Install Docker
+curl -fsSL https://get.docker.com | sudo sh
+sudo systemctl enable docker
+sudo systemctl start docker
 sudo make
 ```
- 
+
+<img width="805" height="155" alt="image" src="https://github.com/user-attachments/assets/1c55ce97-e101-4e63-91b1-a67ee27d5662" />
+
 Start Mythic (this pulls all required Docker containers — takes 2–5 minutes the first time):
  
 ```bash
