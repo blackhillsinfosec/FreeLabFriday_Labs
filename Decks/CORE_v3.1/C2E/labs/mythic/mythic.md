@@ -428,7 +428,9 @@ sudo tshark -i any -f "port 80" -Y "http"
 ```
  
 You will see regular HTTP GET/POST requests arriving from the Windows machine. The agent is beaconing — calling home every 5 seconds to ask for new tasks.
- 
+
+<img width="842" height="697" alt="image" src="https://github.com/user-attachments/assets/60c8e356-1e63-4388-b211-c2d4b7a1e1af" />
+
 Key things to observe:
 - **Regular interval** — real user traffic is not this regular. A beacon every 5 seconds is a detection signal.
 - **User-Agent** — Apollo sends a browser-like User-Agent to blend in, but it will always be the same string.
