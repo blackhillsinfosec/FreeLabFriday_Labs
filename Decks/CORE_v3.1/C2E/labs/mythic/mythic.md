@@ -165,7 +165,7 @@ ssh -i "your_key.pem" ubuntu@<EC2_PUBLIC_IP>
  
 ## Part 3 — Install and Start Mythic on EC2
  
-Once you are inside the EC2 instance, clone the Mythic repository:
+- Once you are inside the EC2 instance, clone the Mythic repository:
  
 ```bash
 cd ~
@@ -175,7 +175,7 @@ cd Mythic
 
 <img width="736" height="227" alt="image" src="https://github.com/user-attachments/assets/78f67117-b67c-458f-af87-8ef5c9d76ec7" />
 
-Install the Mythic CLI (since the **Ubuntu AWS EC2** is empty, we need to install **make** and **docker**):
+- Install the Mythic CLI (since the **Ubuntu AWS EC2** is empty, we need to install **make** and **docker**):
  
 ```bash
 sudo apt update
@@ -190,42 +190,51 @@ sudo make
 
 <img width="805" height="155" alt="image" src="https://github.com/user-attachments/assets/1c55ce97-e101-4e63-91b1-a67ee27d5662" />
 
-Start Mythic (this pulls all required Docker containers — takes 2–5 minutes the first time):
+- Start Mythic (this pulls all required Docker containers — takes 2–5 minutes the first time):
  
 ```bash
 sudo ./mythic-cli start
 ```
  
-When it finishes you will see output similar to:
+  When it finishes you will see output similar to:
  
 ```
 [*] Mythic services started
 [*] Web UI available at: https://0.0.0.0:7443
 ```
- 
-Get the auto-generated admin password:
+
+<img width="1574" height="751" alt="image" src="https://github.com/user-attachments/assets/df32d902-2cde-451e-a055-40c7d577ee6f" />
+
+- Get the auto-generated admin password:
  
 ```bash
 sudo ./mythic-cli config get MYTHIC_ADMIN_PASSWORD
 ```
- 
-Note down the password. The default username is `mythic_admin`.
+
+<img width="955" height="170" alt="image" src="https://github.com/user-attachments/assets/a0b5209b-6c76-4250-90c4-b2272ee61eba" />
+
+- Note down the password. The default username is `mythic_admin`.
  
 ---
  
 ## Part 4 — Access the Mythic Web UI
  
-On your Ubuntu VM, open Firefox and go to (use the IP from the CloudFormation output):
+- On your Ubuntu VM, open Firefox and go to (use the IP from the CloudFormation output):
  
 ```
 https://<EC2_PUBLIC_IP>:7443
 ```
  
 Accept the self-signed certificate warning (click **Advanced → Accept the Risk and Continue**).
- 
+
+<img width="919" height="734" alt="image" src="https://github.com/user-attachments/assets/42440fcc-e5ab-4226-89ea-f5eddb55c88c" />
+
 Log in with:
 - **Username:** `mythic_admin`
 - **Password:** (the one you copied above)
+
+<img width="922" height="737" alt="image" src="https://github.com/user-attachments/assets/c20e243a-e84c-46bc-80ed-0ae3887b3f33" />
+
 You will land on the Mythic dashboard. The left sidebar has: Callbacks, Payloads, Files, Operations, and more.
  
 ---
@@ -237,7 +246,7 @@ Back in your SSH session on the EC2 instance, install the **Apollo** Windows age
 ```bash
 sudo ./mythic-cli install github https://github.com/MythicAgents/Apollo
 ```
- 
+
 Install the **http** C2 profile (the transport layer):
  
 ```bash
@@ -245,13 +254,17 @@ sudo ./mythic-cli install github https://github.com/MythicC2Profiles/http
 ```
  
 Wait for both to finish — you will see "Successfully installed" messages.
- 
+
+<img width="877" height="245" alt="image" src="https://github.com/user-attachments/assets/fa1129ba-e90c-4a19-b42f-2fa47dad0359" />
+
 Restart Mythic so it picks up the new agent and profile:
  
 ```bash
 sudo ./mythic-cli restart
 ```
- 
+
+<img width="1836" height="738" alt="image" src="https://github.com/user-attachments/assets/9a84a18b-beb2-4632-b58e-900f8062d86f" />
+
 ---
  
 ## Part 6 — Generate a Payload
