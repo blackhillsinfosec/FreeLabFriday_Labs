@@ -269,28 +269,44 @@ sudo ./mythic-cli restart
  
 ## Part 6 — Generate a Payload
  
-In the Mythic web UI, click **Payloads** in the left sidebar → **New Payload**.
- 
+- In the Mythic web UI, click on the button **Create Your First Payload**:
+
+<img width="1913" height="942" alt="image" src="https://github.com/user-attachments/assets/f5461690-3f1c-4ee3-8b80-366d1674e2c3" />
+
 Walk through the payload builder:
  
 1. **Select OS** → Windows
 2. **Select Agent** → Apollo
-3. **Select C2 Profile** → http
-4. **C2 Profile config:**
+3. Click on the **Start Fresh** button
+
+<img width="1908" height="462" alt="image" src="https://github.com/user-attachments/assets/9efd4668-68c1-4b39-a5c7-dcee18c0943a" />
+4. Click **Next**
+
+<img width="959" height="961" alt="image" src="https://github.com/user-attachments/assets/ec84b5e7-eca6-44a3-b2de-97c4570cce01" />
+
+5. In the **Commands Available** column, search and select **ls and screenshot**, then click on **>**. Click *Next*: 
+
+<img width="1135" height="306" alt="image" src="https://github.com/user-attachments/assets/cff4b870-10da-4664-911f-237da87f1091" />
+<img width="1130" height="272" alt="image" src="https://github.com/user-attachments/assets/1894a34f-b395-47cf-b44f-8c0e34755a90" />
+<img width="1130" height="816" alt="image" src="https://github.com/user-attachments/assets/f912a1c7-15e3-415a-b144-2b9a69bf3002" />
+
+
+6. **C2 Profile config:**
    - **Callback Host** → enter your EC2 public IP (`<EC2_PUBLIC_IP>`)
-   - **Callback Port** → `80`
    - **Callback Interval** → `5` (seconds between check-ins)
-5. **Output format** → `WinExe` (a .exe file)
-6. Click **Generate**
-Mythic builds the payload in Docker on the EC2 instance. When it finishes, click **Download** — the file will be named something like `apollo.exe`. Your browser downloads it directly from the EC2 server.
- 
+Click **Next** :
+
+<img width="1846" height="972" alt="image" src="https://github.com/user-attachments/assets/cc31f189-d01d-42bf-888d-99f10a966c86" />
+
+8. Click **Create Payload**. Mythic builds the payload in Docker on the EC2 instance. When it finishes, click **Download** — the file will be named something like `apollo.exe`. Your browser downloads it directly from the EC2 server.
+
 Transfer `apollo.exe` to your Windows target machine. You can host it from the EC2 instance:
- 
+
 ```bash
 cd ~/Downloads
 python3 -m http.server 8080
 ```
- 
+
 Then on the Windows machine, open a browser and go to:
  
 ```
