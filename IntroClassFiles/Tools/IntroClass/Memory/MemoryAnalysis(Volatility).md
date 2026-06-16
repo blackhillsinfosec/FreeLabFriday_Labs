@@ -31,16 +31,16 @@ To start, we will open a terminal.
 Gain root access by using the following command.
 
 ```bash
-sudo su -
+sudo su
 ```
 
 Next, we need to navigate to the appropriate directory. 
 
 ```bash
-cd ~/Intro_To_SOC/
+cd Intro_To_SOC/
 ```
 
-Download and unzip volatility(copy-paste is your firned:
+Download and unzip volatility(copy-paste is your friend):
 
 ```bash
 wget https://github.com/volatilityfoundation/volatility3/archive/refs/tags/v1.0.0.zip
@@ -60,8 +60,7 @@ python3 vol.py -f ../memdump.vmem windows.malfind.Malfind
 
 Patience, Padawan! This can take up to several minutes to complete.
 
-<img width="1268" height="134" alt="2026-06-08_14-36" src="https://github.com/user-attachments/assets/f4636815-21b3-49d6-9ded-28dc80cb6009" />
-
+<img width="989" height="101" alt="img01" src="https://github.com/user-attachments/assets/d0202fc3-18e1-4803-9bb9-1a191c19ba2d" />
 
 Right away, we notice that the file **"TrustMe.exe"** looks very suspicious.
 
