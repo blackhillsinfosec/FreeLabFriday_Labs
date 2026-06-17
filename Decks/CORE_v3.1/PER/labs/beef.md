@@ -189,7 +189,10 @@ Back in BeEF under Command History, after a few seconds you will see the result 
 
 ## Step 8 - Redirect the victim browser
 
-Expand **Browsers -> Hooked Domain -> Redirect Browser**.
+Expand **Browsers -> Hooked Domain -> Redirect Browser (Standard)**
+
+<img width="255" height="638" alt="2026-06-17_23-44" src="https://github.com/user-attachments/assets/e1c4e67e-d480-4fff-9877-93d005e2d309" />
+
 
 In the **Redirect URL** field enter:
 
@@ -199,7 +202,10 @@ https://beefproject.com
 
 Click **Execute**.
 
-Watch the victim tab. It will navigate to the BeEF project website automatically. The victim has no control over this - the attacker redirected them silently.
+Watch the victim tab. It will navigate to the BeEF project website automatically. The victim has no control over this - the attacker redirected them silently
+
+<img width="1917" height="891" alt="image" src="https://github.com/user-attachments/assets/b1442a6c-2595-447b-bb3c-30490056aa94" />
+
 
 ---
 
@@ -209,39 +215,14 @@ This module uses the victim's browser as a proxy to scan their internal network.
 
 Expand **Network -> Port Scanner**.
 
-The default scan target is `127.0.0.1` with a port range of common ports. Leave the defaults and click **Execute**.
+Set the **Scan IP or Hostname** to `127.0.0.1` with a port range of common ports. Leave the defaults and click **Execute**
+
+<img width="1683" height="749" alt="2026-06-18_00-05" src="https://github.com/user-attachments/assets/fb8d10ad-8a5a-47eb-aab5-e3a4d67e3d81" />
+
 
 After a minute or two, the results will appear in Command History showing which ports responded on the victim's local machine (from the victim's own network perspective).
 
 This is significant because the victim's browser can reach internal addresses that the attacker cannot reach directly from the internet.
-
----
-
-## Step 10 - Defender perspective
-
-Open a new terminal and run:
-
-```bash
-sudo ss -tulnp | grep 3000
-```
-
-You will see BeEF listening on port 3000.
-
-Now look at what the hook script looks like from a network perspective. Run:
-
-```bash
-curl -s http://127.0.0.1:3000/hook.js | head -5
-```
-
-You will see obfuscated JavaScript. This is what gets injected into a vulnerable page. A defender monitoring outbound traffic would see the victim browser making repeated HTTP requests to the BeEF server every few seconds - this is the "heartbeat" that keeps the hook alive.
-
-Check the BeEF log:
-
-```bash
-sudo tail -f /var/log/beef-xss/beef.log
-```
-
-You will see every command executed and every browser event logged with timestamps.
 
 # Finished?
 
