@@ -85,8 +85,7 @@ Log in with the credentials you set in Step 2
 
 You will land on the BeEF dashboard. It has three main panels:
 - **Left** - Hooked Browsers (none yet)
-- **Center** - Commands and modules
-- **Right** - Module results
+- **Center** - Commands and modules and Tabs + Module Results
 
 ---
 
@@ -102,13 +101,25 @@ http://127.0.0.1:3000/demos/basic.html
 
 You do not need to click anything. The moment the page loads, the browser is hooked.
 
-Switch back to the BeEF panel tab. Under **Hooked Browsers -> Online Browsers** you will now see an entry appear. Click on it.
+Switch back to the BeEF panel tab
+
+
+<img width="1380" height="581" alt="2026-06-17_23-28" src="https://github.com/user-attachments/assets/baebf53c-247e-4050-b49b-c3a64d93942d" />
+
+Under **Hooked Browsers -> Online Browsers** you will now see an entry appear. Click on it
+
+
+<img width="242" height="147" alt="2026-06-17_23-29" src="https://github.com/user-attachments/assets/bf53f0f4-f6f5-4fa9-9a35-24d844918550" />
+
 
 ---
 
 ## Step 5 - Explore what BeEF collects automatically
 
-Click on the hooked browser entry in the left panel. Look at the **Details** tab on the right side.
+Click on the hooked browser entry in the left panel. Look at the **Details** tab
+
+<img width="1774" height="779" alt="image" src="https://github.com/user-attachments/assets/527c26bd-9eba-4e2b-a614-e0d1a9205606" />
+
 
 BeEF automatically harvests:
 - Browser name, version, and engine
@@ -125,9 +136,15 @@ This happens with zero interaction from the victim. Simply loading the page is e
 
 ## Step 6 - Run your first command - Alert dialog
 
-Click on the **Commands** tab in the center panel.
+Click on the **Commands** tab in the center panel
 
-Expand **Browsers -> Hooked Domain -> Alert Dialog**.
+<img width="920" height="311" alt="2026-06-17_23-31" src="https://github.com/user-attachments/assets/fa72c5e4-1cb8-4e7b-acbe-bb3f4c36c312" />
+
+
+Expand **Browsers -> Hooked Domain -> Create Alert Dialog**
+
+<img width="258" height="532" alt="2026-06-17_23-33" src="https://github.com/user-attachments/assets/be7980b7-26a5-4470-94c1-362765747806" />
+
 
 In the module panel on the right, you will see a text field labelled **Alert Text**. Type:
 
@@ -137,26 +154,36 @@ You have been hooked by BeEF!
 
 Click **Execute**.
 
-Now switch to the victim browser tab (the `basic.html` tab). You will see a JavaScript alert popup appear with your message.
+Now switch to the victim browser, open another tab (the `http://127.0.0.1:3000/demos/basic.html` tab). You will see a JavaScript alert popup appear with your message
 
-Switch back to the BeEF panel. Under **Command History** at the bottom, the command will show a green checkmark and status **success**.
+<img width="1400" height="579" alt="image" src="https://github.com/user-attachments/assets/30b511c1-945d-491b-89e5-f9f5ca50e410" />
 
-This demonstrates that the attacker can execute arbitrary JavaScript in the victim browser.
+This is how an attacker can execute arbitrary JavaScript in the victim browser
 
 ---
 
 ## Step 7 - Get browser geolocation
 
-Expand **Geolocation -> Get Geolocation**.
+Expand **Host -> Get Geolocation(API)**
 
-Click **Execute**.
+<img width="259" height="509" alt="2026-06-17_23-38" src="https://github.com/user-attachments/assets/2e316a1c-32d3-4066-8553-9e0561e4c3fb" />
 
-Switch to the victim tab. The browser will show a permission prompt asking whether to share location. Click **Allow**.
 
-Back in BeEF under Command History, after a few seconds you will see the result with latitude and longitude coordinates.
+Click **Execute**
 
->[!NOTE]
->If location permissions are blocked in your VM's browser settings, the result will be empty. That is expected.
+Switch to the victim tab. The browser will show a permission prompt asking whether to share location. Click **Allow**
+
+<img width="699" height="247" alt="2026-06-17_23-38" src="https://github.com/user-attachments/assets/f7a36e9a-cc28-44ea-b422-37c609b2599c" />
+
+
+Back in BeEF under Command History, after a few seconds you will see the result with latitude and longitude coordinates
+
+<img width="1171" height="398" alt="2026-06-17_23-41" src="https://github.com/user-attachments/assets/83cbf6ad-5862-47b6-8ec6-cf172e4ae322" />
+
+
+> [!NOTE]
+> In VM environments and remote desktop sessions (such as Guacamole), geolocation will return TIMEOUT because there is no physical GPS or location service available. This is expected. In a real attack scenario against a physical device, this would return actual coordinates
+
 
 ---
 
