@@ -78,7 +78,10 @@ Open a browser on Ubuntu (Firefox or Chromium) and go to:
 http://127.0.0.1:3000/ui/panel
 ```
 
-Log in with the credentials you set in Step 2.
+Log in with the credentials you set in Step 2
+
+<img width="600" height="434" alt="image" src="https://github.com/user-attachments/assets/0bff9b8a-6f98-49e5-907f-756243f3a787" />
+
 
 You will land on the BeEF dashboard. It has three main panels:
 - **Left** - Hooked Browsers (none yet)
