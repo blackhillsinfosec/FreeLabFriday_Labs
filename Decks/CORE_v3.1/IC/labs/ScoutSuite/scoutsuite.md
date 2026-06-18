@@ -66,7 +66,7 @@ Before we start the audit, we need a "broken" environment. Instead of manual set
     <img width="1615" height="891" alt="image" src="https://github.com/user-attachments/assets/36197982-992f-4fe6-bfeb-7503213a6b9a" />
   - Click *Create stack* -\> *With new resources (standard)*.
     <img width="1787" height="427" alt="image" src="https://github.com/user-attachments/assets/173e5f3b-53e1-45af-aab8-415d8af85a54" />
-  - Select *Upload a template file*, choose your lab.yaml, and click **Next**.
+  - Select *Upload a template file*, choose the .yaml file located in the lab directory (~/BnB/ScoutSuite/cloudformation_config.yaml) on the **Ubuntu VM**, and click **Next**. You can also download the cloudformation_config.yaml file [here](../cloudformation_config.yaml). 
     <img width="1777" height="768" alt="image" src="https://github.com/user-attachments/assets/c0f83a6b-b9b6-4080-bc6b-b3824e32e594" />
   - Give the stack a name (e.g., ScoutSuite-Lab) and keep clicking *Next* until you hit *Submit*:
     <img width="1775" height="645" alt="image" src="https://github.com/user-attachments/assets/eb975d21-104e-4a9a-8063-306e8a551ac7" />
