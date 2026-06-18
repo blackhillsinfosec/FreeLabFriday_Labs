@@ -66,13 +66,13 @@ Before we start the audit, we need a "broken" environment. Instead of manual set
     <img width="1615" height="891" alt="image" src="https://github.com/user-attachments/assets/36197982-992f-4fe6-bfeb-7503213a6b9a" />
   - Click *Create stack* -\> *With new resources (standard)*.
     <img width="1787" height="427" alt="image" src="https://github.com/user-attachments/assets/173e5f3b-53e1-45af-aab8-415d8af85a54" />
-  - Select *Upload a template file, choose your lab.yaml, and click **Next**.
+  - Select *Upload a template file*, choose your lab.yaml, and click **Next**.
     <img width="1777" height="768" alt="image" src="https://github.com/user-attachments/assets/c0f83a6b-b9b6-4080-bc6b-b3824e32e594" />
   - Give the stack a name (e.g., ScoutSuite-Lab) and keep clicking *Next* until you hit *Submit*:
     <img width="1775" height="645" alt="image" src="https://github.com/user-attachments/assets/eb975d21-104e-4a9a-8063-306e8a551ac7" />
   - In the **"Stack Failure options"** section, leave **"Roll back all stack resources"** selected:
     <img width="1684" height="830" alt="image" src="https://github.com/user-attachments/assets/6522a40b-6c6b-459e-9141-d562f19320f1" />
-  - Scroll down to select *I acknowledge that AWS CloudFormation might create IAM resources with custom names: 
+  - Scroll down to select *I acknowledge that AWS CloudFormation might create IAM resources with custom names*: 
     <img width="1366" height="748" alt="image" src="https://github.com/user-attachments/assets/f0b2f535-18a5-4592-a7aa-41060ca6dbe5" />
   - Scroll down and click **Submit**:
     <img width="1361" height="885" alt="image" src="https://github.com/user-attachments/assets/f9616562-51ea-4254-b57d-898713065aea" />
@@ -90,13 +90,13 @@ CloudFormation creates the user, but for security reasons, it won't generate the
     <img width="1505" height="562" alt="image" src="https://github.com/user-attachments/assets/06710257-e697-420e-861f-4645417f8ac1" />
   - Scroll down to *Access keys* and click *Create access key*:
     <img width="1600" height="409" alt="image" src="https://github.com/user-attachments/assets/648dcc59-23dc-4c3a-b996-fb77b52ab905" />
-  - Select *Command Line Interface (CLI), acknowledge the warning, and click **Next*:
+  - Select *Command Line Interface (CLI)*, acknowledge the warning, and click **Next**:
     <img width="1104" height="843" alt="image" src="https://github.com/user-attachments/assets/65558d6e-7c4c-4282-8c20-e0e67c89efec" />
   - Enter **"ScoutSuite-Lab Audit"** when asked to set a description. This is good practice, especially for administrators that are dealing with multiple keys:
     <img width="1457" height="366" alt="image" src="https://github.com/user-attachments/assets/c378d061-3b94-47be-a691-7b1eedceaa64" />
   - *CRITICAL:* Copy the *Access Key ID* and *Secret Access Key*. Paste them into a notepad; you will need them for the aws configure step in the terminal. It is recommended that you also download the **.csv** file that contains both passwords
     <img width="1645" height="663" alt="image" src="https://github.com/user-attachments/assets/032d7e19-8812-4711-93e5-05ac35622278" />
-  - Oonce you have stored the passwords, click **"done"**.
+  - Once you have stored the passwords, click **"done"**.
 -----
 
 
