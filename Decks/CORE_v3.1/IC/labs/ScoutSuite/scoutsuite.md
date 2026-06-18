@@ -66,7 +66,7 @@ Before we start the audit, we need a "broken" environment. Instead of manual set
     <img width="1615" height="891" alt="image" src="https://github.com/user-attachments/assets/36197982-992f-4fe6-bfeb-7503213a6b9a" />
   - Click *Create stack* -\> *With new resources (standard)*.
     <img width="1787" height="427" alt="image" src="https://github.com/user-attachments/assets/173e5f3b-53e1-45af-aab8-415d8af85a54" />
-  - Select *Upload a template file*, choose the .yaml file located in the lab directory (~/BnB/ScoutSuite/cloudformation_config.yaml) on the **Ubuntu VM**, and click **Next**. You can also download the cloudformation_config.yaml file [here](../cloudformation_config.yaml). 
+  - Select *Upload a template file*, choose the **cloudformation_config.yaml** file located in the lab directory (~/BnB/ScoutSuite/cloudformation_config.yaml) on the **Ubuntu VM**, and click **Next**. You can also download the cloudformation_config.yaml file [here](../cloudformation_config.yaml). 
     <img width="1777" height="768" alt="image" src="https://github.com/user-attachments/assets/c0f83a6b-b9b6-4080-bc6b-b3824e32e594" />
   - Give the stack a name (e.g., ScoutSuite-Lab) and keep clicking *Next* until you hit *Submit*:
     <img width="1775" height="645" alt="image" src="https://github.com/user-attachments/assets/eb975d21-104e-4a9a-8063-306e8a551ac7" />
@@ -217,11 +217,28 @@ ls -lh scoutsuite-report
 > The **"Bucket Access Logging Disabled"** warning means that if someone manages to steal information from the *S3 Bucket* **you will not have any logs or proof of the illicit data retrieval**.
 > Activating *Bucket Access Logging*, like most of those configurations, is done through the *AWS service console*, and provides a way to check bucket request history.
 
+## Cleanup
+
+To avoid incurring unwanted charges, it is crucial to remove the resources created during this lab. Since we used Infrastructure as Code, cleaning up is incredibly easy.
+
+- Go back to the **AWS Management Console** and navigate to **CloudFormation**. Select the stack you created in Phase 2 (e.g., **ScoutSuite-Lab**).
+  
+<img width="1899" height="470" alt="image" src="https://github.com/user-attachments/assets/e4728d77-3b56-4b45-973c-2c032aad0493" />
+
+- Click on the **Delete** button at the top right of the console.
+  
+<img width="1694" height="568" alt="image" src="https://github.com/user-attachments/assets/16179fd9-dc3b-41ec-9c1d-9410e3de5c45" />
+
+- Confirm the deletion when prompted.
+
+<img width="561" height="323" alt="image" src="https://github.com/user-attachments/assets/8e647d6c-7318-46af-83ff-366e3188f384" />
+
+- Monitor the status. Once it shows **DELETE_COMPLETE** (or disappears from the active list), all the vulnerable EC2, S3, and IAM resources have been successfully destroyed.
+
+<img width="1698" height="463" alt="image" src="https://github.com/user-attachments/assets/6c43b902-6b9b-405a-9d7b-3c419526f665" />
 
 ## Lab Conclusion: AWS Security Auditing with ScoutSuite
 - The primary value of ScoutSuite lies in its ability to consolidate thousands of complex AWS settings into a single, actionable HTML report. This transforms raw configuration data into a prioritized roadmap for security remediation, allowing administrators to close critical security gaps before they are exploited.
-
-<br></br>
 
 # Finished?
 
