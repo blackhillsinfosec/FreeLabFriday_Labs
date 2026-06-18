@@ -1,0 +1,34 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Vulnerable Lab for ScoutSuite'
+
+Resources:
+  # 1. Vulnerable S3 Bucket (Public)
+  VulnerableBucket:
+    Type: 'AWS::S3::Bucket'
+    Properties:
+      BucketName: !Sub 'lab-scout-suite-exposed-${AWS::AccountId}'
+      PublicAccessBlockConfiguration:
+        BlockPublicAcls: false
+        BlockPublicPolicy: false
+        IgnorePublicAcls: false
+        RestrictPublicBuckets: false
+
+  # 2. Security Group - port 22 open to bruteforce attacks
+  VulnerableSG:
+    Type: 'AWS::EC2::SecurityGroup'
+    Properties:
+      GroupDescription: 'Allow SSH from everywhere'
+      SecurityGroupIngress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          CidrIp: 0.0.0.0/0
+
+  # 3. User IAM without Multi-Factor-Authentication enabled
+  ScoutAuditorUser:
+    Type: 'AWS::IAM::User'
+    Properties:
+      UserName: 'scout-auditor'
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/ReadOnlyAccess
+        - arn:aws:iam::aws:policy/SecurityAudit
