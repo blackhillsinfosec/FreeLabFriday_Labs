@@ -301,39 +301,23 @@ curl -X POST -H "Content-Type: application/json"  -d '{}'  "http://localhost:500
 
 ![](../HoneyBadger_files/hb_demo.png)
 
-- Enter some XSS code into the first field, and the current user's password into the second field, and click submit.
+- Enter some XSS code into the first field (`<script>alert(1)</script>`), and the current user's password into the second field, and click submit.
 
-- If the inputted XSS code worked, the following string of popups will appear.
+- If the inputted XSS code worked, the following string of popups will appear. Click `OK`.
 
-![](../HoneyBadger_files/hb_demo_locationrequest.png)
+<img width="287" height="113" alt="img01" src="https://github.com/user-attachments/assets/9b37301d-aac0-4e26-bc08-3b83ab749ff4" />
 
-- Click on Share Location.
+- Then, the XSS alert popup will appear in the browser.
 
-![](../HoneyBadger_files/hb_demo_consentprompt.png)
+<img width="287" height="121" alt="img02" src="https://github.com/user-attachments/assets/121b084d-6068-4ca4-9740-55811c3cdc01" />
 
-- Click OK.
+- Next, the browser will request permission to access the location. Click `Allow` to continue.
 
-![](../HoneyBadger_files/hb_demo_appletprompt.png)
-
-- Click Allow Now.
-
-![](../HoneyBadger_files/hb_demo_appletprompt_again.png)
-
-- Click Run.
-
-![](../HoneyBadger_files/hb_demo_appletsecurity.png)
-
-- Click Yes.
-
-![](../HoneyBadger_files/hb_demo_applethoney.png)
-
-- Click Yes.
-
-![](../HoneyBadger_files/hb_demo_applethoney_again.png)
+<img width="338" height="139" alt="img03" src="https://github.com/user-attachments/assets/81e80a69-81b1-418d-bb95-060d520548e5" />
 
 - After clicking through all of the prompts, the page will load. Reload the HoneyBadger beacons page to see that a new beacon is added:
-![](../HoneyBadger_files/hb_demo_jsbeacon.png)
 
+<img width="703" height="47" alt="img04" src="https://github.com/user-attachments/assets/af252136-df2d-4bc0-8aa4-4aa75a0d9fea" />
 
 ### 2. VBA Macro
 The VBA macro code are not included as comments in the generated popup for the sake of brevity. The VBA macro functionality is explained here. In short, the VBA macro imitates the powershell script.
