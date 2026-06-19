@@ -41,7 +41,7 @@ We will connect both machines (with *Wazuh Agents* Installed) to a *Wazuh Manage
 
 ## Wazuh Manager and AWS setup 
 
-**!!!** -> You will need an AWS *Free Tier Account*. If you want the step by step instructions for that, check [Phase 1 of the ScoutSuite Lab](https://github.com/blackhillsinfosec/FreeLabFriday_Labs/blob/main/Decks/CORE_v3.1/IC/labs/scoutsuite.md). 
+**!!!** -> You will need an AWS *Free Tier Account*. If you want the step by step instructions for that, check [Phase 1 of the ScoutSuite Lab](https://github.com/blackhillsinfosec/FreeLabFriday_Labs/blob/main/Decks/CORE_v3.1/IC/labs/ScoutSuite/scoutsuite.md).
 
 - Once you have the account set up, log in and let's make some **key pairs** for the EC2. Navigate to the **EC2 Dashboard**:
   
@@ -65,15 +65,15 @@ We will connect both machines (with *Wazuh Agents* Installed) to a *Wazuh Manage
 ## Moving the Key : 
 
 >[!IMPORTANT]
-> Once you recieve *havoc-key.pem*, **you NEED to move it to your personal computer**.
+> Once you recieve *wazuh-key.pem*, **you NEED to move it to your personal computer**.
 > If there is a network error, or the VM idles too long and closes, **you risk losing the RSA Private Key, and therefore access to your AWS EC2 instance**. If that happens you need to **delete the key and reconfigure the AWS EC2**.
 
-🔑 Securing the SSH Key (havoc-key.): 
+🔑 Securing the SSH Key (wazuh-key.pem): 
  - The *RSA Key* should be in your *Downloads* folder on the VM :
    
  <img width="1222" height="645" alt="image" src="https://github.com/user-attachments/assets/29004727-2cb8-49b0-bbdb-5b2246d9cdc2" />
 
-   We will use the **VM's clipboard** to copy the .pem file. Move the *.pem* file to the **lab directory (~/BnB/Havoc)**
+   We will use the **VM's clipboard** to copy the .pem file. Move the *.pem* file to the **lab directory (~/BnB/Wazuh)**
  - To *open or close* the clipboard of the VM press **ctrl+alt+shift** and a small window will pop up: 
 
  <img width="526" height="826" alt="image" src="https://github.com/user-attachments/assets/9ce6ed1f-9a0a-4e46-80a0-39d65c95b40d" />
@@ -89,16 +89,16 @@ We will connect both machines (with *Wazuh Agents* Installed) to a *Wazuh Manage
 Use your cursor to **copy the contents of the VM clipboard with ctrl+a, then ctrl+c**, and paste them into a file on your personal machine. 
 
 >[!NOTE]
->After creating the havoc-key.pem file on your host machine using the Copy-Paste method, you must set the correct file permissions. SSH clients are designed to ignore private keys that are "too readable" by other users on the system. If you skip this step, your connection will be rejected.
+>After creating the wazuh-key.pem file on your host machine using the Copy-Paste method, you must set the correct file permissions. SSH clients are designed to ignore private keys that are "too readable" by other users on the system. If you skip this step, your connection will be rejected.
 
 Depending on your operating system, this proccess will differ : 
 
 ### Option A: Linux / macOS Users
 
-- On Linux / macOS, open a folder of your choosing in the terminal, type **nano havoc-key.pem**, paste the content into a the file, press **ctrl+o, Enter, then ctrl+x**. After that, type:
+- On Linux / macOS, open a folder of your choosing in the terminal, type **nano wazuh-key.pem**, paste the content into a the file, press **ctrl+o, Enter, then ctrl+x**. After that, type:
 
 ``` bash
-chmod 400 havoc-key.pem
+chmod 400 wazuh-key.pem
 ```
 
  - You should now see the that **only the root user has reading permission**: 
@@ -111,14 +111,14 @@ Open a PowerShell terminal in the folder containing your key and run these two c
 
 ```PowerShell
 # 1. Disable permission inheritance
-icacls "havoc-key.pem" /inheritance:r
+icacls "wazuh-key.pem" /inheritance:r
 
 # 2. Grant read access only to the current user
-icacls "havoc-key.pem" /grant:r "${env:USERNAME}:R"6
+icacls "wazuh-key.pem" /grant:r "${env:USERNAME}:R"
 ```
 
 ⚠️ Important Security Note: 
- - These "Strict Permissions" ensure that you are the only one who can read this file. If you attempt to connect and see an error like Permissions 0644 for 'havoc-key.pem' are too open, it means the steps above were not completed successfully.
+ - These "Strict Permissions" ensure that you are the only one who can read this file. If you attempt to connect and see an error like Permissions 0644 for 'wazuh-key.pem' are too open, it means the steps above were not completed successfully.
 
 ---
 
@@ -159,7 +159,7 @@ cd Downloads ; Invoke-WebRequest -Uri "https://raw.githubusercontent.com/blackhi
 
 Now that the CloudFormation stack is complete, the AWS EC2 instance is running. However, because Wazuh generates a random password during its automated installation, we need to SSH into the server to retrieve it and verify the manager is running correctly.
 
-- Open your Windows PowerShell and ensure you are in the directory where you saved havoc-key.pem (the Downloads folder).
+- Open your Windows PowerShell and ensure you are in the directory where you saved wazuh-key.pem (the Downloads folder).
 
 <img width="636" height="299" alt="image" src="https://github.com/user-attachments/assets/4a3feb14-1875-4e09-a6c5-17714490022d" />
 
@@ -243,7 +243,7 @@ First, we need to deploy the Wazuh Agents to our endpoints so they can start for
 <img width="1844" height="561" alt="image" src="https://github.com/user-attachments/assets/c0dfff83-0431-4275-afc4-e544b7e2819a" />
 
 ## Phase 2: Configuring File Integrity Monitoring (FIM)
-By default, Wazuh monitors certain system directories. We want to explicitly monitor a custom "sensitive" directory on our Ubuntu VM to simulate a targeted data breach or config alteration, but we also want to monitor added malware files on the desktop of the Windows VM..
+By default, Wazuh monitors certain system directories. We want to explicitly monitor a custom "sensitive" directory on our Ubuntu VM to simulate a targeted data breach or config alteration, but we also want to monitor added malware files on the desktop of the Windows VM.
 
 - In your Ubuntu Shell, let's create a fake sensitive file:
 
