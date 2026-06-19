@@ -172,7 +172,7 @@ nxc smb 10.10.64.0/18
 
 ![image](./attachments/img11.png)
 
-As we can see, netexec found a live host running SMB and gave us a lot of useful informations, which are the followings:
+As we can see, netexec found a live host running SMB and gave us a lot of useful information:
 
 - IP address: `10.10.83.124`
 - Windows machine hostname: `EC2AMAZ-HGRD9PN`
@@ -182,9 +182,12 @@ As we can see, netexec found a live host running SMB and gave us a lot of useful
 - SMBv1 status: `SMBv1:None`
 - Null authentication status: `Null Auth:True`, which means anonymous SMB login is allowed, but access may still be restricted
 
+>[!NOTE]
+>Write down the IP Address. In this case it is **10.10.83.124** but yours will be different.
+
 ## SMB Enumeration
 
-So now we had discovered a host running smb protocol on IP `10.10.83.124`. Run the following command to perform a basic enumeration (your IP will be different; use the discovered one):
+So now we had discovered a host running smb protocol on IP `10.10.83.124`. Run the following command to perform a basic enumeration (your IP will be different; use the discovered one). Remember to replace **10.10.83.124** with *your IP Address*:
 
 ```bash
 nxc smb 10.10.83.124
