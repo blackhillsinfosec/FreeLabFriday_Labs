@@ -92,7 +92,7 @@ Put your knowledge of the topic to the test with this online quiz!
 Hands-on practice with the tools referenced on the card:
 
 - [Havok Lab](labs/havok.md)
-- [Mythic Lab](labs/mythic.md)
+- [Mythic Lab](labs/mythic/mythic.md)
 
 ---
 
