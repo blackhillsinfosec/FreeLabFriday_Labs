@@ -288,3 +288,7 @@ Gato-X should no longer report the vulnerability.
 # Finished?
 
 [Back to Card's Main Page](/Decks/CORE_v3.1/IC/Trusted_Relationship.md)
+
+---
+
+> Created by Turcu-Stiolica Alexandru
