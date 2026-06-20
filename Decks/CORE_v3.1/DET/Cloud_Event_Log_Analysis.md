@@ -90,7 +90,7 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on with the tools from the card:
 
-- [Wazuh Lab](labs/wazuh.md)
+- [Wazuh Lab](labs/Wazuh/wazuh.md)
 - [Security Onion Lab](labs/security-onion.md)
 - [Graylog Open Lab](labs/graylog.md)
 - [Falco Lab](labs/falco.md)
