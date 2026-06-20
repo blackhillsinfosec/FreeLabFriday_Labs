@@ -249,15 +249,12 @@ Run this as a one-liner. You now have a quick DNS profile of the target in secon
 
 
 
-
-
-
-
-
-
-
 ---
 
 # Finished?
 
 [Back to Card's Main Page](../Social_Engineering.md)
+
+---
+
+> Created by Turcu-Stiolica Alexandru
