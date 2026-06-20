@@ -94,7 +94,7 @@ Hands-on practice with each tool from the card:
 - [Metasploit Lab](labs/metasploit.md)
 - [Impacket Lab](labs/impacket.md)
 - [Havok Lab](labs/havok.md)
-- [Mythic Lab](labs/mythic.md)
+- [Mythic Lab](../C2E/labs/mythic/mythic.md)
 
 ---
 
