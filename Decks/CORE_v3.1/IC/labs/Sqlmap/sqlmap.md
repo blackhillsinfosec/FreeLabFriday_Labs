@@ -36,17 +36,17 @@ sudo docker ps
 
 ![image](./attachments/img_01.png)
 
+>[!IMPORTANT]
+>It is important to use your linux machine IP in order to be able to catch the request with burpsuite in the next steps!
+>You will have a different IP, use yours!
+>Replace the **<YOUR_UBUNTU_IP>** placeholder with your ip.
+
 Open your browser and go to:
 
 ```
-http://10.10.75.191:3000
+http://<YOUR_UBUNTU_IP>:3000
 ```
 
->[!IMPORTANT]
->
->It is important to use your linux machine IP in order to be able to catch the request with burpsuite in the next step!
->
->You will have a different IP, use yours!
 
 ![image](./attachments/img_02.png)
 
