@@ -115,7 +115,7 @@ Hands-on practice with common Kerberoasting tools:
 - [Rubeus Lab](labs/rubeus.md)
 - [Impacket Lab](labs/impacket.md)
 - [Hashcat Lab](labs/hashcat.md)
-- [NetExec Lab](labs/netexec.md)
+- [NetExec Lab](labs/Netexec/netexec.md)
 
 ---
 
