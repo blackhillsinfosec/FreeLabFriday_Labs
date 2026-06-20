@@ -103,7 +103,7 @@ chmod 400 wazuh-key.pem
 
  - You should now see the that **only the root user has reading permission**: 
 
-<img width="507" height="25" alt="image" src="https://github.com/user-attachments/assets/a0768c8f-1124-4544-8f4a-2ea0fec2baa8" />
+<img width="574" height="21" alt="image" src="https://github.com/user-attachments/assets/1ae5f980-7bde-471b-a6e0-caf0c8cc4e92" />
 
 
 ### Option B: Windows Users (PowerShell)
