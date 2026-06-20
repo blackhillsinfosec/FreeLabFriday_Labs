@@ -94,7 +94,7 @@ Hands-on practice with the tools from the card:
 
 - [AD Users and Computers Lab](labs/ad-users-and-computers.md)
 - [BloodHound Lab](labs/bloodhound.md)
-- [ScoutSuite Lab](labs/scoutsuite.md)
+- [ScoutSuite Lab](../IC/labs/ScoutSuite/scoutsuite.md)
 - [Prowler Lab](labs/prowler.md)
 
 ---
