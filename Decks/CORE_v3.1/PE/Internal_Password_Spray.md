@@ -67,7 +67,7 @@ Put your knowledge of the topic to the test with this online quiz!
 Hands-on practice with the tools from the card:
 
 - [Kerbrute Lab](labs/kerbrute.md)
-- [NetExec Lab](labs/netexec.md)
+- [NetExec Lab](labs/Netexec/netexec.md)
 - [net use Lab](labs/net-use.md)
 - [LOLBins Lab](labs/lolbins.md)
 
