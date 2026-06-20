@@ -78,7 +78,7 @@ Hands-on practice with SIEM-related tools:
 
 - [Security Onion Lab](labs/security-onion.md)
 - [OSSIM Lab](labs/ossim.md)
-- [Wazuh Lab](labs/wazuh.md)
+- [Wazuh Lab](labs/Wazuh/wazuh.md)
 - [JPCERT Tool Analysis Lab](labs/jpcert-tool-analysis.md)
 
 ---
