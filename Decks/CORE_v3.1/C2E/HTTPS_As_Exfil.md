@@ -80,9 +80,9 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with each tool from the card:
 
-- [Sliver Lab](labs/sliver.md)
+- [Sliver Lab](labs/Sliver/sliver.md)
 - [Havok Lab](labs/havok.md)
-- [Mythic Lab](labs/mythic.md)
+- [Mythic Lab](labs/mythic/mythic.md)
 
 ---
 
