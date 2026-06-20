@@ -75,7 +75,7 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with common log analysis platforms:
 
-- [Wazuh Lab](labs/wazuh.md)  
+- [Wazuh Lab](labs/Wazuh/wazuh.md)  
 - [Graylog Open Lab](labs/graylog-open.md)  
 - [ELK Stack Lab](labs/elasticSecurity/elastic-security.md)  
 - [Security Onion Lab](labs/security-onion.md)
