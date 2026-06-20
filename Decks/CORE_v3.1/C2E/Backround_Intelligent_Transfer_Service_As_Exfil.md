@@ -76,7 +76,7 @@ Put your knowledge to the test with this online quiz!
 
 Hands-on practice with real tools:
 
-- [Leviathan Lab](labs/leviathan.md)
+- [Leviathan Lab](labs/leviathan/leviathan.md)
 - [UBoatRAT Lab](labs/uboatrat.md)
 
 ---
