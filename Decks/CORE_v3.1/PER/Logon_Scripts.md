@@ -74,7 +74,7 @@ Hands-on practice with the tools used by attackers and defenders:
 - [Metasploit Lab](labs/metasploit.md)
 - [Impacket Lab](labs/impacket.md)
 - [Havok Lab](labs/havok.md)
-- [Mythic Lab](labs/mythic.md)
+- [Mythic Lab](../C2E/labs/mythic/mythic.md)
 
 ---
 
