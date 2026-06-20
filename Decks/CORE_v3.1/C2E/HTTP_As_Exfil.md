@@ -93,9 +93,9 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on labs using tools commonly seen in red team operations and detection workflows:
 
-- [Sliver Lab](labs/sliver.md)  
+- [Sliver Lab](labs/Sliver/sliver.md)  
 - [Havoc Lab](labs/havok.md)  
-- [Mythic Lab](labs/mythic.md)  
+- [Mythic Lab](labs/mythic/mythic.md)  
 
 ---
 
