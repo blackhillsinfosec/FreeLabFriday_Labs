@@ -112,13 +112,20 @@ This node lets you run the workflow by clicking a button.
 
 ### Add an HTTP Request node
 
-- Hover over the Manual Trigger node and click the `+` circle that appears on the right
+- Click the `+` circle that appears on the right
+
+<img width="502" height="284" alt="2026-06-25_11-28" src="https://github.com/user-attachments/assets/46d646a1-cfba-467f-b22b-e025964044cf" />
+
+
+
 - Search for `HTTP Request`
 - Click it to add it and connect it automatically
 
+<img width="408" height="297" alt="2026-06-25_11-27" src="https://github.com/user-attachments/assets/793a1b77-164d-48cc-8185-5c2752dfc3fa" />
+
+
 ### Configure the HTTP Request node
 
-- Double-click the HTTP Request node to open its settings
 - Set **Method** to `GET`
 - Set **URL** to:
 
@@ -130,15 +137,21 @@ This is a free public test API that returns fake JSON data - no API key needed.
 
 - Click **Execute node** (the play button inside the node settings)
 
-You should see a JSON response appear on the right panel with fields like `userId`, `id`, `title`, `body`.
+You should see a JSON response appear on the right panel with fields like `userId`, `id`, `title`, `body`
 
 - Close the node settings
 
+<img width="1868" height="692" alt="2026-06-25_11-31" src="https://github.com/user-attachments/assets/340fba77-ff71-411a-a6bd-abd6bd523f00" />
+
+
 ### Run the whole workflow
 
-- Click **Execute Workflow** (the play button at the top)
+- Click **Execute Workflow** (the play button at the bottom)
 
-You will see green checkmarks appear on both nodes, and the data flows from left to right. Click on the HTTP Request node to see the output data.
+<img width="261" height="65" alt="image" src="https://github.com/user-attachments/assets/d29686d9-afef-4cad-b8e6-c85c533a3a16" />
+
+
+You will see green checkmarks appear on both nodes, and the data flows from left to right. Double click on the HTTP Request node to see the output data
 
 > [!TIP]
 > This is the core concept of n8n: data flows from node to node. Each node receives input, does something, and passes output to the next node.
@@ -152,30 +165,41 @@ Now we will build something more realistic: a webhook endpoint that receives an 
 ### Create a new workflow
 
 - Click the `+` button in the top left (or go to **Workflows** -> **New**)
+
+<img width="261" height="74" alt="image" src="https://github.com/user-attachments/assets/58c409c9-8c26-4d47-8b36-a3ab06c1c2d6" />
+
 - Name it `Security Alert Handler`
 
 ### Add a Webhook node
 
 - Click `+` on the canvas
+
+<img width="205" height="189" alt="image" src="https://github.com/user-attachments/assets/e6c95d16-e843-4f27-a4bd-63f26ad69c0a" />
+
 - Search for `Webhook`
 - Add it to the canvas
 
 ### Configure the Webhook node
 
-- Double-click the Webhook node
 - Set **HTTP Method** to `POST`
-- Leave the **Path** as the default (it will generate something like `/webhook/abc123`)
-- Set **Response Mode** to `Immediately`
+- Leave the **Path** as the default
+- Set **Respond** to `Immediately`
 - Click **Listen for Test Event** - this activates the endpoint temporarily so you can test it
 
-Leave the node settings open. Copy the **Test URL** shown (it will look like `http://localhost:5678/webhook-test/abc123`).
+<img width="541" height="558" alt="2026-06-25_11-41" src="https://github.com/user-attachments/assets/d670bb78-e4a8-42f1-8e2f-1673f16aed5d" />
+
+
+<img width="719" height="787" alt="image" src="https://github.com/user-attachments/assets/49c0ca72-80e9-45a6-bdf0-f56c116c6d16" />
+
+
+Leave the node settings open. Copy the **Test URL** shown (it will look like `http://localhost:5678/webhook-test/1b4f0847-5b43-42b0-97e5-5042409ca634`)
 
 ### Send a test alert to the webhook
 
 Open a **new terminal** (keep the first one available):
 
 ```bash
-curl -X POST http://localhost:5678/webhook-test/abc123 \
+curl -X POST http://localhost:5678/webhook-test/1b4f0847-5b43-42b0-97e5-5042409ca634 \
   -H "Content-Type: application/json" \
   -d '{
     "alert_type": "brute_force",
@@ -186,10 +210,16 @@ curl -X POST http://localhost:5678/webhook-test/abc123 \
   }'
 ```
 
-> [!NOTE]
-> Replace `abc123` in the URL above with the actual path shown in your Webhook node.
+<img width="1144" height="229" alt="image" src="https://github.com/user-attachments/assets/15f83b41-878e-4a00-bb94-26c73aa0cdfc" />
 
-Back in the n8n canvas you should see the webhook node light up with the received data. The JSON payload you sent will be visible in the node output panel.
+
+> [!NOTE]
+> Replace `1b4f0847-5b43-42b0-97e5-5042409ca634` in the URL above with the actual path shown in your Webhook node.
+
+Back in the n8n canvas you should see the webhook node light up with the **Output** section, switch to **JSON** instead of **Table** if you want. The JSON payload you sent will be visible in the node output panel.
+
+<img width="720" height="571" alt="image" src="https://github.com/user-attachments/assets/d91bc400-8af4-4871-89e4-28edfaa490b6" />
+
 
 ---
 
