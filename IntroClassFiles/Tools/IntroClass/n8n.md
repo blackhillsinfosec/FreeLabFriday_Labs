@@ -21,6 +21,11 @@
 
 ## Step 1 - Create a Directory for n8n Data
 
+Open a **Terminal**
+
+<img width="50" height="54" alt="image" src="https://github.com/user-attachments/assets/181d7470-566f-444e-9463-bba59600aebd" />
+
+
 n8n stores your workflows, credentials, and settings on disk. We will create a local folder and mount it into the container so your data persists even if the container is removed.
 
 ```bash
