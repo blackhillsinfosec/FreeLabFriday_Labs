@@ -230,39 +230,61 @@ Now we will add logic: if severity is `high`, we route one way; otherwise anothe
 ### Add an IF node
 
 - Hover over the Webhook node, click the `+` on its right side
+
+<img width="342" height="181" alt="2026-06-25_11-45" src="https://github.com/user-attachments/assets/e96b7246-0b0b-46d0-b79e-1e9cda51da7e" />
+
 - Search for `IF`
-- Add it to the canvas
+- Click it
 
 ### Configure the IF node
 
-- Double-click the IF node
-- Under **Conditions**, click **Add Condition**
-- Set the left side to: `{{ $json.severity }}`
+- Under **Conditions**, click **value1**
+- Drag **severity** there
 
-  (Click the field, type the expression above, or use the expression editor by clicking the `{}` icon)
-
-- Set **Operation** to `Equal`
-- Set the right side to: `high`
+- Set **Operation** to `String -> is equal to`
+- Set **value2** to: `high`
 - Click **Execute node** to test
 
+<img width="1870" height="700" alt="2026-06-25_11-52" src="https://github.com/user-attachments/assets/f71d26f1-8fef-4470-8a71-7aa4c89a2cce" />
+
+
 The node will show two outputs: **True** (severity equals high) and **False** (everything else).
+
+You can close the **if node** settings
 
 ### Add a Set node to simulate alert enrichment
 
 - From the **True** output of the IF node, click `+`
+
+<img width="597" height="200" alt="2026-06-25_11-53" src="https://github.com/user-attachments/assets/0472d44a-83e3-4718-ad25-44d6304e1105" />
+
+
 - Search for `Set`
-- Add and connect it
+- Click it
 
 ### Configure the Set node
 
-- Double-click the Set node
 - Click **Add field**
+
+<img width="422" height="261" alt="2026-06-25_11-54" src="https://github.com/user-attachments/assets/bf76ce9b-c8f7-4eb9-b345-f2dec32d24f2" />
+
+
 - Set **Name** to `action`
 - Set **Value** to `block_ip`
 - Add another field: **Name** = `priority`, **Value** = `P1`
+- Toggle **"Include Other Input Fields"** `on`
 - Click **Execute node**
 
-You will see the node output the original data plus the two new fields you added.
+You will see the node output the original data plus the two new fields you added
+
+<img width="1137" height="646" alt="image" src="https://github.com/user-attachments/assets/4e611367-eecb-4d92-90ce-b6d0cd9ddb33" />
+
+- From the **false** output of the IF node, click `+`
+- Search for `Respond to Webhook` and add it
+- Click **Add Option** and choose `Response Code`
+- Set **Response Code** to `200`
+- Leave **Respond With** as `First Incoming Item`
+
 
 > This simulates what a real SOAR would do - enriching an alert with a recommended action before passing it downstream.
 
@@ -273,25 +295,27 @@ You will see the node output the original data plus the two new fields you added
 Let's make the webhook return a proper response to the caller.
 
 - From the Set node, click `+`
+
+<img width="275" height="175" alt="2026-06-25_11-59" src="https://github.com/user-attachments/assets/fbc208b9-ca86-4dbb-b593-5991c1da0c22" />
+
+
 - Search for `Respond to Webhook`
 - Add it
 
 ### Configure it
 
-- Double-click the node
+- Click **Add Option** and choose `Response Code`
 - Set **Response Code** to `200`
-- Set **Response Body** to:
 
-```json
-{"status": "alert received", "action": "block_ip"}
-```
+<img width="429" height="323" alt="image" src="https://github.com/user-attachments/assets/2bb3244b-c908-4cad-90c5-9dbe4938c5d3" />
 
-- Click **Save** on the workflow (top right)
+
+- No need to **Execute** this node alone, you can close the windows
 
 ### Test the full flow
 
-- Click **Execute Workflow** (top play button)
-- Switch back to **Listen for Test Event** on the Webhook node if needed
+- Click **Execute Workflow** (bottom button)
+
 - In your second terminal, re-run the curl command:
 
 ```bash
