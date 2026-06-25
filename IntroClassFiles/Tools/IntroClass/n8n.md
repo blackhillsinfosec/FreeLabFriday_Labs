@@ -196,15 +196,7 @@ Leave the node settings open. Copy the **Test URL** shown (it will look like `ht
 Open a **new terminal** (keep the first one available):
 
 ```bash
-curl -X POST http://localhost:5678/webhook-test/1b4f0847-5b43-42b0-97e5-5042409ca634 \
-  -H "Content-Type: application/json" \
-  -d '{
-    "alert_type": "brute_force",
-    "source_ip": "192.168.1.50",
-    "target": "ssh",
-    "severity": "high",
-    "timestamp": "2025-01-01T12:00:00Z"
-  }'
+curl -X POST http://localhost:5678/webhook-test/1b4f0847-5b43-42b0-97e5-5042409ca634 -H "Content-Type: application/json" -d '{"alert_type": "brute_force","source_ip": "192.168.1.50","target": "ssh","severity": "high","timestamp": "2025-01-01T12:00:00Z"}'
 ```
 
 <img width="1144" height="229" alt="image" src="https://github.com/user-attachments/assets/15f83b41-878e-4a00-bb94-26c73aa0cdfc" />
