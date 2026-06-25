@@ -285,6 +285,9 @@ You will see the node output the original data plus the two new fields you added
 - Set **Response Code** to `200`
 - Leave **Respond With** as `First Incoming Item`
 
+<img width="422" height="335" alt="image" src="https://github.com/user-attachments/assets/c82ee1c0-9491-44b4-84cf-a10c96e3d4b7" />
+
+
 
 > This simulates what a real SOAR would do - enriching an alert with a recommended action before passing it downstream.
 
@@ -314,6 +317,10 @@ Let's make the webhook return a proper response to the caller.
 
 ### Test the full flow
 
+Go back to the **Webhook** node and set **Respond** to `Using 'Respond to Webhook' Node`
+
+<img width="454" height="537" alt="2026-06-25_12-19" src="https://github.com/user-attachments/assets/5254b9f6-2b90-49e5-bb6f-10578ca86e86" />
+
 - Click **Execute Workflow** (bottom button)
 
 - In your second terminal, re-run the curl command:
@@ -333,51 +340,22 @@ curl -X POST http://localhost:5678/webhook-test/abc123 \
 You should see the response:
 
 ```json
-{"status": "alert received", "action": "block_ip"}
+{"headers":{"host":"localhost:5678","user-agent":"curl/8.5.0","accept":"*/*","content-type":"application/json","content-length":"156"},"params":{},"query":{},"body":{"alert_type":"brute_force","source_ip":"192.168.1.50","target":"ssh","severity":"high","timestamp":"2025-01-01T12:00:00Z"},"webhookUrl":"http://localhost:5678/webhook-test/1b4f0847-5b43-42b0-97e5-5042409ca634","executionMode":"test"}
 ```
 
-And back in n8n, all nodes should show green.
+And then appended at the end:
 
----
-
-## Step 8 - Activate the Workflow (Production Mode)
-
-Right now the webhook only works in test mode. To make it persistent:
-
-- Click the **Inactive** toggle in the top right of the canvas
-- It will switch to **Active**
-
-Now the workflow runs permanently. The URL changes from `/webhook-test/...` to `/webhook/...`
-
-Test the production URL:
-
-```bash
-curl -X POST http://localhost:5678/webhook/abc123 \
-  -H "Content-Type: application/json" \
-  -d '{
-    "alert_type": "port_scan",
-    "source_ip": "10.0.0.99",
-    "target": "firewall",
-    "severity": "low",
-    "timestamp": "2025-01-01T13:00:00Z"
-  }'
+```json
+{"action":"block_ip","priority":"P1"}
 ```
 
-This time severity is `low`, so the IF node will go down the **False** path. Watch the execution to see the difference.
+<img width="1323" height="266" alt="image" src="https://github.com/user-attachments/assets/803ceb80-a951-4e61-b262-d3d8a1bc777d" />
 
----
 
-## Step 9 - View Execution History
+And back in n8n, all nodes should show green
 
-- Click the hamburger menu (top left) -> **Executions**
+<img width="1069" height="425" alt="image" src="https://github.com/user-attachments/assets/afc311d0-1213-46ba-8156-b2116444bd49" />
 
-You will see a log of every time the workflow ran, including:
-
-- Timestamp
-- Status (success/error)
-- Execution time
-
-Click on any execution to replay and inspect it step by step. This is critical for debugging and for auditing in a SOC context.
 
 ---
 
