@@ -259,6 +259,9 @@ You can close the **if node** settings
 
 
 - Search for `Set`
+
+<img width="376" height="153" alt="Screenshot 2026-06-26 113754" src="https://github.com/user-attachments/assets/f2967af4-ce8c-461d-bda8-a99ca1a73c21" />
+
 - Click it
 
 ### Configure the Set node
