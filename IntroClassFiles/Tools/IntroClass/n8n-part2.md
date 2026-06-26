@@ -98,7 +98,8 @@ https://api.openai.com/v1/chat/completions
 
 You should see the AI response in the node output
 
-<img width="721" height="670" alt="2026-06-26_12-11" src="https://github.com/user-attachments/assets/9e23d31e-5c36-466f-b644-89ad9ddb7f7b" />
+<img width="721" height="598" alt="613589630-9e23d31e-5c36-466f-b644-89ad9ddb7f7b" src="https://github.com/user-attachments/assets/bc455357-9150-4f10-86f1-7074d5bf894c" />
+
 
 That is the AI-written triage summary of your alert
 
