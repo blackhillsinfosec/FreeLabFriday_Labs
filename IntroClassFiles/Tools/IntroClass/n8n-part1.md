@@ -1,6 +1,8 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
-# n8n
+# n8n - Part 1 - General Automation
+
+For **Part 2**, click [here](./n8n-part2.md)
 
 # Ubuntu VM
 
@@ -345,6 +347,7 @@ And back in n8n, all nodes should show green
 
 <img width="1069" height="425" alt="image" src="https://github.com/user-attachments/assets/afc311d0-1213-46ba-8156-b2116444bd49" />
 
+For **Part 2**, click [here](./n8n-part2.md)
 
 ---
 
