@@ -2,6 +2,8 @@
 
 # n8n - Part 2 - AI Integration
 
+For **Part 1**, click [here](./n8n-part1.md)
+
 # Ubuntu VM
 
 > [!NOTE]
@@ -41,6 +43,10 @@ Open your `Security Alert Handler` workflow from Part 1
 
 
 - Hover over the **IF** node and click the `+` on its **True** output (so the AI only runs on high-severity alerts)
+
+<img width="221" height="93" alt="image" src="https://github.com/user-attachments/assets/a6f97c65-89e1-4491-bc23-984fe7fbcc3a" />
+
+
 - Search for `HTTP Request`
 - Click it to add it
 
@@ -142,6 +148,8 @@ Watch the canvas: the alert flows in, the AI node lights up, and you get back an
 
 > [!NOTE]
 > A cloud AI provider sees whatever data you send it. Do not send real customer data, credentials, or sensitive PII to a third-party model without checking your data-handling policy first.
+
+For **Part 1**, click [here](./n8n-part1.md)
 
 ---
 
