@@ -83,6 +83,14 @@ You will have to set up the owner account, fill in whatever fake information you
 
 <img width="440" height="657" alt="image" src="https://github.com/user-attachments/assets/e111b0d2-46f0-4adc-921d-74fb3444580f" />
 
+You don't have to pick anything, just press **Get Started**
+
+<img width="454" height="600" alt="image" src="https://github.com/user-attachments/assets/5f7c4d14-7e05-4afd-a7bb-0352917416ae" />
+
+
+
+
+
 Then press **Skip**
 
 <img width="494" height="529" alt="image" src="https://github.com/user-attachments/assets/5d35082b-22d3-42f7-ac5b-5efd2c42e285" />
