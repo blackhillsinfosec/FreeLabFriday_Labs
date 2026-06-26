@@ -147,8 +147,6 @@ Watch the canvas: the alert flows in, the AI node lights up, and you get back an
 > [!TIP]
 > Never let an AI node directly trigger a destructive action (like blocking an IP or isolating a host) without a human in the loop. Prompt injection through attacker-controlled fields is a real risk.
 
-> [!NOTE]
-> A cloud AI provider sees whatever data you send it. Do not send real customer data, credentials, or sensitive PII to a third-party model without checking your data-handling policy first.
 
 For **Part 1**, click [here](./n8n-part1.md)
 
