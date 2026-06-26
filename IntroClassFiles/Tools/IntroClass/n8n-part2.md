@@ -16,16 +16,15 @@
 ---
 
 > [!NOTE]
-> This part requires your own API key. It costs a tiny amount per request (usually a fraction of a cent). The lab shows both OpenAI and Anthropic - pick whichever you have a key for.
+> This part requires your own API key. It costs a tiny amount per request (usually a fraction of a cent)
 
 ---
 
 ## Step 1 - Get an API Key
 
-Choose one provider:
+Choose the provider:
 
 - **OpenAI:** create a key at https://platform.openai.com/api-keys
-- **Anthropic:** create a key at https://console.anthropic.com/settings/keys
 
 Copy the key somewhere safe. You will paste it into n8n in a moment.
 
@@ -36,7 +35,10 @@ Copy the key somewhere safe. You will paste it into n8n in a moment.
 
 ## Step 2 - Add an HTTP Request Node
 
-Open your `Security Alert Handler` workflow from Part 1.
+Open your `Security Alert Handler` workflow from Part 1
+
+<img width="942" height="379" alt="image" src="https://github.com/user-attachments/assets/998eb197-976c-4337-90e7-34f203493206" />
+
 
 - Hover over the **IF** node and click the `+` on its **True** output (so the AI only runs on high-severity alerts)
 - Search for `HTTP Request`
@@ -48,8 +50,6 @@ Open your `Security Alert Handler` workflow from Part 1.
 
 We will use the same HTTP Request node you learned in Part 1, just pointed at an AI provider.
 
-### Option A - OpenAI
-
 - Set **Method** to `POST`
 - Set **URL** to:
 
@@ -59,63 +59,30 @@ https://api.openai.com/v1/chat/completions
 
 - Set **Authentication** to `Generic Credential Type`
 - Set **Generic Auth Type** to `Header Auth`
-- Click **Create new credential** and fill in:
+
+<img width="410" height="280" alt="image" src="https://github.com/user-attachments/assets/420e43a7-147c-41f1-b575-311f2d712b08" />
+
+
+- Click **Set up credential** and fill in:
   - **Name:** `Authorization`
   - **Value:** `Bearer YOUR_API_KEY_HERE`
+
+<img width="1199" height="674" alt="image" src="https://github.com/user-attachments/assets/0f0757c9-9736-4566-b42d-5a6db1e781f0" />
+
+
 - Save the credential
 - Set **Send Body** to `on`
 - Set **Body Content Type** to `JSON`
-- Switch the body field to expression mode (the `{}` icon) and paste:
+- Switch the **Specify Body** to `Using JSON` and paste:
 
 ```
-{
-  "model": "gpt-4o-mini",
-  "messages": [
-    {
-      "role": "user",
-      "content": "You are a SOC analyst. In one short sentence, summarize this security alert and suggest one response action. Alert: {{ JSON.stringify($json.body) }}"
-    }
-  ]
-}
+{{ JSON.stringify({ model: "gpt-4o-mini", messages: [ { role: "user", content: "You are a SOC analyst. In one short sentence, summarize this security alert and suggest one response action. Alert: " + JSON.stringify($json.body) } ] }) }}
 ```
 
-### Option B - Anthropic
+<img width="412" height="435" alt="image" src="https://github.com/user-attachments/assets/91b31f32-549c-4c9b-8a06-c798cce300b4" />
 
-- Set **Method** to `POST`
-- Set **URL** to:
 
-```
-https://api.anthropic.com/v1/messages
-```
 
-- Set **Authentication** to `Generic Credential Type`
-- Set **Generic Auth Type** to `Header Auth`
-- Click **Create new credential** and fill in:
-  - **Name:** `x-api-key`
-  - **Value:** `YOUR_API_KEY_HERE`
-- Save the credential
-- Under **Send Headers**, set it to `on` and add one header:
-  - **Name:** `anthropic-version`
-  - **Value:** `2023-06-01`
-- Set **Send Body** to `on`
-- Set **Body Content Type** to `JSON`
-- Switch the body field to expression mode (the `{}` icon) and paste:
-
-```
-{
-  "model": "claude-3-5-haiku-latest",
-  "max_tokens": 256,
-  "messages": [
-    {
-      "role": "user",
-      "content": "You are a SOC analyst. In one short sentence, summarize this security alert and suggest one response action. Alert: {{ JSON.stringify($json.body) }}"
-    }
-  ]
-}
-```
-
-> [!NOTE]
-> Model names change over time. If you get a model error, check the provider's current model list (https://platform.openai.com/docs/models or https://docs.anthropic.com) and update the `model` field.
 
 ---
 
@@ -123,18 +90,21 @@ https://api.anthropic.com/v1/messages
 
 - Click **Execute step**
 
-You should see the AI response in the node output.
+You should see the AI response in the node output
 
-- For **OpenAI**, the text is under `choices[0].message.content`
-- For **Anthropic**, the text is under `content[0].text`
+<img width="721" height="670" alt="2026-06-26_12-11" src="https://github.com/user-attachments/assets/9e23d31e-5c36-466f-b644-89ad9ddb7f7b" />
 
-That is the AI-written triage summary of your alert.
+That is the AI-written triage summary of your alert
 
 ---
 
 ## Step 5 - Test the Full Flow
 
 - Make sure the chain is: **Webhook -> IF -> (True) HTTP Request (AI) -> Set -> Respond to Webhook**
+
+<img width="1152" height="427" alt="image" src="https://github.com/user-attachments/assets/7abfb442-7331-479c-bdde-7bef6b196967" />
+
+
 - Click **Listen for Test Event** on the Webhook node
 - In your terminal, send a high-severity alert again:
 
@@ -145,17 +115,10 @@ curl -X POST http://localhost:5678/webhook-test/YOUR-WEBHOOK-PATH -H "Content-Ty
 > [!NOTE]
 > Replace `YOUR-WEBHOOK-PATH` with the actual path from your Webhook node.
 
-Watch the canvas: the alert flows in, the AI node lights up, and you get back an AI-written triage line alongside the `block_ip` / `P1` enrichment from Part 1.
+Watch the canvas: the alert flows in, the AI node lights up, and you get back an AI-written triage line alongside the `block_ip` / `P1` enrichment from Part 1
 
----
+<img width="1903" height="154" alt="2026-06-26_12-16" src="https://github.com/user-attachments/assets/0ff94df6-d1ea-4a2b-849e-08e4e3231971" />
 
-## Summary
-
-| Concept | What you did |
-|---|---|
-| API key auth | Stored a provider key securely in n8n as a Header Auth credential |
-| HTTP Request to AI | Sent the alert to a cloud AI model and got a plain-English summary |
-| Conditional AI | Ran the AI only on high-severity alerts to save cost |
 
 ---
 
