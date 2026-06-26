@@ -287,6 +287,8 @@ You will see the node output the original data plus the two new fields you added
 - Set **Response Code** to `200`
 - Leave **Respond With** as `First Incoming Item`
 
+- No need to **Execute** this node alone, you can close the windows
+
 <img width="422" height="335" alt="image" src="https://github.com/user-attachments/assets/c82ee1c0-9491-44b4-84cf-a10c96e3d4b7" />
 
 
@@ -305,7 +307,7 @@ Let's make the webhook return a proper response to the caller.
 
 
 - Search for `Respond to Webhook`
-- Add it
+- Click it
 
 ### Configure it
 
