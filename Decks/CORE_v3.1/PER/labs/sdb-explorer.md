@@ -1,4 +1,4 @@
-
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
 # SDB-Explorer
 
@@ -51,17 +51,21 @@ If you want to dive a bit deeper, check the [Windows Application Compatibility D
 
 ### Phase 1: Setup and Objective (Windows)
 
-Before starting the simulation, we must initialize our local endpoint. Because this virtual machine reverts to a clean snapshot after each reboot, we need to prepare our workspace and apply least-privilege firewall rules for this session.
+Before starting the simulation, we must initialize our local endpoint. We need to prepare our workspace and apply least-privilege firewall rules for this session.
 
 1. Open a **PowerShell** terminal as **Administrator**.
+
+<img width="519" height="396" alt="image" src="https://github.com/user-attachments/assets/93150de2-b86f-4dcb-80bc-1f6067846d71" />
+
 2. Navigate to the pre-created lab directory and execute the session starter script:
 
 ```powershell
-cd $env:USERPROFILE\Desktop\Labs\SdbExplorerLab
+cd Desktop\Labs\SdbExplorerLab
 .\lab_start.ps1
 ```
-
 Once you see the green sign [✓], leave this Administrator terminal open for later steps.
+
+<img width="742" height="513" alt="image" src="https://github.com/user-attachments/assets/f5905648-a04b-413b-a59c-a27ccd045306" />
 
 ### Phase 2: Staging the Attack (Ubuntu)
 
