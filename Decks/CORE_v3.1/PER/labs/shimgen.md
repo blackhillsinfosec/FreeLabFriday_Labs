@@ -62,12 +62,16 @@ Before starting the simulation, initialise the lab workspace on the compromised 
 
 1. Open a **PowerShell** terminal as **Administrator**.
 
+<img width="588" height="569" alt="image" src="https://github.com/user-attachments/assets/10914fa2-269c-4b9a-93fd-a76faf9901a3" />
+
 2. Navigate to the lab directory and run the session initialisation script:
 
 ```powershell
 cd Desktop\Labs\ShimGenLab
 .\lab_start.ps1
 ```
+
+<img width="715" height="445" alt="image" src="https://github.com/user-attachments/assets/f3df3971-4e9e-4e92-a5f3-a21154db45a8" />
 
 Once you see the green **[✓]**, leave this Administrator terminal open — you will need it throughout the lab.
 
@@ -80,12 +84,18 @@ Once you see the green **[✓]**, leave this Administrator terminal open — you
 
 As the attacker, your tools and payload are pre-staged on the Ubuntu server. Start a web server to make them downloadable by the compromised endpoint.
 
-- Open an **Ubuntu Shell** terminal and navigate to the **Lab Directory**:
+- Open an **Ubuntu Shell** terminal:
+
+<img width="594" height="550" alt="image" src="https://github.com/user-attachments/assets/f2182b39-cd85-4313-8e39-8fe34155db32" />
+
+- Navigate to the **Lab Directory** and start a server over port 8001 : 
 
 ```bash
 cd ~/BnB/ShimGen
 python3 -m http.server 8001
 ```
+
+<img width="721" height="194" alt="image" src="https://github.com/user-attachments/assets/f09c3477-51b2-49da-ae86-b7bfad356353" />
 
 >[!NOTE]
 > Note down your **\<UBUNTU_IP\>** — you will need it in Phases 3 and 4.
