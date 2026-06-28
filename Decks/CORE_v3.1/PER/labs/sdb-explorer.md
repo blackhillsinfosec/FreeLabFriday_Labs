@@ -160,7 +160,7 @@ The injection order is the key observation: **demo.dll ran before the applicatio
 >[!IMPORTANT]
 > Click **OK** on the demo.dll popup, but **leave target.exe open** — you will need the live process for the detection steps below.
 
-<img width="716" height="444" alt="image" src="https://github.com/user-attachments/assets/3e9ca446-c34f-430e-ae0b-e3b018761bed" />
+<img width="738" height="507" alt="image" src="https://github.com/user-attachments/assets/b4a1691d-741d-4cb9-9dc2-7b19c85121ec" />
 
 ---
 
@@ -178,15 +178,24 @@ Inspect the log file written to disk during the trigger phase:
 Get-Content C:\Windows\Temp\shimmed.log
 ```
 
+<img width="839" height="79" alt="image" src="https://github.com/user-attachments/assets/da8862fd-5d22-4a85-ab4c-a141784dc8e3" />
+
 The log confirms that a DLL was injected into a running process through the Application Compatibility framework. This is your first indicator of compromise.
 
 **Step 2 — Inspect Running Process Modules**
 
-Examine the live `target.exe` process to see exactly which DLLs are currently loaded in its memory space:
+Let's examine the running target.exe process to see what dynamic link libraries are currently loaded inside its memory space. 
+
+<img width="1133" height="239" alt="image" src="https://github.com/user-attachments/assets/b4253e39-9519-462e-8519-b9b616d5e3b7" />
+
+>[!NOTE]
+>Because target.exe is a 32-bit process, querying it from a 64-bit PowerShell console will hide its 32-bit DLLs due to WOW64 boundary limitations. We must use the 32-bit version of PowerShell to reveal the truth!
 
 ```powershell
-Get-Process target | Select-Object -ExpandProperty Modules | Where-Object { $_.FileName -like "*Users\Public*" }
+C:\Windows\SysWOW64\WindowsPowerShell\v1.0\powershell.exe -Command "Get-Process target | Select-Object -ExpandProperty Modules | Where-Object FileName -like '*Users\Public*'"
 ```
+
+<img width="1131" height="188" alt="image" src="https://github.com/user-attachments/assets/fe090cd9-042f-41c9-9284-ad53a3481ad7" />
 
 You will see `C:\Users\Public\demo.dll` loaded inside the process. A DLL loaded from a user-writable public directory inside any application is a significant red flag — legitimate software does not do this.
 
@@ -195,39 +204,54 @@ You will see `C:\Users\Public\demo.dll` loaded inside the process. A DLL loaded 
 `sdbinst.exe` always writes entries to the Windows Registry when it installs a Shim Database. Let's look:
 
 ```powershell
-Get-ItemProperty "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB"
+Get-ChildItem "HKLM:\SOFTWARE\Microsoft\Windows NT\CurrentVersion\AppCompatFlags\InstalledSDB" | Get-ItemProperty | Select-Object PSChildName, DatabasePath, DatabaseDescription
 ```
+
+<img width="1120" height="152" alt="image" src="https://github.com/user-attachments/assets/3f1df31d-bfaf-423e-bb9d-47127ed30994" />
 
 You will find a GUID-based entry referencing an installed `.sdb` file. The presence of an unrecognised custom Shim Database on a standard user workstation is a significant anomaly — IT-managed compatibility shims are rarely deployed this way.
 
 **Step 4 — Locate the SDB File on Disk**
 
-Shim Databases installed by `sdbinst.exe` are stored in protected system directories under cryptic GUID-based filenames, making them blend in with OS components:
+Shims installed by sdbinst.exe are stored in protected system directories, renamed with cryptic GUIDs so they blend in with OS files:
 
 ```powershell
-ls C:\Windows\apppatch\Custom\
-ls C:\Windows\apppatch\Custom64\
+ls C:\Windows\AppPatch\CustomSDB\
 ```
 
-You will find a `.sdb` file whose name matches the GUID registered in Step 3. This is the attacker's `patch.sdb` hiding in plain sight inside a Windows system folder.
+<img width="977" height="225" alt="image" src="https://github.com/user-attachments/assets/f54a0ff2-2e6b-4470-a97e-2416ee0bc4e4" />
 
-**Step 5 — Expose the Attack with sdb-explorer**
+You will find a .sdb file matching the registry GUID. This is the attacker's patch.sdb hiding in plain sight.
 
-Standard Windows tools cannot meaningfully read the binary contents of an SDB file — which is precisely what makes them such effective hiding spots. Point `sdb-explorer.exe` at the file you just found:
+**Step 5 — Forensic Autopsy with sdb-explorer**
+
+Native Windows utilities cannot natively parse the proprietary tag-based binary format of .sdb files. As an investigator, pointing standard text editors at these files only yields corrupted unreadable bytes. This is where **sdb-explorer** becomes our primary forensic lens. 
+
+By passing the `-t` (Tree) flag, we instruct the tool to disassemble the Shim Database and map its internal memory tags:
 
 ```powershell
-$sdbFile = (Get-ChildItem C:\Windows\apppatch\Custom\ -Filter "*.sdb" | Select-Object -First 1).FullName
+$sdbFile = (Get-ChildItem C:\Windows\AppPatch\CustomSDB\ -Filter "*.sdb" | Select-Object -First 1).FullName
 cd C:\Users\Public
-.\sdb-explorer.exe $sdbFile
+.\sdb-explorer.exe -t $sdbFile
 ```
 
-The tool parses the proprietary binary format and exposes its contents in human-readable form. You will see:
+The output floods the terminal with a complete architectural breakdown of the attacker's weapon. Let's first take a quick look at the **Index Table**
 
-- **Targeted executable:** `target.exe`
-- **Fix type applied:** `InjectDll`
-- **Injected payload path:** `C:\Users\Public\demo.dll`
+<img width="1321" height="940" alt="image" src="https://github.com/user-attachments/assets/edc3d626-4af0-4c33-8315-68dde248f743" />
 
-This is the smoking gun. A persistent system rule instructing Windows to silently load an arbitrary DLL into the target application on every single launch — surviving reboots, invisible to the user, installed using a signed Microsoft binary.
+
+Reading past the initial OS optimization block (TAG 7802 - INDEXES), we reach the core execution instructions starting at TAG 7001 - DATABASE. This section of the output is the actual brain of the attacker's Shim Database. The `sdb-explorer` tool breaks down the binary tags into a readable execution flow:
+
+1. **TAG 7001 - DATABASE:** This is the header of the rule. Notice the `DATABASE_ID` matches the exact GUID we previously found hidden in the Windows Registry.
+2. **TAG 7007 - EXE:** This defines the target. The adversary wants to hijack `target.exe`. 
+3. **TAG 7008 - MATCHING_FILE (`*`):** This is a critical security bypass. By using a wildcard (`*`), the attacker stripped all file-validation checks. Windows will not verify the file's hash, digital signature, or location. If a process is simply named `target.exe`, it gets infected.
+4. **TAG 7009 - SHIM_REF:** The instructions given to the OS. The `InjectDll` fix is a built-in Application Compatibility feature, but here it is weaponized. The `COMMAND_LINE` tag points directly to our malicious payload: `C:\Users\Public\demo.dll`.
+
+<img width="992" height="641" alt="image" src="https://github.com/user-attachments/assets/e8aed8c1-4a79-4ac8-a045-a2f3c6b43b13" />
+
+*(Note: Wondering what **TAG 7801 - STRINGTABLE** at the bottom is? To save file space, the .sdb binary format doesn't write words multiple times. It stores all text strings in a single "dictionary" at the very end of the file, and the tags above simply point to them!)*
+
+This is definitive proof of compromise: a rogue, persistent OS-level directive commanding the Windows kernel to silently force-feed an unauthorized dynamic library into a user application every time it spawns.
 
 ---
 
