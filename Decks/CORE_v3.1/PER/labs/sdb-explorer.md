@@ -267,6 +267,8 @@ Let's remove all lab artifacts and restore the endpoint to its original state.
 sdbinst.exe -u "$env:TEMP\patch.sdb"
 ```
 
+<img width="606" height="84" alt="image" src="https://github.com/user-attachments/assets/be9a5d4d-1a2f-4633-a94e-7fbeaaa8e86b" />
+
 Remove all downloaded files and the execution log:
 
 ```powershell
