@@ -95,7 +95,7 @@ cd ~/BnB/ShimGen
 python3 -m http.server 8001
 ```
 
-<img width="721" height="194" alt="image" src="https://github.com/user-attachments/assets/f09c3477-51b2-49da-ae86-b7bfad356353" />
+<img width="680" height="177" alt="image" src="https://github.com/user-attachments/assets/af4ef690-0bf7-44ab-85e5-5b87377a4ec4" />
 
 >[!NOTE]
 > Note down your **\<UBUNTU_IP\>** — you will need it in Phases 3 and 4.
@@ -120,11 +120,13 @@ Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/strings.exe"  -OutFile "C:\Users
 cd C:\Users\Public
 ```
 
+<img width="822" height="229" alt="image" src="https://github.com/user-attachments/assets/701cb2d0-a16b-4b56-9de3-6ed3fe230b8f" />
+
 ---
 
 **Step 1 — `--path` and `--output`: The Core Proxy**
 
-This is ShimGen at its simplest. Generate a shim that does nothing but redirect execution to `notepad.exe`:
+This is ShimGen at its simplest. In the **Windows powershell terminal**, generate a shim that does nothing but redirect execution to `notepad.exe`:
 
 ```powershell
 .\shimgen.exe --path "notepad.exe" --output ".\test_basic.exe"
