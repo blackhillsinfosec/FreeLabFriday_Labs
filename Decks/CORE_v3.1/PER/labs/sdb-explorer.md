@@ -2,7 +2,7 @@
 
 # SDB-Explorer
 
-# Windows VM
+# Windows & Ubuntu VM
 
 ## The objective of this lab is to use Application Shimming (via the native sdbinst.exe utility) to silently inject a demonstration DLL into a custom 32-bit application, establishing persistent execution — and then use sdb-explorer to forensically expose the hidden attack.
 
