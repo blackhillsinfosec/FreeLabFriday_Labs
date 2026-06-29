@@ -220,9 +220,9 @@ Generate a shim that passes a visible command to PowerShell to confirm the injec
 .\test_cmd.exe
 ```
 
-A PowerShell window opens and prints the message. The string `Argument injected from inside the shim binary` was never typed at a prompt or stored in any external file — it was retrieved from inside the compiled binary at runtime.
+<img width="1293" height="181" alt="image" src="https://github.com/user-attachments/assets/fb582724-342d-4042-80b5-9b2a2caa3b3a" />
 
-This is the key offensive property: in a real attack, this `--command` slot holds the full C2 callback — hidden inside a 14 KB file that visually impersonates a trusted application.
+Look closely at your folder: **there is no `.ps1`, `.bat`, or text script sitting on the disk.** Yet, PowerShell just executed a specific command. Where did it read it from? **Directly from the compiled `.exe` body.** This is the core offensive takeaway: `--command` turns a simple proxy into a **self-contained Trojan Horse**. In Phase 4, this exact memory slot will hold the live C2 callback URL — leaving zero script files behind for endpoint security to scan.
 
 ---
 
