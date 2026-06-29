@@ -267,6 +267,8 @@ With a clear understanding of each flag's effect, combine them into the final at
 .\rcedit.exe "C:\Users\Public\Desktop\putty.exe" --set-icon "C:\Users\Public\putty.ico"
 ```
 
+<img width="1294" height="467" alt="image" src="https://github.com/user-attachments/assets/69b24f13-1f8a-438e-af04-f97a5b680a11" />
+
 Each flag maps directly back to a capability demonstrated in isolation during Phase 3:
 
 | Flag | Phase 3 Step | What It Contributes to the Attack |
