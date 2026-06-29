@@ -231,10 +231,20 @@ Look closely at your folder: **there is no `.ps1`, `.bat`, or text script sittin
 Before building the actual weapon, apply the forensic lens to a test shim. Run the Sysinternals `strings.exe` utility against the command-injection shim you just created:
 
 ```powershell
-.\strings.exe .\test_cmd.exe
+.\strings.exe -accepteula .\test_cmd.exe
+```
+
+<img width="1299" height="898" alt="image" src="https://github.com/user-attachments/assets/b8939acc-b1d3-4c0a-83d7-e3d2e71d3cf8" />
+
+Because scrolling manually through thousands of lines of raw binary scaffolding is inefficient, we can pipe the output into **`Select-String`** (PowerShell's native equivalent of `grep`) to instantly isolate specific keywords:
+
+```powershell
+.\strings.exe -accepteula .\test_cmd.exe | Select-String "powershell|Argument|shim"
 ```
 
 Scroll through the output. Among the binary scaffolding, you will find the exact text you passed to `--command`, `powershell.exe` (the proxied target), and references to ShimGen itself — all stored as plaintext Unicode strings in the binary body.
+
+<img width="1046" height="841" alt="image" src="https://github.com/user-attachments/assets/b37a547a-4b1a-4b45-a156-aaebc0eb1c29" />
 
 >[!NOTE]
 > ShimGen does not encrypt, compress, or obfuscate its embedded configuration. The `--path` target and the full `--command` string are stored as readable Unicode in the binary. This is the forensic weakness the Blue Team will exploit in Phase 6 — you are learning the technique here on a benign binary first so that applying it to the weapon in Phase 6 is a direct, familiar step.
@@ -390,7 +400,7 @@ The real PuTTY distribution is signed. An unsigned binary bearing the icon of a 
 This is the investigative culmination. You already established in Phase 3, Step 5 that ShimGen stores its configuration as plaintext Unicode strings inside the generated binary. Now apply the same technique to the weapon:
 
 ```powershell
-.\strings.exe "C:\Users\Public\Desktop\putty.exe"
+.\strings.exe -accepteula "C:\Users\Public\Desktop\putty.exe"
 ```
 
 Examine the output carefully. Among the binary scaffolding, you will find:
