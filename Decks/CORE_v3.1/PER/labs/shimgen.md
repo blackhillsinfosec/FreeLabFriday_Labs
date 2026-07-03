@@ -269,7 +269,7 @@ With a clear understanding of each flag's effect, combine them into the final at
 .\ResHacker.exe -open "C:\Users\Public\Desktop\putty.exe" -save "C:\Users\Public\Desktop\putty.exe" -action add    -res "C:\Users\Public\putty.ico" -mask "ICONGROUP,1,0"
 ```
 
-<img width="1869" height="643" alt="image" src="https://github.com/user-attachments/assets/be3b0e43-7689-4dd8-a3e6-a9e294051320" />
+<img width="1886" height="880" alt="image" src="https://github.com/user-attachments/assets/b0556843-e4f5-46ae-89ab-3acf7c3c5a71" />
 
 Each flag maps directly back to a capability demonstrated in isolation during Phase 3:
 
@@ -293,11 +293,15 @@ From this point, adopt the perspective of the **victim**. The attacker's work is
 
 **Double-click the fake `putty.exe` on the Desktop.**
 
+<img width="497" height="521" alt="image" src="https://github.com/user-attachments/assets/d9804d19-dc5f-4f18-8136-4305e0401f70" />
+
 Observe what you see:
 
 1. No console window. No flash. No visible activity.
 2. **PuTTY opens.** The real `C:\Program Files\PuTTY\putty.exe` launches and displays its configuration dialog normally.
 3. The victim sees exactly what they expected. They clicked PuTTY, PuTTY opened.
+
+<img width="1347" height="770" alt="image" src="https://github.com/user-attachments/assets/c2526611-6734-4428-9023-99d026406881" />
 
 What actually happened in the background, during the fraction of a second between the click and PuTTY appearing on screen:
 
@@ -309,6 +313,8 @@ What actually happened in the background, during the fraction of a second betwee
 
 Switch to the **Ubuntu terminal**. You will see an HTTP `GET` request for `payload.ps1` logged by the Python web server — the C2 callback, timestamped at the exact moment the victim clicked.
 
+<img width="752" height="237" alt="image" src="https://github.com/user-attachments/assets/ea61a1ed-787d-478c-a0fd-3a3ecdcd3aa3" />
+
 ---
 
 ### Phase 6: Blue Team Detection
@@ -316,6 +322,8 @@ Switch to the **Ubuntu terminal**. You will see an HTTP `GET` request for `paylo
 Time to switch perspective. You are a security analyst responding to an endpoint behavioural alert. You do not know what mechanism was used. You have one suspicious file on the Desktop and the task of reconstructing everything that happened.
 
 Switch back to your **Administrator PowerShell** terminal.
+
+<img width="629" height="424" alt="image" src="https://github.com/user-attachments/assets/be04123a-34eb-4ad9-a16a-057a8b50cecf" />
 
 ---
 
