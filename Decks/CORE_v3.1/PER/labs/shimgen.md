@@ -335,6 +335,8 @@ The payload wrote a proof-of-concept log to disk. Inspect it:
 Get-Content "C:\Users\Public\shimgen_poc.log"
 ```
 
+<img width="809" height="96" alt="image" src="https://github.com/user-attachments/assets/a4643208-8aad-4db3-8137-8be67147fd1e" />
+
 The log confirms that a PowerShell process executed silently and wrote output to disk. This is your first indicator: something ran that the victim did not knowingly trigger.
 
 ---
@@ -353,6 +355,16 @@ Get-WinEvent -FilterHashtable @{ LogName='Security'; Id=4688 } -MaxEvents 200 |
 
 You are looking for a `powershell.exe` process whose **creator** is the fake `putty.exe` on the Desktop. Legitimate PuTTY is an SSH client — it never spawns PowerShell. This parent-child relationship is the **behavioural anomaly**. A real PuTTY process has no reason to create a hidden PowerShell child that makes outbound network connections.
 
+<img width="1540" height="651" alt="image" src="https://github.com/user-attachments/assets/a62aab33-82a9-43f4-8ad2-de749beee901" />
+
+>[!IMPORTANT]
+> **Lab Artifacts vs. Real-World Attacks**
+>
+> If you look at the older events in your terminal (timestamps prior to the attack), you will see executions of `shimgen.exe` and `ResHacker.exe`. **These are lab artifacts.** > 
+> In a real-world scenario, the attacker would *never* compile the payload on the victim's machine. They would run ShimGen and Resource Hacker on their own C2 infrastructure (e.g., Kali Linux or a staging server), and only drop the final 226 KB `putty.exe` weapon onto the victim's endpoint. 
+>
+> Therefore, as a Blue Teamer, you must ignore the noise of the compilation tools and focus strictly on the **behavioural anomaly**: a standalone `putty.exe` unexpectedly spawning a `powershell.exe` child process.
+
 ---
 
 **Step 3 — File Size Anomaly**
@@ -367,7 +379,9 @@ $real = (Get-Item "C:\Program Files\PuTTY\putty.exe").Length
 "Real putty.exe : $([math]::Round($real / 1KB, 1)) KB"
 ```
 
-The ShimGen-generated binary is approximately **14 KB**. The genuine PuTTY executable is over **1,400 KB**. A file claiming to be a full-featured SSH client with a GUI, TLS stack, and terminal emulator — yet weighing under 15 KB — is not that application. This check alone is sufficient to escalate a file for deeper forensic investigation.
+<img width="967" height="185" alt="image" src="https://github.com/user-attachments/assets/6f5bc7bc-5b91-4b8f-bbf8-c48f89fb52b0" />
+
+The ShimGen-generated binary is approximately **226 KB**. The genuine PuTTY executable is over **1,300 KB**. A file claiming to be a full-featured SSH client with a GUI, TLS stack, and terminal emulator — yet weighing under 230 KB — is not that application. This check alone is sufficient to escalate a file for deeper forensic investigation.
 
 ---
 
@@ -379,11 +393,33 @@ Legitimate applications embed metadata into their PE (Portable Executable) heade
 (Get-Item "C:\Users\Public\Desktop\putty.exe").VersionInfo
 ```
 
-The `ProductName`, `CompanyName`, `FileDescription`, and `LegalCopyright` fields will be empty or absent. Now compare with the real binary:
+Now compare with the real binary:
 
 ```powershell
 (Get-Item "C:\Program Files\PuTTY\putty.exe").VersionInfo
 ```
+
+<img width="941" height="305" alt="image" src="https://github.com/user-attachments/assets/34aeba8c-acf4-44eb-855a-73ad30faa9da" />
+
+The 10.0.X.X format File Version **is the standard fingerprint of a microsoft compiler**. The attacker most likely compiled this app in Visual Studio. The real PuTTY has a human-readable string that specifies the file version.   
+
+Let's dive a bit deeper and inspect the putty.exe that's on the Desktop: 
+
+```powershell
+(Get-Item "C:\Users\Public\Desktop\putty.exe").VersionInfo | Format-List *
+```
+
+<img width="1158" height="714" alt="image" src="https://github.com/user-attachments/assets/155d7f98-fd9a-4b37-9da7-183f4d878962" />
+
+For the Desktop version of putty.exe the answer becomes clear : **this app executes windows powershell commands and that's about it. That is not putty.exe .**
+
+Let's see what the genuine binary putty.exe should look like : 
+
+```powershell
+(Get-Item "C:\Program Files\PuTTY\putty.exe").VersionInfo | Format-List *
+```
+
+<img width="1240" height="735" alt="image" src="https://github.com/user-attachments/assets/55ab0b5e-9ac7-422d-88a0-020070a40990" />
 
 The real PuTTY is stamped with `Simon Tatham`, the correct version string, and a full copyright notice. ShimGen creates structurally valid PE binaries, but it populates none of the standard version metadata. The fake borrowed the icon from PuTTY — it cannot borrow the provenance.
 
