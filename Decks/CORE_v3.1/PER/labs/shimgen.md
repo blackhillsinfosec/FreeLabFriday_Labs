@@ -441,6 +441,8 @@ Get-AuthenticodeSignature "C:\Program Files\PuTTY\putty.exe" |
   Select-Object Status, SignerCertificate
 ```
 
+<img width="1890" height="384" alt="image" src="https://github.com/user-attachments/assets/e2bc8a0a-65b3-49c4-9bd9-111fcf56fb2c" />
+
 The real PuTTY distribution is signed. An unsigned binary bearing the icon of a known-signed application, at the location where that application is expected, is a definitive red flag. An icon can be copied in milliseconds. A certificate cannot.
 
 ---
@@ -450,10 +452,10 @@ The real PuTTY distribution is signed. An unsigned binary bearing the icon of a 
 This is the investigative culmination. You already established in Phase 3, Step 5 that ShimGen stores its configuration as plaintext Unicode strings inside the generated binary. Now apply the same technique to the weapon:
 
 ```powershell
-.\strings.exe -accepteula "C:\Users\Public\Desktop\putty.exe"
+C:\Users\Public\strings.exe -accepteula "C:\Users\Public\Desktop\putty.exe"
 ```
 
-Examine the output carefully. Among the binary scaffolding, you will find:
+Examine the output carefully. Scroll up and you will find multiple indicators. Among the binary scaffolding, you will find:
 
 - `powershell.exe` — the real process proxied behind the PuTTY icon
 - `-WindowStyle Hidden -ExecutionPolicy Bypass` — the stealth execution flags
@@ -463,6 +465,8 @@ Examine the output carefully. Among the binary scaffolding, you will find:
 - Metadata strings containing references to ShimGen
 
 These are your **Indicators of Compromise (IoCs)**. In a real investigation, these strings would be extracted, submitted to threat intelligence platforms, and used to hunt for identical binaries across the environment — all recovered from a single 14 KB file that was sitting on a victim's Desktop looking like an SSH client.
+
+<img width="1901" height="667" alt="image" src="https://github.com/user-attachments/assets/dac551b0-b278-4d68-b037-88aadba02f28" />
 
 >[!NOTE]
 > In Phase 3, Step 5, you used `strings.exe` on `test_cmd.exe` and found your own injected command in the output. The weapon uses exactly the same binary structure. The forensic technique transfers directly — what you learned on a benign shim is what unmasks the real attack.
