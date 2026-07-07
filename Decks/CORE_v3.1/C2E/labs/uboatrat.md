@@ -80,22 +80,25 @@ Your role shifts across the three parts of this lab, following the same progress
 
 Before touching the suspicious file, record the Ubuntu VM's IP address. You will need it throughout the lab to correlate network traffic.
 
-1. Open the **Ubuntu terminal** and run:
+1. Open the **Ubuntu terminal**. Take note of your IP : 
 
-```bash
-ip a
-```
+<img width="640" height="279" alt="image" src="https://github.com/user-attachments/assets/ca54f58f-cde6-4801-bbbf-2682003447ce" />
 
 Note your `<UBUNTU_IP>`. Close the Ubuntu terminal.
 
 2. On **Windows**, open a **PowerShell terminal as Administrator** and run the lab initialisation script:
 
+<img width="589" height="442" alt="image" src="https://github.com/user-attachments/assets/205706cb-7719-4070-8c22-0e6e606760d1" />
+
+- Run the lab setup script and fIll in the **Ubuntu IP** when prompted : 
+
 ```powershell
 cd Desktop\Labs\UBoatRAT
 .\lab_start.ps1
 ```
+Wait for the last green **[+]** before continuing.
 
-Wait for the green **[✓]** before continuing.
+<img width="905" height="364" alt="image" src="https://github.com/user-attachments/assets/c2f6fff2-0582-4a67-b969-f79b331bdb48" />
 
 >[!NOTE]
 > `lab_start.ps1` verifies that the BITS Operational Log is enabled (`wevtutil sl Microsoft-Windows-Bits-Client/Operational /e:true`), confirms Sysmon is running, and enables Process Creation auditing via `auditpol /set /subcategory:"Process Creation" /success:enable`. These are prerequisites for Part III. On a real endpoint, these would be an analyst's first configuration steps before starting any dynamic analysis session.
@@ -109,13 +112,15 @@ Establish a clean baseline across every tool before executing the suspicious fil
 **Step 1 — Inspect the suspicious file:**
 
 ```powershell
-Get-Item "\Users\Administrators\Desktop\Labs\UBoatRAT\WinSvcHelper.exe" |
+Get-Item ".\WinSvcHelper.exe" |
   Select-Object Name, Length, CreationTime, LastWriteTime
 
-(Get-AuthenticodeSignature "\Users\Administrators\Desktop\Labs\UBoatRAT\WinSvcHelper.exe").Status
+(Get-AuthenticodeSignature ".\WinSvcHelper.exe").Status
 
-(Get-Item "\Users\Administrators\Desktop\Labs\UBoatRAT\WinSvcHelper.exe").VersionInfo
+(Get-Item ".\WinSvcHelper.exe").VersionInfo
 ```
+
+<img width="1199" height="479" alt="image" src="https://github.com/user-attachments/assets/c2c42cb9-181c-456d-b969-90ff7068ef04" />
 
 Record your findings. Is the file signed? Does it carry version metadata? What is its size? These become comparison data points for Phase 7.
 
@@ -125,11 +130,15 @@ Record your findings. Is the file signed? Does it carry version metadata? What i
 bitsadmin /list /allusers
 ```
 
-If no jobs are listed, record this as your clean state. Any new job appearing after execution is an artefact of the suspicious file.
+<img width="736" height="180" alt="image" src="https://github.com/user-attachments/assets/cd4661b6-d7e8-4ddd-92d2-4b96c95ad03c" />
+
+No jobs are listed, record this as your clean state. Any new job appearing after execution is an artefact of the suspicious file.
 
 **Step 3 — Start Process Monitor:**
 
 Open **Process Monitor** from `C:\Tools\Procmon\Procmon.exe`. Allow it to run for ten seconds to collect baseline system noise, then pause capture with **CTRL+E**. Do not clear the events — the noise contrast will help distinguish normal activity from attack activity later.
+
+<img width="1177" height="545" alt="image" src="https://github.com/user-attachments/assets/d748c8d8-7270-4989-ae00-b5de6d6a8658" />
 
 **Step 4 — Start Wireshark:**
 
