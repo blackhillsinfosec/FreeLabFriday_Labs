@@ -1,3 +1,5 @@
+![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+
 # UBoatRAT — BITS-Based C2 and Exfiltration
 
 # Windows VM · Ubuntu VM
@@ -80,13 +82,13 @@ Your role shifts across the three parts of this lab, following the same progress
 
 Before touching the suspicious file, record the Ubuntu VM's IP address. You will need it throughout the lab to correlate network traffic.
 
-1. Open the **Ubuntu terminal**. Take note of your IP : 
+1. On the Windows VM, open the **Ubuntu terminal**. Take note of your IP : 
 
-<img width="640" height="279" alt="image" src="https://github.com/user-attachments/assets/ca54f58f-cde6-4801-bbbf-2682003447ce" />
+<img width="641" height="871" alt="image" src="https://github.com/user-attachments/assets/d0635fba-bf7a-41e3-9ecf-8a071ca94e77" />
 
-Note your `<UBUNTU_IP>`. Close the Ubuntu terminal.
+After copying your IP, close the terminal.
 
-2. On **Windows**, open a **PowerShell terminal as Administrator** and run the lab initialisation script:
+2. On **Windows**, open a **PowerShell terminal as Administrator** and run the lab setup script:
 
 <img width="589" height="442" alt="image" src="https://github.com/user-attachments/assets/205706cb-7719-4070-8c22-0e6e606760d1" />
 
@@ -162,14 +164,18 @@ Before executing the suspicious file, ensure both tools are actively recording.
 
 - In Wireshark, confirm the capture is running with the display filter applied.
 
-- In Process Monitor, press CTRL+E (or click the magnifying glass icon) to unpause and resume capturing. The number of events showed by **Procmon** should start rising.
+<img width="808" height="277" alt="image" src="https://github.com/user-attachments/assets/8b1fb817-fa57-4c52-a8f1-40d680e9b353" />
+
+- In Process Monitor, press CTRL+E (or click the magnifying glass icon) to unpause and resume capturing. The number of events recorded by **Procmon** should start rising.
+
+<img width="802" height="255" alt="image" src="https://github.com/user-attachments/assets/d855fd02-aec3-45d3-8637-04bde28cb30f" />
 
 With both tools active, execute the file in your Administrator PowerShell:
 
 In your **Administrator PowerShell**:
 
 ```powershell
-cd C:\Users\Administrator\Desktop\Labs\UBpatRAT
+cd C:\Users\Administrator\Desktop\Labs\UBoatRAT
 .\WinSvcHelper.exe
 ```
 
@@ -185,9 +191,9 @@ After 30 seconds:
   
 <img width="902" height="246" alt="image" src="https://github.com/user-attachments/assets/f4972bfe-2d7e-4e49-a9f7-de363da9607f" />
 
-- Return to Procmon and press **CTRL+E** to stop capture.
+- Return to Procmon and press **CTRL+E** to stop capture, or use the GUI.
 
-<img width="772" height="174" alt="image" src="https://github.com/user-attachments/assets/8c098f9b-49e0-4a88-abc3-7b2a98452355" />
+<img width="920" height="266" alt="image" src="https://github.com/user-attachments/assets/8ff32872-ac3a-474a-b458-9ca0f6a5f02d" />
 
 ---
 
@@ -215,15 +221,33 @@ Apply and examine the filtered event list.
 
 **Step 2 — Examine the process tree:**
 
-Look at the `Process Name` and `PID` columns across the captured events.
+The problem with looking at the process creation timeline to find the first instance of *WinSvcHelper.exe* is the sample size. It's like finding a needle in a haystack. However, we have tools. Go to **Tools -> Proccess Tree**:
+
+<img width="872" height="430" alt="image" src="https://github.com/user-attachments/assets/d637aecf-4202-41cb-94e9-067b8b9cc6a1" />
+
+Scroll down and try to find **WinSvcHelper.exe**. Look at the `Process Name` and `PID` columns across the captured events:
+
+<img width="828" height="683" alt="image" src="https://github.com/user-attachments/assets/8175751d-fc20-4b2b-b7a6-1c065bebe80a" />
 
 1. Did `WinSvcHelper.exe` spawn any child processes? What are they?
 2. Is `powershell.exe` among them? What is its parent PID?
 3. Is `svchost.exe` active? What operation types does it show?
 
+Here we find that **WinSvcHelper.exe** spawned **Powershell**, that user **csc.exe** to compile C# code. 
+
+Close the process tree for the moment. 
+
 **Step 3 — File system writes:**
 
-Add a filter: `Operation` | `contains` | `Write`. Examine the `Path` column.
+We need to add some filters:
+
+- Press **CTRL+L** and write: `Operation` | `contains` | `Write` -> `Include`. This will include all file-write processes. 
+
+<img width="640" height="376" alt="image" src="https://github.com/user-attachments/assets/d075d8ab-0be7-4ab8-9441-5e621d487e29" />
+
+It isn't enough though, for good measurelet's add the following filter : `Path` | `contains` | `ProgramData` -> `Include`. 
+
+Examine the `Path` column.
 
 1. Was a new directory created? Under which path?
 2. What files were written to disk and where?
@@ -231,7 +255,7 @@ Add a filter: `Operation` | `contains` | `Write`. Examine the `Path` column.
 
 **Step 4 — Registry writes:**
 
-Change the operation filter to: `Operation` | `contains` | `RegSetValue`.
+Change the operation filter to: `Operation` | `contains` | `RegSetValue` -> `Include`.
 
 1. Were any keys written under `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\`?
 2. What task names appear in the paths?
