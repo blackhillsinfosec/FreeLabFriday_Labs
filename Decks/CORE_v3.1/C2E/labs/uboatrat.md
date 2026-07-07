@@ -98,7 +98,7 @@ cd Desktop\Labs\UBoatRAT
 ```
 Wait for the last green **[+]** before continuing.
 
-<img width="905" height="364" alt="image" src="https://github.com/user-attachments/assets/c2f6fff2-0582-4a67-b969-f79b331bdb48" />
+<img width="892" height="254" alt="image" src="https://github.com/user-attachments/assets/f5e03990-d793-4476-97da-58fbd1387364" />
 
 >[!NOTE]
 > `lab_start.ps1` verifies that the BITS Operational Log is enabled (`wevtutil sl Microsoft-Windows-Bits-Client/Operational /e:true`), confirms Sysmon is running, and enables Process Creation auditing via `auditpol /set /subcategory:"Process Creation" /success:enable`. These are prerequisites for Part III. On a real endpoint, these would be an analyst's first configuration steps before starting any dynamic analysis session.
@@ -148,38 +148,68 @@ Open **Wireshark**. Select your active network interface and begin capturing. Ap
 ip.addr == <UBUNTU_IP>
 ```
 
+<img width="410" height="316" alt="image" src="https://github.com/user-attachments/assets/fbdeb04f-c62d-487f-b36a-607b225c451d" />
+
+<img width="808" height="625" alt="image" src="https://github.com/user-attachments/assets/75ac8c41-3244-43b0-b550-755a4c501cd1" />
+
 This shows only traffic to and from the Ubuntu VM — your simulated C2 server. Leave the capture running.
 
 ---
 
 ### Phase 3: Execution and Capture
 
-With all tools active and capturing, execute the suspicious file.
+Before executing the suspicious file, ensure both tools are actively recording.
+
+- In Wireshark, confirm the capture is running with the display filter applied.
+
+- In Process Monitor, press CTRL+E (or click the magnifying glass icon) to unpause and resume capturing. The number of events showed by **Procmon** should start rising.
+
+With both tools active, execute the file in your Administrator PowerShell:
 
 In your **Administrator PowerShell**:
 
 ```powershell
-cd C:\Users\Public\Downloads
+cd C:\Users\Administrator\Desktop\Labs\UBpatRAT
 .\WinSvcHelper.exe
 ```
 
+<img width="1907" height="938" alt="image" src="https://github.com/user-attachments/assets/d1ab49d3-688d-4a27-872a-90ce62b9ebbf" />
+
 The file produces no visible output. No window opens. No message appears. The prompt returns immediately.
 
-**Wait 30 seconds** without interacting with any tool. BITS jobs are asynchronous — they may be queued rather than actively transferring at the moment of creation. After 30 seconds, return to Procmon and press **CTRL+E** to stop capture.
+**Wait 30 seconds** without interacting with any tool. BITS jobs are asynchronous — they may be queued rather than actively transferring at the moment of creation. 
+
+After 30 seconds:
+
+- Return to wireshark and press the STOP button :
+  
+<img width="902" height="246" alt="image" src="https://github.com/user-attachments/assets/f4972bfe-2d7e-4e49-a9f7-de363da9607f" />
+
+- Return to Procmon and press **CTRL+E** to stop capture.
+
+<img width="772" height="174" alt="image" src="https://github.com/user-attachments/assets/8c098f9b-49e0-4a88-abc3-7b2a98452355" />
 
 ---
 
 ### Phase 4: Process and File Activity Analysis (Procmon)
 
-With the Procmon capture stopped, examine what happened.
+With Procmon and Wireshark stopped, examine what happened.
 
 **Step 1 — Apply process filters:**
 
-Open **Filter → Filter...** and configure:
+Press **CTRL+L** in the Procmon window and configure using the drop-down menu:
 
 - `Process Name` | `is` | `WinSvcHelper.exe` → Include
+
+<img width="960" height="628" alt="image" src="https://github.com/user-attachments/assets/85ee99e3-2aca-4e92-8eb1-d62a6d82eda3" />
+
 - `Process Name` | `is` | `powershell.exe` → Include
+
+<img width="958" height="626" alt="image" src="https://github.com/user-attachments/assets/6093cbce-bf38-4666-9488-863236adbc37" />
+
 - `Process Name` | `is` | `svchost.exe` → Include
+
+<img width="958" height="623" alt="image" src="https://github.com/user-attachments/assets/da1629e6-62fe-4293-a829-9ee6b4f326e6" />
 
 Apply and examine the filtered event list.
 
