@@ -4,6 +4,204 @@
 
 # Windows VM
 
+
+`net use` is a built in Windows command that connects to, disconnects from, and lists shared network resources (file shares, printers). It has existed since the early NT days and is still one of the fastest ways to map a drive, authenticate to a remote share with different credentials, or check what shares a machine is exposing. It is also one of the most common tools used for lateral movement once an attacker has valid credentials, so it is worth understanding from both sides.
+
+## In this lab we will
+- Map and disconnect network drives from the command line
+- Connect to a share using alternate credentials
+- View what shares a machine is exposing and who is connected to them
+- Understand how `net use` is used for lateral movement via administrative shares
+- Look at the Windows Event Log artifacts this activity leaves behind
+
+
+## Let's start
+
+Open **Command Prompt as Administrator** (Start -> type `cmd` -> right click -> Run as administrator). Every command below assumes an elevated prompt.
+
+### Part 1 - confirm net use is available
+
+```cmd
+net use /?
+```
+
+You will see the full help output. This confirms the command exists and shows every switch it supports.
+
+### Part 2 - create and share a test folder
+
+```cmd
+mkdir C:\ShareLab
+echo This is a test file for the net use lab > C:\ShareLab\notes.txt
+```
+
+Share it out with full permissions for testing purposes:
+
+```cmd
+net share LabShare=C:\ShareLab /grant:everyone,full
+```
+
+Confirm the share exists:
+
+```cmd
+net share
+```
+
+You should see `LabShare` listed alongside the default hidden shares like `ADMIN$`, `C$`, and `IPC$` (more on those later).
+
+### Part 3 - create a lab user account
+
+We will use this account later to test connecting with alternate credentials.
+
+```cmd
+net user labuser Password123! /add
+```
+
+### Part 4 - find your computer name
+
+```cmd
+hostname
+```
+
+You can use this hostname instead of `localhost` in any command below if you prefer.
+
+### Part 5 - view current connections
+
+```cmd
+net use
+```
+
+At this point it should say there are no entries in the list, since we have not connected to anything yet.
+
+### Part 6 - browse shares with net view
+
+```cmd
+net view \\localhost
+```
+
+This lists every share the machine is exposing, including `LabShare`. `net view` is the enumeration Part an attacker or analyst runs first, it tells you what is reachable before you try to connect to anything.
+
+### Part 7 - map a drive
+
+```cmd
+net use Z: \\localhost\LabShare
+```
+
+Confirm it worked:
+
+```cmd
+net use
+```
+
+Navigate to it like a normal drive:
+
+```cmd
+Z:
+dir
+type notes.txt
+```
+
+### Part 8 - reconnect using alternate credentials
+
+Disconnect first:
+
+```cmd
+net use Z: /delete
+```
+
+Now reconnect specifying the `labuser` account instead of your own:
+
+```cmd
+net use Z: \\localhost\LabShare /user:labuser Password123!
+```
+
+This is the same technique used any time you need to access a resource as someone other than the currently logged on user, for example a service account or an account on a different domain.
+
+---
+
+## Attacker perspective - admin shares and lateral movement
+
+Every Windows machine automatically exposes a set of hidden administrative shares:
+
+| Share | Points to | Purpose |
+|---|---|---|
+| C$ | C:\ | Root of the C drive |
+| ADMIN$ | C:\Windows | Remote administration |
+| IPC$ | N/A | Named pipes, used for authentication and RPC |
+
+These exist by default and cannot be seen by browsing the network (the trailing `$` hides them), but they can still be connected to directly if you have valid administrator credentials for the target. This is exactly how tools like PsExec and Impacket's psexec.py work under the hood, they drop a file onto `ADMIN$` or `C$` and then trigger execution with a second technique like a service or scheduled task.
+
+> [!TIP]
+> If you cracked a set of credentials in a previous lab (for example with Hydra against Dionaea), the next real world Part is exactly this, test those credentials against `net use \\target\C$` on other hosts on the network to see if they grant access anywhere else.
+
+### Part 9 - enable the built in Administrator account for this test
+
+On Windows 10 and 11 the built in Administrator account (RID 500) is disabled by default. We are enabling it temporarily so this Part works cleanly, and we will disable it again during cleanup.
+
+```cmd
+net user administrator /active:yes
+net user administrator LabAdminPass1!
+```
+
+> [!NOTE]
+> If you try this with a different local admin account instead of the built in Administrator, you may get "Access is denied" even though the account is a local administrator. Since Windows Vista, local accounts other than the built in Administrator receive a filtered, non admin token over the network by default (UAC remote restrictions). Domain admin accounts are not affected by this. It is why real world lateral movement so often relies on domain admin credentials rather than local admin ones.
+
+### Part 10 - connect to the C$ admin share
+
+```cmd
+net use \\localhost\C$ /user:administrator
+```
+
+Enter the password when prompted. Notice this connection has no drive letter, it is a deviceless connection. That is intentional tradecraft, no drive letter means nothing shows up in File Explorer.
+
+### Part 11 - move a file through the share
+
+With the connection from Part 10 still active, you can address the target directly by UNC path without ever mapping a drive letter:
+
+```cmd
+copy C:\ShareLab\notes.txt \\localhost\C$\Windows\Temp\notes_copied.txt
+```
+
+`C:\Windows\Temp` is one of the most common staging locations for dropped tools in real intrusions, since it is writable and rarely monitored as closely as user folders.
+
+---
+
+## Defender perspective - seeing what net use leaves behind
+
+### Part 12 - net session, who is connected to your shares
+
+```cmd
+net session
+```
+
+This shows every client currently connected to shares on this machine, along with idle time. On a real file server, this is one of the first places to check when you suspect something is pulling data off a share it should not be touching.
+
+### Part 13 - enable file share auditing
+
+Share access auditing is off by default on Windows, so nothing gets logged until you turn it on:
+
+```cmd
+auditpol /set /subcategory:"File Share" /success:enable /failure:enable
+```
+
+Generate a fresh event by reconnecting to the share:
+
+```cmd
+net use Z: \\localhost\LabShare
+```
+
+### Part 14 - check Event Viewer
+
+Open Event Viewer -> Windows Logs -> Security, and filter the current log for these Event IDs:
+
+- **5140** - A network share object was accessed. Logged once per session the first time a share is touched. This is your "someone connected to a share" event.
+- **4624**, Logon Type 3 - the underlying successful network logon that happens every time `net use` authenticates to a remote machine.
+- **4648** - A logon was attempted using explicit credentials. This fires specifically because our command used `/user:`. On a real workstation this event firing unexpectedly, especially towards a server it does not normally talk to, is a strong lateral movement indicator.
+
+> [!TIP]
+> Event 5140 also fires for loopback connections like the ones in this lab (source address 127.0.0.1 or ::1). In a real hunt you would exclude loopback traffic, since it is just local services talking to themselves and is not meaningful for tracking lateral movement between hosts.
+
+
+
 ---
 
 # Finished?
