@@ -17,7 +17,9 @@
 
 ## Let's start
 
-Open **Command Prompt as Administrator** (Start -> type `cmd` -> right click -> Run as administrator). Every command below assumes an elevated prompt.
+Open **Command Prompt as Administrator**
+
+<img width="82" height="98" alt="image" src="https://github.com/user-attachments/assets/8de53dad-60f7-4069-af8a-4015800ac360" />
 
 ### Part 1 - confirm net use is available
 
