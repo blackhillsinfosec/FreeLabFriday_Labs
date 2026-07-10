@@ -82,11 +82,16 @@ Your role shifts across the three parts of this lab, following the same progress
 
 Before touching the suspicious file, record the Ubuntu VM's IP address. You will need it throughout the lab to correlate network traffic.
 
-1. On the Windows VM, open the **Ubuntu terminal**. Take note of your IP : 
+1. On the **Ubuntu VM**, open the terminal. Note your IP address and start the C2 listener:
 
 <img width="641" height="871" alt="image" src="https://github.com/user-attachments/assets/d0635fba-bf7a-41e3-9ecf-8a071ca94e77" />
 
-After copying your IP, close the terminal.
+```bash
+cd ~/BnB/UBoatRAT
+python3 ubuntu_c2_server.py
+```
+
+Leave this terminal open and running for the entire duration of the lab. The server must be active before the simulation executes.
 
 2. On **Windows**, open a **PowerShell terminal as Administrator** and run the lab setup script:
 
@@ -124,7 +129,7 @@ Get-Item ".\WinSvcHelper.exe" |
 
 <img width="1199" height="479" alt="image" src="https://github.com/user-attachments/assets/c2c42cb9-181c-456d-b969-90ff7068ef04" />
 
-Record your findings. Is the file signed? Does it carry version metadata? What is its size? These become comparison data points for Phase 7.
+Record your findings. Is the file signed? Does it carry version metadata? What is its size? These become comparison data points for Phase 8.
 
 **Step 2 — Baseline the BITS job queue:**
 
@@ -144,7 +149,9 @@ Open **Process Monitor** from `C:\Tools\Procmon\Procmon.exe`. Allow it to run fo
 
 **Step 4 — Start Wireshark:**
 
-Open **Wireshark**. Select your active network interface and begin capturing. Apply the display filter:
+Open **Wireshark**. When selecting your capture interface, look for the one showing active network traffic — it will have a live sparkline next to its name in the interface list. This is typically labeled **Ethernet** (the primary virtual NIC assigned to your Windows VM). Avoid **VMware Network Adapter** entries (VMnet8, VMnet1, etc.) — these are internal virtual adapters that carry no inter-VM traffic between Windows and Ubuntu. If you are unsure which interface is active, hold **CTRL** and select multiple interfaces simultaneously, then narrow down after your first test capture.
+
+Begin capturing and apply the display filter:
 
 ```
 ip.addr == <UBUNTU_IP>
@@ -197,7 +204,7 @@ After 30 seconds:
 
 ---
 
-### Phase 4: Process and File Activity Analysis (Procmon)
+### Phase 4: Process Tree Analysis (Procmon)
 
 With Procmon and Wireshark stopped, examine what happened.
 
@@ -233,42 +240,13 @@ Scroll down and try to find **WinSvcHelper.exe**. Look at the `Process Name` and
 2. Is `powershell.exe` among them? What is its parent PID?
 3. Is `svchost.exe` active? What operation types does it show?
 
-Here we find that **WinSvcHelper.exe** spawned **Powershell**, that user **csc.exe** to compile C# code. 
-
+Here we find that **WinSvcHelper.exe** spawned **Powershell**.
 Close the process tree for the moment. 
-
-**Step 3 — File system writes:**
-
-We need to add some filters:
-
-- Press **CTRL+L** and write: `Operation` | `contains` | `Write` -> `Include`. This will include all file-write processes. 
-
-<img width="640" height="376" alt="image" src="https://github.com/user-attachments/assets/d075d8ab-0be7-4ab8-9441-5e621d487e29" />
-
-It isn't enough though, for good measurelet's add the following filter : `Path` | `contains` | `ProgramData` -> `Include`. 
-
-Examine the `Path` column.
-
-1. Was a new directory created? Under which path?
-2. What files were written to disk and where?
-3. Is there any write activity under `C:\Windows\System32\Tasks\` or `C:\ProgramData\`?
-
-**Step 4 — Registry writes:**
-
-Change the operation filter to: `Operation` | `contains` | `RegSetValue` -> `Include`.
-
-1. Were any keys written under `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\`?
-2. What task names appear in the paths?
-
->[!NOTE]
-> Registry writes under the Schedule key indicate a scheduled task was created programmatically. Note the task name — you will verify it independently in Event Viewer and cross-reference it in Part II as the persistence mechanism layered on top of BITS.
 
 **Before proceeding, document your answers:**
 
 - [ ] What process executed the initial logic?
 - [ ] What child process was spawned, if any?
-- [ ] What files were created and where?
-- [ ] Was a scheduled task created? What is its name?
 
 ---
 
@@ -371,7 +349,53 @@ Are there additional job names in the log beyond the first download job? Check f
 
 ---
 
-### Phase 7: Evidence Summary — The Discovery
+### Phase 7: Validating Host Artefacts in Procmon
+
+Now that you know exactly what the BITS job was instructed to do and where the payload was staged (Phase 6), return to **Process Monitor** — which you stopped in Phase 3 — to find the forensic evidence left on disk and in the registry. Working with this context makes the search targeted: you know exactly what to look for.
+
+**Step 1 — Isolate File System Writes:**
+
+Since BITS operates asynchronously through the Windows Service Control Manager, the payload is not written by `WinSvcHelper.exe` itself. From Phase 6, you identified the intended destination path. Find the exact moment it was written.
+
+Press **CTRL+L** to open the filter menu. Click **Reset** to clear any previous filters, then configure the following:
+
+- `Operation` | `contains` | `Write` → Include
+- `Path` | `contains` | `ProgramData` → Include
+
+<img width="640" height="376" alt="image" src="https://github.com/user-attachments/assets/d075d8ab-0be7-4ab8-9441-5e621d487e29" />
+
+Apply the filter and examine the results.
+
+1. Which process is writing to the BITS database (`edb.log`) or the destination file inside `ProgramData`?
+2. Is there any write activity under `C:\Windows\System32\Tasks\` or `C:\ProgramData\`? Under which exact paths?
+3. Does the responsible process align with what you observed in Wireshark in Phase 5?
+
+**Step 2 — Identify Registry Writes (Persistence):**
+
+Malware needs to survive a reboot. Since `WinSvcHelper.exe` spawned a background PowerShell process (confirmed in Phase 4), investigate what that PowerShell instance changed in the registry to establish persistence.
+
+Change your filters (**CTRL+L**) by removing the previous rules and adding:
+
+- `Operation` | `contains` | `RegSetValue` → Include
+- `Process Name` | `is` | `powershell.exe` → Include
+
+Apply the filter and examine the `Path` column.
+
+1. Were any keys written under `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\`?
+2. What is the name of the scheduled task created for persistence?
+
+>[!NOTE]
+> Registry writes under the Schedule key indicate a scheduled task was created programmatically. Note the task name — you will cross-reference it in Part II as the persistence mechanism layered on top of BITS.
+
+**Before proceeding, document your answers:**
+
+- [ ] What process is physically responsible for writing BITS data to the disk?
+- [ ] What files were created and where?
+- [ ] Was a scheduled task created? What is its exact name?
+
+---
+
+### Phase 8: Evidence Summary — The Discovery
 
 You now have corroborating evidence from four independent sources — process activity (Procmon), network traffic (Wireshark), process tree (Process Explorer), and the BITS Operational log. Synthesise your findings before moving to Part II.
 
@@ -398,11 +422,11 @@ This is **MITRE ATT&CK T1197 — BITS Jobs**. It matches the documented behavior
 
 *You are now a red team operator. You know the technique. Reproduce it manually, step by step, so that you understand the exact mechanism — not just the name.*
 
-*The Ubuntu server is already configured: files are available for download under `/c2/` and HTTP PUT uploads are accepted at `/upload/` on port 8080.*
+*The C2 server you started in Phase 1 is still running. Files are available for download under `/c2/` and HTTP PUT uploads are accepted at `/upload/` on port 8080.*
 
 ---
 
-### Phase 8: BITS Download (C2 Pull)
+### Phase 9: BITS Download (C2 Pull)
 
 Restart your Wireshark capture with filter `ip.addr == <UBUNTU_IP>` before beginning this phase. You want to observe each BITS operation in isolation.
 
@@ -467,7 +491,7 @@ This is mechanically identical to the traffic you observed in Phase 5. The conne
 
 ---
 
-### Phase 9: BITS Upload (Exfiltration)
+### Phase 10: BITS Upload (Exfiltration)
 
 The Ubuntu server accepts HTTP PUT requests at `/upload/` on port 8080.
 
@@ -514,7 +538,7 @@ Start-BitsTransfer `
 
 ---
 
-### Phase 10: BITS Stealth and Persistence Properties
+### Phase 11: BITS Stealth and Persistence Properties
 
 This phase deliberately examines the properties that make BITS valuable to attackers beyond basic file transfer — the same properties that made the Part I simulation difficult to immediately characterise.
 
@@ -586,20 +610,20 @@ Get-BitsTransfer -AllUsers | Remove-BitsTransfer
 
 ---
 
-### Phase 11: Connecting Part I to Part II
+### Phase 12: Connecting Part I to Part II
 
 Before moving to detection, map each observation from the Part I behavioural analysis to the technique you reproduced in Part II:
 
 | Observation (Part I — Discovery) | Technique (Part II — Reproduction) |
 |---|---|
-| BITS download job created by simulation | Phase 8: `bitsadmin /create /download` |
-| HTTP GET from `svchost.exe` to Ubuntu IP | Phase 8: svchost.exe visible in Wireshark and Process Explorer during transfer |
-| User-Agent: `Microsoft BITS/X.X` | Phase 8, 9: inherent to all BITS transfers regardless of which process creates the job |
-| File written to `C:\ProgramData\` | Phase 8: `bitsadmin /complete` moves from staging to declared destination |
-| BITS upload job for outbound data | Phase 9: `bitsadmin /create /upload` |
-| Job retried without user interaction | Phase 10: `setretrydelay` + suspended job lifecycle |
-| Callback execution at download completion | Phase 10: `setnotifycmdline` |
-| Scheduled task written to registry (persistence) | Layered mechanism above BITS — observed in Phase 4 Step 4 |
+| BITS download job created by simulation | Phase 9: `bitsadmin /create /download` |
+| HTTP GET from `svchost.exe` to Ubuntu IP | Phase 9: svchost.exe visible in Wireshark and Process Explorer during transfer |
+| User-Agent: `Microsoft BITS/X.X` | Phase 9, 10: inherent to all BITS transfers regardless of which process creates the job |
+| File written to `C:\ProgramData\` | Phase 9: `bitsadmin /complete` moves from staging to declared destination |
+| BITS upload job for outbound data | Phase 10: `bitsadmin /create /upload` |
+| Job retried without user interaction | Phase 11: `setretrydelay` + suspended job lifecycle |
+| Callback execution at download completion | Phase 11: `setnotifycmdline` |
+| Scheduled task written to registry (persistence) | Layered mechanism above BITS — observed in Phase 7 Step 2 |
 
 Every artefact you found in Part I has a direct, reproducible equivalent in Part II. The discovery and the reproduction are the same mechanism observed from opposite sides.
 
@@ -611,7 +635,7 @@ Every artefact you found in Part I has a direct, reproducible equivalent in Part
 
 ---
 
-### Phase 12: BITS Operational Log — Event ID Mapping
+### Phase 13: BITS Operational Log — Event ID Mapping
 
 The BITS Operational log is the most specific and targeted source for this technique. It requires no additional tooling — it is built into Windows.
 
@@ -667,7 +691,7 @@ Answer before continuing:
 
 ---
 
-### Phase 13: Sysmon Event Analysis
+### Phase 14: Sysmon Event Analysis
 
 Sysmon provides a second, independent detection layer that correlates BITS activity with process and network context — catching it through a different lens than the BITS log alone.
 
@@ -736,7 +760,7 @@ Detection signal: files written by `svchost.exe` outside `C:\Windows\SoftwareDis
 
 ---
 
-### Phase 14: Kill Chain Timeline Reconstruction
+### Phase 15: Kill Chain Timeline Reconstruction
 
 Merge all three log sources into a single timeline ordered by timestamp. This reconstructs the complete attack sequence from initial execution to exfiltration as a unified narrative.
 
@@ -782,7 +806,7 @@ Map each event in your output to the corresponding kill chain stage:
 
 ---
 
-### Phase 15: Sigma Rules
+### Phase 16: Sigma Rules
 
 Sigma is a vendor-neutral detection format that converts to Splunk SPL, Elastic EQL, Microsoft Sentinel KQL, Chronicle YARA-L, and any other SIEM query language via the `sigma-cli` converter. Write two rules: one targeting the BITS Operational log, one targeting process creation.
 
@@ -896,7 +920,7 @@ IF on the same host within 5 minutes:
 THEN: HIGH CONFIDENCE — T1197 BITS Abuse
 ```
 
-Each signal alone could fire on legitimate administrative activity. All four together, on the same host, within five minutes, are operationally unambiguous. This is exactly the chain of events you reconstructed manually in Phase 14 — now expressed as an automated correlation rule.
+Each signal alone could fire on legitimate administrative activity. All four together, on the same host, within five minutes, are operationally unambiguous. This is exactly the chain of events you reconstructed manually in Phase 15 — now expressed as an automated correlation rule.
 
 ---
 
@@ -961,4 +985,4 @@ The technique — T1197 BITS Jobs — is not exotic or rare. It has appeared in 
 
 # Finished?
 
-[Back to Card's Main Page](../Backround_Intelligent_Transfer_Service_As_Exfil.md)
+[Back to Card's Main Page](../Backround_Intelligent_Transfer_Service_As_Exfil.md)****
