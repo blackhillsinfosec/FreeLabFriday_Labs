@@ -37,9 +37,8 @@ Create the compose file:
 nano docker-compose.yml
 ```
 
-Paste in the following:
-
-```yaml
+```bash
+cat > docker-compose.yml << 'EOF'
 services:
   permission-fixer:
     image: alpine:latest
@@ -65,12 +64,13 @@ services:
     environment:
       - HW_ENV=development
       - HW_PORT=8080
+EOF
 ```
 
 >[!NOTE]
 >`HW_ENV=development` only exists so the login cookie works over plain HTTP for this lab. In a real deployment you would remove it and put the Hub behind a reverse proxy with HTTPS instead.
 
-Save and exit, then start it:
+Start it:
 
 ```bash
 docker compose up -d
