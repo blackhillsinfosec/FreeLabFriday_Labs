@@ -34,10 +34,6 @@ mkdir ~/honeywire && cd ~/honeywire
 Create the compose file:
 
 ```bash
-nano docker-compose.yml
-```
-
-```bash
 cat > docker-compose.yml << 'EOF'
 services:
   permission-fixer:
