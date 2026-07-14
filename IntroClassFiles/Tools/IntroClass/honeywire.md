@@ -69,13 +69,13 @@ EOF
 Start it:
 
 ```bash
-docker compose up -d
+sudo docker compose up -d
 ```
 
 Check both containers came up:
 
 ```bash
-docker compose ps
+sudo docker compose ps
 ```
 
 ## Step 2 - Initialize the Hub
@@ -104,13 +104,19 @@ On the machine you want to protect (this can be the same VM for the lab), create
 
 ```bash
 mkdir ~/honeywire-sensor && cd ~/honeywire-sensor
+```
+
+```bash
 nano docker-compose.yml
 ```
 
-Paste the generated content, save, then start it:
+Paste the generated content, save and exit with **Ctrl** + **X** + **Enter**
+
+
+Start it:
 
 ```bash
-docker compose up -d
+sudo docker compose up -d
 ```
 
 Give it about 30 seconds, then check the **Fleet Health** section of the Hub dashboard. The sensor should show as **ONLINE**.
