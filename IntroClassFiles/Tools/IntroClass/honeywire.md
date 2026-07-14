@@ -1,5 +1,13 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
+---
+
+This is a lab from **John Strand**'s **Active Defense and Cyber Deception** Course:
+
+https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/
+
+---
+
 # HoneyWire
 
 # Both VMs
@@ -271,4 +279,16 @@ Once this lab feels comfortable, the Sensor Catalog on your Node's page also inc
 - **ICMP Canary** - Detects internal network discovery (ping sweeps) from compromised assets.
 - **Network Scan Detector** - Detects horizontal port scanning (Nmap sweeps) across the LAN.
 
-Each one attaches to a Node the same way as Part 5, pick it from the catalog, configure it, **Add to Node**.
+Each one attaches to a Node the same way as Part 5, pick it from the catalog, configure it, **Add to Node**
+
+
+***                                                                 
+<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
+
+***Finished with the Labs?***
+
+Please be sure to destroy the lab environment!
+
+[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
+
+---
