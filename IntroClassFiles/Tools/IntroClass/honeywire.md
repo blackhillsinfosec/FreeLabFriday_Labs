@@ -2,7 +2,7 @@
 
 # HoneyWire
 
-# Ubuntu VM
+# Both VMs
 
 ## In this lab we will
 - Deploy the HoneyWire Hub, a self-hosted deception platform
@@ -23,7 +23,7 @@ HoneyWire is split into three pieces:
 
 For this lab we will deploy the Hub, then deploy one official sensor called the **TCP Tarpit**, which pretends to be a vulnerable service sitting on a port.
 
-## Part 1 - Deploy the Hub
+## Part 1 - Deploy the Hub - Open the **Ubuntu VM**
 
 Create a directory for HoneyWire and move into it:
 
@@ -75,6 +75,15 @@ EOF
 ```bash
 sudo apt-get update && sudo apt-get install docker-compose-plugin
 ```
+
+Get the IP of the Ubuntu VM(UR IP WILL BE DIFFERENT)
+
+```bash
+ip a show ens5
+```
+
+<img width="545" height="177" alt="image" src="https://github.com/user-attachments/assets/24673b34-f1de-49fa-9f91-0d8084fbc7b4" />
+
 
 Start it:
 
@@ -193,15 +202,21 @@ Copy the command from the **Automatic Deployment (Recommended)** and run it in y
 
 <img width="663" height="483" alt="2026-07-14_11-54" src="https://github.com/user-attachments/assets/753911f0-bfbd-4548-88de-adcf0123085e" />
 
-
 You will be prompted to type **y/N** 3 times, write **y** for all of them
+
+Now, going back to the dashboard, you can see the sensor has been deployed
+
+<img width="366" height="263" alt="image" src="https://github.com/user-attachments/assets/8c288c84-ec2e-4f38-bba0-d888f5d7e2b0" />
+
+<img width="358" height="185" alt="image" src="https://github.com/user-attachments/assets/2f05f259-e9e7-4d5b-902d-c63094268af7" />
+
 
 ## Part 6 - Attacker perspective, trip the wire
 
-On another terminal (or your second machine), connect to the decoy port with `netcat`. Netcat is usually already installed on Ubuntu; if not: `sudo apt install -y netcat-traditional`.
+On **the Windows VM**, open **cmd**, and connect to the decoy port with `netcat`
 
 ```bash
-nc <node-ip> 2222
+ncat <Ubuntu IP> 2222
 ```
 
 You should see the fake `SSH-2.0-OpenSSH_8.2p1` banner appear immediately, that is `HW_TARPIT_MODE=hold` doing its job of looking exactly like a real SSH service. Type anything, for example:
@@ -210,7 +225,9 @@ You should see the fake `SSH-2.0-OpenSSH_8.2p1` banner appear immediately, that 
 admin
 ```
 
-Press Enter. The connection will feel like it hangs, that is the tarpit behavior, it is built to waste an attacker's time. Press `Ctrl+C` to close it when you are done.
+Press Enter. The connection will feel like it hangs, that is the tarpit behavior, it is built to waste an attacker's time. Press `Ctrl+C` to close it when you are done
+
+You can also try to do this from inside the Ubuntu VM, connecting with **nc** to **localhost** on port **2222**, but it might not show up in the dashboard
 
 ## Part 7 - Defender perspective, watch the alert
 
@@ -220,23 +237,28 @@ Switch back to the Hub Dashboard. Within seconds you should see:
 - **Severity Distribution** register your event under the severity you configured (High)
 - The **Active Threat Queue** at the bottom populate with a new row showing the Threat, the Event Trigger, the Source IP, the Target, the Sensor, the Node, and the Time
 
+<img width="1675" height="772" alt="image" src="https://github.com/user-attachments/assets/cd9e2ab4-ad23-48e6-86a0-a43e77c4a7d6" />
+
+
 >[!NOTE]
 >This is the whole point of HoneyWire. There is no baseline to tune and no threshold to adjust. The sensor has no legitimate reason to ever be touched, so one connection is a confirmed finding, not a probability.
 
 ## Part 8 - Try a scan instead of a manual connection
 
-From the attacker terminal:
+From the windows terminal:
 
 ```bash
-sudo apt install -y nmap
-nmap -sV <node-ip> -p 1-100
+nmap -sV <Ubuntu IP> -p2222
 ```
 
 Check the Active Threat Queue again. The scan touching the Tarpit port generates its own event too, for the same reason as Part 8, a scan is exactly the kind of "touch that should never happen."
 
 ## Part 9 - Arm and disarm the system
 
-Sometimes you need to run your own vulnerability scans or do maintenance without flooding your phone with push alerts. In the top right of the dashboard, find the **Armed** toggle and switch it off before doing that kind of work, then switch it back on afterward.
+Sometimes you need to run your own vulnerability scans or do maintenance without flooding your phone with push alerts. In the top right of the dashboard, find the **Armed** toggle and switch it off before doing that kind of work, then switch it back on afterward
+
+<img width="367" height="71" alt="2026-07-14_14-01" src="https://github.com/user-attachments/assets/036ed767-59ca-4efd-84d5-31472aaa1583" />
+
 
 >[!TIP]
 >Disarming only pauses push notifications. Events still get logged to the dashboard either way, so you will not lose visibility.
