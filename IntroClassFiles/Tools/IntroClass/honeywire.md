@@ -60,6 +60,7 @@ services:
     environment:
       - HW_ENV=development
       - HW_PORT=8080
+      - HW_DB_PATH=/data/honeywire.db
 EOF
 ```
 
