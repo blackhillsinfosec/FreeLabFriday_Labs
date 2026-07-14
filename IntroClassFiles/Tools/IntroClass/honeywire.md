@@ -28,7 +28,7 @@ For this lab we will deploy the Hub, then deploy one official sensor called the 
 Create a directory for HoneyWire and move into it:
 
 ```bash
-mkdir ~/honeywire && cd ~/honeywire
+mkdir ~/ADCD/honeywire && cd ~/ADCD/honeywire
 ```
 
 Create the compose file:
