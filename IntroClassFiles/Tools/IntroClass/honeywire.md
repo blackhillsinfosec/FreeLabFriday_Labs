@@ -214,7 +214,10 @@ Copy the command from the **Automatic Deployment (Recommended)** and run it in y
 
 <img width="663" height="483" alt="2026-07-14_11-54" src="https://github.com/user-attachments/assets/753911f0-bfbd-4548-88de-adcf0123085e" />
 
-You will be prompted to type **y/N** 3 times, write **y** for all of them
+You will be prompted to type **y/N** 4 times, write **y** for all of them
+
+>[!NOTES]
+>Getting some errors is ok, it will not bother us for this lab
 
 Now, going back to the dashboard, you can see the sensor has been deployed
 
