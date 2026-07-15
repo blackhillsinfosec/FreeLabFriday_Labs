@@ -233,7 +233,7 @@ You will be prompted to type **y/N** 4 times, write **y** for all of them
 sudo docker compose up
 ```
 
-Now, going back to the dashboard and refreshing the page and loging in again, you can see the sensor has been deployed
+Now, going back to the dashboard and refreshing the page and loging in again, you can see the sensor has been deployed, if it doesn't look like it, don't worry, the sensor is there, it is just that the tool is still very new and bugs are bound to happen
 
 <img width="366" height="263" alt="image" src="https://github.com/user-attachments/assets/8c288c84-ec2e-4f38-bba0-d888f5d7e2b0" />
 
