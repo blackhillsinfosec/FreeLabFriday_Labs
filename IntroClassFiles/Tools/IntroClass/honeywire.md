@@ -82,6 +82,8 @@ EOF
 
 ```bash
 sudo apt-get update && sudo apt-get install docker-compose-plugin
+sudo usermod -aG docker "$USER"
+newgrp docker
 ```
 
 Get the IP of the Ubuntu VM(UR IP WILL BE DIFFERENT)
