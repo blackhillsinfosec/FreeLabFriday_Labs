@@ -96,7 +96,7 @@ ip a show ens5
 Start it:
 
 ```bash
-sudo docker compose up -d
+sudo docker compose up
 ```
 
 <img width="1029" height="513" alt="image" src="https://github.com/user-attachments/assets/6f4ca857-2219-497a-a504-fa23a69b3ce2" />
