@@ -193,8 +193,7 @@ It should look like this:
 
 You should be getting a lot of alerts with Bluespawn! Switch tabs in your Terminal to see them:
 
-<img width="1096" height="631" alt="2026-03-26_10-09" src="https://github.com/user-attachments/assets/135ce716-47fb-4840-b6a2-1c00c999bc87" />
-
+<img width="919" height="668" alt="image" src="https://github.com/user-attachments/assets/a8d22653-5baf-4f64-bbaa-bacc04befedb" />
 
 Now, let’s go back to the PowerShell window and clean up:
 
@@ -205,9 +204,17 @@ Invoke-AtomicTest T1547.001 -TestNumbers 1,9,11,12 -Cleanup
 Invoke-AtomicTest T1546.008 -TestNumbers 1 -Cleanup
 ```
 
+> [!NOTE]
+>
+> The cleanup for `T1547.004-3` may time out after 120 seconds.
+> This test uses the legacy Winlogon Notify persistence mechanism, which is not
+> supported on modern Windows versions.
+>
+> The timeout does not prevent the remaining cleanup tests from continuing.
+
 It should look like this:
 
-<img width="1093" height="444" alt="2026-03-26_10-06" src="https://github.com/user-attachments/assets/2dd53a33-3c40-4cf8-9d86-bb18c3bb7ec5" />
+<img width="781" height="529" alt="image" src="https://github.com/user-attachments/assets/5932de02-775a-4e2a-b2e4-bd976a0dc2e3" />
 
 
 # If you have more time
