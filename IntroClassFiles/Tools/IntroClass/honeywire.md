@@ -98,7 +98,7 @@ ip a show ens5
 Start it:
 
 ```bash
-sudo docker compose up
+docker compose up
 ```
 
 <img width="1029" height="513" alt="image" src="https://github.com/user-attachments/assets/6f4ca857-2219-497a-a504-fa23a69b3ce2" />
@@ -228,14 +228,14 @@ You will be prompted to type **y/N** 3 times, write **y** for the first 2, and t
 >Getting some errors is ok, it will not bother us for this lab
 
 
-- Go back to the first terminal where we ran `sudo docker compose up`, you will see it has shutdown because of the sensor we installed
+- Go back to the first terminal where we ran `docker compose up`, you will see it has shutdown because of the sensor we installed
 
 <img width="1171" height="262" alt="Screenshot 2026-07-15 104212" src="https://github.com/user-attachments/assets/c7ae6a14-f266-43d0-ab9e-90339d614b48" />
 
 - Start it again, run:
 
 ```bash
-sudo docker compose up
+docker compose up
 ```
 
 Now, going back to the dashboard and refreshing the page and loging in again, you can see the sensor has been deployed, if it doesn't look like it, don't worry, the sensor is there, it is just that the tool is still very new and bugs are bound to happen
