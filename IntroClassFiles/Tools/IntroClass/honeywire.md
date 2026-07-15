@@ -147,7 +147,7 @@ The Hub will show you two things, copy both somewhere safe:
 - A **Wizard Installation Command**, something like:
 
 ```bash
-curl -fsSL https://get.honeywire.dev | bash -s -- --link http://<your-hub-ip>:8080 --api-key <your-node-api-key>
+curl -fsSL https://get.honeywire.dev | bash -s -- --link http://localhost:8080 --api-key <your-node-api-key>
 ```
 
 - A **Node API Key**
