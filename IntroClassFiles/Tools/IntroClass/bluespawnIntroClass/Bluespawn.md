@@ -59,7 +59,6 @@ You should see something like this:
 
 <img width="862" height="638" alt="2026-03-26_09-50" src="https://github.com/user-attachments/assets/a3419596-b4ca-4ea1-8d2a-832046873f76" />
 
-
 If you made it this far, perfect! That means Bluespawn is up and running.
 
 Now, let’s use Atomic Red Team to test the monitoring with BlueSpawn:
@@ -215,8 +214,7 @@ It should look like this:
 
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
-<img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/685d264c-661c-4dbf-aa79-54f925cefdb1" />
-
+<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
 
 Next, run the following command in the **Powershell** terminal:
 
@@ -233,7 +231,7 @@ If you get angry red errors, that is **Ok**, it means **Defender** is not runnin
 
 Open **Command Prompt**
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/761a7584-f744-4f6a-926b-339891c1d5b4" />
+<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
 
 Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 
@@ -251,8 +249,7 @@ Please note, that is a very bad password.  Come up with something better. But, p
 
 Let's continue by opening an **Ubuntu** terminal
 
-<img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/dc26dda4-12b8-4f03-8a07-f170e5064f8d" />
-
+<img width="384" height="400" alt="image" src="https://github.com/user-attachments/assets/eb8beb6f-5bf9-4294-9b32-2306ad1c002e" />
 
 
 Become root:
@@ -330,7 +327,7 @@ scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 
 Open a **Command Prompt**
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/62be252d-35ca-41a4-8ade-ba5d8a8478bb" />
+<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
 
 
 Let's run the following commands to run the **"TrustMe.exe"** file.
