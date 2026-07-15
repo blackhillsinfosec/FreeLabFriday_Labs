@@ -178,6 +178,9 @@ When you encounter this, press **y** and **Enter**
 
 For this Host Discovery, press **N** and **Enter**
 
+<img width="316" height="21" alt="image" src="https://github.com/user-attachments/assets/5eeae0dc-70b5-425c-a112-a3dbbd1481f9" />
+
+
 Go back to **Fleet Management** in the dashboard. Your node card starts out showing **Awaiting Initial Check-in**
 
 ## Part 5 - Attach a sensor to the Node
