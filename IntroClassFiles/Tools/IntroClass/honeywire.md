@@ -217,7 +217,10 @@ Copy the command from the **Automatic Deployment (Recommended)** and run it in y
 
 <img width="663" height="483" alt="2026-07-14_11-54" src="https://github.com/user-attachments/assets/753911f0-bfbd-4548-88de-adcf0123085e" />
 
-You will be prompted to type **y/N** 4 times, write **y** for all of them
+You will be prompted to type **y/N** 3 times, write **y** for the first 2, and then **N**
+
+<img width="1359" height="829" alt="image" src="https://github.com/user-attachments/assets/0b11e74e-28cb-4414-a7f3-53ffd45f9f5a" />
+
 
 >[!NOTE]
 >Getting some errors is ok, it will not bother us for this lab
