@@ -125,6 +125,9 @@ You will land on the **HoneyWire Sentinel** screen. From there:
 
 <br><br>
 
+<img width="524" height="426" alt="image" src="https://github.com/user-attachments/assets/37fa3233-aceb-4c74-8518-8670489ccf2a" />
+
+
 ### For the auth key use `changeme123`(we set this up in the docker compose file)
 
 <img width="1919" height="850" alt="image" src="https://github.com/user-attachments/assets/5b3d89df-fe3a-43ae-922e-d2e63af5dc44" />
@@ -216,10 +219,21 @@ Copy the command from the **Automatic Deployment (Recommended)** and run it in y
 
 You will be prompted to type **y/N** 4 times, write **y** for all of them
 
->[!NOTES]
+>[!NOTE]
 >Getting some errors is ok, it will not bother us for this lab
 
-Now, going back to the dashboard, you can see the sensor has been deployed
+
+- Go back to the first terminal where we ran `sudo docker compose up`, you will see it has shutdown because of the sensor we installed
+
+<img width="1171" height="262" alt="Screenshot 2026-07-15 104212" src="https://github.com/user-attachments/assets/c7ae6a14-f266-43d0-ab9e-90339d614b48" />
+
+- Start it again, run:
+
+```bash
+sudo docker compose up
+```
+
+Now, going back to the dashboard and refreshing the page and loging in again, you can see the sensor has been deployed
 
 <img width="366" height="263" alt="image" src="https://github.com/user-attachments/assets/8c288c84-ec2e-4f38-bba0-d888f5d7e2b0" />
 
