@@ -123,8 +123,9 @@ You will land on the **HoneyWire Sentinel** screen. From there:
 - Leave the default Hub Endpoint URL (the address sensors will phone home to)
 - Click **Initialize Hub**
 
+<br><br>
 
-- For the auth key use `changeme123`(we set this up in the docker compose file)
+### For the auth key use `changeme123`(we set this up in the docker compose file)
 
 <img width="1919" height="850" alt="image" src="https://github.com/user-attachments/assets/5b3d89df-fe3a-43ae-922e-d2e63af5dc44" />
 
