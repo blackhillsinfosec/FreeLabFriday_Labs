@@ -357,9 +357,9 @@ To learn more about this check out MITRE:
 
 https://attack.mitre.org/techniques/T1056/
 
-Also, below is a list of just some of the threat groups that use this technique:
+Here are some examples of threat groups, software, and campaigns associated with this technique:
 
-<img width="1072" height="723" alt="image" src="https://github.com/user-attachments/assets/c005128b-124b-4bcc-9bf7-8516ca4be2d6" />
+<img width="1385" height="756" alt="image" src="https://github.com/user-attachments/assets/4a0aafa0-dcf7-4c7b-a7d6-fdd8e01b3064" />
 
 
 Run commands
@@ -383,7 +383,7 @@ https://attack.mitre.org/techniques/T1547/
 
 Here are just some of the groups that use this technique:
 
-<img width="1072" height="533" alt="image" src="https://github.com/user-attachments/assets/86040c18-29cd-4d16-95dd-84e45dcb1f63" />
+<img width="1386" height="489" alt="image" src="https://github.com/user-attachments/assets/d2446939-e59a-4c36-8a2f-46472a274834" />
 
 
 meterpreter > `shell`
@@ -404,7 +404,7 @@ https://attack.mitre.org/techniques/T1543/
 
 Here are just some of the groups that use this technique:
 
-<img width="1087" height="489" alt="image" src="https://github.com/user-attachments/assets/41b91eb5-8505-48a3-bee0-09cbb87f9dca" />
+<img width="1405" height="484" alt="image" src="https://github.com/user-attachments/assets/744e008e-3c74-4f11-9e9a-1cac846f8481" />
 
 
 meterpreter >`getsystem`
