@@ -213,7 +213,7 @@ ip -brief -4 address show scope global
 ```
 
 <img width="382" height="400" alt="image" src="https://github.com/user-attachments/assets/4c028299-7761-4b62-9255-904163c9e3b3" />
-
+<br>
 <img width="624" height="113" alt="image" src="https://github.com/user-attachments/assets/05900ca9-ed1c-4cbc-a909-273eae7bac3d" />
 
 Record it as `<UBUNTU_PRIVATE_IP>`. In this case it is `10.10.109.110`. 
