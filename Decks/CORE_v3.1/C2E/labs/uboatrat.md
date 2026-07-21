@@ -212,13 +212,13 @@ On the Ubuntu VM, identify the private address used to communicate with Windows:
 ip -brief -4 address show scope global
 ```
 
-Record it as:
+<img width="382" height="400" alt="image" src="https://github.com/user-attachments/assets/4c028299-7761-4b62-9255-904163c9e3b3" />
 
-```text
-<UBUNTU_PRIVATE_IP>
-```
+<img width="624" height="113" alt="image" src="https://github.com/user-attachments/assets/05900ca9-ed1c-4cbc-a909-273eae7bac3d" />
 
-Start the server:
+Record it as `<UBUNTU_PRIVATE_IP>`. In this case it is `10.10.109.110`. 
+
+Start the server. Don't forget to replace **<UBUNTU_PRIVATE_IP>** with your actual IP:
 
 ```bash
 cd ~/BnB/UBoatRAT
@@ -230,24 +230,24 @@ python3 ubuntu_c2_server.py \
 
 Leave this terminal open for the entire lab session.
 
-<!-- SCREENSHOT PLACEHOLDER:
-Ubuntu terminal showing:
-- selected private IPv4 address;
-- HTTP listener on TCP/8080;
-- beacon listener on TCP/9001;
-- generated resolver endpoint.
--->
+<img width="1080" height="373" alt="image" src="https://github.com/user-attachments/assets/bb56ba7f-373a-4af9-a0de-70b6721f5d90" />
 
-From a second Ubuntu terminal, optionally confirm that both ports are listening:
+From a second Ubuntu terminal, optionally confirm that both ports are listening. You can resize them to fit on the screen:
+
+<img width="382" height="400" alt="image" src="https://github.com/user-attachments/assets/4c028299-7761-4b62-9255-904163c9e3b3" />
 
 ```bash
 ss -lntp |
   grep -E ':(8080|9001)\b'
 ```
 
+<img width="850" height="124" alt="image" src="https://github.com/user-attachments/assets/acf83ef3-e5a9-4d9f-be19-0143c873ce2d" />
+
 ### Step 2 — Initialize Windows
 
 Open **Windows PowerShell 5.1 as Administrator**.
+
+<img width="533" height="283" alt="image" src="https://github.com/user-attachments/assets/a72f555d-992c-4dc8-8345-825af43fe651" />
 
 ```powershell
 cd "C:\Users\Administrator\Desktop\Labs\UBoatRAT"
