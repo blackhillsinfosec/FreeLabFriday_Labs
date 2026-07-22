@@ -456,13 +456,13 @@ sudo tcpdump -ni any \
 >You will need to determine the **Windows IP Address** by typing `ipconfig` in powershell. The address is in the "IPv4 Address" row of the "Ethernet adapter Ethernet" section.
 >Replace the **<WINDOWS_PRIVATE_IP>** placeholder with your actual IP.
 
+Do not close this Ubuntu Shell Terminal. Minimize it so **Wiresharc, Procexp and Procmon** are visible.
+
 ---
 
 ## Phase 3 — Execute and Capture
 
-Resume Procmon with **CTRL+E**.
-
-Confirm Wireshark is still capturing.
+Resume Procmon with **CTRL+E** and confirm Wireshark is still capturing.
 
 From the Administrator PowerShell:
 
@@ -482,7 +482,9 @@ Then:
 - stop Wireshark;
 - leave the Ubuntu server running.
 
-Check whether the runtime directory now exists:
+<img width="877" height="949" alt="image" src="https://github.com/user-attachments/assets/88bb1ccc-2e6c-4840-bed0-21a49e6806a5" />
+
+Check whether the runtime directory now exists. In powershell, type : 
 
 ```powershell
 Get-ChildItem .\runtime -Force |
