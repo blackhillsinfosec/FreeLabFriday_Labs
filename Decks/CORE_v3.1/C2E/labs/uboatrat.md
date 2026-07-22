@@ -327,6 +327,8 @@ Record:
 
 ### Step 2 — Confirm that no runtime exists
 
+In *Powershell*:
+
 ```powershell
 Test-Path .\runtime
 ```
@@ -351,6 +353,8 @@ Expected baseline:
 ```
 
 ### Step 3 — Baseline the specific BITS job
+
+In *Powershell*:
 
 ```powershell
 Import-Module BitsTransfer
@@ -378,37 +382,30 @@ Do not cancel unrelated jobs.
 
 ### Step 4 — Open Process Monitor
 
-Start:
+In *Powershell*, start *Procmon*:
+
+>[!IMPORTANT]
+>Make sure you are in the *Lab Directory* (C:\Users\Administrator\Desktop\Labs\UBoatRAT) :
 
 ```powershell
-C:\Tools\Procmon\Procmon64.exe
+.\tools\Procmon\Procmon64.exe
 ```
 
 Allow Procmon to collect normal system activity for approximately ten seconds. Pause capture with **CTRL+E**.
 
-Do not clear the existing events yet.
+<img width="919" height="721" alt="image" src="https://github.com/user-attachments/assets/b918dd02-b7d6-4ef1-8e3f-ff5280c497f3" />
 
-Recommended columns:
-
-- Time of Day;
-- Process Name;
-- PID;
-- Operation;
-- Path;
-- Result;
-- Detail.
-
-<!-- SCREENSHOT PLACEHOLDER:
-Procmon open with baseline activity and capture paused.
--->
+Do not clear the existing events yet. Do not close Procmon.
 
 ### Step 5 — Open Process Explorer
 
-Start:
+Start in Powershell:
 
 ```powershell
-C:\Tools\ProcessExplorer\procexp64.exe
+.\tools\ProcessExplorer\procexp64.exe
 ```
+
+<img width="1803" height="761" alt="image" src="https://github.com/user-attachments/assets/e91ee8d7-486c-4e23-9433-303fbc0f0005" />
 
 Enable these columns where available:
 
@@ -419,11 +416,17 @@ Enable these columns where available:
 - Image Path;
 - Company Name.
 
+<img width="799" height="607" alt="image" src="https://github.com/user-attachments/assets/016e9eb8-686b-4f99-b48b-4613a8e715fb" />
+
 The callback process may be short-lived. Process Explorer is supplementary; Sysmon and Procmon provide persistent evidence after the process exits.
 
 ### Step 6 — Start packet capture
 
 Open Wireshark and select the Windows interface that communicates with Ubuntu.
+
+<img width="554" height="300" alt="image" src="https://github.com/user-attachments/assets/54b5fc16-ab57-44b9-ae8e-25632afb34e9" />
+
+<img width="749" height="580" alt="image" src="https://github.com/user-attachments/assets/14034649-7f49-4f8e-baff-fb3e36948bc0" />
 
 Apply:
 
@@ -432,9 +435,13 @@ ip.addr == <UBUNTU_PRIVATE_IP> &&
 (tcp.port == 8080 || tcp.port == 9001)
 ```
 
-Start capture.
+The Packet Capture should start automatically.
 
-On Ubuntu, a parallel capture may be used:
+<img width="958" height="634" alt="image" src="https://github.com/user-attachments/assets/8bbb3269-78a9-4783-a550-ff95baa25a54" />
+
+On Ubuntu, a parallel capture may be used. Open up an Ubuntu Shell and type:
+
+<img width="382" height="400" alt="image" src="https://github.com/user-attachments/assets/4c028299-7761-4b62-9255-904163c9e3b3" />
 
 ```bash
 sudo tcpdump -ni any \
@@ -442,9 +449,12 @@ sudo tcpdump -ni any \
   -w ~/BnB/UBoatRAT/captures/uboatrat_lab.pcap
 ```
 
-<!-- SCREENSHOT PLACEHOLDER:
-Wireshark actively capturing with the UBoatRAT display filter.
--->
+<img width="1032" height="179" alt="image" src="https://github.com/user-attachments/assets/73055e48-593d-45d4-baa0-63c4f2c43cf5" />
+
+>[!NOTE]
+>A parallel capture is useful when trying to determine what packets reached the Ubuntu C2 Server. 
+>You will need to determine the **Windows IP Address** by typing `ipconfig` in powershell. The address is in the "IPv4 Address" row of the "Ethernet adapter Ethernet" section.
+>Replace the **<WINDOWS_PRIVATE_IP>** placeholder with your actual IP.
 
 ---
 
