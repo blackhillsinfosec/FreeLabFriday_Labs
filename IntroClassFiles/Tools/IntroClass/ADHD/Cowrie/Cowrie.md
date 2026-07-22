@@ -147,7 +147,7 @@ So now that we have the container ID, let's edit this file using `vim`.
 As root, run the following (with your own container ID):
 
 ```bash
-docker cp <container ID>:/cowrie/cowrie-git/etc/cowrie.cfg.dist .
+docker cp <container ID/name>:/cowrie/cowrie-git/src/cowrie/data/etc/cowrie.cfg.dist ./cowrie.cfg.dist﻿
 ```
 
 <img width="524" height="29" alt="docker_copy_file" src="https://github.com/user-attachments/assets/58740da5-d035-4f06-982d-53193a0136da" />
@@ -183,7 +183,7 @@ When done, hit the following keys in the following order
 Then update `cowrie.cfg.dist` file in the docker with the adjusted one.
 
 ```bash
-docker cp cowrie.cfg.dist <container ID>:/cowrie/cowrie-git/etc/cowrie.cfg.dist
+docker cp cowrie.cfg.dist <container ID/name>:/cowrie/cowrie-git/src/cowrie/data/etc/cowrie.cfg.dist
 ```
 
 <img width="614" height="29" alt="docker_copy_adjusted" src="https://github.com/user-attachments/assets/90d87966-e741-4182-8e9b-43adcf66c304" />
@@ -216,12 +216,12 @@ Your hostname should now be changed.
 
 Now, let’s edit the Message of the Day (MOTD).  Because the default one is not fun at all.
 
-As before, we must download the file `/cowrie/cowrie-git/honeyfs/etc/motd` from the docker, adjust it and then update it in the docker.
+As before, we must download the file `/cowrie/cowrie-git/src/cowrie/data/etc/motd` from the docker, adjust it and then update it in the docker.
 
 Terminate the Cowrie session with `Ctrl+C` and run as root the following (with your own container ID):
 
 ```bash
-docker cp <container ID>:/cowrie/cowrie-git/honeyfs/etc/motd .
+docker cp <container ID>:/cowrie/cowrie-git/src/cowrie/data/etc/motd .
 ```
 
 <img width="511" height="28" alt="docker_copy_motd" src="https://github.com/user-attachments/assets/03ea08d7-4811-43ac-8bd8-eae574f74a1e" />
@@ -270,7 +270,7 @@ When done, hit the following keys in the following order
 Then update `motd` file in the docker with the adjusted one.
 
 ```bash
-docker cp motd <container ID>:/cowrie/cowrie-git/honeyfs/etc/motd
+docker cp motd <container ID>:/cowrie/cowrie-git/src/cowrie/data/etc/motd
 ```
 
 <img width="530" height="29" alt="docker_copy_motd_adjusted" src="https://github.com/user-attachments/assets/5d3a336d-fd9f-48cf-bdc5-3526255762d4" />

