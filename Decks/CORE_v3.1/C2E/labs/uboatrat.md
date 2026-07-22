@@ -214,9 +214,9 @@ ip -brief -4 address show scope global
 
 <img width="382" height="400" alt="image" src="https://github.com/user-attachments/assets/4c028299-7761-4b62-9255-904163c9e3b3" />
 <br>
-<img width="624" height="113" alt="image" src="https://github.com/user-attachments/assets/05900ca9-ed1c-4cbc-a909-273eae7bac3d" />
+<img width="592" height="105" alt="image" src="https://github.com/user-attachments/assets/aa9f74a0-18fb-48ce-9814-b9ced4380dab" />
 
-Record it as `<UBUNTU_PRIVATE_IP>`. In this case it is `10.10.109.110`. 
+Record it as `<UBUNTU_PRIVATE_IP>`. In this case it is `10.10.93.225`. 
 
 Start the server. Don't forget to replace **<UBUNTU_PRIVATE_IP>** with your actual IP:
 
@@ -230,18 +230,18 @@ python3 ubuntu_c2_server.py \
 
 Leave this terminal open for the entire lab session.
 
-<img width="1080" height="373" alt="image" src="https://github.com/user-attachments/assets/bb56ba7f-373a-4af9-a0de-70b6721f5d90" />
+<img width="1081" height="391" alt="image" src="https://github.com/user-attachments/assets/58aa3b24-15b4-4138-817e-bada601cc88d" />
 
-From a second Ubuntu terminal, optionally confirm that both ports are listening. You can resize them to fit on the screen:
+From a second Ubuntu terminal, confirm that both ports are listening. You can resize the terminals to fit on the screen:
 
-<img width="382" height="400" alt="image" src="https://github.com/user-attachments/assets/4c028299-7761-4b62-9255-904163c9e3b3" />
+<img width="300" height="304" alt="image" src="https://github.com/user-attachments/assets/cc9555ec-80c6-4520-af53-af4ddcba9773" />
 
 ```bash
 ss -lntp |
   grep -E ':(8080|9001)\b'
 ```
 
-<img width="850" height="124" alt="image" src="https://github.com/user-attachments/assets/acf83ef3-e5a9-4d9f-be19-0143c873ce2d" />
+<img width="850" height="105" alt="image" src="https://github.com/user-attachments/assets/9e611c92-e9d9-433e-ae7b-abfded785ab7" />
 
 ### Step 2 — Initialize Windows
 
@@ -271,24 +271,19 @@ The script:
 
 Wait until the script reports successful initialization.
 
-<!-- SCREENSHOT PLACEHOLDER:
-Windows PowerShell showing the final successful lab_start.ps1 output,
-including:
-- PowerShell 5.1 Desktop;
-- hostname validation;
-- TCP/8080 and TCP/9001 checks;
-- resolver validation;
-- Sysmon action;
-- clean BITS baseline.
--->
+<img width="1129" height="598" alt="image" src="https://github.com/user-attachments/assets/1800ee16-b8cd-430f-b5a9-4c4cc832ac05" />
 
 ### Step 3 — Record the session information
+
+In *Powershell*:
 
 ```powershell
 Get-Content .\lab_session.json |
   ConvertFrom-Json |
   Format-List
 ```
+
+<img width="855" height="440" alt="image" src="https://github.com/user-attachments/assets/a3ef6074-f91d-469b-b681-3a3cd995ef19" />
 
 Store the session start time for later event queries:
 
@@ -299,6 +294,8 @@ $Session = Get-Content .\lab_session.json |
 $SessionStart = [datetime]$Session.SessionStartUtc
 $UbuntuIP = $Session.UbuntuIP
 ```
+
+<img width="869" height="498" alt="image" src="https://github.com/user-attachments/assets/32cbf7aa-0f6d-4947-90d5-0e1f7ee7908a" />
 
 ---
 
@@ -326,9 +323,7 @@ Record:
 - version metadata;
 - timestamps.
 
-<!-- SCREENSHOT PLACEHOLDER:
-PowerShell showing WinSvcHelper.exe metadata, hash, and signing status.
--->
+<img width="1885" height="698" alt="image" src="https://github.com/user-attachments/assets/1f9f40b8-9404-40a8-ae9f-9b180b3f461d" />
 
 ### Step 2 — Confirm that no runtime exists
 
@@ -338,11 +333,9 @@ Test-Path .\runtime
 
 Expected baseline:
 
-```text
-False
-```
+<img width="640" height="70" alt="image" src="https://github.com/user-attachments/assets/46d5095b-b906-4122-890d-76ecdc4cdc61" />
 
-Also verify that no previous session artifacts remain:
+**OPTIONAL**: Also verify that no previous session artifacts remain:
 
 ```powershell
 @(
@@ -371,6 +364,8 @@ Get-BitsTransfer -AllUsers |
 
 Expected baseline: no matching job.
 
+<img width="728" height="163" alt="image" src="https://github.com/user-attachments/assets/8be69233-e8d4-46b0-a27e-9d4dc28fa48e" />
+
 A read-only full queue view is also available:
 
 ```powershell
@@ -379,9 +374,7 @@ bitsadmin /list /allusers
 
 Do not cancel unrelated jobs.
 
-<!-- SCREENSHOT PLACEHOLDER:
-PowerShell or bitsadmin showing that UBoatLab_Persistence does not exist.
--->
+<img width="716" height="160" alt="image" src="https://github.com/user-attachments/assets/0e23fbf2-2118-4769-9488-0f6d95464452" />
 
 ### Step 4 — Open Process Monitor
 
