@@ -17,7 +17,7 @@
 
 ## Let's start
 
-Open **Command Prompt as Administrator**
+Open **Command Prompt**
 
 <img width="82" height="98" alt="image" src="https://github.com/user-attachments/assets/8de53dad-60f7-4069-af8a-4015800ac360" />
 
