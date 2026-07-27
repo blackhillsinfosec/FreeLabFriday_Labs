@@ -25,3 +25,6 @@ It is using the current Kali Cloud Lab in Meta CTF.
 https://github.com/blackhillsinfosec/Wifi-Forge/blob/main/WIFIFORGEv2%20Lab%20Instructions.zip
 
 [Return To Lab List](/IntroClassFiles/navigation.md)
+
+<hr>
+<h3>Testing the Update YUH</h3>
