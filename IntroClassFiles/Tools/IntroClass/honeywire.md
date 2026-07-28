@@ -33,60 +33,13 @@ For this lab we will deploy the Hub, then deploy one official sensor called the 
 
 ## Part 1 - Deploy the Hub - Open the **Ubuntu VM**
 
-Create a directory for HoneyWire and move into it:
+Navigate to the HoneyWire directory:
 
 ```bash
-mkdir ~/ADCD/honeywire && cd ~/ADCD/honeywire
+cd ~/ADCD/HoneyWire
 ```
 
-Create the compose file:
-
-```bash
-cat > docker-compose.yml << 'EOF'
-services:
-  permission-fixer:
-    image: alpine:latest
-    command: sh -c "chown -R 65532:65532 /data"
-    volumes:
-      - ./honeywire_data:/data
-
-  hub:
-    image: ghcr.io/andreicscs/honeywire-hub:latest
-    container_name: honeywire-hub
-    restart: unless-stopped
-    ports:
-      - "8080:8080"
-    volumes:
-      - ./honeywire_data:/data
-    depends_on:
-      permission-fixer:
-        condition: service_completed_successfully
-    user: "65532:65532"
-    read_only: true
-    cap_drop: ["ALL"]
-    security_opt: ["no-new-privileges:true"]
-    environment:
-      - HW_ENV=development
-      - HW_PORT=8080
-      - HW_DB_PATH=/data/honeywire.db
-      - HW_DASHBOARD_PASSWORD=changeme123
-EOF
-```
-
->[!NOTE]
->`HW_ENV=development` only exists so the login cookie works over plain HTTP for this lab. In a real deployment you would remove it and put the Hub behind a reverse proxy with HTTPS instead.
->
->`HW_DB_PATH` matters more than it looks. The container runs `read_only: true` with only `/data` writable. Without this variable pointing the database at `/data/honeywire.db`, the Hub tries to write its database somewhere it isn't allowed to, and crash-loops on startup with an error like `unable to open database file`.
->
->`HW_DASHBOARD_PASSWORD` sets the key you sign in with. Pick your own value if you wish, it is not shown anywhere else afterward.
-
-```bash
-sudo apt-get update && sudo apt-get install docker-compose-plugin
-sudo usermod -aG docker "$USER"
-newgrp docker
-```
-
-Get the IP of the Ubuntu VM(UR IP WILL BE DIFFERENT)
+Get the IP of the Ubuntu VM (YOUR IP WILL BE DIFFERENT)
 
 ```bash
 ip a show ens5
@@ -116,23 +69,16 @@ Go to:
 http://localhost:8080
 ```
 
-<img width="674" height="613" alt="image" src="https://github.com/user-attachments/assets/1cd563db-92e6-48ed-b53d-044d4cbc81c9" />
-
-
-You will land on the **HoneyWire Sentinel** screen. From there:
-
-- Create a Master Password
-- Leave the default Hub Endpoint URL (the address sensors will phone home to)
-- Click **Initialize Hub**
-
-<br><br>
-
 <img width="524" height="426" alt="image" src="https://github.com/user-attachments/assets/37fa3233-aceb-4c74-8518-8670489ccf2a" />
 
-
-### For the auth key use `changeme123`(we set this up in the docker compose file)
+**For the auth key use `changeme123`(we set this up in the docker compose file)**
 
 <img width="1919" height="850" alt="image" src="https://github.com/user-attachments/assets/5b3d89df-fe3a-43ae-922e-d2e63af5dc44" />
+
+Before creating our first node, we have to configure the HUB Endpoint URL (the address sensors will phone home to).
+
+Go to the **Settings** page and set the HUB Endpoint URL to `http://<YOUR-UBUNTU-IP>:8080`. Then save the changes.
+
 
 
 ## Part 3 - Register a Node
@@ -152,15 +98,12 @@ The Hub will show you two things, copy both somewhere safe:
 - A **Wizard Installation Command**, something like:
 
 ```bash
-curl -fsSL https://get.honeywire.dev | bash -s -- --link http://localhost:8080 --api-key <your-node-api-key>
+curl -fsSL https://get.honeywire.dev | bash -s -- --link http://<YOUR-UBUNTU-IP>:8080 --api-key <your-node-api-key>
 ```
 
 - A **Node API Key**
 
 <img width="373" height="510" alt="2026-07-14_11-25" src="https://github.com/user-attachments/assets/faa4cb68-1803-4195-8d79-00529f88746d" />
-
-
-
 
 >[!TIP]
 >The API key is only ever shown in full once, on this screen. If you lose it, you can pull it again later from the Node's detail page under **Manage Key**.
@@ -172,7 +115,7 @@ Click **Done**.
 On another terminal, run the install command from Part 4, with your real Hub address and API key substituted in:
 
 ```bash
-curl -fsSL https://get.honeywire.dev | bash -s -- --link http://<your-hub-ip>:8080 --api-key <your-node-api-key>
+curl -fsSL https://get.honeywire.dev | bash -s -- --link http://<YOUR-UBUNTU-IP>:8080 --api-key <your-node-api-key>
 ```
 
 <img width="593" height="248" alt="image" src="https://github.com/user-attachments/assets/898c3187-4e4e-4566-8780-283ceecc99e8" />
@@ -184,7 +127,6 @@ When you encounter this, press **y** and **Enter**
 For this Host Discovery, press **N** and **Enter**
 
 <img width="316" height="21" alt="image" src="https://github.com/user-attachments/assets/5eeae0dc-70b5-425c-a112-a3dbbd1481f9" />
-
 
 Go back to **Fleet Management** in the dashboard. Your node card starts out showing **Awaiting Initial Check-in**
 
@@ -208,7 +150,6 @@ Under its **Configuration** tab, the defaults work fine for this lab:
 
 <img width="776" height="723" alt="image" src="https://github.com/user-attachments/assets/bc75165c-8d8a-46e2-ad54-3969b1a57422" />
 
-
 Click **Add to Node**
 
 And press **Sync Node**
@@ -223,22 +164,10 @@ You will be prompted to type **y/N** 3 times, write **y** for the first 2, and t
 
 <img width="1359" height="829" alt="image" src="https://github.com/user-attachments/assets/0b11e74e-28cb-4414-a7f3-53ffd45f9f5a" />
 
-
 >[!NOTE]
 >Getting some errors is ok, it will not bother us for this lab
 
-
-- Go back to the first terminal where we ran `docker compose up`, you will see it has shutdown because of the sensor we installed
-
-<img width="1171" height="262" alt="Screenshot 2026-07-15 104212" src="https://github.com/user-attachments/assets/c7ae6a14-f266-43d0-ab9e-90339d614b48" />
-
-- Start it again, run:
-
-```bash
-docker compose up
-```
-
-Now, going back to the dashboard and refreshing the page and loging in again, you can see the sensor has been deployed, if it doesn't look like it, don't worry, the sensor is there, it is just that the tool is still very new and bugs are bound to happen
+Now, going back to the **Fleet Management** and refreshing the page, you can see the sensor has been deployed.
 
 <img width="366" height="263" alt="image" src="https://github.com/user-attachments/assets/8c288c84-ec2e-4f38-bba0-d888f5d7e2b0" />
 
@@ -259,9 +188,13 @@ You should see the fake `SSH-2.0-OpenSSH_8.2p1` banner appear immediately, that 
 admin
 ```
 
-Press Enter. The connection will feel like it hangs, that is the tarpit behavior, it is built to waste an attacker's time. Press `Ctrl+C` to close it when you are done
+Press Enter. The connection will feel like it hangs, that is the tarpit behavior, it is built to waste an attacker's time. Press `Ctrl+C` to close it when you are done.
 
-You can also try to do this from inside the Ubuntu VM, connecting with **nc** to **localhost** on port **2222**, but it might not show up in the dashboard
+
+
+You can also try to do this from inside the Ubuntu VM, connecting with **nc** to **localhost** or directly to Ubuntu's IP on port **2222**.
+
+
 
 ## Part 7 - Defender perspective, watch the alert
 
@@ -269,10 +202,9 @@ Switch back to the Hub Dashboard. Within seconds you should see:
 
 - **Events Velocity** tick up from 0
 - **Severity Distribution** register your event under the severity you configured (High)
-- The **Active Threat Queue** at the bottom populate with a new row showing the Threat, the Event Trigger, the Source IP, the Target, the Sensor, the Node, and the Time
+- The **Active Threat Queue** at the bottom populate with a new row showing the Threat, the Event Trigger, the Source IP, the Target, the Sensor, the Node, and the Time.
 
 <img width="1675" height="772" alt="image" src="https://github.com/user-attachments/assets/cd9e2ab4-ad23-48e6-86a0-a43e77c4a7d6" />
-
 
 >[!NOTE]
 >This is the whole point of HoneyWire. There is no baseline to tune and no threshold to adjust. The sensor has no legitimate reason to ever be touched, so one connection is a confirmed finding, not a probability.
@@ -287,12 +219,13 @@ nmap -sV <Ubuntu IP> -p2222
 
 Check the Active Threat Queue again. The scan touching the Tarpit port generates its own event too, for the same reason as Part 8, a scan is exactly the kind of "touch that should never happen."
 
+
+
 ## Part 9 - Arm and disarm the system
 
-Sometimes you need to run your own vulnerability scans or do maintenance without flooding your phone with push alerts. In the top right of the dashboard, find the **Armed** toggle and switch it off before doing that kind of work, then switch it back on afterward
+Sometimes you need to run your own vulnerability scans or do maintenance without flooding your phone with push alerts. In the top right of the dashboard, find the **Armed** toggle and switch it off before doing that kind of work, then switch it back on afterward.
 
 <img width="367" height="71" alt="2026-07-14_14-01" src="https://github.com/user-attachments/assets/036ed767-59ca-4efd-84d5-31472aaa1583" />
-
 
 >[!TIP]
 >Disarming only pauses push notifications. Events still get logged to the dashboard either way, so you will not lose visibility.
