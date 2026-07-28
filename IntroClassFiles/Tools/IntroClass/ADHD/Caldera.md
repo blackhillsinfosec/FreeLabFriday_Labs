@@ -89,6 +89,7 @@ You should see the agent running and “beaconing” (calling back to CALDERA)
 
 <img width="953" height="401" alt="2026-03-16_12-26" src="https://github.com/user-attachments/assets/3cdcf4e1-5d45-4bf9-9386-58cfd3cb20c2" />
 
+<br>
 ## 2) Confirm the agent shows up in the UI
 
 In the CALDERA web UI:
