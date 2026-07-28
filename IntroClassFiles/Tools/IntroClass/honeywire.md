@@ -45,16 +45,16 @@ Get the IP of the Ubuntu VM (YOUR IP WILL BE DIFFERENT)
 ip a show ens5
 ```
 
-<img width="545" height="177" alt="image" src="https://github.com/user-attachments/assets/24673b34-f1de-49fa-9f91-0d8084fbc7b4" />
+<img width="705" height="133" alt="img1" src="https://github.com/user-attachments/assets/23025755-d27a-400f-8175-592db3555641" />
 
 
 Start it:
 
 ```bash
-docker compose up
+sudo docker compose up
 ```
 
-<img width="1029" height="513" alt="image" src="https://github.com/user-attachments/assets/6f4ca857-2219-497a-a504-fa23a69b3ce2" />
+<img width="1265" height="437" alt="img2" src="https://github.com/user-attachments/assets/35a9d5a8-eb07-4687-ba38-dffff2cc9e7a" />
 
 
 ## Part 2 - Initialize the Hub
@@ -79,7 +79,7 @@ Before creating our first node, we have to configure the HUB Endpoint URL (the a
 
 Go to the **Settings** page and set the HUB Endpoint URL to `http://<YOUR-UBUNTU-IP>:8080`. Then save the changes.
 
-
+<img width="1277" height="538" alt="img3" src="https://github.com/user-attachments/assets/a12e0db9-9049-446f-863b-65e5e51e8366" />
 
 ## Part 3 - Register a Node
 
@@ -103,7 +103,7 @@ curl -fsSL https://get.honeywire.dev | bash -s -- --link http://<YOUR-UBUNTU-IP>
 
 - A **Node API Key**
 
-<img width="373" height="510" alt="2026-07-14_11-25" src="https://github.com/user-attachments/assets/faa4cb68-1803-4195-8d79-00529f88746d" />
+<img width="284" height="389" alt="img4" src="https://github.com/user-attachments/assets/ddfa16b9-fd86-44a5-a49b-aa3e17ca8b0a" />
 
 >[!TIP]
 >The API key is only ever shown in full once, on this screen. If you lose it, you can pull it again later from the Node's detail page under **Manage Key**.
@@ -148,7 +148,7 @@ Under its **Configuration** tab, the defaults work fine for this lab:
 | `HW_TARPIT_BANNER` | `SSH-2.0-OpenSSH_8.2p1\r\n` | The fake service banner shown to a connecting attacker |
 | `HW_TARPIT_MODE` | `hold` | Holds the connection open instead of closing or echoing |
 
-<img width="776" height="723" alt="image" src="https://github.com/user-attachments/assets/bc75165c-8d8a-46e2-ad54-3969b1a57422" />
+<img width="512" height="452" alt="img5" src="https://github.com/user-attachments/assets/b91db5b9-56d9-43c7-8f4c-798b928179ef" />
 
 Click **Add to Node**
 
@@ -158,11 +158,11 @@ And press **Sync Node**
 
 Copy the command from the **Automatic Deployment (Recommended)** and run it in your terminal
 
-<img width="663" height="483" alt="2026-07-14_11-54" src="https://github.com/user-attachments/assets/753911f0-bfbd-4548-88de-adcf0123085e" />
+<img width="499" height="355" alt="img6" src="https://github.com/user-attachments/assets/76cdcc6d-e9ec-436b-b91f-27d911b6d716" />
 
 You will be prompted to type **y/N** 3 times, write **y** for the first 2, and then **N**
 
-<img width="1359" height="829" alt="image" src="https://github.com/user-attachments/assets/0b11e74e-28cb-4414-a7f3-53ffd45f9f5a" />
+<img width="1019" height="500" alt="img7" src="https://github.com/user-attachments/assets/37e8e036-115d-40bd-9bac-90258bd3c0be" />
 
 >[!NOTE]
 >Getting some errors is ok, it will not bother us for this lab
@@ -190,11 +190,11 @@ admin
 
 Press Enter. The connection will feel like it hangs, that is the tarpit behavior, it is built to waste an attacker's time. Press `Ctrl+C` to close it when you are done.
 
-
+<img width="830" height="166" alt="img8" src="https://github.com/user-attachments/assets/84fa432c-3d50-48d8-b7e6-3ec28e674708" />
 
 You can also try to do this from inside the Ubuntu VM, connecting with **nc** to **localhost** or directly to Ubuntu's IP on port **2222**.
 
-
+<img width="440" height="65" alt="img9" src="https://github.com/user-attachments/assets/6242ae49-ecdf-4577-8414-9f7f227e54dd" />
 
 ## Part 7 - Defender perspective, watch the alert
 
@@ -204,7 +204,7 @@ Switch back to the Hub Dashboard. Within seconds you should see:
 - **Severity Distribution** register your event under the severity you configured (High)
 - The **Active Threat Queue** at the bottom populate with a new row showing the Threat, the Event Trigger, the Source IP, the Target, the Sensor, the Node, and the Time.
 
-<img width="1675" height="772" alt="image" src="https://github.com/user-attachments/assets/cd9e2ab4-ad23-48e6-86a0-a43e77c4a7d6" />
+<img width="1277" height="535" alt="img10" src="https://github.com/user-attachments/assets/e3bfa35d-0060-4999-8b5c-0940d3ae735f" />
 
 >[!NOTE]
 >This is the whole point of HoneyWire. There is no baseline to tune and no threshold to adjust. The sensor has no legitimate reason to ever be touched, so one connection is a confirmed finding, not a probability.
@@ -217,9 +217,11 @@ From the windows terminal:
 nmap -sV <Ubuntu IP> -p2222
 ```
 
+<img width="652" height="283" alt="img11" src="https://github.com/user-attachments/assets/26463372-f9a3-4c13-9272-b6f3cbd6411d" />
+
 Check the Active Threat Queue again. The scan touching the Tarpit port generates its own event too, for the same reason as Part 8, a scan is exactly the kind of "touch that should never happen."
 
-
+<img width="1277" height="536" alt="img12" src="https://github.com/user-attachments/assets/47f62b5c-b364-4991-90f1-6ab46ad13b9e" />
 
 ## Part 9 - Arm and disarm the system
 
