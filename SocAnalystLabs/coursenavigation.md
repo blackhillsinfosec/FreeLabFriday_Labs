@@ -1,6 +1,3 @@
-[<< <i>Back to Course Home Page</i>](/README.md)
-***
-
 # Course Navigation
 
 ### [Welcome](courseFiles/Section_00-welcome/welcome.md)
