@@ -94,6 +94,7 @@ whoami
 
 <img width="497" height="135" alt="2026-03-14_14-52" src="https://github.com/user-attachments/assets/12fe76e1-088c-4391-a31d-8e05256ff569" />
 
+<br>
 
 At this point, we have created a backdoor with one terminal, and we have connected to this backdoor with another terminal.  Now, let's open yet another **Linux** terminal and use this use for the purpose of analysis.  
 
@@ -116,6 +117,7 @@ lsof -i -P
 
 <img width="1264" height="553" alt="1" src="https://github.com/user-attachments/assets/3b60e298-d0d3-4ac0-91cf-2bf5c1180655" />
 
+<br>
 
 Now let's dig into the **netcat process ID**.  We can do this with the lowercase **-p** switch.  This will give us all the open files associated with the listed process ID.
 
@@ -129,6 +131,7 @@ lsof -p [PID]
 
 <img width="1177" height="515" alt="2" src="https://github.com/user-attachments/assets/ddb23944-81ac-451f-9a56-584acf830179" />
 
+<br>
 Let's look at the full processes.  We can do this with the **ps** command. We are also adding the **a**, **u**, and **x switches**.  
 
 * a is for all processes
@@ -143,7 +146,7 @@ ps aux
 
 <img width="1061" height="377" alt="2026-03-14_14-57" src="https://github.com/user-attachments/assets/4a8691de-eeba-4c23-9fd6-b10b6312056e" />
 
-
+<br>
 Let's change directories into the **proc** directory for that **pid**.  Remember, **proc** is a directory that does not exist on the drive.  It allows us to see data associated with the various processes directly.   This can be very useful as it allows us to dig into the memory of a process that is currently running on a suspect system.
 
 ```bash
@@ -162,6 +165,7 @@ ls
 
 <img width="1416" height="180" alt="2026-03-14_15-05" src="https://github.com/user-attachments/assets/9b6cf660-6977-42b3-a9f7-abb6cf6589ac" />
 
+<br>
 We can run the **strings** command on the executable in this directory.  When programs are created there may be usage information, mentions of system libraries, and possible code comments. We use this all the time to attempt to identify what exactly a program is doing.
 
 ```bash
@@ -169,13 +173,14 @@ strings ./exe | less
 ```
 
 <img width="289" height="334" alt="1" src="https://github.com/user-attachments/assets/f495288b-e184-42aa-85fd-cc4736c35471" />
+<br>
 
 If we scroll down, we can see the actual usage information for netcat.  We pulled it directly out of memory!
 
 To reveal more information in the output, press **"enter"**.
 
 <img width="894" height="725" alt="2" src="https://github.com/user-attachments/assets/258402b5-c5a4-4b1d-a172-0643ae0f1ad4" />
-
+<br>
 - Press **q** to go back
 
 ***                                                                 
