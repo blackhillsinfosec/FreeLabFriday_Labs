@@ -96,6 +96,7 @@ whoami
 
 <br>
 
+
 At this point, we have created a backdoor with one terminal, and we have connected to this backdoor with another terminal.  Now, let's open yet another **Linux** terminal and use this use for the purpose of analysis.  
 
 
