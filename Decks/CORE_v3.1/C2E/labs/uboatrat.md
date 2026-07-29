@@ -1,6 +1,6 @@
 ![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
 
-# UBoatRAT — BITS Job Abuse, Dead-Drop Resolution, and One-Shot Beacon Analysis
+# UBoatRAT - BITS Job Abuse, Dead-Drop Resolution, and One-Shot Beacon Analysis
 
 ## Windows VM · Ubuntu VM
 
@@ -46,9 +46,9 @@ The analyst launched it once and reported that no window appeared and no visible
 
 You will work through the same evidence from three operational perspectives:
 
-- **Part I — Behavioral Analysis:** determine what the executable does from observable evidence;
-- **Part II — Technique Reproduction:** reproduce the BITS callback, resolver, and beacon mechanisms manually;
-- **Part III — Detection Engineering:** build host and network detections from the resulting telemetry.
+- **Part I - Behavioral Analysis:** determine what the executable does from observable evidence;
+- **Part II - Technique Reproduction:** reproduce the BITS callback, resolver, and beacon mechanisms manually;
+- **Part III - Detection Engineering:** build host and network detections from the resulting telemetry.
 
 The two VMs are disposable. Their setup scripts were run before the shared snapshot was created. When the lab session is closed, both VMs revert to that snapshot.
 
@@ -186,25 +186,25 @@ The Ubuntu server decodes the data, validates the exact fixed message, logs it, 
 
 | Behavior demonstrated in this lab | ATT&CK technique |
 |---|---|
-| Creation and use of a BITS job | T1197 — BITS Jobs |
-| Download of an inert remote file | T1105 — Ingress Tool Transfer |
-| Retrieval of an encoded endpoint from a hosted text resource | T1102.001 — Dead Drop Resolver |
-| Copying an executable under the name `svchost.exe` outside Windows directories | T1036 — Masquerading |
+| Creation and use of a BITS job | T1197 - BITS Jobs |
+| Download of an inert remote file | T1105 - Ingress Tool Transfer |
+| Retrieval of an encoded endpoint from a hosted text resource | T1102.001 - Dead Drop Resolver |
+| Copying an executable under the name `svchost.exe` outside Windows directories | T1036 - Masquerading |
 
 > [!NOTE]
 > This table maps the behaviors reproduced by this simulator. It is not a complete mapping of every behavior attributed to historical UBoatRAT samples.
 
 ---
 
-# PART I — BEHAVIORAL ANALYSIS
+# PART I - BEHAVIORAL ANALYSIS
 
 *You are the malware analyst. Build the behavioral picture from evidence before reading the simulator source.*
 
 ---
 
-## Phase 1 — Initialize the Lab Session
+## Phase 1 - Initialize the Lab Session
 
-### Step 1 — Start the Ubuntu server manually
+### Step 1 - Start the Ubuntu server manually
 
 On the Ubuntu VM, identify the private address used to communicate with Windows:
 
@@ -218,7 +218,7 @@ ip -brief -4 address show scope global
 
 Record it as `<UBUNTU_PRIVATE_IP>`. In this case it is `10.10.93.225`. 
 
-Start the server. Don't forget to replace **<UBUNTU_PRIVATE_IP>** with your actual IP:
+In the Ubuntu Shell, start the server. Don't forget to replace **<UBUNTU_PRIVATE_IP>** with your actual IP:
 
 ```bash
 cd ~/BnB/UBoatRAT
@@ -243,7 +243,7 @@ ss -lntp |
 
 <img width="850" height="105" alt="image" src="https://github.com/user-attachments/assets/9e611c92-e9d9-433e-ae7b-abfded785ab7" />
 
-### Step 2 — Initialize Windows
+### Step 2 - Initialize Windows
 
 Open **Windows PowerShell 5.1 as Administrator**.
 
@@ -273,7 +273,7 @@ Wait until the script reports successful initialization.
 
 <img width="1129" height="598" alt="image" src="https://github.com/user-attachments/assets/1800ee16-b8cd-430f-b5a9-4c4cc832ac05" />
 
-### Step 3 — Record the session information
+### Step 3 - Record the session information
 
 In *Powershell*:
 
@@ -299,9 +299,9 @@ $UbuntuIP = $Session.UbuntuIP
 
 ---
 
-## Phase 2 — Establish a Clean Baseline
+## Phase 2 - Establish a Clean Baseline
 
-### Step 1 — Inspect the suspicious executable
+### Step 1 - Inspect the suspicious executable
 
 ```powershell
 Get-Item .\WinSvcHelper.exe |
@@ -325,7 +325,7 @@ Record:
 
 <img width="1885" height="698" alt="image" src="https://github.com/user-attachments/assets/1f9f40b8-9404-40a8-ae9f-9b180b3f461d" />
 
-### Step 2 — Confirm that no runtime exists
+### Step 2 - Confirm that no runtime exists
 
 In *Powershell*:
 
@@ -352,7 +352,7 @@ Expected baseline:
   }
 ```
 
-### Step 3 — Baseline the specific BITS job
+### Step 3 - Baseline the specific BITS job
 
 In *Powershell*:
 
@@ -380,7 +380,7 @@ Do not cancel unrelated jobs.
 
 <img width="716" height="160" alt="image" src="https://github.com/user-attachments/assets/0e23fbf2-2118-4769-9488-0f6d95464452" />
 
-### Step 4 — Open Process Monitor
+### Step 4 - Open Process Monitor
 
 In *Powershell*, start *Procmon*:
 
@@ -397,7 +397,7 @@ Allow Procmon to collect normal system activity for approximately ten seconds. P
 
 Do not clear the existing events yet. Do not close Procmon.
 
-### Step 5 — Open Process Explorer
+### Step 5 - Open Process Explorer
 
 Start in Powershell:
 
@@ -420,7 +420,7 @@ Enable these columns where available:
 
 The callback process may be short-lived. Process Explorer is supplementary; Sysmon and Procmon provide persistent evidence after the process exits.
 
-### Step 6 — Start packet capture
+### Step 6 - Start packet capture
 
 Open Wireshark and select the Windows interface that communicates with Ubuntu.
 
@@ -460,7 +460,7 @@ Do not close this Ubuntu Shell Terminal. Minimize it so **Wiresharc, Procexp and
 
 ---
 
-## Phase 3 — Execute and Capture
+## Phase 3 - Execute and Capture
 
 Resume Procmon with **CTRL+E** and confirm Wireshark is still capturing.
 
@@ -491,15 +491,13 @@ Get-ChildItem .\runtime -Force |
   Select-Object Name, Length, LastWriteTime
 ```
 
-<!-- SCREENSHOT PLACEHOLDER:
-PowerShell showing the runtime directory and its generated artifacts.
--->
+<img width="940" height="349" alt="image" src="https://github.com/user-attachments/assets/aeb2e2b4-0ff8-45ec-93e8-2a88e5bc4150" />
 
 ---
 
-## Phase 4 — Reconstruct the Process Chain
+## Phase 4 - Reconstruct the Process Chain
 
-### Step 1 — Use Procmon Process Tree
+### Step 1 - Use Procmon Process Tree
 
 In Procmon:
 
@@ -507,15 +505,13 @@ In Procmon:
 Tools → Process Tree
 ```
 
-Locate:
+<img width="741" height="472" alt="image" src="https://github.com/user-attachments/assets/d650bb61-d05c-4c3e-b3bd-671801c5bf9b" />
 
-```text
-WinSvcHelper.exe
-```
+Locate WinSvcHelper.exe. Since we ran it from *Powershell* it should be :
 
-Identify its direct descendants.
+<img width="1229" height="857" alt="image" src="https://github.com/user-attachments/assets/224a1e95-7609-4cc0-96f8-eb024c467253" />
 
-Expected initial execution chain:
+The execution chain is:
 
 ```text
 powershell.exe
@@ -523,6 +519,10 @@ powershell.exe
     └── cmd.exe
         └── bitsadmin.exe
 ```
+
+The Process Tree shows PowerShell launching the benign simulator, which uses cmd.exe to create, configure, and resume the BITS job through multiple bitsadmin.exe invocations.
+
+<img width="1157" height="186" alt="image" src="https://github.com/user-attachments/assets/ba94605f-d934-439c-9d76-55191435166f" />
 
 The callback is a separate execution caused by the BITS workflow:
 
@@ -532,11 +532,7 @@ runtime\svchost.exe --bits-callback
 
 It may not appear as a direct child of the original simulator.
 
-<!-- SCREENSHOT PLACEHOLDER:
-Procmon Process Tree showing WinSvcHelper.exe, cmd.exe, and bitsadmin.exe.
--->
-
-### Step 2 — Filter Procmon
+### Step 2 - Filter Procmon 
 
 Open the filter dialog with **CTRL+L**.
 
@@ -549,11 +545,18 @@ Process Name is bitsadmin.exe
 Process Name is svchost.exe
 ```
 
+<img width="582" height="340" alt="image" src="https://github.com/user-attachments/assets/4287da15-c05d-4d09-a425-6a4a0ef4259d" />
+<img width="583" height="340" alt="image" src="https://github.com/user-attachments/assets/8374898a-0766-4c6e-b60c-f0316ce9e2b8" />
+<img width="585" height="342" alt="image" src="https://github.com/user-attachments/assets/a950cfde-d256-45ae-b214-abbb15274fe5" />
+<img width="583" height="342" alt="image" src="https://github.com/user-attachments/assets/2cb23f7b-7324-4c12-8104-482e7eaa1903" />
+
 Also add:
 
 ```text
 Path contains \Desktop\Labs\UBoatRAT\
 ```
+
+<img width="582" height="344" alt="image" src="https://github.com/user-attachments/assets/42a580f8-fb27-4d1e-bb74-4c7e70f99670" />
 
 Review:
 
@@ -564,7 +567,7 @@ Review:
 - reads from `init.bat`;
 - operations involving `runtime`.
 
-### Step 3 — Query Sysmon Event ID 1
+### Step 3 - Query Sysmon Event ID 1
 
 ```powershell
 Get-WinEvent -FilterHashtable @{
@@ -605,7 +608,7 @@ Identify:
 
 ---
 
-## Phase 5 — Analyze File-System Artifacts
+## Phase 5 - Analyze File-System Artifacts
 
 List the generated runtime:
 
@@ -631,7 +634,7 @@ runtime\beacon.sent
 
 An `error.log` may appear if execution failed.
 
-### Step 1 — Inspect the generated BITS bootstrap
+### Step 1 - Inspect the generated BITS bootstrap
 
 ```powershell
 Get-Content .\runtime\init.bat
@@ -658,7 +661,7 @@ Record:
 init.bat open in PowerShell or a text editor with the BITS commands visible.
 -->
 
-### Step 2 — Inspect command output
+### Step 2 - Inspect command output
 
 ```powershell
 Get-Content .\runtime\bitsadmin.log
@@ -672,7 +675,7 @@ Look for:
 - resume result;
 - errors.
 
-### Step 3 — Inspect simulator logs
+### Step 3 - Inspect simulator logs
 
 ```powershell
 Get-Content .\runtime\execution.log
@@ -689,7 +692,7 @@ Check for:
 - fixed beacon result;
 - confirmation that no response was read.
 
-### Step 4 — Query Sysmon Event ID 11
+### Step 4 - Query Sysmon Event ID 11
 
 ```powershell
 Get-WinEvent -FilterHashtable @{
@@ -722,7 +725,7 @@ Get-WinEvent -FilterHashtable @{
 
 ---
 
-## Phase 6 — Analyze Network Activity
+## Phase 6 - Analyze Network Activity
 
 The expected network sequence is:
 
@@ -737,7 +740,7 @@ The expected network sequence is:
    TCP connection to port 9001
 ```
 
-### Step 1 — Isolate the BITS transfer
+### Step 1 - Isolate the BITS transfer
 
 In Wireshark, apply:
 
@@ -762,7 +765,7 @@ Wireshark packet details for GET /c2/trigger.dat,
 including User-Agent and any Range header.
 -->
 
-### Step 2 — Isolate the resolver request
+### Step 2 - Isolate the resolver request
 
 Apply:
 
@@ -791,7 +794,7 @@ This distinguishes it from the BITS transfer.
 Follow HTTP Stream output for /resolver/README.md.
 -->
 
-### Step 3 — Inspect the TCP/9001 connection
+### Step 3 - Inspect the TCP/9001 connection
 
 Apply:
 
@@ -805,7 +808,7 @@ The bytes are not plaintext because each byte is XORed with `0x88`.
 
 The server does not send an application-layer response.
 
-### Step 4 — Query Sysmon Event ID 3
+### Step 4 - Query Sysmon Event ID 3
 
 ```powershell
 Get-WinEvent -FilterHashtable @{
@@ -841,9 +844,9 @@ Get-WinEvent -FilterHashtable @{
 
 ---
 
-## Phase 7 — Analyze the BITS Job
+## Phase 7 - Analyze the BITS Job
 
-### Step 1 — Inspect the live queue
+### Step 1 - Inspect the live queue
 
 ```powershell
 Get-BitsTransfer -AllUsers |
@@ -861,7 +864,7 @@ bitsadmin /getinfo "UBoatLab_Persistence" /verbose
 
 Depending on the current state and Windows build, the job may be transferred, acknowledged, completed, or retained for notification behavior.
 
-### Step 2 — Query the BITS Operational log
+### Step 2 - Query the BITS Operational log
 
 First, enumerate all BITS events from this session without assuming event IDs:
 
@@ -890,7 +893,7 @@ During the dry run, identify the event IDs that represent:
 > [!NOTE]
 > Current Windows builds commonly produce transfer-related BITS Operational events such as IDs 59 and 60, but the final screenshots and event-specific instructions should be confirmed against the actual VM build used by the platform.
 
-### Step 3 — Search by job name
+### Step 3 - Search by job name
 
 ```powershell
 Get-WinEvent -FilterHashtable @{
@@ -919,9 +922,9 @@ Event Viewer or PowerShell showing the BITS job lifecycle for UBoatLab_Persisten
 
 ---
 
-## Phase 8 — Decode the Resolver and Beacon
+## Phase 8 - Decode the Resolver and Beacon
 
-### Step 1 — Inspect the saved resolver
+### Step 1 - Inspect the saved resolver
 
 ```powershell
 $ResolverContent = Get-Content `
@@ -958,7 +961,7 @@ Expected format:
 <UBUNTU_PRIVATE_IP>:9001
 ```
 
-### Step 2 — Decode captured beacon bytes
+### Step 2 - Decode captured beacon bytes
 
 Export the client payload from the TCP/9001 stream as raw bytes, or use the Ubuntu log to confirm receipt.
 
@@ -980,7 +983,7 @@ Expected result:
 488|UBOATRAT_LAB|BENIGN_BEACON|NO_COMMAND_CHANNEL
 ```
 
-### Step 3 — Inspect Ubuntu evidence
+### Step 3 - Inspect Ubuntu evidence
 
 On Ubuntu:
 
@@ -1004,7 +1007,7 @@ Ubuntu beacon.log showing the validated fixed beacon.
 
 ---
 
-## Phase 9 — Evidence Summary
+## Phase 9 - Evidence Summary
 
 Complete the table before moving to manual reproduction.
 
@@ -1034,13 +1037,13 @@ The callback retrieves a controlled dead-drop resolver, validates the private en
 
 ---
 
-# PART II — MANUAL TECHNIQUE REPRODUCTION
+# PART II - MANUAL TECHNIQUE REPRODUCTION
 
 *You are now the red team operator. Reproduce the individual mechanisms without running the simulator again.*
 
 ---
 
-## Phase 10 — Reproduce a BITS Download
+## Phase 10 - Reproduce a BITS Download
 
 Use a distinct manual job name:
 
@@ -1129,7 +1132,7 @@ bitsadmin output showing the manual download job, URL, local path, and final sta
 
 ---
 
-## Phase 11 — Reproduce BITS Callback Execution
+## Phase 11 - Reproduce BITS Callback Execution
 
 Use:
 
@@ -1222,7 +1225,7 @@ manual_callback.log and relevant process/event evidence showing cmd.exe launched
 
 ---
 
-## Phase 12 — Reproduce Resolver Decoding
+## Phase 12 - Reproduce Resolver Decoding
 
 Retrieve the resolver manually:
 
@@ -1300,7 +1303,7 @@ if ($BeaconPort -ne 9001) {
 
 ---
 
-## Phase 13 — Reproduce the Fixed XOR Beacon
+## Phase 13 - Reproduce the Fixed XOR Beacon
 
 Build the exact fixed plaintext:
 
@@ -1373,7 +1376,7 @@ tail -n 20 ~/BnB/UBoatRAT/logs/beacon.log
 
 ---
 
-## Phase 14 — Compare Automated and Manual Behavior
+## Phase 14 - Compare Automated and Manual Behavior
 
 | Automated observation | Manual reproduction |
 |---|---|
@@ -1394,13 +1397,13 @@ Explain:
 
 ---
 
-# PART III — DETECTION ENGINEERING
+# PART III - DETECTION ENGINEERING
 
 *You are now the detection engineer. Build layered detections that do not depend on one event source.*
 
 ---
 
-## Phase 15 — BITS Operational Detection
+## Phase 15 - BITS Operational Detection
 
 Query events from the session:
 
@@ -1447,9 +1450,9 @@ Detection opportunities:
 
 ---
 
-## Phase 16 — Sysmon Detection
+## Phase 16 - Sysmon Detection
 
-### Event ID 1 — Process creation
+### Event ID 1 - Process creation
 
 Detect:
 
@@ -1481,7 +1484,7 @@ $ProcessEvents |
   Format-List TimeCreated, Message
 ```
 
-### Event ID 3 — Network connections
+### Event ID 3 - Network connections
 
 Detect:
 
@@ -1502,7 +1505,7 @@ $NetworkEvents |
   Format-List TimeCreated, Message
 ```
 
-### Event ID 11 — File creation
+### Event ID 11 - File creation
 
 Detect:
 
@@ -1524,7 +1527,7 @@ $FileEvents |
   Format-List TimeCreated, Message
 ```
 
-### Event ID 22 — DNS query
+### Event ID 22 - DNS query
 
 The configuration attempts to record:
 
@@ -1538,7 +1541,7 @@ Treat Event ID 22 as useful corroboration, not a mandatory success condition.
 
 ---
 
-## Phase 17 — Security Event ID 4688
+## Phase 17 - Security Event ID 4688
 
 Query relevant process creation events:
 
@@ -1570,7 +1573,7 @@ Use Security 4688 to corroborate:
 
 ---
 
-## Phase 18 — Timeline Reconstruction
+## Phase 18 - Timeline Reconstruction
 
 Create a combined timeline:
 
@@ -1660,9 +1663,9 @@ Combined timeline output showing the full ordered chain.
 
 ---
 
-## Phase 19 — Sigma Rules
+## Phase 19 - Sigma Rules
 
-### Rule 1 — BITSAdmin registers a notification command
+### Rule 1 - BITSAdmin registers a notification command
 
 ```yaml
 title: BITSAdmin Registers a Completion Command
@@ -1699,7 +1702,7 @@ falsepositives:
 level: high
 ```
 
-### Rule 2 — `svchost.exe` outside Windows directories
+### Rule 2 - `svchost.exe` outside Windows directories
 
 ```yaml
 title: Svchost Executed Outside Windows Directories
@@ -1738,7 +1741,7 @@ falsepositives:
 level: high
 ```
 
-### Rule 3 — User-writable `svchost.exe` connects to an unusual port
+### Rule 3 - User-writable `svchost.exe` connects to an unusual port
 
 ```yaml
 title: User-Writable Svchost Network Connection
@@ -1780,7 +1783,7 @@ level: high
 
 ---
 
-## Phase 20 — Multi-Signal Correlation
+## Phase 20 - Multi-Signal Correlation
 
 A strong production detection should correlate independent signals on the same host.
 

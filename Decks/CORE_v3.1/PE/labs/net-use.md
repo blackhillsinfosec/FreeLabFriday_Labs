@@ -17,7 +17,7 @@
 
 ## Let's start
 
-Open **Command Prompt as Administrator**
+Open **Command Prompt**
 
 <img width="82" height="98" alt="image" src="https://github.com/user-attachments/assets/8de53dad-60f7-4069-af8a-4015800ac360" />
 
@@ -27,7 +27,10 @@ Open **Command Prompt as Administrator**
 net use /?
 ```
 
-You will see the full help output. This confirms the command exists and shows every switch it supports.
+<img width="623" height="501" alt="image" src="https://github.com/user-attachments/assets/efa90bef-0267-4e7b-8490-a41008237fe3" />
+
+
+You will see the full help output
 
 ### Part 2 - create and share a test folder
 
@@ -48,6 +51,9 @@ Confirm the share exists:
 net share
 ```
 
+<img width="890" height="480" alt="2026-07-26_12-53" src="https://github.com/user-attachments/assets/21a0acaa-da8d-4362-8a64-5f10455ff0ed" />
+
+
 You should see `LabShare` listed alongside the default hidden shares like `ADMIN$`, `C$`, and `IPC$` (more on those later).
 
 ### Part 3 - create a lab user account
@@ -63,6 +69,9 @@ net user labuser Password123! /add
 ```cmd
 hostname
 ```
+
+<img width="306" height="54" alt="image" src="https://github.com/user-attachments/assets/0e25d051-d5b3-465e-a7e9-fb52c9e13eab" />
+
 
 You can use this hostname instead of `localhost` in any command below if you prefer.
 
@@ -94,13 +103,25 @@ Confirm it worked:
 net use
 ```
 
+<img width="731" height="191" alt="image" src="https://github.com/user-attachments/assets/3b3df209-bff4-485f-a6fe-11c8b3627c68" />
+
+
 Navigate to it like a normal drive:
 
 ```cmd
 Z:
+```
+
+```cmd
 dir
+```
+
+```cmd
 type notes.txt
 ```
+
+<img width="522" height="338" alt="image" src="https://github.com/user-attachments/assets/43066e5d-da27-430e-885c-2953f136686d" />
+
 
 ### Part 8 - reconnect using alternate credentials
 
@@ -110,13 +131,19 @@ Disconnect first:
 net use Z: /delete
 ```
 
+Press **Y** when prompted
+
+<img width="659" height="61" alt="image" src="https://github.com/user-attachments/assets/2a3bdf14-79a6-4d76-9a15-150d4f3ad48e" />
+
+
 Now reconnect specifying the `labuser` account instead of your own:
 
 ```cmd
+cd /d C:\
 net use Z: \\localhost\LabShare /user:labuser Password123!
 ```
 
-This is the same technique used any time you need to access a resource as someone other than the currently logged on user, for example a service account or an account on a different domain.
+This is the same technique used any time you need to access a resource as someone other than the currently logged on user, for example a service account or an account on a different domain
 
 ---
 
@@ -150,10 +177,11 @@ net user administrator LabAdminPass1!
 ### Part 10 - connect to the C$ admin share
 
 ```cmd
+net use * /delete /y
 net use \\localhost\C$ /user:administrator
 ```
 
-Enter the password when prompted. Notice this connection has no drive letter, it is a deviceless connection. That is intentional tradecraft, no drive letter means nothing shows up in File Explorer.
+Enter the password ( **LabAdminPass1!** ) when prompted
 
 ### Part 11 - move a file through the share
 
@@ -165,6 +193,9 @@ copy C:\ShareLab\notes.txt \\localhost\C$\Windows\Temp\notes_copied.txt
 
 `C:\Windows\Temp` is one of the most common staging locations for dropped tools in real intrusions, since it is writable and rarely monitored as closely as user folders.
 
+<img width="709" height="174" alt="image" src="https://github.com/user-attachments/assets/c9682535-b743-424c-be66-176a64fce17e" />
+
+
 ---
 
 ## Defender perspective - seeing what net use leaves behind
@@ -174,6 +205,9 @@ copy C:\ShareLab\notes.txt \\localhost\C$\Windows\Temp\notes_copied.txt
 ```cmd
 net session
 ```
+
+<img width="729" height="156" alt="image" src="https://github.com/user-attachments/assets/ac0403e7-0817-4f75-bf8a-f4b9b8714c1c" />
+
 
 This shows every client currently connected to shares on this machine, along with idle time. On a real file server, this is one of the first places to check when you suspect something is pulling data off a share it should not be touching.
 
@@ -193,14 +227,22 @@ net use Z: \\localhost\LabShare
 
 ### Part 14 - check Event Viewer
 
-Open Event Viewer -> Windows Logs -> Security, and filter the current log for these Event IDs:
+Open Event Viewer 
+
+<img width="836" height="790" alt="image" src="https://github.com/user-attachments/assets/cf91acf6-41cf-4291-89cc-a14eee255661" />
+
+
+Go to Windows Logs -> Security, and look for these Event IDs:
 
 - **5140** - A network share object was accessed. Logged once per session the first time a share is touched. This is your "someone connected to a share" event.
 - **4624**, Logon Type 3 - the underlying successful network logon that happens every time `net use` authenticates to a remote machine.
-- **4648** - A logon was attempted using explicit credentials. This fires specifically because our command used `/user:`. On a real workstation this event firing unexpectedly, especially towards a server it does not normally talk to, is a strong lateral movement indicator.
 
 > [!TIP]
 > Event 5140 also fires for loopback connections like the ones in this lab (source address 127.0.0.1 or ::1). In a real hunt you would exclude loopback traffic, since it is just local services talking to themselves and is not meaningful for tracking lateral movement between hosts.
+
+
+<img width="1350" height="382" alt="2026-07-26_13-19" src="https://github.com/user-attachments/assets/b6adebc2-a94a-45bc-88b3-c3040915b710" />
+
 
 
 

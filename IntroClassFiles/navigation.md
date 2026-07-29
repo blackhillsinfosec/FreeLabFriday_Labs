@@ -1,5 +1,24 @@
-# Intro
-## [Intro To SOC]()
+# [Information Security Core Skills]()
+
+ - [Applocker](Tools/IntroClass/AppLocker/AppLocker.md)
+ - [Atomic RedTeam and Bluespawn](Tools/IntroClass/bluespawnIntroClass/Bluespawn.md)
+ - [DeepBlueCLI](Tools/IntroClass/deepbluecli/DeepBlueCLI.md)
+ - [Nessus](Tools/IntroClass/nessus/Nessus.md)
+ - [Host Firewalls and Nmap](Tools/IntroClass/Nmap/Nmap.md)
+ - [Password Cracking](Tools/IntroClass/PasswordCracking/PasswordCracking.md)
+ - [Password Spraying](Tools/IntroClass/PasswordSpray/PasswordSpray.md)
+ - [External Password Spraying](Tools/IntroClass/ExternalPasswordSpray.md)
+ - [Responder](Tools/IntroClass/Responder/Responder.md)
+ - [RITA and AC Hunter](Tools/IntroClass/RITAIntroClass/RITA.md)
+ - [Sysmon](Tools/IntroClass/Sysmon/Sysmon.md)
+ - [Web Testing](Tools/IntroClass/WebTesting/WebTesting.md)
+ - [AC Hunter CE](Tools/IntroClass/ACHCEIntroClass/ACHunterCE.md)
+ - [PingCastle](/IntroClassFiles/Tools/IntroClass/PingCastle.md)
+ - [Azure IR](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/README.md)
+ - [Wireless](/IntroClassFiles/Tools/IntroClass/Wireless.md)
+
+<br><br>
+# [Intro To SOC]()
 
   - [Linux CLI](Tools/IntroClass/LinuxCLI/LinuxCLI.md)
   - [Memory Analysis (Volatility)](Tools/IntroClass/Memory/MemoryAnalysis(Volatility).md)
@@ -24,28 +43,9 @@
 <!-- - [RITA And AC Hunter](Tools/IntroClass/RITA/RITA.md) -->
 <!--  - [Temp](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/temp.md) -->
 
-<br><br>
-## [Information Security Core Skills]()
-
- - [Applocker](Tools/IntroClass/AppLocker/AppLocker.md)
- - [Atomic RedTeam and Bluespawn](Tools/IntroClass/bluespawnIntroClass/Bluespawn.md)
- - [DeepBlueCLI](Tools/IntroClass/deepbluecli/DeepBlueCLI.md)
- - [Nessus](Tools/IntroClass/nessus/Nessus.md)
- - [Host Firewalls and Nmap](Tools/IntroClass/Nmap/Nmap.md)
- - [Password Cracking](Tools/IntroClass/PasswordCracking/PasswordCracking.md)
- - [Password Spraying](Tools/IntroClass/PasswordSpray/PasswordSpray.md)
- - [External Password Spraying](Tools/IntroClass/ExternalPasswordSpray.md)
- - [Responder](Tools/IntroClass/Responder/Responder.md)
- - [RITA and AC Hunter](Tools/IntroClass/RITAIntroClass/RITA.md)
- - [Sysmon](Tools/IntroClass/Sysmon/Sysmon.md)
- - [Web Testing](Tools/IntroClass/WebTesting/WebTesting.md)
- - [AC Hunter CE](Tools/IntroClass/ACHCEIntroClass/ACHunterCE.md)
- - [PingCastle](/IntroClassFiles/Tools/IntroClass/PingCastle.md)
- - [Azure IR](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/README.md)
- - [Wireless](/IntroClassFiles/Tools/IntroClass/Wireless.md)
 
 <br><br>
-## [Cyber Deception/Active Defense]()
+# [Cyber Deception/Active Defense]()
 
 ### Network Honeypots
   - [Spidertrap](Tools/IntroClass/ADHD/Spidertrap/Spidertrap.md)

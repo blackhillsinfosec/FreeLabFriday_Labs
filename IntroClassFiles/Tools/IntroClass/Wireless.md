@@ -9,7 +9,7 @@ It is using the current Kali Cloud Lab in Meta CTF.
 
 <pre>git clone https://github.com/her3ticAVI/Wifi-Forge</pre>
 
-<pre>cd Wifi-Forge/Framework/materials</pre>
+<pre><code>cd Wifi-Forge/Framework/materials</code></pre>
 
 <pre>sudo python3 -m pip config set global.break-system-packages true</pre>
 
@@ -25,3 +25,5 @@ It is using the current Kali Cloud Lab in Meta CTF.
 https://github.com/blackhillsinfosec/Wifi-Forge/blob/main/WIFIFORGEv2%20Lab%20Instructions.zip
 
 [Return To Lab List](/IntroClassFiles/navigation.md)
+
+

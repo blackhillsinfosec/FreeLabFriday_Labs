@@ -44,7 +44,7 @@ This will disable Defender for this session.
 Now, let's open a **command prompt**:
 
 <img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
- 
+<br>
 Next, let’s change directories to tools and start Bluespawn:
 
 ```bash
