@@ -13,4 +13,3 @@ This repository contains all lab instructions for the following content:
 - Backdoors & Breaches Card Labs
 
 ---
-
