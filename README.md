@@ -14,23 +14,3 @@ This repository contains all lab instructions for the following content:
 
 ---
 
-# Navigation
-
----
-
-## John Strand's Intro Labs From His [PWYC Classes](https://www.antisyphontraining.com/pay-what-you-can)
-
-### For the Intro Labs Navigation File go [Here](/IntroClassFiles/navigation.md)
-
----
-
-## Backdoors And Breaches - Our Very Own Table-Top Card Game.
-## Now with Labs for ANYONE!!!
-
-### For Card Navigation go [Here](/card_navigation.md)
-
---- 
-
-## Also Some Labs Meant Specifically For SOC Analysts
-
-### For SOC Analyst Navigation go [Here](/SocAnalystLabs/coursenavigation.md)
