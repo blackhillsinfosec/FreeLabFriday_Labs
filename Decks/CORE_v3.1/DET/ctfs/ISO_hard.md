@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+![image](/FilesForLabs/images/blueantisyphon.png)
 # Hard CTF - Containment Under Fire
 
 You are the on-call SOC analyst at 02:30. An EDR alert fires on a domain controller (DC01). You begin investigating and collect the following data points within the first five minutes:

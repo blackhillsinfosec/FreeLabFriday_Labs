@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+![image](/FilesForLabs/images/blueantisyphon.png)
 # Easy CTF 1 - Blocked but Not Gone
 
 You are a SOC analyst responding to an alert. A workstation on the internal network has been flagged for suspicious outbound traffic. Your team has already applied a network-level isolation by disabling its switch port.

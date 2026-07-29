@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+![image](/FilesForLabs/images/blueantisyphon.png)
 
 ### Please go though the documenation and setup for the [Cloud Version](/SocAnalystLabs/courseFiles/tools/Elastic_Doc_Cloud.md)
 

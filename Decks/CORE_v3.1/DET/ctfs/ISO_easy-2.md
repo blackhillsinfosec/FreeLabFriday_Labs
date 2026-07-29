@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/068fae26-6e8f-402f-ad69-63a4e6a1f59e)
+![image](/FilesForLabs/images/blueantisyphon.png)
 # Easy CTF 2 - Firewall Rule Reconstruction
 
 You are reviewing firewall rules on a compromised Linux host that was isolated at the host level. A colleague ran the following commands during the incident:
