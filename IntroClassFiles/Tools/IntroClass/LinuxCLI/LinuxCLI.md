@@ -118,7 +118,7 @@ lsof -i -P
 
 <img width="1264" height="553" alt="1" src="https://github.com/user-attachments/assets/3b60e298-d0d3-4ac0-91cf-2bf5c1180655" />
 
-<br>
+<br></br>
 
 Now let's dig into the **netcat process ID**.  We can do this with the lowercase **-p** switch.  This will give us all the open files associated with the listed process ID.
 
