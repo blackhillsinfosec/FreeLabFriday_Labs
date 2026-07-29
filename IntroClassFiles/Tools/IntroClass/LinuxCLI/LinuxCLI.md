@@ -94,7 +94,7 @@ whoami
 
 <img width="497" height="135" alt="2026-03-14_14-52" src="https://github.com/user-attachments/assets/12fe76e1-088c-4391-a31d-8e05256ff569" />
 
-<br>
+<br><br>
 
 At this point, we have created a backdoor with one terminal, and we have connected to this backdoor with another terminal.  Now, let's open yet another **Linux** terminal and use this use for the purpose of analysis.  
 
