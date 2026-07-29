@@ -49,7 +49,7 @@ Now, let's start ZAP.
 
 <img width="89" height="96" alt="image" src="https://github.com/user-attachments/assets/551b5e0b-1319-4c68-8619-02f6ae0a02e8" />
 
-
+<br>
 
 ![](attachments/Clipboard_2020-06-16-13-30-46.png)
 
