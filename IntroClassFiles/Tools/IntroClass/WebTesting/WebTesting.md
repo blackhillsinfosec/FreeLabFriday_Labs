@@ -22,18 +22,14 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 In this lab we will be standing up a simple **Python Web Server** and a vulnerable web server called **DVWA**.  These are designed from the ground up to teach people about a number of web application attacks.
 
 While a full intro to web attacks is out of the scope of this class, it is great to show you how to use tools like **ZAP** to automatically look for some vulnerabilities, and to show you that automated tools do not always catch everything.
+<hr>
 
+## Part 1: Starting The Python Script
 You will need to start an **Linux** terminal.
-
-
-
 
 - **Double-click** `Ubuntu Shell` on Desktop
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
-
-
-
 
 Navigate into the proper directory:
 
@@ -60,6 +56,9 @@ python3 ./dsvw.py
 ```
 
 <img width="782" height="110" alt="img02" src="https://github.com/user-attachments/assets/d90a8bac-2196-4b5b-ab65-65e5f2ca6b52" />
+<hr>
+
+## Part 2: Scanning With ZAP
 
 It's time to start **ZAP**! Go ahead and launch it from the desktop icon.
 
@@ -94,21 +93,6 @@ When it gets done crawling and scanning, select **"Alerts"**:
 <img width="1277" height="586" alt="img05" src="https://github.com/user-attachments/assets/1f3e5aa0-66f6-4432-8aad-0ccb5f486276" />
 
 This shows that **ZAP** does a pretty good job of finding the easy to identify vulnerabilities.
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
-
-
 
 <!--
 
