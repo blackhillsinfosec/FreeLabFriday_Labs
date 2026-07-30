@@ -16,8 +16,8 @@ We will start by using **DeepBlueCLI**, then move into looking directly at the e
 
 We are going to use **DeepBlueCLI** to see if there are any odd logon patterns in the domain logs.
 <hr>
-## Step 1: Reviewing Logon Failures
 
+## Step 1: Reviewing Logon Failures
 Let's start by opening **Windows Powershell**:
 
 <img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/5676575e-6ba5-4971-b1de-68d60234af47" />
