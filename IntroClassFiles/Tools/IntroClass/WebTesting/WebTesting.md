@@ -18,7 +18,7 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 # Web Testing
 
 # Windows VM
-## Lab Objective:
+## Lab Objective
 
 In this lab we will be standing up a simple **Python Web Server** and a vulnerable web server called **DVWA**.  These are designed from the ground up to teach people about a number of web application attacks.
 
