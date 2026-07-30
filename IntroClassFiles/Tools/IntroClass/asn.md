@@ -35,7 +35,7 @@ Now, let's do a quick count and sort on those ASNs and the number of "bad" IP ad
 
 <pre>awk -F"|" '{ print $1, $4 }' asn_merge.txt | sort | uniq -c | sort -nr | less</pre>
 
-
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/awkless.png)
 
 The first column is the count of “bad” IP addresses in the ASN and the second column is the ASN number.
 
