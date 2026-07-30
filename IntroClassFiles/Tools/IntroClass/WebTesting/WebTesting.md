@@ -84,7 +84,8 @@ Then, select **"Use traditional spider"** and then select **"Attack"**:
 <img width="797" height="256" alt="img03" src="https://github.com/user-attachments/assets/78c90981-02bf-468d-8383-8922323130e5" />
 
 >[!IMPORTANT]
->The scan will probably break **DSVW**, you might have to start it again during during the scan:
+>The scan will probably break **DSVW**, you might have to start it again during during the scan.
+>You will be able to tell if you do not see "Cross Site Scripting" as an alert when the scan is done.
 
 <img width="823" height="330" alt="img04" src="https://github.com/user-attachments/assets/0d8031ef-1cf0-4725-9fc7-747113363431" />
 
