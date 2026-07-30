@@ -9,7 +9,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Wireshark
-
+###Lab Objective
 Now that we have spent a little time working with **tcpdump**, let's take a look at Wireshark.
 
 We want to make it clear that **Wireshark** is not "better" than **tcpdump**.  They each have very strong pros and cons.  
@@ -30,11 +30,12 @@ Cons of **Wireshark**
 Basically, it is key to learn and know both.
 
 Let's get started.
+<hr>
 
-First, open wireshark:
+## Step 1: Opening The Pcap File
+First, open Wireshark:
 
 <img width="513" height="590" alt="2026-06-08_17-12" src="https://github.com/user-attachments/assets/7ac5463b-08e7-47e8-b67b-b3d8becd994e" />
-
 
 Once Wireshark opens, go to File > Open
 
@@ -43,7 +44,6 @@ Once Wireshark opens, go to File > Open
 Then, select **magnitude_1hr** in the Open Capture File box. The file is in the **/home/ubuntu/Intro_To_SOC** folder if you cannot find it.
 
 <img width="699" height="196" alt="image" src="https://github.com/user-attachments/assets/b1aba4f7-8a13-4048-84f3-6ef496bef72c" />
-
 
 When Wireshark opens, you will see packets represented in three different windows:
 
@@ -61,7 +61,7 @@ Any of the lines with a "**>**" can be expanded:
 
 ![](attachments/wireshark_expandeddecode.png)
 
-This means you do not have to memorize every possible packet and protocol value in hex...  Unless that is your thing.  If it is....  You must be Judy Novak, Mike Poor, or Jonathan Ham. 
+This means you do not have to memorize every possible packet and protocol value in hex...  Unless that is your thing.<br>  If it is....  You must be Judy Novak, Mike Poor, or Jonathan Ham. 
 
 The last window is the **hex** for the packet:
 
@@ -76,67 +76,59 @@ Notice that when you do this, the corresponding data is also highlighted on the 
 This means Wireshark can decode the hex on the fly and automatically highlight the relevant data instantly.
 
 Lets play with some statistics.
+<hr>
 
+## Step 2: The Statistics Menu
 Please select Statistics > HTTP > Requests:
-
 ![](attachments/wireshark_statshttprequests.png)
 
 This will show us the various HTTP requests for the capture:
-
 ![](attachments/wireshark_httprequests.png)
 
 Now, let's look at Statistics > Conversations:
-
 ![](attachments/wireshark_conversations.png)
 
 This will give us a breakdown of who was talking to whom:
-
 ![](attachments/wireshark_inconversations.png)
 
 Please select IPv4 at the top of the window:
-
 ![](attachments/wireshark_ipv4.png)
 
 Then click on the top of the packets column <b>twice</b>:
-
 ![](attachments/wireshark_packetssort.png)
 
 This gives us a breakdown of who was chatting with what system the <i><b>most</b></i>.  Click it again and it will sort the opposite direction and show you who was chatting with what system the <i><b>least</i></b>:
-
 ![](attachments/wireshark_packetsortlow.png)
 
 Lets click the top of the packets column one more time to sort it by highest frequency.
 Do we want to know what those systems were saying to each other? This can be done by right clicking on a conversation and selecting Apply as Filter > Selected > A<->B
-
 ![](attachments/wireshark_filter.png)
 
-You should see the main Wireshark screen change
+You should see the main Wireshark screen change.
 
 Then, close the Conversations window:
 
 Notice the following in the filter bar.  
-
 ![](attachments/wireshark_appliedfilter.png)
 
 In this instance, this is saying:
 
 **"IP address equals 192.168.99.52 AND IP address equals 68.183.138.51"**
 
-If a packet meets both of those critiera it is displayed:
-
+If a packet meets both of those criteria it is displayed:
 ![](attachments/wireshark_meetscriteria.png)
 
 Now, right-click on any of the packets and select Follow > TCP Stream:
-
 ![](attachments/wireshark_followtcp.png)
 
 This is showing the request (in red) and the response (in blue) between our two systems:
-
 ![](attachments/wireshark_tcpdata.png)
 
 Anything look strange there?  If you look closely, there is a lot of encoded **PowerShell**.
+<hr>
 
-Let's play with some basic filters in the filter bar.  We have already seen how Wireshark can filter on IP addresses.  But we can also filter on protocols.
+## Step 3: Learning How To Filter
+Let's play with some basic filters in the filter bar. <br>We have already seen how Wireshark can filter on IP addresses. <br> But we can also filter on protocols.
 
 To start, just type a lowercase L.
 
