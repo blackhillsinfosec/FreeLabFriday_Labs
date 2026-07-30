@@ -14,12 +14,15 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 ---
 
-
-
 # DeepBlueCLI
+### Lab Objective
+DeepBlueCLI is a free tool by **Eric Conrad** that demonstrates some amazing detection capabilities. <br>
+It also has some checks that are effective for showing how **UEBA** style techniques can be in your environment. 
 
-DeepBlueCLI is a free tool by **Eric Conrad** that demonstrates some amazing detection capabilities.  It also has some checks that are effective for showing how **UEBA** style techniques can be in your environment. 
+In this lab, we will be using DeepBlueCLI to detect a password spraying attack.
+<hr>
 
+## Step 1: 
 Let's get started by opening **Windows Powershell**.
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-15" src="https://github.com/user-attachments/assets/49dc1b10-56f2-411a-b27e-37668bbb805a" />
@@ -45,7 +48,6 @@ Set-ExecutionPolicy Unrestricted
 Most likely, you will be prompted to confirm the change.
 
 Please enter **"Y"** for Yes.
-
 ![](attachments/deepblue_setexecutionpolicy.png)
 
 It is very common for attackers to add additional users on to a system they have compromised.  This gives them a level of persistence that they otherwise would not gain with malware.  Why?  There are lots and lots of tools to detect malware.  By creating an extra user account it allows them to blend in.  
@@ -57,14 +59,16 @@ Now, let’s run a check in the **.evtx** files for adding a new user:
 ```
 
 You should see the following:
-
 ![](attachments/deepblue_newusersecurity.png)
 
 Another attack that very few **SIEMs** detect is password spraying.  This is where an attacker takes a user list from a domain, and sprays it with the same password, think **"Summer2020"**.  This is effective because it keeps the lockout threshold below the lockout policy and many times flies under the radar simply because accounts are not getting locked out. 
 
 This is the exact behavior that **UEBA** should be able to detect.
+<hr>
 
-Let's look at an event log with a password spray attack.  This is very much part of what a full **UEBA** solution does:
+## Step 2: Reviewing Event Logs
+Let's look at an event log with a password spray attack.  
+<br>This is very much part of what a full **UEBA** solution does:
 
 ```ps
 .\DeepBlue.ps1 .\evtx\smb-password-guessing-security.evtx
