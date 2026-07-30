@@ -18,14 +18,7 @@ Let’s get started by opening a Terminal (or Ubuntu Shell).
 
 <img width="49" height="49" alt="image" src="https://github.com/user-attachments/assets/07e58580-5e41-41a2-ae2a-b9017983b271" />
 
-
-We need to get into the root shell. 
-
-```bash
-sudo su -
-```
-
-Then, navigate to the appropriate directory. 
+Navigate to the appropriate directory. 
 
 ```bash
 cd ~/Intro_To_SOC/
