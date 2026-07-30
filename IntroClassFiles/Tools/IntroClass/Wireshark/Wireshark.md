@@ -133,7 +133,6 @@ Let's play with some basic filters in the filter bar. <br>We have already seen h
 To start, just type a lowercase L.
 
 Notice how Wireshark tries to help you with possible completion options as you type.
-
 ![](attachments/wireshark_autocomplete.png)
 
 Now either finish typing **llmnr**, or scroll down to find it within the suggestions list as pictured above.
@@ -141,11 +140,9 @@ Now either finish typing **llmnr**, or scroll down to find it within the suggest
 Then hit enter.
 
 When you do this, Wireshark shows you all packets that match the criteria of the protocol selected.  
-
 ![](attachments/wireshark_llmnr.png)
 
 Now try putting in **ipv6** and hit enter:
-
 ![](attachments/wireshark_ipv6.png)
 
 This allows you to very quickly drill in on any specific protocols you are reviewing in a packet capture.
@@ -159,17 +156,6 @@ Put the following into the filter bar:
 ![](attachments/wireshark_httpcontains.png)
 
 With **Wireshark**, we can search through all our packets looking for specific strings and data.
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
 
 
 
