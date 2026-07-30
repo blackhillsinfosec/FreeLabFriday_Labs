@@ -66,7 +66,7 @@ Another attack that very few **SIEMs** detect is password spraying.  This is whe
 This is the exact behavior that **UEBA** should be able to detect.
 <hr>
 
-## Step 2: Reviewing Event Logs
+## Step 2: Reviewing Event Logs With DeepBlueCLI
 Let's look at an event log with a password spray attack.  
 <br>This is very much part of what a full **UEBA** solution does:
 
@@ -92,13 +92,4 @@ For fun, let’s look at how **DeepBlueCLI** detects various encoding tactics th
 
 ![](attachments/deepblue_powershell-invokeobfuscation.png)
 
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
 
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
