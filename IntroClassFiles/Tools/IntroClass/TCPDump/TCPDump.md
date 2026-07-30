@@ -9,9 +9,11 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # TCPDump
-
+### Lab Objective
 In this lab, we will be looking at some basic **tcpdump** filters that every SOC and security analyst should know.
+<hr>
 
+## Part 1: Running the Command.
 Let’s get started by opening a Terminal.
 
 <img width="49" height="49" alt="image" src="https://github.com/user-attachments/assets/07e58580-5e41-41a2-ae2a-b9017983b271" />
@@ -40,35 +42,32 @@ tcpdump -n -r magnitude_1hr.pcap host 192.168.99.52
 For this command, we are telling **tcpdump** to do two things: do not resolve hostnames **(-n)** and read in the data from a file **(-r)**.
 
 <img width="1389" height="554" alt="image" src="https://github.com/user-attachments/assets/2bcd6e52-c127-4d7c-82f0-2ebda51e3a33" />
+<hr>
 
-
+## Part 2: Breaking Down The Output.
 What exactly is this showing us?
 
 Well, it is showing each packet's timestamp:
-
 <img width="157" height="24" alt="image" src="https://github.com/user-attachments/assets/fa38f4e7-bc78-4275-8796-11902d856a9a" />
 
 
 Its protocol:
-
 <img width="32" height="179" alt="image" src="https://github.com/user-attachments/assets/22989634-6a47-4150-bc60-605e4cdeb514" />
 
 
 Its **source** IP address + port direction and **destination** IP address + port :
-
 <img width="404" height="22" alt="image" src="https://github.com/user-attachments/assets/c5d66759-2315-41b8-ba9c-b306a05613e3" />
 
 
 Its control bit flags and sequence numbers:
-
 <img width="350" height="24" alt="image" src="https://github.com/user-attachments/assets/5d09835f-022c-4158-8b52-fa9635040d75" />
 
 
 And data size:
-
 <img width="119" height="29" alt="image" src="https://github.com/user-attachments/assets/507e5c82-a09b-47f3-a4bf-1a14cbcdc939" />
+<hr>
 
-
+## Part 3: Learning To Filter.
 We can get the filter to be a bit more granular.  In fact, you can create filters for literally every part of a packet!
 
 Let's add port number.
@@ -144,10 +143,10 @@ tcpdump -n -r magnitude_1hr.pcap net 192.168.99.0/24
 ```
 
 <img width="1388" height="726" alt="image" src="https://github.com/user-attachments/assets/ce386eb3-413d-4e2a-8ab4-8e2adf61a57a" />
+<hr>
 
-
-Want to play with some more pcaps?  Cool.
-
+## Looking For More Practice?
+Want more Pcaps to practice with?
 Please check out, "Malware of the Day" from **Active Countermeasures**!
 
 `https://www.activecountermeasures.com/category/malware-of-the-day/`
