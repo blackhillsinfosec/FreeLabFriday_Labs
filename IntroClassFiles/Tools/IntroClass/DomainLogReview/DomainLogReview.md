@@ -44,8 +44,10 @@ When this runs, there is an alert that catches our attention right away:
 We have **240** logon failures.  That is a lot for this small org.
 
 Lets dig into the actual logs and see if we can see a pattern.
+<hr>
 
-To do this, open File Explorer and navigate to the C:\IntroLabs\DeepBlueCLI-master\EntLogs directory:
+## Step 2: Looking For Log Patterns
+Open File Explorer and navigate to the C:\IntroLabs\DeepBlueCLI-master\EntLogs directory:
 
 <img width="534" height="48" alt="OpenFileExplorer" src="https://github.com/user-attachments/assets/bd5ac519-825a-4921-bed6-3b8baf52a4b7" />
 
@@ -60,7 +62,6 @@ Once in this directory, double click on **DC2-secLogs-3-26-DomainPasswordSpray.e
 ![](attachments/DC2-double-click.png)
 
 This will open Windows Event Viewer.  Note, it will open in **Sysmon Operational**.  This is not what we want.  Please scroll down to the **DC2-secLogs-3-26-DomainPasswordSpray.evtx** file under Saved Logs (all the way at the bottom):
-
 ![](attachments/dlr_winevent.png)
 
 Then click it.  
@@ -68,17 +69,14 @@ Then click it.
 It will open the **DC logs** with the attack.
 
 Click on the header column called **"Event ID"**.  This will sort the logs by **"ID number"**. 
-
 ![](attachments/dlr_microsoftsecauditing.png)
 
 Specifically, we are looking for **Event ID 4776**.  This is the Credential Validation Event log.
 
 Select one, then use the arrow keys to cycle through the entries.  Watch the Logon Account Name in the General tab:
-
 ![](attachments/dlr_eventproperties1.png)
 
 Notice the large number of login attempts from a single system:
-
 ![](attachments/dlr_eventproperties2.png)
 
 ![](attachments/dlr_eventproperties3.png)
@@ -88,19 +86,7 @@ Notice the large number of login attempts from a single system:
 We now know that the workstation **WINLABV2WKSRL-9** was attempting to authenticate to a large number of **Logon Accounts** in a very short period of time.
 
 Also, notice at the bottom of the General tab, these are predominantly **Audit Failures**:
-
 ![](attachments/dlr_auditfailure.png)
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
 
 
 
