@@ -96,6 +96,10 @@ When it gets done crawling and scanning, select **"Alerts"**:
 
 This shows that **ZAP** does a pretty good job of finding the easy to identify vulnerabilities.
 
+>[!IMPORTANT]
+>If you are not seeing the highest level alerts, it means that the python script was killed during the scan.<br>
+>If this happens, go back to your terminal and re-run the script. ZAP will finish scanning automatically.
+
 <!--
 
 REMOVED PER JOHNS REQUEST
