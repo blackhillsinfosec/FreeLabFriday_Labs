@@ -11,19 +11,17 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 # Web Log Review
 
 # Windows VM
-
+## Lab Objective
 In this lab we will be standing up a vulnerable web server called DVWA.  It is designed from the ground up to teach people about a number of web application attacks.
 
 While a full intro to web attacks is out of the scope of this class, it is great to show you how to use tools like ZAP to automatically look for some vulnerabilities, and to show you that automated tools do not always catch everything.
 
+<hr>
 
-
-
+## Step 1: Getting Your IP Address
 - Open **Ubuntu Shell**
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/ae6d408b-7622-4545-b849-aef3d8fa0cb4" />
-
-
 
 ```bash
 sudo su -
@@ -43,13 +41,13 @@ docker run --rm -it -p 80:80 vulnerables/web-dvwa
 ```
 
 <img width="1102" height="317" alt="image" src="https://github.com/user-attachments/assets/bbb8b00e-1ae1-4896-8ce5-3c9affbc5c79" />
+<hr>
 
-
+## Step 2: Attacking With ZAP
 Now, let's start ZAP.
 
 <img width="89" height="96" alt="image" src="https://github.com/user-attachments/assets/551b5e0b-1319-4c68-8619-02f6ae0a02e8" />
 
-<br>
 
 ![](attachments/Clipboard_2020-06-16-13-30-46.png)
 
@@ -61,21 +59,20 @@ Then enter the URL of your Docker system.  It will be in `http://<LINUXIP>` synt
 
 <img width="455" height="152" alt="image" src="https://github.com/user-attachments/assets/36a48d43-c0ff-4b65-97db-8e9fb845a00a" />
 
-
 Then select the Attack button:
 
 ![](attachments/Clipboard_2020-12-11-06-45-46.png)
 
 This will start the scan.  You should be able to see the scan activity in the lower part of ZAP.
 
-
 <img width="947" height="362" alt="image" src="https://github.com/user-attachments/assets/49633ae1-1b42-4664-9950-ca334152e08d" />
-
 
 Now, let's go back to the **Command Prompt** window and see the logs:
 
 <img width="1106" height="622" alt="image" src="https://github.com/user-attachments/assets/0d8192d6-13b3-4b37-828f-f8b88d461a26" />
+<hr>
 
+## Step 3: Analyzing the Output
 
 What are some things to look for?
 
@@ -85,8 +82,7 @@ Also, look for odd things like below:
 
 <img width="608" height="256" alt="logs_boxed_suspicious" src="https://github.com/user-attachments/assets/77b5bc01-2dda-4d7d-9684-e7e97747bdae" />
 
-
-But what would qualify as odd? Let's think this through. First, look at timing. Notice how fast the connections are comming in from a single IP. Also, notice how many of the same connections are going after the exact same thing again and again. Now, lets look for odd encodings. Looking for characters like %. Finally. spend some time getting to know what attacks look like at OWASP.
+But what would qualify as odd? Let's think this through. First, look at timing. Notice how fast the connections are coming in from a single IP. Also, notice how many of the same connections are going after the exact same thing again and again. Now, lets look for odd encodings. Looking for characters like %. Finally. spend some time getting to know what attacks look like at OWASP.
 
 The key for any SOC analysts is to first learn what is normal log traffic from the apps we monitor. Then, slowly we start attacking and seeing what the different attack patterns look like. There is no simple signature-based detection approach that works for all applications. The security industry has been trying this for years with various levels of success. 
 
@@ -95,26 +91,15 @@ Start by baselining normal.
 Then attack. 
 
 It is all about knowing our networks ad apps.
+<hr>
 
-### Going further
+## Going Further
 
 https://owasp.org/
 
 https://www.zaproxy.org/
 
 https://cirt.net/Nikto2
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
 
 
 
