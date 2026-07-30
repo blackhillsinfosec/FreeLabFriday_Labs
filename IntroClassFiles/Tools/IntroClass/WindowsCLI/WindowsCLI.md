@@ -9,34 +9,20 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Windows CLI
-
+### Lab Overview
 In this lab, we will create **malware**, run it, and use the tools we went through in the slides to look at what an attack looks like on a live system.  
 
 One of the best ways to learn is to actually just dig in and do it.  
+<hr>
 
-
-
-
-
-
+## Step 1: Disabling Defender & Windows Firewall
 - Open **Ubuntu Shell**
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/ae6d408b-7622-4545-b849-aef3d8fa0cb4" />
 
-
-
-
-
-
-
-
-
 Before going any further, we need to ensure that **Windows Defender** is disabled. To do this, open a Windows **Powershell** by clicking the icon in the taskbar.
 
-
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-15" src="https://github.com/user-attachments/assets/be17e180-e1a4-4b42-b537-9b2931ac0284" />
-
-
 
 ```ps
 Set-MpPreference -DisableRealtimeMonitoring $true
@@ -95,7 +81,9 @@ It will take a second to connect, be patient!
 When connected, our terminal will look like this.
 
 <img width="62" height="41" alt="2026-03-15_23-29" src="https://github.com/user-attachments/assets/1595387c-029b-462c-90dd-4430c0856bed" />
+<hr>
 
+## Step 2: Setting & Executing The Metasploit Payload
 Next, run the following command:
 
 ```bash
@@ -161,6 +149,9 @@ exploit
 <img width="964" height="262" alt="2026-03-15_23-57" src="https://github.com/user-attachments/assets/d49e2fb2-0a0d-4cb3-a4a8-1771dd4f70c4" />
 
 While there is not much here for this lab, it is key to remember that these two commands would help us detect an attacker that is mounting shares on other computers (net view).  It would also tell us if an attacker had mounted a share on this system (net session). 
+<hr>
+
+## Step 3: Where's The Malware?
 
 We are not done with network connections yet.  Lets try looking at our malware!
 
@@ -176,7 +167,6 @@ netstat -naob
 
 <img width="743" height="578" alt="2026-03-16_00-02" src="https://github.com/user-attachments/assets/a30004d5-0d95-4800-93a3-8debde52f3a2" />
 
-
 Well, that is a lot of data. This is showing us which ports are open on this system **(0.0.0.0:portnumber)** or **(LISTENING)**.
 As well as the remote connections that are made to other systems **(ESTABLISHED)**.  In this example, we are really interested in the **ESTABLISHED** connections:
 
@@ -186,9 +176,7 @@ netstat -naob | findstr ESTABLISHED
 
 <img width="945" height="387" alt="2026-03-16_00-01" src="https://github.com/user-attachments/assets/4bb6bd11-5df0-4d05-8120-1a80c4c2bdf8" />
 
-Specificly, we are interested in the connection on **port 4444** as we know this is the port we used for our malware.
-
-
+Specifically, we are interested in the connection on **port 4444** as we know this is the port we used for our malware.
 
 Let's get the Process ID **(PID)** from the output of our **"netstat -naob"** command that we ran earlier so we can dig a little deeper.
 
@@ -196,7 +184,7 @@ Let's get the Process ID **(PID)** from the output of our **"netstat -naob"** co
 >
 >Look for port **4444**, the **PID** is the number right after `ESTABLISHED`
 
-We will start with tasklist  
+We will start with `tasklist`:  
 
 ```ps
 tasklist /m /fi "pid eq [PID]"
@@ -242,8 +230,11 @@ Scroll until you see `rundll32.exe`
 <img width="322" height="113" alt="2" src="https://github.com/user-attachments/assets/1873ffbb-ef95-42ff-8499-c32b5bfe586c" />
 
 HA!! An outbound connection to the **attacker**!!!
+<hr>
 
-Lets go through the steps we took to hunt for a malicious process
+## Step 4: What Did We Just Do?
+
+Let's go through the steps we took to hunt for a malicious process.
 
 1. We looked for **ESTABLISHED** connections
 
@@ -252,17 +243,6 @@ Lets go through the steps we took to hunt for a malicious process
 3. We saw the connection was made by a **Trusted Windows Process**
 
 4. We dug deeper to see all processes making connections, and confirmed our suspicions that the **process** was used **maliciously**, because `rundll32.exe` should never be making outbound **TCP connections**
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
 
 
 
