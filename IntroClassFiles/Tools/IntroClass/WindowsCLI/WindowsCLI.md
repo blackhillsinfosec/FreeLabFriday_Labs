@@ -16,11 +16,8 @@ One of the best ways to learn is to actually just dig in and do it.
 <hr>
 
 ## Step 1: Disabling Defender & Windows Firewall
-- Open **Ubuntu Shell**
 
-<img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/ae6d408b-7622-4545-b849-aef3d8fa0cb4" />
-
-Before going any further, we need to ensure that **Windows Defender** is disabled. To do this, open a Windows **Powershell** by clicking the icon in the taskbar.
+Before we begin, we need to ensure that **Windows Defender** is disabled. To do this, open a Windows **Powershell** by clicking the icon in the taskbar.
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-15" src="https://github.com/user-attachments/assets/be17e180-e1a4-4b42-b537-9b2931ac0284" />
 
@@ -62,7 +59,10 @@ ipconfig
 
 <img width="629" height="253" alt="2026-03-15_23-42" src="https://github.com/user-attachments/assets/6a8b012f-cd92-47fd-8f0d-eac30d124877" />
 
-Now head back to your **Linux** terminal.
+Now, let's open our **Ubuntu Shell**
+
+<img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/ae6d408b-7622-4545-b849-aef3d8fa0cb4" />
+
 
 We need to gain root access. To do that, run the following command:
 
