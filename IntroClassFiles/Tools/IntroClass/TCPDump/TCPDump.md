@@ -166,17 +166,6 @@ Here is a great resource to try some more options in **TCPDump**:
 
 `https://danielmiessler.com/study/tcpdump/`
 
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
 
 
 
