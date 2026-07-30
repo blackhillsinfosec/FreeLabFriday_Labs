@@ -35,7 +35,9 @@ Then, navigate to the tools folder and open the **NessusLab** file:
 
 When the file opens, please focus on service banners and files.
 ![](attachments/nessus_home.png)
+<hr>
 
+## Step 2: Hunt For Vulnerabilities
 
 Now, we are going to have you hunt for **"Low and Medium"** Vulnerabilities that needed to be addressed.
 
