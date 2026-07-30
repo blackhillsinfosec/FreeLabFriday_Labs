@@ -18,7 +18,7 @@ While a full intro to web attacks is out of the scope of this class, it is great
 
 <hr>
 
-## Step 1: Getting Your IP Address
+## Step 1: Starting The Docker
 - Open **Ubuntu Shell**
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/ae6d408b-7622-4545-b849-aef3d8fa0cb4" />
