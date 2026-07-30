@@ -13,15 +13,14 @@ We can take a list on known bad IP addresses and do a count on which ASNs have t
 <hr>
 
 ## Step 1: Getting A List of "Bad" IP's
-First, let's open a Kali Terminal
-
-<img width="48" height="41" alt="image" src="https://github.com/user-attachments/assets/56b5f591-451a-4477-a28b-9a34efb12d68" />
+First, let's open an Ubuntu Shell:
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/openshell.png)
 
 Now, let's pull down an open source list of "bad" IP addresses:
 
 <pre>wget https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt</pre>
 
-<img width="643" height="267" alt="image" src="https://github.com/user-attachments/assets/5980ff3a-6f5e-4a01-b5b4-2028c5bbc5cc" />
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/wget.png)
 <hr>
 
 ## Step 2: Finding The Associated ASN's
