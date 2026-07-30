@@ -9,12 +9,14 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Domain Log Review
-
+### Lab Overview
 In this lab we are going to look at some logs that are generated in a domain password spray attack.
 
 We will start by using **DeepBlueCLI**, then move into looking directly at the event logs themselves.
 
 We are going to use **DeepBlueCLI** to see if there are any odd logon patterns in the domain logs.
+<hr>
+## Step 1: Reviewing Logon Failures
 
 Let's start by opening **Windows Powershell**:
 
