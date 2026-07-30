@@ -82,7 +82,8 @@ Also, look for odd things like below:
 
 <img width="608" height="256" alt="logs_boxed_suspicious" src="https://github.com/user-attachments/assets/77b5bc01-2dda-4d7d-9684-e7e97747bdae" />
 
-But what would qualify as odd? Let's think this through. First, look at timing. Notice how fast the connections are coming in from a single IP. Also, notice how many of the same connections are going after the exact same thing again and again. Now, lets look for odd encodings. Looking for characters like %. Finally. spend some time getting to know what attacks look like at OWASP.
+But what would qualify as odd? Let's think this through. <br>
+First, look at timing. Notice how fast the connections are coming in from a single IP. Also, notice how many of the same connections are going after the exact same thing again and again. Now, lets look for odd encodings. Looking for characters like %. Finally. spend some time getting to know what attacks look like at OWASP.
 
 The key for any SOC analysts is to first learn what is normal log traffic from the apps we monitor. Then, slowly we start attacking and seeing what the different attack patterns look like. There is no simple signature-based detection approach that works for all applications. The security industry has been trying this for years with various levels of success. 
 
