@@ -16,7 +16,7 @@ First, let's open a Kali Terminal
 
 Now, let's pull down an open source list of "bad" IP addresses:
 
-`wget https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt`
+<pre>wget https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt</pre>
 
 <img width="643" height="267" alt="image" src="https://github.com/user-attachments/assets/5980ff3a-6f5e-4a01-b5b4-2028c5bbc5cc" />
 
