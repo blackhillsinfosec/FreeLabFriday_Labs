@@ -27,7 +27,12 @@ For this lab we will be running **three** different Linux terminals.
 
 ***
 
-- Open **Terminal 1**
+## Step 1: Terminal 1
+<br>
+
+Start by opening a Terminal (or Ubuntu Shell).
+<br>
+Then, run the following command:
 
 ```bash
 sudo su -
@@ -50,12 +55,19 @@ Next, let's start the backdoor:
 In the above command, we are creating a **Netcat listener** that forwards all input through a backpipe and then into a bash session.  It then takes the output of the bash session and puts it back into the **Netcat listener**. 
 
 On a more basic level, this will create a backdoor listening on port 2222 of our **Linux** system.
+<br>
+<hr>
 
-Now, let's open another **Linux** terminal.  This terminal will connect to the backdoor we just created.  
+## Step 2: Terminal 2
 
-- Open **Terminal 2**
+Now, let's open another Terminal (or Ubuntu Shell). 
+<br>
+This terminal will connect to the backdoor we just created.  
 
-Now we will need to know the IP address of our **Linux** system:
+
+We need to know the IP address of our **Linux** system.
+<br>
+Run the following:
 
 ```bash
 ifconfig
@@ -97,13 +109,14 @@ whoami
 <br>
 
 
-At this point, we have created a backdoor with one terminal, and we have connected to this backdoor with another terminal.  Now, let's open yet another **Linux** terminal and use this use for the purpose of analysis.  
+At this point, we have created a backdoor with one terminal, and we have connected to this backdoor with another terminal.  
+<hr>
 
+## Step 3: Terminal 3
 
-
-
-- Open **Terminal 3**
-
+Now, let's open yet another **Linux** Terminal and use this use for the purpose of analysis.  
+<br>
+Run the following:
 ```bash
 sudo su -
 ```
