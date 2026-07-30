@@ -153,7 +153,7 @@ While there is not much here for this lab, it is key to remember that these two 
 
 ## Step 3: Where's The Malware?
 
-We are not done with network connections yet.  Lets try looking at our malware!
+We are not done with network connections yet.  Lets try looking for our malware!
 
 Go ahead an open an instance of **Windows PowerShell**.
 
