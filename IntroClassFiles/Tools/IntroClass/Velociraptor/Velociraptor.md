@@ -131,7 +131,7 @@ Once logged in, you will see the following:
 ![](attachment/velociraptor_velociraptorhome.png)
 <hr>
 
-## Starting The Client
+## Step 3: Starting The Client
 Next, we need to start the client. Lucky for us, it is the same executable.
 
 We will need to open another **Windows Command Prompt**. Right click on the terminal icon in the task bar, and select **"command prompt"**:
@@ -202,7 +202,7 @@ Now click the **Text** tab
 <img width="862" height="802" alt="2026-03-15_12-03" src="https://github.com/user-attachments/assets/4d9f5fb0-1aa6-4ab0-89b9-c1669ab93af4" />
 <hr>
 
-## Step 3: Starting A Hunt
+## Step 4: Starting A Hunt
 Let’s do a Hunt.   Please select the Hunt icon.
 ![](attachment/velociraptor_selecthunt.png)
 
