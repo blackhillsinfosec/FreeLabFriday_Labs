@@ -194,17 +194,13 @@ If we scroll down, we can see the actual usage information for netcat.  We pulle
 To reveal more information in the output, press **"enter"**.
 
 <img width="894" height="725" alt="2" src="https://github.com/user-attachments/assets/258402b5-c5a4-4b1d-a172-0643ae0f1ad4" />
-<br>
-- Press **q** to go back
 
-***                                                                 
-***Finished with the Labs?***
+<hr>
 
-Please be sure to destroy the lab environment!
+### Cleanup & Exiting
+To exit the running command, press **q**.
 
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
 
----
 
 
 
