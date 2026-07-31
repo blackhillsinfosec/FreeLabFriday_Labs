@@ -113,7 +113,8 @@ hayabusa search --file sysmon.evtx --regex '(?i)(cmd\.exe|powershell|whoami|mimi
 
 Following up this lead we can get to the same results as earlier, or use it to group alerts by services.<br>
 The possibilities are endless
-<br><br>
+<br>
+<hr>
 
 ## Your turn
 >[!TIP]
