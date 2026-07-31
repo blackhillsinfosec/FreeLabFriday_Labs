@@ -59,6 +59,8 @@ As investigators, we have a couple of options. <br>
 
 We can either analyze the Word document she opened to understand its content better, or we can examine audit logs to track the activities of users in SharePoint.
 
+### Investigate Sharepoint Audit Logs
+
 Because of the wider view that logs give us, we will look at the Sharepoint audit logs.
 
 ![a strange exchange](./images/two_todds.PNG)
@@ -83,9 +85,13 @@ The attacker also got access to Jane's account and the network by poisoning the 
 
 *This lab will require the DC-1 Sysmon and Security Logs to follow along.*
 
-When an attack occurs, there are [phases to most attacks](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) that usually happen. We saw the attacker gained entry into a workstation by using a Word Macro. The next route the attacker will utilize is privilege escalation.
+When an attack occurs, there are [phases to most attacks](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) that usually happen. 
+
+We saw the attacker gained entry into a workstation by using a Word Macro. The next route the attacker will utilize is privilege escalation.
 
 We received reports of some unexpected [Kerberos ticket](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview) requests originating from Jane Ross to an [SPN](https://learn.microsoft.com/en-us/windows/win32/ad/service-principal-names) admin account.
+
+### Examine The Sysmon Log
 Let's open our Domain Controller security log and Sysmon log to see if we can find some unexpected Kerberoast ticket requests.
 
 There's an important event in the security log to note.
