@@ -19,6 +19,7 @@ In this lab we will be looking at a log with r-base-core from an **ASA firewall*
 With the power of **Bash scripting** we can get some useful information.
 <hr>
 
+## Step 1: Viewing The Logs
 Let's get your **Linux** system to do some math!
 
 Open a terminal
@@ -44,6 +45,7 @@ Not only is there a ton of information here, you might now feel like you are stu
 
 No worries though, just hit **"q"** to return to your terminal.
 
+### Focus On Closed Connections
 Let's refine the output a little more by running the following command:
 
 ```bash
@@ -56,9 +58,9 @@ When it is all put together, our output looks something like this:
 
 <img width="1238" height="333" alt="2026-03-23_12-19" src="https://github.com/user-attachments/assets/bcb1a577-46f5-4d17-9f17-e479075f5f37" />
 
-
 It's looking a lot better, but I think we can do better. But how?
 
+### Focus On 13.107.237.38
 If you look at our previous output, you may notice that outside connections are being made to two different addresses:
 **"13.107.237.38"** and **"18.160.185.174"**
 
@@ -70,8 +72,6 @@ grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | grep FIN | grep 13.107.
 
 <img width="1850" height="865" alt="2026-03-23_12-21" src="https://github.com/user-attachments/assets/a91d273b-fff1-4a99-b6ff-91b4d2f7ec71" />
 
-
-
 This output shows us all of the data coming from **"13.107.237.38"**
 
 Don't forget, there were also a lot of connections from **"18.160.185.174"**.  Here, let's zoom in on that IP as well:
@@ -82,8 +82,7 @@ grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | grep FIN | grep 18.160.
 
 <img width="1248" height="754" alt="2026-03-23_12-24" src="https://github.com/user-attachments/assets/37716c89-26bf-4ebe-ad70-1aca4872042a" />
 
-
-Look at the last field.  See a pattern?  Is there one?  Let's see just that field!
+Look at the last field. See a pattern? Is there one? Let's see just that field!
 
 ```bash
 grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | grep FIN | grep 18.160.185.174 | cut -d ' ' -f 14
