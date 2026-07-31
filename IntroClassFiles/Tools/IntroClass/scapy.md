@@ -88,14 +88,14 @@ Let's create a raw packet!
 
 <pre>my_packet.show()</pre>
 <img width="262" height="325" alt="image" src="https://github.com/user-attachments/assets/b7b85f42-8686-4d3c-879e-6d346b376249" />
+<hr>
 
+## Step 3: Conducting a Scan
 Let's ping BHIS.
 <pre>sr(IP(dst="www.blackhillsinfosec.com")/ICMP())</pre>
 
 <img width="470" height="118" alt="image" src="https://github.com/user-attachments/assets/485fd17a-c341-4c9a-b9f2-743db22e959b" />
-<hr>
 
-## Step 3: Conducting a Scan
 We’ll send a simple SYN scan to port 80 on a remote host. While Nmap is faster and easier for port discovery, Scapy lets you embed scanning logic directly into Python scripts—useful when you want to find hosts with port 80 and programmatically probe them for specific content (for example, default web pages or identifying strings).
 
 Now, let's do a port scan on port 80
@@ -130,9 +130,9 @@ Want to look at some default packet templates?
 <pre>ls()</pre>
 
 <img width="411" height="190" alt="image" src="https://github.com/user-attachments/assets/0bbcbf3c-e901-4e68-b78d-3d794b97d3f8" />
+<hr>
 
-<br>
-
+## Step 5: Modifying Packets
 Let's look at what we can modify in a TCP packet.
 <pre>ls(TCP)</pre>
 
