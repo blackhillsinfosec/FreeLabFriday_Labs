@@ -14,7 +14,7 @@ The objective of this lab is to use Hayabusa to analyze Sysmon logs and detect s
 cd /home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile
 ```
 
-- To start off we need to make sure we have the detection rules of hayabusa
+- To start off we need to make sure we have the detection rules of Hayabusa
 
 ```bash
 hayabusa update-rules
