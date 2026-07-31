@@ -103,7 +103,7 @@ Following the chain we meet these commands:
 
 **sc.exe stop AtomicTestService** - Service Stop (Cleanup?)<br><br>
 
-- We can also do some **Hunting Scenarios**, searching for special keywords
+We can also do some **Hunting Scenarios**, by searching for special keywords:
 
 ```bash
 hayabusa search --file sysmon.evtx --regex '(?i)(cmd\.exe|powershell|whoami|mimikatz)'
@@ -111,8 +111,8 @@ hayabusa search --file sysmon.evtx --regex '(?i)(cmd\.exe|powershell|whoami|mimi
 
 <img width="1842" height="1067" alt="image" src="https://github.com/user-attachments/assets/412c74d8-78e6-44da-9785-c70408469b1c" />
 
-
-Following up this lead we can get to the same results as earlier, or use it to group alerts by services, the possibilities are endless
+Following up this lead we can get to the same results as earlier, or use it to group alerts by services.<br>
+The possibilities are endless
 <br><br>
 
 ## Your turn
