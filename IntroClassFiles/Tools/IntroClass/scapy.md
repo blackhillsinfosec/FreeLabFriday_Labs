@@ -6,22 +6,22 @@ In this lab we’ll use Scapy to demystify how network packets are assembled. Th
 
 What you’ll learn:
 
-	•	How an IP packet contains a transport header (TCP/UDP) which in turn contains the application data.
+- How an IP packet contains a transport header (TCP/UDP) which in turn contains the application data.
 	
-	•	How Scapy represents those layers like Lego blocks you can stack, inspect, and manipulate.
+- How Scapy represents those layers like Lego blocks you can stack, inspect, and manipulate.
 	
-	•	Basic packet creation, sending, and receiving with Scapy so you can see how the pieces fit together.
+- Basic packet creation, sending, and receiving with Scapy so you can see how the pieces fit together.
 	
 
 The core concept — packets as stacked components
 
 Packets are not one monolithic blob. Think of them as a stack:
 
-	•	The IP header is one layer.
+- The IP header is one layer.
 	
-	•	The payload of the IP header is the TCP or UDP header.
+- The payload of the IP header is the TCP or UDP header.
 	
-	•	The payload of the TCP/UDP header is the application data (HTTP, DNS, a custom payload, etc.).
+- The payload of the TCP/UDP header is the application data (HTTP, DNS, a custom payload, etc.).
 	
 
 Scapy makes those layers explicit. You can construct each layer independently and then combine them, inspect the fields of each layer, and watch how they nest — just like snapping Lego bricks together.
