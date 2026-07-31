@@ -22,7 +22,7 @@ With the power of **Bash scripting** we can get some useful information.
 ## Step 1: Viewing The Logs
 Let's get your **Linux** system to do some math!
 
-Open a terminal
+Open a Terminal (or Ubuntu Shell)
 
 We need to navigate to the correct directory with the following command:
 
