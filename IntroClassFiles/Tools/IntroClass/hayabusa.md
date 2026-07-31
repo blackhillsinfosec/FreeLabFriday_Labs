@@ -3,7 +3,7 @@
 # Hayabusa
 
 # Ubuntu VM
-
+### Lab Objective
 The objective of this lab is to use Hayabusa to analyze Sysmon logs and detect suspicious activity related to process creation, network connections, and authentication events.
 
 **If you want to learn a bit about this tool check the [Hayabusa Documentation](/SocAnalystLabs/courseFiles/tools/Hayabusa.md)**
@@ -22,18 +22,13 @@ hayabusa update-rules
 
 <img width="619" height="172" alt="image" src="https://github.com/user-attachments/assets/b6f922fb-08fd-4c0c-9785-a17cfa410cfb" />
 
-
-
 Make sure you are in the right place:
 
 ```bash
 ls -lh sysmon.evtx
 ```
 
-
 <img width="578" height="20" alt="image" src="https://github.com/user-attachments/assets/a1fe4145-6e22-4158-bb7f-01cb0e2f0fef" />
-
-
 
 - First thing we will do to start disecting the logs is to get some basic **metrics** to understand what system the logs came from, number of events, time range.
 
@@ -42,7 +37,6 @@ hayabusa log-metrics --file sysmon.evtx
 ```
 
 <img width="921" height="705" alt="image" src="https://github.com/user-attachments/assets/a447aa87-eb2c-4894-a57c-a990f6cf7e1d" />
-
 
 The logs span about 30 minutes and there are only 565 events, small enough to dig manually but we will do it the smart way.<br><br>
 
@@ -53,7 +47,6 @@ hayabusa eid-metrics --file sysmon.evtx
 ```
 
 <img width="699" height="668" alt="image" src="https://github.com/user-attachments/assets/f4a6c7e2-de68-4f4e-82da-0047b4865321" />
-
 
 Important observations:
 1. **Process Creation (ID 1 = 90%)**, that's extremely high volume, and now our primary hunting ground
@@ -73,15 +66,11 @@ hayabusa csv-timeline --file sysmon.evtx -o timeline.csv
 
 <img width="982" height="155" alt="image" src="https://github.com/user-attachments/assets/beb3d813-4521-48e0-9961-5877b6cfa94c" />
 
-
 - Also select everything that is selected down below
 
 <img width="467" height="92" alt="image" src="https://github.com/user-attachments/assets/c771bdaa-edb8-4156-8e20-95f047b658ad" />
 
-
-
 <img width="951" height="1086" alt="image" src="https://github.com/user-attachments/assets/254078ea-bae1-470e-bbdd-e73831ad1486" />
-
 
 Immediately we can see some really telling information, we got hits on 555 out of 565 events, 7 of them being critical alerts indicating a 'Sticky Key' type backdoor. There are also 49 'high' priority alerts.  
 
