@@ -85,13 +85,12 @@ The attacker also got access to Jane's account and the network by poisoning the 
 
 *This lab will require the DC-1 Sysmon and Security Logs to follow along.*
 
-When an attack occurs, there are [phases to most attacks](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) that usually happen. 
-
-We saw the attacker gained entry into a workstation by using a Word Macro. The next route the attacker will utilize is privilege escalation.
+### Recap of Log 2
+When an attack occurs, there are [phases to most attacks](https://www.lockheedmartin.com/en-us/capabilities/cyber/cyber-kill-chain.html) that usually happen. We saw the attacker gained entry into a workstation by using a Word Macro. The next route the attacker will utilize is privilege escalation.
 
 We received reports of some unexpected [Kerberos ticket](https://learn.microsoft.com/en-us/windows-server/security/kerberos/kerberos-authentication-overview) requests originating from Jane Ross to an [SPN](https://learn.microsoft.com/en-us/windows/win32/ad/service-principal-names) admin account.
 
-### Examine The Sysmon Log
+### Examine The Logs
 Let's open our Domain Controller security log and Sysmon log to see if we can find some unexpected Kerberoast ticket requests.
 
 There's an important event in the security log to note.
@@ -108,11 +107,12 @@ To confirm this, we can cross reference Sysmon logs to see any network requests 
 ## Lab 4 - DC Sync
 
 *This lab will require the DC-1 dc-1_incident PCAP to follow along*
-
+### Recap of Lab 3
 We've received reports suggesting a potential [DC Sync attack](https://blog.blacklanternsecurity.com/p/detecting-dcsync) on our Active Directory. It's been confirmed that the attacker has managed to access an admin account, likely via Kerberoasting. With the occurrence of an unplanned DC Sync, it's highly likely that the attacker has successfully cracked this hash. Joan has informed us that her password was "Summer2023!" - an easily crackable password.
 
 It's plausible that the attacker used the compromised admin account to initiate a DC Sync, thereby gaining access to all user accounts and their corresponding NTLM hashes within our Active Directory. However, before we conclude this, let's conduct thorough investigation by reviewing the PCAP capture and the Domain Controller Logs to discover the full extent of the breach.
 
+### Review the PCAP File & Domain Controller Logs
 When searching logs for a DC Sync, Event ID 4662 can help you filter down logs. DC Sync accesses Directory service objects, which are logged under Event ID 4662. But there is a problem, these event logs are extremely generic and don't reveal much information. The bulk of the important information will be in a network capture.
 
 Looking at Wireshark we can see a few things that hint at a DC Sync.
@@ -123,7 +123,7 @@ The information on the right side of the Wireshark window provides an overview o
 
 ![DC/ERP](./images/dcerp.PNG)
 
-The protcol that has caused us some concern is [DCE/RPC](https://en.wikipedia.org/wiki/DCE/RPC). This protocol indicates something is happening with the Domain Controller and it is likely that a [DCSync attack](https://blog.nviso.eu/2021/11/15/detecting-dcsync-and-dcshadow-network-traffic/) is taking place.
+The protocol that has caused us some concern is [DCE/RPC](https://en.wikipedia.org/wiki/DCE/RPC). This protocol indicates something is happening with the Domain Controller and it is likely that a [DCSync attack](https://blog.nviso.eu/2021/11/15/detecting-dcsync-and-dcshadow-network-traffic/) is taking place.
 
 ![uhoh](./images/dsbind.PNG)
 
