@@ -80,17 +80,16 @@ Once the Ethernet frame is in place, we move to the IP header, which is where th
 Later in this lab, we will be changing the destination IP address to a fully qualified domain name: blackhillsinfosec.com. While that is not an IP address, Scapy is intelligent enough to automatically resolve domain names into IP addresses when constructing packets. This is a good example of how Scapy bridges low-level packet manipulation with the convenience of Python. Once the IP header is complete, we will attach an ICMP layer to the packet, which will allow us to send an echo request similar to a standard ping. From there, we can view the packet breakdown and see each individual layer stacked together exactly as it appears on the wire.
 <br><br>
 As we go forward, remember that the purpose of this exercise isn’t simply to send packets—it’s to understand them. By crafting raw packets piece by piece, we get to see how data actually travels and gain insight into the structure of network communication from the inside out. Let’s get started.
+<hr>
 
+## Step 2: Creating A Packet
 Let's create a raw packet!
-
 <pre>my_packet = Ether() / IP()</pre>
 
 <pre>my_packet.show()</pre>
-
 <img width="262" height="325" alt="image" src="https://github.com/user-attachments/assets/b7b85f42-8686-4d3c-879e-6d346b376249" />
 
 Let's ping BHIS.
-
 <pre>sr(IP(dst="www.blackhillsinfosec.com")/ICMP())</pre>
 
 <img width="470" height="118" alt="image" src="https://github.com/user-attachments/assets/485fd17a-c341-4c9a-b9f2-743db22e959b" />
@@ -106,20 +105,15 @@ Now, let's do a port scan on port 80
 <img width="440" height="125" alt="image" src="https://github.com/user-attachments/assets/a58d8d7e-e747-46ad-ab3d-e9e325337b68" />
 
 We can scan a range of ports as well.
-
 <pre>unans, ans = sr(IP(dst="45.33.32.156")/TCP(dport=(1,100), flags="S"), timeout=1)</pre>
 
 <img width="878" height="161" alt="image" src="https://github.com/user-attachments/assets/1d81bdfc-c930-49e9-8217-9ec5b168086b" />
 
 <br>
 Let's look at the results:
-
-
 <pre>ans.summary()</pre>
 
 <img width="448" height="54" alt="image" src="https://github.com/user-attachments/assets/536a006b-35f0-4dd2-a849-510ee66882f0" />
-
-<br>
 
 <pre>unans.summary()</pre>
 <img width="890" height="368" alt="image" src="https://github.com/user-attachments/assets/224141be-8287-4c7c-8ba4-12eaf242559c" />
