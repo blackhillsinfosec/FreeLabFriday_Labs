@@ -44,8 +44,10 @@ grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | less
 Not only is there a ton of information here, you might now feel like you are stuck in your terminal window.
 
 No worries though, just hit **"q"** to return to your terminal.
+<hr>
 
-### Focus On Closed Connections
+## Step 2: Refining The Output
+### Closed Connections
 Let's refine the output a little more by running the following command:
 
 ```bash
@@ -60,7 +62,7 @@ When it is all put together, our output looks something like this:
 
 It's looking a lot better, but I think we can do better. But how?
 
-### Focus On 13.107.237.38
+### Specific IP
 If you look at our previous output, you may notice that outside connections are being made to two different addresses:
 **"13.107.237.38"** and **"18.160.185.174"**
 
@@ -84,6 +86,8 @@ grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | grep FIN | grep 18.160.
 
 Look at the last field. See a pattern? Is there one? Let's see just that field!
 
+### Specific Field
+
 ```bash
 grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | grep FIN | grep 18.160.185.174 | cut -d ' ' -f 14
 ```
@@ -91,32 +95,17 @@ grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | grep FIN | grep 18.160.
 All we should see now is this:
 
 <img width="1594" height="901" alt="2026-03-23_12-24_1" src="https://github.com/user-attachments/assets/1ed40f1f-2518-4955-b374-f4d1215f8389" />
+<hr>
 
-
-Now let's do some math in that field!
+## Step 3: Time For Math!
+Let's do some math in that field!
 
 ```bash
 grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | grep FIN | grep 18.160.185.174 | cut -d ' ' -f 8,14 | tr : ' ' | tr / ' '  | cut -d ' ' -f 4 | Rscript -e 'y <-scan("stdin", quiet=TRUE)' -e 'cat(min(y), max(y), mean(y), sd(y), var(y), sep="\n")'
 ```
- 
+
 Your output should look something like this:
 
 <img width="660" height="158" alt="2026-03-23_12-26" src="https://github.com/user-attachments/assets/87f020f7-c0fe-4987-913e-1c96ef9761d1" />
 
-
 There are a lot of commands you can use to alter your view of the logs.  
-
-***                                                              
-
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
-
-
