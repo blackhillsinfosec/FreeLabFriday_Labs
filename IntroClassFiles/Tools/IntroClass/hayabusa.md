@@ -116,6 +116,6 @@ Following up this lead we can get to the same results as earlier, or use it to g
 >
 > Try extracting any encrypted payloads and pulling authentication activity yourself, if there is any, using the documentation of the tool.
 
-### Also try finding everything you found in this lab by using [Windows Event Viewer](../tools/WinEventViewer.md)
+Also try finding everything you found in this lab by using [Windows Event Viewer](../tools/WinEventViewer.md)
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
