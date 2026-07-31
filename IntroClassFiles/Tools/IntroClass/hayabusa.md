@@ -16,7 +16,7 @@ First things first navigate to Hayabusa at `/home/ubuntu/SOC_Analyst_Labs/hayabu
 cd /home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile
 ```
 
-- To start off we need to make sure we have the detection rules of Hayabusa
+To start off we need to make sure we have the detection rules of Hayabusa
 
 ```bash
 hayabusa update-rules
@@ -32,22 +32,21 @@ ls -lh sysmon.evtx
 
 <img width="578" height="20" alt="image" src="https://github.com/user-attachments/assets/a1fe4145-6e22-4158-bb7f-01cb0e2f0fef" />
 
-- First thing we will do to start dissecting the logs is to get some basic **metrics** to understand what system the logs came from, number of events, time range.
+## Step 2: Dissect The Logs
+First thing we will do to start dissecting the logs is to get some basic **metrics** to understand what system the logs came from, number of events, time range.
 
 ```bash
 hayabusa log-metrics --file sysmon.evtx
 ```
-
 <img width="921" height="705" alt="image" src="https://github.com/user-attachments/assets/a447aa87-eb2c-4894-a57c-a990f6cf7e1d" />
 
 The logs span about 30 minutes and there are only 565 events, small enough to dig manually but we will do it the smart way.<br><br>
 
-- Next let's see the Event **ID Distribution** to identify common or suspicious Sysmon events, we are looking for **1**, **3**, **10**, **11** or even **8**
+Next let's see the Event **ID Distribution** to identify common or suspicious Sysmon events, we are looking for **1**, **3**, **10**, **11** or even **8**
 
 ```bash
 hayabusa eid-metrics --file sysmon.evtx
 ```
-
 <img width="699" height="668" alt="image" src="https://github.com/user-attachments/assets/f4a6c7e2-de68-4f4e-82da-0047b4865321" />
 
 Important observations:
