@@ -19,8 +19,7 @@ In this lab we will be looking at a log with r-base-core from an **ASA firewall*
 With the power of **Bash scripting** we can get some useful information.
 <hr>
 
-## Step 1:
-Next, let's get your **Linux** system to do some math!
+Let's get your **Linux** system to do some math!
 
 Open a terminal
 
