@@ -7,18 +7,18 @@ In this lab, we will navigate through log files that simulate an attack on a cor
 Before we begin, we need to download the logs to follow along. Although we could have you do it on your host system, we have a fancy VM... so why not use it?
 
 Start by opening up a Command Prompt:
-
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
 
 Next, navigate into your `Downloads` directory:
 <pre>cd Downloads</pre>
-
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/todownloads.png)
 
 Then, run the following to download the .ZIP file of logs:
 <pre>curl -O https://data.bhislabs.com/PTWLogs.zip</pre>
-
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/curldownloadlogs.png)
 
 When it's complete, open up your file directory and unzip the folder!
-
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/downloadsfolder.png)
 
 Now we have the logs on our VM rather than our host system.
 <hr>
