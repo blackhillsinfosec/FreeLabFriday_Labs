@@ -4,7 +4,7 @@
 
 # Ubuntu VM
 
-## The objective of this lab is to use Hayabusa to analyze Sysmon logs and detect suspicious activity related to process creation, network connections, and authentication events.
+The objective of this lab is to use Hayabusa to analyze Sysmon logs and detect suspicious activity related to process creation, network connections, and authentication events.
 
 **If you want to learn a bit about this tool check the [Hayabusa Documentation](/SocAnalystLabs/courseFiles/tools/Hayabusa.md)**
 
