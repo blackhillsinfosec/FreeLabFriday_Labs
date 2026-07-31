@@ -7,8 +7,10 @@
 The objective of this lab is to use Hayabusa to analyze Sysmon logs and detect suspicious activity related to process creation, network connections, and authentication events.
 
 **If you want to learn a bit about this tool check the [Hayabusa Documentation](/SocAnalystLabs/courseFiles/tools/Hayabusa.md)**
+<hr>
 
-- First things first navigate to Hayabusa at `/home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile`
+## Step 1: Set The Detection Rules
+First things first navigate to Hayabusa at `/home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile`
 
 ```bash
 cd /home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile
