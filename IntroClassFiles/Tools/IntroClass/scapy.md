@@ -32,13 +32,13 @@ Scapy is a Python library for packet crafting and analysis. Its strength is the 
 
 What we’ll do in this lab:
 
-	•	Build packets from the ground up using Scapy’s layer objects.
+- Build packets from the ground up using Scapy’s layer objects.
 	
-	•	Create TCP and UDP packets with simple application payloads.
+- Create TCP and UDP packets with simple application payloads.
 	
-	•	Send and receive those packets and observe how Scapy displays each layer.
+- Send and receive those packets and observe how Scapy displays each layer.
 	
-	•	Experiment with changing header fields (for example TTL, ports, flags) to see the real effect on the assembled packet.
+- Experiment with changing header fields (for example TTL, ports, flags) to see the real effect on the assembled packet.
 	
 
 ### Expectations
