@@ -10,6 +10,7 @@ rita list
 ```
 
 <img width="742" height="242" alt="Screenshot From 2026-03-17 10-53-41" src="https://github.com/user-attachments/assets/11c61de5-a251-428c-b6ec-6b94e290eb08" />
+<hr>
 
 ## slow_steady_beacon
 
@@ -24,14 +25,10 @@ rita view slow_steady_beacon
 4. What is the beacon score?
 5. What is the connection count?
 
+Find the Answers [HERE]
+<hr>
 
-**1. Answer:** 192.168.2.77
-**2. Answer:** 143.198.3.13
-**3. Answer:** HTTP (tcp 80)
-**4. Answer:** 1.0
-**5. Answer:** 2853
-
-Please use the Network Ubuntu VM for this lab.
+## 
 
 Do these labs first:
 
