@@ -1,9 +1,26 @@
 # Poisoning the Well - Incident Response Labs
 ### Lab Objective
 In this lab, we will navigate through log files that simulate an attack on a corporate domain. Our goal is to illustrate how to investigate attack logs. Detecting initial intrusion to Domain Admin, we are going to explore the techniques used by threat actors and how we can detect a breach. This walkthrough utilizes [MERlin](https://github.com/her3ticAVI/MERlin/tree/main), [Sysmon](https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon), [Wireshark](https://www.wireshark.org/), and any text editor to conduct our investigation.
+<hr>
 
-Download the [logs](https://data.bhislabs.com/PTWLogs.zip) to follow along.
+## Downloading The Logs
+Before we begin, we need to download the logs to follow along. Although we could have you do it on your host system, we have a fancy VM... so why not use it?
 
+Start by opening up a Command Prompt:
+
+
+Next, navigate into your `Downloads` directory:
+<pre>cd Downloads</pre>
+
+
+Then, run the following to download the .ZIP file of logs:
+<pre>curl -O https://data.bhislabs.com/PTWLogs.zip</pre>
+
+
+When it's complete, open up your file directory and unzip the folder!
+
+
+Now we have the logs on our VM rather than our host system.
 <hr>
 
 ## Lab 1 - A Concerning Report
