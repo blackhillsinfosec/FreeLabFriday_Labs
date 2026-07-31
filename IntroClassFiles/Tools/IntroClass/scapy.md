@@ -2,7 +2,7 @@
 
 # Scapy Lab
 ## Lab Objective
-In this lab we’ll use Scapy to demystify how network packets are assembled. The point isn’t to turn you into a Scapy wizard — it’s to give you a concrete, visual way to understand how packets are built, layer by layer, so you stop thinking about them as a single string of ones and zeros and start seeing them as stacked components.
+In this lab we’ll use `Scapy to demystify` how network packets are assembled. The point isn’t to turn you into a Scapy wizard — it’s to give you a concrete, visual way to understand how packets are built, layer by layer, so you stop thinking about them as a single string of ones and zeros and start seeing them as stacked components.
 
 What you’ll learn:
 
