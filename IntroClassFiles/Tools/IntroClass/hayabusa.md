@@ -8,7 +8,7 @@ The objective of this lab is to use Hayabusa to analyze Sysmon logs and detect s
 
 **If you want to learn a bit about this tool check the [Hayabusa Documentation](/SocAnalystLabs/courseFiles/tools/Hayabusa.md)**
 
-- First things first navigate to hayabusa at `/home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile`
+- First things first navigate to Hayabusa at `/home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile`
 
 ```bash
 cd /home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile
