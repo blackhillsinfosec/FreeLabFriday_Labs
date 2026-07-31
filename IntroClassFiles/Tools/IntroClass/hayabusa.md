@@ -118,23 +118,4 @@ Following up this lead we can get to the same results as earlier, or use it to g
 
 ### Also try finding everything you found in this lab by using [Windows Event Viewer](../tools/WinEventViewer.md)
 
----
-
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
-
-
-
-
-
-
-
