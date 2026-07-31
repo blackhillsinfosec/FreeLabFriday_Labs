@@ -93,10 +93,10 @@ Let's ping BHIS.
 <pre>sr(IP(dst="www.blackhillsinfosec.com")/ICMP())</pre>
 
 <img width="470" height="118" alt="image" src="https://github.com/user-attachments/assets/485fd17a-c341-4c9a-b9f2-743db22e959b" />
+<hr>
 
-<br>
-
-We’ll send a simple SYN scan to port 80 on a remote host. While Nmap is faster and easier for port discovery, Scapey lets you embed scanning logic directly into Python scripts—useful when you want to find hosts with port 80 and programmatically probe them for specific content (for example, default web pages or identifying strings).
+## Step 3: Conducting a Scan
+We’ll send a simple SYN scan to port 80 on a remote host. While Nmap is faster and easier for port discovery, Scapy lets you embed scanning logic directly into Python scripts—useful when you want to find hosts with port 80 and programmatically probe them for specific content (for example, default web pages or identifying strings).
 
 Now, let's do a port scan on port 80
 
@@ -108,26 +108,25 @@ We can scan a range of ports as well.
 <pre>unans, ans = sr(IP(dst="45.33.32.156")/TCP(dport=(1,100), flags="S"), timeout=1)</pre>
 
 <img width="878" height="161" alt="image" src="https://github.com/user-attachments/assets/1d81bdfc-c930-49e9-8217-9ec5b168086b" />
+<hr>
 
-<br>
+## Step 4: Analyzing The Results
 Let's look at the results:
 <pre>ans.summary()</pre>
 
 <img width="448" height="54" alt="image" src="https://github.com/user-attachments/assets/536a006b-35f0-4dd2-a849-510ee66882f0" />
-
 <pre>unans.summary()</pre>
+
 <img width="890" height="368" alt="image" src="https://github.com/user-attachments/assets/224141be-8287-4c7c-8ba4-12eaf242559c" />
 
 <br>
 Yes!  We can sniff!
-
 <pre>sniff(count=5).nsummary()</pre>
 
 <img width="576" height="109" alt="image" src="https://github.com/user-attachments/assets/c0fb61bc-f2eb-407b-95aa-1e92d5803195" />
 
 <br>
 Want to look at some default packet templates?
-
 <pre>ls()</pre>
 
 <img width="411" height="190" alt="image" src="https://github.com/user-attachments/assets/0bbcbf3c-e901-4e68-b78d-3d794b97d3f8" />
@@ -135,7 +134,6 @@ Want to look at some default packet templates?
 <br>
 
 Let's look at what we can modify in a TCP packet.
-
 <pre>ls(TCP)</pre>
 
 <img width="627" height="228" alt="image" src="https://github.com/user-attachments/assets/398458ee-79ac-43a5-96f4-7238325c876f" />
@@ -147,40 +145,20 @@ Start typing `trace` then hit **tab**
 <img width="325" height="55" alt="image" src="https://github.com/user-attachments/assets/e6f3fcf4-60ab-4691-bf58-f99cfa49a8cd" />
 
 It has autocomplete!!
-
 <pre>traceroute('google.com', maxttl=8, timeout=5)</pre>
 
 <img width="467" height="272" alt="image" src="https://github.com/user-attachments/assets/4f12160a-8ba3-448a-8287-48f2bfc7eb91" />
 
 <br>
 Let's create a DNS query packet.
-
-<br>
-
 <pre>dns_query = IP(dst="8.8.8.8") / UDP(dport=53) / DNS(rd=1, qd=DNSQR(qname="www.example.com", qtype="A"))</pre>
 
 What makes up a DNS Packet?
-
 <pre>dns_query.show()</pre>
 
 <img width="412" height="694" alt="image" src="https://github.com/user-attachments/assets/d809b797-a7bb-4746-a674-b66f6a5234ce" />
 
 Let's Send it!
-
 <pre>sr1(dns_query, timeout=2, verbose=0)</pre>
 
 <img width="663" height="225" alt="image" src="https://github.com/user-attachments/assets/b5cebae9-67a0-487a-a3de-78fe0fd8b5fd" />
-
-
-
------------------------
-
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
