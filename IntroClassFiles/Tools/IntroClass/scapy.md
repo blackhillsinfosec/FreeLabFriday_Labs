@@ -61,6 +61,11 @@ Now, start scapy
 
 <pre>scapy</pre>
 
+>[!TIP]
+>
+>If this command does not work, you must run the following command first:<br>
+><pre>apt install python3-scapy</pre>
+
 >[!NOTE]
 >
 >This can take a moment!!
