@@ -4,12 +4,6 @@ In this lab, we will navigate through log files that simulate an attack on a cor
 
 Download the [logs](https://data.bhislabs.com/PTWLogs.zip) to follow along.
 
-
-* [A concerning report - lab 1](./labs/lab01.md)
-* [There's something in the water - lab 2](./labs/lab02.md)
-* [Kerberoasting - lab 3](./labs/lab03.md)
-* [DC Sync - lab 4](./labs/lab04.md)
-
 <hr>
 
 ## Lab 1 - A Concerning Report
@@ -23,16 +17,18 @@ Our objective is to uncover any suspicious activity and identify potentially mal
 
 ![sysmon](./images/sysmon_word.png)
 
-*Upon reviewing the Sysmon log file, we've identified that an executable named *Word.exe* has recently initiated connections to an external IP address from Jane's workstation.  [Event ID 3](https://www.blackhillsinfosec.com/a-sysmon-event-id-breakdown/) is a Sysmon Event ID that indicates a network connection originating from 10.0.0.9 and connecting to an external ip at 13.107.226.40. There is also a note that states the event is masquerading, a sign of deception.*
+*Upon reviewing the Sysmon log file, we've identified that an executable named *Word.exe* has recently initiated connections to an external IP address from Jane's workstation.  [Event ID 3](https://www.blackhillsinfosec.com/a-sysmon-event-id-breakdown/) is a Sysmon Event ID that indicates a network connection originating from 10.0.0.9 and connecting to an external IP at 13.107.226.40. There is also a note that states the event is masquerading, a sign of deception.*
 
 Jane denies any knowledge of installing a program called Word.exe but claimed she uses "word" all the time. If Jane is unaware of this software installation, it suggests that someone or something else may have downloaded and executed it. But what could be an alternative method for an executable to be downloaded and ran?
 
+### Inspect Jane's Network Traffic
 Before the investigation takes a turn for the worse, let's inspect some network traffic from Jane's workstation to see if there is any evidence to support the idea that Word.exe is a malicious file. Malicious files often times have different motives. Malicious files often beacon out to a *C2* or *Command and Control* server so that an attacker can have remote access to a network in order to further aforementioned motives. This will create network traffic that we can capture and review.
 
 ![pcap and wireshark](./images/wiretheshark.png)
 
-*There is a substantial amount of traffic originating from 10.0.0.9 to 13.107.226.40. there is a consistant network connection and communication taking place. This is a concerning situation as there appears to be no justifiable reason for prolonged communication with this source address and destination address.*
+*There is a substantial amount of traffic originating from 10.0.0.9 to 13.107.226.40. There is a consistent network connection and communication taking place. This is a concerning situation as there appears to be no justifiable reason for prolonged communication with this source address and destination address.*
 
+### Inspect Jane's Security Logs
 Lets look at Jane's workstation security logs to see if we can see any commands being issued and recorded in events. 
 
 First, filter for new process creations.
@@ -49,27 +45,30 @@ To gain more insight into Jane's activities before Word.exe was executed, lets m
 
 ![uhohmacro](./images/moments_before_wordexe.PNG)
 
-We can see that Jane was using Microsoft Word before the Word executable ran. This helps us infer that whatever Microsoft Word did somehow contributed to the files download and execution. Sometimes attackers will stick malicious code into Word documents to run programs that the user would not suspect. We will inspect Janes sharepoint logs to see what has been happening in the word documents within her Sharepoint. If something malicious has occured we should be able to track down the cause within Sharepoint Logs. Jane said she downloaded a file called "HRcomplaint something..." before the werid things started happening.
+We can see that Jane was using Microsoft Word before the Word executable ran. This helps us infer that whatever Microsoft Word did somehow contributed to the files download and execution. Sometimes attackers will stick malicious code into Word documents to run programs that the user would not suspect. We will inspect Janes Sharepoint logs to see what has been happening in the word documents within her Sharepoint. If something malicious has occurred we should be able to track down the cause within Sharepoint Logs. Jane said she downloaded a file called "HRcomplaint something..." before the weird things started happening.
 <hr>
 
 ## Lab 2 - There's Something In The Water
 
 *This lab will require the audit.log file to follow along.*
+
 ### Lab 2 Objective
 In the last lab, we found a suspicious file on Jane's workstation. During our investigation, we noticed that Jane had opened Microsoft Word shortly before Word.exe ran. When we asked Jane if she had recently downloaded or opened any Word documents, she mentioned that she had opened a Word file from her [SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration).
 
-As investigators, we have a couple of options. We can either analyze the Word document she opened to understand its content better, or we can examine audit logs to track the activities of users in SharePoint.
+As investigators, we have a couple of options. <br>
+
+We can either analyze the Word document she opened to understand its content better, or we can examine audit logs to track the activities of users in SharePoint.
 
 Because of the wider view that logs give us, we will look at the Sharepoint audit logs.
 
 ![a strange exchange](./images/two_todds.PNG)
 
-We can see that one of the most recent changes was made by Todd Lee. Todd logged in and then edited the file for an unknown reason. At first glance this is normal behavior, SharePoint was built for collaboration. 
+We can see that one of the most recent changes was made by Todd Lee. Todd logged in and then edited the file for an unknown reason. At first glance this is normal behavior. After all, SharePoint was built for collaboration... right?
 
 ![uhoh](./images/real_todd.PNG)
 ![italwaysgetsworse](./images/evil_todd.PNG)
 
-After closer examination, we can see that the IP address responsible for the login and the one used to upload the file are different. However both events occured within a two-minute time frame, Todd logged in from two different locations, and while possible was not probable.
+After closer examination, we can see that the IP address responsible for the login and the one used to upload the file are different. However both events occurred within a two-minute time frame, Todd logged in from two different locations, and while possible is not probable.
 
 Jane has disclosed that the file she downloaded was an HR complaint that needed to be updated and signed. 
 
