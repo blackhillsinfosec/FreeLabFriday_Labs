@@ -52,7 +52,7 @@ We can see that Jane was using Microsoft Word before the Word executable ran. Th
 
 *This lab will require the audit.log file to follow along.*
 
-### Lab 2 Objective
+### Recap of Lab 1
 In the last lab, we found a suspicious file on Jane's workstation. During our investigation, we noticed that Jane had opened Microsoft Word shortly before Word.exe ran. When we asked Jane if she had recently downloaded or opened any Word documents, she mentioned that she had opened a Word file from her [SharePoint](https://www.microsoft.com/en-us/microsoft-365/sharepoint/collaboration).
 
 As investigators, we have a couple of options. <br>
