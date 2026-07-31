@@ -25,7 +25,7 @@ rita view slow_steady_beacon
 4. What is the beacon score?
 5. What is the connection count?
 
-Find the Answers [HERE]
+Find the Answers [HERE](https://github.com/doergestim/SOC_Analyst_Labs/blob/main/courseFiles/Section_05-networkingAndTelemetry/rita_lab/ritaLab1.md)
 <hr>
 
 ## 
