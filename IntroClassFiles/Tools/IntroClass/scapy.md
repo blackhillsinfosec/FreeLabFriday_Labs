@@ -148,8 +148,9 @@ It has autocomplete!!
 <pre>traceroute('google.com', maxttl=8, timeout=5)</pre>
 
 <img width="467" height="272" alt="image" src="https://github.com/user-attachments/assets/4f12160a-8ba3-448a-8287-48f2bfc7eb91" />
+<hr>
 
-<br>
+## Creating a DNS Query Packet
 Let's create a DNS query packet.
 <pre>dns_query = IP(dst="8.8.8.8") / UDP(dport=53) / DNS(rd=1, qd=DNSQR(qname="www.example.com", qtype="A"))</pre>
 
