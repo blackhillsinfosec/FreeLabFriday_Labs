@@ -30,7 +30,7 @@ ls -lh sysmon.evtx
 
 <img width="578" height="20" alt="image" src="https://github.com/user-attachments/assets/a1fe4145-6e22-4158-bb7f-01cb0e2f0fef" />
 
-- First thing we will do to start disecting the logs is to get some basic **metrics** to understand what system the logs came from, number of events, time range.
+- First thing we will do to start dissecting the logs is to get some basic **metrics** to understand what system the logs came from, number of events, time range.
 
 ```bash
 hayabusa log-metrics --file sysmon.evtx
@@ -40,7 +40,7 @@ hayabusa log-metrics --file sysmon.evtx
 
 The logs span about 30 minutes and there are only 565 events, small enough to dig manually but we will do it the smart way.<br><br>
 
-- Next let's see the Event **ID Distribution** to dentify common or suspicious Sysmon events, we are looking for **1**, **3**, **10**, **11** or even **8**
+- Next let's see the Event **ID Distribution** to identify common or suspicious Sysmon events, we are looking for **1**, **3**, **10**, **11** or even **8**
 
 ```bash
 hayabusa eid-metrics --file sysmon.evtx
@@ -62,7 +62,7 @@ hayabusa csv-timeline --file sysmon.evtx -o timeline.csv
 >
 >(include all rules)
 
-- Maks sure to select the 5th options using arrows **Up** and **Down** and press **Enter** when the 5th option is highlighted
+- Make sure to select the 5th options using arrows **Up** and **Down** and press **Enter** when the 5th option is highlighted
 
 <img width="982" height="155" alt="image" src="https://github.com/user-attachments/assets/beb3d813-4521-48e0-9961-5877b6cfa94c" />
 
@@ -95,7 +95,7 @@ Following the chain we meet these commands:
 
 **sc.exe create AtomicTestService binPath= C:\AtomicRedTeam\atomics\T1050\bin\AtomicService.exe** - Service Creation for Persistence
 
-**sc.exe start AtomicTestService** - Service Execiution
+**sc.exe start AtomicTestService** - Service Execution
 
 **sc.exe stop AtomicTestService** - Service Stop (Cleanup?)<br><br>
 
