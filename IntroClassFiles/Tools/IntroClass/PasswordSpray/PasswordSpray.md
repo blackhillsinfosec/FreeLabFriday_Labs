@@ -50,12 +50,12 @@ It should look like this:
 
 <img width="385" height="482" alt="2026-03-26_09-21" src="https://github.com/user-attachments/assets/61c73044-6992-4bf9-b5af-2fe3ca08bab2" />
 
-
-
 Let this run all the way through. 
 
 **Even though it looks endless, it's not!**
+<hr>
 
+## Step 3: Running LocalPasswordSpray
 We will need to start **PowerShell** to run **"LocalPasswordSpray"**
 
 Launch it by typing the following and hitting enter:
