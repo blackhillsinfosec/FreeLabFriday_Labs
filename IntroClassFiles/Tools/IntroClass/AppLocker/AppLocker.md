@@ -212,21 +212,19 @@ We will choose the defaults because we are far less likely to break a system tha
 ![](attachments/rulesoverview.png)
 
 Please select *each* of the above Rule groups, **"Executable, Windows Installer, Script, and Packaged,"** and for each one, right click in the area that says **“There are no items to show in this view.”** and then select **“Create Default Rules”**.
-
 ![](attachments/createdefaultrules.png)
 
 This should generate a subset of rules for each group.  It should look similar to how it does below: 
-
 ![](attachments/appliedrules.png)
 
 >[!Tip]
 >
 >For simplicity, you can click the next set of rules from the left panel as seen above.
 
+### Enforce The Rules
 Next, we need to enforce these "new" rules.
 
 To do this you will need to select **AppLocker** on the far left pane.  You will need to select **"Configure rule enforcement"**.  This will open a pop-up. Check the **"Configured"** box for each set of rules.  
-
 ![](attachments/ruleenforcement.png)
 
 When finished, click **APPLY** at the bottom of the window.
@@ -237,56 +235,38 @@ When finished, click **APPLY** at the bottom of the window.
 >
 >Double-check by clicking "Configure rule enforcement" and make sure they stayed checked!
 
-<br>
-
+### Start The Application Identity Service
 Now we need to start the **"Application Identity service"**.  
 
 Let's type **"Services"** in the taskbar search box. Once you see this menu, select the following:
-
 ![](attachments/servicessearch.png)
 
 This will bring up the **Services App**. Double-click **"Application Identity"**.
-
 ![](attachments/applicationidentity.png)
 
 Once the **"Application Identity Properties"** dialogue is open, please press the **Start** button. This will start the service.
-
 ![](attachments/startservice.png)
 
-
+### Forcing The Policy Change
 Now, open up your command prompt, and run **"gpupdate"** to force the policy change.
-
 
 ```bash
 gpupdate /force
 ```
-
 ![](attachments/gpupdate.png)
 
+### Attempt To Run Malware As Another User
 We are now going to try to run **"TrustMe.exe"** as another user on the system. 
 
 Run the following commands:
-
 ```cmd
 cd /IntroLabs
 ```
-
 ```cmd
 runas /user:whitelist "C:\Tools\ncat.exe"
 ```
 
 The password is **adhd**
-
 <img width="943" height="111" alt="2026-02-23_11-42" src="https://github.com/user-attachments/assets/c6e06507-fb1c-4e49-8f09-20f44f1ec5c0" />
 
 As you can see, an error was generated, meaning that we were successful!
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
