@@ -165,6 +165,7 @@ It should look like this:
 
 <img width="598" height="354" alt="2026-03-13_16-37" src="https://github.com/user-attachments/assets/d8175d3c-e72a-4d57-bdd6-65409afb838a" />
 <br>
+
 ### Run TrustMe.exe
 Let's run the following commands to run the **"TrustMe.exe"** file.
 
@@ -182,8 +183,9 @@ Back at your **Linux terminal**, you should have a metasploit session!
 
 <img width="920" height="136" alt="2026-03-13_16-38" src="https://github.com/user-attachments/assets/35c77cf6-ec9a-4379-a359-c1984f221b72" />
 
-<br>
+<hr>
 
+## Step 3: View The Sysmon Events
 Now, we need to view the Sysmon events for this malware:
 
 Open **"Event Viewer"** by pressing the Windows key and searching for it.
