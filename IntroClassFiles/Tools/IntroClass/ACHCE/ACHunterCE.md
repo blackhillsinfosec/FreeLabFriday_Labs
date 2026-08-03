@@ -23,31 +23,31 @@ In this lab we are going to set up the Community Edition of AC Hunter so it can 
 ## Step 1: Installing & Launching AC Hunter CE
 This next section will walk through how to launch the **AC Hunter VM** using **VMware**.
 
-- Start by opening **file explorer** and navigating to your downloads directory.
+Start by opening **file explorer** and navigating to your downloads directory.
 
 ![](attachments/OpeningFileExplorer.png)
 
 ![](attachments/navigatetodownloads.png)
 
-- You should see the `AC-Hunter.zip` archive that we just downloaded. We need to extract this. Click on the `.zip` archive and hit `Extract all` at the top of the screen.
+You should see the `AC-Hunter.zip` archive that we just downloaded. We need to extract this. Click on the `.zip` archive and hit `Extract all` at the top of the screen.
 
 ![](attachments/extractall.png)
 
-- When the pop-up appears, click **extract**. This will extract the `.zip` archive to the downloads folder. 
+When the pop-up appears, click **extract**. This will extract the `.zip` archive to the downloads folder. 
 
 ![](attachments/extract.png)
 
-- Next, open your VMware application. In this instance, we use **VMware Workstation**. Once opened, first make sure you have the home tab selected. Then, click `Open a Virtual Machine`.
+Next, open your VMware application. In this instance, we use **VMware Workstation**. Once opened, first make sure you have the home tab selected. Then, click `Open a Virtual Machine`.
 
 ![](attachments/openvmware.png)
 
-- Once again, navigate to your downloads folder, and then into the extracted `AC-Hunter-v...` folder. If done correctly, you should only see one file that can be selected. Go ahead and double click on it.
+Once again, navigate to your downloads folder, and then into the extracted `AC-Hunter-v...` folder. If done correctly, you should only see one file that can be selected. Go ahead and double click on it.
 
 ![](attachments/openfolder.png)
 
 ![](attachments/doubleclick.png)
 
-- After doing this, you should see a new tab appear shown in the screenshot below.
+After doing this, you should see a new tab appear shown in the screenshot below.
 
 ![](attachments/newtab.png)
 
@@ -55,7 +55,7 @@ This next section will walk through how to launch the **AC Hunter VM** using **V
 
 Now that we have successfully loaded the **AC Hunter VM** into our VMware application, we need to change the network settings.
 
-- What we will need to do is to change **VM** to `Bridged networking` from **NAT**.  This can be done in the settings for the VM which can be accessed via `VM` > `Settings` > `Network Adapter` 
+What we will need to do is to change **VM** to `Bridged networking` from **NAT**.  This can be done in the settings for the VM which can be accessed via `VM` > `Settings` > `Network Adapter` 
 
 ![](attachments/editsettings.png)
 
@@ -63,19 +63,19 @@ Now that we have successfully loaded the **AC Hunter VM** into our VMware applic
 
 ![](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/ACHCE/VMWare_Bridge.png)
 
-- Go ahead and hit `Power on this virtual machine`.
+Go ahead and hit `Power on this virtual machine`.
 
 >[!IMPORTANT]
 > When the VM is done booting it is essential you **copy password** before login!!!! It is displayed in the logon banner at **first boot** and will go away once it is used.
 >
 > **User ID** is `dataimport`	
 
-- Change the **default password** after initial login by running the following:
+Change the **default password** after initial login by running the following:
 ```bash
 passwd
 ```
 
-- Next, get your **IP Address** by running the following command:
+Next, get your **IP Address** by running the following command:
 
 ```bash
 ip addr show dev ens33 | grep inet
@@ -83,19 +83,19 @@ ip addr show dev ens33 | grep inet
 
 ![](attachments/IP.png)
 
-- Now lets open Terminal on Windows and open two **SSH sessions**. I like to have one as **root** and another as **dataimport** for the install.
+Now lets open Terminal on Windows and open two **SSH sessions**. I like to have one as **root** and another as **dataimport** for the install.
 
 <br>
 
 From Windows Terminal.
 
-- **Terminal 1:**
+**Terminal 1:**
 
 ```bash
 ssh dataimport@YourACHCE_IPADDRESS
 ```
 
-- **Terminal 2:**
+**Terminal 2:**
 
 ```bash
 ssh dataimport@YOURACHCE_IPADDRESS
@@ -107,7 +107,7 @@ sudo su -
 
 <br>
 
-- As **dataimport**, pull down and install **zeek**
+As **dataimport**, pull down and install **zeek**
 
 ```bash
 sudo wget -O /usr/local/bin/zeek https://raw.githubusercontent.com/activecm/docker-zeek/master/zeek
@@ -139,13 +139,14 @@ It should look like it does below:
   [ ]  vethed90b7f          UP               -  fe80::44ef:6fff:fe64:1c26
  
  ```
+<hr>
 
-- Start **zeek**
+## Step 2: Starting Zeek
+Start **zeek**
 ```bash
 zeek start
 ```
-
-- Add a password for the web user for AC Hunter
+Add a password for the web user for AC Hunter
 
 ```bash
 manage_web_user.sh reset -u 'welcome@activecountermeasures.com'
@@ -170,7 +171,7 @@ User created successfully.
 dataimport@achce:~$
 ```
 
-9. Get the proper scripts to connect the Zeek Sensor
+Get the proper scripts to connect the Zeek Sensor
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/activecm/zeek-log-transport/master/connect_sensor.sh -O
@@ -184,13 +185,13 @@ curl -fsSL https://raw.githubusercontent.com/activecm/shell-lib/master/acmlib.sh
 curl -fsSL https://raw.githubusercontent.com/activecm/zeek-log-transport/master/zeek_log_transport.sh -O
 ```
 
-- Get your **hostname**
+Get your **hostname**
 
 ```bash
 hostname
 ```
 
-- Run the script with your **ac-hunter** system **hostname**:
+Run the script with your **ac-hunter** system **hostname**:
 
 ```bash
 bash connect_sensor.sh achce
@@ -227,7 +228,7 @@ dataimport@achce's password:
 
 ```
 
-- Install **bettercap** as **root**!!! Please switch to the other Terminal where you are running as root.
+Install **bettercap** as **root**!!! Please switch to the other Terminal where you are running as root.
 
 >[!IMPORTANT]
 > Make sure you are in the right **terminal**
@@ -240,7 +241,7 @@ docker pull bettercap/bettercap
 docker run -it --privileged --net=host bettercap/bettercap -eval "caplets.update; ui.update; q"
 ```
 
-- Install **mlocate**
+Install **mlocate**
 
 >[!NOTE]
 > From the **kali** terminal
@@ -249,19 +250,19 @@ docker run -it --privileged --net=host bettercap/bettercap -eval "caplets.update
 apt install mlocate
 ```
 
-- Updated the **database**
+Updated the **database**
 
 ```bash
 updatedb
 ```
 
-- Search for the **config files**
+Search for the **config files**
 
 ```bash
 locate https-ui.cap
 ```
 
-- Edit the `https-ui.cap` file:
+Edit the `https-ui.cap` file:
 
 Please note your path will be different!!!!!
 
@@ -269,7 +270,7 @@ Please note your path will be different!!!!!
 vi /var/lib/docker/overlay2/5146307503ac713827d090d51b88a622af068579060d8e1f1d97cda56415e018/diff/app/https-ui.cap
 ```
 
-- Change the line set `https.server.port` to **4443**
+Change the line set `https.server.port` to **4443**
 
 It should look like it does below:
 
@@ -297,18 +298,17 @@ api.rest on
 https.server on
 ```
 
-
-- Log out of vi with by pressing `esc` and **typing** `:wq!` and pressing `Enter`
+Log out of vi with by pressing `esc` and **typing** `:wq!` and pressing `Enter`
 
 ### Please note, there seems to be a weird bug in Bettercap where it updates the port to 4444443.  If you get a bind error, just re-edit the above file to set the port to 443.
 
-- Start **bettercap**
+Start **bettercap**
 
 ```bash
 docker run -it --privileged --net=host bettercap/bettercap -caplet https-ui
 ```
 
-- Show the **network**
+Show the **network**
 
 ```bash
 net.show
@@ -333,7 +333,7 @@ net.show
 
 ```
 
-- Show **help** for **options**!
+Show **help** for **options**!
 
 ```bash
 help
@@ -401,7 +401,7 @@ Modules
 arp.spoof on
 ```
 
-- Start the https proxy
+Start the https proxy
 
 ```bash
 https.proxy on
@@ -410,20 +410,3 @@ https.proxy on
 Now, surf to your **AC-Hunter system**!!!
 
 `https://<YOUR_ACHCE_IP_ADDR>`
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/PoisoningtheWellIR-main/navigate.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/FirewallLog/FirewallLog.md)</i></b>
-
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
