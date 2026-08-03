@@ -53,14 +53,16 @@ We will be using this later, so write it down if you need.
 ```
 ipconfig
 ```
+<br>
 
+### Disable Firewall
 Next, let's make sure the firewall is down. This will allow us to configure the system to match what many internal systems have.
 
 ```
 netsh advfirewall set allprofiles state off
 ```
 No firewall.....  So much for defense in depth.
-<br>
+<hr>
 
 ## Step 2: Running The Batch File
 Next, navigate into the appropriate directory by running the following command:
