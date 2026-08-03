@@ -64,13 +64,14 @@ You should see something like this:
 <img width="862" height="638" alt="2026-03-26_09-50" src="https://github.com/user-attachments/assets/a3419596-b4ca-4ea1-8d2a-832046873f76" />
 
 If you made it this far, perfect! That means Bluespawn is up and running.
+<hr>
 
+## Step 3: Using Atomic Red Team
 Now, let’s use Atomic Red Team to test the monitoring with BlueSpawn:
 
 First, we need to open a PowerShell terminal. 
 
 You can do this by selecting the icon in the taskbar/desktop:
-
 <img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
 
 Now we need to install and update Atomic Red Team. Run the following:
@@ -89,11 +90,10 @@ Install-AtomicRedTeam -getAtomics -Force
 > This can take a bit. After about 120 seconds, try hitting enter to get your prompt back.
 
 Once you see the following, you are set to move forward:
-
 <img width="1100" height="292" alt="2026-03-26_09-54" src="https://github.com/user-attachments/assets/41cb6202-0911-480c-bb68-0953bf66a213" />
 
-
-Next, in the PowerShell Window we need to navigate to the Atomic Red Team directory and import the powershell modules:
+### Import The Powershell Modules
+Next, in the PowerShell Window we need to navigate to the Atomic Red Team directory and import the Powershell modules:
 
 ```ps
 cd C:\AtomicRedTeam\invoke-atomicredteam\
@@ -113,7 +113,7 @@ Install-Module -Name powershell-yaml
 Import-Module .\Invoke-AtomicRedTeam.psm1
 ```
 
-
+### Invoke Atomic Tests
 Once we do this, we need to invoke all the Atomic Tests.
 
 >[!IMPORTANT]  
