@@ -77,8 +77,9 @@ Import-Module .\LocalPasswordSpray.ps1
 It should look like this:
 
 <img width="815" height="179" alt="2026-03-26_09-22" src="https://github.com/user-attachments/assets/6cf93e86-6168-4c76-9512-c8f69352104f" />
+<hr>
 
-
+## Step 4: Password Spraying The Local System
 Let’s try some password spraying against the local system!
 
 ```ps
@@ -88,8 +89,9 @@ Invoke-LocalPasswordSpray -Password Winter2025
 It should look like this:
 
 <img width="598" height="256" alt="2026-02-23_14-55" src="https://github.com/user-attachments/assets/0e299d08-daa9-498a-bb1b-2b95dd8d5c1e" />
+<hr>
 
-
+## Step 5: Cleaning Up
 We need to clean up and make sure the system is ready for the rest of the labs.
 
 Run the following two commands:
@@ -107,19 +109,3 @@ user-remove.bat
 Let this run all the way through. 
 
 **Even though it looks endless, it's not!**
-
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
-
-
