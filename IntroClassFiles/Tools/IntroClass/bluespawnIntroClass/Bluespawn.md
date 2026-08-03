@@ -133,14 +133,14 @@ techniques while avoiding Atomic tests that are unstable with BLUESPAWN monitor 
 Invoke-AtomicTest T1547.004
 ```
 
-More information here:
+More information here:<br>
 https://attack.mitre.org/techniques/T1547/004/
 
 ```ps
 Invoke-AtomicTest T1543.003
 ```
 
-More information here:
+More information here:<br>
 https://attack.mitre.org/techniques/T1543/003/
 
 You can also specify which tests you want to run:
@@ -156,8 +156,7 @@ Each test uses a different mechanism :
 - 9 - SystemBC through registry type Persistence
 - 11 - Using User Shell Folders to modify the Startup path
 
-More information here:
-
+More information here:<br>
 https://attack.mitre.org/techniques/T1547/001/
 
 
@@ -165,7 +164,7 @@ https://attack.mitre.org/techniques/T1547/001/
 Invoke-AtomicTest T1546.008 -TestNumbers 1
 ```
 
-More information here:
+More information here:<br>
 https://attack.mitre.org/techniques/T1546/008/
 
 >[!TIP]
@@ -188,9 +187,8 @@ It should look like this:
 > The updated BLUESPAWN release also uses the current ATT&CK technique names.
 >
 > The official MITRE ATT&CK sub-technique crosswalk is available here for
-> historical reference:
->
-> https://attack.mitre.org/docs/subtechniques/subtechniques-crosswalk.json
+> historical reference:<br>
+>https://attack.mitre.org/docs/subtechniques/subtechniques-crosswalk.json
 
 
 You should be getting a lot of alerts with Bluespawn! Switch tabs in your Terminal to see them:
@@ -352,7 +350,7 @@ Back at your Ubuntu terminal, you should have a metasploit session!
 ### Keystroke Logs
 Now, let’s look at keystroke logging.
 
-To learn more about this check out MITRE:
+To learn more about this check out MITRE:<br>
 https://attack.mitre.org/techniques/T1056/
 
 Here are some examples of threat groups, software, and campaigns associated with this technique:
@@ -373,8 +371,7 @@ Go and check Bluespawn.  Did it detect it?
 ### Registry Persistence
 Now, let’s play with registry persistence.
 
-To learn more about this check out MITRE:
-
+To learn more about this check out MITRE:<br>
 https://attack.mitre.org/techniques/T1547/
 
 Here are just some of the groups that use this technique:
@@ -395,8 +392,7 @@ Go and check Bluespawn.  Did it detect it?
 ### Privilege Escalation
 Next, let’s play with privilege escalation.
 
-Here is al link to more info about this from MITRE:
-
+Here is al link to more info about this from MITRE:<br>
 https://attack.mitre.org/techniques/T1543/
 
 Here are just some of the groups that use this technique:
