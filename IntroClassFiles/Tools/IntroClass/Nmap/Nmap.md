@@ -114,7 +114,7 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 >
 >You can verify that it is disabled with the following command:
 >
->```Get-MpComputerStatus | Select-Object RealTimeProtectionEnabled```
+><pre>Get-MpComputerStatus | Select-Object RealTimeProtectionEnabled</pre>
 >
 >The output must be `False`.
 
