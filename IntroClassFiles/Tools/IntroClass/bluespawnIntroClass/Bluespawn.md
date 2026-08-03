@@ -51,6 +51,7 @@ Run the following in your administrator Powershell window:
 
 <pre>iex(irm "https://raw.githubusercontent.com/PadeanuVlad1501/lab_script_repo/refs/heads/main/ART%26Bluespawn_lab/windows_update_script.ps1")</pre>
 
+
 Now, let's open a **command prompt**:
 
 ![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
@@ -66,7 +67,6 @@ BLUESPAWN-client-x64.exe --monitor --aggressiveness cursory
 ```
 
 You should see something like this:
-
 <img width="862" height="638" alt="2026-03-26_09-50" src="https://github.com/user-attachments/assets/a3419596-b4ca-4ea1-8d2a-832046873f76" />
 
 If you made it this far, perfect! That means Bluespawn is up and running.
