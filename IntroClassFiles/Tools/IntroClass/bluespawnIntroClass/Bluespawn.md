@@ -229,7 +229,7 @@ The instructions below will walk you through using the Metasploit Handler.<br>
 ### Disabling Defender & Windows Firewall
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
-<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/powershelltaskbar.png)
 
 Next, run the following command in the **Powershell** terminal:
 
@@ -244,7 +244,8 @@ This will disable **Defender** for this session.
 If you get angry red errors, that is **Ok**, it means **Defender** is not running.
 
 Open **Command Prompt**
-<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
+
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
 
 Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 ```cmd
@@ -258,8 +259,9 @@ net user Administrator password1234
 
 Please note, that is a very bad password.  Come up with something better. But, please remember it.
 
-Let's continue by opening an **Ubuntu** terminal
-<img width="384" height="400" alt="image" src="https://github.com/user-attachments/assets/eb8beb6f-5bf9-4294-9b32-2306ad1c002e" />
+Let's continue by opening an **Ubuntu Shell**
+
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/openshell.png)
 
 Become root:
 
@@ -336,7 +338,8 @@ scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 ```
 
 Open a **Command Prompt**
-<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
+
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
 
 
 Let's run the following commands to run the **"TrustMe.exe"** file.
