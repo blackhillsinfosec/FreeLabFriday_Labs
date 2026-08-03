@@ -13,26 +13,6 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 In this lab we will navigate through log files of an attack simulation on an MSP to illustrate how an attacker got in and compromised the network. From initial intrusion all the way to full network exploitation, we are going to explore the techniques used by the attacker(s) and how they were able to compromise our Azure MSP
 <hr>
 
-## Downloading The Logs
-Before we begin, we need to download the logs to follow along. Although we could have you do it on your host system, we have a fancy VM... so why not use it?
-
-Start by opening up a Command Prompt:
-![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
-
-Next, navigate into your `Downloads` directory:
-<pre>cd Downloads</pre>
-![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/todownloads.png)
-
-Then, run the following to download the .ZIP file of logs:
-<pre>curl -O https://data.bhislabs.com/PTWLogs.zip</pre>
-![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/curldownloadlogs.png)
-
-When it's complete, open up your file directory and unzip the folder!
-![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/downloadsfolder.png)
-
-Now we have the logs on our VM rather than our host system.
-<hr>
-
 ## Lab 1 - Initial Intrusion
 ### Azure login activity logs
 
