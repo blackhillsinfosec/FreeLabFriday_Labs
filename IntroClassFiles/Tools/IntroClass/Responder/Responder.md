@@ -83,7 +83,7 @@ As we can see we have the new captured data showing up.
 ## Step 2: Hash Cracking
 Now, let's crack some hashes!
 
-Back in your Linux system kill your Responder session by pressing ctrl+c.
+Back in your Linux system kill your Responder session by pressing `ctrl+c`.
 
 Then, type the following:
 
