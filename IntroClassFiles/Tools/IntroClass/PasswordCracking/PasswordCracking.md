@@ -12,7 +12,7 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 # Ubuntu VM
 
-
+### Lab Objective
 In this lab we will be getting started with the fundamentals of password cracking.  We will be using **Hashcat** to do this.
 
 Before we begin, let's delete any old leftover pot files
@@ -21,8 +21,10 @@ Before we begin, let's delete any old leftover pot files
 rm ~/.local/share/hashcat/hashcat.potfile  
 ```
 
-If you get an error that the file does not exist, that is fine.  It just means the file does not exist.  Carry on.
+If you get an error that the file does not exist, that is fine. It just means the file does not exist. Carry on.
+<hr>
 
+## Step 1: Attempt To Crack MD5 Hashes
 We need to navigate to the appropriate directory. Run the following:
 
 ```bash
