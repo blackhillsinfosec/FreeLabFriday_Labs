@@ -117,8 +117,6 @@ msfconsole -q
 
 <img width="577" height="91" alt="2026-02-23_10-44" src="https://github.com/user-attachments/assets/967b59aa-7a46-4286-9263-25c1bfe77192" />
 
-
-
 The **Metasploit Handler** successfully ran if the terminal now starts with **"msf >"**
 
 Next, let's run the following:
@@ -148,10 +146,10 @@ exploit
 ```
 
 It should look like this:
-
 <img width="671" height="192" alt="2026-02-23_10-54" src="https://github.com/user-attachments/assets/4c40211d-7f95-48df-bff5-4a62c261d620" />
+<hr>
 
-<br>
+## Step 4: Running The Malware
 
 Now we need to download the malware and run it!
 
@@ -166,30 +164,22 @@ scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 ```
 <br>
 You should see this:
-
-<br>
-
 ![](attachments/copytrustme.png)
 
 Great! We have the malware. 
 
 Now open up another Windows Command Prompt by **Double-Clicking** the icon on the desktop:
-
 ![](attachments/opencommandprompt.png)
 
-
 Once the prompt is open, let's navigate to the **Desktop** directory:
-
 ```cmd
 cd \Users\Administrator\Desktop
 ```
- 
-Then run the **"TrustMe.exe"** file with the following:
 
+Then run the **"TrustMe.exe"** file with the following:
 ```cmd
 TrustMe.exe
 ```
-
 <img width="407" height="85" alt="Screenshot From 2026-02-23 11-05-02" src="https://github.com/user-attachments/assets/d49eec4b-9798-4069-8728-2b5373fbd569" />
 
 <br>
@@ -197,32 +187,28 @@ TrustMe.exe
 Head back to your **Ubuntu Shell**.
 
 You should now have a **metasploit** session!
-
 <img width="985" height="391" alt="2026-02-23_11-06" src="https://github.com/user-attachments/assets/1cc56b49-784c-4160-b042-7aacda9a5f75" />
-
-
-<br>
 
 This isn't good. The malware successfully ran and now has read, write, and **execute** permissions!
 
 Let’s stop this from happening!
+<hr>
+
+## Step 5: Configuring Applocker
 
 To do this we will need to access the **"Local Security Policy"** on your **Windows** System.
 
 Start by typing **"Local Security Policy"** in the taskbar search field.
 
 It should bring up a menu like the one below, please select **"Local Security Policy"**.
-
 ![](attachments/localsecuritypolicy.png)
 
 We will need to configure **AppLocker**.  To do this, please go to Security Settings > Application Control Policies > AppLocker.
-
 ![](attachments/localsecpolicywindow.png)
 
 Scroll down in the right hand pane. You will see there are **"0 Rules enforced"** for all policies.  We will add in the default rules.  
 
 We will choose the defaults because we are far less likely to break a system that way.
-
 ![](attachments/rulesoverview.png)
 
 Please select *each* of the above Rule groups, **"Executable, Windows Installer, Script, and Packaged,"** and for each one, right click in the area that says **“There are no items to show in this view.”** and then select **“Create Default Rules”**.
