@@ -21,7 +21,7 @@ In this lab, we will be starting BlueSpawn and then running Atomic Red Team to t
 First, we need to disable Defender. 
 Start by opening up <b>Windows Powershell</b>.
 
-<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/powershelltaskbar.png)
 
 Next, run the following commands:
 
@@ -47,7 +47,7 @@ This will disable Defender for this session.
 ## Step 2: Starting Bluespawn
 Now, let's open a **command prompt**:
 
-<img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
 <br>
 Next, let’s change directories to tools and start Bluespawn:
 
