@@ -223,6 +223,9 @@ It should look like this:
 <hr>
 
 ## If You Have More Time
+Looking for more practice?<br>
+The instructions below will walk you through using the Metasploit Handler.<br>
+
 ### Disabling Defender & Windows Firewall
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
