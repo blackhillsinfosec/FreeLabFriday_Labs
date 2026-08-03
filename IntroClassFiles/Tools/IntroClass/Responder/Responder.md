@@ -94,9 +94,13 @@ cd ~/Intro_To_Security/Password_Cracking
 Then, we will crack the NTLMv2 hashes:
 
 ```bash
-hashcat -a 0 -m 5600 -r /usr/share/hashcat/rules/Incisive-leetspeak.rule ~/Intro_To_Security/Responder/logs/SMB-NTLMv2-SSP-10.10.82.154.txt password.lst
+hashcat -a 0 -m 5600 -r /usr/share/hashcat/rules/Incisive-leetspeak.rule ~/Intro_To_Security/Responder/logs/SMB-NTLMv2-SSP-[Your Windows IP].txt password.lst
 ```
-Remember!!!!  The IP address in the command will be different!  It should be your Windows systems IP address.  If you do not know it, open a Command Prompt on your Windows system and type 'ipconfig'
+> [!NOTE]
+>
+>Remember!!!!  The IP address in the command will be different!
+>It should be your Windows systems IP address. If you do not know it, open a Command Prompt and run the following:
+><pre>ipconfig</pre>
 
 It should look like this.
 
