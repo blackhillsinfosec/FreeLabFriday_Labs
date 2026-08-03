@@ -98,7 +98,7 @@ hashcat -a 0 -m 5600 -r /usr/share/hashcat/rules/Incisive-leetspeak.rule ~/Intro
 ```
 > [!NOTE]
 >
->Remember!!!!  The IP address in the command will be different!
+>Remember!!!!  The IP address in the command will be different!<br>
 >It should be your Windows systems IP address. If you do not know it, open a Command Prompt and run the following:
 ><pre>ipconfig</pre>
 
