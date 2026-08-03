@@ -40,6 +40,7 @@ You should see this:
 
 <br>
 
+### File Explorer String
 Let's open **Windows File Explorer** and put in the string ```\\Linux-IP\Noooo``` into the address bar at the top.
 
 >[!Note]
@@ -50,8 +51,6 @@ Let's open **Windows File Explorer** and put in the string ```\\Linux-IP\Noooo``
 <img width="502" height="55" alt="OpeningFileExplorer" src="https://github.com/user-attachments/assets/2de27ae0-5e58-4488-b7f3-ee6b313bec1e" />
 
 <img width="929" height="488" alt="file_exp" src="https://github.com/user-attachments/assets/002bd08e-5d6a-4b31-9593-1feb0d979d47" />
-
-<br>
 
 It will pop up a windows to write the credentials. Fill them with a user of 'admin' and a password of 'password' and switch back to your **Linux** terminal window.
 
@@ -67,6 +66,7 @@ After a few moments, you should see some captured data showing up.
 
 <br>
 
+### Repeating With Windows Terminal
 We can do the same thing from the Windows Terminal by running the following command:
 
 ```bash
