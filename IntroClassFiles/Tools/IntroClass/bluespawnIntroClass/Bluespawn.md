@@ -52,6 +52,7 @@ Run the following in your administrator Powershell window:
 <pre>iex(irm "https://raw.githubusercontent.com/PadeanuVlad1501/lab_script_repo/refs/heads/main/ART%26Bluespawn_lab/windows_update_script.ps1")</pre>
 <br>
 Now, let's open a **command prompt**:
+
 ![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
 
 Next, let’s change directories to tools and start Bluespawn:
