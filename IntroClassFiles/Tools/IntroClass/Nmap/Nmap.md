@@ -70,10 +70,6 @@ nmap 10.10.75.191
 >
 >Your IP will be different!!!!
 
->[!TIP]
->
->You can just hit the up arrow key to view previously run commands.  
-
 You can hit the spacebar to see status.
 
 Once complete, your output should look like this:
@@ -83,6 +79,7 @@ Once complete, your output should look like this:
 Please note the open ports. These are ports and services that an attacker could use to authenticate to your system or attack if an exploit is available. 
 <br>
 
+
 ### Disable Windows Firewall
 Now, using the same process as before, let’s disable the **Windows** firewall to go back to the base state:
 
@@ -91,6 +88,18 @@ netsh advfirewall set allprofiles state off
 ```
 
 <img width="462" height="346" alt="nmap_fw_off" src="https://github.com/user-attachments/assets/57c7c36d-cf84-4740-bdea-2fadf2be3eac" />
+
+Now, run the command again:
+
+<pre>nmap 10.10.75.191</pre>
+
+>[!IMPORTANT]
+>
+>Your IP will be different!!!!
+
+>[!TIP]
+>
+>You can just hit the up arrow key to view previously run commands.  
 
 As we can see, there is one more service shown open on port **5357** and also, the other **985** ports are shown as directly as **closed**, not **filtered**
 <hr>
