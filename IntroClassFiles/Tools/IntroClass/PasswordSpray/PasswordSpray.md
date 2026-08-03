@@ -25,11 +25,12 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 This will disable **Defender** for this session.
 
 If you get angry red errors, that is Ok, it means **Defender** is not running.
+<hr>
 
+## Step 2: Run The Batch File
 Let's get started by opening a **Command Prompt** terminal by clicking on the icon in the **desktop**.
 
 <img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/d7242bdb-1c7d-47fc-a214-26ab3d46af64" />
-
 
 Once the terminal opens, navigate into the appropriate directory by running the following command:
 
