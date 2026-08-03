@@ -2,7 +2,7 @@
 
 ---
 
-This is a lab from **John Strand**'s **Information Security Core Skillss** Course:
+This is a lab from **John Strand**'s **Information Security Core Skills** Course:
 
 https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
