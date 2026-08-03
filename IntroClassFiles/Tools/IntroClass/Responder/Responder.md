@@ -78,7 +78,9 @@ net use * \\10.10.102.57\share
 As we can see we have the new captured data showing up.
 
 <img width="910" height="160" alt="testing_log" src="https://github.com/user-attachments/assets/19ba8e38-f46d-4e32-a402-1b036d9aee23" />
+<hr>
 
+## Step 2: Hash Cracking
 Now, let's crack some hashes!
 
 Back in your Linux system kill your Responder session by pressing ctrl+c.
