@@ -222,6 +222,8 @@ This should generate a subset of rules for each group.  It should look similar t
 >
 >For simplicity, you can click the next set of rules from the left panel as seen above.
 
+<br>
+
 ### Enforce The Rules
 Next, we need to enforce these "new" rules.
 
@@ -235,6 +237,7 @@ When finished, click **APPLY** at the bottom of the window.
 >If you cannot see the **Apply** button due to window sizing- just hit **Enter** after checking the boxes! 
 >
 >Double-check by clicking "Configure rule enforcement" and make sure they stayed checked!
+
 <br>
 
 ### Start The Application Identity Service
