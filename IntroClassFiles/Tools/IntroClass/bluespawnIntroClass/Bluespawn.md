@@ -17,7 +17,7 @@ BlueSpawn will monitor the system for "weird" behavior and note it when it occur
 In this lab, we will be starting BlueSpawn and then running Atomic Red Team to trigger a lot of alerts.
 <hr>
 
-## Step 1: 
+## Step 1: Disabling Defender 
 First, we need to disable Defender. 
 Start by opening up <b>Windows Powershell</b>.
 
@@ -42,7 +42,9 @@ This will disable Defender for this session.
 >
 >If you get angry red errors, that is Ok, it means Defender is not running.
 
+<hr>
 
+## Step 2: Starting Bluespawn
 Now, let's open a **command prompt**:
 
 <img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
