@@ -270,4 +270,11 @@ runas /user:whitelist "C:\Tools\ncat.exe"
 The password is **adhd**
 <img width="943" height="111" alt="2026-02-23_11-42" src="https://github.com/user-attachments/assets/c6e06507-fb1c-4e49-8f09-20f44f1ec5c0" />
 
+>[!WARNING]
+>
+>If you do not get a RUNAS error, **Defender** has started itself back up. <br>
+>Run this command once more in your Powershell window, then repeat the above steps:
+><pre>Set-MpPreference -DisableRealtimeMonitoring $true</pre>
+
+
 As you can see, an error was generated, meaning that we were successful!
