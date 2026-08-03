@@ -9,15 +9,16 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Host Firewalls and Nmap
-
+### Lab Objective
 In this lab we will be scanning your **Windows** system from your **Linux** terminal with the firewall both on and off. 
 
 The goal is to show you how a system is very different to the network with a firewall enabled. 
 
 Remember, treat your internal network as hostile, because it is.
+<hr>
 
+## Step 1: Enable Windows Firewall
 Let's get started by opening a command prompt terminal. You can do this by clicking the icon in the taskbar.
-
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-56" src="https://github.com/user-attachments/assets/19ade57f-f3a3-4d2e-ad65-13251ee1cc35" />
 
@@ -28,7 +29,6 @@ Once the command prompt window opens, we need to get the IP address of your **Wi
 ```cmd
 ipconfig
 ```
-
 <img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/0417df7d-3b84-4823-8214-5385063cdca8" />
 
 <br>
