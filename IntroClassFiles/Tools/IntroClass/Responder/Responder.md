@@ -16,7 +16,7 @@ In this lab we are going to walk through how quickly an attacker can take advant
 Specifically, we are looking to take advantage of **"LLMNR"**.  
 <hr>
 
-## Step 1: Navigate To Directory
+## Step 1: Starting Responder
 To begin, **Double-click** `Ubuntu Shell` on the desktop.
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
