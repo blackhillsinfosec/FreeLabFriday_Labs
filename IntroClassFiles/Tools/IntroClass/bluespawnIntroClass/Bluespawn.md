@@ -72,7 +72,7 @@ Now, let’s use Atomic Red Team to test the monitoring with BlueSpawn:
 First, we need to open a PowerShell terminal. 
 
 You can do this by selecting the icon in the taskbar/desktop:
-<img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/powershelltaskbar.png)
 
 Now we need to install and update Atomic Red Team. Run the following:
 
