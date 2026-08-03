@@ -91,6 +91,7 @@ Install-AtomicRedTeam -getAtomics -Force
 
 Once you see the following, you are set to move forward:
 <img width="1100" height="292" alt="2026-03-26_09-54" src="https://github.com/user-attachments/assets/41cb6202-0911-480c-bb68-0953bf66a213" />
+<br>
 
 ### Import The Powershell Modules
 Next, in the PowerShell Window we need to navigate to the Atomic Red Team directory and import the Powershell modules:
@@ -112,6 +113,7 @@ Install-Module -Name powershell-yaml
 ```ps
 Import-Module .\Invoke-AtomicRedTeam.psm1
 ```
+<br>
 
 ### Invoke Atomic Tests
 Once we do this, we need to invoke all the Atomic Tests.
