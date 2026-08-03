@@ -97,7 +97,6 @@ Let this run all the way through.
 <hr>
 
 ## Step 3: Preparing Our Attack System
-
 Once that finishes, we need to get our attack system ready.
 
 First, let’s open up an **Ubuntu Shell** by double-clicking the icon on the desktop:
@@ -109,7 +108,9 @@ Next, let's become root:
 ```
 sudo su -
 ```
+<br>
 
+### Get A User List
 Now, let's get a user list:
 
 ```
@@ -123,6 +124,9 @@ It should look like this:
 >
 >A list like this would be acquired by running recon on sites like LinkedIn, or even possibly a company directory!
 
+<br>
+
+### Configuring Metasploit
 Now, let's start up and configure Metasploit for the remote attack!
 
 Go ahead and run the following:
@@ -192,7 +196,9 @@ Are there any Administrator logins?
 Yes! There is!!
 
 <img width="660" height="17" alt="img06" src="https://github.com/user-attachments/assets/391368b8-e70b-408a-99ba-624676297f7a" />
+<br>
 
+### Analyze The Logs
 Now, let's look at the logs back in the Event Viewer. In the left pane, click on Windows Logs > Security.
 
 In the action panel on the right you will need to click the refresh button.
