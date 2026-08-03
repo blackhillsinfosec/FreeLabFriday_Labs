@@ -81,7 +81,9 @@ Once complete, your output should look like this:
 <img width="461" height="329" alt="nmap_fw_on" src="https://github.com/user-attachments/assets/fe0eecfc-1fb7-4db6-a506-7a63466aee34" />
 
 Please note the open ports. These are ports and services that an attacker could use to authenticate to your system or attack if an exploit is available. 
+<br>
 
+### Disable Windows Firewall
 Now, using the same process as before, let’s disable the **Windows** firewall to go back to the base state:
 
 ```cmd
@@ -91,16 +93,16 @@ netsh advfirewall set allprofiles state off
 <img width="462" height="346" alt="nmap_fw_off" src="https://github.com/user-attachments/assets/57c7c36d-cf84-4740-bdea-2fadf2be3eac" />
 
 As we can see, there is one more service shown open on port **5357** and also, the other **985** ports are shown as directly as **closed**, not **filtered**
+<hr>
 
----
-
+## Step 3: Why Is This Important?
 Now, lets see why this is important with pass the hash.
 
 First lets configure the Windows system
 
 Let's disable AV.
 
-- Open **Powershell**
+Open **Powershell**
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-15" src="https://github.com/user-attachments/assets/4bb73f73-82e2-419d-8f70-4f57c21cb3bf" />
 
@@ -139,12 +141,14 @@ ipconfig
 ```
 
 <img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/25a9d909-663b-46d2-8c7d-13c88fef36db" />
+<br>
 
+### Starting Metasploit
 Now, let's open a **Linux** terminal by **Double-clicking** the `Ubuntu Shell` icon on the Desktop:
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
-Start of by becoming root:
+Start off by becoming root:
 
 ```bash
 sudo su -
