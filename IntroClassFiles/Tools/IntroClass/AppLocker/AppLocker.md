@@ -164,6 +164,7 @@ scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 ```
 <br>
 You should see this:
+
 ![](attachments/copytrustme.png)
 
 Great! We have the malware. 
