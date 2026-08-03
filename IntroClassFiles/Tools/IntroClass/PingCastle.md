@@ -156,14 +156,3 @@ Here you will see accounts whose passwords have not been changed in a very long 
 > The report gives you a prioritized list of weaknesses in minutes - without needing admin rights, without touching endpoints, and without triggering AV.
 >
 > As a SOC analyst, it is equally valuable: run it quarterly and track your score over time!
-
----
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
