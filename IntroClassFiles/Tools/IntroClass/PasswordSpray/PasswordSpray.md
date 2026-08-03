@@ -10,6 +10,9 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 # Password Spray
 
+<hr>
+
+## Step 1: Disabling Defender
 First things first, disable **Defender**. Open an instance of **Windows PowerShell** by clicking on the icon in the **desktop**. Then run the following:
 
 <img width="74" height="91" alt="image" src="https://github.com/user-attachments/assets/5676575e-6ba5-4971-b1de-68d60234af47" />
