@@ -44,8 +44,7 @@ This will disable **Defender**.
 
 Next, lets ensure the firewall is disabled. 
 
-Open up a Windows Command Prompt by **Double-Clicking** the icon on the desktop:
-
+Open up a Windows Command Prompt by **Double-Clicking** the icon on the desktop:            
 ![](attachments/opencommandprompt.png)
 
 Once open, run the following command:
@@ -53,7 +52,6 @@ Once open, run the following command:
 ```cmd
 netsh advfirewall set allprofiles state off
 ```
-
 ![](attachments/firewalloff.png)
 
 <!--
@@ -63,19 +61,18 @@ Next, set a password for the Administrator account that you can remember:
 net user Administrator password1234
 ```
 
-
 >[!Note]
 >
 >That is a very bad password.  Come up with something better. But, please remember it.
 
 -->
+<hr>
 
+## Step 2: Starting Backdoor & Backdoor Listener
 Next, open an **Ubuntu Shell** by **Double-clicking** the icon on the desktop:
-
 ![](attachments/ubuntushell;.png)
 
 <br>
-
 
 We need to get the **IP** of our **Linux System**. Lets do so by running the following:
 
@@ -84,21 +81,17 @@ ifconfig
 ```
 
 We want to look for the **ens5** connection:
-
 <img width="716" height="175" alt="2026-02-23_10-33" src="https://github.com/user-attachments/assets/eb5b0547-6da5-4f35-8ce4-43580c8a97d7" />
 
 <br>
 
 Write this down to remember for later!
 
-
-
 >[!Note]
 >
 >**REMEMBER: YOUR IP WILL BE DIFFERENT**
 
 Now, run the following commands to start a simple backdoor and backdoor listener: 
-
 
 ```bash
 cd /tmp/
