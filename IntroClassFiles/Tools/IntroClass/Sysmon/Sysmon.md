@@ -130,7 +130,9 @@ exploit
 It should look like this:
 
 <img width="687" height="206" alt="2026-02-23_15-38" src="https://github.com/user-attachments/assets/71226123-2163-4237-8173-c7586de81ee7" />
+<br>
 
+### Copy The File Over
 Going back to our **Powershell** terminal, copy the file over from **Linux**
 
 ```ps
@@ -140,7 +142,6 @@ cd .\Desktop\
 ```ps
 scp ubuntu@linux.cloudlab.lan:/tmp/TrustMe.exe .
 ```
-
 
 Now we will need to open a **Command Prompt** terminal as **Administrator**. 
 
@@ -163,14 +164,14 @@ Sysmon64.exe -accepteula -i sysmonconfig-export.xml
 It should look like this:
 
 <img width="598" height="354" alt="2026-03-13_16-37" src="https://github.com/user-attachments/assets/d8175d3c-e72a-4d57-bdd6-65409afb838a" />
-
-
+<br>
+### Run TrustMe.exe
 Let's run the following commands to run the **"TrustMe.exe"** file.
 
 ```cmd
 cd \Users\Administrator\Desktop
 ```
- 
+
 Then run it with the following:
 
 ```cmd
