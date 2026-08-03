@@ -79,7 +79,7 @@ At first it may not be totally obvious, but the name seems *slightly* suspicious
 <hr>
 
 ## Lab 3 - Cookie Theft
-#### Cookie Theft and RMM (Realtime Monitoring and Management) Takeover
+### Cookie Theft and RMM (Realtime Monitoring and Management) Takeover
 
 [*Download the log file to follow along*](./logs/cookie_theft.csv)
 
@@ -134,7 +134,7 @@ Unfortunately, the cookie theft and reuse occur attackers are hijacking a sessio
 <hr>
 
 ## Lab 4 - Full Domain PWN
-### # What has the attacker done with RMM access?
+### What has the attacker done with RMM access?
 
 [*Download the log file to follow along*](./logs/Activities-rmm.csv)
 
