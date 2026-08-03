@@ -300,7 +300,7 @@ https.server on
 
 Log out of vi with by pressing `esc` and **typing** `:wq!` and pressing `Enter`
 
-### Please note, there seems to be a weird bug in Bettercap where it updates the port to 4444443.  If you get a bind error, just re-edit the above file to set the port to 443.
+#### Please note, there seems to be a weird bug in Bettercap where it updates the port to 4444443.  If you get a bind error, just re-edit the above file to set the port to 443.
 
 Start **bettercap**
 
