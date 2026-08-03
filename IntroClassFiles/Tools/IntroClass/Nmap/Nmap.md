@@ -148,7 +148,15 @@ Now, let's open a **Linux** terminal by **Double-clicking** the `Ubuntu Shell` i
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
-Start off by becoming root:
+Start off by getting your Linux IP address:
+
+```bash
+ifconfig
+```
+
+<img width="513" height="119" alt="linux_ip" src="https://github.com/user-attachments/assets/2fdce39e-bbb2-4592-9d30-cd221241476f" />
+
+Now, we need to become root:
 
 ```bash
 sudo su -
@@ -162,13 +170,7 @@ msfconsole -q
 
 <img width="430" height="65" alt="msf_console" src="https://github.com/user-attachments/assets/b432d8c4-b773-480e-8993-892636243e1b" />
 
-Open another **Ubuntu shell** to get your IP address:
-
-```bash
-ifconfig
-```
-
-<img width="513" height="119" alt="linux_ip" src="https://github.com/user-attachments/assets/2fdce39e-bbb2-4592-9d30-cd221241476f" />
+Once your terminal header is 
 
 <pre>use exploit/windows/smb/psexec</pre>
 
