@@ -189,36 +189,14 @@ Back at your **Linux terminal**, you should have a metasploit session!
 Now, we need to view the Sysmon events for this malware:
 
 Open **"Event Viewer"** by pressing the Windows key and searching for it.
-
 ![](attachments/eventviewer.png)
 
 You will select Event Viewer > Applications and Services Logs > Microsoft > Windows > Sysmon > Operational
-
 ![](attachments/eventviewernav1.png)
 
 You'll have to scroll down a bit until you find the **Sysmon** folder.  
-
 ![](attachments/eventviwernav2.png)
 
 Start at the top and work down through the logs, you should see your **malware** executing.  Please note your paths may be different.
 
-
 <img width="1325" height="938" alt="2026-03-13_16-45" src="https://github.com/user-attachments/assets/e1038335-5dce-4384-a98d-5683adda1608" />
-
-
-
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
-
-
