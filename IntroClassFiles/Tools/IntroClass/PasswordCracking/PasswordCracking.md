@@ -27,7 +27,7 @@ If you get an error that the file does not exist, that is fine. It just means th
 <hr>
 
 ## Step 1: Cracking MD5 Hashes
-We need to navigate to the appropriate directory. 
+We need to navigate to the appropriate directory.<br> 
 In your Terminal (or Ubuntu Shell), run the following:
 
 ```bash
