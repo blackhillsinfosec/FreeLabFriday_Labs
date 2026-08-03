@@ -418,24 +418,3 @@ meterpreter >`getsystem`
 <img width="1500" height="560" alt="image" src="https://github.com/user-attachments/assets/eb3352e1-2793-4ac3-9bc4-9a0f747c4a0f" />
 
 Go and check Bluespawn.  Did it detect it?
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
-
-
-
-
-
-
-
-
-
