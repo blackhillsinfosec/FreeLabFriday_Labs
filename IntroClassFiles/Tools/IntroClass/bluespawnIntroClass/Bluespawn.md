@@ -9,13 +9,15 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 ---
 
 # Atomic Red Team And Bluespawn
-
+### Lab Objective
 In this lab we will be using Bluespawn as a stand-in for an EDR system.  Normally full EDRs like Cylance and Crowdstrike are very expensive and tend not to show up in classes like this.  However, the folks at University of Virginia have done an outstanding job with BlueSpawn. 
 
 BlueSpawn will monitor the system for "weird" behavior and note it when it occurs. For the money, it is great.
 
 In this lab, we will be starting BlueSpawn and then running Atomic Red Team to trigger a lot of alerts.
+<hr>
 
+## Step 1: 
 First, we need to disable Defender. 
 Start by opening up <b>Windows Powershell</b>.
 
