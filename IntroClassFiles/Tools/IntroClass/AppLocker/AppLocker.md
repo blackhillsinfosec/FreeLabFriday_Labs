@@ -247,6 +247,7 @@ This will bring up the **Services App**. Double-click **"Application Identity"**
 
 Once the **"Application Identity Properties"** dialogue is open, please press the **Start** button. This will start the service.
 ![](attachments/startservice.png)
+<br>
 
 ### Forcing The Policy Change
 Now, open up your command prompt, and run **"gpupdate"** to force the policy change.
@@ -255,6 +256,7 @@ Now, open up your command prompt, and run **"gpupdate"** to force the policy cha
 gpupdate /force
 ```
 ![](attachments/gpupdate.png)
+<br>
 
 ### Attempt To Run Malware As Another User
 We are now going to try to run **"TrustMe.exe"** as another user on the system. 
