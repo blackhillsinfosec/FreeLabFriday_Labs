@@ -45,13 +45,14 @@ netsh advfirewall set allprofiles state on
 ```
 
 <img width="452" height="35" alt="img02" src="https://github.com/user-attachments/assets/87a58a06-caaf-412f-8c83-152f2a9b729d" />
+<hr>
 
+## Step 2: Scanning Your Windows System
 Let’s try and scan your Windows system from within a **Linux** terminal. 
 
 Go ahead and open up an **Ubuntu Shell** by double-clicking the icon on the desktop:
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
-
 
 In the **Linux** terminal, let’s become root:
 
@@ -64,7 +65,6 @@ Now, let’s re-scan from the terminal:
 ```bash
 nmap 10.10.75.191
 ```
-<br>
 
 >[!IMPORTANT]
 >
