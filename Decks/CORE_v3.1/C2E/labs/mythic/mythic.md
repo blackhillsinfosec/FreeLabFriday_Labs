@@ -54,12 +54,12 @@ If you do not have an AWS account yet, complete **[ScoutSuite Lab - Phase 1](/De
 
 <img width="1146" height="655" alt="image" src="https://github.com/user-attachments/assets/7615002a-eb78-4630-9b42-a63986fc6911" />
 
-### 🔑 Securing the SSH Key (havoc-key.pem) : 
+### 🔑 Securing the SSH Key : 
  - The *RSA Key* should be in your *Downloads* folder (either on the VM or on your personal computer):
    
  <img width="743" height="251" alt="image" src="https://github.com/user-attachments/assets/9e6d048b-4966-4aa3-9f11-40d3f1dff6f3" />
 
-   We will use the **VM's clipboard** to copy the .pem file. Move the *.pem* file to the **lab directory (~/BnB/Havoc)**
+   We will use the **VM's clipboard** to copy the .pem file. 
  - To *open or close* the clipboard of the VM press **ctrl+alt+shift** and a small window will pop up: 
 
  <img width="526" height="826" alt="image" src="https://github.com/user-attachments/assets/9ce6ed1f-9a0a-4e46-80a0-39d65c95b40d" />
@@ -74,13 +74,13 @@ If you do not have an AWS account yet, complete **[ScoutSuite Lab - Phase 1](/De
 
 Use your cursor to **copy the contents of the VM clipboard with ctrl+a, then ctrl+c**, and paste them into a file on your personal machine. 
 >[!NOTE]
->After creating the havoc-key.pem file on your host machine using the Copy-Paste method, you must set the correct file permissions. SSH clients are designed to ignore private keys that are "too readable" by other users on the system. If you skip this step, your connection will be rejected.
+>After creating the key.pem file on your host machine using the Copy-Paste method, you must set the correct file permissions. SSH clients are designed to ignore private keys that are "too readable" by other users on the system. If you skip this step, your connection will be rejected.
 
 Depending on your operating system, this proccess will differ : 
 
 ### Option A: Linux / macOS Users
 
-- On Linux / macOS, open a folder of your choosing in the terminal, type **nano havoc-key.pem**, paste the content into a the file, press **ctrl+o, Enter, then ctrl+x**. After that, type:
+- On Linux / macOS, open a folder of your choosing in the terminal, type **nano LabKey-1.pem**, paste the content into a the file, press **ctrl+o, Enter, then ctrl+x**. After that, type:
 
 ``` bash
 chmod 400 LabKey-1.pem
@@ -95,14 +95,14 @@ Open a PowerShell terminal in the folder containing your key and run these two c
 
 ```PowerShell
 # 1. Disable permission inheritance
-icacls "havoc-key.pem" /inheritance:r
+icacls "LabKey-1.pem" /inheritance:r
 
 # 2. Grant read access only to the current user
-icacls "havoc-key.pem" /grant:r "${env:USERNAME}:R"6
+icacls "LabKey-1.pem" /grant:r "${env:USERNAME}:R"6
 ```
 
 ⚠️ Important Security Note: 
- - These "Strict Permissions" ensure that you are the only one who can read this file. If you attempt to connect and see an error like Permissions 0644 for 'havoc-key.pem' are too open, it means the steps above were not completed successfully.
+ - These "Strict Permissions" ensure that you are the only one who can read this file. If you attempt to connect and see an error like Permissions 0644 for 'LabKey-1.pem' are too open, it means the steps above were not completed successfully.
  
 ---
  
