@@ -108,7 +108,7 @@ Install-Module -Name powershell-yaml
 
 >[!NOTE]
 >
->When prompted, press Y to install the modules.
+>If prompted, press Y to install the modules.
 
 ```ps
 Import-Module .\Invoke-AtomicRedTeam.psm1
@@ -134,7 +134,6 @@ Invoke-AtomicTest T1547.004
 ```
 
 More information here:
-
 https://attack.mitre.org/techniques/T1547/004/
 
 ```ps
@@ -142,7 +141,6 @@ Invoke-AtomicTest T1543.003
 ```
 
 More information here:
-
 https://attack.mitre.org/techniques/T1543/003/
 
 You can also specify which tests you want to run:
@@ -168,9 +166,7 @@ Invoke-AtomicTest T1546.008 -TestNumbers 1
 ```
 
 More information here:
-
 https://attack.mitre.org/techniques/T1546/008/
-
 
 >[!TIP]
 >
@@ -357,7 +353,6 @@ Back at your Ubuntu terminal, you should have a metasploit session!
 Now, let’s look at keystroke logging.
 
 To learn more about this check out MITRE:
-
 https://attack.mitre.org/techniques/T1056/
 
 Here are some examples of threat groups, software, and campaigns associated with this technique:
