@@ -170,7 +170,7 @@ msfconsole -q
 
 <img width="430" height="65" alt="msf_console" src="https://github.com/user-attachments/assets/b432d8c4-b773-480e-8993-892636243e1b" />
 
-Once your terminal header is `msf >`, run the following:
+Once your terminal header is `msf >`, run the following one at a time:
 
 <pre>use exploit/windows/smb/psexec</pre>
 
