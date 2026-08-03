@@ -235,6 +235,7 @@ When finished, click **APPLY** at the bottom of the window.
 >If you cannot see the **Apply** button due to window sizing- just hit **Enter** after checking the boxes! 
 >
 >Double-check by clicking "Configure rule enforcement" and make sure they stayed checked!
+<br>
 
 ### Start The Application Identity Service
 Now we need to start the **"Application Identity service"**.  
