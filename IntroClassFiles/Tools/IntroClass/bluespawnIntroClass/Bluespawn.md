@@ -45,6 +45,12 @@ This will disable Defender for this session.
 <hr>
 
 ## Step 2: Starting Bluespawn
+
+Before we start Bluespawn, we need to update it.
+Run the following in your administrator Powershell window:
+
+<pre>iex(irm "https://raw.githubusercontent.com/PadeanuVlad1501/lab_script_repo/refs/heads/main/ART%26Bluespawn_lab/windows_update_script.ps1")</pre>
+
 Now, let's open a **command prompt**:
 
 ![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
