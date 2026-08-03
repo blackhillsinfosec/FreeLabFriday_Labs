@@ -11,23 +11,20 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 # Sysmon
 
 # Windows VM
+
+### Lab Objective
 In this lab we will be looking at what an attacker can do with valid accounts.  
 
-To learn more about this attack check out the following:
-
+To learn more about this attack check out the following:<br>
 https://attack.mitre.org/techniques/T1078/
 
 Here are just some groups that have used this attack:
 
 <img width="1082" height="691" alt="image" src="https://github.com/user-attachments/assets/634d0a14-def0-42da-9f23-0b26bb3faa07" />
 
-<br>
-
 Let’s begin by disabling **Defender**. Simply run the following from an **Administrator PowerShell** prompt:
 
 <img width="74" height="91" alt="Screenshot From 2026-02-07 17-59-15" src="https://github.com/user-attachments/assets/bb7c958d-9879-44d3-a6e2-441139a94caa" />
-
-<br>
 
 Next, run the following command in the **Powershell** terminal:
 
@@ -45,7 +42,6 @@ Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 netsh advfirewall set allprofiles state off
 ```
 
-
 Next, set a password for the Administrator account that you can remember
 
 ```ps
@@ -54,21 +50,17 @@ net user Administrator password1234
 
 Please note, that is a very bad password.  Come up with something better. But, please remember it.
 
-
 Now we need a **Linux Terminal**.
 
 **Double-click** `Ubuntu Shell` on the desktop:
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
-
-
 Run the following command to become root:
 
 ```bash
 sudo su -
 ```
-
 
 Before we run the next commands, we need to get the **IP** of our **Linux System**. Lets do so by running the following:
 
@@ -98,8 +90,6 @@ Let's start the **Metasploit** Handler.
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/196f7867-877b-4a37-bc02-1214e50e96a5" />
 
-
-<br>
 
 Now let's start the **Metasploit** Handler
 
