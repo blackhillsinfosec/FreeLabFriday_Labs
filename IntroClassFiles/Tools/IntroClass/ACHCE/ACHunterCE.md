@@ -19,7 +19,7 @@ In this lab we are going to set up the Community Edition of AC Hunter so it can 
 
 <hr>
 
-## Step 1: Installing & Launching AC Hunter CE
+## Step 1: Install & Launch AC Hunter CE
 This next section will walk through how to launch the **AC Hunter VM** using **VMware**.
 
 Start by opening **file explorer** and navigating to your downloads directory.
@@ -43,14 +43,13 @@ Once again, navigate to your downloads folder, and then into the extracted `AC-H
 After doing this, you should see a new tab appear shown in the screenshot below.
 ![](attachments/newtab.png)
 
---------------------------------------------
+<br>
 
+### Change The Network Settings
 Now that we have successfully loaded the **AC Hunter VM** into our VMware application, we need to change the network settings.
 
 What we will need to do is to change **VM** to `Bridged networking` from **NAT**.  This can be done in the settings for the VM which can be accessed via `VM` > `Settings` > `Network Adapter` 
-
 ![](attachments/editsettings.png)
-
 ![](attachments/networkadapter.png)
 
 ![](https://github.com/strandjs/IntroLabs/blob/master/IntroClassFiles/Tools/IntroClass/ACHCE/VMWare_Bridge.png)
@@ -72,7 +71,6 @@ Next, get your **IP Address** by running the following command:
 ```bash
 ip addr show dev ens33 | grep inet
 ```
-
 ![](attachments/IP.png)
 
 Now lets open Terminal on Windows and open two **SSH sessions**. I like to have one as **root** and another as **dataimport** for the install.
