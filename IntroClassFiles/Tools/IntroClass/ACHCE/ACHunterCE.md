@@ -61,6 +61,10 @@ Go ahead and hit `Power on this virtual machine`.
 >
 > **User ID** is `dataimport`	
 
+<br>
+
+### Installing Zeek
+Now that our VM is running, we need to start by opening a terminal.
 Change the **default password** after initial login by running the following:
 ```bash
 passwd
