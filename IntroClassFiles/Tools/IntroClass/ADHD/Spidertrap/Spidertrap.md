@@ -12,25 +12,17 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Ubuntu VM
 
-Website
--------
+Website:<br>
+https://github.com/adhdproject/spidertrap
 
-<https://github.com/adhdproject/spidertrap>
-
-Description
------------
-
+### Description
 Trap web crawlers and spiders in an infinite set of dynamically
 generated webpages.
 
-Install Location
-----------------
-
+### Install Location
 `~/ADCD/spidertrap`
 
-Usage
------
-
+### Usage
 ```bash
 python3 spidertrap.py --help
 ```
@@ -40,6 +32,7 @@ Usage: spidertrap.py [FILE]
 FILE is file containing a list of webpage names to serve, one per line.
 If no file is provided, random links will be generated.
 ```
+<hr>
 
 ## Example 1: Basic Usage
 
