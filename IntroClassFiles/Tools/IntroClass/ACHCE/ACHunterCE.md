@@ -15,7 +15,6 @@ In this lab we are going to set up the Community Edition of AC Hunter so it can 
 - Download AC Hunter Community Edition [Here](https://www.activecountermeasures.com/ac-hunter-community-edition/download/)
 
 ![](attachments/ACHCE_Download.png)
-
 ![](attachments/ClickDownload.png)
 
 <hr>
@@ -24,32 +23,24 @@ In this lab we are going to set up the Community Edition of AC Hunter so it can 
 This next section will walk through how to launch the **AC Hunter VM** using **VMware**.
 
 Start by opening **file explorer** and navigating to your downloads directory.
-
 ![](attachments/OpeningFileExplorer.png)
-
 ![](attachments/navigatetodownloads.png)
 
 You should see the `AC-Hunter.zip` archive that we just downloaded. We need to extract this.<br> 
 Click on the `.zip` archive and hit `Extract all` at the top of the screen.
-
 ![](attachments/extractall.png)
 
 When the pop-up appears, click **extract**. This will extract the `.zip` archive to the downloads folder. 
-
 ![](attachments/extract.png)
 
 Next, open your VMware application. In this instance, we use **VMware Workstation**. Once opened, first make sure you have the home tab selected. Then, click `Open a Virtual Machine`.
-
 ![](attachments/openvmware.png)
 
 Once again, navigate to your downloads folder, and then into the extracted `AC-Hunter-v...` folder. If done correctly, you should only see one file that can be selected. Go ahead and double click on it.
-
 ![](attachments/openfolder.png)
-
 ![](attachments/doubleclick.png)
 
 After doing this, you should see a new tab appear shown in the screenshot below.
-
 ![](attachments/newtab.png)
 
 --------------------------------------------
