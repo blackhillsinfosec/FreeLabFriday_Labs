@@ -37,7 +37,7 @@ Now we have the logs on our VM rather than our host system.
 ## Lab 1 - Initial Intrusion
 ### Azure login activity logs
 
-[*Download the log file to follow along*](./logs/InteractiveSignIns_Domain_spray_logs.csv)
+***For this section, you will need the InteractiveSignIns_Domain_spray_logs.csv file to follow along***
 
 In this **walkthrough** we will be taking a look at a log file that was pulled from **Azure**.
 
