@@ -37,7 +37,7 @@ Now we have the logs on our VM rather than our host system.
 ## Lab 1 - Initial Intrusion
 ### Azure login activity logs
 
-*For this section, you will need the **InteractiveSignIns_Domain_spray_logs.csv** file to follow along*
+*For this section, you will need the **InteractiveSignIns_Domain_spray_logs.csv** file to follow along.*
 
 In this **walkthrough** we will be taking a look at a log file that was pulled from **Azure**.
 
@@ -77,7 +77,7 @@ It looks like the attacker found his way into the domain through **Paul Bowman's
 ## Lab 2 - Machine Pivoting
 ### Suspicious Executables and Workstations
 
-[*Download the log file to follow along*](./logs/ws-3-security.csv)
+*For this section, you will need the **ws-3-security.csv** file to follow along.*
 
 After the discovery of the compromised user, **(Paul Bowman)**, we decided to go through the security logs of each workstation to look for any suspicious files being run or used by other users.
 
@@ -102,7 +102,7 @@ At first it may not be totally obvious, but the name seems *slightly* suspicious
 ## Lab 3 - Cookie Theft
 ### Cookie Theft and RMM (Realtime Monitoring and Management) Takeover
 
-[*Download the log file to follow along*](./logs/cookie_theft.csv)
+*For this section, you will need the **cookie_theft.csv** file to follow along.*
 
 At this point we know that the attacker is trying to **pivot** in the network.
 
@@ -157,7 +157,7 @@ Unfortunately, the cookie theft and reuse occur attackers are hijacking a sessio
 ## Lab 4 - Full Domain PWN
 ### What has the attacker done with RMM access?
 
-[*Download the log file to follow along*](./logs/Activities-rmm.csv)
+*For this section, you will need the **Activities-rmm.csv** file to follow along.*
 
 At this point in our investigation, it is becoming clear that the attacker didn't just **compromise** one machine but may have compromised the **entire** domain.
 
