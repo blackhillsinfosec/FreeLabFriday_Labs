@@ -308,7 +308,6 @@ Show the **network**
 net.show
 ```
 
-
 ```
 192.168.3.0/24 > 192.168.3.116  » net.show
 
