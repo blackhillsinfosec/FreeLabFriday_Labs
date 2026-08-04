@@ -2,7 +2,7 @@
 
 ---
 
-This is a lab from **John Strand**'s **Information Security Core Skillss** Course:
+This is a lab from **John Strand**'s **Information Security Core Skills** Course:
 
 https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
@@ -14,7 +14,8 @@ In this lab we will navigate through log files of an attack simulation on an MSP
 <hr>
 
 ## Downloading The Logs
-Before we begin, we need to download the logs to follow along. Although we could have you do it on your host system, we have a fancy VM... so why not use it?
+Before we begin, we need to download the logs to follow along.<br>
+Although we could have you do it on your host system, we have a fancy VM... so why not use it?
 
 Start by opening up a Command Prompt:
 ![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/opencommandprompt.png)
