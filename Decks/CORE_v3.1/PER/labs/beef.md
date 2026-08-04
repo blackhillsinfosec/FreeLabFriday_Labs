@@ -58,7 +58,7 @@ Save and exit: `Ctrl+O`, `Enter`, `Ctrl+X`.
 ## Step 2 - Start BeEF
 
 ```bash
-sudo ./beef
+./beef
 ```
 
 You will see output similar to:
