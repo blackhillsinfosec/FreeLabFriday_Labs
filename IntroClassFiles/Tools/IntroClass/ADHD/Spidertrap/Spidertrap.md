@@ -36,7 +36,7 @@ If no file is provided, random links will be generated.
 
 ## Example 1: Basic Usage
 
-- Let's get started by getting into the proper directory:
+Let's get started by getting into the proper directory:
 
 ```bash
 cd ~/ADCD/spidertrap
