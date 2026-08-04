@@ -310,7 +310,6 @@ net.show
 
 
 ```
-
 192.168.3.0/24 > 192.168.3.116  » net.show
 
 ┌───────────────┬───────────────────┬─────────────────┬───────────────────────┬────────┬────────┬──────────┐
@@ -323,8 +322,6 @@ net.show
 └───────────────┴───────────────────┴─────────────────┴───────────────────────┴────────┴────────┴──────────┘
 
 ↑ 6.7 kB / ↓ 962 kB / 3748 pkts
-
-
 ```
 
 Show **help** for **options**!
@@ -336,7 +333,6 @@ help
 It should look like it does below:
 
 ```
-
 192.168.3.0/24 > 192.168.3.116  » help
 
            help MODULE : List available commands or show module specific help if no module name is provided.
