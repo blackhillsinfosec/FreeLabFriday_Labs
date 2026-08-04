@@ -61,7 +61,7 @@ That is not a good sign.  That means that someone was doing a [brute force spray
 
 Let's go through the logs and make sure all attempts are **failed** before we escalate this incident.
 
-[Found Creds](./images/found_creds.PNG)
+![Found Creds](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/images/found_creds.PNG)
 
 It looks like **Paul Bowman’s** password was discovered by an attacker during this domain spray. Did the attacker realize that the password was correct and log in? Let's look above all the attempted logins for any activity from **Paul Bowman**.
 
