@@ -24,11 +24,11 @@ Next, navigate into your `Downloads` directory:
 ![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/todownloads.png)
 
 Then, run the following to download the .ZIP file of logs:
-<pre>curl -O https://data.bhislabs.com/PTWLogs.zip</pre>
-![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/curldownloadlogs.png)
+<pre>curl -O https://freelabfridays.com/uploads/media/docs/azureir-files-135ffd6c797f4cf5af044333a29cc717.zip</pre>
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/azuretodownloads.png)
 
 When it's complete, open up your file directory and unzip the folder!
-![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/downloadsfolder.png)
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/azuredownloadstofolder.png)
 
 Now we have the logs on our VM rather than our host system.
 <hr>
