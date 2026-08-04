@@ -64,7 +64,7 @@ Go ahead and hit `Power on this virtual machine`.
 <br>
 
 ### Installing Zeek
-Now that our VM is running, we need to start by opening a terminal.
+Now that our VM is running, we need to start by opening a terminal.<br>
 Change the **default password** after initial login by running the following:
 ```bash
 passwd
