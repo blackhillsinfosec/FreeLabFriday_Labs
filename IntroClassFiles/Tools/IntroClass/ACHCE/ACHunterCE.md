@@ -10,7 +10,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
 # AC Hunter Community Edition (CE)
 ### Lab Objective
-In this lab we are going to set up the Community Edition of AC Hunter so it can intercept and inspect traffic on a home network without the need for expensive managed switches with SPAN or TAP ports.  This is done through the amazing power of ARP cache poisoning.
+In this lab we are going to set up the Community Edition of AC Hunter so it can intercept and inspect traffic on a home network without the need for expensive managed switches with SPAN or TAP ports. This is done through the amazing power of ARP cache poisoning.
 
 - Download AC Hunter Community Edition [Here](https://www.activecountermeasures.com/ac-hunter-community-edition/download/)
 
@@ -29,7 +29,8 @@ Start by opening **file explorer** and navigating to your downloads directory.
 
 ![](attachments/navigatetodownloads.png)
 
-You should see the `AC-Hunter.zip` archive that we just downloaded. We need to extract this. Click on the `.zip` archive and hit `Extract all` at the top of the screen.
+You should see the `AC-Hunter.zip` archive that we just downloaded. We need to extract this.<br> 
+Click on the `.zip` archive and hit `Extract all` at the top of the screen.
 
 ![](attachments/extractall.png)
 
