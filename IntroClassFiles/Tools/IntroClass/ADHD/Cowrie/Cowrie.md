@@ -191,7 +191,7 @@ When done, hit the following keys in the following order
 Then update `cowrie.cfg.dist` file in the docker with the adjusted one.
 
 ```bash
-docker cp cowrie.cfg.dist <container ID/name>:/cowrie/cowrie-git/src/cowrie/data/etc/cowrie.cfg.dist
+docker cp cowrie.cfg.dist <container ID/name>:/cowrie/cowrie-git/etc/cowrie.cfg.dist
 ```
 
 <img width="614" height="29" alt="docker_copy_adjusted" src="https://github.com/user-attachments/assets/90d87966-e741-4182-8e9b-43adcf66c304" />
