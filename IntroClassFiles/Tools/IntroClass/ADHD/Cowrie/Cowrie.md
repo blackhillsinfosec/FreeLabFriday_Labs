@@ -118,7 +118,8 @@ Did you notice the system name in the prompt?
 It is the same for all default installations. Let's change that.
 <hr>
 
-## Step 2: Making The Cowrie Honeypot Unique
+## Step 3: Making The Cowrie Honeypot Unique
+
 First, we need to kill our Cowrie session.  
 
 To do this, click into the first terminal with our log output and press `ctrl + c` at the same time.
