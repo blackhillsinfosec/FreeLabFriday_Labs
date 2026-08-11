@@ -92,7 +92,7 @@ Save and exit with `Ctrl + x` and `y` and `Enter`
 
 <hr>
 
-## Step 2: Start
+## Step 2: Start OpenCanary
 
 Run it.
 
