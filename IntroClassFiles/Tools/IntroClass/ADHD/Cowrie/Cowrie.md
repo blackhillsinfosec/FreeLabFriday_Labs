@@ -218,12 +218,12 @@ Then type `yes` on the key fingerprint verification.
 
 <img width="644" height="251" alt="docker_changed_hostname" src="https://github.com/user-attachments/assets/3aaadbdc-e289-40f8-94fd-9f2a9001e723" />
 
-
 Your hostname should now be changed.
 
+Now, let’s edit the Message of the Day (MOTD). Because the default one is not fun at all.
+<hr>
 
-Now, let’s edit the Message of the Day (MOTD).  Because the default one is not fun at all.
-
+## Step 4: Editing The Message Of The Day
 As before, we must download the file `/cowrie/cowrie-git/src/cowrie/data/etc/motd` from the docker, adjust it and then update it in the docker.
 
 Terminate the Cowrie session with `Ctrl+C` and run as root the following (with your own container ID):
