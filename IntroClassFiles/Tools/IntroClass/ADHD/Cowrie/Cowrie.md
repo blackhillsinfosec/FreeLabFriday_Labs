@@ -305,7 +305,6 @@ Then type `yes` on the key fingerprint verification.
 
 <img width="688" height="437" alt="ssh_new_message" src="https://github.com/user-attachments/assets/5d931f8e-99b2-4bdc-9f7d-268b5f25beee" />
 
-
 There!
 
 That is much better!
@@ -316,16 +315,6 @@ For a great resource on changing the way Cowrie looks and feels, check out the f
 
 https://cryptax.medium.com/customizing-your-cowrie-honeypot-8542c888ca49
 
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
 
 <!--
 
