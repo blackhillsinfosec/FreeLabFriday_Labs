@@ -144,7 +144,7 @@ nmap -p 1-10 -sV linux.cloudlab.lan
 <img width="646" height="340" alt="example_1_nmap_2" src="https://github.com/user-attachments/assets/2919c008-df2c-416e-8997-3e6a49eef32c" />
 <hr>
 
-## Example 2: Spoofing Service Signatures
+## Step 2: Spoofing Service Signatures
 
 
 Showing all ports as open is all well and good, but the same thing could be accomplished with a simple netcat listener:
@@ -180,7 +180,7 @@ This will either:
 2) or the attacker may discard the results as false positives and ignore this machine altogether, leaving any legitimate service running untouched.
 <hr>
 
-## Example 3: Cleaning Up
+## Step 3: Cleaning Up
 
 To reset our VM, you can reboot (recommended) or:
 
