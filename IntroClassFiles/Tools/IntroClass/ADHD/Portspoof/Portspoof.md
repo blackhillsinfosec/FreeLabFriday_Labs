@@ -46,20 +46,18 @@ Portspoof has a huge dynamic service signature database, which will be used to g
 Scanning software usually tries to determine a service that is running on an open port. This step is mandatory if one would want to identify port numbers on which you are running your services on a system behind the Portspoof. For this reason Portspoof will respond to every service probe with a valid service signature, which is dynamically generated based on a service signature regular expression database.
 
 As a result an attacker will not be able to determine which port numbers your system is truly using.
+<hr>
 
 ### Install Location
-----------------
 
 `/usr/local/bin/portspoof`
 
-Config File Location
---------------------
+### Config File Location
 
 `/usr/local/etc/portspoof.conf`
 `/usr/local/etc/portspoof_signatures`
 
 ### Usage
------
 
 ```bash
 portspoof -h
@@ -86,17 +84,12 @@ Portspoof - service emulator / frontend exploitation framework.
 <hr>
 
 ## Step 1: Starting Portspoof
------------------------------
 
 When ran, Portspoof listens on a single port. By default this is port 4444. In order to fool a port scan, we have to allow Portspoof to listen on *every* port. To accomplish this we will use an `iptables` command that redirects every packet sent to any port to port 4444 where the Portspoof port will be listening. This allows Portspoof to respond on any port.
 
-
-
-
-- Open **Ubuntu Shell**
+Open **Ubuntu Shell**
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/ae6d408b-7622-4545-b849-aef3d8fa0cb4" />
-
 
 Let's become root:
 
