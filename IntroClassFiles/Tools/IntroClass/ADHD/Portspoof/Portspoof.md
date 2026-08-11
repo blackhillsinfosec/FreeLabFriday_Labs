@@ -12,12 +12,12 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 # Portspoof
 
 #### Windows VM
-
+<hr>
 ### Website
 <http://portspoof.org/>
 
+<hr>
 ### Description
------------
 
 Portspoof is meant to be a lightweight, fast, portable and secure addition to any firewall system or security system. The general goal of the program is to make the reconnaissance phase as slow and bothersome as possible for your attackers. This is quite a change to the standard aggressive Nmap scan, which will give a full view of your system's running services.
 
@@ -27,7 +27,7 @@ By using all of the techniques mentioned below:
 * the only way to determine if a service is emulated is through a protocol probe (imagine probing protocols for 65k open ports!).
 * it takes more than 8 hours and 200MB of sent data in order to get all of the service banners for your system (nmap -sV -p - equivalent).
 
----
+<hr>
 ## The Portspoof Program
 The Portspoof program's primary goal is to enhance OS security through a set of new techniques:
 
