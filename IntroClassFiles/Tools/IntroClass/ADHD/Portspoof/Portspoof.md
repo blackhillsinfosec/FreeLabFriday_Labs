@@ -30,16 +30,16 @@ By using all of the techniques mentioned below:
 * it takes more than 8 hours and 200MB of sent data in order to get all of the service banners for your system (nmap -sV -p - equivalent).
 
 ---
-
+## The Portspoof Program
 The Portspoof program's primary goal is to enhance OS security through a set of new techniques:
 
-#### Technique 1: All TCP ports are always open
+### Technique 1: All TCP ports are always open
 
 Instead of informing an attacker that a particular port is CLOSED or FILTERED, a system with Portspoof will return SYN+ACK for every port connection attempt.
 
 As a result it is impractical to use stealth (SYN, ACK, etc.) port scanning against your system, since all ports are always reported as OPEN. With this approach it is really difficult to determine if a valid software is listening on a particular port (check out the screenshots).
 
-#### Technique 2: Every open TCP port emulates a service
+### Technique 2: Every open TCP port emulates a service
 
 Portspoof has a huge dynamic service signature database, which will be used to generate responses to your attackers scanning software service probes.
 
@@ -47,7 +47,7 @@ Scanning software usually tries to determine a service that is running on an ope
 
 As a result an attacker will not be able to determine which port numbers your system is truly using.
 
-Install Location
+### Install Location
 ----------------
 
 `/usr/local/bin/portspoof`
@@ -58,7 +58,7 @@ Config File Location
 `/usr/local/etc/portspoof.conf`
 `/usr/local/etc/portspoof_signatures`
 
-Usage
+### Usage
 -----
 
 ```bash
@@ -83,9 +83,9 @@ Portspoof - service emulator / frontend exploitation framework.
 -v			  be verbose
 -h			  display this help and exit
 ```
+<hr>
 
-
-Example 1: Starting Portspoof
+## Step 1: Starting Portspoof
 -----------------------------
 
 When ran, Portspoof listens on a single port. By default this is port 4444. In order to fool a port scan, we have to allow Portspoof to listen on *every* port. To accomplish this we will use an `iptables` command that redirects every packet sent to any port to port 4444 where the Portspoof port will be listening. This allows Portspoof to respond on any port.
