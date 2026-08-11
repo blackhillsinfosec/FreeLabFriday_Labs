@@ -133,7 +133,6 @@ nmap -p 1-10 linux.cloudlab.lan
 
 <img width="456" height="326" alt="example_1_nmap" src="https://github.com/user-attachments/assets/ff637541-be82-408d-b121-7ff378ef7ba9" />
 
-
 All ports are reported as open! When run this way, Nmap reports the service that typically runs on each port.
 
 To get more accurate results, an attacker might run an Nmap service scan, which would actively try to detect the services running. But performing an Nmap service detection scan shows that something is amiss because all ports are reported as running the same type of service.
@@ -143,10 +142,10 @@ nmap -p 1-10 -sV linux.cloudlab.lan
 ```
 
 <img width="646" height="340" alt="example_1_nmap_2" src="https://github.com/user-attachments/assets/2919c008-df2c-416e-8997-3e6a49eef32c" />
+<hr>
 
+## Example 2: Spoofing Service Signatures
 
-Example 2: Spoofing Service Signatures
---------------------------------------
 
 Showing all ports as open is all well and good, but the same thing could be accomplished with a simple netcat listener:
 
@@ -164,7 +163,6 @@ portspoof -s /etc/portspoof/portspoof_signatures
 
 <img width="506" height="130" alt="example_2_portspoof_s" src="https://github.com/user-attachments/assets/4db6053f-4070-4fd8-8fee-d5bd69a4d990" />
 
-
 This mode will generate and feed port scanners like Nmap bogus service signatures.
 
 Now running an Nmap service detection scan against the top 100 most common ports (a common hacker activity) will turn up some very interesting results.
@@ -175,15 +173,14 @@ nmap -p 1-10 -sV linux.cloudlab.lan
 
 <img width="1190" height="581" alt="example_2_nmap" src="https://github.com/user-attachments/assets/9916a35c-9a60-420d-a2ef-4a25446ec4bb" />
 
-
 Notice how all of the ports are still reported as open, but now Nmap reports a unique service on each port. 
 
 This will either: 
 1) Lead an attacker down a rabbit hole investigating each port while wasting their time...
 2) or the attacker may discard the results as false positives and ignore this machine altogether, leaving any legitimate service running untouched.
+<hr>
 
-Example 3: Cleaning Up
-----------------------
+## Example 3: Cleaning Up
 
 To reset our VM, you can reboot (recommended) or:
 
@@ -192,14 +189,3 @@ To reset our VM, you can reboot (recommended) or:
 ```bash
 sudo iptables -t nat -F
 ```
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
