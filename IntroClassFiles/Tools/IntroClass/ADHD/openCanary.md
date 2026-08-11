@@ -104,7 +104,7 @@ opencanaryd --start
 ```
 
 To stop:
-```
+```bash
 opencanaryd --stop
 ```
 
