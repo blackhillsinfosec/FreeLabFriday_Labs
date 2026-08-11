@@ -229,7 +229,7 @@ As before, we must download the file `/cowrie/cowrie-git/src/cowrie/data/etc/mot
 Terminate the Cowrie session with `Ctrl+C` and run as root the following (with your own container ID):
 
 ```bash
-docker cp <container ID>:/cowrie/cowrie-git/src/cowrie/data/etc/motd .
+docker cp <container ID>:/cowrie/cowrie-git/honeyfs/etc/motd .
 ```
 
 <img width="511" height="28" alt="docker_copy_motd" src="https://github.com/user-attachments/assets/03ea08d7-4811-43ac-8bd8-eae574f74a1e" />
@@ -278,7 +278,7 @@ When done, hit the following keys in the following order
 Then update `motd` file in the docker with the adjusted one.
 
 ```bash
-docker cp motd <container ID>:/cowrie/cowrie-git/src/cowrie/data/etc/motd
+docker cp motd <container ID>:/cowrie/cowrie-git/honeyfs/etc/motd
 ```
 
 <img width="530" height="29" alt="docker_copy_motd_adjusted" src="https://github.com/user-attachments/assets/5d3a336d-fd9f-48cf-bdc5-3526255762d4" />
