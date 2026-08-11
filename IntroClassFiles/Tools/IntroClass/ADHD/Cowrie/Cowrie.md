@@ -115,9 +115,10 @@ Did you notice the system name in the prompt?
 
 <img width="756" height="167" alt="2026-03-07_12-06" src="https://github.com/user-attachments/assets/c8b6784e-7f9a-4b1c-821d-0eb0d441df63" />
 
-
 It is the same for all default installations. Let's change that.
+<hr>
 
+## Step 2: Making The Cowrie Honeypot Unique
 First, we need to kill our Cowrie session.  
 
 To do this, click into the first terminal with our log output and press `ctrl + c` at the same time.
