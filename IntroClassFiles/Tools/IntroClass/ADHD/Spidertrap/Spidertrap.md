@@ -10,7 +10,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Spidertrap
 
-# Ubuntu VM
+#### Must Use The Ubuntu VM
 
 Website:<br>
 https://github.com/adhdproject/spidertrap
@@ -38,7 +38,7 @@ If no file is provided, random links will be generated.
 
 Let's get started by getting into the proper directory.
 
-Go ahead and open an **Ubuntu Shell** and run the following:
+Go ahead and open an Terminal and run the following:
 
 ```bash
 cd ~/ADCD/spidertrap
