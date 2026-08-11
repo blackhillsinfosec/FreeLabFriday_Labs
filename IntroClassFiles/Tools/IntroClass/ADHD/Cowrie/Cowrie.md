@@ -155,7 +155,7 @@ So now that we have the container ID, let's edit this file using `vim`.
 As root, run the following (with your own container ID):
 
 ```bash
-docker cp <container ID/name>:/cowrie/cowrie-git/src/cowrie/data/etc/cowrie.cfg.dist ./cowrie.cfg.dist﻿
+docker cp <container ID/name>:/cowrie/cowrie-git/etc/cowrie.cfg.dist ./cowrie.cfg.dist﻿
 ```
 
 <img width="524" height="29" alt="docker_copy_file" src="https://github.com/user-attachments/assets/58740da5-d035-4f06-982d-53193a0136da" />
