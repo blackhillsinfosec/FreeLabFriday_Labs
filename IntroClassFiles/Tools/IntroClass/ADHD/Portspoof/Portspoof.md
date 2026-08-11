@@ -115,8 +115,6 @@ portspoof
 
 <img width="1007" height="67" alt="image" src="https://github.com/user-attachments/assets/3664f938-381c-4e12-969b-a482788fb47b" />
 
-If you were to scan using Nmap from another Windows command prompt, you would see something like this:
-
 >[!IMPORTANT]
 >
 >You *must* run Nmap from a different machine. Scanning from the same machine will not reach Portspoof.
