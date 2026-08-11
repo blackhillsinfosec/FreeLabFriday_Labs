@@ -240,7 +240,8 @@ vim motd
 
 <img width="203" height="17" alt="vim_motd" src="https://github.com/user-attachments/assets/d3566bcf-d304-4133-9377-f9a4d9a4fb6c" />
 
-In the `motd` file, erase the previous message and change it to something better!
+In the `motd` file, erase the previous message and change it to something better.
+To change the file, press `a`
 
 ```
 WARNING WARNING WARNING!
