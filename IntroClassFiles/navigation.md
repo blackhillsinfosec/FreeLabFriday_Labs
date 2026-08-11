@@ -1,4 +1,4 @@
-# Information Security Core Skills
+## Information Security Core Skills
 
  - [Applocker](Tools/IntroClass/AppLocker/AppLocker.md)
  - [Atomic RedTeam and Bluespawn](Tools/IntroClass/bluespawnIntroClass/Bluespawn.md)
@@ -18,7 +18,7 @@
  - [Wireless](/IntroClassFiles/Tools/IntroClass/Wireless.md)
 
 <br><br>
-# Intro To SOC
+## Intro To SOC
 
   - [Linux CLI](Tools/IntroClass/LinuxCLI/LinuxCLI.md)
   - [Memory Analysis (Volatility)](Tools/IntroClass/Memory/MemoryAnalysis(Volatility).md)
@@ -45,7 +45,7 @@
 
 
 <br><br>
-# Active Defense & Cyber Deception
+## Active Defense & Cyber Deception
 
 ### Network Honeypots
   - [Spidertrap](Tools/IntroClass/ADHD/Spidertrap/Spidertrap.md)
