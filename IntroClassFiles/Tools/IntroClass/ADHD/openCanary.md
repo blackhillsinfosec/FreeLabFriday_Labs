@@ -8,35 +8,37 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ---
 
-# For the Ubuntu VM
+# OpenCanary
 
+#### For The Ubuntu VM
 
-# OpenCanary 
+<hr>
 
-**Goal:** Deploy a simple **OpenCanary** honeypot, trigger a few attacks (port scan, **SSH/SMB probe**, simple **HTTP request**), and observe **alerts**
+## Lab Objective: 
+Deploy a simple **OpenCanary** honeypot, trigger a few attacks (port scan, **SSH/SMB probe**, simple **HTTP request**), and observe **alerts**
 
----
+<hr>
 
-# Setup
+## Step 1: Setup
 
-- Install mysql client for the use in the lab
-
+Install mysql client for the use in the lab:
 ```bash
 sudo apt install mysql-client-core-8.0
 ```
 
-- Go to its directory
-
+Go to its directory:
 ```bash
 cd ~/ADCD/openCanary
 ```
 
-- Activate the **Virtual Environment**
+Activate the **Virtual Environment**:
 ```bash
 source env/bin/activate
 ```
 
-### Create and edit the config
+<hr>
+
+### Create & Edit The Config
 Still inside your virtualenv:
 
 - Create the default config (this prints the location)
