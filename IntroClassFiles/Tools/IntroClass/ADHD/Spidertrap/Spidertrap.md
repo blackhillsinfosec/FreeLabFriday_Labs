@@ -10,7 +10,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Spidertrap
 
-#### Must Use The Ubuntu VM
+#### **Must Use The Ubuntu VM**
 
 Website:<br>
 https://github.com/adhdproject/spidertrap
