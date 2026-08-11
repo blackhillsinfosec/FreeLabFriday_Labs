@@ -19,7 +19,7 @@ Deploy a simple **OpenCanary** honeypot, trigger a few attacks (port scan, **SSH
 
 <hr>
 
-## Step 1: Setup
+## Step 1: Setting Up OpenCanary
 
 Install mysql client for the use in the lab:
 ```bash
