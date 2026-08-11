@@ -101,7 +101,10 @@ Run it.
 
 ```bash
 opencanaryd --start
-# To stop:
+```
+
+To stop:
+```
 opencanaryd --stop
 ```
 
