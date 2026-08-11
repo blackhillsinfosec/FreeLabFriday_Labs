@@ -14,8 +14,6 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 #### Windows VM
 
 ### Website
--------
-
 <http://portspoof.org/>
 
 ### Description
