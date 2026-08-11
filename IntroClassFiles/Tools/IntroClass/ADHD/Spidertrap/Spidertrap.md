@@ -98,7 +98,7 @@ You should see a page containing links taken from the file. If you click on a li
 
 ## Example 3: Trapping a Wget Spider
 
-For this example, follow the instructions in [Example 1: Basic Usage](#example-1-basic-usage) or [Example 2: Providing a List of Links](#example-2-providing-a-list-of-links) to start Spidertrap. 
+For this example, follow the instructions in Example 1: Basic Usage or Example 2: Providing a List of Links to start Spidertrap. 
 
 Once Spidertrap starts, open a new terminal
 
