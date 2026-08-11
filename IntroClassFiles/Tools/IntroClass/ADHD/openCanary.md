@@ -36,19 +36,19 @@ Activate the **Virtual Environment**:
 source env/bin/activate
 ```
 
-<hr>
+<br>
 
 ### Create & Edit The Config
 Still inside your virtualenv:
 
-- Create the default config (this prints the location)
+Create the default config (this prints the location)
 ```bash
 opencanaryd --copyconfig
 ```
 
 <img width="1632" height="132" alt="img_01" src="https://github.com/user-attachments/assets/ab78d32a-f45d-4b5c-a811-4eaead4d0659" />
 
-- Make sure it is there
+Make sure it is there
 
 ```bash
 sudo ls -l /etc/opencanaryd/opencanary.conf
@@ -56,13 +56,13 @@ sudo ls -l /etc/opencanaryd/opencanary.conf
 
 <img width="1147" height="57" alt="img_02" src="https://github.com/user-attachments/assets/34f5b53c-fa09-4d05-bf74-26d657e9e674" />
 
-- Now open the config and make small edits. Example uses `nano` (or `vi`):
+Now open the config and make small edits. Example uses `nano` (or `vi`):
 
 ```bash
 sudo nano /etc/opencanaryd/opencanary.conf
 ```
 
-- Inside the JSON config make these **minimal** changes to enable a few services and a log file:
+Inside the JSON config make these **minimal** changes to enable a few services and a log file:
 
 1. Locate the `"device.node_id"` and set a friendly name like `"opencanary-lab"`
 
@@ -89,14 +89,13 @@ sudo nano /etc/opencanaryd/opencanary.conf
 <img width="1172" height="217" alt="img_05" src="https://github.com/user-attachments/assets/2e846bd7-02eb-478f-a6a6-96ba86691c77" />
 
 
-- Save and exit with `Ctrl + x` and `y` and `Enter`
+Save and exit with `Ctrl + x` and `y` and `Enter`
 
+<hr>
 
----
+## Step 2: Start
 
-## Start
-
-- Run it
+Run it.
 
 >[!NOTE]
 > Make sure you are in **~/ADCD/openCanary** with **venv** activated
