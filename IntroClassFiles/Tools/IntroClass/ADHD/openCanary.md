@@ -88,7 +88,6 @@ Inside the JSON config make these **minimal** changes to enable a few services a
 <img width="1170" height="495" alt="img_04" src="https://github.com/user-attachments/assets/5e51e170-1986-4411-8b6f-c04c3598969f" />
 <img width="1172" height="217" alt="img_05" src="https://github.com/user-attachments/assets/2e846bd7-02eb-478f-a6a6-96ba86691c77" />
 
-
 Save and exit with `Ctrl + x` and `y` and `Enter`
 
 <hr>
@@ -108,8 +107,7 @@ opencanaryd --stop
 
 <img width="1898" height="541" alt="img_06" src="https://github.com/user-attachments/assets/9ad67aff-2d3f-429f-aebd-805a0e682931" />
 
-
-- If you configured file logging as above, check the log:
+If you configured file logging as above, check the log:
 
 ```bash
 sudo tail -n 50 /var/tmp/opencanary.log
@@ -117,10 +115,9 @@ sudo tail -n 50 /var/tmp/opencanary.log
 
 <img width="1900" height="337" alt="img_07" src="https://github.com/user-attachments/assets/71514b52-d90a-4bd4-a1ed-c7a28429274a" />
 
+<hr>
 
----
-
-## Simple attacker 
+## Step 3: Simple attacker 
 Perform these actions from a second terminal (or another device on the same network). Replace `<CANARY_IP>` with the IP address of the VM.
 
 1. Port scan (nmap)
