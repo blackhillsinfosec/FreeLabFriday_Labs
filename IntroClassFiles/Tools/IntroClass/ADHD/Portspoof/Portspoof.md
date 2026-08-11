@@ -51,12 +51,14 @@ As a result an attacker will not be able to determine which port numbers your sy
 ### Install Location
 
 `/usr/local/bin/portspoof`
+
 <br>
 
 ### Config File Location
 
 `/usr/local/etc/portspoof.conf`
 `/usr/local/etc/portspoof_signatures`
+
 <br>
 
 ### Usage
