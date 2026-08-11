@@ -117,7 +117,7 @@ sudo tail -n 50 /var/tmp/opencanary.log
 
 <hr>
 
-## Step 3: Simple attacker 
+## Step 3: Simple Attacker 
 Perform these actions from a second terminal (or another device on the same network). Replace `<CANARY_IP>` with the IP address of the VM.
 
 1. Port scan (nmap)
@@ -127,8 +127,7 @@ sudo nmap -sV -sC -Pn -p 21,23,222,3306,8082 localhost
 
 <img width="1897" height="721" alt="img_08" src="https://github.com/user-attachments/assets/be1e0a45-96b4-4eb5-aa50-46fee364392e" />
 
-
-- **OpenCanary's** `portscan` module should flag the scan, so let's check!
+**OpenCanary's** `portscan` module should flag the scan, so let's check!
 
 ```bash
 sudo tail -n 50 /var/tmp/opencanary.log
@@ -166,22 +165,10 @@ ftp 127.0.0.1
 telnet 127.0.0.1
 ```
 
-- After each action, check the canary log or journal on the honeypot host to see alerts:
+After each action, check the canary log or journal on the honeypot host to see alerts:
 
 ```bash
 sudo tail -n 50 /var/tmp/opencanary.log
 ```
 
 <img width="1897" height="452" alt="img_10" src="https://github.com/user-attachments/assets/e7c925b3-2e28-4b7b-80a8-2a493e94078e" />
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
