@@ -38,7 +38,7 @@ If no file is provided, random links will be generated.
 
 Let's get started by getting into the proper directory.
 
-Go ahead and start by opening an **Ubuntu Shell** and running the following:
+Go ahead and open an **Ubuntu Shell** and running the following:
 
 ```bash
 cd ~/ADCD/spidertrap
