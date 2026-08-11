@@ -145,11 +145,7 @@ nmap -p 1-10 -sV linux.cloudlab.lan
 ## Step 2: Spoofing Service Signatures
 
 
-Showing all ports as open is all well and good, but the same thing could be accomplished with a simple netcat listener:
-
-```bash
-nc -l -k 4444
-```
+Showing all ports as open is all well and good, but the same thing could be accomplished with a simple netcat listener.
 
 To make things more interesting, how about we have Portspoof fool Nmap into actually detecting real services running?
 
