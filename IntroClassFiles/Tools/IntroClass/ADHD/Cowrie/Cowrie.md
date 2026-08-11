@@ -27,6 +27,10 @@ Cowrie is a medium interaction SSH honeypot designed to log brute force attacks 
 >
 >Cowrie is developed by <b>Michel Oosterhof</b> and is based on <i>Kippo</i> by <b>Upi Tamminen</b> (desaster).
 
+<hr>
+
+## Step 1: Installing Cowrie
+
 The first thing we need to do is install and start Cowrie.
 
 To begin, let's open a terminal. 
@@ -52,6 +56,9 @@ You will see an output like this:
 <img width="1265" height="317" alt="docker_cowrie_run" src="https://github.com/user-attachments/assets/8f92440c-721d-41fa-85a9-7006336a8db5" />
 
 Once you see **"Ready to accept SSH connections"** in the command output, you are ready to continue.
+<hr>
+
+## Step 2: Adding SSH Connections
 
 Open another terminal while keeping the first terminal open with the logs open as well. 
 
@@ -95,7 +102,6 @@ Now, run the following commands:
 `AAAAAAAAAAAAAAAAAAAAAAAAAA`
 
 <img width="524" height="242" alt="2026-03-07_12-05" src="https://github.com/user-attachments/assets/6bdb9f45-758c-400f-a68c-935d81daf5e7" />
-
 
 Notice, the commands and authentication are being tracked in the other terminal with the log info:
 
