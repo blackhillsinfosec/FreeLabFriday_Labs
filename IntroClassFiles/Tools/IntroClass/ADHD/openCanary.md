@@ -118,7 +118,8 @@ sudo tail -n 50 /var/tmp/opencanary.log
 <hr>
 
 ## Step 3: Simple Attacker 
-Perform these actions from a second terminal (or another device on the same network). Replace `<CANARY_IP>` with the IP address of the VM.
+Perform these actions from a second terminal (or another device on the same network).<br>
+Replace `<CANARY_IP>` with the IP address of the VM.
 
 1. Port scan (nmap)
 ```bash
@@ -134,7 +135,6 @@ sudo tail -n 50 /var/tmp/opencanary.log
 ```
 
 <img width="1901" height="773" alt="img_09" src="https://github.com/user-attachments/assets/3168032c-c6f3-43c0-a010-b4248dfb0297" />
-
 
 BOOM!
 
