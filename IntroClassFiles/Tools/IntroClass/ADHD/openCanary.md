@@ -76,9 +76,9 @@ Inside the JSON config make these **minimal** changes to enable a few services a
 "ftp": {"enabled": true},
 "http": {"enabled": true},
 "http": {"port": 8082},
+"portscan": {"enabled": true},
 "mysql": {"enabled": true},
 "mysql": {"log_connection_made": true},
-"portscan": {"enabled": true},
 "ssh": {"enabled": true},
 "ssh": {"port": 222},
 "telnet": {"enabled": true}
