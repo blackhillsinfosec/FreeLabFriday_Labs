@@ -46,7 +46,7 @@ Create the default config (this prints the location)
 opencanaryd --copyconfig
 ```
 
-<img width="1632" height="132" alt="img_01" src="https://github.com/user-attachments/assets/ab78d32a-f45d-4b5c-a811-4eaead4d0659" />
+![image](/FilesForLabs/images/opencanarydefaultconfig.png)
 
 Make sure it is there
 
@@ -54,7 +54,7 @@ Make sure it is there
 sudo ls -l /etc/opencanaryd/opencanary.conf
 ```
 
-<img width="1147" height="57" alt="img_02" src="https://github.com/user-attachments/assets/34f5b53c-fa09-4d05-bf74-26d657e9e674" />
+![image](/FilesForLabs/images/opencanary_checkitsthere.png)
 
 Now open the config and make small edits. Example uses `nano` (or `vi`):
 
@@ -84,9 +84,9 @@ Inside the JSON config make these **minimal** changes to enable a few services a
 "portscan": {"enabled": true}
 ```
 
-<img width="1200" height="722" alt="img_03" src="https://github.com/user-attachments/assets/4c648111-5328-4265-8d85-3ba704708235" />
-<img width="1170" height="495" alt="img_04" src="https://github.com/user-attachments/assets/5e51e170-1986-4411-8b6f-c04c3598969f" />
-<img width="1172" height="217" alt="img_05" src="https://github.com/user-attachments/assets/2e846bd7-02eb-478f-a6a6-96ba86691c77" />
+![image](/FilesForLabs/images/opencanary_modulesenable.png)
+![image](/FilesForLabs/images/opencanary_modules2.png)
+![image](/FilesForLabs/images/opencanary_modules3.png)
 
 Save and exit with `Ctrl + x` and `y` and `Enter`
 
@@ -108,7 +108,7 @@ To stop:
 opencanaryd --stop
 ```
 
-<img width="1898" height="541" alt="img_06" src="https://github.com/user-attachments/assets/9ad67aff-2d3f-429f-aebd-805a0e682931" />
+![image](/FilesForLabs/images/opencanary_start.png)
 
 If you configured file logging as above, check the log:
 
@@ -116,7 +116,7 @@ If you configured file logging as above, check the log:
 sudo tail -n 50 /var/tmp/opencanary.log
 ```
 
-<img width="1900" height="337" alt="img_07" src="https://github.com/user-attachments/assets/71514b52-d90a-4bd4-a1ed-c7a28429274a" />
+![image](/FilesForLabs/images/opencanary_checklog.png)
 
 <hr>
 
@@ -129,7 +129,7 @@ Replace `<CANARY_IP>` with the IP address of the VM.
 sudo nmap -sV -sC -Pn -p 21,23,222,3306,8082 localhost
 ```
 
-<img width="1897" height="721" alt="img_08" src="https://github.com/user-attachments/assets/be1e0a45-96b4-4eb5-aa50-46fee364392e" />
+![image](/FilesForLabs/images/opencanary_portscan.png)
 
 **OpenCanary's** `portscan` module should flag the scan, so let's check!
 
@@ -137,7 +137,7 @@ sudo nmap -sV -sC -Pn -p 21,23,222,3306,8082 localhost
 sudo tail -n 50 /var/tmp/opencanary.log
 ```
 
-<img width="1901" height="773" alt="img_09" src="https://github.com/user-attachments/assets/3168032c-c6f3-43c0-a010-b4248dfb0297" />
+![image](/FilesForLabs/images/opencanary_flagscan.png)
 
 BOOM!
 
@@ -174,4 +174,4 @@ After each action, check the canary log or journal on the honeypot host to see a
 sudo tail -n 50 /var/tmp/opencanary.log
 ```
 
-<img width="1897" height="452" alt="img_10" src="https://github.com/user-attachments/assets/e7c925b3-2e28-4b7b-80a8-2a493e94078e" />
+![image](/FilesForLabs/images/opencanary_checkhoneypotjournal.png)
