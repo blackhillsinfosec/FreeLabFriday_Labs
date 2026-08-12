@@ -14,7 +14,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 <hr>
 
-## Lab Objective: 
+## Lab Objective
 Deploy a simple **OpenCanary** honeypot, trigger a few attacks (port scan, **SSH/SMB probe**, simple **HTTP request**), and observe **alerts**
 
 <hr>
