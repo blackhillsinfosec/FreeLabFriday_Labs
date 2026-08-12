@@ -10,7 +10,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Beelzebub
 
-# Ubuntu VM
+#### Ubuntu VM
 
 Beelzebub is an advanced honeypot framework designed to provide a highly secure environment for detecting and analyzing cyber attacks. It offers a low code approach for easy implementation and uses AI to mimic the behavior of a high-interaction honeypot
 
@@ -18,11 +18,15 @@ Beelzebub is an advanced honeypot framework designed to provide a highly secure 
 >
 >You can find the original GitHub of at [Beelzebub Repo](https://github.com/mariocandela/beelzebub)
 
+<br>
+
 ### Get the ChatGPT Api Key
 - Go to [ChatGPT](https://chatgpt.com/) and create an account if you don’t have one
 - Make sure you have credits or a payment method at [Billing Setting](https://platform.openai.com/settings/organization/billing/overview)
 - Go to [API Keys](https://platform.openai.com/api-keys) and create a new key
 - Save this key as you will only see it once!
+
+<br>
 
 ### Deployment
 - Make sure you are into **~/ADCD/beelzebub/**
