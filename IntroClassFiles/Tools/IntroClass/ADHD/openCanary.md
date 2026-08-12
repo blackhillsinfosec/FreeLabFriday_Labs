@@ -73,15 +73,15 @@ Inside the JSON config make these **minimal** changes to enable a few services a
 2. In the `"modules"` (or top-level service entries) enable the following:
 
 ```json
-"ssh": {"enabled": true},
-"ssh": {"port": 222},
+"ftp": {"enabled": true},
 "http": {"enabled": true},
 "http": {"port": 8082},
-"ftp": {"enabled": true},
 "mysql": {"enabled": true},
 "mysql": {"log_connection_made": true},
-"telnet": {"enabled": true},
-"portscan": {"enabled": true}
+"portscan": {"enabled": true},
+"ssh": {"enabled": true},
+"ssh": {"port": 222},
+"telnet": {"enabled": true}
 ```
 
 ![image](/FilesForLabs/images/opencanary_modulesenable.png)
