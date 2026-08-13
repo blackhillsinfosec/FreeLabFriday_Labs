@@ -72,14 +72,16 @@ It should look like this: 
 
 <img width="1806" height="327" alt="impacket_server" src="https://github.com/user-attachments/assets/eed970c8-7ccc-4e09-bec9-056317d8f292" />
 
+<hr>
 
+## Step 2: Mounting The Share
 Next, let's open a Windows Command Prompt: 
 
 ![image](https://github.com/user-attachments/assets/0ccc949d-32c3-4d7b-bb18-1bb39ee36dfc)
 
 Then, attempt to mount the share from your Windows system: 
 
-- Make sure to use the **Linux IP** from **tailscale**
+Make sure to use the **Linux IP** from **tailscale**
 
 ```bash
 net use * \\10.10.115.101\secret
@@ -88,29 +90,18 @@ net use * \\10.10.115.101\secret
 >[!IMPORTANT]
 >
 >Your IP address may be different!!! 
-  
 
 We did the most basic level of attempted authentication to the share, and it generated an error.  
 
 <img width="1365" height="412" alt="admin_error" src="https://github.com/user-attachments/assets/e80960fb-3044-42b0-999b-34b2d0c9568a" />
 
-
 However, the trap was triggered! 
 
+<hr>
+
+## Step 3: Analyzing Log Data
 Go back to your **Linux terminal** and see the log data. 
 
 It should look like this: 
 
 <img width="1375" height="752" alt="logs" src="https://github.com/user-attachments/assets/071e0e2c-c261-41c6-9066-3b49510a0c15" />
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
