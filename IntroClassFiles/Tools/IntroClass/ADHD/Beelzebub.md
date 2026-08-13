@@ -74,23 +74,26 @@ sudo docker-compose build
 sudo docker-compose up -d
 ```
 
-# Try it
+<hr>
+
+## Try it
 Connect to it like this:
 
 ```bash
 ssh -p 2222 root@127.0.0.1
 ``` 
-- use password "**1234**"
-- Try using any commands like **ls** or **id**
+Use password "**1234**"
+
+Try using any commands like **ls** or **id**
 
 <img width="1242" height="259" alt="2026-04-03_16-11" src="https://github.com/user-attachments/assets/f9849ffe-c7b6-494e-b48c-8119837935c3" />
-
 
 Everything you see is AI generated, and that's what an attacker would see
 
 Cool, right?
 
-- Try running suspicious commands an attacker would use
+Try running suspicious commands an attacker would use:
+
 ```bash
 uname -a
 ```
@@ -105,19 +108,23 @@ id
 ```
 Now exit the session by typing **exit** and hitting **enter** to export the logs
 
-- Save Logs
+<hr>
+
+## Step 2: Analyzing The Logs
+
+First, save the logs:
 
 ```bash
 sudo docker-compose logs > honeypot.log
 ```
 
-- Stop **Beelzebub**
+Then, stop **Beelzebub**:
 
 ```bash
 sudo docker stop beelzebub
 ```
 
-- Read the Logs
+Now, it's time to read the logs:
 
 ```bash
 cat honeypot.log
@@ -128,13 +135,3 @@ Take your time into analyzing the logs and seeing how they are being built
 >[!TIP]
 >
 >Try to make ChatGPT break character, this method, like anything else in cybersecurity isn't flawless, but it surely tricks hackers and does its job, **to increase Attack Time**
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-
