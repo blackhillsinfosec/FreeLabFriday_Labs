@@ -10,8 +10,11 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Honey User 
 
-# Windows VM
+#### Please Use The Windows VM
 
+<hr>
+
+## Lab Objective
 In this lab we will be setting up a poor persons SIEM with an "alert" generated whenever the **Honey Account Frank** is accessed. 
 
 Why Frank? 
@@ -19,6 +22,10 @@ Why Frank? 
 **Because.**
 
 Let's get started!
+
+<hr>
+
+## Step 1: Creating Users & Frank
 
 - First, we will need to create the users and the Frank account. 
 
