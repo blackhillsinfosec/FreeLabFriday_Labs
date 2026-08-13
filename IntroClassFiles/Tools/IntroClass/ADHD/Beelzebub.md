@@ -20,6 +20,7 @@ Beelzebub is an advanced honeypot framework designed to provide a highly secure 
 
 <br>
 
+## Step 1: Setup
 ### Get the ChatGPT Api Key
 - Go to [ChatGPT](https://chatgpt.com/) and create an account if you don’t have one
 - Make sure you have credits or a payment method at [Billing Setting](https://platform.openai.com/settings/organization/billing/overview)
