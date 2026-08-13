@@ -30,7 +30,7 @@ Beelzebub is an advanced honeypot framework designed to provide a highly secure 
 <br>
 
 ### Deployment
-- Make sure you are into **~/ADCD/beelzebub/**
+Make sure you are into **~/ADCD/beelzebub/**
 
 ```bash
 cd ~/ADCD/beelzebub/
@@ -39,17 +39,15 @@ cd ~/ADCD/beelzebub/
 ```bash
 nano docker-compose.yml
 ```
- - Put your key here at `OPEN_AI_SECRET_KEY: `
+Put your key here at `OPEN_AI_SECRET_KEY: `
 
 <img width="334" height="72" alt="2026-04-03_15-49" src="https://github.com/user-attachments/assets/c04fdc85-78f3-4e5c-81f2-bca9ad0e329f" />
 
-
-- Also comment the **Default SSH Mapping**(ssh 22 port) by putting a `#` anywhere before it in the same line
+Also comment the **Default SSH Mapping**(ssh 22 port) by putting a `#` anywhere before it in the same line
 
 <img width="270" height="114" alt="2026-04-03_15-56" src="https://github.com/user-attachments/assets/d0f49b7c-1c5f-4e11-bbd1-26c340c58e70" />
 
-
-- Save and leave the editor with `Ctrl + X` + `Y` + `Enter`
+Save and leave the editor with `Ctrl + X` + `Y` + `Enter`
 
 ```bash
 cd configurations/services/
@@ -60,12 +58,11 @@ mv ./ssh-22.yaml ~
 ```bash
 nano ./ssh-2222.yaml
 ```
- - Add your key with double quotes around it like `openAISecretKey: "your_api_key_here"`
+Add your key with double quotes around it like `openAISecretKey: "your_api_key_here"`
 
 ![2026-04-03_15-59](https://github.com/user-attachments/assets/461c4622-063b-474d-83de-5a1c45a88fb2)
 
-
- - Save and leave the editor with `Ctrl + X` + `Y` + `Enter`
+Save and leave the editor with `Ctrl + X` + `Y` + `Enter`
 
 ```bash
 cd ~/ADCD/beelzebub/
