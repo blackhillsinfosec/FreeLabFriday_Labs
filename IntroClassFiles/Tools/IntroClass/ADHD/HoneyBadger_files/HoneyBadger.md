@@ -62,7 +62,7 @@ python3 honeybadger.py -ik [IPSTACK_KEY] -gk [GOOGLE_KEY]
 
 ## Example 1: Overview
 
-The **HoneyBadger UI** has many features. This section will give a brief overview of HoneyBadger's pages.
+The **HoneyBadger UI** has many features. This section will give a brief overview of HoneyBadger's pages.<br>
 Please surf to `http://<YOUR_LINUX_IP>:5000`
 
 >[!IMPORTANT]
