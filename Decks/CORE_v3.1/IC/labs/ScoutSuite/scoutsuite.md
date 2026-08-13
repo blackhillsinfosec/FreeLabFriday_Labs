@@ -3,7 +3,8 @@
 ----- 
 # For the Ubuntu VM
 
-## The objective of this lab is to use Scout Suite to audit an AWS cloud environment and identify critical security misconfigurations related to Identity Access Management (IAM), Cloud Storage (S3), and Virtual Machines (EC2).
+## Lab Objective
+The objective of this lab is to use Scout Suite to audit an AWS cloud environment and identify critical security misconfigurations related to Identity Access Management (IAM), Cloud Storage (S3), and Virtual Machines (EC2).
 
 If you want to learn a bit about this tool check the [Scout Suite Documentation](https://www.google.com/search?q=/courseFiles/tools/ScoutSuite.md)
 
