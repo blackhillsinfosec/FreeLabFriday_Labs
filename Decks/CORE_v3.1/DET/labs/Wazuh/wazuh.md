@@ -1,8 +1,10 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
 # Wazuh Cloud SIEM & XDR
-# Ubuntu & Windows VM
-## The objective of this lab is to deploy Wazuh Agents to a cloud-hosted SIEM environment, configure File Integrity Monitoring (FIM), simulate malicious activities across two different OS environments, and perform Blue Team analysis on the generated alerts.
+#### Ubuntu & Windows VM
+
+## Lab Objective 
+The objective of this lab is to deploy Wazuh Agents to a cloud-hosted SIEM environment, configure File Integrity Monitoring (FIM), simulate malicious activities across two different OS environments, and perform Blue Team analysis on the generated alerts.
 
 ---
 
