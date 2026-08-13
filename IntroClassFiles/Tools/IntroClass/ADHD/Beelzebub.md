@@ -67,6 +67,9 @@ Save and leave the editor with `Ctrl + X` + `Y` + `Enter`
 ```bash
 cd ~/ADCD/beelzebub/
 ```
+
+Now, build the docker!
+
 ```bash
 sudo docker-compose build
 ```
