@@ -6,7 +6,7 @@
 
 ## Lab Objective
 
-The objective of this lab is to establish a modern Command & Control (C2) infrastructure using a cloud-based backend (AWS EC2). You will learn how to bypass network defenses, execute a payload on a compromised Windows machine, exfiltrate data using the Havoc UI, and ultimately hunt for the malicious process as a Blue Teamer.
+## The objective of this lab is to establish a modern Command & Control (C2) infrastructure using a cloud-based backend (AWS EC2). You will learn how to bypass network defenses, execute a payload on a compromised Windows machine, exfiltrate data using the Havoc UI, and ultimately hunt for the malicious process as a Blue Teamer.
 ---
 
 >[!IMPORTANT]
