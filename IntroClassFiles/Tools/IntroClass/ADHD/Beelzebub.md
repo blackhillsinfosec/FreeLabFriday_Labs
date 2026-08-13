@@ -18,7 +18,7 @@ Beelzebub is an advanced honeypot framework designed to provide a highly secure 
 >
 >You can find the original GitHub of at [Beelzebub Repo](https://github.com/mariocandela/beelzebub)
 
-<br>
+<hr>
 
 ## Step 1: Setup
 ### Get the ChatGPT Api Key
