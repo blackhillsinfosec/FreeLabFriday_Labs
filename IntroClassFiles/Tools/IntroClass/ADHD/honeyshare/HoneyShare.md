@@ -10,9 +10,14 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Honey Share 
 
-# Windows VM
+#### Please Use The Windows VM
 
-In this lab we will be creating and triggering a honey share.  The goal of this lab is to show how to set up a simple Impacket SMB server that can record attempted connections to it. 
+<hr>
+
+## Lab Objective
+
+In this lab we will be creating and triggering a honey share.<br>
+The goal of this lab is to show how to set up a simple Impacket SMB server that can record attempted connections to it. 
 
 This can be used for detecting lateral movement in a Windows environment.  
 
@@ -20,14 +25,14 @@ One of the cool things about this is it will track the compromised user, the sys
 
 Let's get started. 
 
+<hr>
+
+## Step 1: Starting The SMB Server
 First, we will need to open a **Linux Terminal**: 
 
-
-- Open **Ubuntu Shell**
+Open an **Ubuntu Shell**
 
 <img width="90" height="104" alt="Screenshot From 2026-02-23 10-28-37" src="https://github.com/user-attachments/assets/ae6d408b-7622-4545-b849-aef3d8fa0cb4" />
-
-
 
 Next, we will navigate to the **Impacket** directory: 
 
@@ -39,7 +44,7 @@ cd ~/ADCD/impacket
 source venv/bin/activate
 ```
 
-- Then navigate to the **examples** directory:
+Then navigate to the **examples** directory:
 
 ```bash
 cd ./examples
@@ -47,8 +52,7 @@ cd ./examples
 
 <img width="742" height="75" alt="cd_venv" src="https://github.com/user-attachments/assets/6e41042c-9a51-4f18-b09a-5ca534101e5a" />
 
-
-- Make sure you are in the right place
+Make sure you are in the right place
 
 ```bash
 ls
@@ -57,7 +61,6 @@ ls
 It should look like this:
 
 <img width="1238" height="338" alt="ls_impacket" src="https://github.com/user-attachments/assets/095399cd-7fe5-42e0-a547-fa673aa1616b" />
-
 
 Now, let's start the SMB server: 
 
