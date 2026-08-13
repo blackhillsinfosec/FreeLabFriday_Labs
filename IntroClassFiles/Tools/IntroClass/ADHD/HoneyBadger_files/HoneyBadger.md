@@ -83,7 +83,7 @@ To navigate to other pages of HoneyBadger, use the navigation bar in the top rig
 
 <br>
 
-### 1. Map
+#### 1. Map
 The map is the default landing page after logging in.
 
 ![](../HoneyBadger_files/hb_map.png)
@@ -92,7 +92,7 @@ The map is the main event of HoneyBadger in terms of presentation, and will pin 
 
 <br>
 
-### 2. Targets
+#### 2. Targets
 Navigate to the targets page.
 
 ![](../HoneyBadger_files/hb_targets.png)
@@ -102,7 +102,7 @@ The page also serves as a way to generate several agents that are not quickly ge
 
 <br>
 
-### 3. Beacons
+#### 3. Beacons
 Navigate to the beacons page.
 
 ![](../HoneyBadger_files/hb_beacons.png)
@@ -111,7 +111,7 @@ The beacons page maintains a list of beacons that connect to HoneyBadger and suc
 
 <br>
 
-### 4. Log
+#### 4. Log
 Navigate to the log page.
 
 ![](../HoneyBadger_files/hb_log_empty.png)
@@ -120,7 +120,7 @@ The log page is populated with information as beacons attempt to connect to the 
 
 <br>
 
-### 5. Profile
+#### 5. Profile
 Navigate to the profile page.
 
 ![](../HoneyBadger_files/hb_profile.png)
@@ -129,7 +129,7 @@ The profile page allows for changing the password of the currently logged in acc
 
 <br>
 
-### 6. Admin
+#### 6. Admin
 Navigate to the admin page.
 
 ![](../HoneyBadger_files/hb_admin.png)
@@ -138,7 +138,7 @@ The admin page is where administrative actions can be performed on accounts, and
 
 <br>
 
-### 7. Logout
+#### 7. Logout
 Clicking logout on the navbar will log you out, bringing you back to the login page.
 
 ![](../HoneyBadger_files/hb_logout.png)
@@ -150,34 +150,35 @@ Clicking logout on the navbar will log you out, bringing you back to the login p
 
 ## Example 2: Using the Map
 
-- Navigate to the map page.
+Navigate to the map page.
 
 ![](../HoneyBadger_files/hb_map.png)
 
-- At its core, the map page uses the Google Maps API, and functions identically to the standard Google Maps.
+At its core, the map page uses the Google Maps API, and functions identically to the standard Google Maps.
 
-- Several options are available for filtering map points by targets and by agents, using the map legend:
+Several options are available for filtering map points by targets and by agents, using the map legend:
 
 ![](../HoneyBadger_files/hb_map_legend.png)
 
-- As targets are added or unique agents are used to beacon into a target, they will show up in this legend. Toggling checkboxes in the legend enables filtering of beacons that are displayed in the map.
+As targets are added or unique agents are used to beacon into a target, they will show up in this legend. Toggling checkboxes in the legend enables filtering of beacons that are displayed in the map.
 
-- Points on the map can be clicked to display information about the machine that beaconed in:
+Points on the map can be clicked to display information about the machine that beaconed in:
 
 ![](../HoneyBadger_files/hb_map_beacondetails.png)
 
+<hr>
 
-# Example 3: Working with Targets
+## Example 3: Working with Targets
 
-- Navigate to the targets page.
+Navigate to the targets page.
 
 ![](../HoneyBadger_files/hb_targets.png)
 
-- Take a closer look at the information associated with the demo target:
+Take a closer look at the information associated with the demo target:
 
 ![](../HoneyBadger_files/hb_targets_targetinfo.png)
 
-- Moving left to right:
+Moving left to right:
 
 * id: list id number
 * name: name of the target
@@ -189,21 +190,21 @@ Clicking logout on the navbar will log you out, bringing you back to the login p
     - demo: navigate to the target's demo page
     - delete: delete the target
 
-- Note that clicking on any of the first four table headings will sort the table based on that column in ascending or descending order, as indicated by an arrow that appears upon clicking.
+Note that clicking on any of the first four table headings will sort the table based on that column in ascending or descending order, as indicated by an arrow that appears upon clicking.
 
-- To add a new target, enter the target name in the field at the top of the page, and click the add button.
+To add a new target, enter the target name in the field at the top of the page, and click the add button.
 
-- The new target will appear in the list:
+The new target will appear in the list:
 
 ![](../HoneyBadger_files/hb_targets_targetadd.png)
 
-- Two agents can be generated from this page, one for VBA Office macros and one for VB.NET.
+Two agents can be generated from this page, one for VBA Office macros and one for VB.NET.
 
-- Clicking on the macro button will show the macro in a popup:
+Clicking on the macro button will show the macro in a popup:
 
 ![](../HoneyBadger_files/hb_targets_targetVBA.png)
 
-- Clicking on on the VB.NET button will show the VB.NET code in a popup:
+Clicking on on the VB.NET button will show the VB.NET code in a popup:
 
 ![](../HoneyBadger_files/hb_targets_targetVBNET.png)
 
@@ -211,24 +212,25 @@ Clicking logout on the navbar will log you out, bringing you back to the login p
 >
 >Though HoneyBadger attempts to copy the code to the clipboard, it's safest to simply copy the macro by hand.
 
-- To delete a target, click the target's delete button. A prompt will appear:
+To delete a target, click the target's delete button. A prompt will appear:
 
 ![](../HoneyBadger_files/hb_targets_targetdelete.png)
 
-- Click OK, and the target will be removed from the list.
+Click OK, and the target will be removed from the list.
 
+<hr>
 
-# Example 4: Working with Beacons
+## Example 4: Working with Beacons
 
-- Navigate to the beacons page.
+Navigate to the beacons page.
 
 ![](../HoneyBadger_files/hb_beacons.png)
 
-- Take a closer look at the information associated with the first demo beacon:
+Take a closer look at the information associated with the first demo beacon:
 
 ![](../HoneyBadger_files/hb_beacons_beaconinfo.png)
 
-- Moving left to right:
+Moving left to right:
 
 * id: list id number
 * target: which target the beacon associated with
@@ -241,7 +243,7 @@ Clicking logout on the navbar will log you out, bringing you back to the login p
 * action: available action regarding the target
     - delete: delete the beacon
 
-- Using an agent, beacon into HoneyBadger, and refresh the beacons page to see a new beacon added to the list:
+Using an agent, beacon into HoneyBadger, and refresh the beacons page to see a new beacon added to the list:
 
 If we execute the agent from the terminal:
 
@@ -251,92 +253,101 @@ curl -X POST -H "Content-Type: application/json"  -d '{}'  "http://localhost:500
 
 ![](../HoneyBadger_files/hb_beacons_beaconadded.png)
 
-- To delete a beacon, click the beacon's delete button. A prompt will appear:
+To delete a beacon, click the beacon's delete button. A prompt will appear:
 
 ![](../HoneyBadger_files/hb_beacons_beacondelete.png)
 
-- Click OK, and the beacon will be removed from the list
+Click OK, and the beacon will be removed from the list
 
+<hr>
 
-# Example 5: Observing the Log
+## Example 5: Observing the Log
 
-- Navigate to the log page.
+Navigate to the log page.
 
 ![](../HoneyBadger_files/hb_log.png)
 
-- The log page has been populated with information after the beacon was added in Example 4. The log contains information pertaining to the beacon, and will contain information if a beacon is unable to geolocate.
+The log page has been populated with information after the beacon was added in Example 4. The log contains information pertaining to the beacon, and will contain information if a beacon is unable to geolocate.
 
-# Example 6: Changing Profile Information
+<hr>
 
-- Navigate to the profile page.
+## Example 6: Changing Profile Information
+
+Navigate to the profile page.
 
 ![](../HoneyBadger_files/hb_profile.png)
 
-- To change a password, fill in the fields accordingly. Note that passwords set with the profile page must meet minimum complexity requirements of a minimum of 10 characters, of which all four character classes (uppercase letters, lowercase letters, special characters, and numbers) must be used.
+To change a password, fill in the fields accordingly. Note that passwords set with the profile page must meet minimum complexity requirements of a minimum of 10 characters, of which all four character classes (uppercase letters, lowercase letters, special characters, and numbers) must be used.
 
-- If the password does not meet minimum complexity requirements, the password is rejected and the user is notified:
+If the password does not meet minimum complexity requirements, the password is rejected and the user is notified:
 
 ![](../HoneyBadger_files/hb_profile_badcomplexity.png)
 
-- Upon successful password change, the user is notified:
+Upon successful password change, the user is notified:
 
 ![](../HoneyBadger_files/hb_profile_profileupdated.png)
 
-# Example 7: Administration
+<hr>
 
-- Navigate to the admin page.
+## Example 7: Administration
+
+Navigate to the admin page.
 
 ![](../HoneyBadger_files/hb_admin.png)
 
-- Note that modification of the current user is not allowed. If this is attempted, the user is notified of this:
+Note that modification of the current user is not allowed. If this is attempted, the user is notified of this:
 
 ![](../HoneyBadger_files/hb_admin_selfmodify.png)
 
-- To add a new user, enter an email address in the box above, and click initialize. The new user will appear in the list:
+To add a new user, enter an email address in the box above, and click initialize. The new user will appear in the list:
 
 ![](../HoneyBadger_files/hb_admin_useradded.png)
 
-- To get an activation link to the user, click the get link button. The link will be copied to the clipboard.
+To get an activation link to the user, click the get link button. The link will be copied to the clipboard.
 
-- To delete a user, click the user's delete button. The following prompt will appear:
+To delete a user, click the user's delete button. The following prompt will appear:
 
 ![](../HoneyBadger_files/hb_admin_userdelete.png)
 
-- Click OK, and the user will be removed from the list:
+Click OK, and the user will be removed from the list:
 
 ![](../HoneyBadger_files/hb_admin_userdeleted.png)
 
-# Example 8: Agents
+<hr>
 
-### 1. Demo Page
+## Example 8: Agents
 
-- Navigate to the targets page.
+#### 1. Demo Page
+
+Navigate to the targets page.
 
 ![](../HoneyBadger_files/hb_targets.png)
 
-- Click on the demo button to be taken to the demo page:
+Click on the demo button to be taken to the demo page:
 
 ![](../HoneyBadger_files/hb_demo.png)
 
-- Enter some XSS code into the first field (`<script>alert(1)</script>`), and the current user's password into the second field, and click submit.
+Enter some XSS code into the first field (`<script>alert(1)</script>`), and the current user's password into the second field, and click submit.
 
-- If the inputted XSS code worked, the following string of popups will appear. Click `OK`.
+If the inputted XSS code worked, the following string of popups will appear. Click `OK`.
 
 <img width="287" height="113" alt="img01" src="https://github.com/user-attachments/assets/9b37301d-aac0-4e26-bc08-3b83ab749ff4" />
 
-- Then, the XSS alert popup will appear in the browser.
+Then, the XSS alert popup will appear in the browser.
 
 <img width="287" height="121" alt="img02" src="https://github.com/user-attachments/assets/121b084d-6068-4ca4-9740-55811c3cdc01" />
 
-- Next, the browser will request permission to access the location. Click `Allow` to continue.
+Next, the browser will request permission to access the location. Click `Allow` to continue.
 
 <img width="338" height="139" alt="img03" src="https://github.com/user-attachments/assets/81e80a69-81b1-418d-bb95-060d520548e5" />
 
-- After clicking through all of the prompts, the page will load. Reload the HoneyBadger beacons page to see that a new beacon is added:
+After clicking through all of the prompts, the page will load. Reload the HoneyBadger beacons page to see that a new beacon is added:
 
 <img width="703" height="47" alt="img04" src="https://github.com/user-attachments/assets/af252136-df2d-4bc0-8aa4-4aa75a0d9fea" />
 
-### 2. VBA Macro
+<br>
+
+#### 2. VBA Macro
 The VBA macro code are not included as comments in the generated popup for the sake of brevity. The VBA macro functionality is explained here. In short, the VBA macro imitates the powershell script.
 
     Sub AutoOpen()
@@ -375,8 +386,9 @@ The VBA macro code are not included as comments in the generated popup for the s
 
 To use the macro code, simply open a document, paste this macro inside, and save as a .docm file. Upon opening and accepting to run code, the macro will be triggered and the beacon will be added.
 
+<br>
 
-### 3. VB.NET Script
+#### 3. VB.NET Script
 The VB.NET code is identical in function and near identical in structure to the VBA macro. Changes needed to be made to make it a valid VB.NET script, for version difference issues between VB.NET and VBA. Like the macro, the VB.NET functionality is explained here:
 
     Imports System.IO
@@ -426,17 +438,7 @@ The VB.NET code is identical in function and near identical in structure to the 
 
 Copy this script into a file with a .vb extension, and run vbc <FILENAME>.vb to compile, and then run <FILENAME>.exe to create the beacon.
 
+<br>
 
-### 4. CMD
-- The CMD agent is a type of HTML agent, as the beacon is created via web requests on the command line. There are two utilities in the util directory of HoneyBadger, one for windows and one for linux. They utilize Google's geolocation API. Usage information is available in those scripts. 
-
- ***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
+#### 4. CMD
+The CMD agent is a type of HTML agent, as the beacon is created via web requests on the command line. There are two utilities in the util directory of HoneyBadger, one for windows and one for linux. They utilize Google's geolocation API. Usage information is available in those scripts. 
