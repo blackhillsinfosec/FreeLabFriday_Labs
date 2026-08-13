@@ -144,6 +144,8 @@ cat honeypot.log
 
 Take your time into analyzing the logs and seeing how they are being built
 
+![image](/FilesForLabs/images/beezlebub_catlog.png)
+
 >[!TIP]
 >
 >Try to make ChatGPT break character, this method, like anything else in cybersecurity isn't flawless, but it surely tricks hackers and does its job, **to increase Attack Time**
