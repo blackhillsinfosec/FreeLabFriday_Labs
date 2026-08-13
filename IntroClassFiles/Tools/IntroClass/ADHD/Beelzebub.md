@@ -76,7 +76,7 @@ sudo docker-compose up -d
 
 <hr>
 
-## Try it
+## Step 2: Try it
 Connect to it like this:
 
 ```bash
@@ -110,7 +110,7 @@ Now exit the session by typing **exit** and hitting **enter** to export the logs
 
 <hr>
 
-## Step 2: Analyzing The Logs
+## Step 3: Analyzing The Logs
 
 First, save the logs:
 
