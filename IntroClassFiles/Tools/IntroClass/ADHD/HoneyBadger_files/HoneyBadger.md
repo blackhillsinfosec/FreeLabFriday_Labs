@@ -11,16 +11,17 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 # HoneyBadger
 
 
-Website
--------
+### Website
 <https://github.com/adhdproject/honeybadger>
 
-Description
------------
+<br>
+
+### Description
 Used to identify the physical location of a web user with a combination of geolocation techniques using a browser's share location feature, the visible WiFi networks, and the IP address.
 
-Updates
--------
+<br>
+
+### Updates
 What's new in HoneyBadger?
 
 * Updated to Python 3.x
@@ -29,15 +30,16 @@ What's new in HoneyBadger?
 * New utilities for automatic wireless surveying (Windows, Linux)
 * New beacon agents (VB.NET, VBA)
 
+<br>
 
-Install Location
-----------------
+### Install Location
+
 `~/ADCD/honeybadger/`
 
+<br>
 
-Usage
------
-- In order to use the latest version of **HoneyBadger**, **Python 3** must be installed, as well as **python3-pip**. These should both be installed on the **ADHD image**
+### Usage
+In order to use the latest version of **HoneyBadger**, **Python 3** must be installed, as well as **python3-pip**. These should both be installed on the **ADHD image**
 
 ```bash
 cd ~/ADCD/honeybadger/server
@@ -47,91 +49,106 @@ cd ~/ADCD/honeybadger/server
 source venv/bin/activate
 ```
 
-- Finally, from the same directory, run the HoneyBadger server:
+Finally, from the same directory, run the HoneyBadger server:
 ```bash
 python3 honeybadger.py -ik [IPSTACK_KEY] -gk [GOOGLE_KEY]
 ```
-
 
 >[!NOTE]
 >
 >Though HoneyBadger will still run without API keys, functionality is severely limited without them.
 
+<hr>
 
-# Example 1: Overview
+## Example 1: Overview
 
-- The **HoneyBadger UI** has many features. This section will give a brief overview of HoneyBadger's pages.
-
-- Please surf to `http://<YOUR_LINUX_IP>:5000`
-
+The **HoneyBadger UI** has many features. This section will give a brief overview of HoneyBadger's pages.
+Please surf to `http://<YOUR_LINUX_IP>:5000`
 
 >[!IMPORTANT]
 >
 >PLEASE USE FIREFOX!!!!
 
-- The user and password are `adhd`.
+The user and password are `adhd`.
 
-- Navigate to the HoneyBadger server, and you will be presented with the following screen:
+Navigate to the HoneyBadger server, and you will be presented with the following screen:
 
 ![](../HoneyBadger_files/hb_login.png)
 
-- Use the credentials set earlier to log in, and you will be brought to the map.
+Use the credentials set earlier to log in, and you will be brought to the map.
 
-- To navigate to other pages of HoneyBadger, use the navigation bar in the top right corner:
+To navigate to other pages of HoneyBadger, use the navigation bar in the top right corner:
 
 ![](../HoneyBadger_files/hb_navbar.png)
 
+<br>
+
 ### 1. Map
-- The map is the default landing page after logging in.
+The map is the default landing page after logging in.
 
 ![](../HoneyBadger_files/hb_map.png)
 
-- The map is the main event of HoneyBadger in terms of presentation, and will pin a location when a beacon is triggered.
+The map is the main event of HoneyBadger in terms of presentation, and will pin a location when a beacon is triggered.
+
+<br>
 
 ### 2. Targets
-- Navigate to the targets page.
+Navigate to the targets page.
 
 ![](../HoneyBadger_files/hb_targets.png)
 
-- The targets page is where targets can be observed, added, or removed, The page also serves as a way to generate several agents that are not quickly generated manually.
+The targets page is where targets can be observed, added, or removed.<br>
+The page also serves as a way to generate several agents that are not quickly generated manually.
+
+<br>
 
 ### 3. Beacons
-- Navigate to the beacons page.
+Navigate to the beacons page.
 
 ![](../HoneyBadger_files/hb_beacons.png)
 
-- The beacons page maintains a list of beacons that connect to HoneyBadger and successfully geolocate. Beacons can be removed from this page as well.
+The beacons page maintains a list of beacons that connect to HoneyBadger and successfully geolocate. Beacons can be removed from this page as well.
+
+<br>
 
 ### 4. Log
-- Navigate to the log page.
+Navigate to the log page.
 
 ![](../HoneyBadger_files/hb_log_empty.png)
 
-- The log page is populated with information as beacons attempt to connect to the HoneyBadger server, and may be empty if accessed before any beacons connect to the server.
+The log page is populated with information as beacons attempt to connect to the HoneyBadger server, and may be empty if accessed before any beacons connect to the server.
+
+<br>
 
 ### 5. Profile
-- Navigate to the profile page.
+Navigate to the profile page.
 
 ![](../HoneyBadger_files/hb_profile.png)
 
-- The profile page allows for changing the password of the currently logged in account.
+The profile page allows for changing the password of the currently logged in account.
+
+<br>
 
 ### 6. Admin
-- Navigate to the admin page.
+Navigate to the admin page.
 
 ![](../HoneyBadger_files/hb_admin.png)
 
-- The admin page is where administrative actions can be performed on accounts, and where new accounts can be added.
+The admin page is where administrative actions can be performed on accounts, and where new accounts can be added.
+
+<br>
 
 ### 7. Logout
-- Clicking logout on the navbar will log you out, bringing you back to the login page.
+Clicking logout on the navbar will log you out, bringing you back to the login page.
 
 ![](../HoneyBadger_files/hb_logout.png)
 
 >[!NOTE]
 > All pages containing a table of records can be sorted by clicking on the table headings.
 
-# Example 2: Using the Map
+<hr>
+
+## Example 2: Using the Map
 
 - Navigate to the map page.
 
