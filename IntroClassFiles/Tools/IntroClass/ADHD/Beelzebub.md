@@ -95,6 +95,8 @@ Everything you see is AI generated, and that's what an attacker would see
 
 Cool, right?
 
+<br>
+
 ### Trying Suspicious Commands
 Try running suspicious commands an attacker would use:
 
