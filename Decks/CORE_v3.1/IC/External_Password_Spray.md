@@ -74,7 +74,7 @@ Put your knowledge of the topic to the test with this online quiz!
 Hands-on labs using tools commonly associated with password spraying simulations and detection:
 
 - [CredMaster Lab](labs/credmaster.md)
-- [MSOLSpray Lab](labs/msolspray.md)
+- [MSOLSpray Lab](https://freelabfridays.com/comingsoon/)
 - [FireProx Lab](labs/fireprox.md)
 - [FindMeAccess Lab](labs/findmeaccess.md)
 
