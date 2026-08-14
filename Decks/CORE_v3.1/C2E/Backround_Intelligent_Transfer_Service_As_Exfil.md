@@ -1,8 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_30" src="https://github.com/user-attachments/assets/a7a773e1-427f-4e19-a723-1813d79e33d1" />
 
-
-
-
 # Backround Intelligent Transfer Service(BITS) As Exfil
 
 **BITS** is a built-in Windows service that was designed to transfer files in the background - think Windows Update downloads, or software patches silently installing while you work. It throttles bandwidth, survives reboots, and runs quietly without drawing attention.
@@ -76,26 +73,9 @@ Put your knowledge to the test with this online quiz!
 
 Hands-on practice with real tools:
 
-- [Leviathan Lab](labs/leviathan/leviathan.md)
-- [UBoatRAT Lab](labs/uboatrat.md)
+- [Leviathan Lab](https://freelabfridays.com/labs/decks/core-v31/c2e/labs/leviathan/leviathan/)
+- [UBoatRAT Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 BITS exfiltration is a good reminder that not every attack involves exotic malware. Some of the most effective techniques use tools that have been on your machine since day one. Knowing how to spot the abuse of legitimate services is what separates a reactive security team from a proactive one.
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/C2E/Cloud_Based_Services_As_Exfil.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/C2E/Domain_Name_System_As_C2.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
