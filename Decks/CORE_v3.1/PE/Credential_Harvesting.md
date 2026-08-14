@@ -1,9 +1,6 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_15" src="https://github.com/user-attachments/assets/41914840-6056-4cee-af1d-3296fbd539e2" />
 
 
-
-
-
 # Credential Harvesting
 
 When attackers get into a network, one of the first things they go after is credentials - usernames and passwords. Not because they need one account, but because one account leads to another, and another, until they reach something worth stealing.
@@ -83,26 +80,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [GraphRunner Lab](labs/graphrunner.md)
-- [DonPAPI Lab](labs/donpapi.md)
-- [Snaffler Lab](labs/snaffler.md)
-- [Mimikatz Lab](labs/mimikatz.md)
+- [GraphRunner Lab](https://freelabfridays.com/comingsoon/)
+- [DonPAPI Lab](https://freelabfridays.com/comingsoon/)
+- [Snaffler Lab](https://freelabfridays.com/comingsoon/)
+- [Mimikatz Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Credential harvesting is quiet, fast, and hard to reverse once it's happened. By the time you find the harvested credentials being used, the attacker may have already moved on. Understanding how it works is the first step to stopping it.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/New_Service_Creation-Modification.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Weaponizing_Active_Directory.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
