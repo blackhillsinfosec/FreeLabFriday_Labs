@@ -86,20 +86,3 @@ Hands-on practice with the tools:
 ---
 
 Compromised web servers are rarely isolated incidents. They are often the first step in much larger intrusions. Learning how they are attacked and how to detect them is a core skill in defensive security.
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Unauthorized_Cloud_Access.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/Phishing.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
