@@ -1,8 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_26" src="https://github.com/user-attachments/assets/1e154b5f-4055-4563-a254-8f2985fb9d57" />
 
-
-
-
 # Accesibility Features
 
 Operating systems ship with built-in accessibility tools meant to help users with disabilities. Things like Sticky Keys, the On-Screen Keyboard, and Magnifier are there for good reasons. Attackers know this, and they abuse them.
@@ -85,23 +82,10 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from this card:
 
-- [Bash Bunny Lab](labs/bash-bunny.md)
-- [USB Rubber Ducky Lab](labs/usb-rubber-ducky.md)
-- [OMGCable Lab](labs/omgcable.md)
+- [Bash Bunny Lab](https://freelabfridays.com/comingsoon/)
+- [USB Rubber Ducky Lab](https://freelabfridays.com/comingsoon/)
+- [OMGCable Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Accessibility feature hijacking is one of those techniques that feels obscure until you realize how effective it is. A cheap USB device, thirty seconds of physical access, and an attacker has a persistent SYSTEM shell waiting for them. Physical security is not separate from cybersecurity - it is part of it.
-
-***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Malicious_Firmware.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
