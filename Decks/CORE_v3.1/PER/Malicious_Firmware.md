@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_25" src="https://github.com/user-attachments/assets/5f304c2b-8a3f-44e4-add1-2c4cfeb38182" />
 
-
-
-
-
 # Malicious Firmware
 
 Firmware is the low-level software baked into hardware - your BIOS, UEFI, network cards, video cards, and more. It runs before the operating system even loads, which makes it incredibly powerful. And incredibly dangerous when tampered with.
@@ -84,26 +80,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [Flashrom Lab](labs/flashrom.md)
-- [Impacket Lab](labs/impacket.md)
-- [PowerShell Lab](labs/powershell.md)
-- [Metasploit Lab](labs/metasploit.md)
+- [Flashrom Lab](https://freelabfridays.com/labs/decks/core-v31/per/labs/flashrom/)
+- [Impacket Lab](https://freelabfridays.com/labs/decks/core-v31/per/labs/impacket/)
+- [PowerShell Lab](https://freelabfridays.com/labs/decks/core-v31/labs/powershell/)
+- [Metasploit Lab](https://freelabfridays.com/labs/decks/core-v31/labs/metasploit/)
 
 ---
 
 Malicious firmware attacks are rare, but they represent some of the most persistent and stealthy techniques in existence. Understanding how they work - even at a conceptual level - changes how you think about what "fully compromised" actually means.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Accesibility_Features.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Logon_Scripts.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
