@@ -79,7 +79,7 @@ One lab per tool. Each one is hands-on and self-contained:
 - [LogonTracer Lab](https://freelabfridays.com/comingsoon/)
 - [DeepBlueCLI Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/deepbluecli/deepbluecli/)
 - [OpenUBA Lab](https://freelabfridays.com/comingsoon/)
-- [Hayabusa Lab](labs/hayabusa.md)
+- [Hayabusa Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/hayabusa/)
 
 ---
 
