@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_12" src="https://github.com/user-attachments/assets/343f81ff-7b7c-45ce-b509-c67d85d4ba46" />
 
-
-
-
-
 # Kerberoasting
 
 Kerberoasting is an **Active Directory attack technique** that targets service accounts  
@@ -112,35 +108,17 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with common Kerberoasting tools:
 
-- [Rubeus Lab](labs/rubeus.md)
-- [Impacket Lab](labs/impacket.md)
-- [Hashcat Lab](labs/hashcat.md)
-- [NetExec Lab](labs/Netexec/netexec.md)
+- [Rubeus Lab](https://freelabfridays.com/comingsoon/)
+- [Impacket Lab](https://freelabfridays.com/labs/decks/core-v31/per/labs/impacket/)
+- [Hashcat Lab](https://freelabfridays.com/labs/decks/core-v31/labs/hashcat/)
+- [NetExec Lab](https://freelabfridays.com/labs/decks/core-v31/pe/labs/netexec/netexec/)
 
 ---
 
-Kerberoasting is not a bug
+Kerberoasting is not a bug.
 
-It is a design tradeoff that becomes dangerous when service accounts are poorly managed
+It is a design tradeoff that becomes dangerous when service accounts are poorly managed.
 
-Understanding it is essential for both attackers and defenders working in Active Directory environments
-
-
+Understanding it is essential for both attackers and defenders working in Active Directory environments.
 
 
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Broadcast-Multicast_Protocol_Poisoning.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Internal_Password_Spray.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
