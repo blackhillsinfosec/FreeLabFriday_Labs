@@ -75,27 +75,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with common log analysis platforms:
 
-- [Wazuh Lab](labs/Wazuh/wazuh.md)  
-- [Graylog Open Lab](labs/graylog-open.md)  
-- [ELK Stack Lab](labs/elasticSecurity/elastic-security.md)  
-- [Security Onion Lab](labs/security-onion.md)
+- [Wazuh Lab](https://freelabfridays.com/labs/decks/core-v31/labs/wazuh/)  
+- [Graylog Open Lab](https://freelabfridays.com/comingsoon/)  
+- [ELK Stack Lab](https://freelabfridays.com/comingsoon/)  
+- [Security Onion Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Firewall logs are often the first place where defenders notice that something is wrong. Learning how to read them and spot patterns is a core skill for anyone working in network defense.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Network_Threat_Hunting.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Security_Informations_And_Event_Management_Log_Analysis.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
