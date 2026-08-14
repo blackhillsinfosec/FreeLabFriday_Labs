@@ -92,10 +92,6 @@
 
 ---
 
-```
-UNDER MAINTENECE VVV
-```
-
 # Cloud Security Expansion
 
 ## Initial Compromise
