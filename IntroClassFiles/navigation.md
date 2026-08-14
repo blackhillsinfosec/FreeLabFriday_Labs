@@ -12,7 +12,6 @@
  - [RITA and AC Hunter](Tools/IntroClass/RITAIntroClass/RITA.md)
  - [Sysmon](Tools/IntroClass/Sysmon/Sysmon.md)
  - [Web Testing](Tools/IntroClass/WebTesting/WebTesting.md)
- - [AC Hunter CE](Tools/IntroClass/ACHCEIntroClass/ACHunterCE.md)
  - [PingCastle](/IntroClassFiles/Tools/IntroClass/PingCastle.md)
  - [Azure IR](/IntroClassFiles/Tools/IntroClass/AZURE-MSP-WRITEUP-main/README.md)
  - [Wireless](/IntroClassFiles/Tools/IntroClass/Wireless.md)
