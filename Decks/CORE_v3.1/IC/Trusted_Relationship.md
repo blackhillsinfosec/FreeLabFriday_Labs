@@ -85,22 +85,3 @@ Hands-on labs based on the tools from this card:
 ---
 
 Trusted relationships are necessary for modern organizations, but they expand the attack surface. Learning how attackers abuse trust - and how defenders detect subtle misuse - is a core skill in modern defensive security.
-
-
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Social_Engineering.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/External_Password_Spray.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
