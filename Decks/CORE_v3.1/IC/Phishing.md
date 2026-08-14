@@ -82,25 +82,6 @@ Hands-on labs using real phishing tools:
 
 ---
 
-Phishing remains the most common initial access vector in real-world intrusions
+Phishing remains the most common initial access vector in real-world intrusions.
 
-Understanding how it works and how to detect it is critical for both defenders and investigators
-
-
-
-
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Compromised_Web_Server.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
+Understanding how it works and how to detect it is critical for both defenders and investigators.
