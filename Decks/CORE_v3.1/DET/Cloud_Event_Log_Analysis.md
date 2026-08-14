@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_44" src="https://github.com/user-attachments/assets/4265f6f5-a6a9-4e42-bdd9-fd9b0437543f" />
 
-
-
-
-
 # Cloud Event Log Analysis
 
 Cloud systems generate logs for everything - logins, API calls, file access, configuration changes, network connections. When something goes wrong, those logs are often the only record of what happened.
@@ -90,26 +86,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on with the tools from the card:
 
-- [Wazuh Lab](labs/Wazuh/wazuh.md)
-- [Security Onion Lab](labs/security-onion.md)
-- [Graylog Open Lab](labs/graylog.md)
-- [Falco Lab](labs/falco.md)
+- [Wazuh Lab](https://freelabfridays.com/labs/decks/core-v31/labs/wazuh/)
+- [Security Onion Lab](https://freelabfridays.com/comingsoon/)
+- [Graylog Open Lab](https://freelabfridays.com/comingsoon/)
+- [Falco Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Cloud logs don't lie - but they won't speak up on their own. The work is in knowing what to look for and building systems that surface it fast enough to matter.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Permissions_Audit.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Memory_Analysis.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
