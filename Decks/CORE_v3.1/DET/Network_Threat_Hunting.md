@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_36" src="https://github.com/user-attachments/assets/959dbb55-5ba5-44e6-aa4b-60091370e9b0" />
 
-
-
-
-
 # Network Threat Hunting
 
 Network threat hunting is the practice of **actively searching network traffic for signs of malicious behavior** instead of waiting for alerts to fire. It focuses on finding patterns that automated systems might miss - unusual communication, suspicious protocols, or data leaving the environment unexpectedly.
@@ -81,26 +77,10 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on exercises using tools commonly used for network threat hunting:
 
-- [RITA Lab](labs/ritaLab1.md)
-- [Security Onion Lab](labs/security-onion.md)
-- [AC-Hunter Community Edition Lab](labs/achunter/ac-hunter.md)
-- [espy Lab](labs/espy.md)
+- [RITA Lab](https://freelabfridays.com/comingsoon/)
+- [Security Onion Lab](https://freelabfridays.com/comingsoon/)
+- [espy Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Threat hunting is not about chasing every anomaly. It is about learning how attackers use networks and developing the ability to spot subtle signals before they become incidents.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Active_Defense_And_Cyber_Deception.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Firewall_Log_Analysis.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
