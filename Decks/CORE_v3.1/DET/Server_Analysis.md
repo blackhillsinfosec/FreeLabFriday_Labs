@@ -90,24 +90,10 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on labs based on the tools used for server analysis.
 
-- [DeepBlueCLI Lab](labs/deepbluecli/deepbluecli.md)  
-- [Velociraptor Lab](labs/Velociraptor/velociraptor.md)  
-- [Sysinternals Suite Lab](labs/sysinternals.md)  
+- [DeepBlueCLI Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/deepbluecli/deepbluecli/)  
+- [Velociraptor Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/velociraptor/velociraptor/)  
+- [Sysinternals Suite Lab](https://freelabfridays.com/comingsoon/)  
 
 ---
 
 Server analysis is about understanding behavior, not memorizing commands. The faster you can recognize what “normal” looks like, the easier it becomes to spot when something is wrong.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Security_Informations_And_Event_Management_Log_Analysis.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
