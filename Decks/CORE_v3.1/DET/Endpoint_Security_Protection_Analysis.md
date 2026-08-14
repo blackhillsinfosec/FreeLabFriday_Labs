@@ -70,26 +70,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on time with the tools defenders actually use:
 
-- [Elastic Security Lab](labs/elasticSecurity/elastic-security.md)
-- [OpenEDR Lab](labs/openedr.md)
-- [Velociraptor Lab](labs/Velociraptor/velociraptor.md)
-- [Wazuh Lab](labs/Wazuh/wazuh.md)
+- [Elastic Security Lab](https://freelabfridays.com/comingsoon/)
+- [OpenEDR Lab](https://freelabfridays.com/comingsoon/)
+- [Velociraptor Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/velociraptor/velociraptor/)
+- [Wazuh Lab](https://freelabfridays.com/labs/decks/core-v31/labs/wazuh/)
 
 ---
 
 Attackers spend the most time on endpoints. That's where they run tools, steal data, and build persistence. Getting good at endpoint analysis means you can follow their trail - and cut it off.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/UEBA_Analytics.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Active_Defense_And_Cyber_Deception.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
