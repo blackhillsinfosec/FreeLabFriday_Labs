@@ -77,23 +77,9 @@ Put your knowledge of the topic to the test with this online quiz!
 Hands-on time with the tools from the card:
 
 - [Sliver Lab](labs/Sliver/sliver.md)
-- [Havok Lab](labs/havok.md)
-- [Mythic Lab](labs/mythic/mythic.md)
+- [Havok Lab](https://freelabfridays.com/labs/decks/core-v31/labs/havok/)
+- [Mythic Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Domain fronting is a good example of how attackers do not always break things — sometimes they just use existing infrastructure in ways it was not designed to prevent. Understanding the technique is the first step to catching it.
-
-
-***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/C2E/Cloud_Based_Services_As_Exfil.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
