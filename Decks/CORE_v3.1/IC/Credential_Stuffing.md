@@ -103,7 +103,7 @@ Hands-on labs for tools commonly involved in credential testing or analysis:
 
 - [CredMaster Lab](labs/credmaster.md)  
 - [Burp Suite Lab](labs/burp-suite.md)  
-- [Hashcat Lab](labs/hashcat.md)  
+- [Hashcat Lab](https://freelabfridays.com/labs/decks/core-v31/labs/hashcat/)  
 - [Hydra Lab](labs/hydra.md)  
 
 ---
