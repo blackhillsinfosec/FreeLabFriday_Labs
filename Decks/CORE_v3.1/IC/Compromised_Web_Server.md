@@ -78,9 +78,9 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools:
 
-- [Burp Suite Lab](labs/burp-suite.md)
-- [Caido Lab](labs/caido.md)
-- [SQLMap Lab](labs/Sqlmap/sqlmap.md)
+- [Burp Suite Lab](https://freelabfridays.com/labs/decks/core-v31/ic/labs/burp-suite/)
+- [Caido Lab](https://freelabfridays.com/labs/decks/core-v31/ic/labs/caido/caido/)
+- [SQLMap Lab](https://freelabfridays.com/labs/decks/core-v31/ic/labs/sqlmap/sqlmap/)
 - [Nuclei Lab](labs/Nuclei.md)
 
 ---
