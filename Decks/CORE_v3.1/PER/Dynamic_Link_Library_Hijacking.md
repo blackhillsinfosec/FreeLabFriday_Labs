@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_19" src="https://github.com/user-attachments/assets/9083916b-0e6a-4841-a337-e1a4f2e3f314" />
 
-
-
-
-
 # Dynamic Link Library(DLL) Hijacking
 
 A **DLL** (Dynamic Link Library) is a file that contains code and data that multiple programs can use at the same time. Think of it like a shared toolbox - instead of every program carrying its own tools, they all reach into the same box when they need something.
@@ -82,26 +78,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on work with the tools from the card:
 
-- [DLLHijackTest Lab](labs/dllhijacktest.md)
-- [PowerSploit Lab](labs/powersploit.md)
-- [FaceDancer Lab](labs/facedancer.md)
-- [PersistBOF Lab](labs/persistbof.md)
+- [DLLHijackTest Lab](https://freelabfridays.com/comingsoon/)
+- [PowerSploit Lab](https://freelabfridays.com/comingsoon/)
+- [FaceDancer Lab](https://freelabfridays.com/comingsoon/)
+- [PersistBOF Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 DLL Hijacking sits at an awkward intersection - it is technically simple, but hard to catch. A single misconfigured directory or a missing DLL can hand an attacker everything they need. Understanding how it works is the first step toward making sure it does not work on your systems.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Malicious_Driver.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Malicious_Service.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
