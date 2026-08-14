@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_23" src="https://github.com/user-attachments/assets/31ce9023-f278-45c7-9ba4-4231c460e663" />
 
-
-
-
-
 # Malicious Browser Plugins
 
 Browser plugins - also called extensions - are small pieces of software that add functionality to your browser. They can do a lot of useful things, like blocking ads or managing passwords. But that same level of access is exactly what makes them dangerous when they are malicious.
@@ -87,26 +83,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on exercises with the tools from the card:
 
-- [Metasploit Lab](labs/metasploit.md)
-- [PowerShell Lab](labs/powershell.md)
-- [BeEF Lab](labs/beef.md)
-- [Evilginx Lab](labs/Evilginx/evilginx.md)
+- [Metasploit Lab](https://freelabfridays.com/labs/decks/core-v31/labs/metasploit/)
+- [PowerShell Lab](https://freelabfridays.com/labs/decks/core-v31/labs/powershell/)
+- [BeEF Lab](https://freelabfridays.com/comingsoon/)
+- [Evilginx Lab](https://freelabfridays.com/labs/decks/core-v31/ic/labs/evilginx/evilginx/)
 
 ---
 
 Malicious browser plugins are a good example of how attackers move up the stack - instead of breaking into the OS, they compromise the application layer where users spend most of their time. The access they get is limited in scope but extremely high in value. Knowing how they work is half the battle in detecting and stopping them.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Logon_Scripts.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Application_Shimming.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
