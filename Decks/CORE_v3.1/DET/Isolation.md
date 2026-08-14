@@ -1,8 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_41" src="https://github.com/user-attachments/assets/d5b3beac-734b-43ff-b015-98dfc3e274f3" />
 
-
-
-
 # Isolation
 
 When a system gets compromised, the first instinct is to pull the plug. That instinct is right - but the execution matters a lot. Isolation is the act of cutting a compromised system or network segment off from everything else, fast enough to stop the spread, but carefully enough to preserve evidence.
@@ -87,18 +84,3 @@ Put your knowledge of the topic to the test with this online quiz!
 ---
 
 Isolation is a time-sensitive decision. The longer a compromised host stays connected, the more damage compounds. Understanding how to apply it quickly and correctly - at the network, host, or endpoint level - is one of the most practical skills you can build as a defender.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Crisis_Management.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Endpoint_Analysis.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
