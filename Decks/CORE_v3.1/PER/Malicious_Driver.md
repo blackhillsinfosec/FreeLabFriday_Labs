@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_20" src="https://github.com/user-attachments/assets/e751aea6-bce6-4bd3-82b0-b27b4de949ea" />
 
-
-
-
-
 # Malicious Driver
 
 A **malicious driver** is a device driver that has been installed or tampered with by an attacker to maintain control over a system - even after it reboots. Because drivers run at the kernel level, they sit deeper in the operating system than most security tools can see.
@@ -79,26 +75,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with each tool:
 
-- [Impacket Lab](labs/impacket.md)
-- [PowerShell Lab](labs/powershell.md)
-- [Metasploit Lab](labs/metasploit.md)
-- **StayKit** is basically just an extension of **SharpStay**
+- [Impacket Lab](https://freelabfridays.com/labs/decks/core-v31/per/labs/impacket/)
+- [PowerShell Lab](https://freelabfridays.com/labs/decks/core-v31/labs/powershell/)
+- [Metasploit Lab](https://freelabfridays.com/labs/decks/core-v31/labs/metasploit/)
+- **StayKit** is basically just an extension of [**SharpStay**](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Malicious drivers are not common in every attack, but when they show up, they signal a serious and skilled threat. Defenders who understand how kernel-level persistence works are far better equipped to catch it before the damage compounds.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/New_User_Added.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Dynamic_Link_Library_Hijacking.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
