@@ -87,11 +87,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with tools related to this technique:
 
-- [Metasploit Lab](labs/metasploit.md)  
-- [PowerShell Lab](labs/powershell.md)  
-- [Shim Generator (shimgen) Lab](labs/shimgen.md)  
-- [sdb-explorer Lab](labs/sdb-explorer.md)
-- [Atomic Red Team Lab](labs/atomic-red-team.md)
+- [Metasploit Lab](https://freelabfridays.com/labs/decks/core-v31/labs/metasploit/)  
+- [PowerShell Lab](https://freelabfridays.com/labs/decks/core-v31/labs/powershell/)  
+- [Shim Generator (shimgen) Lab](https://freelabfridays.com/comingsoon/)  
+- [sdb-explorer Lab](https://freelabfridays.com/comingsoon/)
+- [Atomic Red Team Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/bluespawnintroclass/bluespawn/)
 
 ---
 
