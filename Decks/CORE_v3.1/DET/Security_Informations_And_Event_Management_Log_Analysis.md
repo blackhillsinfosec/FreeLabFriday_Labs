@@ -76,28 +76,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with SIEM-related tools:
 
-- [Security Onion Lab](labs/security-onion.md)
-- [OSSIM Lab](labs/ossim.md)
-- [Wazuh Lab](labs/Wazuh/wazuh.md)
-- [JPCERT Tool Analysis Lab](labs/jpcert-tool-analysis.md)
+- [Security Onion Lab](https://freelabfridays.com/comingsoon/)
+- [OSSIM Lab](https://freelabfridays.com/comingsoon/)
+- [Wazuh Lab](https://freelabfridays.com/labs/decks/core-v31/labs/wazuh/)
+- [JPCERT Tool Analysis Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 SIEM log analysis is less about memorizing alerts and more about understanding behavior across systems. The stronger your investigation process becomes, the faster you can detect and contain real attacks.
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Firewall_Log_Analysis.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Server_Analysis.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
