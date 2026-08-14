@@ -1,12 +1,6 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_10" src="https://github.com/user-attachments/assets/1d29ea43-54c3-4cae-9914-8c4960e95074" />
 
-
-
-
-
-
 # Credential Stuffing
-
 
 Credential stuffing is an attack where someone takes **stolen username and password pairs** (usually leaked in data breaches) and tries them across many websites and services.
 
