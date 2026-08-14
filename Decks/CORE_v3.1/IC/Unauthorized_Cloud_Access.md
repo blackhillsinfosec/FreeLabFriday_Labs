@@ -85,7 +85,7 @@ Hands-on labs using real cloud attack and investigation tools:
 
 -   [GraphRunner Lab](https://freelabfridays.com/comingsoon/)
 -   [ROADtools Lab](https://freelabfridays.com/comingsoon/)
--   [ScoutSuite Lab](labs/scoutsuite.md)
+-   [ScoutSuite Lab](https://freelabfridays.com/labs/decks/core-v31/ic/labs/scoutsuite/scoutsuite/)
 -   [Pacu Lab](https://freelabfridays.com/comingsoon/)
 
 ------------------------------------------------------------------------
