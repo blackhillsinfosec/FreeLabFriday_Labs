@@ -109,18 +109,3 @@ Hands-on labs for tools commonly involved in credential testing or analysis:
 ---
 
 Credential stuffing is simple in concept but highly effective at scale. Understanding how it works - and how to recognize its patterns - is essential for both defenders and penetration testers.
-
-
-
-***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
