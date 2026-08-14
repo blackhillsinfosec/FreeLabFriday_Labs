@@ -93,25 +93,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on labs using tools commonly seen in red team operations and detection workflows:
 
-- [Sliver Lab](labs/Sliver/sliver.md)  
-- [Havoc Lab](labs/havok.md)  
-- [Mythic Lab](labs/mythic/mythic.md)  
+- [Sliver Lab](https://freelabfridays.com/labs/decks/core-v31/c2e/labs/sliver/sliver/)  
+- [Havoc Lab](https://freelabfridays.com/labs/decks/core-v31/labs/havok/)  
+- [Mythic Lab](https://freelabfridays.com/comingsoon/)  
 
 ---
 
 HTTP exfiltration is not flashy. That is exactly why it works.  
 Learning to recognize normal-looking traffic that isn’t normal is a core skill for anyone working in security.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/C2E/HTTPS_As_Exfil.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
