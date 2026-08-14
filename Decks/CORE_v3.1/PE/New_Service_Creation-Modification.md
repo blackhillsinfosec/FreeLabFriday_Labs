@@ -1,8 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_16" src="https://github.com/user-attachments/assets/3564d2ab-1904-448d-86b3-a10840162d50" />
 
-
-
-
 # New Service Creation / Modification
 
 Services are background processes that run on a system - usually starting automatically when the machine boots. They handle things like networking, logging, antivirus, and much more. Because they run quietly in the background with high privileges, they are a prime target for attackers who already have a foothold on a machine.
@@ -70,24 +67,9 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [PsExec Lab](labs/psexec.md)
-- [PowerShell Lab](labs/powershell.md)
+- [PsExec Lab](https://freelabfridays.com/labs/decks/core-v31/labs/psexec/)
+- [PowerShell Lab](https://freelabfridays.com/labs/decks/core-v31/labs/powershell/)
   
 ---
 
 Service-based persistence is one of those techniques that shows up constantly in real incident reports. It's not flashy, but it works - and it works because defenders often underestimate how much noise is already in their service list. Knowing how to create it means you know how to find it.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Local_Privilege_Escalation.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Credential_Harvesting.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
