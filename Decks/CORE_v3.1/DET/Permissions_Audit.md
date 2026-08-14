@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_45" src="https://github.com/user-attachments/assets/51f177f0-5f6d-4013-8533-d81c047b05f2" />
 
-
-
-
-
 # Permissions Audit
 
 
@@ -92,24 +88,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [AD Users and Computers Lab](labs/ad-users-and-computers.md)
-- [BloodHound Lab](labs/bloodhound.md)
-- [ScoutSuite Lab](../IC/labs/ScoutSuite/scoutsuite.md)
-- [Prowler Lab](labs/prowler.md)
+- [AD Users and Computers Lab](https://freelabfridays.com/comingsoon/)
+- [BloodHound Lab](https://freelabfridays.com/comingsoon/)
+- [ScoutSuite Lab](https://freelabfridays.com/labs/decks/core-v31/ic/labs/scoutsuite/scoutsuite/)
+- [Prowler Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Permissions problems are almost never dramatic. There's no exploit, no zero-day. Someone just has access they shouldn't, and nobody noticed until it was too late. That's what makes this kind of audit so important - and so easy to skip.
-
-***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Cloud_Event_Logs_Analysis.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
