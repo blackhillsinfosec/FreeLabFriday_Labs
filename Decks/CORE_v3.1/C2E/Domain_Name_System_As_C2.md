@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_29" src="https://github.com/user-attachments/assets/b414e450-31bc-47c3-9091-5f3978891ca2" />
 
-
-
-
-
 # Domain Name System(DNS) As C2
 
 Every device on the internet needs DNS to function. It's the protocol that translates domain names like `google.com` into IP addresses your computer can actually connect to. Because it's so fundamental, most networks allow DNS traffic to pass through firewalls without much scrutiny.
@@ -91,25 +87,9 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools referenced on the card:
 
-- [Havok Lab](labs/havok.md)
-- [Mythic Lab](labs/mythic/mythic.md)
+- [Havok Lab](https://freelabfridays.com/labs/decks/core-v31/labs/havok/)
+- [Mythic Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 DNS as C2 is a good example of how attackers use the infrastructure that keeps networks running against the networks themselves. You can't block DNS. You have to learn to read it.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/C2E/HTTPS_As_Exfil.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
