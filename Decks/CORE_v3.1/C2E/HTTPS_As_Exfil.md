@@ -80,26 +80,10 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with each tool from the card:
 
-- [Sliver Lab](labs/Sliver/sliver.md)
-- [Havok Lab](labs/havok.md)
-- [Mythic Lab](labs/mythic/mythic.md)
+- [Sliver Lab](https://freelabfridays.com/labs/decks/core-v31/c2e/labs/sliver/sliver/)
+- [Havok Lab](https://freelabfridays.com/labs/decks/core-v31/labs/havok/)
+- [Mythic Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 HTTPS exfiltration is effective precisely because it hides in plain sight. Understanding how it works - and what traces it leaves behind - is one of the more practical skills you can build in network defense.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/Domain_Name_System_As_C2.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/C2E/HTTP_As_Exfil.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
