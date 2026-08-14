@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_24" src="https://github.com/user-attachments/assets/98d59914-d0dc-4c92-af11-55879d613244" />
 
-
-
-
-
 # Logon Scripts
 
 Every time a user logs into a system, the OS can automatically run a set of scripts. These are called **logon scripts**, and they exist for legitimate reasons - pushing software, mapping network drives, setting environment variables. The problem is that attackers know this too.
@@ -71,26 +67,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools used by attackers and defenders:
 
-- [Metasploit Lab](labs/metasploit.md)
-- [Impacket Lab](labs/impacket.md)
-- [Havok Lab](labs/havok.md)
-- [Mythic Lab](../C2E/labs/mythic/mythic.md)
+- [Metasploit Lab](https://freelabfridays.com/labs/decks/core-v31/labs/metasploit/)
+- [Impacket Lab](https://freelabfridays.com/labs/decks/core-v31/per/labs/impacket/)
+- [Havok Lab](https://freelabfridays.com/labs/decks/core-v31/labs/havok/)
+- [Mythic Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Logon scripts are one of those techniques that fly under the radar until it's too late. They are well-documented, widely used in real attacks, and worth understanding deeply - both to execute in a lab environment and to recognize in the wild.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Malicious_Firmware.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Malicious_Browser_Plugins.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
