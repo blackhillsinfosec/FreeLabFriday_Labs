@@ -83,10 +83,10 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on labs using real cloud attack and investigation tools:
 
--   [GraphRunner Lab](labs/graphrunner.md)
--   [ROADtools Lab](labs/roadtools.md)
+-   [GraphRunner Lab](https://freelabfridays.com/comingsoon/)
+-   [ROADtools Lab](https://freelabfridays.com/comingsoon/)
 -   [ScoutSuite Lab](labs/scoutsuite.md)
--   [Pacu Lab](labs/pacu.md)
+-   [Pacu Lab](https://freelabfridays.com/comingsoon/)
 
 ------------------------------------------------------------------------
 
