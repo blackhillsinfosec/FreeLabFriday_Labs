@@ -80,7 +80,7 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [Responder Lab](labs/responder.md)
+- [Responder Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/responder/responder/)
 - [Impacket Lab](https://freelabfridays.com/labs/decks/core-v31/per/labs/impacket/)
 - [MITM6 Lab](https://freelabfridays.com/comingsoon/)
 - [Inveigh Lab](https://freelabfridays.com/labs/decks/core-v31/pe/labs/inveigh/)
