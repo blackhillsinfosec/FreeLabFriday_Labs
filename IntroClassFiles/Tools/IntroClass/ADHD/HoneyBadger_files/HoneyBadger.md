@@ -41,6 +41,44 @@ What's new in HoneyBadger?
 
 <br>
 
+### HoneyBadger API Keys
+
+Before using **HoneyBadger**, we can optionally configure two API keys that improve its geolocation and map features.
+
+These keys are **not mandatory** for running HoneyBadger. If you do not want to configure them, you can skip this section and continue directly to the **Usage** section. However, using them makes the dashboard more complete, especially when working with IP geolocation and map visualization.
+
+The first key is the **IPstack API key**. HoneyBadger can use this key to perform IP-based geolocation. To obtain it, go to the APILayer website:
+
+`https://apilayer.com/`
+
+Create an account and log in. During account creation, select the **Free** plan.
+
+<img width="1277" height="620" alt="img05" src="https://github.com/user-attachments/assets/8530092a-451e-4ce3-8323-32ad12fe7f32" />
+
+Then press the search icon near **All APIs**, and search for `IPstack`.
+
+<img width="1024" height="495" alt="img06" src="https://github.com/user-attachments/assets/8adef176-bdf7-4c0d-b171-17c3c0352742" />
+
+<img width="744" height="621" alt="img07" src="https://github.com/user-attachments/assets/1bf2fce9-bf55-43df-b932-3bdb6c08acb8" />
+
+On the **IPstack** API page, select `Subscribe to Free Plan`.
+
+<img width="1024" height="497" alt="img08" src="https://github.com/user-attachments/assets/5e67ea16-c773-4acf-9822-5fc6b0dbb452" />
+
+After subscribing, click **Copy Key**. This is your IPstack API key.
+
+<img width="1024" height="497" alt="img09" src="https://github.com/user-attachments/assets/2629d971-9142-445d-a9ba-fa7cdb271fec" />
+
+The second key is the **Google Maps API key**. HoneyBadger can use this key to display beacon locations on a map. 
+
+For this lab, you can use a Google Maps demo key. Go to the following page and log in with your Google account:
+
+`https://developers.google.com/maps/documentation/javascript/demo-key`
+
+Click **Get a Demo Key**. A pop-up window will appear with your key.
+
+<img width="1273" height="620" alt="img10" src="https://github.com/user-attachments/assets/a80a70ac-a4fd-474b-86ca-ce86a6276784" />
+
 ### Usage
 In order to use the latest version of **HoneyBadger**, **Python 3** must be installed, as well as **python3-pip**. These should both be installed on the **ADHD image**
 
