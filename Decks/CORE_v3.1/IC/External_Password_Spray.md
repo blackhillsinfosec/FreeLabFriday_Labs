@@ -81,22 +81,3 @@ Hands-on labs using tools commonly associated with password spraying simulations
 ---
 
 External password spray attacks are simple but effective. Understanding how they work - and how to spot them early - is essential for both defenders and investigators.
-
-
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Trusted_Relationship.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/Insider_Threat.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
