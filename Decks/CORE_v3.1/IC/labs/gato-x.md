@@ -69,8 +69,9 @@ We will create a GitHub repo with a **deliberately misconfigured** workflow. Thi
 
 <img width="1019" height="868" alt="2026-04-14_14-28" src="https://github.com/user-attachments/assets/f7205f23-e3ff-413e-ae9f-a012fb01dc46" />
 
+<br>
 
-### Step 2 - Clone it locally
+### Clone it locally
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/gato-x-vulnerable-test.git
