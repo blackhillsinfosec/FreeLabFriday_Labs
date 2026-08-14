@@ -1,10 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_42" src="https://github.com/user-attachments/assets/7a5c6605-1225-4e7b-9842-96a859cb48b1" />
 
-
-
-
-
-
 # Crisis Management
 
 When a cybersecurity incident hits, the technical side is only half the battle. The other half is knowing what to do, who does what, and how fast you can contain the damage. That is what crisis management is about.
@@ -80,19 +75,3 @@ Put your knowledge of the topic to the test with this online quiz!
 ---
 
 Crisis management is not glamorous, but it is what separates a recoverable incident from a catastrophic one. The defenders who respond well under pressure are almost always the ones who prepared before anything went wrong.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Memory_Analysis.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Isolation.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
