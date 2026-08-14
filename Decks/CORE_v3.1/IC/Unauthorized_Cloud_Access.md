@@ -91,20 +91,3 @@ Hands-on labs using real cloud attack and investigation tools:
 ------------------------------------------------------------------------
 
 Unauthorized cloud access is one of the fastest ways attackers take control of modern organizations. Understanding how it happens and how to spot it is a core defensive skill for anyone working with cloud systems.
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Insider_Threat.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/Compromised_Web_Server.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
