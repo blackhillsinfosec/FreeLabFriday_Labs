@@ -76,7 +76,7 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on time with the tools from the card:
 
-- [Sliver Lab](labs/Sliver/sliver.md)
+- [Sliver Lab](https://freelabfridays.com/labs/decks/core-v31/c2e/labs/sliver/sliver/)
 - [Havok Lab](https://freelabfridays.com/labs/decks/core-v31/labs/havok/)
 - [Mythic Lab](https://freelabfridays.com/comingsoon/)
 
