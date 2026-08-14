@@ -106,27 +106,12 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on labs using common LPE tools:
 
-- [Impacket Lab](labs/impacket.md)
-- [Seatbelt Lab](labs/seatbelt.md)
-- [SharpUp Lab](labs/sharpup.md)
-- [PEASS-ng Lab](labs/peass-ng.md)
+- [Impacket Lab](https://freelabfridays.com/labs/decks/core-v31/per/labs/impacket/)
+- [Seatbelt Lab](https://freelabfridays.com/labs/decks/core-v31/labs/seatbelt/)
+- [SharpUp Lab](https://freelabfridays.com/labs/decks/core-v31/pe/labs/sharpup/)
+- [PEASS-ng Lab](https://freelabfridays.com/labs/decks/core-v31/pe/labs/peass-ng/)
 
 ---
 
 Local Privilege Escalation is where many attacks truly succeed or fail
 Understanding how it works — and how to prevent it — is a core skill for anyone serious about system security
-
-
-
-***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/New_Service_Creation-Modification.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
