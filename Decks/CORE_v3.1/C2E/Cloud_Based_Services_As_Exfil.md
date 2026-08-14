@@ -82,26 +82,10 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [Gcat Lab](labs/gcat.md)
-- [Sneaky Creeper Lab](labs/sneaky-creeper.md)
-- [Gost Lab](labs/gost.md)
+- [Gcat Lab](https://freelabfridays.com/comingsoon/)
+- [Sneaky Creeper Lab](https://freelabfridays.com/comingsoon/)
+- [Gost Lab](https://freelabfridays.com/labs/decks/core-v31/c2e/labs/gost/)
 
 ---
 
 Cloud-based exfiltration is a good example of attackers using your own infrastructure against you. The harder part is not blocking the attack - it is even noticing it happened. That is what this module is really about.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/C2E/Domain_Fronting_As_C2.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
