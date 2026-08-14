@@ -79,6 +79,8 @@ Click **Get a Demo Key**. A pop-up window will appear with your key.
 
 <img width="1273" height="620" alt="img10" src="https://github.com/user-attachments/assets/a80a70ac-a4fd-474b-86ca-ce86a6276784" />
 
+<br>
+
 ### Usage
 In order to use the latest version of **HoneyBadger**, **Python 3** must be installed, as well as **python3-pip**. These should both be installed on the **ADHD image**
 
