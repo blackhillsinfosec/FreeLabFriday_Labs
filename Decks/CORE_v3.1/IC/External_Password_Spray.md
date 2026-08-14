@@ -75,8 +75,8 @@ Hands-on labs using tools commonly associated with password spraying simulations
 
 - [CredMaster Lab](labs/credmaster.md)
 - [MSOLSpray Lab](https://freelabfridays.com/comingsoon/)
-- [FireProx Lab](labs/fireprox.md)
-- [FindMeAccess Lab](labs/findmeaccess.md)
+- [FireProx Lab](https://freelabfridays.com/comingsoon/)
+- [FindMeAccess Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
