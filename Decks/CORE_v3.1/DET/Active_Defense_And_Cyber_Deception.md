@@ -74,30 +74,12 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on labs for the tools shown on this card:
 
-- [CanaryTokens Lab](labs/canarytokens.md)
-- [HoneyBadger Lab](labs/HoneyBadger_files/honeybadger.md)
-- [ADHD (Active Defense Harbinger Distribution) Lab](labs/adhd.md)
-- [MITRE Engage Lab](labs/mitre-engage.md)
+- [CanaryTokens Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/adhd/canarytokens/canarytokens/)
+- [HoneyBadger Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/adhd/honeybadger-files/honeybadger/)
+- [ADHD (Active Defense Harbinger Distribution) Lab](https://freelabfridays.com/comingsoon/)
+- [MITRE Engage Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Active defense is not about chasing attackers. It is about making them reveal themselves.  
 By learning deception techniques, defenders gain visibility where traditional controls often fail.
-
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Endpoint_Security_Protection_Analysis.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Network_Threat_Hunting.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
