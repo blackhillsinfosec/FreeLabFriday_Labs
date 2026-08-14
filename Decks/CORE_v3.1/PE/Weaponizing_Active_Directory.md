@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_14" src="https://github.com/user-attachments/assets/e376e6fb-1d12-48f5-8b73-1ce1d058dbe7" />
 
-
-
-
-
 # Weaponizing Active Directory
 
 **Active Directory (AD)** is Microsoft's directory service. It's what most corporate networks use to manage users, computers, permissions, and policies in one place. If you've ever logged into a school or work computer and had access to shared drives and printers automatically, that was AD doing its job.
@@ -75,26 +71,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools used by both attackers and defenders:
 
-- [BloodHound Lab](labs/bloodhound.md)
-- [PlumHound Lab](labs/plumhound.md)
-- [Adminer Lab](labs/adminer.md)
-- [SCCMHunter Lab](labs/sccmhunter.md)
+- [BloodHound Lab](https://freelabfridays.com/comingsoon/)
+- [PlumHound Lab](https://freelabfridays.com/comingsoon/)
+- [Adminer Lab](https://freelabfridays.com/comingsoon/)
+- [SCCMHunter Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 AD attacks are some of the most common techniques seen in real-world breaches. Understanding how attackers map and abuse directory services is just as important for defenders as it is for red teamers. The goal isn't just to know the tools - it's to understand why the misconfigurations exist in the first place.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Credential_Harvesting.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PE/Broadcast-Multicast_Protocol_Poisoning.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
