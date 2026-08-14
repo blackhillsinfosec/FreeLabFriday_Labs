@@ -91,28 +91,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with each tool from the card:
 
-- [Metasploit Lab](labs/metasploit.md)
-- [Impacket Lab](labs/impacket.md)
-- [Havok Lab](labs/havok.md)
-- [Mythic Lab](../C2E/labs/mythic/mythic.md)
+- [Metasploit Lab](https://freelabfridays.com/labs/decks/core-v31/labs/metasploit/)
+- [Impacket Lab](https://freelabfridays.com/labs/decks/core-v31/per/labs/impacket/)
+- [Havok Lab](https://freelabfridays.com/labs/decks/core-v31/labs/havok/)
+- [Mythic Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Account creation is one of those techniques that looks boring on paper but shows up constantly in real incident reports. It's quiet, it's effective, and it's easy to miss if nobody is watching the right logs. That's exactly why it's worth understanding.
-
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Application_Shimming.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/PER/Malicious_Driver.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
