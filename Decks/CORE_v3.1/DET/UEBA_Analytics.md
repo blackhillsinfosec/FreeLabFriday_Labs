@@ -76,26 +76,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 One lab per tool. Each one is hands-on and self-contained:
 
-- [LogonTracer Lab](labs/logontracer.md)
-- [DeepBlueCLI Lab](labs/deepbluecli/deepbluecli.md)
-- [OpenUBA Lab](labs/openuba.md)
+- [LogonTracer Lab](https://freelabfridays.com/comingsoon/)
+- [DeepBlueCLI Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/deepbluecli/deepbluecli/)
+- [OpenUBA Lab](https://freelabfridays.com/comingsoon/)
 - [Hayabusa Lab](labs/hayabusa.md)
 
 ---
 
 Behavior doesn't lie the way logs can. An attacker can delete a file - they can't easily fake two years of normal login patterns. That's the core idea behind UEBA, and it's why it catches what everything else misses.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Endpoint_Analysis.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/Endpoint_Security_Protection_Analysis.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
