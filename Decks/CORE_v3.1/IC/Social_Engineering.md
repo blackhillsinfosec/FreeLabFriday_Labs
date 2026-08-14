@@ -1,10 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_07" src="https://github.com/user-attachments/assets/d51c77c3-60df-4282-bd5c-78fe8f202800" />
 
-
-
-
-
-
 # Social Engineering
 
 Social engineering is when an attacker targets **people instead of systems**. Instead of breaking technical defenses directly, they convince someone to help them - often without the victim realizing it.
@@ -95,19 +90,3 @@ Hands-on labs focused on the tools and concepts shown in this card:
 ---
 
 Social engineering succeeds when people become the weakest link. Understanding how attackers think - and how their actions appear in logs and behavior - is essential for both defenders and analysts.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/IC/Bring_Your_Own_Exploited_Device.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/IC/Trusted_Relationship.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
