@@ -1,10 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_40" src="https://github.com/user-attachments/assets/db2def7e-7b0b-487d-b7fe-4cb495baac98" />
 
-
-
-
-
-
 # Endpoint Analysis
 
 An **endpoint** is any device connected to a network - a laptop, a workstation, a server, a phone. When something goes wrong on a network, the endpoint is usually where the story starts or ends. Endpoint analysis is the process of examining those devices to figure out what happened, when, and how.
@@ -79,26 +74,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [DeepBlueCLI Lab](labs/deepbluecli/deepbluecli.md)
-- [Velociraptor Lab](labs/Velociraptor/velociraptor.md)
-- [Incident Response Cheat Sheets Lab](labs/ir-cheatsheets.md)
-- [osquery Lab](labs/osquery.md)
+- [DeepBlueCLI Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/deepbluecli/deepbluecli/)
+- [Velociraptor Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/velociraptor/velociraptor/)
+- [Incident Response Cheat Sheets Lab](https://freelabfridays.com/comingsoon/)
+- [osquery Lab](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Endpoint analysis is not glamorous work. It is methodical, detail-oriented, and sometimes slow. But it is how real incidents get understood and contained. The attacker only needs to get lucky once - the defender needs to find them anyway.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/DET/Isolation.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/CORE_v3.1/DET/UEBA_Analytics.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
