@@ -66,24 +66,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on practice with the tools from the card:
 
-- [Kerbrute Lab](labs/kerbrute.md)
-- [NetExec Lab](labs/Netexec/netexec.md)
-- [net use Lab](labs/net-use.md)
-- [LOLBins Lab](labs/lolbins.md)
+- [Kerbrute Lab](https://freelabfridays.com/comingsoon/)
+- [NetExec Lab](https://freelabfridays.com/labs/decks/core-v31/pe/labs/netexec/netexec/)
+- [net use Lab](https://freelabfridays.com/comingsoon/)
+- [LOLBins Lab](https://freelabfridays.com/labs/decks/core-v31/pe/labs/lolbins/)
 
 ---
 
 Password spraying is one of those techniques that feels simple on paper but causes real damage in practice. Understanding it from both sides - how it's done and how it's caught - is essential for anyone working in security.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PE/Kerberoasting.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
