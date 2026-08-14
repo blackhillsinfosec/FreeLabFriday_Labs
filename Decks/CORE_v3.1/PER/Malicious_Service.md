@@ -1,9 +1,5 @@
 <img width="300" height="414" alt="BNB_CARDS_v3_18" src="https://github.com/user-attachments/assets/accacbce-fe23-4102-bd41-f6b45727fc13" />
 
-
-
-
-
 # Malicious Service
 
 A **malicious service** is a system service that an attacker has either created from scratch or modified after gaining access to a machine. The goal is simple: survive reboots and keep access alive without being noticed.
@@ -89,25 +85,11 @@ Put your knowledge of the topic to the test with this online quiz!
 
 Hands-on walkthroughs for each tool:
 
-- [SharpStay Lab](labs/sharpstayPER.md)
-- [SharPersist Lab](labs/sharpersist.md)
-- [PsExec Lab](labs/psexec.md)
-- **StayKit** is basically just an extension of **SharpStay**
+- [SharpStay Lab](https://freelabfridays.com/comingsoon/)
+- [SharPersist Lab](https://freelabfridays.com/labs/decks/core-v31/labs/sharpersist/)
+- [PsExec Lab](https://freelabfridays.com/labs/decks/core-v31/labs/psexec/)
+- **StayKit** is basically just an extension of [**SharpStay**](https://freelabfridays.com/comingsoon/)
 
 ---
 
 Malicious services are a classic persistence technique because they work. They've been used in ransomware deployments, nation-state intrusions, and commodity malware alike. Understanding how they're built is the first step toward catching them.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/CORE_v3.1/PER/Dynamic_Link_Library_Hijacking.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
