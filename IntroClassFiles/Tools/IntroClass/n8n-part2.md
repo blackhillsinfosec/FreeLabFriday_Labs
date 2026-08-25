@@ -28,7 +28,7 @@ Choose the provider:
 
 - **OpenAI:** create a key at https://platform.openai.com/api-keys
 
-Copy the key somewhere safe. You will paste it into n8n in a moment.
+- Copy the key somewhere safe. You will paste it into n8n in a moment.
 
 > [!IMPORTANT]
 > This part requires your own API key. In order for this lab to function, you will need to add credits to your openai account.
