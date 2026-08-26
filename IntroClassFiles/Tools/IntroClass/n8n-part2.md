@@ -2,12 +2,16 @@
 
 # n8n - Part 2 - AI Integration
 
-For **Part 1**, click [here](./n8n-part1.md)
-
 #### Please use the UBUNTU VM
+
+<hr>
 
 > [!NOTE]
 > This part builds directly on Part 1. You need the `Security Alert Handler` workflow already created. Here we send an incoming alert to an AI model and have it write a short human-readable triage summary, exactly like a junior analyst would.
+
+For **Part 1**, click [here](./n8n-part1.md)
+
+<hr>
 
 ## Lab Objective
 In this lab, we will:
