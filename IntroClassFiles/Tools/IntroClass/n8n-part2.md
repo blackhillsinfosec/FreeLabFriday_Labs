@@ -18,7 +18,8 @@ For **Part 1**, click [here](./n8n-part1.md)
 ---
 
 > [!NOTE]
-> This part requires your own API key. It costs a tiny amount per request (usually a fraction of a cent)
+> This part requires your own API key. In order for this lab to function, you will need to add credits to your openai account.
+> Don't worry though, it costs a tiny amount per request (usually a fraction of a cent)
 
 ---
 
