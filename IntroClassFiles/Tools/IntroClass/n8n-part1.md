@@ -109,7 +109,7 @@ Press **Build a workflow**
 
 ---
 
-## Step 4: Build Your First Workflow: Manual Trigger -> HTTP Request
+## Step 4: Build Your First Workflow
 
 We will build a simple workflow that manually triggers and fetches data from a public API.
 
@@ -170,7 +170,7 @@ You will see green checkmarks appear on both nodes, and the data flows from left
 
 ---
 
-## Step 5: Build a Security Alert Workflow using a Webhook
+## Step 5: Build a Security Alert Workflow
 
 Now we will build something more realistic: a webhook endpoint that receives an alert payload and processes it.
 
