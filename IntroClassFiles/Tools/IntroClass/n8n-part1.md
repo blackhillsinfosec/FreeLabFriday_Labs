@@ -25,7 +25,7 @@ In this lab we will:
 
 ---
 
-## Step 1 - Create a Directory for n8n Data
+## Step 1: Create a Directory for n8n Data
 
 Open a **Terminal**
 
@@ -40,7 +40,7 @@ mkdir -p ~/.n8n
 
 ---
 
-## Step 2 - Run n8n with Docker
+## Step 2:  Run n8n with Docker
 
 Make some space for **n8n**'s image:
 
@@ -77,7 +77,7 @@ sudo docker ps
 
 ---
 
-## Step 3 - Open the n8n Interface
+## Step 3: Open the n8n Interface
 
 Open your browser and go to:
 
@@ -98,10 +98,6 @@ You don't have to pick anything, just press **Get Started**
 
 <img width="454" height="600" alt="image" src="https://github.com/user-attachments/assets/5f7c4d14-7e05-4afd-a7bb-0352917416ae" />
 
-
-
-
-
 Then press **Skip**
 
 <img width="494" height="529" alt="image" src="https://github.com/user-attachments/assets/5d35082b-22d3-42f7-ac5b-5efd2c42e285" />
@@ -113,7 +109,7 @@ Press **Build a workflow**
 
 ---
 
-## Step 4 - Build Your First Workflow: Manual Trigger -> HTTP Request
+## Step 4: Build Your First Workflow: Manual Trigger -> HTTP Request
 
 We will build a simple workflow that manually triggers and fetches data from a public API.
 
@@ -133,8 +129,6 @@ This node lets you run the workflow by clicking a button.
 - Click the `+` circle that appears on the right
 
 <img width="502" height="284" alt="2026-06-25_11-28" src="https://github.com/user-attachments/assets/46d646a1-cfba-467f-b22b-e025964044cf" />
-
-
 
 - Search for `HTTP Request`
 - Click it to add it and connect it automatically
@@ -176,7 +170,7 @@ You will see green checkmarks appear on both nodes, and the data flows from left
 
 ---
 
-## Step 5 - Build a Security Alert Workflow using a Webhook
+## Step 5: Build a Security Alert Workflow using a Webhook
 
 Now we will build something more realistic: a webhook endpoint that receives an alert payload and processes it.
 
@@ -233,7 +227,7 @@ Back in the n8n canvas you should see the webhook node light up with the **Outpu
 
 ---
 
-## Step 6 - Add an IF Node to Route by Severity
+## Step 6: Add an IF Node to Route by Severity
 
 Now we will add logic: if severity is `high`, we route one way; otherwise another.
 
@@ -308,7 +302,7 @@ You will see the node output the original data plus the two new fields you added
 
 ---
 
-## Step 7 - Add a Respond to Webhook node
+## Step 7: Add a Respond to Webhook node
 
 Let's make the webhook return a proper response to the caller.
 
@@ -372,11 +366,3 @@ And back in n8n, all nodes should show green
 <img width="1069" height="425" alt="image" src="https://github.com/user-attachments/assets/afc311d0-1213-46ba-8156-b2116444bd49" />
 
 For **Part 2**, click [here](./n8n-part2.md)
-
----
-
-## Finished with the Labs?
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
