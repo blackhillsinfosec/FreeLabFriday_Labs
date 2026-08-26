@@ -17,7 +17,7 @@ For **Part 1**, click [here](./n8n-part1.md)
 
 ---
 
-> [!NOTE]
+> [!IMPORTANT]
 > This part requires your own API key. In order for this lab to function, you will need to add credits to your openai account.
 > Don't worry though, it costs a tiny amount per request (usually a fraction of a cent)
 
@@ -31,9 +31,9 @@ Choose the provider:
 
 - Copy the key somewhere safe. You will paste it into n8n in a moment.
 
-> [!IMPORTANT]
-> This part requires your own API key. In order for this lab to function, you will need to add credits to your openai account.
-> Don't worry though, it costs a tiny amount per request (usually a fraction of a cent)
+> [!TIP]
+> Treat API Keys like passwords. Never commit them to GitHub or share them.<br>
+> n8n stores them encrypted in its credentials store.
 
 ---
 
