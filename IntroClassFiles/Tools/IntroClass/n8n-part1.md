@@ -38,6 +38,13 @@ mkdir -p ~/.n8n
 
 ## Step 2 - Run n8n with Docker
 
+Make some space for **n8n**'s image:
+
+```bash
+sudo docker rmi \
+  decepot/glastopf:latest
+```
+
 Run the following command to pull and start **n8n** ( it might take a couple of minutes ):
 
 ```bash
