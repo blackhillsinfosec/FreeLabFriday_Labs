@@ -2,12 +2,16 @@
 
 # n8n - Part 1 - General Automation
 
+#### Please use the UBUNTU VM
+
+<hr>
+
 For **Part 2**, click [here](./n8n-part2.md)
 
-# Ubuntu VM
+<hr>
 
-## In this lab we will
-
+## Lab Objective
+In this lab we will:
 - Deploy n8n using Docker with persistent storage
 - Explore the n8n web interface
 - Build a simple HTTP-triggered workflow
