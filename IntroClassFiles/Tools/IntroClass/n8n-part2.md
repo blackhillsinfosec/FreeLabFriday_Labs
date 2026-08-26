@@ -27,7 +27,7 @@ In this lab, we will:
 
 ---
 
-## Step 1 - Get an API Key
+## Step 1: Get an API Key
 
 Choose the provider:
 
@@ -41,7 +41,7 @@ Choose the provider:
 
 ---
 
-## Step 2 - Add an HTTP Request Node
+## Step 2: Add an HTTP Request Node
 
 Open your `Security Alert Handler` workflow from Part 1
 
@@ -58,7 +58,7 @@ Open your `Security Alert Handler` workflow from Part 1
 
 ---
 
-## Step 3 - Configure the Request
+## Step 3: Configure the Request
 
 We will use the same HTTP Request node you learned in Part 1, just pointed at an AI provider.
 
@@ -93,12 +93,9 @@ https://api.openai.com/v1/chat/completions
 
 <img width="412" height="435" alt="image" src="https://github.com/user-attachments/assets/91b31f32-549c-4c9b-8a06-c798cce300b4" />
 
-
-
-
 ---
 
-## Step 4 - Execute the Node
+## Step 4: Execute the Node
 
 - Click **Execute step**
 
@@ -111,7 +108,7 @@ That is the AI-written triage summary of your alert
 
 ---
 
-## Step 5 - Test the Full Flow
+## Step 5: Test the Full Flow
 
 - Make sure the chain is: **Webhook -> IF -> (True) HTTP Request (AI) -> Set -> Respond to Webhook**
 
@@ -155,11 +152,3 @@ Watch the canvas: the alert flows in, the AI node lights up, and you get back an
 
 
 For **Part 1**, click [here](./n8n-part1.md)
-
----
-
-## Finished?
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
