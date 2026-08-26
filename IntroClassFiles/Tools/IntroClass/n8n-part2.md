@@ -4,13 +4,13 @@
 
 For **Part 1**, click [here](./n8n-part1.md)
 
-# Ubuntu VM
+#### Please use the UBUNTU VM
 
 > [!NOTE]
 > This part builds directly on Part 1. You need the `Security Alert Handler` workflow already created. Here we send an incoming alert to an AI model and have it write a short human-readable triage summary, exactly like a junior analyst would.
 
-## In this part we will
-
+## Lab Objective
+In this lab, we will:
 - Get an API key from an AI provider
 - Connect n8n to the AI using an HTTP Request node
 - Have the AI summarize a security alert and suggest a response
