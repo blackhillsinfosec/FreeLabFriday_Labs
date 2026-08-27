@@ -130,9 +130,13 @@ It should look like this: 
 
 Now we need to clean up and make sure the system is ready for the rest of the labs: 
 
-PS C:\Tools> `exit` 
+```bash
+exit
+``` 
 
-C:\Tools> `user-remove.bat` 
+```bash
+user-remove.bat
+``` 
 
 <img width="365" height="285" alt="2026-02-23_15-02_1" src="https://github.com/user-attachments/assets/c82559fb-6c47-4c76-a306-498c572da9fb" />
 
