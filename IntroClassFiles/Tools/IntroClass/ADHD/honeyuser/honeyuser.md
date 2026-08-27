@@ -151,4 +151,5 @@ You should see the **"Alerts"**! 
 
 ![](attachment/Clipboard_2021-03-12-11-32-18.png) 
 
-Just for a bit of reference.  We did this locally as an example of setting this up on a full SIEM.  We did it in less than 20 min.  Your SIEM team working with your AD Ops team should be able to pull this off. 
+Just for a bit of reference.  We did this locally as an example of setting this up on a full SIEM.<br>
+We did it in less than 20 min.  Your SIEM team working with your AD Ops team should be able to pull this off. 
