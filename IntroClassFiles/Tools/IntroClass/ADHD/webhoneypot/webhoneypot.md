@@ -41,7 +41,9 @@ It should look like this:
 
 <img width="1102" height="267" alt="docker_run" src="https://github.com/user-attachments/assets/b03c3e17-1fce-4908-b87b-97dffb8d759c" />
 
+<hr>
 
+## Step 2: Gaining the Shell and Tailing the Log
 Now, let's start another Linux Terminal. 
 
 Open **Ubuntu Shell**
@@ -76,6 +78,9 @@ Now, lets tail the **dumppass log**.
 tail -f dumpass.log
 ``` 
 
+<hr>
+
+## Step 3: Surf to the Honeypot
 Now, let's open a browser window and surf to the **honeypot**: 
 
 ```bash
