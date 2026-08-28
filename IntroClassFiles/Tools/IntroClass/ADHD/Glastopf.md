@@ -63,6 +63,8 @@ sudo docker logs -f glastopf
 
 Open another **terminal** (attacker) and try the following. These simulate common web malicious requests.
 
+<br>
+
 ### Simple directory traversal / LFI attempts
 
 ```bash
@@ -77,12 +79,13 @@ curl -v "http://localhost:8080/?file=../boot.ini"
 
 <img width="1904" height="944" alt="2026-03-23_14-22" src="https://github.com/user-attachments/assets/0de57c7c-9c69-4cca-a2b8-39bea7173798" />
 
-
 That is how it looks from a **hacker**'s perspective(**fake information**)
 
 When in reality, all that is **fake** and it is being logged on the **defender**'s side:
 
 <img width="1193" height="57" alt="2026-03-23_14-23" src="https://github.com/user-attachments/assets/81a6f433-fa7b-45b3-9239-4362269c3c42" />
+
+<br>
 
 ### SQL injection-like payloads
 
@@ -113,12 +116,16 @@ curl -v "http://localhost:8080/search.php?q=1%27%20UNION%20SELECT%20NULL--"
 
 Look at the **fake information** and then back to see how it has been **logged** on the **defender**'s terminal
 
+<br>
+
 ### Remote command injection attempts
 
 ```bash
 curl -v "http://localhost:8080/?cmd=whoami"
 curl -v "http://localhost:8080/?cmd=;id"
 ```
+
+<br>
 
 ### Use automated scanners
 
