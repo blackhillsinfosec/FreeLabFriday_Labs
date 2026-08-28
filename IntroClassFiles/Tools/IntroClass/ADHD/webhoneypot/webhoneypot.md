@@ -97,6 +97,10 @@ Now, go back to the Ubuntu **Terminal** with the log and you should see the **IP
 
 Now, let's attack it. 
 
+<hr>
+
+## Step 4: Attacking with ZAP
+
 Select **OWASP ZAP** on your desktop. 
 
 ![image](https://github.com/user-attachments/assets/6493b57a-bb9d-4886-8e15-735ce63a93c7)
