@@ -37,7 +37,7 @@ sudo docker run -d --rm \
   decepot/glastopf:latest
 ```
 
----
+<br>
 
 ### Verify Glastopf is running and listening
 
