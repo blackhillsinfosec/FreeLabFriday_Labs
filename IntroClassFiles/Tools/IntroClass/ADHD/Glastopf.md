@@ -10,15 +10,19 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Glastopf
 
-# Ubuntu VM
+#### Please use the UBUNTU VM
 
-**Goal:** Run a working Glastopf web-application honeypot, generate simple attacks against it, and inspect captured requests and payloads
+<hr>
+
+## Lab Objective: 
+
+Run a working Glastopf web-application honeypot, generate simple attacks against it, and inspect captured requests and payloads.
 
 ---
 
-### Start Glastopf container
+## Step 1: Start Glastopf container
 
-- Go the its directory
+Go the correctdirectory
 
 ```bash
 cd ~/ADCD/glastopf
@@ -37,7 +41,7 @@ sudo docker run -d --rm \
 
 ### Verify Glastopf is running and listening
 
-- Check process or Docker container, run:
+Check process or Docker container, run:
 
 ```bash
 ps aux | grep glastopf
@@ -45,8 +49,7 @@ ps aux | grep glastopf
 
 <img width="1199" height="67" alt="2026-03-23_14-12" src="https://github.com/user-attachments/assets/d782b8fa-8680-4de1-86da-9c5aa1afc750" />
 
-
-- Tail the main **log**
+Tail the main **log**
 
 ```bash
 sudo docker logs -f glastopf
@@ -56,9 +59,9 @@ sudo docker logs -f glastopf
 
 ---
 
-## Generate attacks 
+## Step 2: Generate attacks 
 
-- Open another **terminal** (attacker) and try the following. These simulate common web malicious requests.
+Open another **terminal** (attacker) and try the following. These simulate common web malicious requests.
 
 ### Simple directory traversal / LFI attempts
 
@@ -75,9 +78,9 @@ curl -v "http://localhost:8080/?file=../boot.ini"
 <img width="1904" height="944" alt="2026-03-23_14-22" src="https://github.com/user-attachments/assets/0de57c7c-9c69-4cca-a2b8-39bea7173798" />
 
 
-- That is how it looks from a **hacker**'s perspective(**fake information**)
+That is how it looks from a **hacker**'s perspective(**fake information**)
 
-- When in reality, all that is **fake** and it is being logged on the **defender**'s side:
+When in reality, all that is **fake** and it is being logged on the **defender**'s side:
 
 <img width="1193" height="57" alt="2026-03-23_14-23" src="https://github.com/user-attachments/assets/81a6f433-fa7b-45b3-9239-4362269c3c42" />
 
@@ -108,7 +111,7 @@ OR (pun intended)
 curl -v "http://localhost:8080/search.php?q=1%27%20UNION%20SELECT%20NULL--"
 ```
 
-- Look at the **fake information** and then back to see how it has been **logged** on the **defender**'s terminal
+Look at the **fake information** and then back to see how it has been **logged** on the **defender**'s terminal
 
 ### Remote command injection attempts
 
@@ -135,16 +138,3 @@ sqlmap -u "http://localhost:8080/index.php?id=1" --batch --level=1
 >To stop **Glastopf** do:
 >
 >`sudo docker stop glastopf`
-
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
