@@ -9,13 +9,21 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 ---
 
 # Web Honeypot 
+#### Please use the Windows VM
 
-- In this lab we will be running a very simple web honeypot.  Basically, it runs a fake Outlook Web Access page and logs the attacks.  
+<hr>
 
-- This is a good approach as attackers constantly go after anything that looks like an authentication portal. 
+## Lab Objective:
 
-- Let's get started. 
+In this lab we will be running a very simple web honeypot. Basically, it runs a fake Outlook Web Access page and logs the attacks.  
 
+This is a good approach as attackers constantly go after anything that looks like an authentication portal. 
+
+Let's get started. 
+
+<hr>
+
+## Step 1: Starting the Honeypot
 - First we will need to open a Linux Terminal:
 
 
