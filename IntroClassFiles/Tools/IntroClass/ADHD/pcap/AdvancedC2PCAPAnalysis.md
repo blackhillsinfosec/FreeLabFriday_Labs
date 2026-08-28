@@ -10,7 +10,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Advanced C2 PCAP Analysis - vsagent HTTP Beaconing
 
-# Ubuntu VM
+#### Please use the UBUNTU VM
 
 - First, we will need to open the Ubuntu Terminal
 
