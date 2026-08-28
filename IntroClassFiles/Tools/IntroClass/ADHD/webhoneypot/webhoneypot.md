@@ -43,7 +43,7 @@ It should look like this:
 
 <hr>
 
-## Step 2: Gaining the Shell and Tailing the Log
+## Step 2: Gaining the Shell & Tailing the Log
 Now, let's start another Linux Terminal. 
 
 Open **Ubuntu Shell**
