@@ -12,6 +12,8 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 #### Please use the UBUNTU VM
 
+<hr>
+
 - First, we will need to open the Ubuntu Terminal
 
 - Now, we should move to the proper directory
