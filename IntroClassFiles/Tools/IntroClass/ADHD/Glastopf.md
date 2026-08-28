@@ -22,7 +22,7 @@ Run a working Glastopf web-application honeypot, generate simple attacks against
 
 ## Step 1: Start Glastopf container
 
-Go the correctdirectory
+Go the correct directory
 
 ```bash
 cd ~/ADCD/glastopf
