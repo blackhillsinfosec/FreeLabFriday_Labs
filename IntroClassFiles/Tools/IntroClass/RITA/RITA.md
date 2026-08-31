@@ -1,12 +1,23 @@
 
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
+---
+
+This is a lab from **John Strand**'s **SOC Core Skills** Course:
+
+https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
+
+---
+
 # RITA Lab
-#### Please use the 
 
-In this lab, we are going to look at detecting command and control traffic on a network.
+## Lab Objective:
+In this lab, you will be using **Real Intelligence Threat Analytics** (RITA) via ACHunter2 to go through 7 different datasets. 
+For each one, you will have to answer some questions.
 
-We will be using **Real Intelligence Threat Analytics** (RITA) for this lab.
+<hr>
+
+
 
 To start we first need to open Windows File Explorer and navigate to the tools directory.
 
