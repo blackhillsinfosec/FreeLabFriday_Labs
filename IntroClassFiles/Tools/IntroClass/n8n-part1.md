@@ -4,6 +4,10 @@
 
 #### Please use the UBUNTU VM
 
+
+<img width="580" height="597" alt="image" src="https://github.com/user-attachments/assets/93e2a254-8454-4d28-92ad-45665e8363fd" />
+
+
 <hr>
 
 For **Part 2**, click [here](./n8n-part2.md)
