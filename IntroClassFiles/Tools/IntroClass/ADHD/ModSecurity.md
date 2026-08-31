@@ -222,7 +222,7 @@ sudo tail -n 200 /var/log/apache2/error.log
 
 <hr>
 
-## Step 7: Useful file locations
+## Useful file locations
 - Main config: `/etc/modsecurity/modsecurity.conf`
 - Apache include: `/etc/apache2/mods-enabled/security2.conf`
 - CRS rules: `/usr/share/modsecurity-crs/rules/`
