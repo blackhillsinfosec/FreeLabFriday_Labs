@@ -214,7 +214,7 @@ sudo tail -n 200 /var/log/apache2/error.log
 
 <img width="1906" height="94" alt="2026-03-18_13-42" src="https://github.com/user-attachments/assets/3b507553-cd47-4a5f-a92a-f9b55a12222f" />
 
-hr>
+<hr>
 
 ## Step 7: Useful file locations
 - Main config: `/etc/modsecurity/modsecurity.conf`
