@@ -82,7 +82,7 @@ rm config/plugins
 nano config/plugins
 ```
 
-- Paste the following:
+Paste the following:
 
 ```
 tarpit
@@ -95,15 +95,15 @@ queue/smtp_forward
 save_msg
 ```
 
-- To exit and save the file do `Ctrl + x` and `y` and `Enter`
+To exit and save the file do `Ctrl + x` and `y` and `Enter`
 
-4.
+After saving, run the following:
 
 ```bash
 nano plugins/tarpit_demo.js
 ```
 
-- Paste:
+Then paste:
 
 ```js
 // plugins/tarpit_demo.js
