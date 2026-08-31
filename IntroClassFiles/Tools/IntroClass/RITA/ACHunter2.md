@@ -46,10 +46,9 @@ Select **DNSCat2**.
 
 This will open the overall scoring screen, as seen below. This screen allows you to see the systems that have the top scores across all areas- from beacons to cyber deception.
 
-Please select **r-1x.com**.
+Please select `r-1x.com`.
 
 <img width="884" height="155" alt="image" src="https://github.com/user-attachments/assets/b4b2f2d3-e175-46c5-b9d4-79d4f7494917" />
-
 
 This will open the score for this system.
 
@@ -59,7 +58,7 @@ Now, click the back arrow in the upper left corner:
 
 <img width="189" height="64" alt="image" src="https://github.com/user-attachments/assets/778fc86d-1470-40b2-ae84-2cde7c5ebbd7" />
 
-THen select the asyncrat dataset:
+Then select the `asyncrat` dataset:
 
 <img width="273" height="287" alt="image" src="https://github.com/user-attachments/assets/bf9e1460-96e1-4ee6-aab7-dcd7a194d9fd" />
 
