@@ -13,7 +13,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
 <hr>
 
-## Lab Objective:
+## Lab Objective
 In this lab, you will be using **Real Intelligence Threat Analytics** (RITA) to go through 7 different datasets. 
 For each one, you will have to answer some questions.
 
@@ -139,7 +139,7 @@ To view this dataset, run the following:
 
 <br>
 
-### Dataset 7 Questions:
+### Dataset 7 Questions
 1. Which external IP is contacted with the rare signature ACMS/1.0, generating nearly 35,000 connections?
 2. One High-severity entry shows a Beacon Score of 0.23, despite a long connection duration of over 85,000 seconds. What FQDN was contacted?
 3. Which entry shows a single connection moving over 300,000,000 bytes of data to a Microsoft domain (*.visualstudio.com)? Provide the FQDN.
