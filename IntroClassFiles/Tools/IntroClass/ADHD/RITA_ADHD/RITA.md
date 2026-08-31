@@ -27,10 +27,15 @@ To view all of the datasets, we can run the following command:
 
 <hr>
 
-## slow_stead_beacon Dataset
+## slow_stead_beacon
 
 To view this dataset, run the following:
 <pre>rita view slow_steady_beacon</pre>
 
-
+### Questions
+1. Which internal host IP is beaconing?
+2. What external IP is being contacted?
+3. What protocol and port are used?
+4. What is the beacon score?
+5. What is the connection count?
 
