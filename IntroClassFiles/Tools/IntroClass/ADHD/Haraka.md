@@ -294,7 +294,7 @@ Because `tarpit` intentionally delays responses, the loop will take noticeably l
 
 <hr>
 
-## Step 8: Demonstrate Attacker Frustration (timing comparison)
+## Step 7: Demonstrate Attacker Frustration (timing comparison)
 
 Stop **haraka**, from the **haraka** terminal do `Ctrl + c`
 
