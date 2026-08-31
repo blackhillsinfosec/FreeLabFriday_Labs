@@ -22,6 +22,8 @@ Build a simple Haraka SMTP that demonstrates SMTP interaction, using the `tarpit
 
 Open a **terminal**
 
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
+
 Go to the lab directory and make sure **Haraka** is set up.
 
 ```bash
