@@ -31,6 +31,10 @@ With **ModSecurity**, we will perform simple detections and blocks (XSS, SQLi, c
 
 ## Step 1: Starting Apache
 
+To begin, lets open a terminal.
+
+
+
 Start and enable Apache:
 ```bash
 sudo systemctl enable --now apache2
@@ -44,7 +48,6 @@ curl -I http://localhost:8083
 
 <img width="555" height="226" alt="2026-03-18_13-05" src="https://github.com/user-attachments/assets/dedfa3da-3e1f-409b-be46-5b4185984ab5" />
 
-
 >[!IMPORTANT]
 >ModSecurity is already installed for this lab
 
@@ -54,8 +57,6 @@ sudo apachectl -M | grep security
 ```
 
 <img width="603" height="74" alt="2026-03-18_13-22" src="https://github.com/user-attachments/assets/2273b948-722d-4747-a2f7-17794e676b70" />
-
-
 
 The default configuration file lives at: `/etc/modsecurity/modsecurity.conf-recommended`
 
