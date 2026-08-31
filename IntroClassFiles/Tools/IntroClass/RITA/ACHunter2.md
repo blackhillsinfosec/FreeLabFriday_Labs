@@ -34,6 +34,9 @@ ThreatHuntAtMileHigh!
 
 <img width="632" height="459" alt="image" src="https://github.com/user-attachments/assets/9579c8cf-3f72-41b4-b548-e4b101e1deb8" />
 
+<hr>
+
+## Step 2: Loading the Dataset
 
 To load a dataset select one from the upper left corner 
 
@@ -41,9 +44,7 @@ Select **DNSCat2**.
 
 <img width="257" height="299" alt="image" src="https://github.com/user-attachments/assets/7fb854c2-e0d2-44b0-8265-8afeb45f7186" />
 
-
-
-This will open the overall scoring screen, as seen below. This screen allows you to see the systems that have the top scores across all areas from beacons to cyber deception.
+This will open the overall scoring screen, as seen below. This screen allows you to see the systems that have the top scores across all areas- from beacons to cyber deception.
 
 Please select **r-1x.com**.
 
