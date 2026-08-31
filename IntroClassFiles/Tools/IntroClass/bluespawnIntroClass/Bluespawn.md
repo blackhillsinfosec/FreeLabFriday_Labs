@@ -6,6 +6,10 @@ This is a lab from **John Strand**'s **Active Defense and Cyber Deception** Cour
 
 https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/
 
+This is a lab from **John Strand**'s **Information Security Core Skills** Course:
+
+https://www.antisyphontraining.com/product/information-security-core-skills-tm/
+
 ---
 
 # Atomic Red Team And Bluespawn
