@@ -150,5 +150,22 @@ To view this dataset, run the following:
 <hr>
 
 ## Want More RITA Practice?
+Below are some commands to download and process other Zeek datasets.
 
+<pre>mkdir icmplogs</pre>
+
+<pre>cd icmplogs</pre>
+
+<pre>wget https://acm-motd.s3.us-east-1.amazonaws.com/zeek_icmp_gosh_24hr.zip</pre>
+
+<pre>unzip zeek_icmp_gosh_24hr.zip</pre>
+
+>[!Note]
+>You can use a tool like 7zip if you like it better!
+
+rita import --logs=./ --database=icmpgosh
+
+rita list
+
+rita view icmpgosh
 
