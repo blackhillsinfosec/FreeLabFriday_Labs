@@ -20,6 +20,7 @@ For each one, you will have to answer some questions.
 
 <hr>
 
+Let's begin by opening a terminal.
 
 
 To start we first need to open Windows File Explorer and navigate to the tools directory.
