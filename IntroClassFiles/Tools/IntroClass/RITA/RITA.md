@@ -10,6 +10,9 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # RITA Lab
+#### Please use the UBUNTU VM
+
+<hr>
 
 ## Lab Objective:
 In this lab, you will be using **Real Intelligence Threat Analytics** (RITA) to go through 7 different datasets. 
