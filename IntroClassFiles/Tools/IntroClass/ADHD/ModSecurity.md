@@ -136,6 +136,8 @@ sudo ls -l /var/log/apache2/modsec_audit.log || ls -l /var/log/modsec_audit.log
 ## Step 5: Simple detection tests (DetectionOnly mode)
 With `SecRuleEngine DetectionOnly` ModSecurity will log but not block.
 
+<br>
+
 ### XSS test (reflected)
 ```bash
 curl -v "http://localhost:8083/?q=<script>alert(1)</script>" -s -o /dev/null
@@ -152,6 +154,8 @@ sudo tail -n 120 /var/log/apache2/modsec_audit.log
 
 **BOOM!** What is cool about **ModSecurity** is that not only does it detect attacks really well, but it also logs them extensively, as you can see, giving details about everything
 
+<br>
+
 ### SQL Injection test
 ```bash
 curl -v "http://localhost:8083/?id=1%20OR%201=1" -s -o /dev/null
@@ -162,6 +166,8 @@ sudo tail -n 120 /var/log/apache2/modsec_audit.log
 ```
 
 <img width="1905" height="509" alt="2026-03-18_13-39" src="https://github.com/user-attachments/assets/123bada1-631d-4152-9ba0-627c85dc62c6" />
+
+<br>
 
 ### Command injection-like input
 ```bash
