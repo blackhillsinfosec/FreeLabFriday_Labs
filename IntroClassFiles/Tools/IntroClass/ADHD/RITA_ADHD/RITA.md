@@ -35,7 +35,7 @@ To view this dataset, run the following:
 
 <br>
 
-### Questions
+### slow_steady_beacon Questions
 1. Which internal host IP is beaconing?
 2. What external IP is being contacted?
 3. What protocol and port are used?
@@ -45,5 +45,18 @@ To view this dataset, run the following:
 <hr>
 
 ## beacon_jitter 
+**Dataset Description:** Cobalt Strike - HTTP, Delay 30s, Jitter 25%
 
-To view this dataset
+To view this dataset, run the following: 
+<pre>rita view beacon_jitter</pre>
+
+<br>
+
+### beacon_jitter Questions
+1. Which internal host IP is contacting the FQDN?
+2. What FQDN is being contacted?
+3. What protocol and port are used?
+4. What is the beacon score?
+5. What is the connection count?
+
+
