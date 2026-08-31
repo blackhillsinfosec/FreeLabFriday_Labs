@@ -10,7 +10,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # RITA Lab
-#### Please use the UBUNTU VM
+
 
 <hr>
 
@@ -20,8 +20,8 @@ For each one, you will have to answer some questions.
 
 <hr>
 
-Let's begin by opening a terminal.
-
+Let's begin by opening a Terminal (or Ubuntu Shell).
+![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/openshell.png)
 
 To start we first need to open Windows File Explorer and navigate to the tools directory.
 
