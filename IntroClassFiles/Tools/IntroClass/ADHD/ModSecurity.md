@@ -68,9 +68,8 @@ sudo cat /etc/modsecurity/modsecurity.conf
 ```
 
 Important lines to check:
-`SecRuleEngine DetectionOnly` - detects but does not block
-`SecAuditLog` - path to the audit log <br>
-(usually `/var/log/apache2/modsec_audit.log`)
+`SecRuleEngine DetectionOnly` - detects but does not block.<br>
+`SecAuditLog` - path to the audit log (usually `/var/log/apache2/modsec_audit.log`)
 
 <img width="279" height="31" alt="2026-03-18_13-25" src="https://github.com/user-attachments/assets/7eaaf190-a8ad-4df2-924f-b21287db6c93" />
 
