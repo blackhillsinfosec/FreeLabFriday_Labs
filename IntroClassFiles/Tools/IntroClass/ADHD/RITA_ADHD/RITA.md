@@ -27,10 +27,13 @@ To view all of the datasets, we can run the following command:
 
 <hr>
 
-## slow_stead_beacon
+## slow_steady_beacon
+**Dataset Description:** Cobalt Strike - HTTP, Delay 3s, Jitter 0
 
 To view this dataset, run the following:
 <pre>rita view slow_steady_beacon</pre>
+
+<br>
 
 ### Questions
 1. Which internal host IP is beaconing?
@@ -39,3 +42,8 @@ To view this dataset, run the following:
 4. What is the beacon score?
 5. What is the connection count?
 
+<hr>
+
+## beacon_jitter 
+
+To view this dataset
