@@ -7,10 +7,16 @@ This is a lab from **John Strand**'s **SOC Core Skills** Course:
 https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
 ---
+# AC Hunter 2 Lab
 
-Now, let's play with AC Hunter 2!
+## Lab Objective:
+In this lab, we will be using ACHunter2 to investigate a provided dataset and then answer some questions.
 
-Please go to 
+<hr> 
+
+## Step 1: Navigate to AC Hunter
+
+Start by navigating to the following site:
 
 <pre>https://138.68.61.95/</pre>
 
