@@ -8,15 +8,17 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ---
 
-# For the Ubuntu VM
+# Haraka Lab
+#### Please use the Ubuntu VM
 
-# Haraka 
+<hr>
 
-**Goal:** Build a simple Haraka SMTP that demonstrates SMTP interaction, using the `tarpit` plugin to slow and frustrate attackers
+## Lab Objective
+Build a simple Haraka SMTP that demonstrates SMTP interaction, using the `tarpit` plugin to slow and frustrate attackers
 
 ---
 
-# Start
+## Step 1: 
 
 - Open a **terminal**
 
