@@ -20,9 +20,9 @@ Build a simple Haraka SMTP that demonstrates SMTP interaction, using the `tarpit
 
 ## Step 1: Start Haraka Instance
 
-- Open a **terminal**
+Open a **terminal**
 
-- Go to the lab directory and make sure **Haraka** is set up
+Go to the lab directory and make sure **Haraka** is set up.
 
 ```bash
 cd ~/ADCD/haraka
@@ -38,9 +38,7 @@ ls -la
 
 <img width="598" height="201" alt="Screenshot From 2026-03-14 22-10-01" src="https://github.com/user-attachments/assets/9d02f1f3-e767-4ac9-ab5a-6d17c135ebb9" />
 
-
-
-- You now have a **Haraka** instance with `config/`, `plugins/`, etc.
+You now have a **Haraka** instance with `config/`, `plugins/`, etc.
 
 ---
 
