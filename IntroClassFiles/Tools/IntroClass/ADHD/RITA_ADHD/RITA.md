@@ -24,3 +24,13 @@ Let's begin by opening a Terminal (or Ubuntu Shell).
 
 To view all of the datasets, we can run the following command:
 <pre>rita list</pre>
+
+<hr>
+
+## slow_stead_beacon Dataset
+
+To view this dataset, run the following:
+<pre>rita view slow_steady_beacon</pre>
+
+
+
