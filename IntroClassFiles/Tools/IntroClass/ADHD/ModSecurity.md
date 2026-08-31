@@ -33,7 +33,7 @@ With **ModSecurity**, we will perform simple detections and blocks (XSS, SQLi, c
 
 To begin, lets open a terminal.
 
-
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
 
 Start and enable Apache:
 ```bash
