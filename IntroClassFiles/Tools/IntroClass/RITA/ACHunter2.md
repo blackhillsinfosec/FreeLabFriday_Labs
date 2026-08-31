@@ -71,6 +71,9 @@ Notice the **histogram** on the right and the scoring criteria in the middle.
 
 <img width="564" height="390" alt="image" src="https://github.com/user-attachments/assets/fcdc9a73-614f-48d8-8767-01864ed52d1b" />
 
+<hr>
+
+## Step 3: Answer These Questions
 
 Now, using **AC Hunter**, answer the following questions:
 
