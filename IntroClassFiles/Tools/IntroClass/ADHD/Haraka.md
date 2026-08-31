@@ -18,7 +18,7 @@ Build a simple Haraka SMTP that demonstrates SMTP interaction, using the `tarpit
 
 ---
 
-## Step 1: 
+## Step 1: Start Haraka Instance
 
 - Open a **terminal**
 
