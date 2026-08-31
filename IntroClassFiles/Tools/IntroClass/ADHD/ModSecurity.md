@@ -10,17 +10,16 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # ModSecurity 
 
-# Ubuntu VM
-
-**Goal:** With **ModSecurity**,perform simple detections and blocks (XSS, SQLi, command injection), view logs, and write a simple custom rule
-
+#### Please use the Ubuntu VM
 
 >[!NOTE]
 >Apache is running on port 8083 on the machine
 
 ---
 
-## Lab overview
+## Lab Objective
+
+With **ModSecurity**, we will perform simple detections and blocks (XSS, SQLi, command injection), view logs, and write a simple custom rule.
 
 - Enable ModSecurity (Detection/Prevention mode)
 - Test attacks with `curl` (XSS, SQLi, command injection)
@@ -30,15 +29,15 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ---
 
-# Start
+## Step 1: Starting Apache
 
-- Start and enable Apache:
+Start and enable Apache:
 ```bash
 sudo systemctl enable --now apache2
 sudo systemctl status apache2 --no-pager
 ```
 
-- Check Apache is serving:
+Check Apache is serving:
 ```bash
 curl -I http://localhost:8083
 ```
@@ -49,7 +48,7 @@ curl -I http://localhost:8083
 >[!IMPORTANT]
 >ModSecurity is already installed for this lab
 
-- Confirm module installed:
+Confirm module installed:
 ```bash
 sudo apachectl -M | grep security
 ```
@@ -58,27 +57,28 @@ sudo apachectl -M | grep security
 
 
 
-- The default configuration file lives at: `/etc/modsecurity/modsecurity.conf-recommended`
+The default configuration file lives at: `/etc/modsecurity/modsecurity.conf-recommended`
 
-- We are using the basic config: `/etc/modsecurity/modsecurity.conf`
+We are using the basic config: `/etc/modsecurity/modsecurity.conf`
 
-- Ensure `SecRuleEngine` is set to `DetectionOnly` initially:
+Ensure `SecRuleEngine` is set to `DetectionOnly` initially:
 ```bash
 sudo cat /etc/modsecurity/modsecurity.conf
 ```
 
-- Important lines to check:
-- `SecRuleEngine DetectionOnly` - detects but does not block
-- `SecAuditLog` - path to the audit log (usually `/var/log/apache2/modsec_audit.log`)
+Important lines to check:
+`SecRuleEngine DetectionOnly` - detects but does not block
+`SecAuditLog` - path to the audit log (usually `/var/log/apache2/modsec_audit.log`)
 
 <img width="279" height="31" alt="2026-03-18_13-25" src="https://github.com/user-attachments/assets/7eaaf190-a8ad-4df2-924f-b21287db6c93" />
 
-
 <img width="462" height="28" alt="2026-03-18_13-24" src="https://github.com/user-attachments/assets/4379616a-eaf4-4038-9d74-a7ba30297a10" />
 
----
+<hr>
 
-## Install OWASP Core Rule Set (v3.3.5) - Copy-Paste is your friend
+## Step 2: Install OWASP Core Rule Set (v3.3.5)
+Remember, Copy-Paste is your friend
+
 ```bash
 cd /tmp
 sudo rm -rf /usr/share/modsecurity-crs
@@ -88,9 +88,9 @@ sudo cp -r coreruleset/* /usr/share/modsecurity-crs/
 sudo cp /usr/share/modsecurity-crs/crs-setup.conf.example /usr/share/modsecurity-crs/crs-setup.conf
 ```
 
----
+<hr>
 
-## Enable CRS (Single Include Only)
+## Step 3: Enable CRS (Single Include Only)
 ```bash
 sudo tee /etc/apache2/mods-available/security2.conf >/dev/null <<'EOF'
 <IfModule security2_module>
@@ -116,29 +116,25 @@ curl -I http://localhost:8083
 
 ---
 
-## SConfirm ModSecurity is running
-- Check Apache error log for ModSecurity startup messages:
+## Step 4: Confirm ModSecurity is running
+Check Apache error log for ModSecurity startup messages:
 ```bash
 sudo tail -n 200 /var/log/apache2/error.log
 ```
 
 <img width="1754" height="224" alt="2026-03-18_13-29" src="https://github.com/user-attachments/assets/1bc6da59-91f6-48eb-a4a3-60a7e0abb558" />
 
-
-
 Check the audit log file exists (may be empty initially):
 ```bash
 sudo ls -l /var/log/apache2/modsec_audit.log || ls -l /var/log/modsec_audit.log
 ```
 
-
 <img width="1070" height="50" alt="2026-03-18_13-30" src="https://github.com/user-attachments/assets/9efcf029-2fc1-4e9e-a338-0990abadc394" />
 
+<hr>
 
----
-
-## Simple detection tests (DetectionOnly mode)
-- With `SecRuleEngine DetectionOnly` ModSecurity will log but not block.
+## Step 5: Simple detection tests (DetectionOnly mode)
+With `SecRuleEngine DetectionOnly` ModSecurity will log but not block.
 
 ### XSS test (reflected)
 ```bash
@@ -147,17 +143,14 @@ curl -v "http://localhost:8083/?q=<script>alert(1)</script>" -s -o /dev/null
 
 <img width="1037" height="508" alt="2026-03-18_13-33" src="https://github.com/user-attachments/assets/40b8e6e6-4153-445f-ae5a-3e206e336d0a" />
 
-
-- Now tail the **audit log** (open another terminal):
+Now tail the **audit log** (open another terminal):
 ```bash
 sudo tail -n 120 /var/log/apache2/modsec_audit.log
 ```
 
 <img width="1906" height="323" alt="2026-03-18_13-35" src="https://github.com/user-attachments/assets/0ac5400b-c83a-476f-b65c-721eede6f7ef" />
 
-
-- **BOOM!** What is cool about **ModSecurity** is that not only does it detect attacks really well, but it also logs them extensively, as you can see, giving details about everything
-
+**BOOM!** What is cool about **ModSecurity** is that not only does it detect attacks really well, but it also logs them extensively, as you can see, giving details about everything
 
 ### SQL Injection test
 ```bash
@@ -170,7 +163,6 @@ sudo tail -n 120 /var/log/apache2/modsec_audit.log
 
 <img width="1905" height="509" alt="2026-03-18_13-39" src="https://github.com/user-attachments/assets/123bada1-631d-4152-9ba0-627c85dc62c6" />
 
-
 ### Command injection-like input
 ```bash
 curl -v "http://localhost:8083/?cmd=|ls" -s -o /dev/null
@@ -181,14 +173,12 @@ sudo tail -n 120 /var/log/apache2/modsec_audit.log
 
 <img width="1908" height="600" alt="2026-03-18_13-40" src="https://github.com/user-attachments/assets/b2a81860-cd09-4ca8-9f75-9c98d59f1e8a" />
 
+Each **curl** should create **ModSecurity** audit events. Study the audit log format: it is split into sections (`--A--`, `--B--`) with **request**, **response**, and **matched rule details**
 
+<hr>
 
-- Each **curl** should create **ModSecurity** audit events. Study the audit log format: it is split into sections (`--A--`, `--B--`) with **request**, **response**, and **matched rule details**
-
----
-
-## Switch to prevention mode (blocking)
-- Now turn ModSecurity into blocking mode.
+## Step 6: Switching to Prevention Mode (blocking)
+Now turn ModSecurity into blocking mode.
 
 **Important:** On some rules and setups enabling blocking will return `403` for many requests. This is expected - we want to see blocking.
 
@@ -200,16 +190,14 @@ sudo sed -i 's/SecRuleEngine DetectionOnly/SecRuleEngine On/' /etc/modsecurity/m
 sudo systemctl restart apache2
 ```
 
-- Test the same payloads:
+Test the same payloads:
 
 ```bash
 curl -v "http://localhost:8083/?q=<script>alert(1)</script>" -s -o /dev/null -w "%{http_code}\n"
 # Expected: 403 (or another non-200)
 ```
 
-
 <img width="1218" height="468" alt="2026-03-18_13-41" src="https://github.com/user-attachments/assets/de19f4a5-1acc-4739-9db7-a2ca9b22396c" />
-
 
 ```bash
 curl -v "http://localhost:8083/?id=1%20OR%201=1" -s -o /dev/null -w "%{http_code}\n"
@@ -226,25 +214,12 @@ sudo tail -n 200 /var/log/apache2/error.log
 
 <img width="1906" height="94" alt="2026-03-18_13-42" src="https://github.com/user-attachments/assets/3b507553-cd47-4a5f-a92a-f9b55a12222f" />
 
+hr>
 
----
-
-## Useful file locations
+## Step 7: Useful file locations
 - Main config: `/etc/modsecurity/modsecurity.conf`
 - Apache include: `/etc/apache2/mods-enabled/security2.conf`
 - CRS rules: `/usr/share/modsecurity-crs/rules/`
 - CRS setup: `/usr/share/modsecurity-crs/crs-setup.conf`
 - Audit log: `/var/log/apache2/modsec_audit.log` (or `/var/log/modsec_audit.log`)
 - Apache error log: `/var/log/apache2/error.log`
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
