@@ -1,7 +1,8 @@
 
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# RITA and AC Hunter
+# RITA Lab
+#### Please use the 
 
 In this lab, we are going to look at detecting command and control traffic on a network.
 
