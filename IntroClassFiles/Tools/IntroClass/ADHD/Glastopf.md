@@ -14,7 +14,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 <hr>
 
-## Lab Objective: 
+## Lab Objective
 
 Run a working Glastopf web-application honeypot, generate simple attacks against it, and inspect captured requests and payloads.
 
