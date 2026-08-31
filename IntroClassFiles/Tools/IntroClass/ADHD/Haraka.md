@@ -212,6 +212,7 @@ To exit and save the file do `Ctrl + x` and `y` and `Enter`
 You can increase `base_delay` and `rand_delay` to make attacks slower during demonstrations
 
 <hr>
+
 ## Step 5: Start Haraka & Confirm Listening
 
 ```bash
