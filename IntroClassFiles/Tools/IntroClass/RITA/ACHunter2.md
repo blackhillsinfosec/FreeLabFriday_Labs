@@ -1,5 +1,5 @@
 
-Now, let's play with AC Hunter!
+Now, let's play with AC Hunter 2!
 
 Please go to 
 
