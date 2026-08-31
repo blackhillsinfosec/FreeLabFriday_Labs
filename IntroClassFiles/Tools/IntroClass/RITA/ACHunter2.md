@@ -77,27 +77,12 @@ Notice the **histogram** on the right and the scoring criteria in the middle.
 
 Now, using **AC Hunter**, answer the following questions:
 
-1. In the asyncrat dataset, what is the connection interval for 192.168.100.136? What is the dispersion?  What can the dispersion tell us?
+1. In the `asyncrat` dataset, what is the connection interval for 192.168.100.136? What is the dispersion?  What can the dispersion tell us?
 
-2. In the XenoRAT dataset, what is the the connection interval for 172.208.51.75? How is that different from the asyncrat C2?
+2. In the `XenoRAT` dataset, what is the the connection interval for 172.208.51.75? How is that different from the `asyncrat` C2?
 
-3. For the dnscat2 dataset, what domain has the highest lookup count? Who is doing the lookups? What does the DNS Lookups look like? Why is there "random" strings in the lookups?
+3. For the `dnscat2` dataset, what domain has the highest lookup count? Who is doing the lookups? What do the DNS Lookups look like? Why is there "random" strings in the lookups?
 
-4. In the whattime dataset what is the FQDN for the C2 server?  What does the interval look like? Why would an attacker use a domain like this?
+4. In the `whattime` dataset what is the FQDN for the C2 server?  What does the interval look like? Why would an attacker use a domain like this?
 
-5. In the fiestac2 dataset what is the issues with the MIME data for 68.183.138.51?  Also, what is the issue with the user agent strings? *Hint* hover over the i for more information.
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Lab](/IntroClassFiles/Tools/IntroClass/nessus/Nessus.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Lab](/IntroClassFiles/Tools/IntroClass/Wireshark/Wireshark.md)</i></b>
-
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
+5. In the `fiestac2` dataset what is the issues with the MIME data for 68.183.138.51?  Also, what is the issue with the user agent strings? *Hint* hover over the i for more information.
