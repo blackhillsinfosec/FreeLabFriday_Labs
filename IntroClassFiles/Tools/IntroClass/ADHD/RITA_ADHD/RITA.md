@@ -169,12 +169,16 @@ Below are some commands to download and process other Zeek datasets.
 
 <pre>rita view icmpgosh</pre>
 
+<br>
+
 `ctrl + c` will close the session.
 
 The full writeup can be found here:
 https://www.activecountermeasures.com/malware-of-the-day-c2-over-icmp-icmp-gosh/
 
-### Want More??
+<hr>
+
+### Want Even More??
 #### Like a LOT More??
 Head here:
 https://www.activecountermeasures.com/category/malware-of-the-day/
