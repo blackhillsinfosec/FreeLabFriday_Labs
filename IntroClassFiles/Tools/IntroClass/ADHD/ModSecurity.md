@@ -67,7 +67,7 @@ Ensure `SecRuleEngine` is set to `DetectionOnly` initially:
 sudo cat /etc/modsecurity/modsecurity.conf
 ```
 
-Important lines to check:
+Important lines to check:<br>
 `SecRuleEngine DetectionOnly` - detects but does not block.<br>
 `SecAuditLog` - path to the audit log (usually `/var/log/apache2/modsec_audit.log`)
 
