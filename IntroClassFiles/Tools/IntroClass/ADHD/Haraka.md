@@ -42,25 +42,25 @@ ls -la
 
 You now have a **Haraka** instance with `config/`, `plugins/`, etc.
 
----
+<hr>
 
-## Configure Haraka for tarpit deception
+## Step 2: Configure Haraka for Tarpit Deception
 
-1. Set **Haraka** to listen on **port 2525**. Edit `config/smtp.ini`:
+Begin by setting **Haraka** to listen on **port 2525**. Edit `config/smtp.ini`:
 
 ```bash
 nano config/smtp.ini
 ```
 
-- Add at the end:
+Add at the end:
 
 ```ini
 listen=0.0.0.0:2525
 ```
 
-- To exit and save the file do `Ctrl + x` and `y` and `Enter`
+To exit and save the file do `Ctrl + x` and `y` and `Enter`
 
-2. Enable a tiny **HTTP endpoint** for live observation. Create `config/http.ini`:
+Next, enable a tiny **HTTP endpoint** for live observation. Create `config/http.ini`:
 
 ```bash
 nano config/http.ini
@@ -70,9 +70,9 @@ nano config/http.ini
 listen=0.0.0.0:8080
 ```
 
-- To exit and save the file do `Ctrl + x` and `y` and `Enter`
+To exit and save the file do `Ctrl + x` and `y` and `Enter`
 
-3. Edit `config/plugins` so it contains these lines (order matters - keep `tarpit` early):
+Now, edit `config/plugins` so it contains these lines (order matters - keep `tarpit` early):
 
 ```bash
 rm config/plugins
