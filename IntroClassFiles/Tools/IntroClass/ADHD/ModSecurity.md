@@ -107,7 +107,9 @@ sudo apachectl configtest
 sudo systemctl restart apache2
 ```
 
-Test:
+<br>
+
+Now Test it:
 ```bash
 curl -I http://localhost:8083
 ```
