@@ -163,9 +163,9 @@ Below are some commands to download and process other Zeek datasets.
 >[!Note]
 >You can use a tool like 7zip if you like it better!
 
-rita import --logs=./ --database=icmpgosh
+<pre>rita import --logs=./ --database=icmpgosh</pre>
 
-rita list
+<pre>rita list</pre>
 
-rita view icmpgosh
+<pre>rita view icmpgosh</pre>
 
