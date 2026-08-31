@@ -11,7 +11,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
 # Linux CLI
 
-# For The Ubuntu VM
+#### Please use the Ubuntu VM
 
 In this lab we will be looking at a backdoor through the lens of the the Linux CLI.
 
