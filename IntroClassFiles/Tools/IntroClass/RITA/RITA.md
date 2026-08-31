@@ -12,7 +12,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 # RITA Lab
 
 ## Lab Objective:
-In this lab, you will be using **Real Intelligence Threat Analytics** (RITA) via ACHunter2 to go through 7 different datasets. 
+In this lab, you will be using **Real Intelligence Threat Analytics** (RITA) to go through 7 different datasets. 
 For each one, you will have to answer some questions.
 
 <hr>
