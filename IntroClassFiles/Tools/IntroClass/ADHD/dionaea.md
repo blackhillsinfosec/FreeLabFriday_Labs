@@ -49,12 +49,15 @@ sudo netstat -tulnp | grep dionaea
 
 <img width="941" height="729" alt="2026-03-18_11-39" src="https://github.com/user-attachments/assets/17a98b45-21f5-42ad-8c45-5e97e6f369aa" />
 
-
 We can see it's listening on lots of ports (FTP, HTTP, SMB, MONGO, MSSQL, SIP, and more)
+
+<hr>
+
+## Step 2: Simulate an Attack
 
 Let's simulate and FTP bruteforce attack
 
-- Tail the logs:
+Tail the logs:
 ```bash
 sudo tail -f /usr/local/var/log/dionaea/dionaea.log
 ```
@@ -62,9 +65,7 @@ sudo tail -f /usr/local/var/log/dionaea/dionaea.log
 >[!NOTE]
 >We have rockyou.txt on **~/Desktop**
 
-- Then on a **third** terminal
-
-
+Then on a **third** terminal
 
 ```bash
 hydra -l admin -P ~/Desktop/rockyou.txt localhost ftp -V
@@ -73,13 +74,11 @@ We can see all perspectives, the one of the attacker, it is saying that it found
 
 <img width="1149" height="908" alt="2026-03-18_11-50" src="https://github.com/user-attachments/assets/fce67025-4cad-425c-aac1-6731b189cbd1" />
 
-
 <br>
 
-And the one of the Analyst, where we see the logs and the credentials used
+And the one of the Analyst, where we see the logs and the credentials used:
 
 <img width="1849" height="1011" alt="2026-03-18_11-51" src="https://github.com/user-attachments/assets/3fc7afde-6673-4053-9831-d4d1988ad233" />
-
 
 <br>
 
