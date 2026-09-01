@@ -10,14 +10,18 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Dionaea
 
-# Ubuntu VM
+#### Please use the Ubuntu VM
 
-### In this lab we will
+<hr>
+
+## Lab Objective
 - Observe how it captures malicious connection attempts
 - View logs and captured malware samples
 - Understand its modular architecture
 
-# Let's start
+<hr>
+
+## Step 1: Start Dionaea
 
 - Open up a terminal if you are not using **SSH**
 
@@ -33,7 +37,6 @@ sudo dionaea
 ```
 
 <img width="1506" height="491" alt="2026-03-18_11-37" src="https://github.com/user-attachments/assets/4cf4bb02-0c36-4bc8-b475-a10f07146c96" />
-
 
 <br>
 
