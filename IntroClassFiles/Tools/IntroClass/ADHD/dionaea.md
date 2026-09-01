@@ -80,20 +80,19 @@ And the one of the Analyst, where we see the logs and the credentials used:
 
 <img width="1849" height="1011" alt="2026-03-18_11-51" src="https://github.com/user-attachments/assets/3fc7afde-6673-4053-9831-d4d1988ad233" />
 
-<br>
+<hr>
 
-Now let's try with mysql instead of ftp:
+## Step 3: Trying MySQL
+Now let's try with MySQL instead of ftp:
 
 ```bash
 hydra -l root -P ~/Desktop/rockyou.txt localhost mysql
 ``` 
-- Same fake success
+Same fake success
 
 <img width="1137" height="312" alt="2026-03-18_11-52" src="https://github.com/user-attachments/assets/3e2d339c-3c49-4622-986a-35a194ebcdf1" />
 
-
 <br>
-
 
 What about **Command Injection**?
 ```bash
