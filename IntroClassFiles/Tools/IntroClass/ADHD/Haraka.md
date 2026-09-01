@@ -292,7 +292,8 @@ hello $i" &
 done
 ```
 
-Because `tarpit` intentionally delays responses, the loop will take noticeably longer than without tarpit. Observe connection times in `haraka.out`
+Because `tarpit` intentionally delays responses, the loop will take noticeably longer than without tarpit.<br> 
+Observe connection times in `haraka.out`
 
 <hr>
 
