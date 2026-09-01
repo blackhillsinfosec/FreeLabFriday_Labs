@@ -315,6 +315,10 @@ To exit and save the file do `Ctrl + x` and `y` and `Enter`
 
 Now, start it again.
 
+```bash
+haraka -c .
+```
+
 Run the same `swaks` loop and measure how long it takes:
 
 ```bash
