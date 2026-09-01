@@ -268,6 +268,8 @@ QUIT
 
 Watch the **logs** on the first **terminal**. Connections will be slower depending on `tarpit.ini` settings
 
+Make sure to fully exit the running process by using `ctrl + c`
+
 <br>
 
 ### Scripted load with `swaks`
