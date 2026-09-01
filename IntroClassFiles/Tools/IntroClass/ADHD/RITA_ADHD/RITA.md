@@ -6,6 +6,10 @@ This is a lab from **John Strand**'s **SOC Core Skills** Course:
 
 https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
+This is a lab from **John Strand**'s **Active Defense and Cyber Deception** Course:
+
+https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/
+
 ---
 
 # RITA Lab
