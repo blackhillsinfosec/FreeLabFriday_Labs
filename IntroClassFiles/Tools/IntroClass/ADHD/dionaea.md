@@ -106,7 +106,9 @@ Let's try an agressive port scan using **nmap**
 nmap -A localhost
 ```
 
-## Final thoughts
+<hr>
+
+## Final Thoughts
 Dionaea’s true power comes from its purpose-built design as an intelligent malware-catching honeypot — not just a passive listener, but a smart, low-interaction trap
 
 Most important features
