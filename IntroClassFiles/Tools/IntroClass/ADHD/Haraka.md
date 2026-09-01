@@ -275,7 +275,9 @@ Watch the **logs** on the first **terminal**. Connections will be slower dependi
 ```bash
 # single message
 swaks --server localhost:2525 --from attacker@evil.test --to victim@localhost --data "Subject: swaks test
+```
 
+```bash
 hello"
 ```
 
