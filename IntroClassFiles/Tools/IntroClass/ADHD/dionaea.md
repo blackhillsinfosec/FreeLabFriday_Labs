@@ -23,15 +23,15 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ## Step 1: Start Dionaea
 
-- Open up a terminal if you are not using **SSH**
+Open up a terminal if you are not using **SSH**
 
-- Go the Dionaea's directory
+Go the Dionaea's directory
 
 ```bash
 cd ~/SOC_Analyst_Labs/dionaea/
 ```
 
- - Start it up:
+Start it up:
 ```bash
 sudo dionaea
 ```
