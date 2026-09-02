@@ -195,7 +195,7 @@ FakeNet-NG will try to keep up and emulate responses, again acting as a fake, bu
 
 ---
 
-## Step 6: Look at captures / logs
+## Step 6: Look at Captures / Logs
 
 Stop FakeNet-NG by going to **terminal 1** and pressing:
 
