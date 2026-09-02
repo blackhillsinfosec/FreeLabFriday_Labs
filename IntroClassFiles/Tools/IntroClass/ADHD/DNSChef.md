@@ -11,10 +11,11 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 # DNSChef
 
 
-# For the Ubuntu VM
+#### Please Use the Ubuntu VM
 
+<hr>
 
-### In this lab we will
+## Lab Objective
 
 - Install and run **DNSChef** (a DNS proxy / spoofing tool)
 - Observe how it **logs DNS queries**
@@ -24,9 +25,9 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ---
 
-## Understand your normal DNS resolution
+## Step 1: Understanding DNS resolution
 
-- Before using **DNSChef**, see what your **DNS** looks like normally.
+Before using **DNSChef**, see what your **DNS** looks like normally.
 
 ### Check where DNS queries go by default
 
