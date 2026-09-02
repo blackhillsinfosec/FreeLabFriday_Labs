@@ -154,15 +154,9 @@ dig @127.0.0.1 -p 53530 anyrandomdomainthatdoesnotexist123.com +short
 
 <img width="1156" height="172" alt="2026-03-17_11-33" src="https://github.com/user-attachments/assets/0eee9628-45bb-4c55-bbf1-2d353a513a6c" />
 
-You should see that all of them return:
+You should see that all of them return `127.0.0.1`.
 
-```text
-127.0.0.1
-```
-
-From the **attacker** perspective:
-
-Any client using this DNS server will be redirected to **your** IP.
+From the **attacker** perspective, any client using this DNS server will be redirected to **your** IP.
 
 From the **defender/deception** perspective:
 
