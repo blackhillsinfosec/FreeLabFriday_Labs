@@ -160,7 +160,7 @@ Watch **Terminal 1**:
 
 ---
 
-## Step 5: Simulate a port-scanning "malware"
+## Step 5: Port-Scanning "malware"
 
 Now we'll pretend the malware is scanning common service ports.
 
