@@ -44,7 +44,7 @@ Leave this terminal window open. This is your **“Deception / Analyst” view**
 
 ---
 
-## Step 2: See what FakeNet-NG is Listening On
+## Step 2: What is FakeNet-NG Listening On?
 
 Open a **second terminal**.
 
