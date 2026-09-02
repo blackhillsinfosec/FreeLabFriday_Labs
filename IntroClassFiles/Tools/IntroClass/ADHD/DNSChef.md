@@ -156,9 +156,11 @@ dig @127.0.0.1 -p 53530 anyrandomdomainthatdoesnotexist123.com +short
 
 You should see that all of them return `127.0.0.1`.
 
-From the **attacker** perspective, any client using this DNS server will be redirected to **your** IP.
+**From the *attacker* perspective:**
 
-From the **defender/deception** perspective:
+Any client using this DNS server will be redirected to **your** IP.
+
+**From the *defender/deception* perspective:**
 
 You can point **malware** or suspicious hosts to a **sinkhole** IP where you log or analyze them.
 
