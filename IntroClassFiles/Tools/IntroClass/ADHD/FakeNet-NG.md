@@ -10,10 +10,11 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # FakeNet-NG
 
-# For the Ubuntu VM
+#### Please Use the Ubuntu VM
 
+<hr>
 
-### In this lab we will
+## Lab Objective:
 - Run **FakeNet-NG** on Linux
 - See how it intercepts and emulates network services
 - Simulate “malware-like” traffic from the same host
@@ -21,9 +22,8 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ---
 
-## Start FakeNet-NG (the fake Internet)
-
-- Open up a **terminal** and run
+## Step 1: Start FakeNet-NG
+Open up a **terminal** and run:
 
 ```bash
 cd ~/ADCD/fakenet-ng
@@ -44,7 +44,7 @@ Leave this terminal window open. This is your **“Deception / Analyst” view**
 
 ---
 
-## See what FakeNet-NG is listening on
+## Step 2: See what FakeNet-NG is Listening On
 
 Open a **second terminal**.
 
