@@ -71,27 +71,30 @@ You should see FakeNet-NG listening on multiple ports, for example:
 
 ---
 
-## Simulate simple web "malware" traffic
+## Step 3: Simulate Simple Web "malware" Traffic
 
-- FakeNet-NG is still running in **terminal 1**.  
-- In **terminal 2**, we'll play the role of the "malware" sending traffic.
+While FakeNet-NG is still running in **Terminal 1**, start another terminal.
+In **Terminal 2**, we'll play the role of the "malware" sending traffic.
 
 > [!NOTE]
 > Since the DNS listener is disabled in `lab.ini`, we use `--resolve` to bypass DNS lookup and connect directly to FakeNet-NG on `127.0.0.1`.
 
-### HTTP request to a domain
+<br>
+
+### HTTP Request to a Domain
 
 ```bash
 curl http://totally-not-evil-c2.com/ --resolve totally-not-evil-c2.com:80:127.0.0.1
 ```
 
-Watch **terminal 1** (FakeNet-NG window):
+Watch **Terminal 1** (FakeNet-NG window):
 
-- You should see an HTTP request logged by FakeNet-NG
-- FakeNet-NG will return some default HTML content in terminal 2:
+- You should see an HTTP request logged by FakeNet-NG.
+- FakeNet-NG will return some default HTML content in Terminal 2:
 
 <img width="1422" height="727" alt="2026-03-17_22-13" src="https://github.com/user-attachments/assets/d693ec6f-6486-4319-9246-05a6a796d22f" />
 
+<br>
 
 ### HTTPS request (FakeNet as fake TLS server)
 
@@ -101,10 +104,12 @@ curl https://really-bad-c2.example/ -k --resolve really-bad-c2.example:443:127.0
 
 ---
 
-## Simulate FTP "malware" traffic
+## Step 4: Simulate FTP "Malware" Traffic
 
 Some malware uses **FTP** to exfiltrate data or download additional payloads.
 FakeNet-NG has a fully emulated FTP server listening on port **21**.
+
+<br>
 
 ### Connect to the fake FTP server
 
@@ -121,13 +126,14 @@ Password: infected
 
 <img width="477" height="227" alt="2026-03-17_22-28" src="https://github.com/user-attachments/assets/7ac5ae8d-02a7-4eee-9eca-a8840e3cc6ae" />
 
-Watch **terminal 1** (FakeNet-NG window):
+Watch **Terminal 1** (FakeNet-NG window):
 
 - You should see the FTP connection logged with the banner FakeNet-NG presents
 - The fake credentials you entered will be captured in the logs
 
 <img width="1202" height="180" alt="2026-03-17_22-27" src="https://github.com/user-attachments/assets/ee19fad5-11d4-4414-9538-b23c9ebb8568" />
 
+<br>
 
 ### Try some FTP commands
 
@@ -143,7 +149,7 @@ quit
 <img width="761" height="551" alt="2026-03-17_22-28" src="https://github.com/user-attachments/assets/b7e3dc00-79c5-4a76-a453-a5b4bf3d7435" />
 
 
-Watch **terminal 1**:
+Watch **Terminal 1**:
 
 - Each command will be logged by FakeNet-NG
 - FakeNet-NG will respond as if it were a real FTP server
@@ -154,9 +160,11 @@ Watch **terminal 1**:
 
 ---
 
-## Simulate a port-scanning "malware"
+## Step 5: Simulate a port-scanning "malware"
 
 Now we'll pretend the malware is scanning common service ports.
+
+<br>
 
 ### Scan common ports on localhost
 
@@ -164,8 +172,8 @@ Now we'll pretend the malware is scanning common service ports.
 nmap -Pn -p 21,25,53,80,443,110,1337 127.0.0.1
 ```
 
-- From **nmap's perspective** (attacker view), it will look like these ports are open
-  and responding on `127.0.0.1`.
+From **nmap's perspective** (attacker view), it will look like these ports are open 
+and responding on `127.0.0.1`.
 
 <img width="739" height="333" alt="2026-03-17_22-24" src="https://github.com/user-attachments/assets/0e535802-6d03-41e1-a64e-a63e67cc1093" />
 
@@ -174,8 +182,8 @@ nmap -Pn -p 21,25,53,80,443,110,1337 127.0.0.1
 > When FakeNet is active on Linux, **SYN** scans often show ports as **filtered**.
 > This happens because **FakeNet** intercepts packets using **iptables**/**NFQUEUE**.
 
-- In **terminal 1** (FakeNet-NG), you'll see many connection attempts logged
-  against the emulated services.
+In **Terminal 1** (FakeNet-NG), you'll see many connection attempts logged
+against the emulated services.
 
 You can push it further with a more aggressive scan (optional, but noisy):
 
@@ -187,7 +195,7 @@ FakeNet-NG will try to keep up and emulate responses, again acting as a fake, bu
 
 ---
 
-## Look at captures / logs
+## Step 6: Look at captures / logs
 
 Stop FakeNet-NG by going to **terminal 1** and pressing:
 
@@ -212,15 +220,3 @@ If you see a `.pcap` file, you can open it with Wireshark later for deeper analy
 ```bash
 wireshark captured_traffic.pcap
 ```
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
