@@ -64,7 +64,11 @@ Now we will need to copy the JavaScript and put it somewhere so it triggers:
 
 <img width="572" height="604" alt="web_generated_token" src="https://github.com/user-attachments/assets/cadba2ee-abce-4ee7-8a74-6092c6f80034" />
 
-Now, let's test out the JavaScript Canary token. Open a Linux terminal and execute the following command:
+<hr>
+
+## Step 3: Testing the Javascript Canary Token
+Now, let's test out the JavaScript Canary token.<br> 
+Open a Linux terminal and execute the following command:
 
 ```bash
 cd ~/ADCD/canaryToken
