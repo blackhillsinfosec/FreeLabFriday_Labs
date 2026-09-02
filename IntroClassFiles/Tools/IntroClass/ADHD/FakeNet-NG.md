@@ -71,7 +71,7 @@ You should see FakeNet-NG listening on multiple ports, for example:
 
 ---
 
-## Step 3: Simulate Simple Web "malware" Traffic
+## Step 3: Simulate Web "Malware" Traffic
 
 While FakeNet-NG is still running in **Terminal 1**, start another terminal.
 In **Terminal 2**, we'll play the role of the "malware" sending traffic.
