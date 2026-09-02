@@ -97,6 +97,9 @@ echo "127.0.0.1 clonedsite.com" | sudo tee -a /etc/hosts
 
 Now everything is ready. Time for action!
 
+<hr>
+
+## Step 4: Try it Out!
 First things first, we must run a server in order to be able to access our page.
 
 ```bash
@@ -110,18 +113,6 @@ http://clonedsite.com
 
 <img width="1276" height="558" alt="test_page" src="https://github.com/user-attachments/assets/0cdf5e00-db1f-4e8b-9a54-9742c7a366d8" />
 
-
 In a few moments you should get an email alert: 
 
 <img width="565" height="1207" alt="web_token_triggered" src="https://github.com/user-attachments/assets/b48928af-8ad7-4da9-a137-1f0f7bab9060" />
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
