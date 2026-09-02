@@ -58,7 +58,7 @@ We’ll **compare** this later with the **spoofed** result.
 
 ---
 
-## Run DNSChef as a logging DNS proxy
+## Step 2: Run DNSChef as a logging DNS proxy
 
 First, we’ll use DNSChef to **observe** DNS traffic, without spoofing anything.
 
@@ -88,7 +88,7 @@ Keep this terminal open.
 
 <br>
 
-### Send queries to DNSChef
+### Send Queries to DNSChef
 
 Open **Terminal 2** and run:
 
@@ -113,7 +113,7 @@ We’ll restart it in the next steps with **spoofing enabled**.
 
 <hr>
 
-## Step 2: Simple DNS spoofing (fake IP for all domains)
+## Step 3: Simple DNS Spoofing
 
 Now let’s use **DNSChef** to **lie** about where domains point to.
 
@@ -123,7 +123,7 @@ For demonstration, we’ll use `127.0.0.1` (your own machine).
 
 <br>
 
-### Start DNSChef with global IP spoofing
+### Start DNSChef With Global IP Spoofing
 
 In **Terminal 1**:
 
@@ -166,7 +166,7 @@ Stop DNSChef with `Ctrl + C` in **Terminal 1** when you’re done.
 
 ---
 
-## Step 3: Targeted Spoofing
+## Step 4: Targeted Spoofing
 
 Let's now try targeted spoofing of a single domain (with upstream passthrough).
 
