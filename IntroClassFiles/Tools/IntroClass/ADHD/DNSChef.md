@@ -37,6 +37,8 @@ Start by opening a **terminal**
 
 ![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
 
+Then run the following:
+
 ```bash
 cat /etc/resolv.conf
 ```
