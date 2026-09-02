@@ -58,7 +58,7 @@ We’ll **compare** this later with the **spoofed** result.
 
 ---
 
-## Step 2: Run DNSChef as a logging DNS proxy
+## Step 2: Run DNSChef
 
 First, we’ll use DNSChef to **observe** DNS traffic, without spoofing anything.
 
