@@ -27,15 +27,15 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ## Step 1: Understanding DNS resolution
 
-Open a **terminal**
-
-![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
-
 Before using **DNSChef**, see what your **DNS** looks like normally.
 
 <br>
 
 ### Check where DNS queries go by default
+
+Start by opening a **terminal**
+
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
 
 ```bash
 cat /etc/resolv.conf
