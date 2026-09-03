@@ -10,7 +10,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ## File Audit Tripwires
 
-#### Please use the Ubuntu VM
+#### Please use the Windows VM
 
 <hr>
 
