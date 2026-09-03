@@ -119,7 +119,7 @@ Then check:
 
 <img width="228" height="99" alt="image" src="https://github.com/user-attachments/assets/89a40847-1009-4fe2-98c5-c613bc457f6e" />
 
-For the HTML Content:
+For the HTML Content, enter the following:
 
 ```html
 <h2>Company Login</h2>
@@ -136,88 +136,91 @@ Click **Save Page**.
 
 ## Step 5: Create an Email Template
 
-1. Click **Email Templates**
+This time, start off by clicking **Email Templates**:
 
 <img width="326" height="64" alt="image" src="https://github.com/user-attachments/assets/96522c2f-5d63-4dd2-bf4a-344ab2f705fd" />
 
-2. Click **New Template**
+Next, click **New Template**:
 
 <img width="160" height="64" alt="image" src="https://github.com/user-attachments/assets/5b8e4d53-bb30-4dc8-8597-79cac373fad6" />
 
-3. Name: `Password Reset`
-4. Subject: `Urgent Password Reset`
-5. Body(HTML):
+Enter the name: `Password Reset`
+Enter the subject: `Urgent Password Reset`
+Enter the following in the body(HTML):
 
 ```html
 <p>Your password is expiring.</p>
 <p><a href="{{.URL}}">Click here to reset it</a></p>
 ```
 
-6. Click **Save Template**
+Then, click **Save Template**.
 
 ---
 
-# Step 8 – Create a User Group
+## Step 6: Create a User Group
 
-1. Click **Users & Groups**
+Begin by clicking **Users & Groups**:
 
 <img width="333" height="72" alt="image" src="https://github.com/user-attachments/assets/d964a536-e704-4a8a-bb02-ab1e9edd1d86" />
 
-2. Click **New Group**
+Then, click **New Group**
 
 <img width="141" height="58" alt="image" src="https://github.com/user-attachments/assets/f62ff2a3-43d5-4985-a15c-cd5075b1d053" />
 
-3. Name: `Test Users`
-4. Add user:
+Enter the Name: `Test Users`
+
+Then hit Add user:
    - First Name: `Test`
    - Last Name: `User`
    - Email: `test@company.local`
-5. Click **+Add**
+
+After, click **+Add**
 
 <img width="107" height="59" alt="image" src="https://github.com/user-attachments/assets/6cd813f4-d826-491e-86bd-d4776aeb6b7c" />
 
-6. Click **Save Changes**
+Finally, click **Save Changes**
 
 ---
 
-# Step 9 - Run MailHog
+## Step 7: Run MailHog
 
 ```bash
 MailHog
 ```
 
-
 <img width="609" height="162" alt="2026-03-17_22-53" src="https://github.com/user-attachments/assets/825f0fe2-54cf-4f3d-878f-083d104cfbb5" />
 
+<hr>
 
-# Step 10 – Launch a Phishing Campaign
+## Step 8: Launch a Phishing Campaign
 
-1. Click **Campaigns**
+Click **Campaigns**
 
 <img width="328" height="63" alt="image" src="https://github.com/user-attachments/assets/b689bf15-cc9d-4fd8-a63e-82c3a03aeab2" />
 
-2. Click **New Campaign**
+Next, click **New Campaign**
 
 <img width="163" height="61" alt="image" src="https://github.com/user-attachments/assets/25f5651a-a932-4e9e-b46b-9a7e227b0e8f" />
 
-3. Name: `Demo Campaign`
-4. Select:
+Enter the Name: `Demo Campaign`
+
+Now select:
    - Email Template: `Password Reset`
    - Landing Page: `Fake Login`
    - Sending Profile: `Local SMTP`
    - Users Group: `Test Users`
-5. Click **Launch Campaign**
+
+Then, click **Launch Campaign**
 
 ---
 
-- Now go back to the **MailHog Terminal**
+Now go back to the **MailHog Terminal**.
 
-- You should see the new mail
+You should see the new mail
 
 <img width="1898" height="1005" alt="2026-03-17_23-06" src="https://github.com/user-attachments/assets/7766f585-34b3-4e3b-bb58-698dc8fbc071" />
 
-
-- What we get out of it?
+What we get out of it?
 
 1. Sender and recipient accepted
 ```
@@ -246,14 +249,3 @@ Storing message nYyPFT2-foO9BZ2z...
 ```
 
 ...and more very in depth details
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
