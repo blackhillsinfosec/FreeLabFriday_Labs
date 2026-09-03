@@ -69,7 +69,7 @@ Now we will need to copy the JavaScript and put it somewhere so it triggers:
 
 <hr>
 
-## Step 3: Testing the Javascript Canary Token
+## Step 3: Setting Up The Test
 Now, let's test out the JavaScript Canary token.<br> 
 Open a Linux terminal and execute the following command:
 
