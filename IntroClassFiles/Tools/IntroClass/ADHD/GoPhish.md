@@ -35,6 +35,8 @@ To begin, lets open a terminal.
 
 ![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
 
+Then run the following:
+
 ```
 cd ~/BnB/gophish
 ```
