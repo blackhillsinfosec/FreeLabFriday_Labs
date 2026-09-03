@@ -231,6 +231,8 @@ RCPT TO:<test@company.local>
 250 ok
 ```
 
+<br>
+
 2. Email content delivered
 ```
 DATA
@@ -238,11 +240,15 @@ Subject: Urgent Password Reset
 X-Mailer: gophish
 ```
 
+<br>
+
 3. Email stored by MailHog
 ```
 Storing message nYyPFT2-foO9BZ2z...
 250 Ok: queued
 ```
+
+<br>
 
 4. Body of the email
 ```
