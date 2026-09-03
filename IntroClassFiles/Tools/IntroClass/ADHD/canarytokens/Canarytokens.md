@@ -87,7 +87,7 @@ nano index.html
 
 At the very bottom of the file inside the ```<script> </script>``` tags write the generated JavaScript token.
 
-
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/canarytokens_pastehere.png)
 
 Then, save it and close it.
 
