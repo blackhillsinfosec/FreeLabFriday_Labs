@@ -8,16 +8,17 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ---
 
-# Ubuntu VM
-
 # GoPhish
 
-This lab demonstrates **what GoPhish can do** from both an attacker and defender perspective
-You will **launch a phishing campaign**, and **observe captured credentials and events**
+#### Please use the Ubuntu VM
 
----
+<hr>
 
-## Lab Objectives
+## Lab Objective:
+
+This lab demonstrates **what GoPhish can do** from both an attacker and defender perspective.<br>
+You will **launch a phishing campaign**, and **observe captured credentials and events**.
+
 
 In this lab you will:
 - Launch the GoPhish web interface
@@ -28,7 +29,7 @@ In this lab you will:
 
 ---
 
-# Start GoPhish
+## Step 1: Start GoPhish
 
 ```
 cd ~/BnB/gophish
@@ -49,9 +50,9 @@ Starting admin server at http://0.0.0.0:3333
 >[!IMPORTANT]
 >Leave this terminal open
 
----
+<hr>
 
-# Step 4 – Access the Admin Panel
+## Step 2: Access the Admin Panel
 
 Open a browser and go to:
 
@@ -70,7 +71,7 @@ https://localhost:3333
 <img width="1189" height="177" alt="2026-03-17_22-43" src="https://github.com/user-attachments/assets/193cc5bd-35a5-4ca9-a602-a69a1064b24b" />
 
 
-Copy the password from the terminal and log in
+Copy the password from the terminal and log in.
 
 - Make your own password afterwards:
 
@@ -78,45 +79,47 @@ Copy the password from the terminal and log in
 
 ---
 
-# Step 5 – Create a Sending Profile
+## Step 3: Create a Sending Profile
 
-1. Click **Sending Profiles** in the **left** tab
+Start by clicking **Sending Profiles** in the **left** tab:
 
 <img width="329" height="55" alt="image" src="https://github.com/user-attachments/assets/2aa9f0ba-4567-444e-8862-15ce973d7003" />
 
-2. Click **New Profile**
+Then, click **New Profile**:
 
 <img width="153" height="73" alt="image" src="https://github.com/user-attachments/assets/342a74e4-7ac4-4b68-a530-0a453b1cf1da" />
 
-3. Use:
+Fill in the following info:
    - Name: `Local SMTP`
    - Host: `127.0.0.1:1025`
    - From: `IT Support <it@company.local>`
-4. Click **Save**
+
+Afterwards, click **Save**.
 
 >[!NOTE]
 >We are using port `1025` because that's the port where **MailHog** will be serving and listening
 
 ---
 
-# Step 6 – Create a Landing Page (Credential Capture)
+## Step 4: Create a Landing Page (Credential Capture)
 
-1. Click **Landing Pages**
+Let's start by clicking **Landing Pages**:
 
 <img width="331" height="68" alt="image" src="https://github.com/user-attachments/assets/03e2b2a3-db91-4be2-8bd9-f2411b6c27b2" />
 
-2. Click **New Page**
+Now, click **New Page**
 
 <img width="127" height="62" alt="image" src="https://github.com/user-attachments/assets/c7564680-68ba-4114-9b21-0e8f386d2bda" />
 
-3. Name: `Fake Login`
-4. Check:
+Use the name: `Fake Login`
+
+Then check:
    - Capture Submitted Data
    - Capture Passwords
 
 <img width="228" height="99" alt="image" src="https://github.com/user-attachments/assets/89a40847-1009-4fe2-98c5-c613bc457f6e" />
 
-5. HTML Content:
+For the HTML Content:
 
 ```html
 <h2>Company Login</h2>
@@ -127,11 +130,11 @@ Copy the password from the terminal and log in
 </form>
 ```
 
-6. Click **Save Page**
+Click **Save Page**.
 
 ---
 
-# Step 7 – Create an Email Template
+## Step 5: Create an Email Template
 
 1. Click **Email Templates**
 
