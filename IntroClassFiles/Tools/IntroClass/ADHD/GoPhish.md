@@ -45,10 +45,7 @@ cd ~/BnB/gophish
 sudo ./gophish
 ```
 
-You should see output similar to:
-```
-Starting admin server at http://0.0.0.0:3333
-```
+You should see output similar to `Starting admin server at http://0.0.0.0:3333`
 
 <img width="1165" height="276" alt="2026-03-17_22-40" src="https://github.com/user-attachments/assets/b530c26d-c4a6-4d4d-945a-3ecfa4a14419" />
 
