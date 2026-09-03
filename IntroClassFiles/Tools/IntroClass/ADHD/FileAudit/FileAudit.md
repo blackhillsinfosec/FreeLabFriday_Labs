@@ -26,7 +26,8 @@ Also, please note that we are creating the logging policy on the local system.  
 
 ## Step 1: Creating the File
 
-First, we will need to create the file.  From File Explorer, please navigate to the C drive on the class VM and create a folder called 'Secrets'.
+First, we will need to create the file.<br>  
+From File Explorer, please navigate to the C drive on the class VM and create a folder called 'Secrets'.
 
 This can be done by navigating to the top-level directory of the C drive, right-clicking in the empty space then selecting New > Folder.
 
