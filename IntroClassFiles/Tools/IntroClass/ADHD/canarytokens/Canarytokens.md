@@ -89,7 +89,7 @@ At the very bottom of the file inside the ```<script> </script>``` tags write th
 
 ![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/canarytokens_pastehere.png)
 
-Then, save it and close it.
+Then, save it by pressing `ctrl + x` then `Y` and hitting enter.
 
 Now we have a page that has the role of a cloned site. In order to test the functionality of the canary token through this page, we must add a domain to the ```/etc/hosts```.
 
