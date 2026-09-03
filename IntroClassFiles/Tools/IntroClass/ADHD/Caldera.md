@@ -53,14 +53,14 @@ source venv/bin/activate
 python3 server.py --insecure --build
 ```
 
-Leave this terminal running.
-- You should see log output showing the server is listening.
+Leave this terminal running.<br>
+You should see log output showing the server is listening.
 
-## Log in to the web UI
+<hr>
 
-Open a browser on the VM (or forward port 8888 via SSH) and go to:
+## Step 2: Log in to the Web UI
 
-- `http://localhost:8888`
+Open a browser on the VM (or forward port 8888 via SSH) and go to `http://localhost:8888`
 
 Log in as:
 - Username: `red`
@@ -68,11 +68,13 @@ Log in as:
 
 ---
 
-# Part 2 - Deploy a Sandcat agent
+## Step 3: Deploy a Sandcat Agent
 
 The **Sandcat plugin** is CALDERA’s default agent. It can be deployed using the server’s built-in delivery commands or by downloading it from CALDERA
 
-## 1) Download and run the agent
+<br>
+
+### Download and Run the Agent
 
 In a new terminal:
 
@@ -94,11 +96,11 @@ chmod +x sandcat
 
 You should see the agent running and “beaconing” (calling back to CALDERA)
 
-
 <img width="953" height="401" alt="2026-03-16_12-26" src="https://github.com/user-attachments/assets/3cdcf4e1-5d45-4bf9-9386-58cfd3cb20c2" />
 
 <br>
-## 2) Confirm the agent shows up in the UI
+
+### Confirm the Agent Shows Up in the UI
 
 In the CALDERA web UI:
 - Go to **Agents**
@@ -106,52 +108,51 @@ In the CALDERA web UI:
 
 <img width="430" height="319" alt="image" src="https://github.com/user-attachments/assets/b28951c9-621c-4a52-a66d-2ec2477b7f90" />
 
-
 If it doesn’t show:
 - Make sure `python3 server.py ...` is still running
 - Make sure you used `server="http://localhost:8888"` (same as your UI URL)
 
 ---
 
-# Part 3 - Run a simple ATT&CK operation (Red / Attack)
+## Step 4: Run a Simple ATT&CK Operation (Red/Attack)
 
 CALDERA’s **Stockpile** plugin contains lots of built-in abilities and adversary profiles
 
 We’ll run a simple “Discovery/Collection” style operation
 
-## 1) Pick an adversary profile (easy starter)
+<br>
 
-In the UI:
+### Pick an Adversary Profile (easy starter)
 
-- Click on the **"Mountain"** on the top left to get back to the **Start Page**
+In the UI, click on the **"Mountain"** on the top left to get back to the **Start Page**.
 
 <img width="224" height="168" alt="image" src="https://github.com/user-attachments/assets/9f1d2533-c4d1-4557-a8ed-c71db8d32494" />
 
-- Go to **Adversaries** and click `Manage Adversaries`
+Go to **Adversaries** and click `Manage Adversaries`.
 
 <img width="435" height="342" alt="image" src="https://github.com/user-attachments/assets/49d24f7f-9410-4f44-b604-5ac3d94220e4" />
 
-- Choose one of the built-in “discovery/collection” style adversaries (names vary by version), but for this lab we will use the **Discovery** one, select it
+Choose one of the built-in “discovery/collection” style adversaries (names vary by version), but for this lab we will use the **Discovery** one, select it:
 
 <img width="1692" height="700" alt="image" src="https://github.com/user-attachments/assets/14520373-cd4e-4bbc-935b-85b5af5d079e" />
 
-## 2) Start an operation
+<br>
 
-In the UI:
+### Start an Operation
 
-- Click on the **"Mountain"** on the top left to get back to the **Start Page**
+In the UI, click on the **"Mountain"** on the top left to get back to the **Start Page**
 
 <img width="224" height="168" alt="image" src="https://github.com/user-attachments/assets/9f1d2533-c4d1-4557-a8ed-c71db8d32494" />
 
-- Go to **Operations** and click `Manage Operations`
+Go to **Operations** and click `Manage Operations`:
 
 <img width="428" height="336" alt="image" src="https://github.com/user-attachments/assets/b18033bc-0454-4a4b-80e4-56f1087d0bf5" />
 
-- Click **New operation**
+Click **New operation**:
 
 <img width="151" height="60" alt="image" src="https://github.com/user-attachments/assets/16e007c3-9b21-4d4d-b2e1-be6d11333fbc" />
 
-- Set:
+Set:
   - **Operation Name** `Caldera Lab`
   - **Group:** `red`
   - **Adversary:** `Discovery`
@@ -160,7 +161,9 @@ In the UI:
 
 Start the operation by clicking **Start**
 
-## 3) Watch it run
+<br>
+
+### Watch it Run
 
 Click the operation and watch the **links** appear:
 - Each link is an executed step (like “whoami”, “hostname”, “find files”, etc)
@@ -170,32 +173,31 @@ Click the operation and watch the **links** appear:
 
 <img width="1690" height="671" alt="image" src="https://github.com/user-attachments/assets/9009f4bf-d894-4cef-a9e0-6bf0e7077904" />
 
-
 ---
 
-# Part 4 - Run a simple Defense operation
+## Step 5: Run a Simple Defense Operation
 
 CALDERA can also run **defensive actions**
 
 The idea: you can push response actions to endpoints the same way you push adversary actions
 
-## 1) Create a “blue” agent (quick way)
+<br>
 
-- In the **UI**, press the **Square** under **Running** to stop the operation
+### Create a “Blue” Agent (quick way)
+
+In the **UI**, press the **Square** under **Running** to stop the operation:
 
 <img width="195" height="70" alt="image" src="https://github.com/user-attachments/assets/0bb6d1e3-ec75-4223-989d-fcf8affcd863" />
 
-- Then go to your **Agent Terminal**
+Then go to your **Agent Terminal**.
 
-- Stop the running agent (**CTRL+C**) and re-run it as group `blue`:
+Stop the running agent (**CTRL+C**) and re-run it as group `blue`:
 
 ```bash
 ./sandcat -server "http://localhost:8888" -group blue -v
 ```
 
-Now in the UI:
-
-- Now look at the left tab of actions, scroll down until you see the **Log out** button, click it
+Now in the UI, look at the left tab of actions, scroll down until you see the **Log out** button, click it:
 
 <img width="214" height="47" alt="image" src="https://github.com/user-attachments/assets/c2048e0c-95ff-4d36-badd-d4f0a77c5c64" />
 
@@ -203,34 +205,35 @@ Log in as:
 - Username: `blue`
 - Password: `admin`
 
-- Go to **Agents**
+Go to **Agents**:
 
 <img width="424" height="325" alt="image" src="https://github.com/user-attachments/assets/f91b983a-e600-4dcc-833c-852536a3ea1e" />
 
-- You should see an agent in group **blue**
+You should see an agent in group **blue**:
 
-## 2) Run a basic defender profile
+<br>
 
-In the UI:
-- Go to **Adversaries** and click `Manage Adversaries`
+### Run a Basic Defender Profile
+
+In the UI, go to **Adversaries** and click `Manage Adversaries`:
 
 <img width="435" height="342" alt="image" src="https://github.com/user-attachments/assets/49d24f7f-9410-4f44-b604-5ac3d94220e4" />
 
-- Pick `Incident responder`
+Pick `Incident responder`.
 
-- Click on the **"Mountain"** on the top left to get back to the **Start Page**
+Click on the **"Mountain"** on the top left to get back to the **Start Page**:
 
 <img width="224" height="168" alt="image" src="https://github.com/user-attachments/assets/9f1d2533-c4d1-4557-a8ed-c71db8d32494" />
 
-- Go to **Operations** and click `Manage Operations`
+Go to **Operations** and click `Manage Operations`:
 
 <img width="428" height="336" alt="image" src="https://github.com/user-attachments/assets/b18033bc-0454-4a4b-80e4-56f1087d0bf5" />
 
-- Click **New operation**
+Click **New operation**:
 
 <img width="151" height="60" alt="image" src="https://github.com/user-attachments/assets/16e007c3-9b21-4d4d-b2e1-be6d11333fbc" />
 
-- Create a new operation:
+Create a new operation:
   - **Operation Name:** `CalderaBlueLab`
   - **Group:** `blue`
   - **Adversary:** `Incident responder`
@@ -238,9 +241,9 @@ In the UI:
 
 <img width="799" height="651" alt="image" src="https://github.com/user-attachments/assets/027fce1f-b055-42f0-a040-4c095e7e2a4e" />
 
-- Start it!
+Start it!
 
-- Now, for every command, we need to approve it
+Now, for every command, we need to approve it:
 
 <img width="172" height="92" alt="image" src="https://github.com/user-attachments/assets/6bc315a6-975d-4143-b0b9-477fc836c1e3" />
 
@@ -248,15 +251,4 @@ In the UI:
 
 <img width="345" height="204" alt="image" src="https://github.com/user-attachments/assets/b64b6357-d8e2-46c6-87ae-e858b284f99c" />
 
-- From here on, you can play with it however you like, EXPERIMENT!!!
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
+From here on, you can play with it however you like, EXPERIMENT!!!
