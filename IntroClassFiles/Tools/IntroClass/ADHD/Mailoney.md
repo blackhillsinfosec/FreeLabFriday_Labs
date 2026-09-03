@@ -130,9 +130,12 @@ swaks \
   --quit-after AUTH
 ```
 
-**What to observe**
+<br>
+
+#### What to Observe
 - Even if auth does not truly “succeed” (it’s a honeypot), Mailoney is designed to **capture the authentication attempt**
 
+<br>
 
 ### Inspect what Mailoney captured
 
