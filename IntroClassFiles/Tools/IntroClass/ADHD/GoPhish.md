@@ -14,7 +14,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 <hr>
 
-## Lab Objective:
+## Lab Objective
 
 This lab demonstrates **what GoPhish can do** from both an attacker and defender perspective.<br>
 You will **launch a phishing campaign**, and **observe captured credentials and events**.
