@@ -79,7 +79,15 @@ cd ~/ADCD/canaryToken
 
 In this directory, we have a HTML file called ```index.html```. In this file, we will write the generated JavaScript token.
 
-Open the HTML file with a text editor and at the very bottom of the file inside the ```<script> </script>``` tags write the generated JavaScript token.
+Open the HTML file with a text editor:
+
+```bash
+nano index.html
+```
+
+At the very bottom of the file inside the ```<script> </script>``` tags write the generated JavaScript token.
+
+
 
 Then, save it and close it.
 
