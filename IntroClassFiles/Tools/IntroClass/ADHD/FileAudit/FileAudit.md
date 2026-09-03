@@ -10,11 +10,21 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ## File Audit Tripwires
 
+#### Please use the Ubuntu VM
+
+<hr>
+
+## Lab Objective
+
 In this lab we will be creating an audit policy that watches for access to a specific file.  This can also apply to folders.  The thought process for this is that we create a honeyfile and want to set of triggers when the file is accessed on our internal network.  This is different from creating a CanaryToken.  With a CanaryToken we want a trigger when the file is opened.  CanaryTokens are also limited to documents and files that can trigger the token.  
 
 It should be noted that this is not an "either/or" situation.  Internal auditing and a callback from a token should be used together. 
 
 Also, please note that we are creating the logging policy on the local system.  As usual, you should be looking into ways to get the logs of the systems or file servers to your SIEM where an alert can be generated.  Logging policies like this are useless if there is no centralized logging for the alerts to trigger.
+
+<hr>
+
+## Step 1: Creating the File
 
 First, we will need to create the file.  From File Explorer, please navigate to the C drive on the class VM and create a folder called 'Secrets'.
 
