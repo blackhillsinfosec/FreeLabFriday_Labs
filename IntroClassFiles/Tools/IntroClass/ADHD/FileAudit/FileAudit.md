@@ -104,17 +104,3 @@ Next, select Windows Logs, then Security.
 Once it opens the security log scroll down for the File System logs, then select the one that has Secret.txt in it.  You may have to scroll down a bit.
 
 ![](attachment/SecretLog4656.png)
-
-
-***                                                              
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
-
-
