@@ -220,7 +220,9 @@ You should see the new mail
 
 <img width="1898" height="1005" alt="2026-03-17_23-06" src="https://github.com/user-attachments/assets/7766f585-34b3-4e3b-bb58-698dc8fbc071" />
 
-What we get out of it?
+<hr>
+
+## What we get out of it?
 
 1. Sender and recipient accepted
 ```
