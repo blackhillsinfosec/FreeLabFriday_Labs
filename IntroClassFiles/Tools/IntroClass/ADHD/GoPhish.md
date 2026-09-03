@@ -31,6 +31,10 @@ In this lab you will:
 
 ## Step 1: Start GoPhish
 
+To begin, lets open a terminal.
+
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
+
 ```
 cd ~/BnB/gophish
 ```
