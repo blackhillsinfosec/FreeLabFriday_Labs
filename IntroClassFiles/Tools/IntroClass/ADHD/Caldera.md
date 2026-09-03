@@ -10,13 +10,17 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # MITRE CALDERA
 
-This lab is designed to be **fully hands-on**, beginner-friendly, and runnable on **one Ubuntu Linux VM** (or any Linux host)
+#### Please Use the Ubuntu VM
+
+<hr>
+
+## Lab Objective
+
+This lab is designed to be **fully hands-on**, beginner-friendly, and runnable on **one Ubuntu Linux VM** (or any Linux host).
 
 You will install **MITRE CALDERA**, deploy a **Sandcat agent**, run a small **attack operation**, run a simple **defense operation**, and finish with a **cyber deception demo** using a “honeyfile” + alert
 
----
-
-## In this lab we will
+In this lab we will:
 
 - Log in and verify CALDERA is working
 - Deploy a **Sandcat** agent (on the same machine)
@@ -29,9 +33,13 @@ You will install **MITRE CALDERA**, deploy a **Sandcat agent**, run a small **at
 
 ---
 
-## Start the server
+## Start 1: Start the Server
 
-On the first boot, use `--build` to build the web UI and plugin assets
+Start by opening a terminal:
+
+
+
+On the first boot, use `--build` to build the web UI and plugin assets.
 
 ```bash
 cd ~/ADCD/caldera/
@@ -45,7 +53,7 @@ source venv/bin/activate
 python3 server.py --insecure --build
 ```
 
-- Leave this terminal running.
+Leave this terminal running.
 - You should see log output showing the server is listening.
 
 ## Log in to the web UI
