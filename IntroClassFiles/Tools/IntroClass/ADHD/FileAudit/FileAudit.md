@@ -43,9 +43,12 @@ It should look like this:
 
 Now we will need to enable the audit policy.
 
-Please hit the Windows Key on your keyboard an type Local Security Policy.  When the system finds the program, please open it.
+<hr>
 
+## Step 2: Enable The Audit Policy
 
+Please hit the Windows Key on your keyboard an type Local Security Policy.<br>  
+When the system finds the program, please open it.
 
 ![](attachment/LocalSecurityPolicyOpen.png)
 
@@ -67,7 +70,6 @@ Once in Properties, select the Security tab then select Advanced
 Next select the Auditing tab in the window that opens:
 
 ![](attachment/Security_Audit_Tab.png)
-
 
 When this tab opens, please select Continue
 
@@ -93,6 +95,9 @@ Next, we will need to open the Secrets.txt file.  Just open it, type something, 
 
 ![](attachment/Something.png)
 
+<hr>
+
+## Step 3: Using Event Viewer
 Now let's open Event Viewer.  To do this, press the Windows key, then type Event.  When the system finds Event Viewer Select it.
 
 ![](attachment/OpenEventViewer.png)
