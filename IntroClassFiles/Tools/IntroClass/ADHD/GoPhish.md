@@ -26,7 +26,6 @@ In this lab you will:
 - Capture submitted credentials
 - Analyze campaign results
 
-
 ---
 
 ## Step 1: Start GoPhish
@@ -116,10 +115,6 @@ Now, click **New Page**
 
 Use the name: `Fake Login`
 
-Then check:
-   - Capture Submitted Data
-   - Capture Passwords
-
 <img width="228" height="99" alt="image" src="https://github.com/user-attachments/assets/89a40847-1009-4fe2-98c5-c613bc457f6e" />
 
 For the HTML Content, enter the following:
@@ -172,7 +167,7 @@ Then, click **New Group**
 
 Enter the Name: `Test Users`
 
-Then hit Add user:
+Then enter the following:
    - First Name: `Test`
    - Last Name: `User`
    - Email: `test@company.local`
@@ -186,6 +181,8 @@ Finally, click **Save Changes**
 ---
 
 ## Step 7: Run MailHog
+
+Now, open another terminal and run the following command:
 
 ```bash
 MailHog
