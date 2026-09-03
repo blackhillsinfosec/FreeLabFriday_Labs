@@ -10,13 +10,18 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 # Mailoney
 
+#### Please use the Ubuntu VM
+
+<hr>
+
+## Lab Objective
 You’ll deploy **Mailoney** (a low-interaction SMTP honeypot) and then **simulate simple email-based attacks** to see what it captures
 
 ---
 
-# Setup
+## Step 1: Setup
 
-- Open a terminal
+Open a terminal:
 
 ```bash
 cd ~/ADCD/mailoney
@@ -28,7 +33,7 @@ source venv/bin/activate
 
 ---
 
-# Start Mailoney (SQLite + port 2525)
+## Step 2: Start Mailoney (SQLite + port 2525)
 
 We’ll run Mailoney on:
 - IP: `127.0.0.1`
@@ -54,7 +59,7 @@ Leave this terminal open (it will show logs)
 
 ---
 
-# Verify it’s listening
+## Step 3: Verify it’s listening
 
 Open a **second terminal**, go back to the same folder, and activate the venv again:
 
@@ -73,12 +78,11 @@ ss -lntp | grep 2525
 
 <img width="924" height="49" alt="2026-03-16_12-57" src="https://github.com/user-attachments/assets/cc17d320-9c7a-4cd4-8cc3-948f3b2798ac" />
 
-
 You should see something listening on `127.0.0.1:2525`
 
 ---
 
-# Simulate a basic SMTP “email delivery”
+## Step 4: Simulate a Basic SMTP “email delivery”
 
 We’ll use **swaks** (Swiss Army Knife for SMTP)
 
@@ -93,11 +97,12 @@ swaks \
   --body "This is a harmless test message captured by Mailoney."
 ```
 
-- Back in the **Mailoney Terminal**, we can see the hit
+Back in the **Mailoney Terminal**, we can see the hit
 
 <img width="546" height="29" alt="2026-03-16_12-58" src="https://github.com/user-attachments/assets/34bdde8e-264a-4d13-83d0-50eea8f03cab" />
 
-- Go back to the **Second Terminal** and do this to get the data received by the honeypot from the last hit
+Go back to the **Second Terminal** and do this to get the data received by the honeypot from the last hit.<br>
+
 ```bash
 sqlite3 -header -column mailoney.db \
 "SELECT id, timestamp, ip_address, session_data
@@ -108,11 +113,9 @@ sqlite3 -header -column mailoney.db \
 
 <img width="1904" height="510" alt="2026-03-16_13-00" src="https://github.com/user-attachments/assets/01273dfd-e8ae-4dbf-926d-8c35b90b2caa" />
 
-
-
 ---
 
-# Simulate a credential-harvesting attempt
+## Step 5: Simulate a Credential-Harvesting Attempt
 
 Attackers often try weak credentials on SMTP servers
 
@@ -131,7 +134,7 @@ swaks \
 - Even if auth does not truly “succeed” (it’s a honeypot), Mailoney is designed to **capture the authentication attempt**
 
 
-## Inspect what Mailoney captured
+### Inspect what Mailoney captured
 
 ```bash
 sqlite3 -header -column mailoney.db \
@@ -141,27 +144,4 @@ sqlite3 -header -column mailoney.db \
  LIMIT 1;"
 ```
 
-
 <img width="1902" height="375" alt="2026-03-16_13-09" src="https://github.com/user-attachments/assets/cf8fcce6-3932-4307-9b69-c91b6ebf9186" />
-
-
-
-
-
-
-
-
-
-
-
-
-***                                                                 
-<b><i>Looking for a different lab? </br>[Lab Directory](/IntroClassFiles/navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
