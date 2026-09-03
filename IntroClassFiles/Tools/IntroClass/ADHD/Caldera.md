@@ -35,9 +35,9 @@ In this lab we will:
 
 ## Start 1: Start the Server
 
-Start by opening a terminal:
+To begin, lets open a terminal.
 
-
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
 
 On the first boot, use `--build` to build the web UI and plugin assets.
 
