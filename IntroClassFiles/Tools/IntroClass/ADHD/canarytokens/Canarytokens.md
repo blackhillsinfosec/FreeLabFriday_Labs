@@ -126,4 +126,7 @@ http://clonedsite.com
 
 In a few moments you should get an email alert: 
 
+>[!NOTE]
+>The email could take around 5 minutes to show up. Be patient!
+
 <img width="565" height="1207" alt="web_token_triggered" src="https://github.com/user-attachments/assets/b48928af-8ad7-4da9-a137-1f0f7bab9060" />
