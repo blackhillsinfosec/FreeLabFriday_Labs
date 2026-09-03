@@ -42,6 +42,9 @@ Now, check your email. 
 
 You should have gotten an alert: 
 
+>[!NOTE]
+>The email could take around 5 minutes to show up. Be patient!
+
 <img width="612" height="1161" alt="ms_token_triggered" src="https://github.com/user-attachments/assets/20591922-35bc-4daa-9c15-cd9b73b6a4e8" />
 
 <hr>
