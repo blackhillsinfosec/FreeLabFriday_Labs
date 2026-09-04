@@ -9,7 +9,11 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Responder
-### Lab Objective
+#### Please use the Windows VM
+
+<hr>
+
+## Lab Objective
 
 In this lab we are going to walk through how quickly an attacker can take advantage of a common misconfiguration to gain access to a system via a **weak** password.
 
