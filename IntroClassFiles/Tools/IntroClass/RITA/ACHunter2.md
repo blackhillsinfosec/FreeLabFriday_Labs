@@ -13,7 +13,9 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 # AC Hunter 2 Lab
 
-## Lab Objective:
+<hr>
+
+## Lab Objective
 In this lab, we will be using ACHunter2 to investigate a provided dataset and then answer some questions.
 
 <hr> 
