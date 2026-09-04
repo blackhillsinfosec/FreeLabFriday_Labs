@@ -95,7 +95,7 @@ netsh advfirewall set allprofiles state off
 
 Now, run the command again:
 
-<pre>nmap 10.10.75.191</pre>
+<pre>nmap [Your Windows IP]</pre>
 
 >[!IMPORTANT]
 >
