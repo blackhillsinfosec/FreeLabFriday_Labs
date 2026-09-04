@@ -9,7 +9,10 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Azure AD Lab - Hackable MSP
-### Lab Objective
+
+<hr>
+
+## Lab Objective
 In this lab we will navigate through log files of an attack simulation on an MSP to illustrate how an attacker got in and compromised the network. From initial intrusion all the way to full network exploitation, we are going to explore the techniques used by the attacker(s) and how they were able to compromise our Azure MSP
 <hr>
 
