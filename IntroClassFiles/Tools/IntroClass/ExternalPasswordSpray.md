@@ -124,7 +124,7 @@ wget https://raw.githubusercontent.com/strandjs/IntroLabs/refs/heads/master/user
 It should look like this:
 <img width="827" height="206" alt="img02" src="https://github.com/user-attachments/assets/bdd8e134-c52e-4de7-9e5f-133847c5e9d5" />
 
->[Note]
+>[!Note]
 >
 >A list like this would be acquired by running recon on sites like LinkedIn, or even possibly a company directory!
 
