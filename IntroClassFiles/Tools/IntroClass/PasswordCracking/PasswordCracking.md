@@ -27,11 +27,12 @@ rm ~/.local/share/hashcat/hashcat.potfile
 ```
 
 If you get an error that the file does not exist, that is fine. It just means the file does not exist. Carry on.
+
 <hr>
 
 ## Step 1: Cracking MD5 Hashes
 We need to navigate to the appropriate directory.<br> 
-In your Terminal (or Ubuntu Shell), run the following:
+In your Terminal, run the following:
 
 ```bash
 cd ~/Intro_To_Security/Password_Cracking
