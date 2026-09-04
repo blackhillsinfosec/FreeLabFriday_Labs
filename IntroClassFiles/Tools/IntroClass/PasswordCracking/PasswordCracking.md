@@ -10,10 +10,13 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 # Password Cracking
 
-# Ubuntu VM
+#### Please use the Ubuntu VM
 
-### Lab Objective
-In this lab we will be getting started with the fundamentals of password cracking.  We will be using **Hashcat** to do this.
+<hr>
+
+## Lab Objective
+In this lab we will be getting started with the fundamentals of password cracking.<br>  
+We will be using **Hashcat** to do this.
 
 Before we begin, let's delete any old leftover pot files.
 
