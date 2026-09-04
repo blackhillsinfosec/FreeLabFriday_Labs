@@ -194,6 +194,8 @@ Now we will build something more realistic: a webhook endpoint that receives an 
 
 - Name it `Security Alert Handler`
 
+<br>
+
 ### Add a Webhook node
 
 - Click `+` on the canvas
