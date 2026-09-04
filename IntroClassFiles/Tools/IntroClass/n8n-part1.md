@@ -365,15 +365,7 @@ Go back to the **Webhook** node and set **Respond** to `Using 'Respond to Webhoo
 - In your second terminal, re-run the curl command:
 
 ```bash
-curl -X POST http://localhost:5678/webhook-test/abc123 \
-  -H "Content-Type: application/json" \
-  -d '{
-    "alert_type": "brute_force",
-    "source_ip": "192.168.1.50",
-    "target": "ssh",
-    "severity": "high",
-    "timestamp": "2025-01-01T12:00:00Z"
-  }'
+curl -X POST http://localhost:5678/webhook-test/[Your URL Path] -H "Content-Type: application/json" -d '{"alert_type": "brute_force","source_ip": "192.168.1.50","target": "ssh","severity": "high","timestamp": "2025-01-01T12:00:00Z"}'
 ```
 
 You should see the response:
