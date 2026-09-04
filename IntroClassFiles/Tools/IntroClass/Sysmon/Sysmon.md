@@ -9,10 +9,11 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Sysmon
+#### Please use the Windows VM
 
-# Windows VM
+<hr>
 
-### Lab Objective
+## Lab Objective
 In this lab we will be looking at what an attacker can do with valid accounts.  
 
 To learn more about this attack check out the following:<br>
@@ -21,6 +22,7 @@ https://attack.mitre.org/techniques/T1078/
 Here are just some groups that have used this attack:
 
 <img width="1082" height="691" alt="image" src="https://github.com/user-attachments/assets/634d0a14-def0-42da-9f23-0b26bb3faa07" />
+
 <hr>
 
 ## Step 1: Setting Up Our Session
