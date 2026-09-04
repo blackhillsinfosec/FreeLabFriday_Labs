@@ -70,7 +70,7 @@ cd \IntroLabs
 ```
 
 ```bash
-BLUESPAWN-client-x64.exe --monitor --aggressiveness cursory
+.\BLUESPAWN-client-x64.exe --monitor --aggressiveness cursory
 ```
 
 You should see something like this:
