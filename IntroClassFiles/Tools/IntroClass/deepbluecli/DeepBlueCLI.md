@@ -6,8 +6,6 @@ This is a lab from **John Strand**'s **SOC Core Skills** Course:
 
 https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
----
-
 This is a lab from **John Strand**'s **Information Security Core Skills** Course:
 
 https://www.antisyphontraining.com/product/information-security-core-skills-tm/
@@ -15,7 +13,11 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # DeepBlueCLI
-### Lab Objective
+#### Please use the Windows VM
+
+<hr>
+
+## Lab Objective
 DeepBlueCLI is a free tool by **Eric Conrad** that demonstrates some amazing detection capabilities. <br>
 It also has some checks that are effective for showing how **UEBA** style techniques can be in your environment. 
 
