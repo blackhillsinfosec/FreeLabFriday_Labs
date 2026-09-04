@@ -13,12 +13,16 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Nessus Lab
-### Lab Objective
+
+<hr>
+
+## Lab Objective
 In this lab we will be looking at a vulnerability report.
 
 However, we will be looking at it in a different way.  We will not be looking at the **"Highs and Criticals"**.  Instead, we want to focus on the **"Lows and Mediums"**.  We are doing this because these are often the vulnerabilities we exploit and are often missed by the organizations we test.
 
 Specifically, look at service headers and files.
+
 <hr>
 
 ## Step 1: Opening The File
