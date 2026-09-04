@@ -75,7 +75,7 @@ https://api.openai.com/v1/chat/completions
 <img width="410" height="280" alt="image" src="https://github.com/user-attachments/assets/420e43a7-147c-41f1-b575-311f2d712b08" />
 
 
-- Click **Set up credential** and fill in:
+- Click **Connect to Header Auth** and fill in:
   - **Name:** `Authorization`
   - **Value:** `Bearer YOUR_API_KEY_HERE`
 
