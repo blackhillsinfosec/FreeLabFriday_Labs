@@ -9,7 +9,7 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Password Spray
-
+#### Please use the Windows VM
 <hr>
 
 ## Step 1: Disabling Defender
