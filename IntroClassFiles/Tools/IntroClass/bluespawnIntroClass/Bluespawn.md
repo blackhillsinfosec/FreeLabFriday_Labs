@@ -13,6 +13,10 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Atomic Red Team And Bluespawn
+#### Please use the Windows VM
+
+<hr>
+
 ### Lab Objective
 In this lab we will be using Bluespawn as a stand-in for an EDR system.  Normally full EDRs like Cylance and Crowdstrike are very expensive and tend not to show up in classes like this.  However, the folks at University of Virginia have done an outstanding job with BlueSpawn. 
 
