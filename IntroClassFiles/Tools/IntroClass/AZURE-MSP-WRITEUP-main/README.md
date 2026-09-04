@@ -9,6 +9,7 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Azure AD Lab - Hackable MSP
+#### Please use the Windows VM
 
 <hr>
 
