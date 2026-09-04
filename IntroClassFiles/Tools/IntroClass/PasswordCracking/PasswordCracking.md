@@ -20,7 +20,7 @@ We will be using **Hashcat** to do this.
 
 Before we begin, let's delete any old leftover pot files.
 
-Open a Terminal (or Ubuntu Shell) and run the following:
+Open a Terminal and run the following:
 
 ```bash
 rm ~/.local/share/hashcat/hashcat.potfile  
