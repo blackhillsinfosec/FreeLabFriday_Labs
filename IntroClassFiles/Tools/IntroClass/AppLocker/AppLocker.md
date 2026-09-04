@@ -11,6 +11,9 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 
 # AppLocker
+#### Please use the Windows VM
+
+<hr>
 
 ### Lab Objective
 
