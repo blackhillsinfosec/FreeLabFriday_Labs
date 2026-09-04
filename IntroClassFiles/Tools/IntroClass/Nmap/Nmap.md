@@ -9,6 +9,10 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Host Firewalls and Nmap
+#### Please use the Windows VM
+
+<hr>
+
 ### Lab Objective
 In this lab we will be scanning your **Windows** system from your **Linux** terminal with the firewall both on and off. 
 
