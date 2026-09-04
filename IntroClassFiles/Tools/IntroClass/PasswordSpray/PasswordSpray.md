@@ -71,6 +71,9 @@ Set-ExecutionPolicy Unrestricted
 ```
 
 ```ps
+cd \IntroLabs
+
+```ps
 Import-Module .\LocalPasswordSpray.ps1
 ```
 
