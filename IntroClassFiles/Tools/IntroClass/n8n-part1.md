@@ -393,4 +393,6 @@ And back in n8n, all nodes should show green
 
 <img width="1069" height="425" alt="image" src="https://github.com/user-attachments/assets/afc311d0-1213-46ba-8156-b2116444bd49" />
 
+<hr>
+
 For **Part 2**, click [here](./n8n-part2.md)
