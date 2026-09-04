@@ -27,9 +27,10 @@ It works by running **LDAP queries** against the domain - no admin rights requir
 For this lab, we are **not** running PingCastle against a live domain.  
 Instead, we will be reviewing a **pre-generated report** from a test environment.  
 This is the same kind of report you would get if you ran it yourself.
+
 <hr>
 
-## Part 1 - Open the Report
+## Step 1: Open the Report
 
 Open your browser and navigate to:
 
@@ -53,7 +54,7 @@ Take a moment to look at the overall score and the four category scores before m
 
 ---
 
-## Part 2 - Passwords That Never Expire
+## Step 2: Passwords That Never Expire
 
 **Where to look:** Scroll down to **User Information** -> **Account Analysis**
 
@@ -83,7 +84,7 @@ Inactive accounts that are never cleaned up are free real estate for an attacker
 
 ---
 
-## Part 3 - What Does "Everyone" Actually Mean?
+## Step 3: What Does "Everyone" Actually Mean?
 
 Before looking at the next finding, we need to understand what **Everyone** means in Active Directory - because it is not what most people assume.
 
@@ -107,7 +108,7 @@ A safer alternative is **Authenticated Users**, which restricts access to accoun
 
 ---
 
-## Part 4 - Everyone Privileges
+## Step 4: Everyone Privileges
 
 **Where to look:** Scroll to **Privileged Accounts** -> **Privileged Accounts rule details**
 
@@ -131,7 +132,7 @@ When a domain admin account is Kerberoastable, it means an attacker with the low
 
 ---
 
-## Part 5 - Old Passwords
+## Step 5: Old Passwords
 
 **Where to look:** Scroll to **Stale Objects** -> **Stale Objects rule details**
 
