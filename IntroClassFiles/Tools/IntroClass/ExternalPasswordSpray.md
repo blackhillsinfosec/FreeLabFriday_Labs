@@ -9,6 +9,10 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # External Password Spray
+#### Please use the Windows VM
+
+<hr>
+
 ### Lab Objective
 
 In this lab we will be conducting a password spray against a Windows system.
