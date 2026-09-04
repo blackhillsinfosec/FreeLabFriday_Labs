@@ -13,7 +13,7 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # Nessus Lab
-
+#### Please use the Windows VM
 <hr>
 
 ## Lab Objective
