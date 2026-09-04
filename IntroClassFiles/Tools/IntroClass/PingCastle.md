@@ -9,9 +9,11 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 ---
 
 # PingCastle
+#### Please use either VM
 
-# Any VM
-### Lab Objective
+<hr>
+
+## Lab Objective
 In this lab we will be using **PingCastle** to review the security posture of an **Active Directory** environment.
 
 **PingCastle** is a tool that rapidly identifies security misconfigurations in **Active Directory**.  
