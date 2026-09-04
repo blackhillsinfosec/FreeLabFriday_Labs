@@ -13,7 +13,7 @@ https://www.antisyphontraining.com/product/information-security-core-skills-tm/
 
 <hr>
 
-### Lab Objective
+## Lab Objective
 In this lab we will be scanning your **Windows** system from your **Linux** terminal with the firewall both on and off. 
 
 The goal is to show you how a system is very different to the network with a firewall enabled. 
