@@ -67,7 +67,7 @@ sudo su -
 Now, let’s re-scan from the terminal:
 
 ```bash
-nmap 10.10.75.191
+nmap [Your Windows IP]
 ```
 
 >[!IMPORTANT]
