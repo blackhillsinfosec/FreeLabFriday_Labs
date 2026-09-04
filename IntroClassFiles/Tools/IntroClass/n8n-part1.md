@@ -117,6 +117,8 @@ Press **Build a workflow**
 
 We will build a simple workflow that manually triggers and fetches data from a public API.
 
+<br>
+
 ### Add a Manual Trigger node
 
 - Click the `+` button in the canvas
@@ -127,6 +129,8 @@ We will build a simple workflow that manually triggers and fetches data from a p
 
 
 This node lets you run the workflow by clicking a button.
+
+<br>
 
 ### Add an HTTP Request node
 
@@ -139,6 +143,7 @@ This node lets you run the workflow by clicking a button.
 
 <img width="408" height="297" alt="2026-06-25_11-27" src="https://github.com/user-attachments/assets/793a1b77-164d-48cc-8185-5c2752dfc3fa" />
 
+<br>
 
 ### Configure the HTTP Request node
 
@@ -159,6 +164,7 @@ You should see a JSON response appear on the right panel with fields like `userI
 
 <img width="1868" height="692" alt="2026-06-25_11-31" src="https://github.com/user-attachments/assets/340fba77-ff71-411a-a6bd-abd6bd523f00" />
 
+<br>
 
 ### Run the whole workflow
 
@@ -178,6 +184,8 @@ You will see green checkmarks appear on both nodes, and the data flows from left
 
 Now we will build something more realistic: a webhook endpoint that receives an alert payload and processes it.
 
+<br>
+
 ### Create a new workflow
 
 - Click the `+` button in the top left (or go to **Workflows** -> **New**)
@@ -195,6 +203,8 @@ Now we will build something more realistic: a webhook endpoint that receives an 
 - Search for `Webhook`
 - Add it to the canvas
 
+<br>
+
 ### Configure the Webhook node
 
 - Set **HTTP Method** to `POST`
@@ -209,6 +219,8 @@ Now we will build something more realistic: a webhook endpoint that receives an 
 
 
 Leave the node settings open. Copy the **Test URL** shown (it will look like `http://localhost:5678/webhook-test/1b4f0847-5b43-42b0-97e5-5042409ca634`)
+
+<br>
 
 ### Send a test alert to the webhook
 
@@ -235,6 +247,8 @@ Back in the n8n canvas you should see the webhook node light up with the **Outpu
 
 Now we will add logic: if severity is `high`, we route one way; otherwise another.
 
+<br>
+
 ### Add an IF node
 
 - Hover over the Webhook node, click the `+` on its right side
@@ -243,6 +257,8 @@ Now we will add logic: if severity is `high`, we route one way; otherwise anothe
 
 - Search for `IF`
 - Click it
+
+<br>
 
 ### Configure the IF node
 
@@ -260,6 +276,8 @@ The node will show two outputs: **True** (severity equals high) and **False** (e
 
 You can close the **if node** settings
 
+<br>
+
 ### Add a Set node to simulate alert enrichment
 
 - From the **True** output of the IF node, click `+`
@@ -272,6 +290,8 @@ You can close the **if node** settings
 <img width="376" height="153" alt="Screenshot 2026-06-26 113754" src="https://github.com/user-attachments/assets/f2967af4-ce8c-461d-bda8-a99ca1a73c21" />
 
 - Click it
+
+<br>
 
 ### Configure the Set node
 
@@ -318,6 +338,8 @@ Let's make the webhook return a proper response to the caller.
 - Search for `Respond to Webhook`
 - Click it
 
+<br>
+
 ### Configure it
 
 - Click **Add Option** and choose `Response Code`
@@ -327,6 +349,8 @@ Let's make the webhook return a proper response to the caller.
 
 
 - No need to **Execute** this node alone, you can close the windows
+
+<br>
 
 ### Test the full flow
 
