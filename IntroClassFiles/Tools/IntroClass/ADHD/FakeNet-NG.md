@@ -30,13 +30,16 @@ cd ~/ADCD/fakenet-ng
 ```
 
 ```bash
+source venv/bin/activate
+```
+
+```bash
 sudo fakenet -c lab.ini
 ```
 
 You should see something like:
 
-<img width="948" height="512" alt="2026-03-17_11-39" src="https://github.com/user-attachments/assets/fbae2273-cdd7-4a7e-9fc3-28640bdd2faf" />
-
+<img width="1220" height="381" alt="img01" src="https://github.com/user-attachments/assets/9f09028b-7beb-4745-9963-5ffe85027e7c" />
 
 **FakeNet-NG** will **keep running in the foreground**
 
@@ -92,7 +95,7 @@ Watch **Terminal 1** (FakeNet-NG window):
 - You should see an HTTP request logged by FakeNet-NG.
 - FakeNet-NG will return some default HTML content in Terminal 2:
 
-<img width="1422" height="727" alt="2026-03-17_22-13" src="https://github.com/user-attachments/assets/d693ec6f-6486-4319-9246-05a6a796d22f" />
+<img width="761" height="519" alt="img02" src="https://github.com/user-attachments/assets/2b01a0c0-3e62-4efb-8d84-2408a34dbe24" />
 
 <br>
 
@@ -124,7 +127,7 @@ Name: malware
 Password: infected
 ```
 
-<img width="477" height="227" alt="2026-03-17_22-28" src="https://github.com/user-attachments/assets/7ac5ae8d-02a7-4eee-9eca-a8840e3cc6ae" />
+<img width="439" height="169" alt="img03" src="https://github.com/user-attachments/assets/3579d43b-6e86-4265-ba23-094bd0fdf764" />
 
 Watch **Terminal 1** (FakeNet-NG window):
 
@@ -146,8 +149,7 @@ get secret-data.txt
 quit
 ```
 
-<img width="761" height="551" alt="2026-03-17_22-28" src="https://github.com/user-attachments/assets/b7e3dc00-79c5-4a76-a453-a5b4bf3d7435" />
-
+<img width="536" height="419" alt="img04" src="https://github.com/user-attachments/assets/538081f1-aafe-4350-8779-2b4402165ee0" />
 
 Watch **Terminal 1**:
 
@@ -175,8 +177,7 @@ nmap -Pn -p 21,25,53,80,443,110,1337 127.0.0.1
 From **nmap's perspective** (attacker view), it will look like these ports are open 
 and responding on `127.0.0.1`.
 
-<img width="739" height="333" alt="2026-03-17_22-24" src="https://github.com/user-attachments/assets/0e535802-6d03-41e1-a64e-a63e67cc1093" />
-
+<img width="668" height="272" alt="img05" src="https://github.com/user-attachments/assets/eab1e4dc-1099-4c43-87cc-16f589d4b0bb" />
 
 > [!NOTE]
 > When FakeNet is active on Linux, **SYN** scans often show ports as **filtered**.
@@ -220,3 +221,7 @@ If you see a `.pcap` file, you can open it with Wireshark later for deeper analy
 ```bash
 wireshark captured_traffic.pcap
 ```
+
+>[!Note]
+>
+>If you want to continue with another lab after completing this one, **restart the VM session first**.
