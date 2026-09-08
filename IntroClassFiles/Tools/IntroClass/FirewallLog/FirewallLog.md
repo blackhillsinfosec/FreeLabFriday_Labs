@@ -47,6 +47,7 @@ grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | less
 Not only is there a ton of information here, you might now feel like you are stuck in your terminal window.
 
 No worries though, just hit **"q"** to return to your terminal.
+
 <hr>
 
 ## Step 2: Refining The Output
@@ -88,6 +89,8 @@ grep 192.168.1.6 ASA-syslogs.txt | grep -v 24.230.56.6 | grep FIN | grep 18.160.
 <img width="1248" height="754" alt="2026-03-23_12-24" src="https://github.com/user-attachments/assets/37716c89-26bf-4ebe-ad70-1aca4872042a" />
 
 Look at the last field. See a pattern? Is there one? Let's see just that field!
+
+<br>
 
 ### Specific Field
 
