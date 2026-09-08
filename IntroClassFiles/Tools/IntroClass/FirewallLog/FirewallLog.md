@@ -11,13 +11,15 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 # Firewall Log Review
 #### Please use the Ubuntu VM
 
-# Ubuntu VM
-### Lab Overview
+<hr>
+
+## Lab Objective
 In this lab we will be looking at a log with r-base-core from an **ASA firewall** from Cisco. 
 
 **And wow....  They are bad to work with.**
 
 With the power of **Bash scripting** we can get some useful information.
+
 <hr>
 
 ## Step 1: Viewing The Logs
