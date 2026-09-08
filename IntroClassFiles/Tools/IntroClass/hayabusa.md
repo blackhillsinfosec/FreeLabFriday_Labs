@@ -21,7 +21,9 @@ The objective of this lab is to use Hayabusa to analyze Sysmon logs and detect s
 <hr>
 
 ## Step 1: Set The Detection Rules
-Start by opening a terminal.<br>
+To begin, lets open a terminal.
+
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
 
 First things first navigate to Hayabusa at `/home/ubuntu/SOC_Analyst_Labs/hayabusa/labFile`
 
