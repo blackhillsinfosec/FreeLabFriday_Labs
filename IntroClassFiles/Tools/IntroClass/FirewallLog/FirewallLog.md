@@ -25,7 +25,7 @@ With the power of **Bash scripting** we can get some useful information.
 ## Step 1: Viewing The Logs
 Let's get your **Linux** system to do some math!
 
-Open a Terminal (or Ubuntu Shell)
+Open a Terminal.
 
 We need to navigate to the correct directory with the following command:
 
