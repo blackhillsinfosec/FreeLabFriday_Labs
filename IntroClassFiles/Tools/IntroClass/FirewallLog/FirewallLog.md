@@ -66,6 +66,8 @@ When it is all put together, our output looks something like this:
 
 It's looking a lot better, but I think we can do better. But how?
 
+<br>
+
 ### Specific IP
 If you look at our previous output, you may notice that outside connections are being made to two different addresses:
 **"13.107.237.38"** and **"18.160.185.174"**
