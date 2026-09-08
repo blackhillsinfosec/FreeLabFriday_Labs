@@ -1,5 +1,13 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
+---
+
+This is a lab from **John Strand**'s **SOC Core Skills** Course:
+
+https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
+
+---
+
 # Hayabusa
 
 #### Please use the Ubuntu VM
