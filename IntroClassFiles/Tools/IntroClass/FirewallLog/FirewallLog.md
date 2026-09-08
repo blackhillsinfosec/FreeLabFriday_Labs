@@ -9,6 +9,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Firewall Log Review
+#### Please use the Ubuntu VM
 
 # Ubuntu VM
 ### Lab Overview
