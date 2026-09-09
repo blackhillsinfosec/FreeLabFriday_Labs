@@ -64,7 +64,10 @@ On a more basic level, this will create a backdoor listening on port 2222 of our
 
 ## Step 2: Terminal 2
 
-Now, let's open another Terminal (or Ubuntu Shell). 
+Now, let's open another Terminal.
+
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
+
 <br>
 This terminal will connect to the backdoor we just created.  
 
