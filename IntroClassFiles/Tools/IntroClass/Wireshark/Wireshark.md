@@ -9,7 +9,11 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Wireshark
-### TCPDump vs Wireshark
+#### Please use the Ubuntu VM
+
+<hr>
+
+## TCPDump vs Wireshark
 Now that we have spent a little time working with **tcpdump**, let's take a look at Wireshark.
 
 We want to make it clear that **Wireshark** is not "better" than **tcpdump**.  They each have very strong pros and cons.  
