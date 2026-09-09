@@ -22,6 +22,7 @@ Think of an ASN as a ZIP (or postal code) on the Internet.  <br>
 When you send packets out on the Internet they get routed to the router that is advertised to have responsibility for that part of the Internet. 
 
 We can take a list on known bad IP addresses and do a count on which ASNs have the most “bad” IP address on them with the following commands.
+
 <hr>
 
 ## Step 1: Getting A List of "Bad" IP's
