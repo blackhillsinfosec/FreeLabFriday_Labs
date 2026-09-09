@@ -1,6 +1,5 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-
 ---
 
 This is a lab from **John Strand**'s **SOC Core Skills** Course:
