@@ -13,9 +13,12 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
 #### Please use the Ubuntu VM
 
-In this lab we will be looking at a backdoor through the lens of the the Linux CLI.
+<hr>
 
-We will be using a large number of different basic commands to get a better understanding of what the backdoor is and what it does.
+## Lab Objective
+
+In this lab we will be looking at a backdoor through the lens of the the Linux CLI.<br>
+We will be using a large number of different basic commands to get a better understanding of what the backdoor is and what it does.<br>
 
 For this lab we will be running **three** different Linux terminals.
 
