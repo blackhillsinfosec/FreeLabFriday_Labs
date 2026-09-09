@@ -34,6 +34,7 @@ Now, let's pull down an open source list of "bad" IP addresses:
 <pre>wget https://raw.githubusercontent.com/stamparm/ipsum/master/ipsum.txt</pre>
 
 ![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/wget.png)
+
 <hr>
 
 ## Step 2: Finding The Associated ASN's
@@ -42,6 +43,8 @@ Next, let's pull the ASN each of those IP addresses is associated with:
 <pre>netcat whois.cymru.com 43 < ipsum.txt | grep -v "AS Name" > asn_merge.txt</pre>
 
 ![image](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/netcat.png)
+
+<hr>
 
 ## Step 3: Analyze The Data
 Now, let's do a quick count and sort on those ASNs and the number of "bad" IP addresses per ASN:
