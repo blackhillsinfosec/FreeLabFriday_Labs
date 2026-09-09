@@ -76,7 +76,7 @@ Now, start scapy
 >[!TIP]
 >
 >If this command does not work, you must run the following command first:<br>
-><pre>apt install python3-scapy</pre>
+><pre>apt install python3-scapy --fix-missing</pre>
 
 >[!NOTE]
 >
