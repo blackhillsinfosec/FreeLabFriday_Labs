@@ -31,7 +31,6 @@ For this lab we will be running **three** different Linux terminals.
 ***
 
 ## Step 1: Terminal 1
-<br>
 
 To begin, lets open a terminal.
 
