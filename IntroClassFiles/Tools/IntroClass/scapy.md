@@ -157,11 +157,8 @@ Let's look at what we can modify in a TCP packet.
 
 Let's try something like traceroute!
 
-Start typing `trace` then hit **tab**
-
 <img width="325" height="55" alt="image" src="https://github.com/user-attachments/assets/e6f3fcf4-60ab-4691-bf58-f99cfa49a8cd" />
 
-It has autocomplete!!
 <pre>traceroute('google.com', maxttl=8, timeout=5)</pre>
 
 <img width="467" height="272" alt="image" src="https://github.com/user-attachments/assets/4f12160a-8ba3-448a-8287-48f2bfc7eb91" />
