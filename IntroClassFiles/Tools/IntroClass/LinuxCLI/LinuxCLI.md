@@ -68,12 +68,10 @@ Now, let's open another Terminal.
 
 ![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
 
-<br>
 This terminal will connect to the backdoor we just created.  
 
-
 We need to know the IP address of our **Linux** system.
-<br>
+
 Run the following:
 
 ```bash
