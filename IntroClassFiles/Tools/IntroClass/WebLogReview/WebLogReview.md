@@ -9,8 +9,10 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Web Log Review
+#### Windows VM
 
-# Windows VM
+<hr>
+
 ## Lab Objective
 In this lab we will be standing up a vulnerable web server called DVWA.  It is designed from the ground up to teach people about a number of web application attacks.
 
