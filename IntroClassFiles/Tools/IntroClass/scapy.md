@@ -9,6 +9,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Scapy Lab
+#### Please use the Ubuntu VM
 
 <hr>
 
