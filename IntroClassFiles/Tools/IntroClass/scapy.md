@@ -60,8 +60,6 @@ This lab shows the broad strokes of what Scapy can do inside a Python environmen
 
 ## Step 1: Starting Scapy
 
-In this lab we will be using the Ubuntu VM.
-
 Please open it by clicking on the "Ubuntu Shell" icon:
 ![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/openshell.png)
 
