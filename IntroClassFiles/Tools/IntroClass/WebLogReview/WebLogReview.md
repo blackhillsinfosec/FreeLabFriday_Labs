@@ -9,7 +9,7 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Web Log Review
-#### Windows VM
+#### Please use the Windows VM
 
 <hr>
 
