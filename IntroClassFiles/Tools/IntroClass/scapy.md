@@ -56,12 +56,14 @@ What we’ll do in this lab:
 ### Expectations
 
 This lab shows the broad strokes of what Scapy can do inside a Python environment. It’s a hands-on way to begin understanding packet structure by seeing actual packets assembled and dissected. It won’t make you an expert in every Scapy capability — but it will give you a solid foundation so you can continue exploring on your own.
+
 <hr>
 
 ## Step 1: Starting Scapy
 
-Please open it by clicking on the "Ubuntu Shell" icon:
-![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/openshell.png)
+To begin, lets open a terminal.
+
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
 
 First, let's become root:
 
