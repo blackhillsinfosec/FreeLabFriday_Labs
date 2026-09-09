@@ -9,7 +9,10 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Velociraptor 
-### Lab Overview
+
+
+<hr>
+## Lab Overview
 In this lab we will be installing and using **Velociraptor** to look at the various IR artifacts on your computer.
 
 Check out their website here:
@@ -25,6 +28,7 @@ They also have offer training on their tool if you want to dig deeper.
 <pre>https://www.velocidex.com/training/</pre>
 
 Let's get started.
+
 <hr>
 
 ## Step 1: Installing Velociraptor
