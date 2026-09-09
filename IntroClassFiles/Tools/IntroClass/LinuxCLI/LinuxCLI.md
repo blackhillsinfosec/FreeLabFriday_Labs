@@ -81,7 +81,6 @@ ifconfig
 <img width="780" height="193" alt="Get_IPLinux" src="https://github.com/user-attachments/assets/212a2c89-6027-426a-bfde-0e459f995991" />
 
 
-
 >[!NOTE]
 >
 >**YOUR IP WILL BE DIFFERENT**
@@ -95,7 +94,6 @@ nc 172.31.90.102 2222
 >[!NOTE]
 >
 >**YOUR IP WILL BE DIFFERENT**
-
 
 It can be confusing to tell whether or not you are connected to the backdoor. 
 
@@ -120,7 +118,9 @@ At this point, we have created a backdoor with one terminal, and we have connect
 ## Step 3: Terminal 3
 
 Now, let's open yet another **Linux** Terminal and use this use for the purpose of analysis.  
-<br>
+
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
+
 Run the following:
 ```bash
 sudo su -
