@@ -9,10 +9,15 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # Windows CLI
-### Lab Overview
+#### Please use the Windows VM
+
+<hr>
+
+## Lab Overview
 In this lab, we will create **malware**, run it, and use the tools we went through in the slides to look at what an attack looks like on a live system.  
 
 One of the best ways to learn is to actually just dig in and do it.  
+
 <hr>
 
 ## Step 1: Disabling Defender & Windows Firewall
