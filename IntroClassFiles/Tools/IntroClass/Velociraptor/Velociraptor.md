@@ -196,7 +196,9 @@ This allows us to run commands on the target system.  Think of the commands that
 Please click on the **PowerShell** box and select **Cmd**.
 ![](attachment/velociraptor_powershelldropdown.png)
 
-Now, enter `netstat -naob` in the cmd box and select **"Launch"**.
+Now, enter the following in the cmd box and select **"Launch"**:
+
+<pre>netstat -naob</pre>
 
 This will not display the results right away. To see the results, select the **"Eye"** icon:
 ![](attachment/velociraptor_eye.png)
