@@ -33,8 +33,10 @@ For this lab we will be running **three** different Linux terminals.
 ## Step 1: Terminal 1
 <br>
 
-Start by opening a Terminal (or Ubuntu Shell).
-<br>
+To begin, lets open a terminal.
+
+![](/IntroClassFiles/Tools/IntroClass/attachmentsfornewlabs/terminalinubuntu.png)
+
 Then, run the following command:
 
 ```bash
