@@ -1,6 +1,17 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
+---
+
+This is a lab from **John Strand**'s **SOC Core Skills** Course:
+
+https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
+
+---
+
 # Scapy Lab
+
+<hr>
+
 ## Lab Objective
 In this lab we’ll use Scapy to demystify how network packets are assembled. The point isn’t to turn you into a Scapy wizard — it’s to give you a concrete, visual way to understand how packets are built, layer by layer, so you stop thinking about them as a single string of ones and zeros and start seeing them as stacked components.
 
