@@ -9,8 +9,13 @@ https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 ---
 
 # TCPDump
-### Lab Objective
+#### Please use the Ubuntu VM
+
+<hr>
+
+## Lab Objective
 In this lab, we will be looking at some basic **tcpdump** filters that every SOC and security analyst should know.
+
 <hr>
 
 ## Part 1: Running the Command.
