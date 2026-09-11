@@ -16,6 +16,7 @@ https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-wi
 
 ## Lab Objective
 In this lab, you will analyze a packet capture (PCAP) to identify and characterize advanced command-and-control (C2) activity hiding within otherwise normal-looking network traffic. Working through the capture, you will learn to separate benign communications from malicious beaconing, recognize the traffic patterns that reveal an established C2 channel, and pull out the indicators — destinations, intervals, protocols, and payload characteristics — that an analyst uses to confirm a compromise.<br>
+
 By the end, you will be able to move from a raw PCAP to a defensible conclusion about whether, how, and where a host is communicating with an attacker's infrastructure.
 
 <hr>
