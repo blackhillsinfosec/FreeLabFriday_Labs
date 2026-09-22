@@ -36,27 +36,3 @@ net use Z: /delete
 ```
 
 The machine has not been booted since the forensic image was taken. `jsmith` is still a valid local account.
-
----
-
-## Question
-
-You need to write one line in your incident report describing the nature of this threat. Which of the following is the most complete and accurate description?
-
----
-
-## Flags (Choose One)
-
-- **A)** A script set to delete project data on a fixed date, but only if the original user account is still active - a classic logic bomb with dual activation conditions
-- **B)** A scheduled cleanup script left behind by the user to remove their personal files after leaving, triggered by date alone
-- **C)** Ransomware that will encrypt files in the project directory when executed
-- **D)** A backdoor that uses PowerShell to establish a reverse shell to an external server
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Dormant_Malware.md)
