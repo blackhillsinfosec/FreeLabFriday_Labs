@@ -24,28 +24,3 @@ C:\Windows\Temp\diag_runner.exe
 ```
 
 The file exists on disk but has not been executed yet. The subscription has been in place for 11 days.
-
----
-
-## Question
-
-What will happen, and when?
-
----
-
-## Flags (Choose One)
-
-- **A)** Nothing - this is a standard WMI health monitoring subscription used by Windows internally
-- **B)** `diag_runner.exe` will execute every 60 seconds as long as WMI is running
-- **C)** `diag_runner.exe` will execute at 2:00 AM every Monday, triggered by the WMI time event
-- **D)** The subscription will fire once when the server is next rebooted, then delete itself
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Next Question](DM_hard.md)  
-[Back to Card's Main Page](../Dormant_Malware.md)
