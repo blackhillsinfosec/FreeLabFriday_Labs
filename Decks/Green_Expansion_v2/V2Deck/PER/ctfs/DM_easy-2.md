@@ -1,5 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
 # Easy CTF 2 - Registry Persistence Hunt
 
 You are analyzing a suspicious endpoint. A colleague exported the following registry key for you to review:
