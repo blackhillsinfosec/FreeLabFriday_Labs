@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Logic Bomb Investigation
+## Logic Bomb Investigation
 
 A recently terminated employee's workstation has been flagged. SIEM alerts showed no malicious activity during their employment. A forensic image of the machine was taken on their last day.
 
