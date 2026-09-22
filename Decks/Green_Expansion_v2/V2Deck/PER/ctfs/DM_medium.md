@@ -1,4 +1,4 @@
-## Medium CTF - WMI Event Subscription Analysis
+## WMI Event Subscription Analysis
 
 During a threat hunt, you query WMI event subscriptions on a server using PowerShell:
 
