@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Suspicious Scheduled Task
+## Suspicious Scheduled Task
 
 You are doing a routine review of a Windows workstation that was flagged by endpoint analysis. You run the following command to list scheduled tasks:
 
