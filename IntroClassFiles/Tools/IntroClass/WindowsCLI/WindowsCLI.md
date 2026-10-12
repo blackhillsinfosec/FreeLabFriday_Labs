@@ -252,12 +252,3 @@ Let's go through the steps we took to hunt for a malicious process.
 <hr>
 
 ## Lab Walkthrough With John Strand
-
-
-
-
-
- 
-
-
-
