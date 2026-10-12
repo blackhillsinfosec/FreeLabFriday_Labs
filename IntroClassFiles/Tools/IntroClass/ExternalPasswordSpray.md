@@ -212,3 +212,7 @@ In the action panel on the right you will need to click the refresh button.
 Now, we should be able to see the logs.
 
 <img width="1168" height="687" alt="image" src="https://github.com/user-attachments/assets/d78f04d6-b2f6-4c71-90b8-092a3467badd" />
+
+<hr>
+
+## Lab Walkthrough With John Strand
