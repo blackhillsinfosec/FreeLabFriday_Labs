@@ -287,3 +287,7 @@ The password is **adhd**
 
 
 As you can see, an error was generated, meaning that we were successful!
+
+<hr>
+
+## Lab Walkthrough With John Strand
