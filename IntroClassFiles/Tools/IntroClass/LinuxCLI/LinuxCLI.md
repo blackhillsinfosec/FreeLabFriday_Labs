@@ -203,15 +203,6 @@ To reveal more information in the output, press **"enter"**.
 ### Cleanup & Exiting
 To exit the running command, press **q**.
 
+<hr>
 
-
-
-
-
-
-
-
-
-
-
-
+## Lab Walkthrough With John Strand
