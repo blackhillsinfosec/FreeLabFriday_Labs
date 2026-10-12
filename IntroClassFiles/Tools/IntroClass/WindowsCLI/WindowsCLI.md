@@ -249,7 +249,9 @@ Let's go through the steps we took to hunt for a malicious process.
 
 4. We dug deeper to see all processes making connections, and confirmed our suspicions that the **process** was used **maliciously**, because `rundll32.exe` should never be making outbound **TCP connections**
 
+<hr>
 
+## Lab Walkthrough With John Strand
 
 
 
