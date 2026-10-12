@@ -70,4 +70,4 @@ When this command is complete, it should look like this:
 
 <hr>
 
-Lab Walkthrough With John Strand
+## Lab Walkthrough With John Strand
