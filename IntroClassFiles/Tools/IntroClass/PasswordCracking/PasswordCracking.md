@@ -67,3 +67,7 @@ When this command is complete, it should look like this:
 <img width="1158" height="347" alt="img1" src="https://github.com/user-attachments/assets/37d01dca-7ffd-4dc3-a88e-5212d88b40d7" />
 
 <img width="573" height="329" alt="img2" src="https://github.com/user-attachments/assets/7f20975c-c121-406d-937d-e251455166fe" />
+
+<hr>
+
+Lab Walkthrough With John Strand
