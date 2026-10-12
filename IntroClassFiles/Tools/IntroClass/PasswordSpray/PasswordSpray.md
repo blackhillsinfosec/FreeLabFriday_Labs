@@ -113,3 +113,7 @@ user-remove.bat
 Let this run all the way through. 
 
 **Even though it looks endless, it's not!**
+
+<hr>
+
+## Lab Walkthrough with John Strand
