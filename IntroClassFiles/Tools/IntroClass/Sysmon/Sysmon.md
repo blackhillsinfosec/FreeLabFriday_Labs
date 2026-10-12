@@ -208,3 +208,7 @@ You'll have to scroll down a bit until you find the **Sysmon** folder.
 Start at the top and work down through the logs, you should see your **malware** executing.  Please note your paths may be different.
 
 <img width="1325" height="938" alt="2026-03-13_16-45" src="https://github.com/user-attachments/assets/e1038335-5dce-4384-a98d-5683adda1608" />
+
+<hr>
+
+## Lab Walkthrough With John Strand
