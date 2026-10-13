@@ -58,20 +58,10 @@ A plan does not need to be perfect. It just needs to exist and be practiced.
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/cm-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/crisis-management?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Log Triage](ctfs/CM_easy-1.md)
-- [Easy 2 – Identifying the Scope](ctfs/CM_easy-2.md)
-- [Medium – Containment Decision](ctfs/CM_medium.md)
-- [Hard – Full Incident Reconstruction](ctfs/CM_hard.md)
--->
 ---
 
 Crisis management is not glamorous, but it is what separates a recoverable incident from a catastrophic one. The defenders who respond well under pressure are almost always the ones who prepared before anything went wrong.
