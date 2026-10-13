@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Tracing the Execution Chain
+## Tracing the Execution Chain
 
 During an incident response, you collect the following sequence of events from Windows Event Logs and Sysmon on a compromised server:
 
@@ -22,28 +20,3 @@ During an incident response, you collect the following sequence of events from W
 ```
 
 You also find the WMI service has its failure action set to run `C:\ProgramData\MSUpdate\updater32.exe`.
-
----
-
-## Question
-
-Based on the event chain, what is the correct order of attacker operations?
-
----
-
-## Flags (Choose One)
-
-- **A)** Malware dropped -> service crashed naturally -> payload executed -> C2 connection established
-- **B)** C2 connection established -> payload executed -> service failure action modified -> service crashed
-- **C)** Service crashed -> payload executed -> failure action modified -> C2 connection established
-- **D)** Service failure action modified -> service crashed (forced or natural) -> payload executed as SYSTEM -> C2 connection established
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](SRH_hard.md)
-[Back to Card's Main Page](../Service_Recovery_Hijacking.md)
