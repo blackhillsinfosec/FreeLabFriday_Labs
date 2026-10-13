@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 – The Forgotten Admin Panel
+## The Forgotten Admin Panel
 
 You’re doing external recon for a permitted engagement. A single public IP is in scope.
 
@@ -26,30 +26,3 @@ You also notice the server responds differently depending on the URL:
 ## Goal
 
 Pick the **most likely** initial path to get a foothold **fast** (CTF-style), based on what you see.
-
----
-
-## Question
-
-What should you try first?
-
----
-
-## Flags (Choose One)
-
-- **A)** Launch a full credential stuffing campaign against the domain  
-- **B)** Check for **unauthenticated exposure** via Jenkins endpoints/API and misconfigurations  
-- **C)** Attempt SQL injection against the login form  
-- **D)** Pivot internally using ARP spoofing  
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](ESE_easy-2.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)
