@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF – Deception-Based Detection Scenario
+## Deception-Based Detection Scenario
 
 During an incident, you see the following timeline:
 
@@ -12,28 +10,3 @@ During an incident, you see the following timeline:
 ```
 
 The credentials were intentionally fake and only existed for detection purposes.
-
----
-
-## Question
-
-What is the strongest conclusion you can draw?
-
----
-
-## Flags (Choose One)
-
-- **A)** The cloud provider leaked credentials
-- **B)** A penetration test is automatically running
-- **C)** The alerts are unrelated and can be ignored
-- **D)** An attacker stole and attempted to use decoy credentials
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Active_Defense_And_Cyber_Deception.md)
