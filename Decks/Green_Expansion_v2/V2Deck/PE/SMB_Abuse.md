@@ -70,12 +70,9 @@ Detection is possible, but it requires proper logging and tuning - environments 
 
 ## CTF Challenges
 
-You will solve four challenges related to SMB abuse:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Captured Hash](ctfs/SMB_easy-1.md)
-- [Easy 2 - Poisoned Network](ctfs/SMB_easy-2.md)
-- [Medium - Relay Attack](ctfs/SMB_medium.md)
-- [Hard - Full Domain Compromise](ctfs/SMB_hard.md)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/smb-ctf-quiz)
 
 ---
 
