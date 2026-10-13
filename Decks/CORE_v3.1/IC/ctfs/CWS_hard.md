@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF – Full Server Compromise
+## Full Server Compromise
 
 During an investigation, you are given these facts:
 
@@ -9,29 +7,3 @@ During an investigation, you are given these facts:
 - One of the **passwords** cracked was reused for **SSH**
 - **SSH access** was gained as a normal **user**
 - **Privilege escalation** was later detected via a **kernel exploit**
-
----
-
-## Question
-
-Which **attack chain** best describes what happened?
-
----
-
-## Flags (Choose One)
-
-- **A)** XSS -> CSRF -> RCE -> Root
-- **B)** Brute Force -> DDoS -> Defacement
-- **C)** Phishing -> Malware -> Lateral Movement
-- **D)** SQLi -> Credential Reuse -> SSH -> Privilege Escalation
-
----
-
-Correct Flag: **D**
-
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Compromised_Web_Server.md)
