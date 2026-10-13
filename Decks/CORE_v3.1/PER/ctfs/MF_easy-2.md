@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - UEFI Boot Anomaly
+## UEFI Boot Anomaly
 
 A technician is investigating a machine that keeps re-infecting itself after full OS reinstalls. They pull the CHIPSEC report and notice the following:
 
@@ -17,28 +15,3 @@ A technician is investigating a machine that keeps re-infecting itself after ful
 ```
 
 The machine had its OS reinstalled three times. The malware keeps coming back.
-
----
-
-## Question
-
-Why does reinstalling the operating system fail to remove the infection?
-
----
-
-## Flags (Choose One)
-
-- **A)** The malware is stored in the firmware, which the OS installer never touches
-- **B)** The OS installer is also infected and reinstalls the malware automatically
-- **C)** The hard drive is write-protected, preventing the installer from working
-- **D)** The malware is hiding in a second user account that survives reinstalls
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Next Question](MF_medium.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/PER/Malicious_Firmware.md)
