@@ -63,20 +63,10 @@ The tools listed on this card are used both by attackers and by red teamers simu
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/mbp-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/malicious-browser-plugins?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Suspicious Extension](ctfs/MBP_easy-1.md)
-- [Easy 2 – Stolen Cookie](ctfs/MBP_easy-2.md)
-- [Medium – BeEF Hooked Session](ctfs/MBP_medium.md)
-- [Hard – Full Plugin Compromise Chain](ctfs/MBP_hard.md)
--->
 ---
 
 ## Labs
