@@ -51,20 +51,10 @@ Because AD attacks rely heavily on querying directory objects and authenticating
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/wad-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/pivot-escalate/weaponizing-active-directory?page=2)
-
-<!--
-- [Easy 1 – Reading the Map](ctfs/WAD_easy-1.md)
-- [Easy 2 – Trust Issues](ctfs/WAD_easy-2.md)
-- [Medium – ACL Abuse](ctfs/WAD_medium.md)
-- [Hard – Full Domain Takeover](ctfs/WAD_hard.md)
--->
 ---
 
 ## Labs
