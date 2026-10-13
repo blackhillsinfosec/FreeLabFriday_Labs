@@ -58,13 +58,9 @@ In many real cases, the compromise is only discovered after damage has already b
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this CTF quiz!
+You will work through four challenges that put these concepts into practice:
 
-
-- [Easy 1 – Simple Web Exploit](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/cws-ctf-quiz/#simple-web-exploit)
-- [Easy 2 – Basic Log Investigation](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/cws-ctf-quiz/#basic-log-investigation)
-- [Medium – Post-Exploitation](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/cws-ctf-quiz/#post-exploitation)
-- [Hard – Full Server Takeover](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/cws-ctf-quiz/#full-server-compromise)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/cws-ctf-quiz)
 
 ---
 
