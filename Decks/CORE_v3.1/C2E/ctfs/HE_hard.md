@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Exfil Hunt
+## Full Exfil Hunt
 
 You are a SOC analyst. An alert fired overnight and you are reconstructing what happened using logs from three different sources.
 
@@ -34,27 +32,3 @@ You are a SOC analyst. An alert fired overnight and you are reconstructing what 
               - associated domain: cdn-assets-delivery.net
               - first seen: 6 days ago
 ```
-
----
-
-## Question
-
-Based on all three log sources combined, which conclusion best describes the full attack chain?
-
----
-
-## Flags (Choose One)
-
-- **A)** A finance user manually uploaded a report to a cloud CDN, which happens to share an IP with a known bad actor
-- **B)** rundll32.exe staged and exfiltrated a financial report and saved browser credentials to a known Mythic C2 server over HTTPS, likely as part of a coordinated intrusion
-- **C)** The SIEM generated a false positive - rundll32.exe is a legitimate Windows process and HTTPS traffic to port 443 is normal
-- **D)** The endpoint was running a backup agent that compressed and uploaded files on a schedule
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/HTTPS_As_Exfil.md)
