@@ -13,28 +13,3 @@ Start Type:    Automatic
 ```
 
 Everything else on the list looks normal.
-
----
-
-## Question
-
-What should immediately raise a red flag about this service?
-
----
-
-## Flags (Choose One)
-
-- **A)** The service is set to start automatically
-- **B)** The binary is located in a user-writable public directory, not a system path
-- **C)** The service name contains numbers
-- **D)** The display name is too similar to a real Windows service
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Next Question](MS_easy-2.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/PER/Malicious_Service.md)
