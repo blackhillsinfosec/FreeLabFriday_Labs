@@ -60,12 +60,9 @@ The tricky part is that a lot of this activity looks like normal admin behavior 
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this CTF quiz!
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 – Exposed Config File](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#exposed-config-file)
-- [Easy 2 – Credential in a Share](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#credential-in-a-share)
-- [Medium – Memory Dump Analysis](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#memory-dump-analysis)
-- [Hard – Full Credential Chain](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#full-credential-chain)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz)
 
 ---
 
