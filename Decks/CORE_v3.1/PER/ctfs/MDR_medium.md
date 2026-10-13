@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Memory Forensics
+## Memory Forensics
 
 A threat hunter runs a memory dump on a suspected endpoint and uses a tool to list all kernel modules currently loaded. The output shows the following:
 
@@ -16,28 +14,3 @@ Offset      Name              Base         Size
 ```
 
 The last entry has no name, is not listed in the Process Environment Block, and does not appear in the driver list visible from the OS.
-
----
-
-## Question
-
-What does the `[NOT IN PEB]` tag and missing name most likely indicate?
-
----
-
-## Flags (Choose One)
-
-- **A)** The driver was unloaded but left a memory artifact
-- **B)** This is a standard Windows driver loaded early in boot before logging starts
-- **C)** The memory dump is corrupted and this entry should be ignored
-- **D)** A rootkit driver is hiding itself from the operating system's own driver list
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](MDR_hard.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/PER/Malicious_Driver.md)
