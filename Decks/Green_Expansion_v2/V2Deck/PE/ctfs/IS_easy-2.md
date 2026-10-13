@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 2 - Header Hunt
+## Header Hunt
 
 You are analyzing the raw headers of an internal email flagged by your SIEM. The email claims to be from the IT helpdesk asking users to verify their VPN credentials.
 
