@@ -58,13 +58,9 @@ The detection methods on this card target exactly this blind spot:
 
 ## CTF Challenges
 
-Test your understanding with these scenarios:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Spot the Device](ctfs/PME_easy-1.md)
-- [Easy 2 - Log the Copy](ctfs/PME_easy-2.md)
-- [Medium - The Insider](ctfs/PME_medium.md)
-- [Hard - Full Exfil Chain](ctfs/PME_hard.md)
-
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/c2e/ctfs/pme-ctf-quiz)
 
 ---
 
