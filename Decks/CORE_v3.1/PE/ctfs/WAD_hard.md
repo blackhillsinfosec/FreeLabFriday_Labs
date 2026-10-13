@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Domain Takeover
+## Full Domain Takeover
 
 Your SOC receives an alert at 01:30 AM. A UEBA rule fired on a service account called `svc_backup`. The account normally only runs scheduled backup jobs on one server between 11 PM and midnight.
 
@@ -22,27 +20,3 @@ svc_backup -> [GetChangesAll] -> Domain (corp.local)
 ```
 
 The `GetChangesAll` permission allows a principal to request replication of all AD data, including password hashes.
-
----
-
-## Question
-
-Based on the full chain of events, what attack was successfully carried out?
-
----
-
-## Flags (Choose One)
-
-- **A)** Pass-the-Hash attack using a stolen NTLM hash from a local workstation
-- **B)** A DCSync attack leveraging a misconfigured ACL on the domain object to extract all password hashes, including the krbtgt account
-- **C)** A brute force attack against the Domain Controller's RDP service
-- **D)** Kerberoasting - requesting service tickets for offline password cracking
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/WAD_main.md)
