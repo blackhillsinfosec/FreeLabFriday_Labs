@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Attack Reconstruction
+## Full Attack Reconstruction
 
 You are the lead responder on a compromised domain-joined workstation. You have collected the following evidence:
 
@@ -34,27 +32,3 @@ Hash (SHA256): a3f1c8e2...
 ```
 
 **No Event ID 7034 (service crash) is present in the System log.**
-
----
-
-## Question
-
-The absence of Event ID 7034 combined with the rest of the evidence points to which conclusion?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attack failed because the service never crashed and the payload never ran
-- **B)** The attacker manually triggered the failure action using sc.exe control without crashing the service, and then cleared logs to hide the crash record
-- **C)** The Event Log service was deliberately stopped by the attacker to force a crash and trigger the payload, and 7034 was cleared along with the rest of the audit log
-- **D)** The payload ran under a scheduled task, not via the service recovery mechanism, making this a different technique entirely
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Service_Recovery_Hijacking.md)
