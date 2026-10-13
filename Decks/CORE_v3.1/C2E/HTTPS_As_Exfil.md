@@ -60,20 +60,10 @@ Detection is hard. That's the whole point of this technique. But it's not imposs
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/he-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/c2-exfiltration/https-as-exfil?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Spot the Beacon](ctfs/HE_easy-1.md)
-- [Easy 2 – Log Pattern Analysis](ctfs/HE_easy-2.md)
-- [Medium – C2 Traffic Investigation](ctfs/HE_medium.md)
-- [Hard – Full Exfil Hunt](ctfs/HE_hard.md)
--->
 ---
 
 ## Labs
