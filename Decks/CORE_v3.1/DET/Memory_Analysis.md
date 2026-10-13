@@ -57,20 +57,10 @@ Once you have the image, analysis tools parse it against OS profiles to make sen
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/ma-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/memory-analysis?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Process Hunt](ctfs/MA_easy-1.md)
-- [Easy 2 – String Extraction](ctfs/MA_easy-2.md)
-- [Medium – Injected Process](ctfs/MA_medium.md)
-- [Hard – Full Memory Investigation](ctfs/MA_hard.md)
--->
 ---
 
 ## Labs
