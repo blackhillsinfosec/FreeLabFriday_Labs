@@ -58,12 +58,9 @@ Since the technique hides inside legitimate processes, defenders have to look ca
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 – Wrong Place, Right Name](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz/#wrong-place-right-name)
-- [Easy 2 – Missing DLL Hunt](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz/#missing-dll-hunt)
-- [Medium – Privilege Through a Hijacked Load](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz/#privilege-through-a-hijacked-load)
-- [Hard – Persistence via Boot-Time Hijack](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz/#persistence-via-boot-time-hijack)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz)
 
 ---
 
