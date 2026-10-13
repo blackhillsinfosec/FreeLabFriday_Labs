@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - String Extraction
+## String Extraction
 
 You dump the memory of a suspicious process and run `strings` against it. Among the output, you find the following lines:
 
@@ -14,28 +12,3 @@ Host: 185.220.101.47
 ```
 
 The process that owns this memory region is `invoice_april.pdf.exe`.
-
----
-
-## Question
-
-Based on the strings found in memory, what is the most accurate description of what this process was doing?
-
----
-
-## Flags (Choose One)
-
-- **A)** Creating a backdoor admin account and beaconing out to a C2 server
-- **B)** Running a Windows Update in the background
-- **C)** Performing a legitimate network connectivity check
-- **D)** Scanning the local network for open ports
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Next Challenge](MA_medium.md)  
-[Back to Card's Main Page](../Memory_Analysis.md)
