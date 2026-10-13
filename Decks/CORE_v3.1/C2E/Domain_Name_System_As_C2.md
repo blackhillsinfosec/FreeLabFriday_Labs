@@ -68,19 +68,11 @@ A single weird DNS query probably won't trigger anything. Defenders look for pat
 
 Put your knowledge of the topic to the test with this online quiz!
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Easy 1 – DNS Query Analysis](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz/#dns-query-analysis)
+- [Easy 2 – Spotting Tunneled Traffic](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz/#spotting-tunneled-traffic)
+- [Medium – C2 Beacon Identification](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz/#c2-beacon-identification)
+- [Hard – Full DNS C2 Reconstruction](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz/#full-dns-c2-reconstruction)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/c2-exfiltration/domain-name-system-dns-as-c2?client=bb-box-panorama&page=2)
-
-<!--
-
-- [Easy 1 – DNS Query Analysis](ctfs/DNS_easy-1.md)
-- [Easy 2 – Spotting Tunneled Traffic](ctfs/DNS_easy-2.md)
-- [Medium – C2 Beacon Identification](ctfs/DNS_medium.md)
-- [Hard – Full DNS C2 Reconstruction](ctfs/DNS_hard.md)
--->
 ---
 
 ## Labs
