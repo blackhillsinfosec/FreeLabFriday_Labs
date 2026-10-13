@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Internal Spray Campaign
+## Full Internal Spray Campaign
 
 You are a senior analyst on an incident response call. An alert fired from your deception platform — a honeypot account called `svc.legacy` (which has never been used by any real employee) just had a successful login from `10.10.5.88`.
 
@@ -26,27 +24,3 @@ Followed by: whoami /groups, net localgroup administrators
 No suspicious outbound connections detected
 All traffic is internal
 ```
-
----
-
-## Question
-
-Based on all three sources, what is the most accurate description of what happened and what stage the attacker is currently at?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attacker successfully sprayed credentials, but the honeypot alert is a false positive — `svc.legacy` was probably a scheduled task
-- **B)** The attacker completed a spray, gained two valid accounts, used `p.nguyen` to authenticate to the domain controller, and is now performing privilege enumeration — lateral movement is actively in progress
-- **C)** The attacker only compromised the honeypot account and has not moved anywhere yet; the `net use` command is unrelated
-- **D)** The spray was detected and blocked before any credentials were confirmed, and the EDR alert is from a previous unrelated incident
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Internal_Password_Spray.md)
