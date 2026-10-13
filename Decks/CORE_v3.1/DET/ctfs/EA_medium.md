@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Persistence Mechanism
+## Persistence Mechanism
 
 During an incident investigation, you run DeepBlueCLI against the System and Security event logs of a compromised machine. Among other findings, you pull the following registry key manually:
 
@@ -25,28 +23,3 @@ You also find this in the PowerShell operational log:
       ...
   }
 ```
-
----
-
-## Question
-
-Based on the evidence above, which statement best describes what the attacker set up on this machine?
-
----
-
-## Flags (Choose One)
-
-- **A)** A keylogger that captures credentials and sends them via email on reboot
-- **B)** A scheduled task that runs Windows Update silently to avoid detection
-- **C)** A reverse shell payload disguised as a Windows Update helper, set to run at every user login via a registry Run key
-- **D)** A port scanner embedded in a startup script used to map the internal network
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Next Question](EA_hard.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/EA/Endpoint_Analysis.md)
