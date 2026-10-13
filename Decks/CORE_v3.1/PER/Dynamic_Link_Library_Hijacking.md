@@ -60,18 +60,11 @@ Since the technique hides inside legitimate processes, defenders have to look ca
 
 Put your knowledge of the topic to the test with this online quiz!
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Easy 1 – Wrong Place, Right Name](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz/#wrong-place-right-name)
+- [Easy 2 – Missing DLL Hunt](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz/#missing-dll-hunt)
+- [Medium – Privilege Through a Hijacked Load](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz/#privilege-through-a-hijacked-load)
+- [Hard – Persistence via Boot-Time Hijack](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/dll-ctf-quiz/#persistence-via-boot-time-hijack)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/dynamic-link-library-dll-hijacking?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Wrong Place, Right Name](ctfs/DLL_easy-1.md)
-- [Easy 2 – Missing DLL Hunt](ctfs/DLL_easy-2.md)
-- [Medium – Privilege Through a Hijacked Load](ctfs/DLL_medium.md)
-- [Hard – Persistence via Boot-Time Hijack](ctfs/DLL_hard.md)
--->
 ---
 
 ## Labs
