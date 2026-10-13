@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF – Incident Timeline Reconstruction
+## Incident Timeline Reconstruction
 
 You are given firewall logs collected during a suspected breach:
 
@@ -13,28 +11,3 @@ You are given firewall logs collected during a suspected breach:
 
 Host `10.0.0.20` is a public-facing web server.  
 Host `10.0.3.15` is an internal workstation.
-
----
-
-## Question
-
-What is the most likely sequence of events?
-
----
-
-## Flags (Choose One)
-
-- **A)** Normal user browsing followed by software updates  
-- **B)** DNS cache refresh activity
-- **C)** Backup replication between servers  
-- **D)** External access to web server, then pivot to internal host and outbound communication  
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Firewall_Log_Analysis.md)
