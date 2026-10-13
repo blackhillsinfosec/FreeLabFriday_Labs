@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Spot the Service
+## Spot the Service
 
 A junior analyst is reviewing the services installed on a Windows endpoint that was flagged by the SIEM. They pull the service list and notice this entry among the usual system services:
 
