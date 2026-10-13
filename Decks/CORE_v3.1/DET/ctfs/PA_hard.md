@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Cloud IAM Escalation
+## Cloud IAM Escalation
 
 You are reviewing an AWS environment with Prowler after a suspicious API call was logged by CloudTrail:
 
@@ -21,27 +19,3 @@ Prowler also flags this in its output:
 [HIGH] iam_policy_attached_no_admin_privileges
 FAIL - dev-ci-runner has AdministratorAccess attached
 ```
-
----
-
-## Question
-
-What actually happened here, and what made this escalation possible in the first place?
-
----
-
-## Flags (Choose One)
-
-- **A)** The CI/CD account had `iam:AttachUserPolicy` permissions in its original policy, which allowed it to attach AdministratorAccess to itself - a classic IAM privilege escalation
-- **B)** An insider threat manually logged into AWS Console and attached the policy through the UI
-- **C)** Prowler misidentified the finding; `iam:AttachUserPolicy` is a standard CI/CD permission with no security impact
-- **D)** The attacker exploited a vulnerability in the AWS IAM API to bypass policy restrictions
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Permissions_Audit.md)
