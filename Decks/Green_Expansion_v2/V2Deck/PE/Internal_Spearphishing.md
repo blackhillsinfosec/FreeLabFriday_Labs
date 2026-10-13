@@ -64,12 +64,9 @@ None of these is a magic solution. A skilled attacker who moves slowly and mimic
 
 ## CTF Challenges
 
-Four challenges to test what you know:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Suspicious Sender](ctfs/IS_easy-1.md)
-- [Easy 2 - Header Hunt](ctfs/IS_easy-2.md)
-- [Medium - SIEM Alert Triage](ctfs/IS_medium.md)
-- [Hard - Full Campaign Reconstruction](ctfs/IS_hard.md)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/is-ctf-quiz)
 
 ---
 
