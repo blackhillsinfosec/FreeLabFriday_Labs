@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Attack Chain Investigation
+## Full Attack Chain Investigation
 
 You receive an alert for unusual cloud activity.
 
@@ -15,28 +13,3 @@ Timeline:
 ```
 
 Further review shows the attacker used only a few common passwords during the initial phase.
-
----
-
-## Question
-
-Which step most clearly shows the attacker establishing **persistence**?
-
----
-
-## Flags (Choose One)
-
-- **A)** Multiple failed logins  
-- **B)** MFA registration changed  
-- **C)** Large data download  
-- **D)** Initial successful login  
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Password_Spray.md)
