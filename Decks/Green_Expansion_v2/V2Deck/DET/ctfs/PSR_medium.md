@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Social Engineering Scenario
+## Social Engineering Scenario
 
 You are reviewing an incident report. A USB drive was found plugged into a workstation in the accounting department. The drive contained a keylogger. CCTV footage and badge logs are available.
 
@@ -28,30 +26,3 @@ You are reviewing an incident report. A USB drive was found plugged into a works
 - V-17 signed in by receptionist at 09:03
 - No escort was assigned
 - V-17 was not accompanied at any point during the visit
-
----
-
-## Question
-
-Which combination of policy failures most directly allowed this incident to happen?
-
----
-
-## Flags (Choose One)
-
-- **A)** Weak passwords on workstations and no screen lock policy
-- **B)** No visitor escort policy and an employee holding the door open without checking identity
-- **C)** The badge system did not log the 09:02 entry and IT was not notified
-- **D)** The CCTV system failed to alert security in real time when a tailgate was detected
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](PSR_hard.md)
-
-[Back to Card's Main Page](../Physical_Security_Review.md)
