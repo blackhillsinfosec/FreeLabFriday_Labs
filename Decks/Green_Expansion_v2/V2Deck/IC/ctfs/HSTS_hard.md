@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full MITM Attack
+## Full MITM Attack
 
 You are conducting a post-incident forensic review. An attacker positioned themselves between a victim and the internet on a corporate guest Wi-Fi network. The following is a reconstructed timeline from firewall logs, ARP tables, and traffic captures.
 
@@ -27,27 +25,3 @@ You are conducting a post-incident forensic review. An attacker positioned thems
 
 **Browser behavior:**  
 The victim's browser had never visited the site before, so no cached HSTS policy existed. The browser followed the HTTP redirect without complaint.
-
----
-
-## Question
-
-Four junior analysts reviewed this incident and each gave a different root cause. Which analyst is correct?
-
----
-
-## Flags (Choose One)
-
-- **A)** *Analyst 1:* "The attacker broke the server's SSL certificate. The real fix is to renew it more frequently."
-- **B)** *Analyst 2:* "The victim's browser is outdated and should have blocked the HTTP connection automatically regardless of server config."
-- **C)** *Analyst 3:* "The server never sent an HSTS header, so the browser had no instruction to enforce HTTPS. Combined with ARP poisoning, the attacker intercepted the first HTTP request before a secure channel was established."
-- **D)** *Analyst 4:* "The firewall failed to block the attacker's MAC address. HSTS is irrelevant here because the attack happened at Layer 2."
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Exploitation_Of_Missing_HSTS.md)
