@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 – Default Creds, Real Consequences
+## Default Creds, Real Consequences
 
 You find an externally reachable service on a target host
 
@@ -19,30 +17,3 @@ When you visit `/manager/html`, you get a browser authentication prompt (Basic A
 ## Goal
 
 Pick the most likely way a red team gets in **first**, before spending time on anything fancy
-
----
-
-## Question
-
-What most likely leads to access here?
-
----
-
-## Flags (Choose One)
-
-- **A)** The service is only vulnerable to a zero-day  
-- **B)** The manager interface is exposed and protected by **weak/default credentials**  
-- **C)** The page is harmless because it uses HTTPS  
-- **D)** The correct approach is to phish an employee first  
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](ESE_medium.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)
