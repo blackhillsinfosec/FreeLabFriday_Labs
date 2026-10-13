@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Domain-Wide Persistence
+## Domain-Wide Persistence
 
 Your incident response team is called in after an alert fires on a domain controller. You pull the following artifacts during your investigation.
 
@@ -30,27 +28,3 @@ Invoke-Expression $r.Content
 - `03:42` - C2 agent deployed as SYSTEM
 - `03:42` - SYSVOL modified, GPO updated with malicious logon script
 - `03:45` d First non-DC machine checks in to C2 after user login
-
----
-
-## Question
-
-Given all the evidence above, what is the correct sequence of events that led to domain-wide compromise?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attacker phished a user, gained local admin, then escalated through a kernel exploit to reach the domain controller
-- **B)** The attacker brute-forced the domain admin password, then manually copied a script to each machine's startup folder
-- **C)** The attacker used a previously dumped hash to authenticate to the DC, deployed a C2 agent as SYSTEM, modified a GPO to add a malicious logon script to SYSVOL, and achieved persistent code execution across the entire domain
-- **D)** A misconfigured scheduled task on the DC caused a legitimate script to be replicated incorrectly to all machines through SYSVOL
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Logon_Scripts.md)
