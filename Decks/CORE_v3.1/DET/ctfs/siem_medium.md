@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF – Multi-Source Investigation
+## Multi-Source Investigation
 
 Your SIEM ingests logs from endpoint, DNS, and authentication sources.
 
@@ -14,30 +12,3 @@ You observe the following timeline:
 ```
 
 The user reports only opening an email attachment.
-
----
-
-## Question
-
-What is the most likely scenario?
-
----
-
-## Flags (Choose One)
-
-- **A)** Normal software update
-- **B)** User manually ran a maintenance script
-- **C)** Phishing attachment leading to malicious script execution
-- **D)** SIEM false positive from DNS logs
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Next Question](siem_hard.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Security_Informations_And_Event_Management_Log_Analysis.md)
