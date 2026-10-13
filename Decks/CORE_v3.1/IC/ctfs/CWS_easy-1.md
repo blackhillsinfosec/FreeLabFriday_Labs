@@ -6,9 +6,8 @@ A small company hosts a login page for internal staff. During testing, you notic
 
 Your goal is to identify what type of vulnerability is present.
 
----
 
-## Observation
+### Observation
 
 When entering:
 
