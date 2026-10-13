@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 2 - USB Drop Investigation
+## USB Drop Investigation
 
 A USB device was found in a company parking lot and, unfortunately, someone plugged it in. The endpoint security tool logged the following activity seconds after it was connected:
 
