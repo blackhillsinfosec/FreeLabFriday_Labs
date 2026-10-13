@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full C2 Takedown
+## Full C2 Takedown
 
 Your team has been tracking a suspected intrusion for 48 hours. Here is what you have confirmed so far:
 
@@ -12,28 +10,3 @@ Your team has been tracking a suspected intrusion for 48 hours. Here is what you
 - No lateral movement has been confirmed yet, but the machine has access to an internal file share
 
 You need to contain the threat, preserve evidence for investigation, and disrupt the C2 infrastructure.
-
----
-
-## Question
-
-Which sequence of actions is the most operationally correct response?
-
----
-
-## Flags (Choose One)
-
-- **A)** Isolate the host from the network, capture a full memory dump, then report the fronted domain and Host header details to Cloudflare's abuse team
-- **B)** Delete the Sliver binary from disk and remove the scheduled task, then monitor for reinfection
-- **C)** Block all outbound port 443 traffic at the perimeter firewall until the investigation is complete
-- **D)** Reimage the machine immediately to prevent lateral movement before it starts
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](../Domain_Fronting_As_C2.md)
