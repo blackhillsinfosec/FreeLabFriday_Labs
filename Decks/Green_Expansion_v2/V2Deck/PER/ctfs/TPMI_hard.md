@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Supply Chain Compromise
+## Full Supply Chain Compromise
 
 You are a security analyst at a mid-sized fintech company. A threat intelligence feed flags one of your dependencies - `payment-sdk@4.1.2` - as potentially backdoored. You start investigating.
 
@@ -36,28 +34,3 @@ node (app)
 2024-03-02 02:17:33  LOGIN SUCCESS  user=svc_payment  src=194.165.16.78  method=token
 2024-03-09 01:58:11  LOGIN SUCCESS  user=svc_payment  src=194.165.16.78  method=token
 ```
-
----
-
-## Question
-
-Based on all the evidence above, which statement most accurately describes what happened and what the attacker currently has?
-
----
-
-## Flags (Choose One)
-
-- **A)** The SDK hash mismatch is a registry sync error. The network traffic to 194.165.16.78 is suspicious but there is no confirmed credential theft since the login method shows "token" not "password".
-- **B)** The compromised SDK exfiltrated a service account token to the attacker's server. The attacker used that token to authenticate as svc_payment twice, meaning they have active access to whatever that account can reach.
-- **C)** The SDK is backdoored and called home, but since the POST body is just sending the hostname and username, no sensitive credentials were exposed. The logins from 194.165.16.78 are likely automated health checks.
-- **D)** The SDK hash mismatch and outbound HTTP traffic confirm a supply chain compromise, but the attacker only has read access because the exfiltrated data went over unencrypted HTTP which your perimeter should have blocked.
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](../Third-Party_Malware_Injection.md)
