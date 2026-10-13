@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Log the Copy
+## Log the Copy
 
 You are reviewing endpoint logs after a security review flagged an anomaly. You find the following entries on a workstation in the finance department:
 
@@ -13,28 +11,3 @@ You are reviewing endpoint logs after a security review flagged an anomaly. You 
 ```
 
 The workstation was unattended at the time. Badge records show no authorized IT personnel entered the area.
-
----
-
-## Question
-
-What do these logs most likely indicate?
-
----
-
-## Flags (Choose One)
-
-- **A)** An automated backup job ran successfully
-- **B)** A software update was being installed from external media
-- **C)** Sensitive files were copied to a USB drive without authorization
-- **D)** The endpoint antivirus was scanning an external device
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Next Question](PME_medium.md)
-[Back to Card's Main Page](../Physical_Medium_as_Exfil.md)
