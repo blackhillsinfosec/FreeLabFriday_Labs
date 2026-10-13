@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Poisoned Network
+## Poisoned Network
 
 You are reviewing SIEM alerts from the past hour. One alert stands out:
 
@@ -13,28 +11,3 @@ You are reviewing SIEM alerts from the past hour. One alert stands out:
 ```
 
 Shortly after, several workstations attempted to authenticate to 192.168.1.99.
-
----
-
-## Question
-
-What is the attacker at 192.168.1.99 most likely trying to do?
-
----
-
-## Flags (Choose One)
-
-- **A)** Perform a denial of service attack against the file server
-- **B)** Intercept NTLM authentication hashes by impersonating a known network resource
-- **C)** Scan the network for open SMB ports
-- **D)** Brute force the administrator account on FILESERVER
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Next Question](SMB_medium.md)
-[Back to Card's Main Page](../SMB_Abuse.md)
