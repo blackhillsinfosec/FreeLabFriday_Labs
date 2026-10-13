@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Registry Persistence
+## Registry Persistence
 
 You are investigating a machine that keeps re-infecting itself after the malware file is deleted. You pull the registry hive and find the following entry:
 
@@ -12,28 +10,3 @@ HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run
 ```
 
 The legitimate `svchost.exe` lives in `C:\Windows\System32\`.
-
----
-
-## Question
-
-What technique is the attacker using here?
-
----
-
-## Flags (Choose One)
-
-- **A)** DLL hijacking via a missing library
-- **B)** Privilege escalation through token impersonation
-- **C)** Persistence via a registry Run key with a masquerading binary
-- **D)** A scheduled task set to run at user logon
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Next Question](EPA_medium.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Endpoint_Security_Protection_Analysis.md)
