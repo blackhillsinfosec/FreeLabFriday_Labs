@@ -71,12 +71,9 @@ A five-dollar tailgate through a badge door can bypass a million dollars of netw
 
 ## CTF Challenges
 
-You will solve four challenges related to physical security concepts:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Badge and Entry Basics](ctfs/PSR_easy-1.md)
-- [Easy 2 - Surveillance Gap Analysis](ctfs/PSR_easy-2.md)
-- [Medium - Social Engineering Scenario](ctfs/PSR_medium.md)
-- [Hard - Full Physical Intrusion Simulation](ctfs/PSR_hard.md)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/det/ctfs/psr-ctf-quiz)
 
 ---
 
