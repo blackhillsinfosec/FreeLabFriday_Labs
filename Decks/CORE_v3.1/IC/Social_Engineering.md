@@ -65,20 +65,10 @@ Behavioral anomalies - such as unusual logins, strange data access, or unexpecte
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/se-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/initial-compromise/social-engineering?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Suspicious Email Analysis](ctfs/SE_easy-1.md)
-- [Easy 2 – Fake Support Request](ctfs/SE_easy-2.md)
-- [Medium – Credential Abuse Investigation](ctfs/SE_medium.md)
-- [Hard – Multi-Stage Social Engineering Campaign](ctfs/SE_hard.md)
--->
 ---
 
 ## Labs
