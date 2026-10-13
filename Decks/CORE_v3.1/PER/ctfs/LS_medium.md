@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - GPO Abuse
+## GPO Abuse
 
 Your team is investigating unusual activity across multiple machines in a corporate domain. Several users report that a new shortcut appeared on their desktops after logging in. EDR alerts show an unknown process spawning from `logon.bat` on over 30 machines.
 
@@ -16,28 +14,3 @@ Modified At: 2024-11-03 02:14:33
 ```
 
 The `helpdesk_temp` account was created three days ago and has no ticket associated with it.
-
----
-
-## Question
-
-Which of the following best describes what happened?
-
----
-
-## Flags (Choose One)
-
-- **A)** A legitimate IT admin pushed a maintenance script through standard GPO procedures
-- **B)** An attacker used a compromised or rogue account to modify a domain-wide GPO and distribute a malicious logon script to all users
-- **C)** The EDR generated a false positive caused by a recently updated antivirus definition
-- **D)** A developer accidentally deployed a test script to production via the wrong policy
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Next Question](LS_hard.md)  
-[Back to Card's Main Page](../Logon_Scripts.md)
