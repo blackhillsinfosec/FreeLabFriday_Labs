@@ -62,12 +62,9 @@ Both detection methods rely on baselining what is normal and flagging what devia
 
 ## CTF Challenges
 
-You will solve four challenges built around startup registry injection:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Suspicious Run Key](ctfs/SRI_easy-1.md)
-- [Easy 2 - Registry Artifact Hunt](ctfs/SRI_easy-2.md)
-- [Medium - Persistence Through Reboot](ctfs/SRI_medium.md)
-- [Hard - Layered Registry Persistence](ctfs/SRI_hard.md)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/per/ctfs/sri-ctf-quiz)
 
 ---
 
