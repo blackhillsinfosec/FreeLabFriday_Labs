@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Endpoint Compromise
+## Full Endpoint Compromise
 
 You are handed a Velociraptor hunt report for an endpoint flagged by your SIEM. Your job is to piece together the full attack chain from the evidence below.
 
@@ -39,27 +37,3 @@ Trigger         : At system startup
 Created by      : SYSTEM
 Last modified   : 2024-11-16 03:44:12
 ```
-
----
-
-## Question
-
-You need to write a one-line summary of the full attack chain for your incident report. Which of the following correctly describes the complete sequence of events?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attacker exploited lsass.exe directly to gain SYSTEM privileges, then used certutil to download a backdoor and scheduled it to run at startup via a fake Office update task
-- **B)** A malicious Word document spawned a command prompt, which used certutil to download a payload, which then dumped credentials from lsass and established persistence via a scheduled task disguised as a Windows update
-- **C)** A phishing email delivered a PowerShell script that downloaded malware using certutil, accessed lsass for credentials, then used Word macros to create a scheduled task for persistence
-- **D)** The attacker used a stolen SYSTEM token to launch Word, which then downloaded a credential harvester through a scheduled task and connected to a C2 server via certutil
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/EA/Endpoint_Analysis.md)
