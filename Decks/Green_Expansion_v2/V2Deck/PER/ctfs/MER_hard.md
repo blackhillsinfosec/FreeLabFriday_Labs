@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Inbox Takeover
+## Full Inbox Takeover
 
 You are investigating a suspected Business Email Compromise (BEC) at a mid-sized company. The CFO's account (`r.chen@acmecorp.com`) was reportedly used to approve a fraudulent wire transfer of $47,000. The CFO denies approving anything.
 
@@ -37,28 +35,3 @@ Rule 1 - "cleanup": Move from bank/wire/transfer/finance -> Deleted Items (mark 
 Rule 2 - "(unnamed)": Delete permanently if subject matches fraud/unauthorized/alert
 Rule 3 - "legal": Forward ALL outgoing mail to r.chen.backup.2024@protonmail.com
 ```
-
----
-
-## Question
-
-The SIEM alert fired three days after the attacker's first login. Which of the following best explains why the fraud was not caught sooner, and what the attacker's rule setup tells you about their level of preparation?
-
----
-
-## Flags (Choose One)
-
-- **A)** The SIEM was misconfigured and should have caught the Tor login immediately - the rules were basic and the attacker was likely a script kiddie
-- **B)** The attacker used a layered rule strategy: blocking bank confirmations, deleting fraud alerts, and forwarding outgoing mail - the three-day gap shows the SIEM lacked real-time correlation on executive accounts
-- **C)** The delay happened because cloud log ingestion into the SIEM takes 72 hours by default - the rules were unsophisticated and likely automated
-- **D)** The CFO accidentally created the rules while testing a mail filter - the Tor login was a separate unrelated event from a contractor
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](../Malicious_Email_Rules.md)
