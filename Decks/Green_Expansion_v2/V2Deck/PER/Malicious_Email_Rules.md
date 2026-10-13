@@ -50,12 +50,9 @@ This is why detection focuses on behavior and logs, not signatures:
 
 ## CTF Challenges
 
-You will work through four scenarios built around this attack:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Spot the Rule](ctfs/MER_easy-1.md)
-- [Easy 2 - Forwarding Gone Wrong](ctfs/MER_easy-2.md)
-- [Medium - Log the Attacker](ctfs/MER_medium.md)
-- [Hard - Full Inbox Takeover](ctfs/MER_hard.md)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/per/ctfs/mer-ctf-quiz)
 
 ---
 
