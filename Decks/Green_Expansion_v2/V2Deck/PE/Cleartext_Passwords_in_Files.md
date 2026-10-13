@@ -1,8 +1,5 @@
 <img width="300" height="414" alt="image (8)" src="https://github.com/user-attachments/assets/445efd1f-3a67-4b3d-b388-e9ec8f81a692" />
 
-
-
-
 # Cleartext Passwords in Files
 
 When passwords are stored as plain text inside files on a system - no hashing, no encryption, nothing - they become a free gift to any attacker who manages to get a foothold. Configuration files, scripts, log files, and even documentation often contain credentials that developers or sysadmins left "temporarily" and never cleaned up.
@@ -60,10 +57,10 @@ Detection methods used by security teams include:
 
 Four challenges to test your understanding:
 
-- [Easy 1 - File Recon](ctfs/CPF_easy-1.md)
-- [Easy 2 - Log Digging](ctfs/CPF_easy-2.md)
-- [Medium - Credential Pivot](ctfs/CPF_medium.md)
-- [Hard - Full Credential Hunt](ctfs/CPF_hard.md)
+- [Easy 1 - File Recon](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz/#file-recon)
+- [Easy 2 - Log Digging](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz/#log-digging)
+- [Medium - Credential Pivot](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz/#credential-pivot)
+- [Hard - Full Credential Hunt](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz/#full-credential-hunt)
 
 ---
 
@@ -77,17 +74,3 @@ Hands-on practice with the tools mentioned on the card:
 ---
 
 Cleartext passwords in files are a symptom of a larger problem: credentials being treated as an afterthought. The damage they cause is rarely limited to the system where they were found - they are almost always a stepping stone to something bigger.
-
-
-***                                                                 
-<b><i>Want to go back? </br>[Previous Card](/Decks/Green_Expansion_v2/V2Deck/PE/SNAC_Attack.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
