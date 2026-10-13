@@ -53,20 +53,10 @@ Security teams often rely on SIEM analysis, behavior analytics, and cloud log mo
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/eps-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/initial-compromise/external-password-spray?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Identifying Spray Behavior](ctfs/EPS_easy-1.md)
-- [Easy 2 – Login Pattern Analysis](ctfs/EPS_easy-2.md)
-- [Medium – Detecting Low-and-Slow Sprays](ctfs/EPS_medium.md)
-- [Hard – Full Attack Chain Investigation](ctfs/EPS_hard.md)
--->
 ---
 
 ## Labs
