@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Hunting the Beacon
+## Hunting the Beacon
 
 Your SIEM fired an alert on a developer workstation. You pull the relevant logs and find the following:
 
@@ -25,29 +23,3 @@ Network connection initiated to 13.107.x.x:443
 ```
 
 The developer insists they were not doing anything Azure-related at the time.
-
----
-
-## Question
-
-What is the correct first investigative step to confirm whether this is domain fronting?
-
----
-
-## Flags (Choose One)
-
-- **A)** Immediately block all outbound traffic to Azure IP ranges across the organization
-- **B)** Compare the SNI value in the TLS handshake against the HTTP Host header captured by the proxy
-- **C)** Reinstall the OS on the workstation and close the alert
-- **D)** Disable HTTPS inspection on the proxy to avoid breaking legitimate traffic
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](DF_hard.md)  
-[Back to Card's Main Page](../Domain_Fronting_As_C2.md)
