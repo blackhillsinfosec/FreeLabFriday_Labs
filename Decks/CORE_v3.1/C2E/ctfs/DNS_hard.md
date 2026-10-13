@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full DNS C2 Reconstruction
+## Full DNS C2 Reconstruction
 
 Your team responds to an incident at a mid-sized company. You have full packet captures from the affected host over a 2-hour window. You identify the following activity:
 
@@ -29,27 +27,3 @@ The subdomains are hex-encoded chunks of a file. Reassembled and decoded, they p
 DNS TXT query  ->  task.drop-updates.org
 Response:        "cmVnIGFkZCBIS0xNXC4uLg=="  (Base64: "reg add HKLM\...")
 ```
-
----
-
-## Question
-
-The attacker used a `jitter` value of 5 in the initial check-in response. What is the main reason attackers add jitter to beacon intervals?
-
----
-
-## Flags (Choose One)
-
-- **A)** To reduce bandwidth usage and avoid overloading the C2 server
-- **B)** To randomize the timing of beacons so they don't appear as a perfectly regular pattern in logs
-- **C)** To ensure the implant only runs during business hours to blend in with normal traffic
-- **D)** To re-encrypt the DNS payload with a different key on each request
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Domain_Name_System_As_C2.md)
