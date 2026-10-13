@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 – Fake Login Page
+## Fake Login Page
 
 You receive an email claiming to be from your company’s IT department. It asks you to log in to fix an urgent security issue.
 
@@ -14,30 +14,3 @@ The URL of the page is:
 `http://secure-it-support-login.com`
 
 After entering test credentials, you are redirected to the real company website.
-
----
-
-## Question
-
-What was the **main goal** of this page?
-
----
-
-## Flags (Choose One)
-
-- **A)** Malware delivery  
-- **B)** Credential harvesting  
-- **C)** Denial of service  
-- **D)** Data encryption  
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](phish_easy-2.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Phishing.md)
