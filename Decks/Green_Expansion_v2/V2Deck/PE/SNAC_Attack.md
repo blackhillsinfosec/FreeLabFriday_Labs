@@ -63,12 +63,9 @@ In many cases, the first sign something is wrong is a credential showing up some
 
 ## CTF Challenges
 
-Test your understanding with these four scenarios:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Spotting the Ghost](ctfs/SNAC_easy-1.md)
-- [Easy 2 - Dead Record Recon](ctfs/SNAC_easy-2.md)
-- [Medium - Address Claim](ctfs/SNAC_medium.md)
-- [Hard - Full SNAC Chain](ctfs/SNAC_hard.md)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/snac-ctf-quiz)
 
 ---
 
