@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Captured Hash
+## Captured Hash
 
 You are monitoring network traffic on a Windows corporate network. A new machine just joined the network and almost immediately you see the following in your capture:
 
@@ -13,28 +13,3 @@ You are monitoring network traffic on a Windows corporate network. A new machine
 ```
 
 The destination IP (192.168.1.200) does not exist on the network.
-
----
-
-## Question
-
-Why did the machine at 192.168.1.45 send its credentials to a non-existent host?
-
----
-
-## Flags (Choose One)
-
-- **A)** The user manually typed the wrong server address
-- **B)** The machine was infected with ransomware
-- **C)** A poisoning tool responded to a broadcast name resolution request and redirected the authentication
-- **D)** The domain controller pushed a bad Group Policy update
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Next Question](SMB_easy-2.md)
-[Back to Card's Main Page](../SMB_Abuse.md)
