@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Behavioral Attack Chain
+## Full Behavioral Attack Chain
 
 You are the senior analyst on call. At 03:20, your UEBA platform fires a **Critical** alert. You have raw data from four entities. Your job is to reconstruct what happened and answer the question at the end.
 
@@ -52,27 +50,3 @@ Baseline: Receives deployments Friday nights only. No direct logins.
 03:17  Deleted RDP session history
 03:18  Session terminated
 ```
-
----
-
-## Question
-
-Which single action in this chain was the **critical control failure** that made the entire attack possible - and what type of control would have prevented it?
-
----
-
-## Flags (Choose One)
-
-- **A)** The Tor login by alex.Popescu - prevented by IP blocklisting at the firewall
-- **B)** The password resets on privileged accounts performed by a helpdesk user without approval - prevented by Privileged Access Management (PAM) with dual authorization
-- **C)** The outbound connection from PROD-SERVER-01 on port 4444 - prevented by egress filtering
-- **D)** The base64-encoded PowerShell payload - prevented by an EDR with script-block logging
-
----
-
-**Correct Flag: B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/UEBA_Analytics.md)
