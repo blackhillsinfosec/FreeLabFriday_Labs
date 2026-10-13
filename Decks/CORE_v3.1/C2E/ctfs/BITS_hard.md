@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Exfil Hunt and Attribution
+## Full Exfil Hunt and Attribution
 
 You are investigating a breach at a defense contractor. Three data points have been collected from different sources.
 
@@ -33,27 +31,3 @@ Tags: Leviathan, APT40, C2 infrastructure
 Last seen: 2024-03-29
 Confidence: HIGH
 ```
-
----
-
-## Question
-
-Based on all three data sources, what is the most accurate and complete conclusion?
-
----
-
-## Flags (Choose One)
-
-- **A)** An insider threat manually uploaded project files during off-hours - no malware involved
-- **B)** A nation-state threat actor used BITS to exfiltrate classified naval project files, covering tracks by deleting the archive after transfer
-- **C)** An automated backup job misconfigured by IT sent files to a cloud storage server
-- **D)** The BITS transfer was blocked by the firewall before any data left the network
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)
