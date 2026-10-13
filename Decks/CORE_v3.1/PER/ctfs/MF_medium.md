@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Flash Memory Tampering
+## Flash Memory Tampering
 
 During an incident response engagement, you collect a memory dump and a firmware dump from a compromised server. You run a hash comparison between the firmware currently installed on the machine and the vendor's official release:
 
@@ -17,28 +15,3 @@ You then use Impacket's `wmiexec` logs to check what commands were run on the sy
 [2024-03-12 02:14:33] cmd.exe /c flashrom -p internal -w malicious.bin
 [2024-03-12 02:14:51] cmd.exe /c shutdown /r /t 0
 ```
-
----
-
-## Question
-
-Based on the evidence, what is the correct sequence of events?
-
----
-
-## Flags (Choose One)
-
-- **A)** The vendor pushed a legitimate firmware update that accidentally corrupted the BIOS
-- **B)** A scheduled task rebooted the machine and caused firmware corruption on restart
-- **C)** The hashes match, meaning the firmware is clean and the logs are misleading
-- **D)** An attacker gained remote code execution, used Flashrom to overwrite the firmware with a malicious image, then rebooted the machine to activate it
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](MF_hard.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/PER/Malicious_Firmware.md)
