@@ -63,20 +63,10 @@ common early warning signs.
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/uca-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/initial-compromise/unauthorized-cloud-access?client=bb-box-panorama&page=2)
-
-<!--
--   [Easy 1 - Suspicious Cloud Login](ctfs/UCA_easy-1.md)
--   [Easy 2 - Exposed API Key](ctfs/UCA_easy-2.md)
--   [Medium - Privilege Escalation in the Cloud](ctfs/UCA_medium.md)
--   [Hard - Full Cloud Environment Takeover](ctfs/UCA_hard.md)
--->
 ------------------------------------------------------------------------
 
 ## Labs
