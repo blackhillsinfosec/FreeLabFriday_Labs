@@ -60,20 +60,13 @@ The tricky part is that a lot of this activity looks like normal admin behavior 
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+Put your knowledge of the topic to the test with this CTF quiz!
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
-
-[Take me to the CTF Quiz!](hhttps://learning.antisyphontraining.com/learn/course/bb-ctf-labs/pivot-escalate/credential-harvesting?client=bb-box-panorama&page=2)
-
-<!--
 - [Easy 1 – Exposed Config File](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#exposed-config-file)
 - [Easy 2 – Credential in a Share](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#credential-in-a-share)
 - [Medium – Memory Dump Analysis](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#memory-dump-analysis)
 - [Hard – Full Credential Chain](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#full-credential-chain)
--->
+
 ---
 
 ## Labs
