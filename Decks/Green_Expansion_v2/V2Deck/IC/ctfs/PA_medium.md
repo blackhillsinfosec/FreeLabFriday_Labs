@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Impersonation Investigation
+## Impersonation Investigation
 
 Your company's receptionist receives a call in the morning from someone claiming to be from the building's HVAC maintenance company. They say a technician will be stopping by to check the cooling units in the server room. No scheduled maintenance is on record.
 
