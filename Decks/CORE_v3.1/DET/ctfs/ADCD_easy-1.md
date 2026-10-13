@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 – First Interaction with a Decoy
+## First Interaction with a Decoy
 
 You are reviewing alerts from a deception platform.
 
@@ -17,30 +17,3 @@ Password: admin123
 ```
 
 No legitimate automation or users should ever connect to this system.
-
----
-
-## Question
-
-What does this alert most likely indicate?
-
----
-
-## Flags (Choose One)
-
-- **A)** A system administrator ran a normal maintenance task
-- **B)** An attacker or unauthorized user interacted with a decoy
-- **C)** The deception server failed to start correctly
-- **D)** The SSH service automatically tested itself
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](ADCD_easy-2.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Active_Defense_And_Cyber_Deception.md)
