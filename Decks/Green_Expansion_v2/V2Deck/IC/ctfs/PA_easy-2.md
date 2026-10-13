@@ -1,5 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
 ## Tailgate Trace
 
 You are reviewing badge access logs after an incident. The logs show the following for a restricted door:
