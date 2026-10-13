@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Suspicious Cloud Login
+## Suspicious Cloud Login
 
 A SOC analyst notices a successful login to a cloud admin account
 outside of normal business hours.
@@ -16,30 +16,3 @@ Cloud audit logs show: - User: `admin@corp.local` - Login time:
 
 All previous logins for this user came from the local office network
 during work hours.
-
-------------------------------------------------------------------------
-
-## Question
-
-What **security failure** most likely allowed this access?
-
-------------------------------------------------------------------------
-
-## Flags (Choose One)
-
--   **A)** Missing MFA enforcement
--   **B)** Outdated cloud service
--   **C)** Weak firewall rules
--   **D)** Misconfigured storage bucket
-
-------------------------------------------------------------------------
-
-Correct Flag: **A**
-
-------------------------------------------------------------------------
-
-# Finished?
-
-[Next Question](UCA_easy-2.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Unauthorized_Cloud_Access.md)
