@@ -53,13 +53,9 @@ Prevention matters far more than detection here, because by the time you notice 
 
 ## CTF Challenges
 
-You will solve four challenges built around physical access scenarios:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Badge Clone Basics](ctfs/PA_easy-1.md)
-- [Easy 2 - Tailgate Trace](ctfs/PA_easy-2.md)
-- [Medium - Impersonation Investigation](ctfs/PA_medium.md)
-- [Hard - Full Facility Breach](ctfs/PA_hard.md)
-
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/ic/ctfs/pa-ctf-quiz)
 
 ---
 
