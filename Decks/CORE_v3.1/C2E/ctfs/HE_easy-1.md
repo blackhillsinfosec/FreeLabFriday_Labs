@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Spot the Beacon
+## Spot the Beacon
 
 A security analyst is reviewing outbound HTTPS traffic from a workstation that was flagged by the firewall.
 
@@ -15,28 +15,3 @@ The logs show the following connections over a 2-hour window:
 ```
 
 The destination IP has no known reputation and is not associated with any business software installed on the machine.
-
----
-
-## Question
-
-What behavior in this traffic is the strongest indicator of C2 activity?
-
----
-
-## Flags (Choose One)
-
-- **A)** The traffic uses HTTPS
-- **B)** The connections happen at almost identical intervals every 5 minutes
-- **C)** The requests return a 200 OK status
-- **D)** The endpoint path contains the word "sync"
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Next Question](HE_easy-2.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/HTTPS_As_Exfil.md)
