@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Spot the Upload
+## Spot the Upload
 
 You are reviewing endpoint logs on a machine that was flagged for unusual behavior.
 
@@ -14,29 +14,3 @@ You notice the following process activity:
 ```
 
 `svchost.exe` is a Windows system process. It does not normally read user documents or make Google Drive API calls.
-
----
-
-## Question
-
-What is most likely happening on this machine?
-
----
-
-## Flags (Choose One)
-
-- **A)** A legitimate Google Drive sync client is backing up files
-- **B)** The machine is running a scheduled antivirus scan
-- **C)** A Windows update is uploading diagnostic data to Microsoft
-- **D)** Malware is using the Google Drive API to exfiltrate sensitive files
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](CBSE_easy-2.md) 
-
-[Back to Card's Main Page](../Cloud_Based_Services_As_Exfil.md)
