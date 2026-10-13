@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 – Suspicious User Activity
+## Suspicious User Activity
 
 A security analyst reviews login events for an employee account.
 
@@ -14,30 +14,3 @@ You see the following timeline:
 ```
 
 The employee normally works in marketing and has never accessed engineering systems before.
-
----
-
-## Question
-
-What is the strongest indicator of insider threat activity?
-
----
-
-## Flags (Choose One)
-
-- **A)** The login happened during business hours
-- **B)** Access to data unrelated to the user’s role
-- **C)** The download size is exactly 2 GB
-- **D)** The employee logged in from the office network
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](IT_easy-2.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Insider_Threat.md)
