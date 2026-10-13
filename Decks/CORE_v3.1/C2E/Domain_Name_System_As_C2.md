@@ -66,12 +66,9 @@ A single weird DNS query probably won't trigger anything. Defenders look for pat
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 – DNS Query Analysis](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz/#dns-query-analysis)
-- [Easy 2 – Spotting Tunneled Traffic](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz/#spotting-tunneled-traffic)
-- [Medium – C2 Beacon Identification](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz/#c2-beacon-identification)
-- [Hard – Full DNS C2 Reconstruction](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz/#full-dns-c2-reconstruction)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/dns-ctf-quiz)
 
 ---
 
