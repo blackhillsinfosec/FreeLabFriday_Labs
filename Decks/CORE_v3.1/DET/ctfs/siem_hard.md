@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF – Stealthy Attack Timeline Reconstruction
+## Stealthy Attack Timeline Reconstruction
 
 You are investigating a possible compromise using SIEM data from multiple sources.
 
@@ -15,29 +13,3 @@ Timeline:
 ```
 
 The account normally connects only during business hours from internal addresses.
-
----
-
-## Question
-
-What is the best interpretation of these events?
-
----
-
-## Flags (Choose One)
-
-- **A)** Legitimate overnight backup process
-- **B)** Insider data migration task
-- **C)** Account compromise followed by data exfiltration and cleanup
-- **D)** Automated SIEM correlation rule test
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Security_Informations_And_Event_Management_Log_Analysis.md)
-
