@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF – Full Physical Attack Simulation
+## Full Physical Attack Simulation
 
 You are a SOC analyst investigating a reported incident at a branch office. An employee noticed the screen on an unattended reception desk PC acting strangely for a few seconds. No one saw what happened. You are handed the following data to work with.
 
@@ -46,33 +44,3 @@ You are a SOC analyst investigating a reported incident at a branch office. An e
 [11:45:14]  net user /add ...
 [11:45:17]  RDP session authenticated as new local admin
 ```
-
----
-
-## Questions
-
-Answer all three to complete the challenge:
-
-**1.** What device was used in the initial physical attack, and how did it avoid being detected as a USB storage device?
-
-**2.** The attacker modified `utilman.exe` directly AND added a registry key under Image File Execution Options. What does the registry method do differently, and why might an attacker prefer it?
-
-**3.** Three days passed between the physical attack and the remote login. What does this tell you about the attacker's intent, and what detection opportunity was missed during that window?
-
----
-
-## Flags (Choose One)
-
-- **A)** A USB Rubber Ducky was used; the registry key runs cmd.exe instead of utilman.exe without touching the binary; the attacker was waiting for the right moment and the missed opportunity was reviewing USB events
-- **B)** A standard USB drive was used; the registry key creates a new admin account silently; the attacker was testing defenses and the missed opportunity was network monitoring
-- **C)** A USB Rubber Ducky was used; the registry key runs cmd.exe as a debugger for utilman.exe, meaning the binary is untouched and harder to detect via file hash; the attacker was being deliberate to avoid quick detection, and the missed opportunity was reviewing the Image File Execution Options registry hive for new entries
-- **D)** An OMGCable was used; the registry key disables UAC prompts for accessibility tools; the attacker was exfiltrating data slowly and the missed opportunity was egress traffic analysis
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Accesibility_Features.md)
