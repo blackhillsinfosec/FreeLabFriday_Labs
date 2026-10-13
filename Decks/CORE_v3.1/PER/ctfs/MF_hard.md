@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Firmware Implant
+## Full Firmware Implant
 
 Your team is conducting a forensic investigation on a high-value target within a corporate network. The machine belongs to an executive and has been behaving strangely for months - occasional unexplained outbound connections, brief performance dips at boot time, and antivirus showing clean every time.
 
@@ -32,27 +30,3 @@ Last seen:  2024-03-09
 ```
 
 **Timeline note:** The outbound connection happens approximately 4 seconds after power-on, consistently before the Windows boot logo appears.
-
----
-
-## Question
-
-Considering all four artifacts together, which conclusion best explains the full picture?
-
----
-
-## Flags (Choose One)
-
-- **A)** The DNS query is a normal vendor health check and the TLS traffic is a routine Windows telemetry beacon that fires early in the boot cycle
-- **B)** A UEFI implant was installed in the DXE phase of boot, and it is beaconing to a known C2 server before the OS - and any security tooling - has a chance to load
-- **C)** The hash mismatch in CHIPSEC is a known false positive caused by a vendor firmware patch that CHIPSEC hasn't indexed yet
-- **D)** The outbound connection is coming from a compromised network driver, not firmware, meaning a standard EDR solution would be sufficient to detect and remove it
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/PER/Malicious_Firmware.md)
