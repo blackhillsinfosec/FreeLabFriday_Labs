@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 – Suspicious Connection Hunt
+## Suspicious Connection Hunt
 
 You are reviewing basic network flow logs from a small office network.
 
@@ -15,30 +15,3 @@ bytes_out: very small, consistent
 ```
 
 The traffic is encrypted and the destination domain is newly registered.
-
----
-
-## Question
-
-What is the MOST likely explanation for this behavior?
-
----
-
-## Flags (Choose One)
-
-- **A)** Normal software update traffic
-- **B)** Command-and-control beaconing
-- **C)** User browsing activity
-- **D)** Internal network scanning
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](NTH_easy-2.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Network_Threat_Hunting.md)
