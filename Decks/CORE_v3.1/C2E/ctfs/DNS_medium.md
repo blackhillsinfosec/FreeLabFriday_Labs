@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - C2 Beacon Identification
+## C2 Beacon Identification
 
 During a threat hunt, your SIEM flags a host for unusual DNS behavior. You pull the following log excerpt:
 
@@ -20,28 +18,3 @@ The subdomains in the A queries decode from Base64 to:
 - `cm9vdA==` -> `root`
 - `MTkyLjE2OC4xLjU=` -> `192.168.1.5`
 - `QWRtaW5pc3RyYXRvcg==` -> `Administrator`
-
----
-
-## Question
-
-Based on this log, what is the attacker most likely doing?
-
----
-
-## Flags (Choose One)
-
-- **A)** Scanning the network for open ports using DNS to avoid detection
-- **B)** Poisoning the DNS cache to redirect traffic to a malicious server
-- **C)** Running a brute force attack against the domain controller
-- **D)** Sending commands to an implant and receiving the output back through DNS queries
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](DNS_hard.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Domain_Name_System_As_C2.md)
