@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF – Incident Timeline Reconstruction
+## Incident Timeline Reconstruction
 
 You are asked to build a quick timeline from server artifacts.
 
@@ -24,28 +22,3 @@ You are asked to build a quick timeline from server artifacts.
 ```
 02:25 outbound ssh connection to 203.0.113.5
 ```
-
----
-
-## Question
-
-What is the clearest indicator of attacker persistence?
-
----
-
-## Flags (Choose One)
-
-- **A)** Downloading a toolkit archive
-- **B)** Opening an outbound SSH connection once
-- **C)** Extracting files with tar
-- **D)** Creating a new user with SSH key access
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Server_Analysis.md)
