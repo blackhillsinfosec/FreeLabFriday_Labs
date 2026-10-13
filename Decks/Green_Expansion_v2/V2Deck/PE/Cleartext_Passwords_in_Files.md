@@ -55,12 +55,9 @@ Detection methods used by security teams include:
 
 ## CTF Challenges
 
-Four challenges to test your understanding:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - File Recon](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz/#file-recon)
-- [Easy 2 - Log Digging](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz/#log-digging)
-- [Medium - Credential Pivot](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz/#credential-pivot)
-- [Hard - Full Credential Hunt](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz/#full-credential-hunt)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/cpf-ctf-quiz)
 
 ---
 
