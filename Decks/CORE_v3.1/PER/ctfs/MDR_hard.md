@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Kernel Rootkit Investigation
+## Full Kernel Rootkit Investigation
 
 Your SOC receives an alert from an EDR tool that briefly fired on a host before going silent. You pull what logs you can and piece together the following timeline:
 
@@ -21,27 +19,3 @@ Your SOC receives an alert from an EDR tool that briefly fired on a host before 
 ```
 
 You research `dbutil_2_3.sys` and find it is a legitimate but **known-vulnerable** Dell driver with a CVE that allows arbitrary kernel memory read/write.
-
----
-
-## Question
-
-Based on the full timeline, which technique did the attacker most likely use to load their unsigned malicious driver?
-
----
-
-## Flags (Choose One)
-
-- **A)** They disabled Secure Boot from the BIOS to bypass driver signing enforcement
-- **B)** They used a known-vulnerable legitimate driver (BYOVD) to gain kernel write access and load their own unsigned driver
-- **C)** They exploited a zero-day in the Windows kernel that allowed driver signing to be bypassed entirely
-- **D)** They enrolled a fake certificate in the system trust store to sign their driver before loading it
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/PER/Malicious_Driver.md)
