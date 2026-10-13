@@ -1,7 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-
-# Easy CTF 2 – Ticket Extraction
+## Ticket Extraction
 
 You are monitoring activity from a compromised domain user account
 
@@ -14,30 +11,3 @@ Ticket Encryption Type: RC4-HMAC
 ```
 
 This event happens multiple times in a short period
-
----
-
-## Question
-
-What is most likely happening?
-
----
-
-## Flags (Choose One)
-
-- **A)** Normal database usage by an application
-- **B)** A password spray attack
-- **C)** Kerberos service tickets are being requested for Kerberoasting
-- **D)** A domain controller replication issue
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Next Question](kerberoasting_medium.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Kerberoasting.md)
