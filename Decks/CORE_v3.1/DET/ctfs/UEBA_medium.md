@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Insider Threat Investigation
+## Insider Threat Investigation
 
 Your UEBA platform has flagged **dan.Constantin**, a developer who gave his two-week notice last Monday.
 
@@ -29,28 +27,3 @@ Day 3 - Thursday
 09:10  Compressed folder: project_archive_final.zip (2.1 GB)
 09:45  Uploaded to personal Google Drive (not blocked - cloud policy gap)
 ```
-
----
-
-## Question
-
-Which action from the timeline represents the **highest-priority indicator** that data exfiltration has already succeeded?
-
----
-
-## Flags (Choose One)
-
-- **A)** Searching the wiki for an NDA template on Day 1
-- **B)** The failed access to the HR performance review system on Day 3
-- **C)** The 3.2 GB bulk GitLab download combined with the personal USB connection on Day 2
-- **D)** The Google Drive upload on Day 3, given the DLP policy gap
-
----
-
-**Correct Flag: D**
-
----
-
-# Finished?
-[Next Question](UEBA_hard.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/UEBA_Analytics.md)
