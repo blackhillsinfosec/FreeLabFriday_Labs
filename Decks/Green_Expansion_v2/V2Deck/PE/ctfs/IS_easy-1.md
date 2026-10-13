@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Suspicious Sender
+## Suspicious Sender
 
 A user reports receiving a strange email. You pull it up and see the following:
 
