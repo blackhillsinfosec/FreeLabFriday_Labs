@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Password Reuse Discovery
+## Password Reuse Discovery
 
 You are reviewing authentication logs from a web application after users reported account lockouts.
 
@@ -15,30 +15,3 @@ You notice the following events:
 ```
 
 All login attempts came from the same IP address within a few minutes.
-
----
-
-## Question
-
-What is the most likely explanation?
-
----
-
-## Flags (Choose One)
-
-- **A)** A normal user forgot their password
-- **B)** Credential stuffing using leaked passwords
-- **C)** A scheduled system health check
-- **D)** Website maintenance caused logins to fail
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](CRED_easy-2.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Credential_Stuffing.md)
