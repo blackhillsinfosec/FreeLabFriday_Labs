@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Privilege Escalation Trail
+## Privilege Escalation Trail
 
 You are investigating a potential insider threat. A developer account triggered several alerts in your SIEM over two hours. Below is the condensed event timeline:
 
@@ -17,28 +15,3 @@ You are investigating a potential insider threat. A developer account triggered 
 ```
 
 The `dev-maria` account was supposed to have read-only access to EC2 resources only.
-
----
-
-## Question
-
-Looking at the sequence of events, what attack technique was used to gain administrator access?
-
----
-
-## Flags (Choose One)
-
-- **A)** dev-maria exploited an S3 bucket misconfiguration to extract admin credentials
-- **B)** dev-maria used a stolen session token from another admin user
-- **C)** dev-maria modified an IAM policy to grant herself full permissions, then created a secondary account to assume an admin role
-- **D)** dev-maria triggered a Lambda function that automatically escalated privileges on a schedule
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Next Question](CELA_hard.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Cloud_Event_Log_Analysis.md)
