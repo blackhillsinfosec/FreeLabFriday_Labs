@@ -69,10 +69,10 @@ Put your knowledge of the topic to the test with this online quiz!
 [Take me to the CTF Quiz!](hhttps://learning.antisyphontraining.com/learn/course/bb-ctf-labs/pivot-escalate/credential-harvesting?client=bb-box-panorama&page=2)
 
 <!--
-- [Easy 1 – Exposed Config File](ctfs/CH_easy-1.md)
-- [Easy 2 – Credential in a Share](ctfs/CH_easy-2.md)
-- [Medium – Memory Dump Analysis](ctfs/CH_medium.md)
-- [Hard – Full Credential Chain](ctfs/CH_hard.md)
+- [Easy 1 – Exposed Config File](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#exposed-config-file)
+- [Easy 2 – Credential in a Share](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#credential-in-a-share)
+- [Medium – Memory Dump Analysis](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#memory-dump-analysis)
+- [Hard – Full Credential Chain](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ch-ctf-quiz/#full-credential-chain)
 -->
 ---
 
