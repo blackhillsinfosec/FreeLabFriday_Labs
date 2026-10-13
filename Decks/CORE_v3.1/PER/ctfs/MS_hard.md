@@ -2,9 +2,8 @@
 
 You are responding to an alert on a Windows Server 2019 machine that handles internal file sharing. The SIEM correlated four events across a 20-minute window. Your job is to reconstruct what happened and identify the attacker's final objective at this stage of the intrusion.
 
----
 
-## Timeline of Events
+### Timeline of Events
 
 **03:02:11** - Successful RDP login from internal IP `10.10.4.88` using the account `svc_backup`. This account normally authenticates only via scheduled tasks, never interactively.
 
@@ -20,9 +19,8 @@ sc.exe create BackupSyncSvc binPath= "C:\ProgramData\bsync\bsync.exe /auto" star
 sc.exe failure BackupSyncSvc reset= 0 actions= restart/5000/restart/5000/restart/5000
 ```
 
----
 
-## Supporting Context
+### Supporting Context
 
 - `svc_backup` has local administrator rights on this machine
 - `185.220.101.47` is a known Tor exit node
