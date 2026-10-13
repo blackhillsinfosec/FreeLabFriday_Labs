@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Intrusion Timeline
+## Full Intrusion Timeline
 
 You are conducting a post-incident investigation. An alert fired four days after the initial compromise - meaning you are working backward from limited artifacts. Logs have been partially cleared, but enough remains.
 
@@ -44,28 +42,3 @@ Group added:    Enterprise Admins - Day 3, 23:58:41
 ALERT: Unusual Kerberos TGT request - itops_automation - 01:17:03
 Source IP: 10.0.8.44  (internal - workstation belonging to: H.Pereira, Finance Dept.)
 ```
-
----
-
-## Question
-
-You need to brief the incident response lead. Which of the following correctly describes the full attack chain based on the evidence?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attacker brute-forced a VPN account, moved laterally to a domain controller, and deployed ransomware using a built-in admin account
-- **B)** The attacker successfully authenticated to the web portal after credential stuffing, uploaded a web shell through the admin panel, created a Domain Admin account, expanded privileges to Enterprise Admin over several days, and was active on an internal workstation by Day 4
-- **C)** A legitimate IT automation script created the `itops_automation` account and the Kerberos alert was a false positive caused by a misconfigured service
-- **D)** The attacker phished H.Pereira directly, obtained domain credentials, and created the backdoor account from the finance workstation on Day 1
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/PER/New_User_Added.md)
