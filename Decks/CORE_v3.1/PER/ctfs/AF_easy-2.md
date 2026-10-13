@@ -1,5 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
 ## USB Drop Investigation
 
 A USB device was found in a company parking lot and, unfortunately, someone plugged it in. The endpoint security tool logged the following activity seconds after it was connected:
@@ -12,28 +10,3 @@ A USB device was found in a company parking lot and, unfortunately, someone plug
 ```
 
 The USB device was automatically ejected after the script finished running.
-
----
-
-## Question
-
-Based on the log, what did the USB device do?
-
----
-
-## Flags (Choose One)
-
-- **A)** It replaced the On-Screen Keyboard executable with a command prompt
-- **B)** It installed a keylogger that runs on startup
-- **C)** It exfiltrated files from the desktop to a remote server
-- **D)** It scanned the local network for open ports
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Next Question](AF_medium.md)  
-[Back to Card's Main Page](../Accesibility_Features.md)
