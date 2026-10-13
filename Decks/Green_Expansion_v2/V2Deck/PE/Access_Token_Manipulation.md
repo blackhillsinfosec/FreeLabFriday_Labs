@@ -68,12 +68,9 @@ Detection methods tied to this attack:
 
 ## CTF Challenges
 
-You will solve four challenges related to access token manipulation:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Weak JWT Secret](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz/#weak-jwt-secret)
-- [Easy 2 - Token from Local Storage](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz/#token-from-local-storage)
-- [Medium - OAuth Token Abuse](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz/#oauth-token-abuse)
-- [Hard - Kerberos Silver Ticket](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz/#kerberos-silver-ticket)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz)
 
 ---
 
