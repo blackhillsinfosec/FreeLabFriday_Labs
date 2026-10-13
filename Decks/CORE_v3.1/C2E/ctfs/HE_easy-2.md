@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Log Pattern Analysis
+## Log Pattern Analysis
 
 You are going through firewall logs after an endpoint protection alert fired on a machine in the accounting department.
 
@@ -15,28 +13,3 @@ You notice the following entries over 30 minutes:
 ```
 
 The machine's user was on lunch break during this entire window. No browser or known application was open.
-
----
-
-## Question
-
-What does the consistent small payload size combined with the user being away most likely suggest?
-
----
-
-## Flags (Choose One)
-
-- **A)** A background Windows update was running
-- **B)** The firewall is logging duplicate entries by mistake
-- **C)** A user accidentally left a file sync running
-- **D)** A process on the machine is automatically sending data without user interaction
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](HE_medium.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/HTTPS_As_Exfil.md)
