@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Relay Attack
+## Relay Attack
 
 You are investigating an incident. The logs show the following sequence of events:
 
@@ -15,28 +13,3 @@ You are investigating an incident. The logs show the following sequence of event
 ```
 
 No cracking took place. CORP\dbadmin never logged into SERVER-02 directly.
-
----
-
-## Question
-
-How did the attacker gain access to SERVER-02 as CORP\dbadmin without ever obtaining the plaintext password?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attacker guessed the password using a wordlist
-- **B)** The attacker exploited a vulnerability in SERVER-02's SMB version
-- **C)** The attacker captured the hash and waited 24 hours to crack it
-- **D)** The attacker intercepted the authentication handshake from WS-04 and forwarded it in real time to SERVER-02, authenticating as dbadmin without knowing the password
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](SMB_hard.md)
-[Back to Card's Main Page](../SMB_Abuse.md)
