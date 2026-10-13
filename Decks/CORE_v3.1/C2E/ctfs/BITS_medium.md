@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Reconstructing an Exfiltration Timeline
+## Reconstructing an Exfiltration Timeline
 
 You are a defender investigating a potential data breach. The endpoint in question is a finance department laptop. You run the following command and get this output:
 
@@ -25,28 +23,3 @@ Files       : 1 / 1
 ```
 
 You look up `update-cdn-microsoft.net` - it was registered 6 days ago and does not belong to Microsoft.
-
----
-
-## Question
-
-There are two red flags in this output that confirm malicious intent. Which answer correctly identifies **both**?
-
----
-
-## Flags (Choose One)
-
-- **A)** The job name is suspicious, and the file is too large for a normal transfer
-- **B)** The state is TRANSFERRED, and the priority is set to FOREGROUND
-- **C)** The job ran at midnight, and the file is stored in ProgramData
-- **D)** The destination domain is impersonating Microsoft, and the job ran at midnight with a disguised name
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](BITS_hard.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)
