@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Log Analysis Basics
+## Log Analysis Basics
 
 You are reviewing firewall logs after a threat hunting alert fired. One workstation stands out. Here is a snippet of its outbound traffic over a 10-minute window:
 
@@ -13,29 +11,3 @@ You are reviewing firewall logs after a threat hunting alert fired. One workstat
 ```
 
 The user-agent on every request matches Chrome 124. No browser window was open at the time.
-
----
-
-## Question
-
-What is the most suspicious indicator in these logs?
-
----
-
-## Flags (Choose One)
-
-- **A)** The destination IP belongs to Cloudflare, which is inherently suspicious
-- **B)** HTTPS traffic should not be visible in firewall logs at all
-- **C)** The requests fire at a perfectly consistent 30-second interval with no user interaction
-- **D)** The response size is too small to be a real web page
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Next Question](DF_medium.md)  
-[Back to Card's Main Page](../Domain_Fronting_As_C2.md)
