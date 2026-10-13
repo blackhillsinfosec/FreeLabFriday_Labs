@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Layered Registry Persistence
+## Layered Registry Persistence
 
 You are investigating a heavily compromised endpoint. The attacker used a layered persistence strategy - two registry mechanisms working together so that removing one does not break the chain.
 
@@ -28,27 +26,3 @@ You analyze both files:
 - `loader.exe` - the actual payload. It connects to a remote C2 server and downloads updated instructions.
 
 The Winlogon `Userinit` key is supposed to contain only `userinit.exe`. The attacker appended `, C:\ProgramData\loader.exe,` to the end of the value - Windows reads the whole string and executes everything listed.
-
----
-
-## Question
-
-An analyst removes `init.vbs` and deletes the Run key entry. The machine reboots. What happens?
-
----
-
-## Flags (Choose One)
-
-- **A)** The malware is fully removed - both persistence mechanisms are now gone
-- **B)** `loader.exe` still runs on login because the Winlogon Userinit entry was not touched
-- **C)** Windows detects the tampered Userinit value and rolls it back automatically
-- **D)** The C2 server loses contact and the malware deactivates on its own
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Startup_Registry_Injection.md)
