@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 2 - Tailgate Trace
+## Tailgate Trace
 
 You are reviewing badge access logs after an incident. The logs show the following for a restricted door:
 
