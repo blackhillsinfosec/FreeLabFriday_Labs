@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Persistence via Boot-Time Hijack
+## Persistence via Boot-Time Hijack
 
 Your team is investigating a machine that keeps beaconing out to an external IP even after malware was supposedly cleaned. You collect the following evidence:
 
@@ -38,27 +36,3 @@ C:\Windows\System32\uxtheme.dll
 "CreateRemoteThread"
 "stage2.bin"
 ```
-
----
-
-## Question
-
-The previous analyst concluded the machine was clean after removing the malware from the registry and deleting `updater.exe`. Two days later, the beaconing resumed. Which statement best explains why the cleanup failed AND what should have been done?
-
----
-
-## Flags (Choose One)
-
-- **A)** The registry key was recreated automatically by Windows; the fix is to disable the Windows Update service
-- **B)** The malicious `uxtheme.dll` in `C:\ProgramData\UpdateHelper\` was never removed - it only needs a new loader to beacon again, and the full folder along with any other writable-path DLLs should have been audited and removed as part of cleanup
-- **C)** The real `uxtheme.dll` in System32 was also infected; reimaging is the only option
-- **D)** The beaconing is coming from a different process; the analyst should focus on network logs instead of the file system
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Dynamic_Link_Library_Hijacking.md)
