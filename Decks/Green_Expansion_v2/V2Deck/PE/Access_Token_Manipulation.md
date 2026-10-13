@@ -70,10 +70,10 @@ Detection methods tied to this attack:
 
 You will solve four challenges related to access token manipulation:
 
-- [Easy 1 - Weak JWT Secret](ctfs/ATM_easy-1.md)
-- [Easy 2 - Token from Local Storage](ctfs/ATM_easy-2.md)
-- [Medium - OAuth Token Abuse](ctfs/ATM_medium.md)
-- [Hard - Kerberos Silver Ticket](ctfs/ATM_hard.md)
+- [Easy 1 - Weak JWT Secret](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz/#weak-jwt-secret)
+- [Easy 2 - Token from Local Storage](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz/#token-from-local-storage)
+- [Medium - OAuth Token Abuse](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz/#oauth-token-abuse)
+- [Hard - Kerberos Silver Ticket](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/pe/ctfs/atm-ctf-quiz/#kerberos-silver-ticket)
 
 ---
 
@@ -88,19 +88,3 @@ Hands-on practice with the tools used in real token manipulation attacks:
 ---
 
 Token manipulation sits at the intersection of authentication design and attacker creativity. Understanding how tokens are built, where they live, and how they can be abused is essential for both breaking and defending modern systems.
-
-
-***                                                                 
-<b><i>Continuing the course? </br>[Next Card](/Decks/Green_Expansion_v2/V2Deck/PE/SNAC_Attack.md)</i></b>
-
-<b><i>Want to go back? </br>[Previous Card](/Decks/Green_Expansion_v2/V2Deck/PE/Internal_Spearphishing.md)</i></b>
-
-<b><i>Looking for a different Card? </br>[Card Directory](/card_navigation.md)</i></b>
-
-***Finished with the Labs?***
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/labdestruction.md)
-
----
