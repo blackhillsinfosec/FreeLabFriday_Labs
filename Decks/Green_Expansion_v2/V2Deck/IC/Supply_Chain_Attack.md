@@ -64,12 +64,9 @@ In the case of SUNBURST, it was eventually detected through DNS traffic analysis
 
 ## CTF Challenges
 
-Four challenges to test your understanding:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Spotting the Tampered Update](ctfs/SCA_easy-1.md)
-- [Easy 2 - Log Analysis: Something Phoned Home](ctfs/SCA_easy-2.md)
-- [Medium - Hunting SUNBURST Indicators](ctfs/SCA_medium.md)
-- [Hard - Full Supply Chain Compromise Simulation](ctfs/SCA_hard.md)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/ic/ctfs/sca-ctf-quiz)
 
 ---
 
