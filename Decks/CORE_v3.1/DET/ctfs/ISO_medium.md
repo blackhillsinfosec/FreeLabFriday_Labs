@@ -1,5 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-# Medium CTF - Lateral Movement Interrupted
+## Lateral Movement Interrupted
 
 You are analyzing a security incident. The timeline below was reconstructed from SIEM logs:
 
@@ -12,28 +11,3 @@ You are analyzing a security incident. The timeline below was reconstructed from
 08:46 - Host A network containment confirmed
 08:52 - New outbound C2 connection detected - source: Host B (192.168.1.20)
 ```
-
----
-
-## Question
-
-What does the 08:52 event tell you about the state of the incident?
-
----
-
-## Flags (Choose One)
-
-- **A)** The EDR isolation of Host A was applied too late - the attacker had already moved to Host B before containment
-- **B)** The attacker tunneled through Host A's management channel to reach Host B after isolation
-- **C)** Host B's C2 connection is unrelated to the incident on Host A
-- **D)** Isolating Host A automatically triggered the EDR agent on Host B
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Next Question](ISO_hard.md)
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Isolation.md)
