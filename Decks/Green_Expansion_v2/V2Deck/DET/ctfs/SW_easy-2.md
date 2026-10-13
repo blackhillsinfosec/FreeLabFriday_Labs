@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Reading the Badge Logs
+## Reading the Badge Logs
 
 You are reviewing badge reader logs after a walkthrough flagged an unlocked server room door. The door should require badge access at all times.
 
@@ -18,29 +16,3 @@ The log for the past 24 hours shows:
 ```
 
 John M. is on vacation this week and has not been to the office.
-
----
-
-## Question
-
-What does the badge log most likely indicate?
-
----
-
-## Flags (Choose One)
-
-- **A)** John M. forgot to log out of the building system before his vacation
-- **B)** The badge reader malfunctioned and logged duplicate entries
-- **C)** Someone cloned John M.'s badge and used it to gain repeated access
-- **D)** Sarah K. triggered a door-held alert by leaving the door open too long
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Next Question](SW_medium.md)
-[Back to Card's Main Page](../Site_Walkthrough.md)
