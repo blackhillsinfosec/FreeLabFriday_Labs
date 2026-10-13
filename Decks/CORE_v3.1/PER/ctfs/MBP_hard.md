@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Plugin Compromise Chain
+## Full Plugin Compromise Chain
 
 You are an analyst investigating a breach at a financial company. Here is what you have found so far:
 
@@ -41,27 +39,3 @@ chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
     }
 });
 ```
-
----
-
-## Question
-
-The WAF detected nothing, the victim saw nothing, and there was no lateral movement. Which of the following best explains how all three of these are true at the same time?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attacker used a zero-day in the banking portal's backend to suppress logs and hide the transaction UI
-- **B)** The extension intercepted and modified the HTTP response from the bank before the WAF could inspect it, hiding both the outbound request and the confirmation UI from the victim
-- **C)** The transfer was made from the victim's already-authenticated browser session using the live cookies captured by the extension, so the request appeared legitimate to the WAF - and the extension simultaneously hid the confirmation UI from the victim using DOM manipulation
-- **D)** The attacker used Evilginx to proxy the entire banking session in real time, cloning the session server-side and replaying it while keeping the victim's view unchanged
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Malicious_Browser_Plugins.md)
