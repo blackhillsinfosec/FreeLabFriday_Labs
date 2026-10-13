@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Evade the Lockout
+## Evade the Lockout
 
 Your organization has an account lockout policy: **5 failed attempts within 10 minutes** locks the account for 30 minutes.
 
@@ -18,28 +16,3 @@ A UEBA alert fires, flagging "anomalous authentication behavior." You pull the r
 ```
 
 Each full round through all accounts takes just over 10 minutes.
-
----
-
-## Question
-
-What technique is the attacker using to avoid lockouts while still trying multiple passwords?
-
----
-
-## Flags (Choose One)
-
-- **A)** They are resetting the lockout counter by authenticating with a valid service account between attempts
-- **B)** They are using a different source IP for every single attempt to distribute the failures
-- **C)** They are targeting only service accounts, which typically have no lockout policy
-- **D)** They are timing each spray round to fall outside the lockout observation window, cycling passwords slowly across all accounts
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](IPS_hard.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Internal_Password_Spray.md)
