@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Cloud Privilege Escalation
+## Cloud Privilege Escalation
 
 You have access to a low-privileged cloud user account created for a junior developer
 
@@ -13,30 +11,3 @@ Your goal is to determine how this account can gain higher permissions
 The account has permission to: `iam:PassRole`
 
 A role named `CloudAdminRole` exists in the environment
-
----
-
-## Question
-
-What **attack technique** allows escalating privileges here?
-
----
-
-## Flags (Choose One)
-
--   **A)** Token replay
--   **B)** Role assumption
--   **C)** Lateral movement
--   **D)** Brute force
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-
-[Next Question](UCA_hard.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Unauthorized_Cloud_Access.md)
