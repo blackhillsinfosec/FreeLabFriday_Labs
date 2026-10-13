@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Memory Investigation
+## Full Memory Investigation
 
 A hospital workstation was taken offline after the EDR flagged unusual behavior at 02:14 AM. No one was supposed to be logged in at that time. You receive a full memory image and need to piece together what happened.
 
@@ -60,27 +58,3 @@ Handle  Type    Details
 ```
 
 `cmd.exe` has an open handle to `lsass.exe`.
-
----
-
-## Question
-
-Based on all four pieces of evidence, what is the correct reconstruction of the attack chain?
-
----
-
-## Flags (Choose One)
-
-- **A)** An admin ran a PowerShell script for maintenance, which accidentally triggered the EDR
-- **B)** The attacker used a living-off-the-land technique: spawned from `lsass.exe`, downloaded and executed a remote payload via encoded PowerShell, and opened a handle to `lsass.exe` likely for credential dumping — all while maintaining two C2 channels
-- **C)** Ransomware encrypted files and used PowerShell to send the key to an external server
-- **D)** A worm spread laterally from another machine and is scanning the network from this host
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Memory_Analysis.md)
