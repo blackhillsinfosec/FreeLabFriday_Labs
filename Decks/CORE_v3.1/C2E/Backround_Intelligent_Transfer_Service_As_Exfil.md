@@ -54,19 +54,10 @@ The key thing to understand is that the *behavior* isn't inherently malicious - 
 
 ## CTF Challenges
 
-Put your knowledge to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/bits-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/c2-exfiltration/background-intelligent-transfer-service-bits-as-exfil?page=2)
-
-<!--- [Easy 1 – Spot the BITS Job](ctfs/BITS_easy-1.md)
-- [Easy 2 – Log Analysis: Outbound BITS Traffic](ctfs/BITS_easy-2.md)
-- [Medium – Reconstructing an Exfiltration Timeline](ctfs/BITS_medium.md)
-- [Hard – Full Exfil Hunt and Attribution](ctfs/BITS_hard.md)
--->
 ---
 
 ## Labs
