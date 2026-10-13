@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Injected Process
+## Injected Process
 
 You are investigating a memory image from a compromised endpoint. The SOC received an alert about unusual outbound traffic, but no new processes were found on disk.
 
@@ -28,28 +26,3 @@ Finally, you check active network connections with `netscan`:
 Proto  Local Addr        Foreign Addr         State    PID   Process
 TCP    10.0.0.5:49823    185.220.101.47:443   ESTAB    1204  explorer.exe
 ```
-
----
-
-## Question
-
-What technique is most likely being used here, and what does the evidence point to?
-
----
-
-## Flags (Choose One)
-
-- **A)** A legitimate browser plugin is making an HTTPS connection
-- **B)** The attacker is using a keylogger saved to disk inside the explorer folder
-- **C)** The system is performing an automatic Windows telemetry upload
-- **D)** A PE file was injected into `explorer.exe` and is maintaining a C2 connection over port 443
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Challenge](MA_hard.md)  
-[Back to Card's Main Page](../Memory_Analysis.md)
