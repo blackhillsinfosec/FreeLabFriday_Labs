@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Log Analysis: Outbound BITS Traffic
+## Log Analysis: Outbound BITS Traffic
 
 You are reviewing firewall logs from a company workstation. You notice the following outbound connection:
 
@@ -14,28 +12,3 @@ You are reviewing firewall logs from a company workstation. You notice the follo
 ```
 
 The IP `91.108.56.34` does not belong to any known Microsoft or vendor update server.
-
----
-
-## Question
-
-What should this log entry tell you?
-
----
-
-## Flags (Choose One)
-
-- **A)** BITS was used to exfiltrate data to an unknown external server
-- **B)** Windows Update ran successfully overnight
-- **C)** A user manually downloaded a zip file from the internet
-- **D)** The firewall blocked a suspicious connection attempt
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Next Question](BITS_medium.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/C2E/Backround_Intelligent_Transfer_Service_As_Exfil.md)
