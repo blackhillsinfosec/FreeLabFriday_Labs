@@ -60,20 +60,10 @@ This technique shows up in nation-state level attacks and advanced persistent th
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/per/ctfs/mf-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/persistence/malicious-firmware?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Firmware String Extraction](ctfs/MF_easy-1.md)
-- [Easy 2 – UEFI Boot Anomaly](ctfs/MF_easy-2.md)
-- [Medium – Flash Memory Tampering](ctfs/MF_medium.md)
-- [Hard – Full Firmware Implant](ctfs/MF_hard.md)
--->
 ---
 
 ## Labs
