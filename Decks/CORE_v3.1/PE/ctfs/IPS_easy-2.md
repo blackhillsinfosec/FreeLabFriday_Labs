@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Spray the Lab
+## Spray the Lab
 
 You are reviewing authentication logs from your SIEM after it triggered a low-priority alert. You notice the following pattern over a 20-minute window:
 
@@ -13,28 +11,3 @@ You are reviewing authentication logs from your SIEM after it triggered a low-pr
 ```
 
 No single account was attempted more than once.
-
----
-
-## Question
-
-Why did the attacker use only one password attempt per account instead of trying many passwords on one account?
-
----
-
-## Flags (Choose One)
-
-- **A)** They did not know any other passwords to try
-- **B)** They were only targeting the `m.torres` account specifically
-- **C)** The domain controller was blocking all traffic except from that IP
-- **D)** To avoid triggering account lockout policies while still finding weak credentials
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-[Next Question](IPS_medium.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Internal_Password_Spray.md)
