@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Persistence Chain
+## Full Persistence Chain
 
 You are performing incident response on a compromised server. You have collected the following artifacts:
 
@@ -30,27 +28,3 @@ Event ID 4672 - Special privileges assigned to svcbackup
 ```
 192.168.1.55 -> 185.220.101.47:443   [TLS]   repeated every 60s
 ```
-
----
-
-## Question
-
-Based on all four artifacts combined, which of the following best describes the full attack chain in the correct order?
-
----
-
-## Flags (Choose One)
-
-- **A)** Credential theft -> lateral movement via PsExec -> service persistence with encoded payload -> C2 beacon over HTTPS
-- **B)** Phishing email -> PowerShell download -> service creation -> data exfiltration over DNS
-- **C)** Vulnerability exploit -> privilege escalation -> new service -> lateral movement to a third host
-- **D)** Brute force login -> remote command execution -> scheduled task persistence -> C2 over HTTP
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Back to Card's Main Page](/Decks/CORE_v3.1/PE/New_Service_Creation-Modification.md)
