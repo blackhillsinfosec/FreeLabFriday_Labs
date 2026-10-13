@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Domain Compromise
+## Full Domain Compromise
 
 You are performing a post-incident forensic review. The timeline of events is reconstructed below:
 
@@ -16,27 +14,3 @@ Day 1 - 09:20  All domain machines compromised
 ```
 
 The svc_backup account was a standard service account with no special privileges listed in AD. SMB signing was disabled on the domain controller.
-
----
-
-## Question
-
-Which two conditions, both present in this environment, made full domain compromise possible in under 10 minutes?
-
----
-
-## Flags (Choose One)
-
-- **A)** Weak password policy and no antivirus on the domain controller
-- **B)** SMB signing not enforced on the DC, and svc_backup having implicit replication privileges due to its group membership
-- **C)** The attacker had physical access to the domain controller
-- **D)** The domain controller was running SMBv1 and had RDP exposed to the internet
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](../SMB_Abuse.md)
