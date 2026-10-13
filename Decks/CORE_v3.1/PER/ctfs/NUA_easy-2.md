@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Log Hunt
+## Log Hunt
 
 You are reviewing Windows Security event logs on a domain controller. The logs were pulled after a threat hunter flagged unusual activity overnight.
 
@@ -21,29 +19,3 @@ Message:   A user account was created.
 ```
 
 You also notice that five minutes later, Event ID **4732** fires - the new account was added to the **Administrators** group.
-
----
-
-## Question
-
-What should you conclude from these two log events?
-
----
-
-## Flags (Choose One)
-
-- **A)** A scheduled task created a temporary service account as expected
-- **B)** An IT technician provisioned a new account during emergency maintenance
-- **C)** An attacker created a backdoor admin account using SYSTEM-level access
-- **D)** The domain controller automatically generated a recovery account
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Next Question](NUA_medium.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/PER/New_User_Added.md)
