@@ -37,27 +37,3 @@ Observed: email sent 09:02, external bank reference, deviation score 94/100
 **DAY 2 - 09:45** - CFO confirms the transfer was approved and processed.
 
 **DAY 2 - 14:30** - CEO returns from meetings. No record of him requesting any payment change.
-
----
-
-## Question
-
-Which of the following correctly identifies both the attack technique used AND the detection gap that allowed it to succeed?
-
----
-
-## Flags (Choose One)
-
-- **A)** Technique: credential stuffing - Gap: no MFA on the CEO account
-- **B)** Technique: Business Email Compromise via a compromised internal account used to impersonate a trusted sender and intercept context from the CFO thread - Gap: the UEBA alert fired but was not acted on before the transfer was approved
-- **C)** Technique: domain spoofing - Gap: the email filter did not catch the fake domain
-- **D)** Technique: malware on the CFO workstation intercepting outbound payments - Gap: endpoint protection was not installed
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Internal_Spearphishing.md)
