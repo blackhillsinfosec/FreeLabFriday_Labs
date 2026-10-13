@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Physical Intrusion Simulation
+## Full Physical Intrusion Simulation
 
 You are a red team operator tasked with gaining access to the internal network of a financial firm. You have been given permission to test physical controls only - no digital exploitation until you are physically inside.
 
@@ -21,36 +19,3 @@ You are a red team operator tasked with gaining access to the internal network o
 > "Hi, I just started this week in the Croydon branch and I was told to come in for an onboarding session today, but my badge is not working at the side entrance. Can someone let me know if there is a temporary access code or if I should go around front?"
 
 The helpdesk rep gives you a four-digit door code for the side entrance used during badge reader maintenance.
-
----
-
-## Question
-
-You now have the door code and a cloned badge design. You want to reach the server room on Floor 2 with the lowest chance of detection. Ordering the steps below - which sequence is correct?
-
-```
-1. Enter through the side entrance using the door code during lunch hour
-2. Clone a staff badge using the org chart and a relay attack at the smoking area
-3. Use the cloned badge to open the Floor 2 server room door
-4. Tailgate through the "Staff Only" propped door near the smoking area
-5. Wait in a bathroom stall until the floor is quiet
-```
-
----
-
-## Flags (Choose One)
-
-- **A)** 2 -> 1 -> 4 -> 5 -> 3
-- **B)** 1 -> 4 -> 5 -> 2 -> 3
-- **C)** 2 -> 4 -> 1 -> 3 -> 5
-- **D)** 1 -> 2 -> 4 -> 3 -> 5
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](../Physical_Security_Review.md)
