@@ -68,12 +68,9 @@ Any of these alone could be nothing. In combination, they usually mean something
 
 ## CTF Challenges
 
-You will solve four challenges related to site walkthroughs and physical security investigations:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Spotting the Rogue Device](ctfs/SW_easy-1.md)
-- [Easy 2 - Reading the Badge Logs](ctfs/SW_easy-2.md)
-- [Medium - Wireless Anomaly Hunt](ctfs/SW_medium.md)
-- [Hard - Full Physical Intrusion Timeline](ctfs/SW_hard.md)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/det/ctfs/sw-ctf-quiz)
 
 ---
 
