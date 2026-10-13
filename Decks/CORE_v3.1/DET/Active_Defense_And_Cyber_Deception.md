@@ -56,18 +56,11 @@ The objective is observation and detection — not retaliation.
 
 Put your knowledge of the topic to the test with this online quiz!
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Easy 1 – First Interaction with a Decoy](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz/#first-interaction-with-a-decoy)
+- [Easy 2 – Finding the Canary](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz/#finding-the-canary)
+- [Medium – Tracking Attacker Movement](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz/#tracking-attacker-movement)
+- [Hard – Deception-Based Detection Scenario](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz/#deception-based-detection-scenario)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/active-defense-and-cyber-deception?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – First Interaction with a Decoy](ctfs/ADCD_easy-1.md)
-- [Easy 2 – Finding the Canary](ctfs/ADCD_easy-2.md)
-- [Medium – Tracking Attacker Movement](ctfs/ADCD_medium.md)
-- [Hard – Deception-Based Detection Scenario](ctfs/ADCD_hard.md)
--->
 ---
 
 ## Labs
