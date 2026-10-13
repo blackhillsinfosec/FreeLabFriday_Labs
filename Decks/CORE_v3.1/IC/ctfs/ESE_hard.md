@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF – Internet to Internal
+## Internet to Internal
 
 This challenge is about turning an external service foothold into **real impact**
 
@@ -35,28 +33,3 @@ SSH is configured with password auth enabled
 ## Goal
 
 Choose the best red-team path to go from **external exposure** → **internal access**
-
----
-
-## Question
-
-What most likely completes the “internet-to-internal pivot” here?
-
----
-
-## Flags (Choose One)
-
-- **A)** Use the leaked configuration to obtain credentials, then use SSH to establish a tunnel/pivot to reach `db01.internal.local`  
-- **B)** Keep refreshing the web page until the database appears  
-- **C)** Run a DDoS to distract defenders and hope the DB opens up  
-- **D)** Email the database admin asking for access  
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)
