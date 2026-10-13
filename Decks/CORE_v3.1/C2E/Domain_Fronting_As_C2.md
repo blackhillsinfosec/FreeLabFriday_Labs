@@ -56,13 +56,9 @@ Three frameworks commonly seen with domain fronting:
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
-
-- [Easy 1 – Spot the Front](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/df-ctf-quiz/#spot-the-front)
-- [Easy 2 – Log Analysis Basics](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/df-ctf-quiz/#log-analysis-basics)
-- [Medium – Hunting the Beacon](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/df-ctf-quiz/#hunting-the-beacon)
-- [Hard – Full C2 Takedown](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/df-ctf-quiz/#full-c2-takedown)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/c2e/ctfs/df-ctf-quiz)
 
 ---
 
