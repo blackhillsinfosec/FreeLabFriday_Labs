@@ -20,7 +20,8 @@ A query  ->  5a0b3c.drop-updates.org
 A query  ->  1f4e9d.drop-updates.org
 A query  ->  8c2a7f.drop-updates.org
 ```
-The subdomains are hex-encoded chunks of a file. Reassembled and decoded, they produce the contents of `C:\Users\jsmith\Documents\credentials.txt`.
+The subdomains are hex-encoded chunks of a file.<br>
+Reassembled and decoded, they produce the contents of `C:\Users\jsmith\Documents\credentials.txt`.
 
 **Phase 4 – Persistence**
 ```
