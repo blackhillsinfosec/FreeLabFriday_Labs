@@ -46,20 +46,10 @@ Because spraying is intentionally slow and spread out, traditional brute-force d
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/pe/ctfs/ips-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/pivot-escalate/internal-password-spray?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Account Enumeration](ctfs/IPS_easy-1.md)
-- [Easy 2 – Spray the Lab](ctfs/IPS_easy-2.md)
-- [Medium – Evade the Lockout](ctfs/IPS_medium.md)
-- [Hard – Full Internal Spray Campaign](ctfs/IPS_hard.md)
--->
 ---
 
 ## Labs
