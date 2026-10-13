@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF – Phish to Network Access
+## Phish to Network Access
 
 A finance employee clicked a link in an email and entered their credentials on a fake login page. A few hours later, suspicious activity is detected on internal servers.
 
@@ -14,28 +12,3 @@ The following events were identified:
 - Lateral movement to a file server  
 - Database access from the same session  
 - No malware detected on the employee’s laptop
-
----
-
-## Question
-
-What allowed the attacker to reach internal systems?
-
----
-
-## Flags (Choose One)
-
-- **A)** Exploited zero-day vulnerability  
-- **B)** Drive-by malware infection  
-- **C)** Stolen VPN credentials from phishing  
-- **D)** Insider threat  
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/Phishing.md)
