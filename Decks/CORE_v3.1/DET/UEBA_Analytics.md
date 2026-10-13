@@ -56,20 +56,10 @@ For a defender, this means less noise and more signal. Instead of chasing hundre
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/ueba-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/user-and-entity-behavior-analytics-ueba?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Spot the Anomalous Login](ctfs/UEBA_easy-1.md)
-- [Easy 2 – Service Account Gone Wrong](ctfs/UEBA_easy-2.md)
-- [Medium – Insider Threat Investigation](ctfs/UEBA_medium.md)
-- [Hard – Full Behavioral Attack Chain](ctfs/UEBA_hard.md)
--->
 ---
 
 ## Labs
