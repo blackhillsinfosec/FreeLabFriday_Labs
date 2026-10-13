@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Silent Drain
+## Silent Drain
 
 You are a threat hunter investigating a suspected long-term breach. An internal tip suggested data may have been leaving the network for weeks. No alerts fired during that period.
 
@@ -23,27 +21,3 @@ UPLOAD: personal OneDrive account (not the corporate tenant)
 ```
 
 The legitimate OneDrive client is being used, the binary is signed by Microsoft, and the traffic volume barely exceeds the normal baseline.
-
----
-
-## Question
-
-Why did this exfiltration go undetected for weeks, and what was the critical indicator that finally revealed it?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attack was detected because OneDrive.exe is always flagged by SIEM rules as suspicious
-- **B)** The upload went to a personal OneDrive account instead of the corporate tenant, and it was spawned nightly by a scheduled task reading finance files - the combination of parent process, destination account, and file access pattern is the real tell
-- **C)** The attacker made a mistake by uploading more than 2 MB, which triggered a data loss prevention rule
-- **D)** Endpoint AV flagged OneDrive.exe because its hash did not match the expected value
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Cloud_Based_Services_As_Exfil.md)
