@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Detecting Low-and-Slow Sprays
+## Detecting Low-and-Slow Sprays
 
 You are analyzing cloud sign-in logs from the past 24 hours.
 
@@ -11,30 +9,3 @@ Summary:
 - User agents are nearly identical
 - 6 successful logins from accounts with weak passwords
 - No single account exceeded lockout thresholds
-
----
-
-## Question
-
-What should be your **first priority** as a defender?
-
----
-
-## Flags (Choose One)
-
-- **A)** Reset passwords only for users with failed logins  
-- **B)** Disable the VPN permanently  
-- **C)** Block all external traffic immediately  
-- **D)** Investigate and contain the successful logins  
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-
-[Next Question](EPS_hard.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Password_Spray.md)
