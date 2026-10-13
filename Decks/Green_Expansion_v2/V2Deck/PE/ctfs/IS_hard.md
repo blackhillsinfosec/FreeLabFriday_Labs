@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Campaign Reconstruction
+## Full Campaign Reconstruction
 
 Your team has been called in after an incident. You are given logs from a 72-hour window. Piece together what happened.
 
