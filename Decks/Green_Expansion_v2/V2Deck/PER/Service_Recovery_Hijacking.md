@@ -54,13 +54,9 @@ Both approaches are covered in the labs and challenges below.
 
 ## CTF Challenges
 
-Four challenges to test your understanding, from basic to advanced:
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 - Spot the Modified Service](ctfs/SRH_easy-1.md)
-- [Easy 2 - Registry Investigation](ctfs/SRH_easy-2.md)
-- [Medium - Tracing the Execution Chain](ctfs/SRH_medium.md)
-- [Hard - Full Attack Reconstruction](ctfs/SRH_hard.md)
-
+- [Take the Quiz](https://freelabfridays.com/labs/decks/green-expansion-v2/v2deck/per/ctfs/srh-ctf-quiz)
 
 ---
 
