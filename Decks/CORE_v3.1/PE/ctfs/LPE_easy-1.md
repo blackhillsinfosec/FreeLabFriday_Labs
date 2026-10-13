@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 – Weak File Permissions
+## Weak File Permissions
 
 You have low-privileged shell access on a Linux server as user `student`
 
@@ -17,28 +17,3 @@ Output:
 </pre>
 
 You are able to edit the file
-
----
-
-## Question
-
-Why is this a serious security issue?
-
----
-
-## Flags (Choose One)
-
-* **A)** It allows any user to reboot the system
-* **B)** It allows users to add or modify system accounts
-* **C)** It only affects system logging
-* **D)** It has no real impact
-
----
-
-Correct Flag: **B**
-
----
-
-[Next Question](LPE_easy-2.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/PE/Local_Privilege_Escalation.md)
