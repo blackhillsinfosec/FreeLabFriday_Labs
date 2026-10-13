@@ -64,21 +64,9 @@ Most investigations start with something small - an odd login time, strange file
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
-
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/initial-compromise/insider-threat?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Suspicious User Activity](ctfs/IT_easy-1.md)  
-- [Easy 2 – Basic Log Correlation](ctfs/IT_easy-2.md)  
-- [Medium – Privilege Misuse Investigation](ctfs/IT_medium.md)  
-- [Hard – Insider Data Exfiltration Case](ctfs/IT_hard.md)
--->
-
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/ic/ctfs/it-ctf-quiz)
 
 ---
 
