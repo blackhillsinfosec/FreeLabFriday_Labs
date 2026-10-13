@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Credential Hunt
+## Full Credential Hunt
 
 You are a security analyst investigating a breach. The attacker has already been evicted, but you need to reconstruct what happened. You have access to endpoint logs, UEBA alerts, and a snapshot of the affected machine.
 
@@ -22,28 +20,3 @@ The `.bat` file contained:
 ```bat
 sqlcmd -S SQL-PROD-01 -U svc_dbadmin -P "D@taB@se#99" -Q "SELECT * FROM customers"
 ```
-
----
-
-## Question
-
-The security team wants to write a detection rule to catch this technique earlier in the kill chain. Looking at the full timeline, at what point could defenders have had the earliest reliable signal that something was wrong - before any data left the network?
-
----
-
-## Flags (Choose One)
-
-- **A)** The outbound firewall alert at 08:33:44, since that is when data actually left the environment
-- **B)** The DLP alert at 08:32:11, when the content of the file matched a password pattern - this is the earliest point where the credential exposure itself was detected
-- **C)** The SQL query at 08:33:09, since querying 14,200 rows from a customer table is abnormal and would trigger a volume-based alert
-- **D)** The first-seen authentication of svc_dbadmin to SQL-PROD-01 at 08:33:05, since UEBA baselines flag accounts authenticating to systems they have not accessed in 6 months
-
----
-
-Correct Flag: **D**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](../Cleartext_Passwords_in_Files.md)
