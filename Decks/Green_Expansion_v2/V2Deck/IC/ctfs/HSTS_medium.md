@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF - Session Hijack
+## Session Hijack
 
 You are a security analyst reviewing an incident. A user reported that their account was accessed by someone else, even though they never shared their password. The user was working from a coffee shop that day.
 
@@ -21,28 +19,3 @@ Set-Cookie: session=a3f9c1; path=/
 ```
 
 Note: The `Secure` flag is absent from the cookie, and the site had no HSTS policy.
-
----
-
-## Question
-
-Which combination of missing protections allowed this attack to succeed?
-
----
-
-## Flags (Choose One)
-
-- **A)** Missing firewall rules and an expired SSL certificate
-- **B)** No HSTS header and no `Secure` flag on the session cookie, allowing it to be transmitted and captured over HTTP
-- **C)** Weak password policy and missing two-factor authentication
-- **D)** The server did not validate the user's IP address on each request
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Next Question](HSTS_hard.md)  
-[Back to Card's Main Page](../Exploitation_Of_Missing_HSTS.md)
