@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF – Pick the Exploit Path
+## Pick the Exploit Path
 
 During recon, you fingerprint a public-facing VPN appliance
 
@@ -23,30 +21,3 @@ You search your notes and find two items:
 ## Goal
 
 Choose the best **responsible** red-team step that still moves you toward an initial foothold quickly
-
----
-
-## Question
-
-What should you do next?
-
----
-
-## Flags (Choose One)
-
-- **A)** Fire Metasploit at it immediately and hope it sticks  
-- **B)** Brute force VPN credentials from the internet until you get lucky  
-- **C)** Confirm the **exact build** and check exploitability before attempting any exploit  
-- **D)** Ignore the VPN and start scanning random hosts outside scope  
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Next Question](ESE_hard.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/IC/External_Service_Exploitation.md)
