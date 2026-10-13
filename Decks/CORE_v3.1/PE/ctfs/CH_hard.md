@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Credential Chain
+## Full Credential Chain
 
 You are a SOC analyst investigating a potential breach. Here is a timeline of events reconstructed from logs across multiple systems:
 
@@ -20,27 +18,3 @@ DB_HOST = "PRODDB-01"
 DB_USER = "svc_db"
 DB_PASS = "Pr0dDB#Secure99"
 ```
-
----
-
-## Question
-
-Looking at the full chain of events, which statement **best** describes what happened?
-
----
-
-## Flags (Choose One)
-
-- **A)** An attacker used a Tor exit node to log in as m.santos, found hardcoded database credentials in a script on an open share, used them to access the production database, and exfiltrated data - all within 20 minutes
-- **B)** The service account `svc_db` was compromised through a brute-force attack against the database server, and m.santos's account was used as a distraction
-- **C)** m.santos accidentally triggered a DLP alert by accessing too many files at once, and the database connection was a routine automated job
-- **D)** The attacker exploited a vulnerability in PRODDB-01 directly and used m.santos's account to cover their tracks in the logs
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Credential_Harvesting.md)
