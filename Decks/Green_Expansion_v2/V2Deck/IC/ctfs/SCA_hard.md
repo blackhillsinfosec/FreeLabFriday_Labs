@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Supply Chain Compromise Simulation
+## Full Supply Chain Compromise Simulation
 
 You are the lead incident responder. A Fortune 500 company has called you in after their SOC noticed unusual activity. You need to reconstruct the full attack chain and identify the correct containment priority.
 
@@ -30,28 +28,3 @@ Day 21  - Exfiltration - 4.3 GB outbound to 185.225.69[.]xx over HTTPS
 - Only HOST-22 received active C2 tasking (the rest got sinkholed)
 - "svc_helpdesk2" account exists on DC-01 with Domain Admin privileges
 - Exfiltration already occurred
-
----
-
-## Question
-
-You can only take ONE immediate action before the attacker is likely to detect your response and go dark. What is it?
-
----
-
-## Flags (Choose One)
-
-- **A)** Immediately reimage all 300 endpoints running the compromised Orion binary
-- **B)** Block outbound traffic to avsvmcloud.com at the perimeter firewall
-- **C)** Disable the "svc_helpdesk2" account and revoke its active sessions on DC-01
-- **D)** Isolate HOST-22 from the network and preserve its memory for forensic analysis
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-
-[Back to Main Page](../Supply_Chain_Attack.md)
