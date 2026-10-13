@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Network Takeover via DHCPv6
+## Full Network Takeover via DHCPv6
 
 You are a senior analyst responding to an incident. An endpoint detection tool flagged unusual outbound traffic from multiple workstations to an internal IP that isn't in your asset registry. You begin pulling data.
 
@@ -35,27 +33,3 @@ All 14 workstations → 192.168.1.99   SMB/LDAP   Authentication attempts
 ```
 
 Your environment has no IPv6 infrastructure. There is no legitimate DHCPv6 server on the network.
-
----
-
-## Question
-
-Putting the full picture together - what is the correct sequence of events, and what is the attacker's end goal?
-
----
-
-## Flags (Choose One)
-
-- **A)** The attacker flooded the network with DHCPv6 packets to cause a denial of service, and the authentication attempts are a side effect of workstations trying to re-establish connectivity
-- **B)** The attacker used MITM6 to become the DHCPv6 server, set itself as the DNS resolver, redirected domain controller lookups to its own machine, and relayed the resulting LDAP/SMB authentication sessions to gain domain-level access
-- **C)** The attacker compromised the DHCP server and modified existing IPv4 leases to point DNS at a rogue host, then waited for natural lease renewals to redirect traffic
-- **D)** The attacker exploited a vulnerability in the DNS server to return forged responses, using DHCPv6 as a distraction to prevent defenders from identifying the real attack vector
-
----
-
-Correct Flag: **B**
-
----
-
-# Finished?
-[Back to Card's Main Page](../Broadcast-Multicast_Protocol_Poisoning.md)
