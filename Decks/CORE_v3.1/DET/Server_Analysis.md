@@ -70,20 +70,10 @@ Good analysis is less about guessing and more about building a timeline from evi
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
->[!Note]
->
->You will be required to **SIGN-IN** or **[CREATE AN ACCOUNT](https://learning.antisyphontraining.com/)** on our LMS platform upon clicking!
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/sa-ctf-quiz)
 
-[Take me to the CTF Quiz!](https://learning.antisyphontraining.com/learn/course/bb-ctf-labs/detections/server-analysis?client=bb-box-panorama&page=2)
-
-<!--
-- [Easy 1 – Suspicious Login Activity](ctfs/SA_easy-1.md)  
-- [Easy 2 – Strange Process Discovery](ctfs/SA_easy-2.md)  
-- [Medium – Log Correlation Investigation](ctfs/SA_medium.md)  
-- [Hard – Full Incident Timeline Reconstruction](ctfs/SA_hard.md)  
--->
 ---
 
 ## Labs
