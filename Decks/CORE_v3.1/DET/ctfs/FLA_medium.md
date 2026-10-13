@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Medium CTF – Lateral Movement Detection
+## Lateral Movement Detection
 
 During an investigation, you review firewall logs from an internal segment.
 
@@ -14,30 +12,3 @@ You notice this sequence:
 ```
 
 The source host normally only communicates with a file server.
-
----
-
-## Question
-
-What should you suspect first?
-
----
-
-## Flags (Choose One)
-
-- **A)** Lateral movement attempting SMB access  
-- **B)** A vulnerability scan from IT  
-- **C)** Routine file sharing activity  
-- **D)** Time synchronization traffic
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-
-[Next Question](FLA_hard.md)
-
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Firewall_Log_Analysis.md)
