@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Easy CTF 2 - Identifying Poisoning Traffic
+## Identifying Poisoning Traffic
 
 You are a defender reviewing a Wireshark capture from your internal network. You filter for LLMNR traffic and find the following exchange:
 
@@ -13,28 +11,3 @@ No.   Time     Source          Destination      Protocol  Info
 ```
 
 You check your asset inventory. `192.168.1.20` is a known file server. `192.168.1.80` is a workstation — it should never be responding to name resolution queries.
-
----
-
-## Question
-
-What does this capture most likely indicate?
-
----
-
-## Flags (Choose One)
-
-- **A)** The workstation at 192.168.1.80 is likely running a poisoning tool like Responder
-- **B)** The file server at 192.168.1.20 is misconfigured and broadcasting incorrect addresses
-- **C)** The query from 192.168.1.45 failed because two responses caused a conflict
-- **D)** This is normal behavior - multiple machines can respond to LLMNR queries
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-[Next Question](BMPP_medium.md)  
-[Back to Card's Main Page](../Broadcast-Multicast_Protocol_Poisoning.md)
