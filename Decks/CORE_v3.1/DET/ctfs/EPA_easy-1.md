@@ -1,6 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Easy CTF 1 - Suspicious Process Hunt
+## Suspicious Process Hunt
 
 You are reviewing endpoint telemetry from a Windows workstation after a user reported their machine was "acting slow."
 
@@ -18,28 +18,3 @@ The PowerShell process was launched with the following command:
 ```
 powershell.exe -nop -w hidden -enc JABjAGwAaQBlAG4AdA...
 ```
-
----
-
-## Question
-
-What does the `-enc` flag in the PowerShell command most likely indicate?
-
----
-
-## Flags (Choose One)
-
-- **A)** PowerShell is running in safe mode
-- **B)** The script requires elevated privileges to execute
-- **C)** The command is base64-encoded to avoid detection
-- **D)** PowerShell is downloading a Windows update
-
----
-
-Correct Flag: **C**
-
----
-
-# Finished?
-[Next Question](EPA_easy-2.md)  
-[Back to Card's Main Page](/Decks/CORE_v3.1/DET/Endpoint_Security_Protection_Analysis.md)
