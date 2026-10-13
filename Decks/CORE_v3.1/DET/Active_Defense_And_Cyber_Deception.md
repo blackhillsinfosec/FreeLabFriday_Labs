@@ -54,12 +54,9 @@ The objective is observation and detection — not retaliation.
 
 ## CTF Challenges
 
-Put your knowledge of the topic to the test with this online quiz!
+You will work through four challenges that put these concepts into practice:
 
-- [Easy 1 – First Interaction with a Decoy](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz/#first-interaction-with-a-decoy)
-- [Easy 2 – Finding the Canary](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz/#finding-the-canary)
-- [Medium – Tracking Attacker Movement](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz/#tracking-attacker-movement)
-- [Hard – Deception-Based Detection Scenario](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz/#deception-based-detection-scenario)
+- [Take the Quiz](https://freelabfridays.com/labs/decks/core-v31/det/ctfs/adcd-ctf-quiz)
 
 ---
 
