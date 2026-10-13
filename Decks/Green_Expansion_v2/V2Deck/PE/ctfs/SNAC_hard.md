@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full SNAC Chain
+## Full SNAC Chain
 
 You are a SOC analyst. A SIEM alert fires at 03:14 AM flagging unusual authentication volume from the service account `svc-backup@corp.internal`.
 
@@ -48,28 +46,3 @@ Note: `backup-agent.corp.internal` was the hostname of a backup orchestrator tha
     First seen: 2d 14h ago
     Note: 10.1.8.33 is responding to ARP requests intended for 10.1.8.20
 ```
-
----
-
-## Question
-
-Piecing together all four data sources, which of the following best describes the full attack chain?
-
----
-
-## Flags (Choose One)
-
-- **A)** An attacker at `10.1.8.33` claimed the stale ARP entry for `backup-agent.corp.internal`, intercepted Kerberos tickets from `svc-backup`, and used them to authenticate laterally across the network
-- **B)** A misconfigured printer at `10.1.8.20` is broadcasting credentials from the service account, and `10.1.8.33` is a logging server capturing them
-- **C)** The DHCP server assigned `10.1.8.33` to a new backup agent that replaced the old one, and the SIEM alert is a false positive from the re-provisioning
-- **D)** The attacker compromised the DNS server directly and injected the `backup-agent.corp.internal` record to redirect traffic
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](../SNAC_Attack.md)
