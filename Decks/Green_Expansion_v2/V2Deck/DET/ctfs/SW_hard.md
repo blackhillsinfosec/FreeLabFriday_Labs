@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Physical Intrusion Timeline
+## Full Physical Intrusion Timeline
 
 A security alert was triggered at 2:30 AM by an IDS rule. Your team conducts a full site walkthrough the next morning. You pull data from every available source and piece together the following:
 
@@ -42,28 +40,3 @@ Outbound connection to 185.220.101.47:4444
 Source: 192.168.10.55 (newly assigned DHCP lease - no prior history)
 Protocol: TCP - reverse shell pattern detected
 ```
-
----
-
-## Question
-
-Based on all available evidence, which of the following best describes what happened during the intrusion?
-
----
-
-## Flags (Choose One)
-
-- **A)** An attacker used a cloned or stolen maintenance badge to access the server room, disabled the CCTV manually to avoid recording, planted a rogue device in rack 3B, and left before the IDS alert fired - the alert was triggered by the planted device establishing a reverse shell
-- **B)** An authorized maintenance worker entered to replace hardware, accidentally knocked out the CCTV power, and a pre-existing infected device triggered the IDS alert independently
-- **C)** A legitimate vendor visit was not logged properly - the CCTV outage was a known technical fault, and the IDS alert was a false positive from a misconfigured monitoring tool
-- **D)** A disgruntled insider accessed the server room using their own valid badge, took equipment from the racks, and the IDS alert was triggered by a different unrelated host on the network
-
----
-
-Correct Flag: **A**
-
----
-
-# Finished?
-
-[Back to Card's Main Page](../Site_Walkthrough.md)
