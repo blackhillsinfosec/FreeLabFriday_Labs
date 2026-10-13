@@ -1,6 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Hard CTF - Full Facility Breach
+## Full Facility Breach
 
 You are a security analyst conducting a post-incident review. Over three days, your team has pieced together the following timeline:
 
