@@ -39,7 +39,7 @@ FireProx also supports the following capabilities:
 
 Before proceeding, make sure you have an AWS account.
 
-Follow the instructions [here](/Decks/CORE_v3.1/IC/labs/AWS_Account_Setup.md).
+Follow the instructions [here](/Decks/CORE_v3.1/IC/AWS_Account_Setup.md).
 
 Also, proceed to the next section before starting the Ubuntu VM to save credits.
 
