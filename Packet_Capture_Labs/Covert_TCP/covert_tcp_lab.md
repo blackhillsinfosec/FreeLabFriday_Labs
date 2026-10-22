@@ -1,3 +1,5 @@
+![image](/FilesForLabs/images/blueantisyphon.png)
+
 # CovertTCP - IP Identification Covert Channel
 
 **Capture file:** `covert_tcp_lab.pcap`
