@@ -1,3 +1,5 @@
+![image](/FilesForLabs/images/blueantisyphon.png)
+
 # Deception Systems
 The goal of deception technology is to draw cybercriminals to a trap or decoy instead of an organization's real assets. In order to fool the criminal into thinking they have infiltrated and obtained access to the company's most valuable assets when they haven't, the decoy imitates authentic servers, apps, and data. The tactic is used to reduce harm and safeguard an organization's real assets
 
