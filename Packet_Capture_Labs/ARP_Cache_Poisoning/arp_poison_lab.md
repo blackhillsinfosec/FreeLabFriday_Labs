@@ -1,3 +1,5 @@
+![image](/FilesForLabs/images/blueantisyphon.png)
+
 # ARP Cache Poisoning - Wireshark Hands-On Lab
 
 **Capture file:** `arp_poison_lab.pcap`  
