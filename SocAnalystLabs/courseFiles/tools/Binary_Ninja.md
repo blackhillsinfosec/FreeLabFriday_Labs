@@ -1,3 +1,5 @@
+![image](/FilesForLabs/images/blueantisyphon.png)
+
 **Binary Ninja** is a reverse engineering platform for analyzing binaries (PE, ELF, Mach-O, etc.) 
 
 It’s used in **malware analysis**, **vulnerability research**, and **reverse engineering** - key skills for analysts dealing with advanced threats or obfuscated binaries
