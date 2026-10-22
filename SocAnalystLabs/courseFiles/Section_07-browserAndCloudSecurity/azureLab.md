@@ -2,9 +2,9 @@
 
 # Azure
 
-# Any VM
+#### Please use either VM
 
-# Setup
+## Setup
 
 - First things first, create an account here: https://azure.microsoft.com/en-us/pricing/free-services
 - And get your sample logs from here: https://github.com/sbousseaden/EVTX-ATTACK-SAMPLES/blob/master/evtx_data.csv
@@ -49,8 +49,11 @@
 
 <img width="1762" height="940" alt="image" src="https://github.com/user-attachments/assets/353a32f1-070c-4a85-8766-a21d0442583c" />
 
-# Now you can FINALLY run queries! 
-### My table name is "LabLogs", in the queries replace it with whatever you named it
+## Run the Queries
+
+Now you can FINALLY run queries! 
+
+My table name is "LabLogs", in the queries replace it with whatever you named it
 - Let's see the first 100 logs
 
 <pre>LabLogs
@@ -92,7 +95,9 @@
 
 <img width="459" height="804" alt="image" src="https://github.com/user-attachments/assets/8cd45f1c-6a82-43f1-83c0-8006e966275e" />
 
-## Now try to see what each of those queries do, and try to create some yourself now that you've got everything setup
+## What do the queries do?
+
+Now try to see what each of those queries do, and try to create some yourself now that you've got everything setup
 
 <pre>LabLogs
 | where Column6 != "EVTX_Tactic"
