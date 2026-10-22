@@ -1,3 +1,5 @@
+![image](/FilesForLabs/images/blueantisyphon.png)
+
 # C2 Basic Terminology & Theory
 
 Before starting the hands-on C2 labs, we recommend reading this file first to become familiar with the basic terminology and theory behind C2 tools. Most of these terms and concepts are the same across most C2 frameworks, with a few minor exceptions.
