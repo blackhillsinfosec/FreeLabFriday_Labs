@@ -48,6 +48,10 @@ You should land on the Burp dashboard/discover tab
 
 We need a vulnerable web app to attack. **OWASP Juice Shop** is a deliberately broken e-commerce site, perfect for this
 
+Open up a terminal: 
+
+<img width="511" height="281" alt="image" src="https://github.com/user-attachments/assets/631ef48f-ccd5-451a-860e-110c6cc0a749" />
+
 Run Juice Shop as it is already on the system:
 
 ```bash
@@ -64,11 +68,9 @@ sudo docker ps
 
 You should see `juice-shop` listening on `0.0.0.0:3000`.
 
-Open `http://localhost:3000` in any browser to verify the site loads
+Open `http://localhost:3000` in the browser to verify the site loads
 
 <img width="1916" height="943" alt="image" src="https://github.com/user-attachments/assets/b6baa41a-3a84-4a85-856b-34432f291a6b" />
-
-Once you have verified that the site loads, **you can close this browser**.
 
 ---
 
@@ -81,22 +83,23 @@ exact same, we'll use **FoxyProxy** to intercept the packets.
 1. In Firefox, click the **FoxyProxy icon** (the fox head) in the top-right corner of Firefox.
 2. Select the **burp** profile. **All traffic is now routed through Burp Suite.**
 
-<img width="393" height="427" alt="image" src="https://github.com/user-attachments/assets/934b91d7-98a2-45a5-8e20-0de54bba0eeb" />
+<img width="355" height="450" alt="image" src="https://github.com/user-attachments/assets/9199fa20-df5d-4634-a4a2-3776f3a5ca97" />
+
 
 ### Step 2: Prepare Burp Suite
-1. Go back to **Burp Suite**.
-2. Click the **Proxy** tab, then ensure **Intercept is off** (the button should be grey/disabled for now so it doesn't freeze your background traffic).
-3. Switch to the **HTTP history** tab next to it. This is your traffic log.
-
-<img width="1737" height="432" alt="image" src="https://github.com/user-attachments/assets/7f7a3437-9561-4573-97e3-00a7b33dcf91" />
-
-4. Back in FireFox, navigate to:
+1. Back in FireFox, refresh the **OWASP Juice Shop page**, or if you've closed the firefox page, go to:
 
 ```
 http://localhost:3000
 ```
 
-You should see Juice Shop. From now on, **always use this browser** for the lab - it's the one Burp can see
+You should see Juice Shop. **As long as FoxyProxy is activated on firefox, Burpsuite can see the trafic.** Do not turn FoxyProxy off for now. 
+
+2. Go back to **Burp Suite**.
+3. Click the **Proxy** tab, then ensure **Intercept is off** (the button should be grey/disabled for now so it doesn't freeze your background traffic).
+4. Switch to the **HTTP history** tab next to it. This is your traffic log.
+
+<img width="1737" height="432" alt="image" src="https://github.com/user-attachments/assets/7f7a3437-9561-4573-97e3-00a7b33dcf91" />
 
 ---
 
