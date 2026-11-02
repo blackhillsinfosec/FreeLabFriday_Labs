@@ -271,7 +271,8 @@ We are now going to try to run **"TrustMe.exe"** as another user on the system.
 >[!WARNING]
 >
 >AppLocker does not instantly take effect once we start the service.<br>
->Wait 1 to 2 minutes before continuing in order to get the RUNAS error.
+>Wait 1 to 2 minutes before continuing in order to get the RUNAS error.<br>
+>You can also run <pre>Get-AppLockerPolicy -Effective</pre> to make sure the policy is live.
 
 Run the following commands:
 ```cmd
