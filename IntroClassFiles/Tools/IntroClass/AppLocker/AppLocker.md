@@ -268,6 +268,11 @@ gpupdate /force
 ### Attempt To Run Malware As Another User
 We are now going to try to run **"TrustMe.exe"** as another user on the system. 
 
+>[!WARNING]
+>
+>AppLocker does not instantly take effect once we start the service. 
+>Wait 1 to 2 minutes before continuing in order to get the RUNAS error.
+
 Run the following commands:
 ```cmd
 cd /IntroLabs
@@ -281,7 +286,7 @@ The password is **adhd**
 
 >[!WARNING]
 >
->If you do not get a RUNAS error, **Defender** has started itself back up. <br>
+>If you still do not get a RUNAS error, **Defender** has started itself back up. <br>
 >Run this command once more in your Powershell window, then repeat the above steps:
 ><pre>Set-MpPreference -DisableRealtimeMonitoring $true</pre>
 
