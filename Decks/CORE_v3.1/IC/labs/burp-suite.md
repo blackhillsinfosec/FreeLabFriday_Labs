@@ -137,11 +137,15 @@ Now **modify it before forwarding**. Change the password to something else, e.g.
 ```
 <img width="767" height="333" alt="image" src="https://github.com/user-attachments/assets/bf3314da-ef98-4e32-bfca-1db9a758088d" />
 
-Click **Forward**. The (modified) request hits the server. The server still rejects it (wrong creds), but you just demonstrated full request control.
+Click **Forward**. The (modified) request hits the server.
 
 <img width="955" height="847" alt="image" src="https://github.com/user-attachments/assets/9b543ecf-59d5-4a68-a83c-bca85bcc3e5f" />
 
-Toggle **Intercept is off** when you're done so the browser stops hanging on every click.
+Once you've clicked **Forward**, the text *"Invalid email or password"* should pop up in Owasp Juice Shop.
+
+<img width="548" height="704" alt="image" src="https://github.com/user-attachments/assets/805ff1dd-d5e6-45e4-a53a-19acf44609f0" />
+
+The server still rejects it (wrong creds), but you just demonstrated full request control. Toggle **Intercept is off** when you're done so the browser stops hanging on every click.
 
 ---
 
@@ -235,15 +239,17 @@ When two responses *almost* match, Comparer shows you exactly what changed.
 
 1. Go back to **Repeater**. Send two different login attempts (e.g. one valid email, one invalid). Right-click each of them -> **Send to Comparer (response)**.
 
-<img width="1352" height="786" alt="image" src="https://github.com/user-attachments/assets/6a07bbe9-2d08-4aed-a456-ff34c389baf6" />
+<img width="1273" height="601" alt="image" src="https://github.com/user-attachments/assets/1da5edae-db71-49a2-ad86-451676f96883" />
  
-<img width="1424" height="820" alt="image" src="https://github.com/user-attachments/assets/b3fe9be3-a73d-4821-b45e-05848eb5e958" />
+<img width="1398" height="690" alt="image" src="https://github.com/user-attachments/assets/66332ab6-ad92-4aba-86d0-c35c0e57324b" />
 
 2. Click the **Comparer** tab -> select both items -> click **Words** (bottom right).
 
+<img width="1383" height="690" alt="image" src="https://github.com/user-attachments/assets/d0be46c6-32f2-4e8b-9b00-854e12d35cf6" />
+
 You'll get a side-by-side colored diff. Useful for spotting things like a single header changing on a successful auth, or a different error message hinting at user enumeration.
 
-<img width="1733" height="960" alt="image" src="https://github.com/user-attachments/assets/b375dfc5-fdd8-41da-af9b-bf56b0cddd3a" />
+<img width="1291" height="583" alt="image" src="https://github.com/user-attachments/assets/aaeb1c44-fd12-4627-b8bb-30fcf8631f79" />
 
 ---
 
@@ -255,11 +261,14 @@ You'll get a side-by-side colored diff. Useful for spotting things like a single
 
 1. From **HTTP history**, find the `POST /rest/user/login` request.
 2. Right-click -> **Send to Intruder**.
+
+<img width="1086" height="472" alt="image" src="https://github.com/user-attachments/assets/d6396e1c-7a4d-4094-bf27-8725f554b214" />
+
 3. Open the **Intruder** tab -> **Positions** sub-tab.
 4. Burp auto-marks "insertion points" with `§` symbols. Click **Clear §** to remove them.
-5. Highlight just the password value in the body - for example highlight `anything` in `"password":"anything"` - then click **Add §**. Now only the password is a payload position.
+5. Highlight just the password value in the body - for example highlight `hacked` in `"password":"hacked"` - then click **Add §**. Now only the password is a payload position.
 
-<img width="1221" height="738" alt="image" src="https://github.com/user-attachments/assets/4eed69e0-dea6-4e5b-8d3f-8cee554aed99" />
+<img width="1379" height="685" alt="image" src="https://github.com/user-attachments/assets/eea0e114-34d7-41ad-8e38-bceeef7cdaad" />
 
 6. Switch to the **Payloads** sub-tab.
 7. Under **Payload configuration**, paste a few candidate passwords, one per line:
@@ -284,8 +293,7 @@ A new window opens, firing one request per password. Successful logins typically
 
 Stop and remove the Juice Shop container:
 ```bash
-sudo docker stop juice-shop
-sudo docker rm juice-shop
+sudo docker stop juice-new
 ```
 
 Close Burp Suite. Don't save the project (Community Edition can't anyway - saving projects is a Pro-only feature).
