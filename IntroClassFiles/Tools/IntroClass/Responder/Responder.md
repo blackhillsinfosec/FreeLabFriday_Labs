@@ -74,7 +74,7 @@ After a few moments, you should see some captured data showing up.
 We can do the same thing from the Windows Terminal by running the following command:
 
 ```bash
-net use * \\10.10.102.57\share
+net use * \\[Your Linux IP]\share
 ```
 
 <img width="420" height="225" alt="term_attempt" src="https://github.com/user-attachments/assets/7caad37f-ad48-4bfe-9c01-83f456f3c98f" />
