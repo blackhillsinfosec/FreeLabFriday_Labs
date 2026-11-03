@@ -79,7 +79,7 @@ You can hit the spacebar to see status.
 
 Once complete, your output should look like this:
 
-![image](/IntroClassFiles/Tools/IntroClass/Nmap/attachments/nmap_nmapscanwfirewall.png)
+<img width="802" height="325" alt="image" src="https://github.com/user-attachments/assets/f1029812-c539-4ad6-add8-a85fd4d5c017" />
 
 Please note the open ports. These are ports and services that an attacker could use to authenticate to your system or attack if an exploit is available. 
 <br>
@@ -98,7 +98,8 @@ Now, run the command again:
 nmap -Pn --reason -p 21,22,23,80,135,445,3389,5357 [Your Windows IP]
 ```
 
-![image](/IntroClassFiles/Tools/IntroClass/Nmap/attachments/nmap_turnbackon.png)
+<img width="804" height="324" alt="image" src="https://github.com/user-attachments/assets/7e539c03-5811-4c3c-aa4f-0ce57b23bf68" />
+
 
 >[!IMPORTANT]
 >
