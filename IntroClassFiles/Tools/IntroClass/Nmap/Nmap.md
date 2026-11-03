@@ -68,7 +68,7 @@ sudo su -
 Now, let’s re-scan from the terminal:
 
 ```bash
-nmap [Your Windows IP]
+nmap -Pn --reason -p 21,22,23,80,135,445,3389,5357 [Your Windows IP]
 ```
 
 >[!IMPORTANT]
@@ -96,7 +96,9 @@ netsh advfirewall set allprofiles state off
 
 Now, run the command again:
 
-<pre>nmap [Your Windows IP]</pre>
+```bash
+nmap -Pn --reason -p 21,22,23,80,135,445,3389,5357 [Your Windows IP]
+```
 
 >[!IMPORTANT]
 >
