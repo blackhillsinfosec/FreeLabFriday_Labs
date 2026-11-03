@@ -36,6 +36,7 @@ ipconfig
 <img width="457" height="214" alt="img01" src="https://github.com/user-attachments/assets/0417df7d-3b84-4823-8214-5385063cdca8" />
 
 <br>
+
 Please note the IP for **your** system. Mine is **10.10.75.191**. 
 
 >[!Note]
