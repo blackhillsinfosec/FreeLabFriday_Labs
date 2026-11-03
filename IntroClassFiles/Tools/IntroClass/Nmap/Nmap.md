@@ -79,7 +79,7 @@ You can hit the spacebar to see status.
 
 Once complete, your output should look like this:
 
-<img width="461" height="329" alt="nmap_fw_on" src="https://github.com/user-attachments/assets/fe0eecfc-1fb7-4db6-a506-7a63466aee34" />
+![image](/IntroClassFiles/Tools/IntroClass/Nmap/attachments/nmap_nmapscanwfirewall.png)
 
 Please note the open ports. These are ports and services that an attacker could use to authenticate to your system or attack if an exploit is available. 
 <br>
@@ -92,13 +92,13 @@ Now, using the same process as before, let’s disable the **Windows** firewall 
 netsh advfirewall set allprofiles state off
 ```
 
-<img width="462" height="346" alt="nmap_fw_off" src="https://github.com/user-attachments/assets/57c7c36d-cf84-4740-bdea-2fadf2be3eac" />
-
 Now, run the command again:
 
 ```bash
 nmap -Pn --reason -p 21,22,23,80,135,445,3389,5357 [Your Windows IP]
 ```
+
+![image](/IntroClassFiles/Tools/IntroClass/Nmap/attachments/nmap_turnbackon.png)
 
 >[!IMPORTANT]
 >
@@ -108,7 +108,8 @@ nmap -Pn --reason -p 21,22,23,80,135,445,3389,5357 [Your Windows IP]
 >
 >You can just hit the up arrow key to view previously run commands.  
 
-As we can see, there is one more service shown open on port **5357** and also, the other **985** ports are shown as directly as **closed**, not **filtered**
+As we can see, the ports that previously showed "filtered", now show "closed".
+
 <hr>
 
 ## Step 3: Why Is This Important?
