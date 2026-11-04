@@ -27,7 +27,7 @@ Here are just some of the groups that have used it.
 <img width="1073" height="764" alt="image" src="https://github.com/user-attachments/assets/a24a4a9c-305d-476d-a808-417d0c3b5a3c" />
 <hr>
 
-## Step 1: Disable Defender.
+## Step 1: Disable Defender
 First things first, disable **Defender**.<br> 
 Open an instance of **Windows PowerShell** by clicking on the icon in the taskbar. 
 
