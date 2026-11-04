@@ -221,23 +221,6 @@ head -1 /tmp/auth_server.log && tail -1 /tmp/auth_server.log
 
 > **Defender insight:** A SIEM rule that fires on "more than 10 failed logins from the same IP across more than 5 different accounts within 10 minutes" would catch this spray immediately. The delay and jitter slow it down but do not change the underlying pattern.
 
-
-
-
-
-
-
-
-
-
----
-
-# Finished?
-
-[Back to External_Password_Spray's Main Page](/Decks/CORE_v3.1/IC/External_Password_Spray.md)
-
-[Back to Credential_Stuffing's Main Page](/Decks/CORE_v3.1/IC/Credential_Stuffing.md)
-
 ---
 
 > Created by Turcu-Stiolica Alexandru
