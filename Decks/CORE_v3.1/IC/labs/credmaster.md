@@ -108,7 +108,7 @@ Now the last step is to make the mock server accessible to the internet with **n
 Navigate to https://ngrok.com and make an account.
 
 After making an account, navigate here:<br>
-https://dashboard.ngrok.com/get-started/setup/linux
+https://dashboard.ngrok.com/get-started/gateway
 
 
 
