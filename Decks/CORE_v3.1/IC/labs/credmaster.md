@@ -260,7 +260,8 @@ head -1 /tmp/auth_server.log && tail -1 /tmp/auth_server.log
 
 <img width="1122" height="111" alt="image" src="https://github.com/user-attachments/assets/e60015a1-c61f-4d56-a913-87d2f85cd956" />
 
-> **Defender insight:** A SIEM rule that fires on "more than 10 failed logins from the same IP across more than 5 different accounts within 10 minutes" would catch this spray immediately. The delay and jitter slow it down but do not change the underlying pattern.
+>[!TIP]
+>**Defender insight:** A SIEM rule that fires on "more than 10 failed logins from the same IP across more than 5 different accounts within 10 minutes" would catch this spray immediately. The delay and jitter slow it down but do not change the underlying pattern.
 
 ---
 
