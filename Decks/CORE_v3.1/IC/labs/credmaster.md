@@ -35,7 +35,7 @@ Leave this terminal open, and move on.
 
 ---
 
-## Open the Defender View
+## Step 1: Open the Defender View
 
 Before spraying, open **Terminal #2** to watch the server logs live - this is the **Blue Team** or **Analyst** perspective:
 
@@ -47,7 +47,7 @@ Leave this running. Every login attempt will appear here in real time as CredMas
 
 ---
 
-## Run the Password Spray
+## Step 2: Setup AWS Account
 
 Before running the spray we need to create an **AWS Account**.<br>
 Go here and make an account: https://aws.amazon.com/
@@ -101,7 +101,7 @@ sudo wget -O ~/Desktop/top-passwords-shortlist.txt \
 
 <hr>
 
-## Setup Ngrok Account
+## Step 3: Setup Ngrok Account
 
 Now the last step is to make the mock server accessible to the internet with **ngrok**.
 
@@ -122,10 +122,13 @@ Now run the following in **Terminal #3**:
 ngrok http 5000
 ```
 
-Grab that link, we will use that:
+Grab the link in the **Forwarding** section. We will need it later.
 
 <img width="1110" height="150" alt="2026-04-10_12-54" src="https://github.com/user-attachments/assets/aa41b775-11f9-4794-b10b-27eb1b2fcc85" />
 
+<hr>
+
+## Step 4: Run The Spray
 
 Finally open a **4th Terminal**
 
