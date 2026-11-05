@@ -64,7 +64,7 @@ Go here and make an account: https://aws.amazon.com/
 Afert you have made an account, go here:<br>
 https://us-east-1.console.aws.amazon.com/iam/home?region=eu-north-1#/users <br>
 
-Now hit create a new user:
+Now hit `Create User`:
 
 <img width="581" height="240" alt="2026-04-09_14-13" src="https://github.com/user-attachments/assets/98b39c9e-d0f3-4d59-a557-2e0f0015eb10" />
 
