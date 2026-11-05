@@ -110,9 +110,7 @@ Navigate to https://ngrok.com and make an account.
 After making an account, navigate here:<br>
 https://dashboard.ngrok.com/get-started/gateway
 
-
-
-<img width="1092" height="720" alt="2026-04-10_12-48" src="https://github.com/user-attachments/assets/e5856e02-4134-4ea2-b7d4-ed84f51f1226" />
+<img width="990" height="1129" alt="image" src="https://github.com/user-attachments/assets/d1548f4b-a658-4bb5-8531-e14f2bd1b34a" />
 
 Now run:
 
