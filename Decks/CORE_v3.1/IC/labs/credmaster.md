@@ -116,8 +116,7 @@ When you've copied the command with your authtoken shown, run it in **Terminal #
 
 <img width="990" height="1129" alt="image" src="https://github.com/user-attachments/assets/d1548f4b-a658-4bb5-8531-e14f2bd1b34a" />
 
-
-Now run:
+Now run the following in **Terminal #3**:
 
 ```bash
 ngrok http 5000
