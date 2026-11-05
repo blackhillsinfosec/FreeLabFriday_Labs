@@ -16,7 +16,7 @@ CredMaster is built around **plugins** that target different authentication serv
 
 ### Spin up the Mock-up server meant for the Password Spray
 
-Open up a terminal
+Let's start by opening **Terminal #1**
 
 ```bash
 cd ~/BnB/credMaster
