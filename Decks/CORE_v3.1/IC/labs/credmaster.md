@@ -31,6 +31,8 @@ python3 mock_auth_server.py
 
 <img width="705" height="116" alt="2026-04-09_12-40" src="https://github.com/user-attachments/assets/afa7dfc5-4373-4d75-9027-6c1c7700250f" />
 
+Leave this terminal open, and move on.
+
 ---
 
 ## Open the Defender View
