@@ -130,7 +130,7 @@ Grab the link in the **Forwarding** section. We will need it later.
 
 ## Step 4: Run The Spray
 
-Finally, open a **4th Terminal**.
+Finally, open **Terminal #4**.
 
 Start by navigating to the correct directory once more:
 
@@ -200,7 +200,7 @@ The pattern is unmistakable from the defender's view: the **same IP cycling thro
 
 ## Step 5: View the Results
 
-After the run completes, check what CredMaster saved:
+After the run completes, check what CredMaster saved by running the following commands in **Terminal #3**:
 
 ```bash
 cat ~/BnB/credMaster/CredMaster/credmaster-success.txt
