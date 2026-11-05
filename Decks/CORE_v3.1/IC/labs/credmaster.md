@@ -49,13 +49,6 @@ Leave this running. Every login attempt will appear here in real time as CredMas
 
 ## Run the Password Spray
 
-Before moving on, open up **Terminal #3**.
-
-You should now have three terminals running:
-- **Terminal #1** - the mock auth server (target)
-- **Terminal #2** - the live log watcher (defender)
-- **Terminal #3** - not yet used
-
 Before running the spray we need to create an **AWS Account**.<br>
 Go here and make an account: https://aws.amazon.com/
 
@@ -88,7 +81,12 @@ Now this is REALLY IMPORTANT, save the **Access Key** and the **Secret access ke
 
 <img width="1155" height="526" alt="2026-04-09_14-21" src="https://github.com/user-attachments/assets/80458a46-8a6b-446b-af9c-83564e7bc372" />
 
+Now, open up **Terminal #3**.
 
+You should now have three terminals running:
+- **Terminal #1** - the mock auth server (target)
+- **Terminal #2** - the live log watcher (defender)
+- **Terminal #3** - not yet used
 
 In Terminal 3, let's get the credentials for our spray
 
