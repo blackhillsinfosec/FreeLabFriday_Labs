@@ -214,11 +214,15 @@ View the complete log:
 cat /tmp/auth_server.log
 ```
 
-Count total attempts made:
+<img width="1142" height="442" alt="image" src="https://github.com/user-attachments/assets/30571599-2a69-4017-b924-8f72bfdafd09" />
+
+We can count the total attempts made with this command:
 
 ```bash
 wc -l /tmp/auth_server.log
 ```
+
+<img width="858" height="45" alt="image" src="https://github.com/user-attachments/assets/4e524944-e206-4cb1-af60-90fdf83d551c" />
 
 ---
 
@@ -231,20 +235,28 @@ Now think like a defender. Run these against the log:
 grep "LOGIN ATTEMPT" /tmp/auth_server.log | grep -oP 'User: \K[^\s|]+' | sort -u | wc -l
 ```
 
+<img width="1115" height="65" alt="image" src="https://github.com/user-attachments/assets/5611374b-f297-4f50-a6e3-dcdd1c6c7293" />
+
 **Which passwords were tried most often?**
 ```bash
 grep "LOGIN ATTEMPT" /tmp/auth_server.log | grep -oP 'Pass: \K.*' | sort | uniq -c | sort -rn | head
 ```
+
+<img width="1117" height="268" alt="image" src="https://github.com/user-attachments/assets/4846139a-61b9-4467-bbcb-175d2e847db9" />
 
 **How many failed attempts happened before the successful one?**
 ```bash
 grep -c "FAILED" /tmp/auth_server.log
 ```
 
+<img width="964" height="43" alt="image" src="https://github.com/user-attachments/assets/f9645222-da1f-4b6e-b336-4f2937628158" />
+
 **What was the time window of the entire attack?**
 ```bash
 head -1 /tmp/auth_server.log && tail -1 /tmp/auth_server.log
 ```
+
+<img width="1122" height="111" alt="image" src="https://github.com/user-attachments/assets/e60015a1-c61f-4d56-a913-87d2f85cd956" />
 
 > **Defender insight:** A SIEM rule that fires on "more than 10 failed logins from the same IP across more than 5 different accounts within 10 minutes" would catch this spray immediately. The delay and jitter slow it down but do not change the underlying pattern.
 
