@@ -68,7 +68,6 @@ Now hit create a new user:
 
 <img width="581" height="240" alt="2026-04-09_14-13" src="https://github.com/user-attachments/assets/98b39c9e-d0f3-4d59-a557-2e0f0015eb10" />
 
-
 <img width="742" height="340" alt="2026-04-09_14-14" src="https://github.com/user-attachments/assets/16c022dc-ea0d-4d09-a68c-895847e037ee" />
 
 <img width="1438" height="688" alt="2026-04-09_14-15" src="https://github.com/user-attachments/assets/ae4f4352-0fc6-4676-8444-d1c749c5c49b" />
@@ -81,7 +80,7 @@ Click on the user and then click `Create access key`
 
 <img width="1615" height="815" alt="2026-04-09_14-19" src="https://github.com/user-attachments/assets/159e0f4b-7187-4f76-ba92-8152b6287d75" />
 
-Select `Command Line Interface (CLI)` and click though the confirmation
+Select `Command Line Interface (CLI)` and click though the confirmation:
 
 <img width="1213" height="778" alt="2026-04-09_14-20" src="https://github.com/user-attachments/assets/3873d292-319d-4854-953b-dad487f0477f" />
 
