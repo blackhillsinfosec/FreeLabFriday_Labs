@@ -88,7 +88,7 @@ You should now have three terminals running:
 - **Terminal #2** - the live log watcher (defender)
 - **Terminal #3** - not yet used
 
-In Terminal 3, let's get the credentials for our spray
+In Terminal 3, let's get the credentials for our spray by running the following:
 
 ```bash
 printf "aaron\nadam\nadmin\nalex\nalice\nandrew\nanna\nbarbara\nbrian\ncharles\nchris\ndavid\ndiana\nedward\nemma\n" > ~/Desktop/names.txt
