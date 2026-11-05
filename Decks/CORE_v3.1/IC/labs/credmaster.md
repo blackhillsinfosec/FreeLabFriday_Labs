@@ -77,7 +77,9 @@ Select `Command Line Interface (CLI)` and click though the confirmation:
 
 <img width="1213" height="778" alt="2026-04-09_14-20" src="https://github.com/user-attachments/assets/3873d292-319d-4854-953b-dad487f0477f" />
 
-Now this is REALLY IMPORTANT, save the **Access Key** and the **Secret access key**
+>[!IMPORTANT]
+>Make sure to save the **Access Key** and the **Secret access key** somewhere safe!<br>
+>We will need these later!
 
 <img width="1155" height="526" alt="2026-04-09_14-21" src="https://github.com/user-attachments/assets/80458a46-8a6b-446b-af9c-83564e7bc372" />
 
