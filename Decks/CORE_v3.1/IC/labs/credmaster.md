@@ -103,9 +103,9 @@ sudo wget -O ~/Desktop/top-passwords-shortlist.txt \
 
 ## Setup Ngrok Account
 
-Now the last step is to make the mock server accessible to the internet with **ngrok**
+Now the last step is to make the mock server accessible to the internet with **ngrok**.
 
-Navigate to https://ngrok.com and make an account
+Navigate to https://ngrok.com and make an account.
 
 After making an account, navigate here:<br>
 https://dashboard.ngrok.com/get-started/setup/linux
