@@ -37,7 +37,7 @@ Leave this terminal open, and move on.
 
 ## Open the Defender View
 
-Before spraying, open a **second terminal** to watch the server logs live - this is the blue team / analyst perspective:
+Before spraying, open a **Terminal #2** to watch the server logs live - this is the **Blue Team** or **Analyst** perspective:
 
 ```bash
 tail -f /tmp/auth_server.log
