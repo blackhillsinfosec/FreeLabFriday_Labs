@@ -144,7 +144,9 @@ Now set the source:
 source venv/bin/activate
 ```
 
-Run the spray with your AWS Keys and Ngrok Domain:
+<br>
+
+Run the spray with **YOUR** AWS Keys and Ngrok Domain:
 
 >[!NOTE]
 >Make sure to fill in your own information before running the command below!<br>
