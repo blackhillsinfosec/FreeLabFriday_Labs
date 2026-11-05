@@ -110,7 +110,12 @@ Navigate to https://ngrok.com and make an account.
 After making an account, navigate here:<br>
 https://dashboard.ngrok.com/get-started/gateway
 
+Once you see the screen below, select `Linux`, then click **Show authtoken** before copying the command.<br>
+
+When you've copied the command with your authtoken shown, run it in **Terminal #3**.
+
 <img width="990" height="1129" alt="image" src="https://github.com/user-attachments/assets/d1548f4b-a658-4bb5-8531-e14f2bd1b34a" />
+
 
 Now run:
 
