@@ -18,6 +18,9 @@ CredMaster is built around **plugins** that target different authentication serv
 
 Let's start by opening **Terminal #1**
 
+
+Go ahead and run the following two commands:
+
 ```bash
 cd ~/BnB/credMaster
 ```
