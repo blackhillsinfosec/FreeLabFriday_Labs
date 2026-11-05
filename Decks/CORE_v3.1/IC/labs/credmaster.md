@@ -198,7 +198,7 @@ The pattern is unmistakable from the defender's view: the **same IP cycling thro
 
 ---
 
-## View the Results
+## Step 5: View the Results
 
 After the run completes, check what CredMaster saved:
 
@@ -228,7 +228,7 @@ wc -l /tmp/auth_server.log
 
 ---
 
-## Detection Exercises
+## Step 6: Detection Exercises
 
 Now think like a defender. Run these against the log:
 
