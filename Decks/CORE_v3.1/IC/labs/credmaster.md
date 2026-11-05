@@ -180,12 +180,12 @@ python3 credmaster.py \
 
 Watch **both perspectives** as it runs:
 
-**Attacker terminal** - CredMaster will find multiple hits since 5 accounts share weak passwords:
+**Terminal #1 - The Attacker Terminal** - CredMaster will find multiple hits since 5 accounts share weak passwords:
 
 <img width="1067" height="862" alt="2026-04-10_13-21" src="https://github.com/user-attachments/assets/a3626ff1-6c82-4e03-9227-3716a2d18792" />
 
 
-**Defender terminal** - the log shows every attempt in real time:
+**Terminal #2 - The Defender Terminal** - the log shows every attempt in real time:
 
 <img width="1074" height="676" alt="2026-04-10_13-22" src="https://github.com/user-attachments/assets/c78f2398-a933-481c-b278-cd3ca1a5c5cb" />
 
