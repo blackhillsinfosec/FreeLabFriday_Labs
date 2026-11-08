@@ -237,21 +237,7 @@ ip.addr == <UBUNTU_PRIVATE_IP> && (tcp.port == 8080 || tcp.port == 9001)
 
 <img width="958" height="634" alt="image" src="https://github.com/user-attachments/assets/8bbb3269-78a9-4783-a550-ff95baa25a54" />
 
-**Read the interface:** a display filter narrows visible packets; it does **not** start packet capture. Verify packets are being captured before moving on. You may see health checks from setup: they are **not** simulator traffic.
-
-Optional: capture concurrently on Ubuntu. Open another Ubuntu terminal:
-
-<img width="382" height="400" alt="image" src="https://github.com/user-attachments/assets/4c028299-7761-4b62-9255-904163c9e3b3" />
-
-Determine Windows' IPv4 address with `ipconfig` in PowerShell, then run on Ubuntu (replace the placeholder):
-
-```bash
-sudo tcpdump -ni any "host <WINDOWS_PRIVATE_IP> and (tcp port 8080 or tcp port 9001)" -w ~/BnB/UBoatRAT/captures/uboatrat_lab.pcap
-```
-
-<img width="1032" height="179" alt="image" src="https://github.com/user-attachments/assets/73055e48-593d-45d4-baa0-63c4f2c43cf5" />
-
-**Read the output:** tcpdump reports that it is listening; packet details are written to the PCAP file. This secondary capture is optional, not a prerequisite.
+**Read the interface:** a display filter narrows visible packets.
 
 ---
 
