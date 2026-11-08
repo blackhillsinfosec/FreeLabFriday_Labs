@@ -185,9 +185,9 @@ Check the specific BITS job, without touching unrelated jobs:
 Get-BitsTransfer -AllUsers | Where-Object DisplayName -EQ "UBoatLab_Persistence" | Format-List *
 ```
 
-<img width="728" height="163" alt="image" src="https://github.com/user-attachments/assets/8be69233-e8d4-46b0-a27e-9d4dc28fa48e" />
+<img width="860" height="70" alt="image" src="https://github.com/user-attachments/assets/572d5206-7875-4294-8e67-c523a174b7cf" />
 
-**Read the output:** no matching object should appear before executing the simulator. Silence here means *no match*, not a failed command.
+**There should be no output**. That means there are no "UBoatLab_Persistence" BITS jobs currently. 
 
 For an independent queue view:
 
@@ -195,9 +195,9 @@ For an independent queue view:
 bitsadmin /list /allusers
 ```
 
-<img width="716" height="160" alt="image" src="https://github.com/user-attachments/assets/0e23fbf2-2118-4769-9488-0f6d95464452" />
+<img width="731" height="148" alt="image" src="https://github.com/user-attachments/assets/abcc4ffc-d3d8-4d06-9f20-1549685f7336" />
 
-**Read the output:** other legitimate Windows jobs may exist. Do not delete unrelated jobs.
+**Read the output:** other legitimate Windows jobs may exist. In this case however, there are none. 
 
 ### 2.3 Prepare host and network telemetry
 
