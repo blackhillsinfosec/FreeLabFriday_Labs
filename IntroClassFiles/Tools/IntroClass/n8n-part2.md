@@ -1,8 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# n8n - Part 2 - AI Integration
-
-#### Please use the UBUNTU VM
+This is a lab from **John Strand**'s [**Information Security Core Skills** Course](https://learning.antisyphontraining.com/courses/getting-started-in-security-with-bhis-and-mitre-attck-v41-i9r8)
 
 <hr>
 
