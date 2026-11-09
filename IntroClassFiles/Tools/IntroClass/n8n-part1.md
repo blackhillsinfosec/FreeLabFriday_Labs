@@ -1,6 +1,4 @@
-
-<img width="580" height="597" alt="image" src="https://github.com/user-attachments/assets/93e2a254-8454-4d28-92ad-45665e8363fd" />
-
+This is a lab from **John Strand**'s [**Information Security Core Skills** Course](https://learning.antisyphontraining.com/courses/getting-started-in-security-with-bhis-and-mitre-attck-v41-i9r8)
 
 <hr>
 
