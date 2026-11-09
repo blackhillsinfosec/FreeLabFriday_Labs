@@ -11,6 +11,7 @@ DeepBlueCLI is a free tool by **Eric Conrad** that demonstrates some amazing det
 It also has some checks that are effective for showing how **UEBA** style techniques can be in your environment. 
 
 In this lab, we will be using DeepBlueCLI to detect a password spraying attack.
+
 <hr>
 
 ## Step 1: Unrestricting The Execution Policy
