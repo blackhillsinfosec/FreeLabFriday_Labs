@@ -1,19 +1,8 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
----
-
-This is a lab from **John Strand**'s **SOC Core Skills** Course:
+This is a lab from **John Strand**'s [**SOC Core Skills** Course](https://learning.antisyphontraining.com/courses/soc-core-skills-v4-7q24)
 
 https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
-This is a lab from **John Strand**'s **Information Security Core Skills** Course:
-
-https://www.antisyphontraining.com/product/information-security-core-skills-tm/
-
----
-
-# DeepBlueCLI
-#### Please use the Windows VM
+This is a lab from **John Strand**'s [**Information Security Core Skills** Course](https://learning.antisyphontraining.com/courses/getting-started-in-security-with-bhis-and-mitre-attck-v41-i9r8)
 
 <hr>
 
