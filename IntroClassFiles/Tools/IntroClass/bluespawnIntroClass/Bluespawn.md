@@ -411,3 +411,7 @@ Here are just some of the groups that use this technique:
 <img width="1500" height="560" alt="image" src="https://github.com/user-attachments/assets/eb3352e1-2793-4ac3-9bc4-9a0f747c4a0f" />
 
 Go and check Bluespawn.  Did it detect it?
+
+<hr>
+
+## Lab Walkthrough with John Strand
