@@ -1,19 +1,6 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
+This is a lab from **John Strand**'s [**Active Defense and Cyber Deception** Course](https://learning.antisyphontraining.com/courses/active-defense-cyber-deception-v21-2dxi)
 
----
-
-This is a lab from **John Strand**'s **Active Defense and Cyber Deception** Course:
-
-https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/
-
-This is a lab from **John Strand**'s **Information Security Core Skills** Course:
-
-https://www.antisyphontraining.com/product/information-security-core-skills-tm/
-
----
-
-# Atomic Red Team And Bluespawn
-#### Please use the Windows VM
+This is a lab from **John Strand**'s [**Information Security Core Skills** Course](https://learning.antisyphontraining.com/courses/getting-started-in-security-with-bhis-and-mitre-attck-v41-i9r8)
 
 <hr>
 
