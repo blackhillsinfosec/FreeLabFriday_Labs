@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
----
-
 This is a lab from **John Strand**'s **Information Security Core Skills** Course:
 
 https://www.antisyphontraining.com/product/information-security-core-skills-tm/
@@ -10,9 +6,6 @@ This is a lab from **John Strand**'s **SOC Core Skills** Course:
 
 https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
 
----
-# AC Hunter 2 Lab
-#### Please use either vm
 <hr>
 
 ## Lab Objective
