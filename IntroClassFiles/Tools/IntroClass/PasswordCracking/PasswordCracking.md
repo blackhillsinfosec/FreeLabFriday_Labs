@@ -1,16 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
----
-
-This is a lab from **John Strand**'s **Information Security Core Skills** Course:
-
-https://www.antisyphontraining.com/product/information-security-core-skills-tm/
-
----
-
-# Password Cracking
-
-#### Please use the Ubuntu VM
+This is a lab from **John Strand**'s [**Information Security Core Skills** Course](https://learning.antisyphontraining.com/courses/getting-started-in-security-with-bhis-and-mitre-attck-v41-i9r8)
 
 <hr>
 
