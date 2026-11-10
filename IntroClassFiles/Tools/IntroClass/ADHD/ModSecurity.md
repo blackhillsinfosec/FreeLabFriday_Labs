@@ -1,16 +1,6 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
+This is a lab from **John Strand**'s [**Active Defense and Cyber Deception** Course](https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/)
 
----
-
-This is a lab from **John Strand**'s **Active Defense and Cyber Deception** Course:
-
-https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/
-
----
-
-# ModSecurity 
-
-#### Please use the Ubuntu VM
+<hr>
 
 >[!NOTE]
 >Apache is running on port 8083 on the machine
