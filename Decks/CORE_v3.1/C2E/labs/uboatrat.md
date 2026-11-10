@@ -211,18 +211,6 @@ Start **Process Monitor (Procmon)**:
 
 **Read the interface:** the events table records operations with timestamp, process name, operation, path, and result. Let Procmon collect briefly, then pause with **Ctrl+E**; resume just before executing the simulator. Leave it open.
 
-Optionally open **Process Explorer** for a live process view:
-
-```powershell
-.\tools\ProcessExplorer\procexp64.exe
-```
-
-<img width="1803" height="761" alt="image" src="https://github.com/user-attachments/assets/e91ee8d7-486c-4e23-9433-303fbc0f0005" />
-
-<img width="799" height="607" alt="image" src="https://github.com/user-attachments/assets/016e9eb8-686b-4f99-b48b-4613a8e715fb" />
-
-**Read the interface:** PID identifies a process; Parent PID identifies its creator; Command Line and Image Path distinguish the real Windows `svchost.exe` from `runtime\svchost.exe`. The callback may exit too quickly to catch live: Procmon and Sysmon retain evidence.
-
 Open Wireshark and select the Windows network interface that communicates with Ubuntu:
 
 <img width="554" height="300" alt="image" src="https://github.com/user-attachments/assets/54b5fc16-ab57-44b9-ae8e-25632afb34e9" />
