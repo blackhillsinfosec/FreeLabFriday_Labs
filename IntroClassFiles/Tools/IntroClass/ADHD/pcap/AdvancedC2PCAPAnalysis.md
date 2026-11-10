@@ -1,16 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
----
-
-This is a lab from **John Strand**'s **Active Defense and Cyber Deception** Course:
-
-https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/
-
----
-
-# Advanced C2 PCAP Analysis - vsagent HTTP Beaconing
-
-#### Please use the UBUNTU VM
+This is a lab from **John Strand**'s [**Active Defense and Cyber Deception** Course](https://www.antisyphontraining.com/product/active-defense-and-cyber-deception-with-john-strand/)
 
 <hr>
 
