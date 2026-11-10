@@ -1,17 +1,4 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-
----
-
-This is a lab from **John Strand**'s **SOC Core Skills** Course:
-
-https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
-
----
-
-# Linux CLI
-
-#### Please use the Ubuntu VM
+This is a lab from **John Strand**'s [**SOC Core Skills** Course](https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/)
 
 <hr>
 
