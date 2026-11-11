@@ -522,9 +522,7 @@ Inspect the live job:
 Get-BitsTransfer -AllUsers | Where-Object DisplayName -EQ 'UBoatLab_Persistence' | Format-List *
 ```
 
-```powershell
-bitsadmin /getinfo "UBoatLab_Persistence" /verbose
-```
+<img width="999" height="870" alt="image" src="https://github.com/user-attachments/assets/9403eb35-b83b-447c-bea4-5b453bd167fb" />
 
 **Read the output:** identify the job GUID/name, type (**download**), source and destination, state, owner, and callback command. The important difference is **`TRANSFERRED` versus `/complete`**: a transferred job may still be inspectable; a successfully acknowledged/completed job leaves the active BITS queue. Leaving it uncompleted does **not** guarantee repeated execution or traffic.
 
@@ -534,17 +532,17 @@ Query the BITS Operational log since this session began:
 Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Bits-Client/Operational'; StartTime=$SessionStart} | Sort-Object TimeCreated | Format-List TimeCreated,Id,Message
 ```
 
+<img width="776" height="800" alt="image" src="https://github.com/user-attachments/assets/a55251db-cd0e-4532-b487-1272c826d714" />
+
 Then focus on messages mentioning our job:
 
 ```powershell
 Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Bits-Client/Operational'; StartTime=$SessionStart} | Where-Object Message -Match 'UBoatLab_Persistence' | Format-List TimeCreated,Id,Message
 ```
 
-**Read the output:** correlate timestamps of job creation, transfer activity, and any notification or retry. Event IDs can vary by OS build: do not assume a specific ID unless your VM actually produces it. BITS does the transfer; **the configured callback executable** performs the resolver GET and beacon.
+<img width="929" height="300" alt="image" src="https://github.com/user-attachments/assets/9a19875c-4584-4366-bff9-789367f58edb" />
 
-<!-- SCREENSHOT PLACEHOLDER:
-Event Viewer or PowerShell showing the BITS job lifecycle for UBoatLab_Persistence.
--->
+The filtered events show the lifecycle of `UBoatLab_Persistence`: the job was created (Event ID 3), the transfer started (ID 59), and BITS later stopped transferring with status `0x0` (ID 60), indicating no reported error.
 
 **Checkpoint:** which BITS evidence ties a legitimate background-transfer service to execution of the suspicious `runtime\svchost.exe`?
 
