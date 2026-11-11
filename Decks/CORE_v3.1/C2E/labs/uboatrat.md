@@ -297,65 +297,220 @@ svchost.exe
 
 <img width="583" height="342" alt="image" src="https://github.com/user-attachments/assets/2cb23f7b-7324-4c12-8104-482e7eaa1903" />
 
-Also include the lab path (`Path contains \Desktop\Labs\UBoatRAT\`) if needed:
+### Exercise — Trace the BITS Initialization Script
 
-<img width="582" height="344" alt="image" src="https://github.com/user-attachments/assets/42a580f8-fb27-4d1e-bb74-4c7e70f99670" />
+Open the Process Monitor Filter dialog using **Ctrl+L**.
 
-**Read filtered events:** `Process Create`/`Process Start` identify execution; `CreateFile` and write operations identify file access. Multiple Include rules for different fields can broaden the view; verify that the final list still contains the expected processes, rather than assuming all filters apply as a logical AND.
+Keep the four existing Process Name filters and add the following three **Include** rules:
 
-### 4.3 Confirm process creation in Sysmon
+| Column | Relation | Value | Action |
+|---|---|---|---|
+| Operation | is | `WriteFile` | Include |
+| Operation | is | `ReadFile` | Include |
+| Path | contains | `\runtime\init.bat` | Include |
 
-Sysmon **Event ID 1** records process creation and command lines. Use a compact query in the **same PowerShell session** as Phase 1:
+These filters narrow the investigation to file read/write operations involving the BITS initialization script.
+
+Your final filter configuration should look similar to this:
+
+<img width="629" height="458" alt="image" src="https://github.com/user-attachments/assets/0d15467d-50f5-4a82-bb11-5551051eab6f" />
+
+Apply the filters by clicking **Apply**, then click **OK**.
+
+### Analyze the Results
+
+Your filtered events should resemble the following output:
+
+<img width="925" height="728" alt="image" src="https://github.com/user-attachments/assets/2b34d0cd-42c5-4b57-a768-f551835bed79" />
+
+**Read the output:**
+
+Focus on the **Process Name**, **Operation**, **Path**, and **Result** columns.
+
+**1. `WinSvcHelper.exe` — WriteFile**
+
+The simulator writes data to `runtime\init.bat`.
+
+The `SUCCESS` result confirms that the write operation completed successfully.
+
+**2. `WinSvcHelper.exe` — ReadFile**
+
+The simulator also reads the generated script.
+
+This confirms that the executable accesses the file after writing it.
+
+**3. `cmd.exe` — ReadFile**
+
+The Windows command interpreter reads `runtime\init.bat`.
+
+The repeated `ReadFile` operations show successive reads from the script, while `END OF FILE` indicates that the interpreter reached its end.
+
+### What Have We Discovered?
+
+We have identified a relationship between the malware and the generated BITS initialization script:
+
+<img width="567" height="481" alt="image" src="https://github.com/user-attachments/assets/fb9c507a-b41e-4d56-877f-9af396d8a5bb" />
+
+Procmon provides evidence of the file operations. Combined with the Process Tree and Sysmon process creation events, these findings help reconstruct how the simulator prepares and executes the BITS initialization workflow.
+
+**Investigation question:** Why does the simulator generate a batch script instead of configuring BITS directly through its own process?
+
+### 4.3 Confirm Process Creation in Sysmon
+
+We have already observed the execution chain in Procmon. Now, let's verify it using **Sysmon Event ID 1**, which records process creation events, including command lines and parent processes.
+
+First, in Powershell, define the Sysmon event log:
 
 ```powershell
-Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Sysmon/Operational'; Id=1; StartTime=$SessionStart} | Where-Object Message -Match 'WinSvcHelper|bitsadmin|\\runtime\\svchost' | Format-List TimeCreated,Id,Message
+$Sysmon = 'Microsoft-Windows-Sysmon/Operational'
 ```
 
-**Read `Message`:** identify `Image`, `CommandLine`, `ParentImage`, and (if present) `ProcessGuid`. Compare these fields to Procmon. A process named `svchost.exe` outside system directories is suspicious because of its **path**, not just its name.
-
-### 4.4 Inspect file artifacts and the generated batch
+Query process creation events from the current laboratory session:
 
 ```powershell
-Get-ChildItem .\runtime -Force | Format-Table Name,Length,LastWriteTime -AutoSize
+Get-WinEvent -FilterHashtable @{LogName=$Sysmon;Id=1;StartTime=$SessionStart} | Where-Object Message -Match 'WinSvcHelper|bitsadmin|\\runtime\\svchost' | Format-List TimeCreated,Message
 ```
 
-Look for `svchost.exe`, `init.bat`, `bitsadmin.log`, `execution.log`, `callback.log`, `resolver_response.txt`, `beacon.sent`, and the lab marker. The trigger download may still be represented by a `BIT*.tmp` file before BITS completion; **do not assume the final trigger filename must already exist**.
+**How does this command work?**
+
+- **`Get-WinEvent`** retrieves Sysmon Event ID 1 events recorded after the laboratory session started.
+- **`Where-Object`** keeps events mentioning `WinSvcHelper`, `bitsadmin`, or `runtime\svchost`.
+- **`Format-List`** displays each matching event's timestamp and message.
+
+**Read the output:** Identify the following fields:
+
+| Field | Meaning |
+|---|---|
+| `Image` | Executable that was launched |
+| `CommandLine` | Arguments used during execution |
+| `ParentImage` | Process responsible for launching it |
+| `ProcessGuid` | Unique identifier used by Sysmon to correlate process activity |
+
+**1. Initial Execution — WinSvcHelper.exe**
+
+The first event shows the initial execution of `WinSvcHelper.exe`.
+
+- **TimeCreated:** When the process was launched.
+- **Process Create:** Sysmon Event ID 1, indicating a new process.
+- **Image:** The full path of the executable.
+- **ParentImage:** `powershell.exe`, the process that launched it.
+
+This establishes the starting point of our investigation : 
+
+<img width="915" height="611" alt="image" src="https://github.com/user-attachments/assets/ac1563a1-f8a0-4047-8b24-007744155ccf" />
+
+**2. BITS Callback Registration — bitsadmin.exe**
+
+The next event shows `bitsadmin.exe` configuring a notification command for the BITS job.
+
+- **TimeCreated:** When the command was executed.
+- **Image:** `bitsadmin.exe`, the Windows utility used to manage BITS jobs.
+- **CommandLine:** `/setnotifycmdline` configures `runtime\svchost.exe --bits-callback` as the notification command.
+- **ParentImage:** `cmd.exe`, which launched `bitsadmin.exe`.
+- **ParentCommandLine:** Shows that `cmd.exe` was executing `runtime\init.bat`.
+
+This connects the initialization script discovered in Procmon to the BITS callback configuration.
+
+The event confirms that the command was executed. We will verify the actual BITS job configuration in Phase 5.
+
+<img width="1429" height="545" alt="image" src="https://github.com/user-attachments/assets/13ee256e-a469-4875-aa57-7bd8f2138dde" />
+
+**3. BITS Callback Execution — svchost.exe**
+
+The final event shows a new process launched by the Windows BITS service.
+
+- **TimeCreated:** When the callback executable started.
+- **Image:** `runtime\svchost.exe`, an executable located outside the legitimate Windows system directories.
+- **OriginalFileName:** `WinSvcHelper.exe`, revealing the executable's original name.
+- **CommandLine:** The `--bits-callback` argument identifies its callback execution mode.
+- **ParentImage:** `C:\Windows\System32\svchost.exe`, a legitimate Windows service-host process.
+- **ParentCommandLine:** The `-s BITS` argument identifies the service responsible for launching the callback.
+
+Notice that the callback was launched by the BITS service, **not directly by the original `WinSvcHelper.exe` process**.
+
+This demonstrates how BITS can be abused to execute a configured program through its notification mechanism.
+
+<img width="1091" height="522" alt="image" src="https://github.com/user-attachments/assets/e592f0e9-0e2f-4e58-9493-a65d18781c3d" />
+
+---
+
+### 4.4 Inspect File Artifacts and the Generated Batch
+
+Now that we have identified the processes, let's examine the files they created.
+
+**Step 1 — List the generated artifacts**
+
+```powershell
+Get-ChildItem .\runtime -Force
+```
+
+This command lists the contents of the `runtime` directory, including hidden files.
+
+**Read the output:** Look for `svchost.exe`, `init.bat`, `execution.log`, `bitsadmin.log`, `callback.log`, and other generated artifacts.
+
+<img width="783" height="359" alt="image" src="https://github.com/user-attachments/assets/54318519-1555-4dde-9116-fa4f972e6bcb" />
+
+The BITS download still appears as a temporary `BIT*.tmp` file, since transfer has not yet been acknowledged.
+
+**Step 2 — Inspect the BITS initialization script**
 
 ```powershell
 Get-Content .\runtime\init.bat
 ```
 
-**Read the batch:** locate `/create /download`, `/addfile`, `/setnotifycmdline`, and `/resume`. Record the job name, transfer URL, local destination, callback executable, and `--bits-callback` argument. `init.bat` is generated as text by the initial simulator and executed through `cmd.exe`.
+`Get-Content` displays the script without executing it.
 
-<!-- SCREENSHOT PLACEHOLDER:
-init.bat open in PowerShell or a text editor with the BITS commands visible.
--->
+**Read the output:** Identify these BITS commands:
 
-Inspect the command log and both simulator logs independently:
+| Command | Purpose |
+|---|---|
+| `/create /download` | Creates a BITS download job |
+| `/addfile` | Specifies the download URL and destination |
+| `/setnotifycmdline` | Configures the executable launched by the BITS notification |
+| `/resume` | Starts or resumes the transfer |
 
-```powershell
-Get-Content .\runtime\bitsadmin.log
-```
+<img width="1018" height="606" alt="image" src="https://github.com/user-attachments/assets/511429b7-6da0-4a8f-bc06-50809f617756" />
+
+**Important:** The malware generates `init.bat`, and `cmd.exe` executes it. This explains the file operations we previously observed in Procmon.
+
+**Step 3 — Inspect the execution logs**
+
+The simulator generates several logs documenting different stages of its behavior.
+
+**Initial execution and file staging:**
 
 ```powershell
 Get-Content .\runtime\execution.log
 ```
 
+<img width="1354" height="201" alt="image" src="https://github.com/user-attachments/assets/f614e848-777c-4223-ac48-b927e19bef73" />
+
+- The log confirms that the simulator copied itself to runtime\svchost.exe, generated init.bat, and completed the initial BITS setup. This connects the file artifacts to the execution chain observed in Procmon and Sysmon.
+
+**BITS configuration results:**
+
+```powershell
+Get-Content .\runtime\bitsadmin.log
+```
+
+<img width="1887" height="566" alt="image" src="https://github.com/user-attachments/assets/55a16f56-0f74-425e-b5bd-355f163c9330" />
+
+- The output confirms that a BITS download job was created, its source and destination were configured, and runtime\svchost.exe --bits-callback was registered as the notification command before the job was resumed.
+
+
+**Callback execution and network activity:**
+
 ```powershell
 Get-Content .\runtime\callback.log
 ```
 
-**Read the logs:** `execution.log` describes initial staging; `bitsadmin.log` records job setup; `callback.log` confirms the later resolver and beacon actions. If a file is missing, use that absence as a troubleshooting signal rather than assuming success.
+<img width="1169" height="185" alt="image" src="https://github.com/user-attachments/assets/b83bb6b2-7428-4dc6-8f6c-3be3906da3c1" />
 
-For file creation, Sysmon **Event ID 11** provides an independent event source:
+- The log shows that the callback retrieved and decoded the resolver, identified the server on port 9001, and sent a 49-byte XOR-encoded beacon. It also reports that no command channel was opened.
 
-```powershell
-Get-WinEvent -FilterHashtable @{LogName='Microsoft-Windows-Sysmon/Operational'; Id=11; StartTime=$SessionStart} | Format-List TimeCreated,Id,Message
-```
+**Read the output:** Compare the recorded actions with the behavior observed in Procmon and Sysmon.
 
-**Read `Message`:** identify the process responsible (`Image`) and the file path (`TargetFilename`). Compare the timestamps with `runtime` files.
-
-**Checkpoint:** can you explain why `runtime\svchost.exe` is suspicious and which process created `init.bat`?
+Remember that these logs are generated by the simulator itself. Independent telemetry provides stronger evidence than application logs alone.
 
 ---
 
