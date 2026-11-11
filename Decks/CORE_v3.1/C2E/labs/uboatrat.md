@@ -683,23 +683,19 @@ tcp.port == 9001
 
 Unlike the previous filters, this one selects TCP traffic based on its port rather than an HTTP URI. The beacon does not use HTTP.
 
-Select a packet belonging to the connection and choose **Follow → TCP Stream**.
+<img width="1403" height="632" alt="image" src="https://github.com/user-attachments/assets/e51848ab-9a87-4746-b8e6-c284d0b26be3" />
+
+The capture shows Windows establishing a TCP connection to the decoded resolver endpoint on port 9001. After the three-way handshake, the client sends a single 49-byte payload (PSH, ACK), followed by connection termination.
+
+Select a packet belonging to the connection and **Right click -> Follow -> TCP Stream**.
 
 Change the display format to **HEX Dump**.
 
-<!-- SCREENSHOT PLACEHOLDER:
-Wireshark TCP stream showing the XOR-encoded beacon in hexadecimal.
--->
+<img width="932" height="374" alt="image" src="https://github.com/user-attachments/assets/5fa6dc60-b7a0-43b4-8697-2c88ce5a3378" />
 
 **Read the stream:** Focus on the data sent from **Windows to Ubuntu**.
 
-The payload is not readable as ordinary ASCII text because the simulator applies an XOR operation to every byte.
-
-#### Exercise — Decode the Beacon
-
-We know that the simulator uses the XOR key `0x88`.
-
-For example, the original ASCII character `4` has the hexadecimal value `0x34`:
+The payload is not readable as ordinary ASCII text because the simulator applies an XOR operation to every byte. We know that the simulator uses the XOR key `0x88`. For example, the original ASCII character `4` has the hexadecimal value `0x34`:
 
 ```text
 0x34 XOR 0x88 = 0xBC
@@ -718,6 +714,10 @@ To recover the complete message:
 1. In the **Follow TCP Stream** window, select only the **Windows → Ubuntu** direction.
 2. Change the display format to **Raw**.
 3. Click **Save As** and save the data as `beacon.bin` on the Windows desktop.
+
+<img width="936" height="376" alt="image" src="https://github.com/user-attachments/assets/e88fd081-38c9-4fcd-bf93-f78914fbeb95" />
+
+<img width="936" height="509" alt="image" src="https://github.com/user-attachments/assets/737504f6-8d8b-4cf2-828f-9cd57d2160f2" />
 
 The saved file should contain **49 bytes**.
 
