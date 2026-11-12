@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Seatbelt
-
-# Windows VM
-
 ## In this lab we will
 
 - Create interesting system artifact
