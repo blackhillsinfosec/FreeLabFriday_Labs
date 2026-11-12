@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Nuclei
-
-# Ubuntu VM
-
 ## Lab Goal
 
 This lab introduces **Nuclei**, a fast vulnerability scanner based on templates.
