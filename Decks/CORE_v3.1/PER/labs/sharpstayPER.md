@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# SharpStay
-
-
-
 ---
 
 # Finished?
