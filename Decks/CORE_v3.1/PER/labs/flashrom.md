@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Flashrom
-
-# Ubuntu VM
-
 ## In this lab we will
 - Understand what firmware is and why it matters in security
 - Explore **Flashrom** - a tool for reading and writing firmware chips
