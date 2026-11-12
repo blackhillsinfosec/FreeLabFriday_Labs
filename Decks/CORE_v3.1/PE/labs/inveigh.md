@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Inveigh
-
-# Windows VM
-
 ### In this lab we will
 - Understand why LLMNR and NBT-NS are dangerous on Windows networks
 - Run Inveigh on a Windows machine
