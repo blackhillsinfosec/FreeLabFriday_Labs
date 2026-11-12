@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Impacket
-
-# Ubuntu VM
-
 ## In this lab we will
 - Stand up a local SMB server (Samba) as our "target"
 - Use **Impacket** to:
