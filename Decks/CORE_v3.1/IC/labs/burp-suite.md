@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Burp Suite
-
 # Burp Suite Community Edition
 
 # Ubuntu VM
