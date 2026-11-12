@@ -1,18 +1,6 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
+This is a lab from **John Strand**'s [**Information Security Core Skills** Course](https://www.antisyphontraining.com/product/information-security-core-skills-tm/)
 
----
-
-This is a lab from **John Strand**'s **Information Security Core Skills** Course:
-
-https://www.antisyphontraining.com/product/information-security-core-skills-tm/
-
----
-
-
-
-# Responder
-
-# Both VMs
+<hr>
 
 In this lab we are going to walk through how quickly an attacker can take advantage of a common misconfiguration to gain access to a system via a **weak** password.
 
