@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Evilginx
-
 ## Lab Goal
 
 The goal of this lab is to introduce **Evilginx**, a reverse-proxy phishing framework that has been used in real-world phishing campaigns. In this lab, we will demonstrate how attackers can use it to capture usernames, passwords, and session tokens.
