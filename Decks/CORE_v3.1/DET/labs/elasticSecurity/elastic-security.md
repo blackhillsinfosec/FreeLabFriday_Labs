@@ -2,8 +2,6 @@
 
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-# Elastic Security
-
 ## GOAL
 - Set up and use Elastic SIEM on your system
 - Learn how to ingest logs and visualize them
