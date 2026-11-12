@@ -1,11 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Leviathan: Initial Access & BITS Exfiltration
-
-# Windows & Ubuntu VMs
-
-<hr>
-
 ## Lab Objective 
 The objective of this lab is to use the Leviathan Framework to gain initial access to a target Windows machine, and then use the Background Intelligent Transfer Service (BITS) to stealthily exfiltrate sensitive data to a custom Command and Control (C2) server. You will learn how attackers blend in with legitimate system traffic and how to detect this "Living off the Land" technique.
 
