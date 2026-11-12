@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# PEASS-ng
-
-# Ubuntu VM
-
 **Goal:** Learn what **PEASS-ng / LinPEAS** can discover on a Linux host by **creating a few safe “bad configs” in a lab VM**, running LinPEAS, and reviewing the findings.  
 
 https://github.com/peass-ng/PEASS-ng
