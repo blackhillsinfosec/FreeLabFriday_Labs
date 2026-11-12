@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# SQLMap
-
-# Ubuntu VM
-
 ## Lab Goal
 
 The goal of this lab is to introduce **sqlmap**, a tool used to automate the detection and exploitation of SQL injection vulnerabilities.
