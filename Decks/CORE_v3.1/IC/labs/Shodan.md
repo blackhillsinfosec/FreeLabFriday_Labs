@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Shodan
-
 **Goal:** Learn what Shodan can do using the **web interface**
 
 ---
