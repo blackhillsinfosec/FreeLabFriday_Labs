@@ -1,16 +1,6 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
+This is a lab from **John Strand**'s [**SOC Core Skills** Course](https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/)
 
----
-
-This is a lab from **John Strand**'s **SOC Core Skills** Course:
-
-https://www.antisyphontraining.com/product/soc-core-skills-with-john-strand/
-
----
-
-# PowerShell
-
-# Windows VM
+<hr>
 
 In this lab, we will create **malware**, run it, and use the tools we went through in the slides to look at what an attack looks like on a live system.  
 
