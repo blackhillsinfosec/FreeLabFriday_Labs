@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# SharPersist
-
-# Windows VM
-
 ## In this lab we will
 - Understand what persistence means and why attackers use it
 - Add a persistence entry via the Registry Run key
