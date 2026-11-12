@@ -1,10 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-
-# Browser Exploitation Framework (BeEF)
-
-# Ubuntu VM
-
 ## In this lab we will
 - Start the BeEF framework
 - Hook a victim browser using a JavaScript hook
