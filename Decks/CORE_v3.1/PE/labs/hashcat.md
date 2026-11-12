@@ -1,10 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Haschat
-
-# Ubuntu VM
-
-
 In this lab we will be getting started with the fundamentals of password cracking.  We will be using **Hashcat** to do this.
 
 After you open a terminal, we need to gain root access by running the following:
