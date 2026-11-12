@@ -1,10 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# net use
-
-# Windows VM
-
-
 `net use` is a built in Windows command that connects to, disconnects from, and lists shared network resources (file shares, printers). It has existed since the early NT days and is still one of the fastest ways to map a drive, authenticate to a remote share with different credentials, or check what shares a machine is exposing. It is also one of the most common tools used for lateral movement once an attacker has valid credentials, so it is worth understanding from both sides.
 
 ## In this lab we will
