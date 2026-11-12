@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Metasploit
-
-# Ubuntu VM
-
 ## In this lab we will
 - Install Metasploit Framework (simple, standard install)
 - Learn the Metasploit console basics (`search`, `use`, `info`, options)
