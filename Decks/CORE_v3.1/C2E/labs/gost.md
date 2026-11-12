@@ -1,11 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Gost
-
-#### Please Use The Windows VM
-
-<hr>
-
 ## Lab Objective
 The objective of this lab is to use Gost to establish an encrypted WebSocket (WSS) tunnel over port 443, bypassing simulated egress firewall rules to exfiltrate sensitive data. You will also learn how to detect this type of anomalous connection.
 
