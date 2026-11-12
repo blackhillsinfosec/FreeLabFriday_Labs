@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Gato-X
-
-# Ubuntu VM
-
 ## Background - What is Gato-X?
 
 Gato-X is an open-source GitHub Actions security auditing tool. It was built to help security teams find misconfigurations in GitHub Actions workflows before attackers do.
