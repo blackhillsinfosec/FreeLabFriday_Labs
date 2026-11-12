@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# PsExec
-
 ## In this lab we will
 
 - Use a **Linux VM as the attacker**
