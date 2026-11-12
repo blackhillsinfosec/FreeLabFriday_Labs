@@ -1,7 +1,5 @@
 ### Please go though the documentation and setup for the [Cloud Version](./Elastic_Doc_Cloud.md)
 
-![image](/FilesForLabs/images/blueantisyphon.png)
-
 ## GOAL
 - Set up and use Elastic SIEM on your system
 - Learn how to ingest logs and visualize them
