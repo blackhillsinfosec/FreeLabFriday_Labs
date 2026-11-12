@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Sliver C2
-
 ## Lab Goal
 
 The goal of this lab is to introduce **Sliver C2 Framework**. We will demonstrate how a Command and Control framework operates with the use of **Sliver**.
