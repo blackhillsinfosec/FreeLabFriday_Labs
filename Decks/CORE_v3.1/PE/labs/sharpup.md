@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# SharpUp
-
-# Windows VM
-
 ## In this lab we will
 
 - Create **two realistic privilege‑escalation misconfigurations**
