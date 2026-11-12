@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Havoc Framework
-
 # Ubuntu VM, Windows VM & AWS Cloud
 
 ## Lab Objective
