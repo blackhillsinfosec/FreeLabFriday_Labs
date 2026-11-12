@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# UBoatRAT - BITS Job Abuse and Behavioral Investigation
-
 **Environment:** Windows 11 VM (isolated workstation) + Ubuntu VM (controlled server)
 
 ## Mission briefing
