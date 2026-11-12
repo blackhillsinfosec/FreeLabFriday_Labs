@@ -1,5 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-# ScoutSuite 
 ----- 
 # For the Ubuntu VM
 
