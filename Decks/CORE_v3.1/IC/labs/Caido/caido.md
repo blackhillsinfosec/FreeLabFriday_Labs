@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Caido
-
 ## Lab Goal
 
 The goal of this lab is to introduce Caido and its core web application security testing features. The lab uses the free Caido Basic plan and Damn Vulnerable Web Application (DVWA) as the testing target.
