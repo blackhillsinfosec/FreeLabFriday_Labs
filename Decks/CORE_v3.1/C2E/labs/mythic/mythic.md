@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# Mythic C2 Framework - AWS Deployment
- 
 # Ubuntu VM (management) · AWS EC2 (Mythic Server) · Windows VM (target)
  
 ## In this lab we will
