@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# ShimGen — Masquerading & Proxy Execution
-
-# Windows & Ubuntu VM
-
 ## The objective of this lab is to use ShimGen to generate a weaponized proxy executable that visually and functionally impersonates a legitimate application, silently delivering a PowerShell payload in memory — and then forensically expose the attack using process analysis, signature verification, and binary string extraction.
 
 ---
