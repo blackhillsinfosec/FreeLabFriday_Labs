@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# LOLBins
-
-# Ubuntu VM
-
 ## What are LOLBins?
 
 LOLBins are legitimate system binaries already present on an operating system that attackers
