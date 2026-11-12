@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# OSINT
-
-# Ubuntu VM
-
 ## In this lab we will
 - Harvest emails, subdomains, and IPs from public sources using **theHarvester**
 - Hunt usernames across dozens of social platforms using **Sherlock**
