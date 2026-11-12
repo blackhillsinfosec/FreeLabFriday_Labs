@@ -1,7 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# NetExec
-
 ## Lab Goal
 
 The goal of this lab is to introduce **netexec**, a tool widely used in penetration testing assessments. In this lab, we will focus on SMB protocol enumeration.
