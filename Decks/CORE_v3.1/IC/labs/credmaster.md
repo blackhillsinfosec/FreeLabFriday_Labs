@@ -1,9 +1,3 @@
-![image](/FilesForLabs/images/blueantisyphon.png)
-
-# CredMaster
-
-#### Please use the Ubuntu VM
-
 ---
 
 ## What is CredMaster?
