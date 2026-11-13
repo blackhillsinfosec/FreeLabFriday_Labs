@@ -530,7 +530,7 @@ In our final scenario, we will explore how to write and execute **custom Cypher 
 
 Unlike the previous scenario, where we used a built-in query, this time we will create our own.
 
-Navigate to **Explore → Cypher** and enter the following query into the Cypher editor:
+Navigate to **Explore -> Cypher** and enter the following query into the Cypher editor:
 
 ```cypher
 MATCH (u:User)
