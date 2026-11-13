@@ -108,3 +108,7 @@ Your output should look something like this:
 <img width="660" height="158" alt="2026-03-23_12-26" src="https://github.com/user-attachments/assets/87f020f7-c0fe-4987-913e-1c96ef9761d1" />
 
 There are a lot of commands you can use to alter your view of the logs.  
+
+<hr>
+
+## Lab Walkthrough with John Strand
