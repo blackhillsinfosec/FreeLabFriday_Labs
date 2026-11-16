@@ -4,7 +4,7 @@ Future defenders, welcome!
 
 The fundamental abilities required to be a successful Security Operations Center (SOC) analyst will be covered in this course. You will participate in practical labs that replicate actual cybersecurity situations.
 
-This course isn't just about technical abilities, but also about your mindset, as you will realize by the last lab. You can't call yourself a professional SOC analyst if you lack a curious nature, because you won't only respond to alerts and triage attacks, but you will need to investigate breaches and get every bit of infomation that you can, and that is not possible without asking yourself the right questions.
+This course isn't just about technical abilities, but also about your mindset, as you will realize by the last lab. You can't call yourself a professional SOC analyst if you lack a curious nature, because you won't only respond to alerts and triage attacks, but you will need to investigate breaches and get every bit of information that you can, and that is not possible without asking yourself the right questions.
 
 <hr>
 
