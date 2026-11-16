@@ -5,7 +5,7 @@
 ## What is Log Analysis?
 
 Log analysis involves reviewing system and security logs to detect unusual or malicious activity. Each log entry typically includes a timestamp, source, user account, event type, and a unique Event ID.<br>
-Most important IDs are:
+Some of the most important IDs are:
 - **4624** = Successful Logon
 - **4625** = Failed logon
 - **4688** = Process creation
@@ -19,7 +19,9 @@ Effective log analysis involves:
 <hr>
 
 ## Sysmon Logs
-Sysmon (System Monitor) is a Windows system service that logs detailed system activity to the Event Log, beyond what standard logs capture. It’s often used in security monitoring and DFIR.
+
+Sysmon (System Monitor) is a Windows system service that logs detailed system activity to the Event Log, beyond what standard logs capture. It’s often used in security monitoring and DFIR.<br>
+
 Sysmon logs appear under the Microsoft-Windows-Sysmon/Operational and include details like:
 - **Event ID 1** – Process creation (with full command line, parent/child PID)
 - **Event ID 3** – Network connections
