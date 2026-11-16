@@ -5,7 +5,6 @@ This is a lab from **John Strand**'s [**SOC Core Skills** Course](https://www.an
 ## Lab Objective
 The objective of this lab is to use Hayabusa to analyze Sysmon logs and detect suspicious activity related to process creation, network connections, and authentication events.
 
-**If you want to learn a bit about this tool check the [Hayabusa Documentation](/SocAnalystLabs/courseFiles/tools/Hayabusa.md)**
 <hr>
 
 ## Step 1: Set The Detection Rules
