@@ -1,7 +1,7 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
 # Log Analysis Basics
-### Hands-On Lab : [Log Analysis Hayabusa Lab](/SocAnalystLabs/courseFiles/Section_01-logAnalysis_Basics/logAnalysisBasics_Lab.md)
+### Hands-On Lab : [Hayabusa Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/hayabusa/)
 
 
 Log analysis involves reviewing system and security logs to detect unusual or malicious activity. Each log entry typically includes a timestamp, source, user account, event type, and a unique Event ID.
