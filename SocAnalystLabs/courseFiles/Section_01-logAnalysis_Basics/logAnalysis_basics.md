@@ -41,17 +41,4 @@ Identity breaches may be detected with the help of this information. For instanc
 <hr>
 
 ## Tools to Learn
-Viewing alerts and logs is key to detecting suspicious activity on a system. Tools like [Hayabusa](/SocAnalystLabs/courseFiles/tools/Hayabusa.md) allow analysts to quickly analyze Windows event logs (.evtx), apply detection rules, and generate timelines or alerts for threats such as privilege escalation, malware, or lateral movement as well as the built in [Windows Event Viewer](/SocAnalystLabs/courseFiles/tools/WinEventViewer.md).
-
-
-***                                                       
-
-<b><i>Continuing the course?</b>
-</br>
-[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)</i>
-
-<b><i>Want to go back?</b>
-</br>
-[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_00-welcome/welcome.md)
-
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
+Viewing alerts and logs is key to detecting suspicious activity on a system. Tools like [Hayabusa](https://freelabfridays.com/labs/introclassfiles/tools/introclass/hayabusa/) allow analysts to quickly analyze Windows event logs (.evtx), apply detection rules, and generate timelines or alerts for threats such as privilege escalation, malware, or lateral movement as well as the built in [Windows Event Viewer](/SocAnalystLabs/courseFiles/tools/WinEventViewer.md).
