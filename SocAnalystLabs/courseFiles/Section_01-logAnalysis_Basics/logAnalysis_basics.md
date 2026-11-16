@@ -13,7 +13,7 @@ Some of the most important IDs are:
 
 Effective log analysis involves:
 - Filtering noise
-- Correlating events over time (easy using special tools like [Hayabusa](https://freelabfridays.com/labs/introclassfiles/tools/introclass/hayabusa/)
+- Correlating events over time (easy using special tools like [Hayabusa](https://freelabfridays.com/labs/introclassfiles/tools/introclass/hayabusa/))
 - Flagging anomalies like brute-force logins or unusual logon times
 
 <hr>
