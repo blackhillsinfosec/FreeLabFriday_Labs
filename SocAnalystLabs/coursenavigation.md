@@ -148,7 +148,3 @@
 - [Start a Blog](courseFiles/Section_13-softSkills/softSkills.md#start-a-blog)
 - [Learn & Teach](courseFiles/Section_13-softSkills/softSkills.md#learn--teach)
 - [Final Exercise](courseFiles/Section_13-softSkills/softSkills.md#final-exercise)
-
-***
-
-<i>[<< Back to Course Home Page](/README.md)</i>
