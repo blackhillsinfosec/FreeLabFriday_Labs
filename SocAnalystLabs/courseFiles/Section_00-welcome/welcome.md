@@ -6,6 +6,8 @@ The fundamental abilities required to be a successful Security Operations Center
 
 This course isn't just about technical abilities, but also about your mindset, as you will realize by the last lab. You can't call yourself a professional SOC analyst if you lack a curious nature, because you won't only respond to alerts and triage attacks, but you will need to investigate breaches and get every bit of infomation that you can, and that is not possible without asking yourself the right questions.
 
+<hr>
+
 ## Start Here
 To start this course, you will be learning how to analyze multiple type of logs, especially Sysmon logs. You can do that in an infinite amount of ways, we tried to teach the easiest one.
 
