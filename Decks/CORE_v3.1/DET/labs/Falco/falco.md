@@ -349,3 +349,5 @@ cat milkshake
 ![milkshake-open](./images/scr25-1.png)
 
 Our custom rule worked! We can see that the file description points at opening `milkshake` file and the priority is `CRITICAL` just as we wanted.
+
+[Back to Cloud Log Analysis](https://github.com/blackhillsinfosec/FreeLabFriday_Labs/blob/main/Decks/CORE_v3.1/DET/Cloud_Event_Log_Analysis.md)
