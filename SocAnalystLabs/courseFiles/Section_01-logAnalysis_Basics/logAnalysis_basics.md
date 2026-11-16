@@ -26,6 +26,7 @@ Sysmon logs appear under the Microsoft-Windows-Sysmon/Operational and include de
 - **Event ID 10** – Process access (used for example in credential dumping detection)
 - **Event ID 11** – File creation
 
+<hr>
 
 ## Authentication Logs
 Authentication logs include detailed information about the device used to access the service, the user’s location, and other considerations that might influence risk. Generally, these logs only include information about the following events:
