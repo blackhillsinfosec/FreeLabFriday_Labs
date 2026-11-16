@@ -38,7 +38,7 @@ Authentication logs include detailed information about the device used to access
 
 Identity breaches may be detected with the help of this information. For instance, brute force credential-guessing attempts can be detected using authentication logs since they will appear in the audit trail as unsuccessful authentications. They are able to identify the users who were impacted by the breach, but they are unable to determine what those user accounts could access or do. Authorization audit logs are useful in this situation. By using authorization decision logs, we will be able to determine the breach's blast radius.
 
-
+<hr>
 
 ## Tools to Learn
 Viewing alerts and logs is key to detecting suspicious activity on a system. Tools like [Hayabusa](/SocAnalystLabs/courseFiles/tools/Hayabusa.md) allow analysts to quickly analyze Windows event logs (.evtx), apply detection rules, and generate timelines or alerts for threats such as privilege escalation, malware, or lateral movement as well as the built in [Windows Event Viewer](/SocAnalystLabs/courseFiles/tools/WinEventViewer.md).
