@@ -15,6 +15,7 @@ To start this course, you will be learning how to analyze multiple type of logs,
 
 <hr>
 
+<!---
 ## Getting Support
 We’ll use GitHub Issues to ask questions, report bugs, and suggest improvements — just like in a real-world SOC environment where tracking and documentation are crucial.
 
@@ -48,3 +49,5 @@ We’ll use GitHub Issues to ask questions, report bugs, and suggest improvement
 
 <b><i>Looking for a different section? </b></br> 
 [Back to Section Directory](/coursenavigation.md)</i>
+
+-->
