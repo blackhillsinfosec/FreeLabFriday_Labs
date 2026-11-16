@@ -13,6 +13,8 @@ To start this course, you will be learning how to analyze multiple type of logs,
 
 [First Lab - Log Analysis](/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
 
+<hr>
+
 ## Getting Support
 We’ll use GitHub Issues to ask questions, report bugs, and suggest improvements — just like in a real-world SOC environment where tracking and documentation are crucial.
 
