@@ -90,9 +90,9 @@
 - [Generating Traps](courseFiles/Section_08-deceptionSystems/deceptionSystems.md#generating-traps)
 - [Active Defense & Cyber Deception](courseFiles/Section_08-deceptionSystems/deceptionSystems.md#active-defense--cyber-deception)
 - [Legal Notes](courseFiles/Section_08-deceptionSystems/deceptionSystems.md#legal-notes)
-- [Dionaea Lab](courseFiles/Section_08-deceptionSystems/dionaeaLab.md)
-- [Beelzebub Lab](courseFiles/Section_08-deceptionSystems/beelzebubLab.md)
-- [CanaryToken Lab](courseFiles/Section_08-deceptionSystems/CanaryToken_lab/CanaryToken_lab.md)
+- [Dionaea Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/adhd/dionaea/)
+- [Beelzebub Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/adhd/beelzebub/)
+- [CanaryToken Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/adhd/canarytokens/canarytokens/)
 
 
 ***
