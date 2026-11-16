@@ -16,7 +16,7 @@ Effective log analysis involves:
 - Correlating events over time (easy using special tools like [Hayabusa](https://freelabfridays.com/labs/introclassfiles/tools/introclass/hayabusa/)
 - Flagging anomalies like brute-force logins or unusual logon times
 
-
+<hr>
 
 ## Sysmon Logs
 Sysmon (System Monitor) is a Windows system service that logs detailed system activity to the Event Log, beyond what standard logs capture. It’s often used in security monitoring and DFIR.
