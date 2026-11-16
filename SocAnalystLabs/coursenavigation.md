@@ -3,7 +3,6 @@
 ### [Welcome](courseFiles/Section_00-welcome/welcome.md)
 
 - [Start Here!](courseFiles/Section_00-welcome/welcome.md#start-here)
-- [Getting Support](courseFiles/Section_00-welcome/welcome.md#getting-support)
 
 ***
 ### [Log Analysis Basics](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
