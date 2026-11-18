@@ -173,6 +173,7 @@ Common patterns worth investigating:
 ### 5. Document What You Find
 Write down timestamps, hosts, accounts, and event IDs as you go. A clear timeline is the most valuable thing you can hand to the next analyst or incident responder.
 
+<!--
 <hr>
 
 ## Check Your Understanding
@@ -191,3 +192,4 @@ Write down timestamps, hosts, accounts, and event IDs as you go. A clear timelin
 4. Command-line auditing is not enabled by default and must be turned on through Group Policy.
 
 </details>
+-->
