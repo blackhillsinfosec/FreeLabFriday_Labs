@@ -26,21 +26,14 @@ Open a browser window and navigate to the following URL:
 https://app.limacharlie.io/
 ```
 
-When the webpage loads, click **"Create an account"**
+When the webpage loads, click **"Sign Up"** and fill out the fields.
 
 <img width="596" alt="Create an account" src="attachments/register_an_account.PNG" />
 
-The screen will change slightly as it asks which method you would like to use to sign up.
-
-<img width="588" alt="Sign up method" src="attachments/LimaCharlie_signupmethod.png" />
-
-We selected **"Sign up with email"**:
-
-<img width="500" alt="Sign up with email" src="attachments/SIGN_UP_BUTTON.PNG" />
-
-Fill out the fields and click the **"Sign Up"** button to continue.
-
 Go to your email and you should receive a link to verify your account. Click the link, then go back to your browser and refresh the page.
+
+<img width="500" height="350" alt="image" src="https://github.com/user-attachments/assets/0f34ed83-a81a-4691-b0fe-27989215e3ce" />
+
 
 ---
 
