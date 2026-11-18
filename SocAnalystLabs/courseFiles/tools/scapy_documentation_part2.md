@@ -4,21 +4,27 @@
 - For lab, check out [scapy_lab.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab.md)
 - For lab solution, check out [scapy_lab_solution.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab_solution.md)
 
-# Common Modules, Classes & Functions (API Reference)
+<hr>
 
+## Common Modules, Classes & Functions (API Reference)
 
+<hr>
 
 ## Important imports
 
 - Common import pattern used in examples:
+
 ```python
 from scapy.all import *
 ```
+
 - Or, to keep namespace smaller:
+
 ```python
 from scapy.all import IP, TCP, UDP, Ether, ARP, DNS, DNSQR, Raw, sniff, send, sendp, sr, sr1, srp, wrpcap, rdpcap
 ```
----
+
+<hr>
 
 ## 1) Sending & request/response helpers
 
@@ -49,9 +55,11 @@ send(IP(dst='10.0.0.5')/TCP(dport=80, flags='S'), iface='eth0')
 
 ### `sendp(pkt, iface=None, count=1, inter=0, verbose=True)`
 
-- **Layer**: L2 (Ethernet) — use when you have `Ether()` frames or need to set MAC addresses.
-- **Use when**: ARP spoofing, sending crafted Ethernet frames, VLAN-tagged frames.
-- **Return**: `None`.
+| Item | Description |
+|---|---|
+| **Layer** | L2 (Ethernet) — use when you have `Ether()` frames or need to set MAC addresses. |
+| **Use when** | ARP spoofing, sending crafted Ethernet frames, VLAN-tagged frames. |
+| **Return** | `None`. |
 
 **Example — raw Ethernet frame**
 
@@ -61,8 +69,10 @@ sendp(Ether(dst='ff:ff:ff:ff:ff:ff')/ARP(pdst='192.168.1.10'), iface='eth0')
 
 ### `sr(packets, timeout=2, retry=0, iface=None, verbose=True)`
 
-- **Layer**: L3 request/response (IP-level). Sends packets and collects answers.
-- **Return**: tuple `(answered, unanswered)` where `answered` is an `SndRcvList` of `(sent, received)` pairs and `unanswered` is a `PacketList`.
+| Item | Description |
+|---|---|
+| **Layer** | L3 request/response (IP-level). Sends packets and collects answers. |
+| **Return** | tuple `(answered, unanswered)` where `answered` is an `SndRcvList` of `(sent, received)` pairs and `unanswered` is a `PacketList`. |
 
 **Example — ping sweep (ICMP)**
 
@@ -78,9 +88,11 @@ for sent, received in ans:
 
 ### `sr1(pkt, timeout=2, iface=None, verbose=True)`
 
-- **Layer**: L3
-- **Behavior**: Send a single packet and return the first response packet (or `None`)
-- **Return**: `Packet` or `None`.
+| Item | Description |
+|---|---|
+| **Layer** | L3 |
+| **Behavior** | Send a single packet and return the first response packet (or `None`) |
+| **Return** | `Packet` or `None`. |
 
 **Example — single DNS query**
 
@@ -92,9 +104,11 @@ if resp:
 
 ### `srp(packets, timeout=2, retry=0, iface=None, verbose=True)`
 
-- **Layer**: L2 (Ethernet-level request/response)
-- **Use when**: You built `Ether()` frames (ARP discovery is common).
-- **Return**: `(answered, unanswered)` similar to `sr()` but at L2.
+| Item | Description |
+|---|---|
+| **Layer** | L2 (Ethernet-level request/response) |
+| **Use when** | You built `Ether()` frames (ARP discovery is common). |
+| **Return** | `(answered, unanswered)` similar to `sr()` but at L2. |
 
 **Example — ARP scan**
 
@@ -106,13 +120,19 @@ for s,r in ans:
 
 ### `srp1(pkt, timeout=2, iface=None, verbose=True)`
 
-- **Layer**: L2
-- **Return**: the first answer packet or `None`.
+| Item | Description |
+|---|---|
+| **Layer** | L2 |
+| **Return** | the first answer packet or `None`. |
 
 ### `srloop(pkt, ...)`
 
-- **Behavior**: Send packets in a loop and receive responses (useful for continuous monitoring/discovery).
-- **Use with caution**: continuous traffic can be noisy; use short intervals and limits.
+| Item | Description |
+|---|---|
+| **Behavior** | Send packets in a loop and receive responses (useful for continuous monitoring/discovery). |
+| **Use with caution** | continuous traffic can be noisy; use short intervals and limits. |
+
+<hr>
 
 ## 2) Sniffing & capturing
 
@@ -172,6 +192,8 @@ pkts = s.results
 >
 >`AsyncSniffer` is handy for launching a capture while your script triggers test traffic.
 
+<hr>
+
 ## 3) PCAP read/write & replay
 
 ### `wrpcap(filename, packets)`
@@ -195,6 +217,8 @@ wrpcap('http_only.pcap', http)
 
 - Use Scapy's `sendp()` on `rdpcap()` results to replay at L2: `sendp(rdpcap('attack.pcap'), iface='eth0')`.
 - For high-performance replay use `tcpreplay` which is optimized for wire-speed.
+
+<hr>
 
 ## 4) Utility functions & helpers
 
@@ -225,6 +249,8 @@ conf.iface = 'eth0'
 conf.verb = 0  # silence verbose output from Scapy
 ```
 
+<hr>
+
 ## 5) High-level network tools
 
 Scapy includes higher-level tools built on top of send/sr/sniff:
@@ -245,6 +271,8 @@ Scapy includes higher-level tools built on top of send/sr/sniff:
 
 - Many users build tiny `prn` functions to extract fields and forward them to logging stacks, SIEMs, or message queues.
 
+<hr>
+
 ## 6) Return types & result objects
 
 - `sr()` / `srp()` → `(answered, unanswered)`:
@@ -260,6 +288,8 @@ ans, unans = sr(IP(dst='10.0.0.1-254')/ICMP(), timeout=1)
 for snd, rcv in ans:
     print(snd.dst, '->', rcv.src, rcv.summary())
 ```
+
+<hr>
 
 ## 7) Practical examples
 
@@ -313,16 +343,17 @@ def callback(p):
 sniff(filter='ip', prn=callback, store=False)
 ```
 
+<hr>
+
 ## 8) Performance & scaling notes
 
 - `sniff()` with `store=True` keeps packets in memory — avoid for large captures.
 - Use kernel-level `filter` (BPF) to reduce packet volume before Python-level processing.
 - For high-throughput testing use specialized tools (`tcpreplay`, `pktgen`) rather than Scapy's `sendp()`.
 
+<hr>
+
 ## 9) Troubleshooting & personal tips
-
-
-
 
 - **Inspect `sr()` results carefully**: If `sr()`/`srp()` returns unexpected structures, iterate the `answered` result as `for snd, rcv in ans:` and use `snd.show()` / `rcv.show()` to see raw field values. Use `ans.summary()` for a compact overview.
 
@@ -330,41 +361,27 @@ sniff(filter='ip', prn=callback, store=False)
 
 - **Permission errors**: "Operation not permitted" or socket errors usually mean you need elevated privileges. Run as root/Administrator or use capabilities (eX: `setcap cap_net_raw,cap_net_admin+eip $(which python3)` on Linux) if appropriate.
 
-
-
 - **Interface selection mistakes**: `conf.iface` may not be the interface you expect (Docker, VPN, or virtual adaptors can change defaults). Print `show_interfaces()` or `ifconfig/ip a` to confirm the correct interface.
 
 - **Promiscuous mode & virtual networks**: Some virtual network adapters or cloud environments disable promiscuous mode. If you expect to see traffic between other VMs, ensure the virtual switch supports promiscuous mode.
-
 
 - **Large captures & memory**: Avoid `store=True` for long-running sniffing. Either use `prn` callbacks to stream results to disk/DB or capture to file with `tcpdump -w` and analyze offline with `rdpcap()`.
 
 - **Packet fragmentations & MTU**: When sending large payloads, underlying layers may fragment packets. If you depend on a single-packet payload, set `DF` (Don't Fragment) or split manually and handle reassembly in analysis.
 
-
-
-
-
-
-
-
-
-
-
 - **lfilter performance traps**: Avoid expensive Python operations in `lfilter`/`prn` (ex: regex on full payloads) for high-volume captures; instead extract minimal fields and enqueue heavy processing to worker threads.
 
 - **Replaying PCAPs correctly**: When replaying PCAPs into a network, consider MAC/IP rewriting so that replies route back correctly (or run target in same L2 segment). `sendp()` replays raw frames; if original MACs belong to different hosts, update them before replay.
-
-
 
 - **Use `conf.verb` to control noise**: Libraries and Scapy itself may print verbose logs — set `conf.verb = 0` in scripts to keep logs clean for logging to SIEMs.
 
 - **AsyncSniffer quirks**: `AsyncSniffer.results` is only populated after `stop()`; ensure you `join()` or `stop()` before accessing results in your main thread.
 
+<hr>
 
-# Typical SOC Workflows & Example Scripts
+## Typical SOC Workflows & Example Scripts
 
-
+<hr>
 
 ## 1) Typical SOC workflows using Scapy
 
@@ -380,7 +397,7 @@ sniff(filter='ip', prn=callback, store=False)
 
 **Why:** Ground-truth allows deterministic validation of detection logic and regression testing as rules evolve.
 
----
+<hr>
 
 ### B. Replay & regression testing of detection rules
 
@@ -396,7 +413,7 @@ sniff(filter='ip', prn=callback, store=False)
 >
 >**Automation tip:** Wrap replay and rule checks into CI pipelines (GitHub Actions/GitLab CI) that run in disposable VMs or containers.
 
----
+<hr>
 
 ### C. On-demand enrichment for alerts
 
@@ -410,9 +427,7 @@ sniff(filter='ip', prn=callback, store=False)
 
 **Safety:** Run enrichment in read-only mode. Keep enrichment timeouts short. //don't send payloads that could be considered hostile!!!
 
-
-
----
+<hr>
 
 ### D. Forensic analysis & packet-level automation
 
@@ -426,7 +441,7 @@ sniff(filter='ip', prn=callback, store=False)
 
 **Use case:** Accelerate triage by extracting IOC lists from captured traffic.
 
----
+<hr>
 
 ## 2) Ready-to-run example scripts
 
@@ -434,15 +449,11 @@ Below are practical scripts I'Ve made,intended for educational use!! — change 
 
 ### Script A — ARP discovery scanner (print live hosts)
 
-
 - Check out [arp_discovery.py](/SocAnalystLabs/courseFiles/Section_04-socScripting/arp_discovery.py)
-
 
 ### Script B — SYN port scanner with CSV output
 
 - Check out [syn_scan.py](/SocAnalystLabs/courseFiles/Section_04-socScripting/syn_scan.py)
-
-
 
 ### Script C — DNS exfil simulation (split payload across subdomains)
 
@@ -452,13 +463,11 @@ Below are practical scripts I'Ve made,intended for educational use!! — change 
 
 - Check out [extract_iocs.py](/SocAnalystLabs/courseFiles/Section_04-socScripting/extract_iocs.py)
 
----
-
+<hr>
 
 Also check out [this official Scapy documentation](https://scapy.readthedocs.io/en/latest/index.html)
 
----
-
+<hr>
 
 *End of Part 2. For part 1, check out [scapy_documentation_part1.md](./scapy_documentation_part1.md)*
 
@@ -466,5 +475,6 @@ Also check out [this official Scapy documentation](https://scapy.readthedocs.io/
 
 *For lab solution, check out [scapy_lab_solution.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab_solution.md)*
 
----
+<hr>
+
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
