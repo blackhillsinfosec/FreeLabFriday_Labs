@@ -18,13 +18,7 @@
 | **Security Information and Event Management (SIEM)** | Aggregates logs from across the infrastructure and provides detection rules, dashboards, and analytics | Elastic SIEM |
 | **Network Monitoring Tools** | Inspect raw network traffic to identify anomalies or known malicious behavior | Zeek, Wireshark |
 
-<hr>
-
-## Intro
-
-A **Security Operations Center (SOC)** is a centralized unit that monitors, detects, responds to, and mitigates cybersecurity threats in real time. SOC analysts are the front line of defense, working with a variety of tools and platforms to protect an organization's assets.
-
-This lab introduces interns to the **foundational tools and platforms** used daily in a SOC environment. Understanding how data flows from endpoints to security platforms — and how to investigate, triage, and act — is key to being an effective SOC analyst.
+This page introduces interns to the **foundational tools and platforms** used daily in a SOC environment. Understanding how data flows from endpoints to security platforms — and how to investigate, triage, and act — is key to being an effective SOC analyst.
 
 <hr>
 
