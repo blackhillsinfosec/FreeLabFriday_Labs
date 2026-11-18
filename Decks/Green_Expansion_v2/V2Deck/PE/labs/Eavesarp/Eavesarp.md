@@ -51,11 +51,17 @@ sudo arping -I ens5 -c5 10.10.230.54 #here as well
 >[!NOTE]
 >Let's examine everything that appeared here:
 >`Capture interface` -> this is the network interface that we chose.  It captures `ARP` frames visible to the selected interface and capture mechanism.
+>
 >`Requests analyzed` -> number of the packets that Eavesarp has analyzed since the tool started running.
->`SNAC` (Stale Network Address Configuration) -> it is the configuration of an `ARP` packet sender. It points the IP address of a host that is no longer active. 
+>
+>`SNAC` (Stale Network Address Configuration) -> it is the configuration of an `ARP` packet sender. It points the IP address of a host that is no longer active.
+>
 >`Sender` -> the IP address (the host) that is sending the `ARP` request.
+>
 >`Target` -> the IP address (the host) about which the sender is asking.
+>
 >`ARP#` -> number of times that the sender asked about this target.
+>
 >`Stale` -> it shows if target responded to the `ARP` requests.
 
 So let's examine one of the rows to get better understandning of what's happening:
