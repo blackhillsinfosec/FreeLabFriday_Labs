@@ -88,7 +88,7 @@ actions:
 
 ## Elastic SIEM
 
-**Elastic SIEM** is part of the Elastic Stack (Elasticsearch, Logstash, and Kibana). It provides a flexible and powerful SIEM solution for log ingestion, search, visualization, and detection. Start with the [Elastic SIEM Docs](/SocAnalystLabs/courseFiles/tools/Elastic_Doc_Cloud.md) to get it set up.
+**Elastic SIEM** is part of the Elastic Stack (Elasticsearch, Logstash, and Kibana). It provides a flexible and powerful SIEM solution for log ingestion, search, visualization, and detection.
 
 <br>
 
