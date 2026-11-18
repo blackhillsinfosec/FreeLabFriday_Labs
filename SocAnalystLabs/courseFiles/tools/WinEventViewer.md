@@ -1,13 +1,15 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
----
+<hr>
 
 # Windows Event Viewer
+
 #### Please use the Windows VM
 
 <hr>
 
 ## Lab Objective
+
 **Windows Event Viewer** is a built-in Windows tool for reading the logs that Windows and its programs write: logons, services starting and stopping, errors, and much more.
 
 In this lab, we will be using **Event Viewer** to filter the **Security** log for failed logons. Then, we will open a saved **Sysmon** log and track down an attacker abusing a built-in Windows program.
@@ -21,6 +23,7 @@ C:\Users\Administrator\Desktop\Labs\Win Event Viewer
 <hr>
 
 ## Step 1: Opening Event Viewer
+
 Let's get started by clicking the **Start Menu** and searching for **Event Viewer**.
 
 <img width="784" height="684" alt="Start Menu search results showing Event Viewer" src="https://github.com/user-attachments/assets/9565a313-6199-40d1-8d35-accebc217f94" />
@@ -41,26 +44,32 @@ Once it opens, **maximize** the window. You will want the extra room to read eve
 <hr>
 
 ## Step 2: Exploring The Windows Logs
+
 On the left-hand side, expand **Windows Logs**. These are the main logs Windows keeps:
 
-- **Application** - Events from programs like SQL Server, Outlook, etc.
-- **Security** - Audit events like logons, logoffs, and file access.
-- **Setup** - Events from Windows setup and updates.
-- **System** - Events from Windows components like drivers and services.
-- **Forwarded Events** - Events collected from other computers.
+| Item | Description |
+|---|---|
+| **Application** | Events from programs like SQL Server, Outlook, etc. |
+| **Security** | Audit events like logons, logoffs, and file access. |
+| **Setup** | Events from Windows setup and updates. |
+| **System** | Events from Windows components like drivers and services. |
+| **Forwarded Events** | Events collected from other computers. |
 
 <img width="1507" height="995" alt="Event Viewer with Windows Logs expanded" src="https://github.com/user-attachments/assets/13d8e7d2-9674-4f82-acd3-66e552674e8f" />
 
 Every event has an **Event ID**. This is a number that tells you what kind of event it is. Here are a few worth remembering:
 
-- **4624** - Successful logon
-- **4625** - Failed logon attempt
-- **6005** - Event log service started (system startup)
-- **6006** - Event log service stopped (system shutdown)
+| Item | Description |
+|---|---|
+| **4624** | Successful logon |
+| **4625** | Failed logon attempt |
+| **6005** | Event log service started (system startup) |
+| **6006** | Event log service stopped (system shutdown) |
 
 <hr>
 
 ## Step 3: Filtering For Failed Logons
+
 Click on the **Security** log.
 
 The Security log on this VM has tens of thousands of events. Scrolling through them is not an option, so let's filter.
@@ -92,6 +101,7 @@ When you are done, click **Clear Filter** in the **Actions** pane on the right.
 <hr>
 
 ## Step 4: Opening The Sysmon Log
+
 **Sysmon** (System Monitor) is a free Microsoft tool that logs very detailed activity, like every program that starts and every network connection it makes. Many SOCs rely on it.
 
 The log we are about to open was recorded while an attack simulation (**Atomic Red Team**) ran on a test machine.
@@ -115,15 +125,18 @@ To read the data cleanly, click an event, then click the **Details** tab and mak
 
 Sysmon uses its own Event IDs. These are the ones we care about:
 
-- **1** - Process created (a program started)
-- **3** - Network connection
-- **7** - Image loaded (a program loaded a DLL)
-- **11** - File created
-- **13** - Registry value set
+| Item | Description |
+|---|---|
+| **1** | Process created (a program started) |
+| **3** | Network connection |
+| **7** | Image loaded (a program loaded a DLL) |
+| **11** | File created |
+| **13** | Registry value set |
 
 <hr>
 
 ## Step 5: Hunting For Suspicious Network Connections
+
 Click on **sysmon** under **Saved Logs**, then right-click it and select **Filter Current Log...**
 
 >[!TIP]
@@ -157,6 +170,7 @@ When you are done, click **Clear Filter** in the **Actions** pane.
 <hr>
 
 ## Step 6: Finding What regsvr32 Ran
+
 Let's find out exactly how **regsvr32.exe** was used.
 
 First, scroll to the very top of the event list and click the **first event**.
@@ -187,6 +201,7 @@ Along the way, you probably also passed a **calc.exe** event. That is the script
 <hr>
 
 ## Step 7: On Your Own
+
 Using what you just learned, search the sysmon log for:
 
 ```
@@ -208,13 +223,16 @@ You should find that it downloaded **T1197.md** from GitHub and saved it as **C:
 <hr>
 
 ## Other Things You Can Do With Event Viewer
-- **Custom Views** - Save a filter so you can reuse it later.
-- **Event Subscriptions** - Collect events from other computers using Event Forwarding (requires setup through Group Policy).
-- **Export Logs** - Right-click a log and choose **Save All Events As...** to save it as .evtx, .xml, .txt, or .csv.
-- **Attach a Task** - Right-click an event and choose **Attach Task To This Event...** to run a program when that event happens again.
 
----
+| Item | Description |
+|---|---|
+| **Custom Views** | Save a filter so you can reuse it later. |
+| **Event Subscriptions** | Collect events from other computers using Event Forwarding (requires setup through Group Policy). |
+| **Export Logs** | Right-click a log and choose **Save All Events As...** to save it as .evtx, .xml, .txt, or .csv. |
+| **Attach a Task** | Right-click an event and choose **Attach Task To This Event...** to run a program when that event happens again. |
+
+<hr>
+
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
-
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
