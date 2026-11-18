@@ -1,11 +1,12 @@
-
 # PEstudio for Linux
+
+<hr>
 
 ## Overview
 
 **PEstudio** is a static analysis tool used to examine Windows executables for potential indicators of compromise without running the file. While PEstudio is natively a Windows tool, it can be effectively used on Linux systems via Wine. This guide covers setup, core functionality, and practical usage for SOC analysts.
 
----
+<hr>
 
 ## Setup on Linux
 
@@ -20,21 +21,24 @@ sudo apt update && sudo apt install wine winetricks wget unzip -y
 ### Install PEstudio
 
 1. **Download the latest version:**
+
 ```bash
 wget https://www.winitor.com/tools/pestudio/current/pestudio.zip -O pestudio.zip
 ```
 
 2. **Extract it:**
+
 ```bash
 unzip pestudio.zip -d ~
 ```
 
 3. **Launch using Wine:**
+
 ```bash
 wine ~/pestudio/pestudio.exe
 ```
 
----
+<hr>
 
 ## Core Functionalities
 
@@ -51,6 +55,7 @@ wine ~/pestudio/pestudio.exe
 ### Indicators and Scoring
 
 PEstudio assigns severity levels (0–3) based on heuristics such as:
+
 - Blacklisted API calls.
 - Obfuscated imports.
 - Packed or encrypted sections.
@@ -59,6 +64,7 @@ PEstudio assigns severity levels (0–3) based on heuristics such as:
 ### VirusTotal Integration
 
 If configured, PEstudio can query **VirusTotal** to check file reputation.
+
 - Go to `Options > VirusTotal > Enable`.
 - Insert your API key (from VirusTotal).
 - The “VirusTotal” tab will display aggregated detection results.
@@ -71,12 +77,14 @@ If configured, PEstudio can query **VirusTotal** to check file reputation.
 ### Command-Line Mode (Optional)
 
 For automation, PEstudio supports CLI mode through:
+
 ```bash
 wine pestudio.exe -file sample.exe -log result.xml
 ```
+
 This allows integration with analysis pipelines or sandbox environments.
 
----
+<hr>
 
 ## Workflow Example
 
@@ -88,7 +96,7 @@ This allows integration with analysis pipelines or sandbox environments.
    - **Strings** for domains, URLs, or command-line arguments.
 4. Export results as XML or TXT for reporting.
 
----
+<hr>
 
 ## Best Practices
 
@@ -97,7 +105,7 @@ This allows integration with analysis pipelines or sandbox environments.
 - Integrate **VirusTotal** and **YARA** for stronger triage.
 - Cross-check findings with other tools like `binwalk`, `strings`, or `exiftool`.
 
----
+<hr>
 
 ## Troubleshooting
 
@@ -108,9 +116,6 @@ This allows integration with analysis pipelines or sandbox environments.
 | No network access for VirusTotal | Check Wine proxy or DNS config |
 | Crashes with large files | Increase Wine memory limit or analyze on Windows VM |
 
+<hr>
 
-
----
 [Back to the Section](/courseFiles/Section_11-malwareForensics/malwareForensics.md)
-
-
