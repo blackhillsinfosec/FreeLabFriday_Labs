@@ -115,6 +115,8 @@ hayabusa eid-metrics -f Security.evtx
 
 **Reading the output:** Start with **critical** and **high** alerts, note the timestamps and hosts, then pivot into the surrounding events to build the story.
 
+> Hey! We have a lab for that: [Hayabusa Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/hayabusa/)
+
 <hr>
 
 ## Chainsaw
