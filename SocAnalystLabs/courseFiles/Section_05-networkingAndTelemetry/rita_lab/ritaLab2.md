@@ -7,36 +7,32 @@
 During these parts you will be going through 7 datasets and you will have to answer some questions for each, you will find the answers if you keep scrolling down
 
 You can view all of them via
+
 ```bash
 rita list
 ```
 
 <img width="742" height="242" alt="Screenshot From 2026-03-17 10-53-41" src="https://github.com/user-attachments/assets/11c61de5-a251-428c-b6ec-6b94e290eb08" />
 
+<hr>
+
 ## beacon_jitter
 
 **Dataset description:** Cobalt Strike — HTTP, Delay 30s, Jitter 25%
+
 ```bash
 rita view beacon_jitter
 ```
 
 1. Which internal host IP is contacting the FQDN?
 
-
 2. What FQDN is being contacted?
-
 
 3. What protocol and port are used?
 
-
 4. What is the beacon score?
 
-
 5. What is the connection count?
-
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 **1. Answer:** 192.168.2.77
 
@@ -48,13 +44,12 @@ rita view beacon_jitter
 
 **5. Answer:** 3283
 
-<br><br>
-
 Continue with [Part 3](./ritaLab3.md)
 
-<b><i>Looking for a different lab? </br>[Lab Directory](/SocAnalystLabs/coursenavigation.md)</i></b>
+**Looking for a different lab?** [Lab Directory](/SocAnalystLabs/coursenavigation.md)
 
----
+<hr>
+
 [Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
