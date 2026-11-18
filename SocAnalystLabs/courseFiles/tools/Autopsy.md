@@ -5,23 +5,32 @@
 **Autopsy** is one of the most widely used open-source digital forensics platforms. It is built on top of The Sleuth Kit (TSK) and provides a graphical interface for investigating digital evidence. Its modular design allows analysts to process disk images, extract artifacts, and generate reports in a streamlined, repeatable fashion
 
 In Security Operations Center (SOC) workflows, Autopsy is often leveraged for:
+
 - Incident response investigations (e.g., analyzing compromised endpoints)
 - Insider threat and data exfiltration cases
 - Malware triage and persistence discovery
 - Timeline reconstruction of user and system activity
 
-## Setup 
+<hr>
+
+## Setup
+
 ```bash
 sudo apt update
 ```
+
 ```bash
 sudo apt install snapd
 ```
+
 ```bash
 sudo snap install autopsy
 ```
 
+<hr>
+
 ## Key Features
+
 - **Disk Image Analysis:** Supports raw images (dd), E01 (EnCase), VHD, and others
 - **File Carving:** Recovers deleted files, even if directory entries are lost
 - **Artifact Parsers:**
@@ -34,6 +43,7 @@ sudo snap install autopsy
 - **Reporting:** HTML, CSV, Excel exports for sharing findings
 - **Modular Plugins:** Extendable with third-party modules for specific cases
 
+<hr>
 
 ## Typical Workflow
 
@@ -58,10 +68,10 @@ sudo snap install autopsy
 6. Reporting
 - Export relevant findings with documented observations
 
+<hr>
 
----
 [Back to the section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
 
----
+<hr>
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
