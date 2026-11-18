@@ -102,6 +102,8 @@ actions:
 
 > **Hands-On Labs:** After setup, try the [Cloud Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md) to run on our VM, or the [Local Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md) if you want to install it on your own system.
 
+<br>
+
 ### Elastic Rule Examples
 
 **PowerShell with an encoded command**
@@ -150,6 +152,8 @@ SOC analysts must interpret alerts in context and verify that they are valid.
 2. Can we correlate with other logs to confirm malicious intent?
 3. Are other hosts showing similar behavior?
 
+<br>
+
 ### Log Types to Recognize
 
 | Log Type | What It Contains |
@@ -165,6 +169,8 @@ SOC analysts must interpret alerts in context and verify that they are valid.
 ## Writing & Modifying Basic Detection Rules
 
 Detection rules define which behavior is suspicious and should generate an alert. Interns should be able to read, tweak, and eventually write basic rules.
+
+<br>
 
 ### Detection Rule Elements
 
@@ -189,6 +195,8 @@ Detection rules define which behavior is suspicious and should generate an alert
 ## Telemetry Searching
 
 Analysts often need to go beyond alerts and search raw telemetry for related or supporting evidence.
+
+<br>
 
 ### Key Skills
 
