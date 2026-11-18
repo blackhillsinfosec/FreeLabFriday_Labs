@@ -30,9 +30,9 @@ Get-Process
 Get-Service | Where-Object {$_.Status -eq "Running"}
 ```
 
----
+<hr>
 
-# 2. Log Collection and Event Analysis
+## 2. Log Collection and Event Analysis
 
 ### List available log types:
 
@@ -54,9 +54,9 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; ID=4625; StartTime=$Yesterda
   Select-Object TimeCreated, @{Name="User";Expression={($_.Properties[5].Value)}}, Message
 ```
 
----
+<hr>
 
-# 3. Network and Connection Checks
+## 3. Network and Connection Checks
 
 ### List all network interfaces and IPs:
 
@@ -76,9 +76,9 @@ Get-NetTCPConnection | Select-Object LocalAddress, LocalPort, RemoteAddress, Rem
 Get-NetTCPConnection | Group-Object -Property OwningProcess | Sort-Object Count -Descending
 ```
 
----
+<hr>
 
-# 4. File and Folder Forensics
+## 4. File and Folder Forensics
 
 ### List all files in a directory recursively:
 
@@ -92,9 +92,9 @@ Get-ChildItem -Recurse -Force
 Get-FileHash C:\Path\To\File.exe -Algorithm SHA256
 ```
 
----
+<hr>
 
-# 5. Useful One-Liners for SOC Use
+## 5. Useful One-Liners for SOC Use
 
 ### Check last login times:
 
@@ -114,7 +114,7 @@ Get-Process | Select-Object Name, Id, CPU | Export-Csv -Path processes.csv -NoTy
 Get-WinEvent -LogName Security -MaxEvents 1000 | Export-Clixml -Path logs.xml
 ```
 
----
+<hr>
 
 resources:
 
@@ -123,5 +123,6 @@ resources:
 - https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/01-getting-started
 - https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.5
 
----
+<hr>
+
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
