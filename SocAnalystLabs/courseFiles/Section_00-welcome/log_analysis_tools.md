@@ -189,6 +189,7 @@ Common SIEMs you'll see: **Wazuh** (open source), **Elastic Security**, **Splunk
 | "Quick check for obvious attacks on a box." | DeepBlueCLI |
 | "Is this happening anywhere else in the environment?" | SIEM |
 
+<!--
 <hr>
 
 ## Check Your Understanding
@@ -207,3 +208,4 @@ Common SIEMs you'll see: **Wazuh** (open source), **Elastic Security**, **Splunk
 4. `hayabusa logon-summary`.
 
 </details>
+-->
