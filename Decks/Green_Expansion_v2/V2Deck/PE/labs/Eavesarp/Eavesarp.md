@@ -91,7 +91,9 @@ This is the second option you can choose that also gonna be categorized as `acti
 
 >[!IMPORTANT]
 > What is `DNS`? -> This is `Domain Name Server` which resolve the IP addresses to names. For example 8.8.8.8 -> dns.google.
+>
 > What is reverse lookup? -> a process that uses an IP address to find its corresponding domain name by querying DNS servers.
+>
 > What are the `PTR` queries? -> Those are records of IP + Name that are being used in DNS reverse lookups. Example of `PTR` record: 8.8.8.8.in-addr.arpa.   `PTR`   dns.google.
 
 Let's use it and see the output.
@@ -107,8 +109,11 @@ sudo ./eavesarp.py capture -i ens5 -ar -dr
 
 >[!IMPORTANT]
 >Sender PTR -> the reverse-DNS name for the sender IP address
+>
 >Target PTR -> the reverse-DNS name for the target IP address
+>
 >MITM -> The column flags where a `MITM` opportunity exists, a sender -> target pair where, because the target looks stale or unclaimed, you could insert yourself by answering for that address.
+>
 >What is MITM? (`man-in-the-middle`) ->  a cyberattack in which a hacker steals sensitive information by eavesdropping on communications between two online targets
 
 Let's examine the new findings:
@@ -163,6 +168,7 @@ Another great option of this tool is analyzing already captured data. In the exa
 
 >[!NOTE]
 >`PCAP` -> a file that stores packets captured off the network by tools such as Wireshark or tcpdump. "`PCAP`" is short for "packet capture."
+>
 >`CSV` (comma-separated values) -> file is a plain text format used to store tabular data, where each line represents a record and individual fields within that record are separated by commas.
 
 First let's download the packet capture. Paste and run this command in a terminal.
