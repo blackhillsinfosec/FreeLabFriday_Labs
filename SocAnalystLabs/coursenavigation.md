@@ -1,17 +1,4 @@
-# Course Navigation
 
-### [Welcome](courseFiles/Section_00-welcome/welcome.md)
-
-- [Start Here!](courseFiles/Section_00-welcome/welcome.md#start-here)
-
-***
-### [Log Analysis Basics](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
-
-- [Windows Event Logs](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md#windows-event-logs)
-- [Sysmon Logs](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md#sysmon-logs)
-- [Authentication Logs](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md#authentication-logs)
-- [Tools to Learn](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md#tools-to-learn)
-- [Log Analysis Lab](courseFiles/Section_01-logAnalysis_Basics/logAnalysisBasics_Lab.md)
 
 ***
 ### [Security Tools & Foundational Platforms](courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
