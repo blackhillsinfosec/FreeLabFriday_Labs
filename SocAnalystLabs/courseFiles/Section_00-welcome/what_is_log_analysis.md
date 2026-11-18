@@ -135,6 +135,8 @@ Effective log analysis follows a repeatable process.
 ### 1. Know What "Normal" Looks Like
 You can't spot an anomaly without a baseline. Learn the typical logon times, the usual admin accounts, which servers talk to each other, and which processes run every day.
 
+<br>
+
 ### 2. Filter the Noise
 A single domain controller can generate millions of events per day. Narrow down by:
 - **Time window:** start with the time of the alert
@@ -145,6 +147,8 @@ A single domain controller can generate millions of events per day. Narrow down 
 # All failed logons in the last 24 hours
 Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4625; StartTime=(Get-Date).AddHours(-24)}
 ```
+
+<br>
 
 ### 3. Correlate Events Over Time
 A single event rarely tells the whole story. Look for **sequences**:
@@ -158,6 +162,8 @@ A single event rarely tells the whole story. Look for **sequences**:
 
 That sequence reads as: *brute force → success → admin access → persistence or lateral movement*. Tools like **Hayabusa** make this much easier by building a single timeline from many logs.
 
+<br>
+
 ### 4. Flag Anomalies
 Common patterns worth investigating:
 
@@ -169,6 +175,8 @@ Common patterns worth investigating:
 | **Unusual logon types** | RDP (type 10) to servers that are normally only accessed over the network |
 | **New admin access** | 4728/4732 adding accounts to privileged groups |
 | **Log tampering** | 1102: security log cleared |
+
+<br>
 
 ### 5. Document What You Find
 Write down timestamps, hosts, accounts, and event IDs as you go. A clear timeline is the most valuable thing you can hand to the next analyst or incident responder.
