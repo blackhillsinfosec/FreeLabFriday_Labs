@@ -132,7 +132,8 @@ Add a hidden window (`-w hidden`) and a Base64-encoded command (`-enc`), and thi
 
 ## Hunting with Sysmon: Common Patterns
 
-### Suspicious Parent/Child Relationships (Event ID 1)
+### Suspicious Parent/Child Relationships
+#### Event ID 1
 | Parent | Child | Possible Activity |
 |---|---|---|
 | `winword.exe`, `excel.exe`, `outlook.exe` | `powershell.exe`, `cmd.exe`, `wscript.exe` | Malicious macro or attachment |
@@ -142,7 +143,8 @@ Add a hidden window (`-w hidden`) and a Base64-encoded command (`-enc`), and thi
 
 <br>
 
-### Credential Dumping (Event ID 10)
+### Credential Dumping
+#### Event ID 10
 Look for processes opening **`lsass.exe`** where the source process is unusual:
 
 ```
@@ -155,14 +157,16 @@ Access masks such as `0x1010`, `0x1410`, and `0x1FFFFF` against LSASS from anyth
 
 <br>
 
-### Living off the Land (Event ID 1 + Event ID 3)
+### Living off the Land
+#### Event IDs 1, 3
 Built-in Windows binaries (LOLBins) making network connections:
 - `rundll32.exe`, `regsvr32.exe`, `mshta.exe`, or `certutil.exe` connecting to the internet
 - `certutil.exe -urlcache -split -f http://...` downloading a file
 
 <br>
 
-### Persistence (Event IDs 12, 13, 19–21)
+### Persistence
+#### Event IDs 12, 13, 19–21
 Registry values set under:
 ```
 HKCU\Software\Microsoft\Windows\CurrentVersion\Run
@@ -172,7 +176,8 @@ HKLM\System\CurrentControlSet\Services
 
 <br>
 
-### Command and Control (Event IDs 3, 17/18, 22)
+### Command and Control
+#### Event IDs 3, 17/18, 22 
 - Repeated connections to the same external IP at regular intervals (beaconing)
 - DNS queries to newly registered or random-looking domains
 - Unusual named pipes created by non-system processes
@@ -199,6 +204,7 @@ Get-WinEvent -LogName 'Microsoft-Windows-Sysmon/Operational' |
   Where-Object { $_.Message -match '{A1B2C3D4-0000-0000-0000-000000000000}' }
 ```
 
+<!--
 <hr>
 
 ## Check Your Understanding
@@ -217,3 +223,4 @@ Get-WinEvent -LogName 'Microsoft-Windows-Sysmon/Operational' |
 4. Office applications rarely need to launch a command shell. This is a common sign of a malicious macro or exploit.
 
 </details>
+-->
