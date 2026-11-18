@@ -6,7 +6,8 @@
 
 ## Overview
 
-Authentication logs record **who tried to prove their identity, when, from where, and whether it worked**. Since most attacks eventually involve logging in with stolen or guessed credentials, these are some of the most valuable logs a SOC analyst can review.
+Authentication logs record **who tried to prove their identity, when, from where, and whether it worked**.<br>
+Since most attacks eventually involve logging in with stolen or guessed credentials, these are some of the most valuable logs a SOC analyst can review.
 
 Authentication logs typically capture:
 
