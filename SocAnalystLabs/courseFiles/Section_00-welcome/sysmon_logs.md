@@ -45,7 +45,8 @@ C:\Windows\System32\winevt\Logs\Microsoft-Windows-Sysmon%4Operational.evtx
 
 ## Installing and Configuring Sysmon
 
-Sysmon is driven by an XML **configuration file** that decides what gets logged and what gets filtered out. Without a good config, Sysmon is either too noisy or too quiet.
+Sysmon is driven by an XML **configuration file** that decides what gets logged and what gets filtered out.<br> 
+Without a good config, Sysmon is either too noisy or too quiet.
 
 ```powershell
 # Install with a config file
@@ -101,7 +102,7 @@ Two widely used community configs:
 
 ## Reading a Sysmon Event ID 1
 
-Event ID 1 is the workhorse of Sysmon. Here are the fields that matter most:
+**Event ID 1** is the workhorse of Sysmon. Here are the fields that matter most:
 
 | Field | Why It Matters |
 |---|---|
@@ -124,7 +125,8 @@ User:              CORP\jsmith
 IntegrityLevel:    Medium
 ```
 
-**Why this is bad:** Microsoft Word should almost never launch PowerShell. Add a hidden window (`-w hidden`) and a Base64-encoded command (`-enc`), and this is a classic malicious macro pattern.
+**Why this is bad:** Microsoft Word should almost never launch PowerShell.<br>
+Add a hidden window (`-w hidden`) and a Base64-encoded command (`-enc`), and this is a classic malicious macro pattern.
 
 <hr>
 
@@ -138,6 +140,8 @@ IntegrityLevel:    Medium
 | `services.exe` | Random executable in a temp folder | Malicious service |
 | `wmiprvse.exe` | `powershell.exe` | Remote execution through WMI |
 
+<br>
+
 ### Credential Dumping (Event ID 10)
 Look for processes opening **`lsass.exe`** where the source process is unusual:
 
@@ -149,10 +153,14 @@ GrantedAccess:  0x1FFFFF
 
 Access masks such as `0x1010`, `0x1410`, and `0x1FFFFF` against LSASS from anything that isn't a known security product deserve a close look.
 
+<br>
+
 ### Living off the Land (Event ID 1 + Event ID 3)
 Built-in Windows binaries (LOLBins) making network connections:
 - `rundll32.exe`, `regsvr32.exe`, `mshta.exe`, or `certutil.exe` connecting to the internet
 - `certutil.exe -urlcache -split -f http://...` downloading a file
+
+<br>
 
 ### Persistence (Event IDs 12, 13, 19–21)
 Registry values set under:
@@ -161,6 +169,8 @@ HKCU\Software\Microsoft\Windows\CurrentVersion\Run
 HKLM\Software\Microsoft\Windows\CurrentVersion\Run
 HKLM\System\CurrentControlSet\Services
 ```
+
+<br>
 
 ### Command and Control (Event IDs 3, 17/18, 22)
 - Repeated connections to the same external IP at regular intervals (beaconing)
