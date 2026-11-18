@@ -6,7 +6,7 @@ It converts binary executables into human-readable assembly code, helping analys
 
 <img width="1920" height="1200" alt="image" src="https://github.com/user-attachments/assets/1da33ccd-ae42-4e54-bb6d-38ed432fa5ce" />
 
----
+<hr>
 
 ## Setup
 
@@ -24,20 +24,22 @@ It converts binary executables into human-readable assembly code, helping analys
 
 5. Download it and launch IDA, when you upload a binary you will be prompted to select your license, select the **Hexclic File** that you just downloaded
 
----
+<hr>
 
 ## Interface Overview
 
 ### **Main Components**
 
--   **Disassembly View:** Displays assembly instructions of the loaded binary
--   **Hex View:** Raw hexadecimal representation of the binary
--   **Graph View:** Visual representation of control flow (CFG)
--   **Functions Window:** Lists detected functions with cross-references
--   **Strings View:** Extracted ASCII/Unicode strings for quick intel
--   **Imports/Exports:** Shows linked libraries and external functions
+| Item | Description |
+|---|---|
+| **Disassembly View** | Displays assembly instructions of the loaded binary |
+| **Hex View** | Raw hexadecimal representation of the binary |
+| **Graph View** | Visual representation of control flow (CFG) |
+| **Functions Window** | Lists detected functions with cross-references |
+| **Strings View** | Extracted ASCII/Unicode strings for quick intel |
+| **Imports/Exports** | Shows linked libraries and external functions |
 
----
+<hr>
 
 ## 3. Core Functionalities
 
@@ -66,10 +68,12 @@ It converts binary executables into human-readable assembly code, helping analys
 
 ### **Searching & Identification**
 
--   **Strings:** `Shift + F12`
--   **Functions:** `Ctrl + F`
--   **Patterns:** `Alt + T` (Text search in disassembly)
--   **Signatures (FLIRT):** Identify standard libraries and known functions
+| Item | Description |
+|---|---|
+| **Strings** | `Shift + F12` |
+| **Functions** | `Ctrl + F` |
+| **Patterns** | `Alt + T` (Text search in disassembly) |
+| **Signatures (FLIRT)** | Identify standard libraries and known functions |
 
 ### **Decompilation (IDA Pro + Hex-Rays Plugin)**
 
@@ -77,7 +81,7 @@ It converts binary executables into human-readable assembly code, helping analys
 -   View high-level pseudocode for easier logic analysis
 -   Rename variables/functions directly from decompiler view
 
----
+<hr>
 
 ## Useful Shortcuts
 
@@ -94,7 +98,7 @@ It converts binary executables into human-readable assembly code, helping analys
 |  Step Over          | F8 |
 |  Toggle Breakpoint  | F2 |
 
----
+<hr>
 
 ## Tips for Malware Analysis
 
@@ -103,6 +107,6 @@ It converts binary executables into human-readable assembly code, helping analys
 -   Use **Snapshots** or **Revert States** for quick rollbacks
 -   Combine IDA with tools like **x64dbg**, **ProcMon**, **Wireshark**, and **Ghidra** for better context
 
+<hr>
 
----
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_11-malwareForensics/malwareForensics.md)
