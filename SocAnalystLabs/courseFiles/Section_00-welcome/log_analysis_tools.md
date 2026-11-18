@@ -86,7 +86,8 @@ Get-WinEvent -FilterHashtable @{LogName='Security'; Id=4625} |
 
 ## Hayabusa
 
-**Hayabusa** is a fast, open-source Windows event log analyzer from Yamato Security. It runs **Sigma** and Hayabusa detection rules against `.evtx` files and produces a single, sorted timeline of alerts.
+**Hayabusa** is a fast, open-source Windows event log analyzer from Yamato Security.<br>
+It runs **Sigma** and Hayabusa detection rules against `.evtx` files and produces a single, sorted timeline of alerts.
 
 **Why analysts like it:**
 - Thousands of community detection rules out of the box
