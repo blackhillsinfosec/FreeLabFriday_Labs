@@ -2,28 +2,43 @@
 
 # Security Tools & Foundational Platforms
 
-**Security tools and foundational platforms** are the core technologies used to detect, investigate, and respond to cyber threats. These include tools that collect and analyze data from endpoints, networks, and systems to provide visibility into suspicious activity
-<br><br>
+> **Hands-On Labs:** [LimaCharlie Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part1.md) · [Elastic Cloud Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md) · [Elastic Local Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md)
 
-Categories of Security Tools
-- **Endpoint Detection and Response** (EDR) - Tools like LimaCharlie monitor activities on endpoints (e.g., workstations and servers), collecting telemetry and enforcing detection logic in real-time
-- **Security Information and Event Management** (SIEM) - Platforms such as Elastic SIEM aggregate logs from across the infrastructure, providing detection rules, dashboards, and analytics
-- **Network Monitoring Tools** - Tools like Zeek or Wireshark are used to inspect raw network traffic and identify anomalies or known malicious behavior
+<hr>
+
+## Overview
+
+**Security tools and foundational platforms** are the core technologies used to detect, investigate, and respond to cyber threats. These include tools that collect and analyze data from endpoints, networks, and systems to provide visibility into suspicious activity.
+
+### Categories of Security Tools
+
+| Category | What It Does | Examples |
+|---|---|---|
+| **Endpoint Detection and Response (EDR)** | Monitors activity on endpoints (workstations and servers), collects telemetry, and enforces detection logic in real time | LimaCharlie |
+| **Security Information and Event Management (SIEM)** | Aggregates logs from across the infrastructure and provides detection rules, dashboards, and analytics | Elastic SIEM |
+| **Network Monitoring Tools** | Inspect raw network traffic to identify anomalies or known malicious behavior | Zeek, Wireshark |
+
+<hr>
 
 ## Intro
-**A Security Operations Center** (SOC) is a centralized unit that monitors, detects, responds to, and mitigates cybersecurity threats in real time. SOC analysts are the front line of defense, working with a variety of tools and platforms to protect an organization’s assets
 
-This lab introduces interns to **foundational tools and platforms** used daily in a SOC environment. Understanding how data flows from endpoints to security platforms—and how to investigate, triage, and act—is key to being an effective SOC analyst
+A **Security Operations Center (SOC)** is a centralized unit that monitors, detects, responds to, and mitigates cybersecurity threats in real time. SOC analysts are the front line of defense, working with a variety of tools and platforms to protect an organization's assets.
+
+This lab introduces interns to the **foundational tools and platforms** used daily in a SOC environment. Understanding how data flows from endpoints to security platforms — and how to investigate, triage, and act — is key to being an effective SOC analyst.
+
+<hr>
 
 ## LimaCharlie Hands-On
-LimaCharlie is a cutting-edge cybersecurity operations and infrastructure platform made to assist security teams in identifying, addressing, and managing threats on a large scale. With features designed for security engineers and SOC analysts, it provides an adaptable, API-driven substitute for conventional Endpoint Detection and Response (EDR) systems
 
-For a LC hands-on lab, try the 2 part [Lima Charlie Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part1.md)
+**LimaCharlie** is a cybersecurity operations and infrastructure platform built to help security teams identify, address, and manage threats at scale. Designed for security engineers and SOC analysts, it provides an adaptable, API-driven alternative to conventional Endpoint Detection and Response (EDR) systems.
 
-### LimaCharlie Rules Examples
+> **Hands-On Lab:** Try the two-part [LimaCharlie Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part1.md).
 
-- DNS to known-bad domain
-```bash
+### LimaCharlie Rule Examples
+
+**DNS request to a known-bad domain**
+
+```yaml
 event: DNS_REQUEST
 op: is
 path: event/DOMAIN_NAME
@@ -33,8 +48,9 @@ actions:
     name: "DNS to bad.example"
 ```
 
-- Process from temp launching PowerShell
-```bash
+**Process in a Temp folder launching PowerShell**
+
+```yaml
 event: NEW_PROCESS
 op: and
 rules:
@@ -49,8 +65,9 @@ actions:
     name: "Temp -> PowerShell"
 ```
 
-- LSASS access attempt (handle open)
-```bash
+**LSASS access attempt (handle open)**
+
+```yaml
 event: HANDLE_REQUEST
 op: and
 rules:
@@ -65,8 +82,9 @@ actions:
     name: "LSASS read attempt"
 ```
 
-- Persistence via Run key
-```bash
+**Persistence via a Run key**
+
+```yaml
 event: REGISTRY_EDIT
 op: starts with
 path: event/REG_PATH
@@ -76,88 +94,118 @@ actions:
     name: "Run key persistence"
 ```
 
+<hr>
+
 ## Elastic SIEM Hands-On
-[Elastic SIEM Docs](/SocAnalystLabs/courseFiles/tools/Elastic_Doc_Cloud.md), part of the Elastic Stack (Elasticsearch, Logstash, Kibana), provides a flexible and powerful SIEM solution for log ingestion, search, visualization, and detection
 
-After setting it up, you can try the Elastic Labs for the [Cloud Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md) to run on our VM, or the [Local Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md) in case you want to install it locally on your system
+**Elastic SIEM** is part of the Elastic Stack (Elasticsearch, Logstash, and Kibana). It provides a flexible and powerful SIEM solution for log ingestion, search, visualization, and detection. Start with the [Elastic SIEM Docs](/SocAnalystLabs/courseFiles/tools/Elastic_Doc_Cloud.md) to get it set up.
 
-### Elastic Rules Examples
+> **Hands-On Labs:** After setup, try the [Cloud Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md) to run on our VM, or the [Local Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md) if you want to install it on your own system.
 
-- PowerShell with encoded command
-```bash
+### Elastic Rule Examples
+
+**PowerShell with an encoded command**
+
+```
 event.category:process and event.type:start and
 process.name:("powershell.exe","pwsh.exe") and
 process.command_line:(*"-enc"* or *"-EncodedCommand"* or *"FromBase64String("*)
 ```
 
-- Delete Volume Shadow Copies
-```bash
+**Deleting Volume Shadow Copies**
+
+```
 event.category:process and event.type:start and
 process.name:"vssadmin.exe" and process.command_line:(*delete* and *shadows*)
 ```
 
-- Multiple failed logons from one IP (Threshold rule logic)
-```bash
+**Multiple failed logons from one IP (Threshold rule logic)**
+
+```
 event.dataset:"windows.security" and winlog.event_id:4625
 ```
 
-- New Terms: First-time admin tool seen on a host
-```bash
-event.category:process and process.name:(psexec*.exe or "wmic.exe" or "at.exe" or "schtasks.e
+**New Terms: First-time admin tool seen on a host**
+
+```
+event.category:process and process.name:(psexec*.exe or "wmic.exe" or "at.exe" or "schtasks.exe")
 ```
 
-## Viewing Alerts & Logs
-SOC analysts must interpret alerts in context and verify their validity
+<hr>
 
-Understanding Alerts:
-- **Components** - Rule name, severity, MITRE technique, timestamp, affected host/user, raw log snippet
-- **Enrichment** - Threat intel (e.g., VirusTotal hash lookup), geolocation, asset context
-- **Triage Steps**
-1. Is this a known good or benign behavior?
+## Viewing Alerts & Logs
+
+SOC analysts must interpret alerts in context and verify that they are valid.
+
+### Understanding Alerts
+
+| Element | What to Look For |
+|---|---|
+| **Components** | Rule name, severity, MITRE technique, timestamp, affected host/user, raw log snippet |
+| **Enrichment** | Threat intel (for example, a VirusTotal hash lookup), geolocation, asset context |
+
+**Triage Steps**
+
+1. Is this known-good or benign behavior?
 2. Can we correlate with other logs to confirm malicious intent?
 3. Are other hosts showing similar behavior?
 
-Log Types to Recognize:
-- **Windows Event Logs** (Security, System, Application)
-- **Sysmon events** (detailed host telemetry)
-- **Firewall logs** (source/destination IP, port, action)
-- **DNS logs** (lookups to malicious domains)
-- **Web proxy logs** (user-agent, URL visited)
+### Log Types to Recognize
+
+| Log Type | What It Contains |
+|---|---|
+| **Windows Event Logs** | Security, System, and Application events |
+| **Sysmon Events** | Detailed host telemetry |
+| **Firewall Logs** | Source/destination IP, port, and action |
+| **DNS Logs** | Lookups, including those to malicious domains |
+| **Web Proxy Logs** | User agent and URLs visited |
+
+<hr>
 
 ## Writing & Modifying Basic Detection Rules
-Detection rules define what behavior is suspicious and should generate alerts. Interns should be able to read, tweak, and eventually write basic rules.
 
-Detection Rule Elements
-- **Condition** - What patterns or values to match (e.g., parent process = cmd.exe, child process = powershell.exe)
-- **Filters/Exceptions** - Known-good behaviors to suppress false positives
-- **Severity & Tactic** - Classification based on MITRE ATT&CK
+Detection rules define which behavior is suspicious and should generate an alert. Interns should be able to read, tweak, and eventually write basic rules.
 
-Examples
-- **Sigma Rule (YAML)** - <pre>Detect PowerShell with base64-encoded strings</pre>
-- **Elastic Rule (KQL)** - <pre>event.code: 4625 and winlog.event_data.LogonType: 3</pre>
-- **LimaCharlie Rule (YAML)** - <pre>Match file writes to suspicious locations</pre>
+### Detection Rule Elements
+
+| Element | Purpose |
+|---|---|
+| **Condition** | The patterns or values to match (for example, parent process = `cmd.exe`, child process = `powershell.exe`) |
+| **Filters / Exceptions** | Known-good behaviors to suppress false positives |
+| **Severity & Tactic** | Classification based on MITRE ATT&CK |
+
+### Examples by Rule Format
+
+| Format | Example |
+|---|---|
+| **Sigma Rule (YAML)** | Detect PowerShell with Base64-encoded strings |
+| **Elastic Rule (KQL)** | `event.code: 4625 and winlog.event_data.LogonType: 3` |
+| **LimaCharlie Rule (YAML)** | Match file writes to suspicious locations |
+
+<hr>
 
 ## Telemetry Searching
-Analysts often need to go beyond alerts and search the raw telemetry for related or supporting evidence
 
-Key Skills
-- **Search Syntax** - Learn how to query data (e.g., KQL in Elastic, telemetry filters in LimaCharlie)
-- **Pivoting** - From an IP to related processes, users, or domains
-- **Filtering** - Time ranges, specific hostnames, or event types<br>
-- **Common Use Cases:**
-1. "Show all PowerShell executions on this host in the last 24 hours"
-2. "List all logon events from a suspicious IP"
-3. "Search for DLL side-loading activity using Sysmon logs"
+Analysts often need to go beyond alerts and search raw telemetry for related or supporting evidence.
 
-***                                                       
+### Key Skills
 
-<b><i>Continuing the course?</b>
-</br>
-[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)</i>
+| Skill | Description |
+|---|---|
+| **Search Syntax** | Learn how to query data (for example, KQL in Elastic or telemetry filters in LimaCharlie) |
+| **Pivoting** | Move from an IP to related processes, users, or domains |
+| **Filtering** | Narrow by time range, hostname, or event type |
 
-<b><i>Want to go back?</b>
-</br>
-[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
+### Common Use Cases
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
+1. "Show all PowerShell executions on this host in the last 24 hours."
+2. "List all logon events from a suspicious IP."
+3. "Search for DLL side-loading activity using Sysmon logs."
 
+<hr>
+
+**Continuing the course?** [Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
+
+**Want to go back?** [Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
+
+**Looking for a different section?** [Back to Section Directory](/SocAnalystLabs/coursenavigation.md)
