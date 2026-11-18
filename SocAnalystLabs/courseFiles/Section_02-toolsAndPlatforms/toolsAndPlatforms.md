@@ -2,8 +2,6 @@
 
 # Security Tools & Foundational Platforms
 
-> **Hands-On Labs:** [LimaCharlie Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part1.md) · [Elastic Cloud Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md) · [Elastic Local Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md)
-
 <hr>
 
 ## Overview
