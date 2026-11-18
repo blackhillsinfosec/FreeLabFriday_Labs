@@ -2,6 +2,7 @@
 
 Email remains one of the **most exploited vectors in cyberattacks**, especially for initial access. As a SOC Analyst, having a deep understanding of email-based threats and defenses is essential to protecting your organization.
 
+<hr>
 
 ## Identifying Phishing
 
@@ -11,22 +12,23 @@ Phishing is the most common form of email‑based attack. Attackers impersonate 
 
 ### 1.1 Sender Spoofing & Display Name Tricks
 
-- **Spoofing**: faking the “From” address or display name.  
-- **Key signs**:  
-  - Display name shows `CEO`, but the actual address is `ceo@evil.com`.  
-  - Domains with look‑alikes: `micr0soft.com`, `microsoft-suppport.net`.  
-- **Best practices**:  
-  - Always expand and inspect the full email address.  
+- **Spoofing**: faking the “From” address or display name.
+- **Key signs**:
+  - Display name shows `CEO`, but the actual address is `ceo@evil.com`.
+  - Domains with look‑alikes: `micr0soft.com`, `microsoft-suppport.net`.
+- **Best practices**:
+  - Always expand and inspect the full email address.
   - Use email clients or plugins that highlight mismatches.
 
 ### 1.2 Mismatched or Suspicious URLs
 
-- **Hover (desktop) or long‑press (mobile)** on links to reveal the true target.  
-- **Red flags**:  
-  - URL shorteners (bit.ly, t.co) used without context.  
-  - IP‑based links: `http://192.168.1.5/login`.  
-  - Subtle typos: `google‑security.co` vs. `google.com`.  
+- **Hover (desktop) or long‑press (mobile)** on links to reveal the true target.
+- **Red flags**:
+  - URL shorteners (bit.ly, t.co) used without context.
+  - IP‑based links: `http://192.168.1.5/login`.
+  - Subtle typos: `google‑security.co` vs. `google.com`.
 - **Example**:
+
   ```text
   Displayed: https://accounts.google.com
   Actual:    http://login.g00gle-secure.com
@@ -34,59 +36,59 @@ Phishing is the most common form of email‑based attack. Attackers impersonate 
 
 ### 1.3 Unusual Attachments & File Types
 
-- **High‑risk file extensions**:  
-  - Executables/scripts: `.exe`, `.js`, `.vbs`, `.hta`, `.scr`  
-  - Disk images: `.iso`, `.img`  
-  - Macro‑enabled Office: `.docm`, `.xlsm`  
-  - Archives hiding payloads: `.zip`, `.rar`  
-- **Double extensions**: `invoice.pdf.exe`  
+- **High‑risk file extensions**:
+  - Executables/scripts: `.exe`, `.js`, `.vbs`, `.hta`, `.scr`
+  - Disk images: `.iso`, `.img`
+  - Macro‑enabled Office: `.docm`, `.xlsm`
+  - Archives hiding payloads: `.zip`, `.rar`
+- **Double extensions**: `invoice.pdf.exe`
 - **Best practice**: NEVER enable macros or run executables from untrusted emails. Always sandbox‑test unknown attachments.
 
----
+<hr>
 
 ## Common Email-Based Attacks
 
 ### 2.1 Business Email Compromise (BEC)
 
-- **Definition**: A social engineering scam where attackers impersonate executives or partners to request wire transfers or data.  
-- **Characteristics**:  
-  - Plain‑text email with no malicious link or attachment.  
-  - Urgency (“Wire transfer today!”) and familiarity (“Thanks, John”).  
+- **Definition**: A social engineering scam where attackers impersonate executives or partners to request wire transfers or data.
+- **Characteristics**:
+  - Plain‑text email with no malicious link or attachment.
+  - Urgency (“Wire transfer today!”) and familiarity (“Thanks, John”).
 - **Defense**: Out‑of‑band verification (phone call, in‑person) for any financial request.
 
 ### 2.2 Spear Phishing & Whaling
 
-- **Spear phishing**: Highly targeted to individuals or departments using personalized details.  
-- **Whaling**: Spear phishing aimed at high‑value targets (C‑suite, finance heads).  
-- **Tactics**:  
-  - Incorporation of personal or corporate data (recent projects, names).  
-  - Use of legal or official language and letterhead.  
-- **Warning signs**:  
-  - Unusual sender for the target’s role.  
+- **Spear phishing**: Highly targeted to individuals or departments using personalized details.
+- **Whaling**: Spear phishing aimed at high‑value targets (C‑suite, finance heads).
+- **Tactics**:
+  - Incorporation of personal or corporate data (recent projects, names).
+  - Use of legal or official language and letterhead.
+- **Warning signs**:
+  - Unusual sender for the target’s role.
   - Requests for confidential reports or accounts.
 
 ### 2.3 Attachment‑Based Malware Delivery
 
-- **Vectors**:  
-  - PDF with embedded JavaScript.  
-  - Word/Excel with malicious macros.  
-  - Compressed archives containing droppers.  
-- **Common payloads**: Emotet, LokiBot, ransomware families.  
-- **Mitigation**:  
-  - Sandbox‑detonate all attachments.  
+- **Vectors**:
+  - PDF with embedded JavaScript.
+  - Word/Excel with malicious macros.
+  - Compressed archives containing droppers.
+- **Common payloads**: Emotet, LokiBot, ransomware families.
+- **Mitigation**:
+  - Sandbox‑detonate all attachments.
   - Employ static analysis tools to inspect macros and scripts.
 
----
+<hr>
 
 ## Email Security Solutions
 
 ### 3.1 Secure Email Gateways (SEGs)
 
-- **Role**: First line of defense for inbound and outbound mail.  
-- **Techniques**:  
-  - Reputation‑based filtering (senders, URLs).  
-  - Sandbox analysis of attachments and links.  
-  - URL rewriting and real‑time threat lookups.  
+- **Role**: First line of defense for inbound and outbound mail.
+- **Techniques**:
+  - Reputation‑based filtering (senders, URLs).
+  - Sandbox analysis of attachments and links.
+  - URL rewriting and real‑time threat lookups.
 - **Popular products**: Proofpoint, Mimecast, Cisco Email Security.
 
 ### 3.2 Email Authentication Protocols
@@ -106,21 +108,18 @@ Phishing is the most common form of email‑based attack. Attackers impersonate 
 +----------+               +--------------+                 +-------------+
 ```
 
-
-- **SPF** ensures the sending IP is authorized.  
-- **DKIM** confirms content authenticity.  
+- **SPF** ensures the sending IP is authorized.
+- **DKIM** confirms content authenticity.
 - **DMARC** dictates actions (none/quarantine/reject) and aggregates reports.
 
 #### 3.2.2 Validation Tools
 
-- `dig txt example.com` / `nslookup -type=TXT example.com`  
+- `dig txt example.com` / `nslookup -type=TXT example.com`
 - Web checkers: MXToolbox, dmarcian, InboxAlly.
 
-
----
+<hr>
 
 ##  Email Header Parsing Script
-
 
 Use Python to extract and examine critical header fields:
 
@@ -159,6 +158,8 @@ if __name__ == "__main__":
 
 ```
 
+<hr>
+
 ##  Check for Data Breaches
 
 Use [Have I Been Pwned](https://haveibeenpwned.com/) to check if your email address or personal information has been part of a known data breach. This site provides details about which data (such as passwords, phone numbers, or addresses) may have been compromised.
@@ -167,10 +168,9 @@ If you receive an email that contains personal information and you find that the
 
 Always verify the source and content of such emails carefully.
 
-
+<hr>
 
 ##  References & Further Reading and Learning Materials
-
 
 - [Cloudflare Learning: SPF/DKIM/DMARC explanations](https://www.cloudflare.com/learning/email-security/dmarc-dkim-spf/)
 - [MITRE ATT&CK – T1566 (Phishing)](https://attack.mitre.org/techniques/T1566/)
@@ -178,32 +178,28 @@ Always verify the source and content of such emails carefully.
 - [Imperva: Spear Phishing, Whaling](https://www.imperva.com/learn/application-security/spear-phishing/)
 - [Valimail Blog: SEGs & Email Authentication](https://www.valimail.com/blog/secure-email-gateways-and-email-authentication-why-you-need-both-infographic/)
 
-
----
+<hr>
 
 ##  Summary Checklist
 
-- [ ] Always inspect full sender address and display name.  
-- [ ] Hover or long‑press links; watch for typos or shortened URLs.  
-- [ ] Treat unexpected attachments as malicious; sandbox before opening.  
-- [ ] Verify any financial or sensitive request out‑of‑band.  
-- [ ] Ensure your organization’s SPF, DKIM, and DMARC are correctly configured.  
-- [ ] Use SEGs to filter and sandbox inbound email traffic.  
-- [ ] Automate header analysis with scripts to catch anomalies quickly. (optional) 
+- [ ] Always inspect full sender address and display name.
+- [ ] Hover or long‑press links; watch for typos or shortened URLs.
+- [ ] Treat unexpected attachments as malicious; sandbox before opening.
+- [ ] Verify any financial or sensitive request out‑of‑band.
+- [ ] Ensure your organization’s SPF, DKIM, and DMARC are correctly configured.
+- [ ] Use SEGs to filter and sandbox inbound email traffic.
+- [ ] Automate header analysis with scripts to catch anomalies quickly. (optional)
 
-
+<hr>
 
 ## Projects to Try
 
 Check out the [phishing_email_lab.md](./phishing_email_lab.md) and also the [solution](./phishing_email_lab_solution.md)
 
-***
-<b><i>Continuing the course?</b>
-</br>
-[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_11-malwareForensics/malwareForensics.md)</i>
+<hr>
 
-<b><i>Want to go back?</b>
-</br>
-[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
+**Continuing the course?** [Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_11-malwareForensics/malwareForensics.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
+**Want to go back?** [Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
+
+**Looking for a different section?** [Back to Section Directory](/SocAnalystLabs/coursenavigation.md)
