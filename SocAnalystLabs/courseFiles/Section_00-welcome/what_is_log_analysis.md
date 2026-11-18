@@ -66,6 +66,8 @@ These are the event IDs you should know by heart.
 | **4672** | Special privileges assigned to new logon | An admin-level account just logged on |
 | **4740** | Account locked out | Often the end result of brute forcing |
 
+<br>
+
 ### Account and Group Changes
 
 | Event ID | Meaning | Why It Matters |
@@ -74,6 +76,8 @@ These are the event IDs you should know by heart.
 | **4722** | User account enabled | Re-enabling a dormant account |
 | **4724** | Password reset attempt | An admin (or attacker) reset someone's password |
 | **4728 / 4732 / 4756** | Member added to a global / local / universal security group | Privilege escalation (for example, added to Domain Admins) |
+
+<br>
 
 ### Process, Persistence, and Tampering
 
