@@ -4,22 +4,25 @@
 - For lab, check out [scapy_lab.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab.md)
 - For lab solution, check out [scapy_lab_solution.md](/SocAnalystLabs/courseFiles/Section_04-socScripting/scapy_lab_solution.md)
 
-# Introduction & Setup
+<hr>
 
+## Introduction & Setup
 
-
+<hr>
 
 ## 1) What is Scapy?
 
 Scapy is a Python library and interactive packet-manipulation tool designed for building, sending, receiving, parsing, and manipulating network packets. It combines a flexible scripting API with an interactive shell for rapid testing and prototyping.
 
-Primary capabilities:
+### Primary capabilities
 
-- **Craft:** Build arbitrary packets from the link layer up to application protocols by stacking protocol layers as Python objects.
-- **Send/Receive:** Transmit packets on the wire (L2/L3) and capture responses synchronously or asynchronously.
-- **Sniff:** Capture live traffic using pcap/raw sockets and apply BPF or Python filters.
-- **Read/Write PCAPs:** Persist traffic to PCAP files and replay them later.
-- **Dissect/Decode:** Parse packets into structured fields and support custom protocol definitions.
+| Item | Description |
+|---|---|
+| **Craft** | Build arbitrary packets from the link layer up to application protocols by stacking protocol layers as Python objects. |
+| **Send/Receive** | Transmit packets on the wire (L2/L3) and capture responses synchronously or asynchronously. |
+| **Sniff** | Capture live traffic using pcap/raw sockets and apply BPF or Python filters. |
+| **Read/Write PCAPs** | Persist traffic to PCAP files and replay them later. |
+| **Dissect/Decode** | Parse packets into structured fields and support custom protocol definitions. |
 
 Common usages in a SOC context:
 
@@ -27,6 +30,8 @@ Common usages in a SOC context:
 - Replaying attack or benign traces to validate detection logic.
 - Performing packet-level forensics and automated enrichment scripts.
 - Automating network discovery and benign/malicious traffic generation for red-team/blue-team exercises.
+
+<hr>
 
 ## 2) How Scapy works (architecture & internals)
 
@@ -46,9 +51,11 @@ Fields have types (e.g., `ByteField`, `ShortField`, `IPField`, `MACField`) that 
 
 Scapy uses different mechanisms depending on OS and operation:
 
-- **Linux:** raw sockets are commonly used for sending crafted packets. Sniffing can use `libpcap` or raw sockets (both require elevated privileges).
-- **Windows:** requires Npcap/WinPcap to capture and send packets; often needs Administrator rights.
-- **macOS:** uses libpcap for sniffing; raw sockets for some sends.
+| Item | Description |
+|---|---|
+| **Linux** | raw sockets are commonly used for sending crafted packets. Sniffing can use `libpcap` or raw sockets (both require elevated privileges). |
+| **Windows** | requires Npcap/WinPcap to capture and send packets; often needs Administrator rights. |
+| **macOS** | uses libpcap for sniffing; raw sockets for some sends. |
 
 Higher-level convenience functions (`send`, `sendp`, `sr`, `srp`, `sniff`) wrap the lower-level details to let you focus on packet logic rather than socket plumbing.
 
@@ -56,7 +63,10 @@ Higher-level convenience functions (`send`, `sendp`, `sr`, `srp`, `sniff`) wrap 
 
 Scapy prioritizes flexibility and developer velocity over maximum throughput. It is excellent for prototyping, test automation, and forensic parsing, but not optimized for high wire-rate packet generation (use `tcpreplay` or specialized packet generators for very high throughput).
 
+<hr>
+
 ## 3) Installation & environment notes
+
 >[!TIP]
 >
 > **Recommendation:** Use an isolated lab VM (or two VMs on a host-only network) for all active traffic generation and interception. This prevents accidental disruption of production networks.
@@ -78,7 +88,7 @@ python3 -m pip install --upgrade pip
 pip3 install scapy
 ```
 
-Notes:
+#### Notes
 
 - Some distributions ship an older packaged `scapy` — `pip` installs the latest stable version.
 - Consider using a virtual environment (`python3 -m venv venv && source venv/bin/activate`) to isolate dependencies. (My best advice if you don't want to strugle with errors😉)
@@ -99,12 +109,12 @@ pip install scapy
 >- Administrative privileges are generally required to capture/send crafted packets.
 >- Some features behave differently on Windows due to driver/OS-level differences.
 
-
-
 ### Optional extras & integrations
 
 - `pip install scapy[complete]` installs optional dependencies for extended protocol support.
 - Use `wrpcap()` to create PCAPs and open them in Wireshark for deeper analysis.
+
+<hr>
 
 ## 4) Privileges, safety, and legal reminders
 
@@ -120,9 +130,11 @@ pip install scapy
 
 - Unauthorized scanning, spoofing, interception, or attack simulation on networks you don't own or manage may be unlawful. Always obtain written authorization before performing active tests on third-party infrastructure.
 
----
-# Core Concepts & Objects
+<hr>
 
+## Core Concepts & Objects
+
+<hr>
 
 ## 1. Packet object model
 
@@ -142,18 +154,22 @@ pip install scapy
 - Decision points include: `Ether.type`, `IP.proto`, `TCP.dport`/`sport`, and other protocol-specific markers.
 - Unknown bytes become `Raw` payload.
 
+<hr>
+
 ## 2. Fields: types, semantics, and computed behavior
 
 Fields declare how a `Packet`'s bytes map to Python attributes.
 
 ### Basic field categories
 
-- **Integer fields:** `ByteField`, `ShortField`, `IntField`, `LongField` — for fixed-size numeric values.
-- **Network/address fields:** `IPField`, `MACField`, `HostField` — for addresses with validation.
-- **Bit-level fields:** `BitField`, `FlagsField`, `BitEnumField` — when values occupy specific bits inside a byte/word.
-- **String/bytes fields:** `StrFixedLenField`, `StrLenField` — fixed or variable-length text data.
-- **Container/list fields:** `PacketListField`, `FieldListField` — used for sequences of sub-packets or repeated items.
-- **Length helpers:** `FieldLenField`, `ShortEnumField` — used to tie lengths/counts to actual data content.
+| Item | Description |
+|---|---|
+| **Integer fields** | `ByteField`, `ShortField`, `IntField`, `LongField` — for fixed-size numeric values. |
+| **Network/address fields** | `IPField`, `MACField`, `HostField` — for addresses with validation. |
+| **Bit-level fields** | `BitField`, `FlagsField`, `BitEnumField` — when values occupy specific bits inside a byte/word. |
+| **String/bytes fields** | `StrFixedLenField`, `StrLenField` — fixed or variable-length text data. |
+| **Container/list fields** | `PacketListField`, `FieldListField` — used for sequences of sub-packets or repeated items. |
+| **Length helpers** | `FieldLenField`, `ShortEnumField` — used to tie lengths/counts to actual data content. |
 
 ### Defaults & automatic computation
 
@@ -169,6 +185,8 @@ print('Before build:', p[IP].chksum)
 bytes(p)
 print('After build:', p[IP].chksum)
 ```
+
+<hr>
 
 ## 3. Packet inspection utilities
 
@@ -186,6 +204,8 @@ print(p.summary())
 ls(TCP)
 hexdump(p)
 ```
+
+<hr>
 
 ## 4. Layer access and safe field manipulation
 
@@ -212,6 +232,8 @@ if tcp:
 - To replace the payload of a layer: `p[IP].remove_payload(); p[IP].add_payload(new_layer)` or simpler `p = p/NEWPAYLOAD` (creates a new stack).
 - Use `p.copy()` before heavy mutation if you need the original preserved.
 
+<hr>
+
 ## 5. Packet lists: sniff/rdpcap output handling
 
 - `PacketList` behaves like a Python list with convenience methods.
@@ -226,6 +248,8 @@ from collections import Counter
 ips = [p[IP].src for p in pkts if p.haslayer(IP)]
 print(Counter(ips).most_common(10))
 ```
+
+<hr>
 
 ## 6. Common built-in layers
 
@@ -255,6 +279,8 @@ print(Counter(ips).most_common(10))
 
 - `DNS`: `qd` (question), `an` (answer), `qdcount`, `ancount` — good for DNS exfil simulations.
 - `Raw`: generic payload container when no parser exists.
+
+<hr>
 
 ## 7. Creating and binding custom protocols
 
@@ -289,6 +315,8 @@ bind_layers(UDP, MyProto, dport=5555)
 - `bind_layers(Upper, Lower, condition=...)` can be used with lambda-like checks or field values to guide dissection.
 - For complex cases implement `guess_payload_class()` in your Packet subclass.
 
+<hr>
+
 ## 8. Useful packet methods & helpers
 
 - `p.copy()` — copy the packet (useful before mutation).
@@ -306,22 +334,26 @@ bytes(p)  # calculates checksums
 send(p)
 ```
 
+<hr>
+
 ## 9. Troubleshooting & common pitfalls
 
-- **Missing layers after sniff**: Scapy may not dissect higher layers if it doesn't know the mapping (bind\_layers may be needed). Use `Raw` fallback to inspect bytes.
-- **BPF vs lfilter confusion**: `filter` (BPF string) is executed in kernel space via libpcap; `lfilter` is Python-level and slower but can inspect decoded fields.
-- **Windows oddities**: Ensure Npcap is installed in the correct compatibility mode; driver issues are a common source of errors.
-- **Permission errors**: Always run as root/Administrator for sending raw frames and promiscuous sniffing.
-- **High-volume captures**: Use BPF filters to reduce volume, or capture to file with `tcpdump` and analyze offline with Scapy.
+| Item | Description |
+|---|---|
+| **Missing layers after sniff** | Scapy may not dissect higher layers if it doesn't know the mapping (bind\_layers may be needed). Use `Raw` fallback to inspect bytes. |
+| **BPF vs lfilter confusion** | `filter` (BPF string) is executed in kernel space via libpcap; `lfilter` is Python-level and slower but can inspect decoded fields. |
+| **Windows oddities** | Ensure Npcap is installed in the correct compatibility mode; driver issues are a common source of errors. |
+| **Permission errors** | Always run as root/Administrator for sending raw frames and promiscuous sniffing. |
+| **High-volume captures** | Use BPF filters to reduce volume, or capture to file with `tcpdump` and analyze offline with Scapy. |
 
----
+<hr>
 
 Also check out [this official Scapy documentation](https://scapy.readthedocs.io/en/latest/index.html)
 
+<hr>
 
----
 *End of Part 1. For part 2, check out [scapy_documentation_part2.md](./scapy_documentation_part2.md)*
 
+<hr>
 
----
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
