@@ -4,6 +4,8 @@
 
 #### Please use either VM
 
+<hr>
+
 ## Setup
 
 - First things first, create an account here: https://azure.microsoft.com/en-us/pricing/free-services
@@ -49,74 +51,91 @@
 
 <img width="1762" height="940" alt="image" src="https://github.com/user-attachments/assets/353a32f1-070c-4a85-8766-a21d0442583c" />
 
+<hr>
+
 ## Run the Queries
 
-Now you can FINALLY run queries! 
+Now you can FINALLY run queries!
 
 My table name is "LabLogs", in the queries replace it with whatever you named it
+
 - Let's see the first 100 logs
 
-<pre>LabLogs
-| take 100</pre>
+```
+LabLogs
+| take 100
+```
 
 <img width="1597" height="549" alt="image" src="https://github.com/user-attachments/assets/3dd7ac12-ac35-47b5-bb62-bf1b490d336c" />
 
 - We can see on **Column 6** it's the EVTX Tactic, let's group the logs by it
 
-<pre>LabLogs
-| summarize Count = count() by Column6</pre>
+```
+LabLogs
+| summarize Count = count() by Column6
+```
 
 <img width="420" height="270" alt="image" src="https://github.com/user-attachments/assets/8a40c440-b0a3-4506-9f4f-4fa2a0b37a68" />
 
 - Also grouping them by column5(AKA EVTX_FileName) or column4(Computer) gives pretty interesting results
 - Now that we know what is what, let's group **Lateral Movement** and **Privilege Escalation** by computer
 
-<pre>LabLogs
+```
+LabLogs
 | where Column6 in ("Lateral Movement", "Privilege Escalation")
-| summarize Count = count() by Column4 // Computer</pre>
+| summarize Count = count() by Column4 // Computer
+```
 
 <img width="420" height="391" alt="image" src="https://github.com/user-attachments/assets/54637b21-69c9-4529-a408-45d099898f6e" />
 
 - Now let's see the "noisiest" systems, ideal to demonstrate triage
 
-<pre>LabLogs
+```
+LabLogs
 | where Column6 != "EVTX_Tactic"
 | summarize Count = count() by Computer = Column4
-| top 10 by Count desc</pre>
+| top 10 by Count desc
+```
 
 <img width="333" height="292" alt="image" src="https://github.com/user-attachments/assets/58c7d10b-94e0-46a3-bfd5-9fd5f782b781" />
 
 - You can also corellate the tactics to hosts
 
-<pre>LabLogs
+```
+LabLogs
 | where Column6 != "EVTX_Tactic"
 | summarize Count = count() by Tactic = Column6, Host = Column4
-| sort by Count desc</pre>
+| sort by Count desc
+```
 
 <img width="459" height="804" alt="image" src="https://github.com/user-attachments/assets/8cd45f1c-6a82-43f1-83c0-8006e966275e" />
+
+<hr>
 
 ## What do the queries do?
 
 Now try to see what each of those queries do, and try to create some yourself now that you've got everything setup
 
-<pre>LabLogs
+```
+LabLogs
 | where Column6 != "EVTX_Tactic"
 | extend Timestamp = todatetime(Column1)  // adjust to actual time column
 | summarize Count = count() by bin(Timestamp, 1h), Tactic = Column6
-| sort by Timestamp asc</pre>
+| sort by Timestamp asc
+```
 
-<pre>LabLogs
+```
+LabLogs
 | summarize Count = count() by File = Column5
 | top 10 by Count desc
-</pre>
+```
 
-<pre>LabLogs
+```
+LabLogs
 | where Column6 in ("Persistence", "Privilege Escalation", "Credential Access")
-| summarize Count = count() by Tactic = Column6, Computer = Column4</pre>
+| summarize Count = count() by Tactic = Column6, Computer = Column4
+```
 
+<hr>
 
----
 [Back to the section](/SocAnalystLabs/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)
-
-
-
