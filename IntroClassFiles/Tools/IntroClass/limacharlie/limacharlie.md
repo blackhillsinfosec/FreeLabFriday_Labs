@@ -83,7 +83,8 @@ Once you have selected your fictitious company, you can look around and see all 
 
 For this demonstration we will be creating a sensor for our Windows machine, and then setting off **Atomic Red Team** in Part 2 to test if our filter catches it.
 
-On the left side under **Sensors**, select **"Installation Keys"**
+After creating your fake organization, you will see this screen pop up:
+
 
 <img width="750" alt="Installation Keys" src="attachments/one.PNG" />
 
