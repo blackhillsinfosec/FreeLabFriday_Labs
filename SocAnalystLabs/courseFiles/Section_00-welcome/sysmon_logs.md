@@ -8,7 +8,8 @@
 
 **Sysmon (System Monitor)** is a free tool from Microsoft's Sysinternals suite. It runs as a Windows service and driver, and writes detailed activity to the Windows Event Log, far beyond what the built-in Security log captures.
 
-Standard Windows logging can tell you that a process started. Sysmon tells you:
+Standard Windows logging can tell you that a process started.<br>
+Sysmon tells you:
 
 - The **full command line** and the **parent process** that launched it
 - The **file hashes** of the executable
