@@ -2,16 +2,19 @@
 
 Wireshark is a powerful open-source network protocol analyzer used for capturing and analyzing packets in real time. It is an essential tool for any SOC Analyst to inspect suspicious network activity, troubleshoot issues, and perform deep packet inspection during investigations.
 
----
+<hr>
 
 ##  Installation
-- **Linux**: `sudo apt install wireshark`
-- **macOS**: Use Homebrew: `brew install --cask wireshark`
-- **Windows**: Download from [wireshark.org](https://www.wireshark.org/download.html)
+
+| Item | Description |
+|---|---|
+| **Linux** | `sudo apt install wireshark` |
+| **macOS** | Use Homebrew: `brew install --cask wireshark` |
+| **Windows** | Download from [wireshark.org](https://www.wireshark.org/download.html) |
 
 Ensure you have permissions to capture packets (ex: join the `wireshark` group or run with `sudo`).
 
----
+<hr>
 
 ##  Interface Overview
 
@@ -47,16 +50,17 @@ Wireshark has a multi-pane GUI with these main components:
 
 ![Wireshark Status Bar](https://i.ibb.co/PGCyJDtQ/image.png)
 
----
+<hr>
 
 ##  Basic Usage Workflow
+
 1. **Select Interface**: Choose an active network interface (e.g., `eth0`, `wlan0`).
 2. **Start Capture**: Click the blue shark fin icon.
 3. **Stop Capture**: Click the red square.
 4. **Filter Traffic**: Use display filters to narrow down to relevant packets.
 5. **Inspect Packets**: Click on a packet to view details in the middle and bottom panes.
 
----
+<hr>
 
 ##  Common Display Filters for SOC
 
@@ -71,49 +75,57 @@ Wireshark has a multi-pane GUI with these main components:
 | Only traffic between two IPs   | `ip.src==10.0.0.5 && ip.dst==10.0.0.7`  |
 | Traffic over time              | Use Statistics > IO Graphs              |
 
----
+<hr>
 
 ##  Opening and Saving Captures
+
 - Save capture: `File > Save As...` (.pcap or .pcapng format)
 - Open capture: `File > Open`
 - Export specific packets: `File > Export Specified Packets`
 
----
+<hr>
 
 ##  Useful Features
 
 ### 1. **Follow TCP Stream**
+
 - Right-click a TCP packet → "Follow" → "TCP Stream"
 - This will reconstructs the full conversation (ex: HTTP request/response)
 
 ### 2. **Protocol Hierarchy**
+
 - `Statistics > Protocol Hierarchy`
 - Shows protocol breakdown by % and packet count
 
 ### 3. **Endpoints and Conversations**
+
 - `Statistics > Endpoints` — List of all IP/MAC addresses
 - `Statistics > Conversations` — Active communication pairs
 
 ### 4. **IO Graphs**
+
 - Graph network usage over time
 - Useful for identifying peaks (e.g., DDoS or exfiltration)
 
 ### 5. **Expert Info**
+
 - `Analyze > Expert Information`
 - Shows warnings, errors, anomalies in traffic
 
----
+<hr>
 
 ##  Analyzing Encrypted Traffic
+
 - **HTTPS/TLS**: You can't decrypt without SSL keys
 - If you have the server private key and the session uses RSA key exchange:
   - Go to `Edit > Preferences > Protocols > TLS`
   - Add the key under (pre)master-secret log
 - Use `JA3` fingerprinting for TLS client/server behavior
 
----
+<hr>
 
 ##  Use Cases for SOC Analysis
+
 - Detect C2 communication
 - DNS tunneling detection
 - Exfiltration over HTTP/S
@@ -122,16 +134,15 @@ Wireshark has a multi-pane GUI with these main components:
 - Unauthorized RDP/SSH traffic
 - Data leaks (PII in cleartext traffic)
 
----
-
+<hr>
 
 ##  Resources
+
 - [Wireshark Display Filter Reference](https://www.wireshark.org/docs/dfref/)
 - [Wireshark User Guide](https://www.wireshark.org/docs/wsug_html_chunked/)
 - [Malware Traffic Analysis Lab](https://www.malware-traffic-analysis.net/)
 - https://sw4pn1lp.github.io/wireshark/navgui.html
 
+<hr>
 
-
----
 [Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
