@@ -1,78 +1,91 @@
-# Lima Charlie meets Atomic Red
+For **Part 1**, click [here](/IntroClassFiles/Tools/IntroClass/limacharlie/limacharlie.md). Please complete Part 1 before starting this lab.
 
-This is part 2 of a 2 part series. Please complete [Part 1](/IntroClassFiles/Tools/IntroClass/limacharlie/limacharlie.md) of this lab first
+<hr>
+
+## Lab Objective
+
+In this lab we will:
+
+- Install the **Atomic Red Team** extension in LimaCharlie
+- Run a controlled and **fake** cyber attack against our Windows machine
+- Use LimaCharlie to see what gets logged and detected
+- Understand how a real-world attack may set off bells and whistles for an analyst to investigate
 
 ---
 
-**Part 2 of 2**
+> [!NOTE]
+> We will pick up where we left off in Part 1, in the browser, logged into the LimaCharlie web interface.
+
 ---
 
-In this lab we will be creating a controlled and **fake** cyber attack with Atomic Red.  We will then use Lima Charlie to see what is logged and to see how a real world attack may set off bells and whistles for us to look at.
+## Step 1: Install the Atomic Red Team Extension
 
-Let's pick up where we left off in part 1, in the browser logged into our Lima Charlie web interface.
-
-We need to install the plugin for Atomic Red that Lima Charlie offers.
+We need to install the Atomic Red Team plugin that LimaCharlie offers.
 
 Start by navigating to the **"Add-ons"** tab in the top right of the web page.
 
-![](attachments/ADDONS.PNG)
+<img width="750" alt="Add-ons" src="attachments/ADDONS.PNG" />
 
 Scroll down until you see the Atomic Red plugin. Click the **"ext-atomic-red-team"** plugin.
 
-![](attachments/AR.PNG)
+<img width="750" alt="ext-atomic-red-team" src="attachments/AR.PNG" />
 
-Take a minute to look at the different plugins and see the full capabilities and features Lima Charlie has to offer.
+> [!TIP]
+> Take a minute to look at the different plugins and see the full capabilities and features LimaCharlie has to offer.
 
 Locate the subscribe button on the right side of the page, and click **"Subscribe"**.
 
-![](attachments/SUBSCRIBE.PNG)
+<img width="750" alt="Subscribe" src="attachments/SUBSCRIBE.PNG" />
 
-After Atomic Red finishes installing return back to your organization and click on your machine.
+---
 
-![](attachments/navtoorganizations.png)
+## Step 2: Select Your Device
 
-![](attachments/selectorganization.png)
+After Atomic Red finishes installing, return to your organization and click on your machine.
 
-On the left side of your screen, click on **"Extensions"** to expand the dropdown menu. Select **"Atomic Red Team"**.
+<img width="750" alt="Navigate to organizations" src="attachments/navtoorganizations.png" />
 
-![](attachments/extensions.png)
+<img width="550" alt="Select organization" src="attachments/selectorganization.png" />
 
-On the next screen, we need to first click on the dropdown next to the side bar at the top. Then, select **your** device.
+On the left side of your screen, click on **"Extensions"** to expand the drop-down menu. Select **"Atomic Red Team"**.
 
-![](attachments/selectdevice.png)
+<img width="750" alt="Extensions" src="attachments/extensions.png" />
+
+On the next screen, click the drop-down next to the side bar at the top. Then, select **your** device.
+
+<img width="650" alt="Select device" src="attachments/selectdevice.png" />
+
+---
+
+## Step 3: Run the Atomic Red Team Tests
 
 Scroll down until you find the **command-and-control** category. Select the box next to the category header and make sure that it selects all of the boxes below.
 
 Now, hit **Run Tests**.
 
-![](attachments/C2ALL.PNG)
-
-Then move over to the **"Detections"** tab on the left and start going through event logs
-
-![](attachments/detections.png)
-
-![](attachments/logsscreen.png)
-
-There will be a lot of events.  Every single time the page is refreshed more attacks will appear.
-
-Looking through all of the logs and note the **cmd.exe** or **powershell** invokes are taking place. These are **(usually)** indications of something malicious occurring and needs to be examined further.
-
-![](attachments/DETECTED.PNG)
-
-Lima Charlie is an amazing tool because of its versatility. It has an easy to use interface. It allows a user to dig deeper to see whats happening before, during, and after an attack. Its ability to be used on small and large scale is a great feature. 
-
-Many plugins allow for different uses both small and large, and automating the difficult tasks.
-
-***
-***Continuing on to the next Lab?***
-
-[Click here to get back to the Navigation Menu](/IntroClassFiles/navigation.md)
-
-***Finished with the Labs?***
-
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
+<img width="750" alt="Command and control tests" src="attachments/C2ALL.PNG" />
 
 ---
+
+## Step 4: Review the Detections
+
+Move over to the **"Detections"** tab on the left and start going through the event logs.
+
+<img width="750" alt="Detections tab" src="attachments/detections.png" />
+
+<img width="750" alt="Logs screen" src="attachments/logsscreen.png" />
+
+There will be a lot of events. Every single time the page is refreshed, more attacks will appear.
+
+Look through all of the logs and note the **cmd.exe** or **powershell** invokes that are taking place. These are **(usually)** indications that something malicious is occurring and needs to be examined further.
+
+<img width="750" alt="Detected" src="attachments/DETECTED.PNG" />
+
+> [!TIP]
+> LimaCharlie is an amazing tool because of its versatility. It has an easy-to-use interface and allows a user to dig deeper to see what's happening before, during, and after an attack. It works at both small and large scale, and its many plugins help automate difficult tasks.
+
+<hr>
+
+**Continuing on to the next Lab?** [Click here to get back to the Navigation Menu](/IntroClassFiles/navigation.md)
+
+**Finished with the Labs?** Please be sure to destroy the lab environment! [Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
