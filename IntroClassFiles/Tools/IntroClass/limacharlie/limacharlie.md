@@ -1,159 +1,174 @@
-# LimaCharlie Lab
+For **Part 2**, click [here](/IntroClassFiles/Tools/IntroClass/LCmeetsAtomicRed/LCAR.md)
+
+<hr>
+
+## Lab Objective
+
+In this lab we will:
+
+- Create a free **LimaCharlie** account and organization
+- Create an installation key
+- Deploy a LimaCharlie sensor to our Windows machine
+- Confirm the sensor is reporting back to LimaCharlie
 
 ---
 
-**Part 1 of 2**
+> [!NOTE]
+> LimaCharlie is a lightweight, browser-based tool that helps keep an eye on systems, detect threats, and respond quickly to any suspicious activity. This walkthrough uses the Chrome browser, however any browser can be used.
 
 ---
 
-In this lab we will be using **LimaCharlie** to investigate endpoint monitoring and threat detection.
+## Step 1: Create a LimaCharlie Account
 
-What is Lima Charlie? Lima Charlie is a lightweight browser based tool, it helps keep an eye on systems, detect threats, and responds quickly to any suspicious activity.  This walkthrough will be using the chrome browser, however any browser can be used.
+Open a browser window and navigate to the following URL:
 
-Lets open a browser window. 
+```
+https://app.limacharlie.io/
+```
 
-Once the window is up, navigate to the following URL:
+When the webpage loads, click **"Create an account"**
 
-<pre>https://app.limacharlie.io/</pre>
+<img width="596" alt="Create an account" src="attachments/register_an_account.PNG" />
 
-When the webpage loads, Click **"Create an account"**
+The screen will change slightly as it asks which method you would like to use to sign up.
 
-![](attachments/register_an_account.PNG)
-
-The screen will change slightly as it asks you which method you would like to use to sign-up with. 
-
-![](attachments/LimaCharlie_signupmethod.png)
+<img width="588" alt="Sign up method" src="attachments/LimaCharlie_signupmethod.png" />
 
 We selected **"Sign up with email"**:
 
-![](attachments/SIGN_UP_BUTTON.PNG)
+<img width="500" alt="Sign up with email" src="attachments/SIGN_UP_BUTTON.PNG" />
 
-Fill out the fields click the **"Sign Up"** button to continue.  
+Fill out the fields and click the **"Sign Up"** button to continue.
 
-Go to your email and you should receive a link to verify your account. Click the link and then go back to your browser and refresh the page.
+Go to your email and you should receive a link to verify your account. Click the link, then go back to your browser and refresh the page.
 
-Once you return to your page, you should see Lima Charlie asking you some questions about your company, you can create any fake company you wish.
+---
 
-Enter the following answers into there respective fields ->
+## Step 2: Set Up Your Organization
 
-* <span style="color:green">What best describes your team/company?</span> -> Security Operations Center
-* <span style="color:red">What best describes your role?</span> -> Security Engineer
-* <span style="color:blue">What use cases are you exploring?</span> -> Endpoint detection & Response
-* <span style="color:purple">How did you hear about us?</span> -> Black Hills Info Sec
+Once you return to the page, LimaCharlie will ask you some questions about your company. You can create any fake company you wish.
 
-![](attachments/company_setup_menu.PNG)
+Enter the following answers into their respective fields:
+
+| Question | Answer |
+|---|---|
+| What best describes your team/company? | Security Operations Center |
+| What best describes your role? | Security Engineer |
+| What use cases are you exploring? | Endpoint detection & Response |
+| How did you hear about us? | Black Hills Info Sec |
+
+<img width="600" alt="Company setup" src="attachments/company_setup_menu.PNG" />
 
 Check the box that says **"By checking this box, I hereby agree and consent to the Terms of Service and Privacy Policy."**
 
-Click **"Get Started"**
+Click **"Get Started"**, then click **"Create Organization"**
 
-Then click **"Create Organization"** 
+<img width="600" alt="Create an organization" src="attachments/create_an_organization.PNG" />
 
-![](attachments/create_an_organization.PNG)
+Enter the following information into the fields to create your fictional organization:
 
-Enter the following information into the fields, you create your fictional organization.
+<img width="600" alt="Fictitious company" src="attachments/ficticious_company_selection.PNG" />
 
-![](attachments/ficticious_company_selection.PNG)
+Click **"Create Organization"**.
 
-Click Create Organization.
+There may be a small delay while LimaCharlie creates the new company.
 
-There may be be a small delay while Lima Charlie creates the new company.
+> [!TIP]
+> It is possible to use this tool to manage more than one company or organization at a time.
 
-It is possible to use this tool to manage more than one company or organization at a time.
+Once the page finishes loading you will see a menu like the one below:
 
-Once the page finishes loading you will see a menu like the one below. 
+<img width="550" alt="Select organization" src="attachments/selectorganization.png" />
 
-![](attachments/selectorganization.png)
+Select your company.
 
-Please select your company. 
+Once you have selected your fictitious company, you can look around and see all the options this tool has to offer.
 
-Once you have selected your ficticious company, you can look around and see all the options that this tool has too offer.
+---
 
-For this demonstration we will be creating a sensor for our windows machine and then setting off **"atomic red"** to test if our filter catches it.
+## Step 3: Create an Installation Key
 
-On the left side under sensors, please select **"Installation Keys"**
+For this demonstration we will be creating a sensor for our Windows machine, and then setting off **Atomic Red Team** in Part 2 to test if our filter catches it.
 
-![](attachments/one.PNG)
+On the left side under **Sensors**, select **"Installation Keys"**
 
-You should then see an option in the center **"Create Installation key"**, select it. 
+<img width="750" alt="Installation Keys" src="attachments/one.PNG" />
 
-![](attachments/two.PNG)
+You should then see an option in the center, **"Create Installation Key"**. Select it.
 
-You will see a few empty fields.  You can add any description you like and any relevant tags.
+<img width="750" alt="Create Installation Key" src="attachments/two.PNG" />
 
-Once you have done that select **"Create"**.
+You will see a few empty fields. You can add any description you like and any relevant tags.
 
-![](attachments/three.PNG)
+Once you have done that, select **"Create"**.
 
-Once you have created your new installation key, you can navigate too **"Sensors List"**.  
+<img width="600" alt="Create key" src="attachments/three.PNG" />
 
-![](attachments/four.PNG)
+---
+
+## Step 4: Add a Windows Sensor
+
+Once you have created your new installation key, navigate to **"Sensors List"**.
+
+<img width="750" alt="Sensors List" src="attachments/four.PNG" />
 
 Click **"Add Sensor"**.
 
-![](attachments/addsensor.png)
+<img width="750" alt="Add Sensor" src="attachments/addsensor.png" />
 
 Scroll down and select the **"Windows"** sensor.
 
-![](attachments/five.PNG)
+<img width="600" alt="Windows sensor" src="attachments/five.PNG" />
 
-You will be greeted with an installation key menu. Select from the drop down menu the description you created earlier for your installation key. Click **"Select"**.
+You will be greeted with an installation key menu. From the drop-down menu, select the description you created earlier for your installation key, then click **"Select"**.
 
-![](attachments/six.PNG)
+<img width="600" alt="Select installation key" src="attachments/six.PNG" />
 
-You will be prompted with the question of what architecture to download.  Every windows machine may be different but in our case, **"86-64 exe"** should be right.
+You will be asked which architecture to download. Every Windows machine may be different, but in our case **"x86-64 exe"** should be right.
 
-![](attachments/seven.PNG)
+<img width="600" alt="Architecture" src="attachments/seven.PNG" />
 
-You will be greeted with a few more steps to creating your endpoint. 
+You will be greeted with a few more steps to create your endpoint.
+
 Click **"Download the selected installer"**.
 
-Once thats finished downloading **copy the string in step 4**.  
+Once it has finished downloading, **copy the string in step 4**.
 
-![](attachments/eight.PNG)
+<img width="600" alt="Copy the string" src="attachments/eight.PNG" />
 
-Go to your desktop, right click **"Windows Terminal"** and select **"run as administrator"**.
+---
 
-![](attachments/nine.PNG)
+## Step 5: Install the Sensor
 
-Run the following command to get into the downloads directory:
+Go to your desktop, right-click **"Windows Terminal"** and select **"Run as administrator"**.
 
-<pre>cd .\Downloads</pre>
+<img width="453" alt="Run as administrator" src="attachments/nine.PNG" />
 
-We are going to enter the beginning of our next command.
+Run the following command to get into the Downloads directory:
 
-Tab completion is your friend!
+```powershell
+cd .\Downloads
+```
 
-<pre>.\hcp_win_x64_release_4.29.2.exe</pre>
+Now enter the beginning of the next command. Tab completion is your friend!
 
-**[RIGHT CLICK OR CTL+V TO PASTE]**
+```powershell
+.\hcp_win_x64_release_4.29.2.exe
+```
 
-After starting the command, we will paste the string we copied.   
-
-Go ahead and hit enter to run it. 
+**[RIGHT CLICK OR CTRL+V TO PASTE]** the string you copied after the command, then hit **Enter** to run it.
 
 If done correctly, your output should look like this:
 
-![](attachments/correctoutput.png)
+<img width="501" alt="Correct output" src="attachments/correctoutput.png" />
 
 Return to the browser window. You should see this message:
 
-![](attachments/success.PNG)
+<img width="600" alt="Success" src="attachments/success.PNG" />
 
-Please note that the name of your computer will be different!
+> [!NOTE]
+> The name of your computer will be different!
 
-[Part 2](/IntroClassFiles/Tools/IntroClass/LCmeetsAtomicRed/LCAR.md)
+<hr>
 
-***
-***Continuing on to the next Lab?***
-
-[Click here to get back to the Navigation Menu](/IntroClassFiles/navigation.md)
-
-***Finished with the Labs?***
-
-
-Please be sure to destroy the lab environment!
-
-[Click here for instructions on how to destroy the Lab Environment](/IntroClassFiles/Tools/IntroClass/LabDestruction/labdestruction.md)
-
----
+For **Part 2**, click [here](/IntroClassFiles/Tools/IntroClass/LCmeetsAtomicRed/LCAR.md)
