@@ -1,10 +1,12 @@
-
 # Understanding Network Logs
 
+<hr>
+
 ## What is a Network Log?
+
 Network logs are structured records of events and traffic observed by network devices and monitoring tools such as firewalls, routers, IDS/IPS, and SIEM platforms. These logs provide visibility into who is communicating, what protocols are used, and whether the traffic is legitimate or suspicious.
 
----
+<hr>
 
 ## Typical Fields in Network Logs
 
@@ -23,21 +25,25 @@ Network logs are structured records of events and traffic observed by network de
 | **Timestamp**           | Time the event occurred                      |
 
 ### Sample Log (Zeek Format)
+
 ```
 192.168.1.5 -> 93.184.216.34 TCP 443 "SSL" Bytes: 4321
 ```
 
----
+<hr>
 
 ## Log Sources and Use Cases
 
-- **Firewall Logs**: Show traffic allowed/denied by firewall rules
-- **Proxy Logs**: Record web browsing activity (URLs, domains)
-- **IDS/IPS Logs**: Alert on detected malicious patterns
-- **Endpoint Logs**: Provide insight into local process activity and network usage
-- **SIEM Aggregated Logs**: Centralized log aggregation, correlation, alerting
+| Item | Description |
+|---|---|
+| **Firewall Logs** | Show traffic allowed/denied by firewall rules |
+| **Proxy Logs** | Record web browsing activity (URLs, domains) |
+| **IDS/IPS Logs** | Alert on detected malicious patterns |
+| **Endpoint Logs** | Provide insight into local process activity and network usage |
+| **SIEM Aggregated Logs** | Centralized log aggregation, correlation, alerting |
 
----
+<hr>
+
 ## Resources
 
 - [IANA Service Name and Port Number Registry](https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml)
@@ -50,5 +56,6 @@ Network logs are structured records of events and traffic observed by network de
 - [tcpdump Cheat Sheet](https://danielmiessler.com/study/tcpdump/)
 - [ibm blog releted to netflow](https://www.ibm.com/think/topics/netflow)
 
----
+<hr>
+
 [Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
