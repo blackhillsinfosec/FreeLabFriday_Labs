@@ -2,7 +2,7 @@
 
 # Volatility Part 2
 
-# Ubuntu VM
+#### Ubuntu VM
 
 [Part1](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)   [Part2](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab2.md)   [Part3](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab3.md)   [Part4](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab4.md)
 
@@ -10,24 +10,29 @@ This lab should be done as a continuation of the [Volatility Documentation](/Soc
 
 This is the 2nd of 4 parts
 
-# Setup
+<hr>
+
+## Setup
 
 ```bash
 IMG=~/labs/volatility3/stage2.lime
 ```
+
 ```bash
 SYMS='--remote-isf-url https://github.com/Abyss-W4tcher/volatility3-symbols/raw/master/banners/banners.json'
 ```
 
 The commands will be in this template:
+
 ```bash
 python3 vol.py -f "$IMG" $SYMS linux.something
 ```
 
-## Your turn
-Try to find the malware using the commands in the [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md) and then scroll down to see what you should've looked for
+<hr>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+## Your turn
+
+Try to find the malware using the commands in the [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md) and then scroll down to see what you should've looked for
 
 Stage 2 is about a binary ``kswapd0`` launched with a malicious ``LD_PRELOAD`` hook connects out on port **4444**
 
@@ -43,6 +48,6 @@ A SOC Analyst should be curious and run ``linux.envars.Envars --pid 1050`` to se
 
 This confirms it is a reverse shell!
 
----
+<hr>
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
