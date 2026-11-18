@@ -1,9 +1,12 @@
 # Lab 1: Python - Detect Brute Force Attempts from a JSON Log File
 
+<hr>
+
 ## Goal
 
 In this lab, you'll write a Python script to analyze a JSON log file containing authentication events. Your goal is to detect potential brute-force attacks by identifying IP addresses with multiple failed login attempts.
 
+<hr>
 
 ## Sample Log Format
 
@@ -32,6 +35,8 @@ The log file is a JSON where each entry represents an authentication event:
 ]
 ```
 
+<hr>
+
 ## Task
 
 Write a Python script that:
@@ -39,6 +44,8 @@ Write a Python script that:
 1. Reads the JSON log file.
 2. Counts failed login attempts per IP address.
 3. Prints IP addresses that had **3 or more failed login attempts**.
+
+<hr>
 
 ## Bonus (Optional)
 
@@ -54,17 +61,20 @@ Suspicious IPs detected:
 203.0.113.77 - 3 failed attempts
 ```
 
+<hr>
+
 ## Hints
 
 - Use Python's `json` module to parse the file.
 - Use a dictionary to count failed attempts per IP.
 - You can read timestamps as strings for simplicity or use `datetime` to do time comparisons.
 
----
+<hr>
 
 ## Solution
 
 Once you are finished, you can check out the [solution](./lab1_solution_step_by_step.md). The solution contains step by step guidence!
 
----
+<hr>
+
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
