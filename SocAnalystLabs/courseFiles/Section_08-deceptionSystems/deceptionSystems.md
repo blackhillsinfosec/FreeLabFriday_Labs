@@ -1,6 +1,7 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
 # Deception Systems
+
 The goal of deception technology is to draw cybercriminals to a trap or decoy instead of an organization's real assets. In order to fool the criminal into thinking they have infiltrated and obtained access to the company's most valuable assets when they haven't, the decoy imitates authentic servers, apps, and data. The tactic is used to reduce harm and safeguard an organization's real assets
 
 Organizations rarely use deception technology as their main cybersecurity tactic. Protection against all unauthorized access is the aim of any security posture, and once a suspected breach has occurred, deception technology can be a helpful tactic to have in place. Protecting the company's actual assets may depend on directing the cybercriminal to phony information and login credentials
@@ -15,58 +16,86 @@ The goal of implementing deception isn't to replace anything, as most think, but
 
 [MITRE Engage Matrix](https://engage.mitre.org/matrix/) - A valuable framework for designing deception and adversary engagement strategies
 
+<hr>
+
 ## Intro to Deception Techniques
+
 Deception techniques fall into several categories:
-- **Decoy Systems (Honeypots & Honeynets)** - Simulated systems designed to attract attackers, may imitate production servers or endpoints ***(Modern Honey Network)***
-- **Honeytokens** - Fake credentials, files, or data planted in real systems, trigger alerts when accessed or exfiltrated ***(Canarytokens, Thinkst Canary)***
-- **Deceptive Credentials** - Planted usernames/passwords that, if used, signal compromise or credential stuffing ***(HoneyUsers)***
-- **Breadcrumbs** - Registry entries, mapped drives, or browser history designed to mislead attackers deeper into decoy environments ***(HoneyCreds)***
+
+| Item | Description |
+|---|---|
+| **Decoy Systems (Honeypots & Honeynets)** | Simulated systems designed to attract attackers, may imitate production servers or endpoints ***(Modern Honey Network)*** |
+| **Honeytokens** | Fake credentials, files, or data planted in real systems, trigger alerts when accessed or exfiltrated ***(Canarytokens, Thinkst Canary)*** |
+| **Deceptive Credentials** | Planted usernames/passwords that, if used, signal compromise or credential stuffing ***(HoneyUsers)*** |
+| **Breadcrumbs** | Registry entries, mapped drives, or browser history designed to mislead attackers deeper into decoy environments ***(HoneyCreds)*** |
 
 The objective is to shape adversary behavior and gather intelligence without tipping them off, or even to inhibit them from attacking you if they realize you may have active defence measures
 
+<hr>
+
 ## Generating Traps
-When designing traps
+
+### When designing traps
+
 - **Blend with Your Environment** - Decoys must match the organization’s OS versions, naming conventions, and service stacks
 - **Deploy with Intent** - Traps should be placed in high-value areas like DMZs, internal network segments, or cloud environments
 - **Track Interaction** - Use tools to log every keystroke, file access, lateral movement, and privilege escalation
 - **Enable Real-Time Alerts** Alerts must integrate with your SIEM/SOAR platform for immediate response
 
-Examples
+### Examples
+
 - Deploying a fake domain admin account in Active Directory
 - Planting honeyfiles labeled "Payroll_Q3.xlsx" on shared drives
 - Creating hundreds of users with passwords from known wordlists to throw off **password sprays**
 - Make fake Admin users with **0 Logon Hours**
 
+<hr>
+
 ## Active Defense & Cyber Deception
+
 Active defense shifts from passive monitoring to proactive engagement, it includes
-- **Tarpitting** - Slowing attacker tools and scripts using low-interaction decoys ***([Dionaea](/SocAnalystLabs/courseFiles/tools/Dionaea.md))***
-- **Misattribution** - Feeding attackers false information ***(PortSpoof, SpiderTrap)***
-- **Adversary Engagement** - Actively observing and sometimes manipulating adversaries in controlled environments ***(Thinkst Canary)***
+
+| Item | Description |
+|---|---|
+| **Tarpitting** | Slowing attacker tools and scripts using low-interaction decoys ***([Dionaea](/SocAnalystLabs/courseFiles/tools/Dionaea.md))*** |
+| **Misattribution** | Feeding attackers false information ***(PortSpoof, SpiderTrap)*** |
+| **Adversary Engagement** | Actively observing and sometimes manipulating adversaries in controlled environments ***(Thinkst Canary)*** |
 
 By upsetting adversary decision cycles and making them doubt the reliability of their information and actions, these tactics enhance conventional defenses
 
 Another tool that we introduce through a hands-on lab is on [beelzebub](/SocAnalystLabs/courseFiles/Section_08-deceptionSystems/beelzebubLab.md), an advanced SSH honeypot
 
+<hr>
+
 ## Legal Notes
+
 ### Legality of Deception
+
 *Cyber deception tools (like honeypots or honeytokens) are generally legal when*
+
 - Deployed within your own systems/network
 - Not used to entrap someone unlawfully
 - Do not violate privacy laws or intercept protected communications
 
 *Legal Risk Areas*
-- **Unauthorized Monitoring** - Ensure you're not capturing data from legitimate users without notice (especially contractors or employees)
-- **Data Privacy Violations** - Deceptive traps must not inadvertently log personal data (e.g., private conversations or personal documents)
-- **Cross-border Intrusion** - If your honeypot logs attackers from another country, you could technically fall under foreign legal jurisdictions
-- **Overreach** - Setting traps outside your network, like on third-party infrastructure or spoofing external services, is almost always illegal
+
+| Item | Description |
+|---|---|
+| **Unauthorized Monitoring** | Ensure you're not capturing data from legitimate users without notice (especially contractors or employees) |
+| **Data Privacy Violations** | Deceptive traps must not inadvertently log personal data (e.g., private conversations or personal documents) |
+| **Cross-border Intrusion** | If your honeypot logs attackers from another country, you could technically fall under foreign legal jurisdictions |
+| **Overreach** | Setting traps outside your network, like on third-party infrastructure or spoofing external services, is almost always illegal |
 
 ### Ethical Guidelines
-Acceptable Practices
+
+#### Acceptable Practices
+
 - Monitoring your own systems
 - Using deception to delay/detect attackers, like we talked earlier
 - Collecting attacker TTPs (Tools, Techniques, Procedures)
 
-Risky or Unethical Practices
+#### Risky or Unethical Practices
+
 - Counter-hacking (hacking back) – violates U.S. federal law (CFAA) and most international regulations
 - Publishing attacker data publicly
 - Deceptively collecting data from real users without disclosure
@@ -80,6 +109,7 @@ Best advice I can give is use the MITRE Engage framework for designing ethical, 
 - [CanaryToken Lab](./CanaryToken_lab/CanaryToken_lab.md)
 
 ### US law references:
+
 [Computer Fraud and Abuse Act (CFAA) – 18 U.S.C. § 1030](https://www.law.cornell.edu/uscode/text/18/1030)
 
 [Wiretap Act / Electronic Communications Privacy Act (ECPA) – 18 U.S.C. §§ 2510–2523](https://www.law.cornell.edu/uscode/text/18/part-I/chapter-119)
@@ -88,13 +118,10 @@ Best advice I can give is use the MITRE Engage framework for designing ethical, 
 
 [Active Cyber Defense Certainty Act (ACDCA) (Proposed, not passed)](https://www.congress.gov/bill/116th-congress/house-bill/3270)
 
-***
-<b><i>Continuing the course?</b>
-</br>
-[Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)</i>
+<hr>
 
-<b><i>Want to go back?</b>
-</br>
-[Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)
+**Continuing the course?** [Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/forensicsFundamentals.md)
 
-<b><i>Looking for a different section? </b></br>[Back to Section Directory](/SocAnalystLabs/coursenavigation.md)</i>
+**Want to go back?** [Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_07-browserAndCloudSecurity/browserAndCloudSecurity.md)
+
+**Looking for a different section?** [Back to Section Directory](/SocAnalystLabs/coursenavigation.md)
