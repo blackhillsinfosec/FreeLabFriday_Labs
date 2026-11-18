@@ -1,5 +1,6 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
+<hr>
 
 ## ⚠️ WARNING: This Lab Contains a Real Phishing Link
 
@@ -7,22 +8,21 @@
 >
 > **Do NOT click** the link in the provided `.eml` file directly from a browser or email client. Always analyze it in a safe, controlled environment using tools like VirusTotal, URLScan, or PhishTank. This lab is for educational purposes only.
 
----
+<hr>
 
 ## Lab: Phishing Email Investigation – Header & Link Analysis
-
 
 ### Objective:
 
 Simulate the role of a SOC Analyst investigating a **suspicious email report** from a user. You'll analyze the email's **headers**, **sender identity**, and **embedded link** to determine if it's malicious.
 
----
+<hr>
 
 ### Scenario:
 
 > A user from the finance department reports receiving a suspicious email that appears to come from the company’s CEO. It includes an urgent payment request and a PDF invoice, along with a link to view payment instructions.
 
----
+<hr>
 
 ###  Materials:
 
@@ -31,20 +31,19 @@ Simulate the role of a SOC Analyst investigating a **suspicious email report** f
   - Python script (from your course)
   - [Sublime Analyzer](https://analyzer.sublime.security/)
   - Any other personal or public scripts/services
----
+
+<hr>
 
 ###  Instructions
 
 #### Step 1: Open and Inspect the Email Header
 
-Extract and interpret these fields:
+#### Extract and interpret these fields
 
 - `From`
 - `Return-Path`
 - `Reply-To`
 - `Authentication-Results` (SPF/DKIM/DMARC)
-
-
 
 **Questions:**
 
@@ -68,10 +67,6 @@ http://evri.trackszc.live
 - [URLScan.io](https://urlscan.io/)
 - [VirusTotal](https://virustotal.com/)
 - [PhishTank](https://www.phishtank.com/)
-
-
-
-
 
 **Questions:**
 
@@ -117,10 +112,10 @@ Fill out this incident response template:
 | **Severity Level (Low/Medium/High)** |                                                |
 | **Recommended Action**               | (e.g. block domain, warn user, report to CERT) |
 
-
----
+<hr>
 
 Once you finish, go check out the [solution](./phishing_email_lab_solution.md).
 
----
+<hr>
+
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_10-emailFundamentals/emailFundamentals.md)
