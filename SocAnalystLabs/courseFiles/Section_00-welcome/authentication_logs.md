@@ -30,7 +30,9 @@ These two are easy to confuse, but they answer different questions.
 | **Tells you** | That an account was used | What the account accessed or changed |
 | **In an incident** | Detects the compromise | Determines the **blast radius** |
 
-Authentication logs help you spot the breach: for example, hundreds of failed logins followed by a success. They do **not** tell you what the attacker did with that account afterward. For that you need **authorization and audit logs**, which show file access, share access, API calls, and permission changes. Together they answer: *"Which account was compromised, and what could it reach?"*
+Authentication logs help you spot the breach: for example, hundreds of failed logins followed by a success.<br>
+They do **not** tell you what the attacker did with that account afterward. For that you need **authorization and audit logs**, which show file access, share access, API calls, and permission changes.<br>
+Together they answer: *"Which account was compromised, and what could it reach?"*
 
 <hr>
 
@@ -51,6 +53,8 @@ Found in the **Security** log on workstations, servers, and especially **domain 
 | **4769** | Kerberos service ticket requested |
 | **4771** | Kerberos pre-authentication failed |
 | **4776** | NTLM credential validation |
+
+<br>
 
 ### Linux
 | Location | Distribution |
