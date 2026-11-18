@@ -28,7 +28,7 @@ This page introduces interns to the **foundational tools and platforms** used da
 
 > **Hands-On Lab:** Try the two-part [LimaCharlie Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part1.md).
 
-### LimaCharlie Rule Examples
+### Rule Examples
 
 **DNS request to a known-bad domain**
 
@@ -98,7 +98,7 @@ actions:
 
 <br>
 
-### Elastic Rule Examples
+### Rule Examples
 
 **PowerShell with an encoded command**
 
