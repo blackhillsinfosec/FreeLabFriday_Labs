@@ -147,6 +147,8 @@ chainsaw search "mimikatz" -i C:\Logs
 
 It's lightweight, easy to read, and a great first tool for learning what attacks look like in logs.
 
+>Hey! We have a lab for that: [DeepBlueCLI Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/deepbluecli/deepbluecli/)
+
 <hr>
 
 ## EvtxECmd + Timeline Explorer
