@@ -46,7 +46,7 @@ sudo arping -I ens5 -c5 10.10.230.54 #here as well
 
 ### Output of the basic passive interception command
 
-![img](/images/img2-2.png)
+![img](./images/img2-2.png)
 
 >[!NOTE]
 >Let's examine everything that appeared here:
