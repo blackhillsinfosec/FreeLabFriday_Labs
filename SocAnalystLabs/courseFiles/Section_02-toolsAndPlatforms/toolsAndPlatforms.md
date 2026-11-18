@@ -196,16 +196,10 @@ Analysts often need to go beyond alerts and search raw telemetry for related or 
 | **Pivoting** | Move from an IP to related processes, users, or domains |
 | **Filtering** | Narrow by time range, hostname, or event type |
 
+<br>
+
 ### Common Use Cases
 
 1. "Show all PowerShell executions on this host in the last 24 hours."
 2. "List all logon events from a suspicious IP."
 3. "Search for DLL side-loading activity using Sysmon logs."
-
-<hr>
-
-**Continuing the course?** [Click here for the Next Section](/SocAnalystLabs/courseFiles/Section_03-detectionAndThreatBehavior/detectionAndThreatBehavior.md)
-
-**Want to go back?** [Click here for the Previous Section](/SocAnalystLabs/courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md)
-
-**Looking for a different section?** [Back to Section Directory](/SocAnalystLabs/coursenavigation.md)
