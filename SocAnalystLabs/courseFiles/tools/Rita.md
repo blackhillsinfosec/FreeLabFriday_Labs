@@ -5,35 +5,51 @@ Rather than relying solely on known IoCs, RITA equips analysts to hunt signals l
 [Official Rita Github Repository](https://github.com/activecm/rita)
 
 # Setup
+
 - Go to the latest release of **Rita** [here](https://github.com/activecm/rita/releases) and get the compressed installer, at my time it is ``rita-v5.0.8.tar.gz``, the version will change eventually
 - Uncompress the installer
+
 ```bash
 tar -xf rita-v5.0.8.tar.gz
 ```
+
 - **Cd** into it
+
 ```bash
 cd rita-v5.0.8-installer/
 ```
+
 - Run the install script
+
 ```bash
 ./install_rita.sh localhost
 ```
+
 - Test it
+
 ```bash
 rita h
 ```
 
-# Why RITA Matters for SOC Teams
-- **Behavior‑driven hunting:** Unlike static detection rules, RITA surfaces patterns—like regular heartbeats or long-standing sessions—that indicate potential C2 even from unknown malware
-- **Accelerated triage:** The latest version consolidates all threat types into one interface—no more juggling ``show-beacons``, ``show-long-connections``, etc, everything’s visible in one streamlined view
-- **Scalable & fast:** RITA 5 uses ClickHouse instead of MongoDB, offering 2× to over 20× faster data ingestion and analysis—capable of handling networks pushing ~100 Gbps
+<hr>
 
-# Usage
+## Why RITA Matters for SOC Teams
+
+| Item | Description |
+|---|---|
+| **Behavior‑driven hunting** | Unlike static detection rules, RITA surfaces patterns—like regular heartbeats or long-standing sessions—that indicate potential C2 even from unknown malware |
+| **Accelerated triage** | The latest version consolidates all threat types into one interface—no more juggling ``show-beacons``, ``show-long-connections``, etc, everything’s visible in one streamlined view |
+| **Scalable & fast** | RITA 5 uses ClickHouse instead of MongoDB, offering 2× to over 20× faster data ingestion and analysis—capable of handling networks pushing ~100 Gbps |
+
+<hr>
+
+## Usage
 
 ```bash
 rita view datasetname
 ```
 
+<hr>
 
 ## Importing & analyzing data
 
@@ -61,14 +77,11 @@ This will produce Zeek logs (conn.log, dns.log, http.log, user\_agent.log, etc.)
 rita -l import /path/to/your/zeek_logs datasetname
 ```
 
-
-
-
 > Default Zeek logs directory (common location on systems running Zeek):
 >
 > `/opt/zeek/logs/<date>`
 
----
+<hr>
 
 ## Examining data (commands & outputs)
 
@@ -82,12 +95,14 @@ rita list
 
 ![](./attachments/rita_list.png)
 
+<hr>
 
 ## View  dataset report
 
 ```bash
 rita view <datasetname>
 ```
+
 This command will open a menu that should look similar to the one below:
 
 ![](./attachments/rita_view.png)
@@ -110,5 +125,6 @@ This command will open a menu that should look similar to the one below:
 
 ![](./attachments/rita_search_help.png)
 
----
+<hr>
+
 [Back to the section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
