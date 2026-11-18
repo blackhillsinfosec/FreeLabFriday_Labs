@@ -175,6 +175,7 @@ grep "Accepted" /var/log/auth.log
 last -a | head -20
 ```
 
+<!--
 <hr>
 
 ## Check Your Understanding
@@ -193,3 +194,4 @@ last -a | head -20
 4. MFA fatigue / push bombing. The attacker likely already has the password.
 
 </details>
+-->
