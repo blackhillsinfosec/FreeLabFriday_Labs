@@ -1,13 +1,15 @@
 ![image](/FilesForLabs/images/blueantisyphon.png)
 
-**Binary Ninja** is a reverse engineering platform for analyzing binaries (PE, ELF, Mach-O, etc.) 
+**Binary Ninja** is a reverse engineering platform for analyzing binaries (PE, ELF, Mach-O, etc.)
 
 It’s used in **malware analysis**, **vulnerability research**, and **reverse engineering** - key skills for analysts dealing with advanced threats or obfuscated binaries
+
+<hr>
 
 ## Setup
 
 - You can download it from [here](https://binary.ninja/free/)
-- 
+-
 <img width="542" height="128" alt="image" src="https://github.com/user-attachments/assets/46b05dc6-f886-413d-a34e-80b4e6273255" />
 
 - Choose your OS, and unzip after downloading
@@ -20,27 +22,33 @@ It’s used in **malware analysis**, **vulnerability research**, and **reverse e
 
 <img width="648" height="524" alt="image" src="https://github.com/user-attachments/assets/1520ddad-e371-4e7e-9ab5-e8fbf03ae725" />
 
+<hr>
+
 ## Interface Walkthrough
 
 1. Main Layout
 
-- **Navigation Pane:** Functions, Symbols, Strings, Data Variables
-- **Graph View:** Control Flow Graph (CFG)
-- **Linear View:** Traditional disassembly
-- **Medium/High-Level IL Views:** Decompilation layers
-- **Log/Console Panel:** Analysis logs and Python scripting console
+| Item | Description |
+|---|---|
+| **Navigation Pane** | Functions, Symbols, Strings, Data Variables |
+| **Graph View** | Control Flow Graph (CFG) |
+| **Linear View** | Traditional disassembly |
+| **Medium/High-Level IL Views** | Decompilation layers |
+| **Log/Console Panel** | Analysis logs and Python scripting console |
 
 <img width="303" height="674" alt="image" src="https://github.com/user-attachments/assets/7e1a021b-8dcd-405a-b7cd-5bc3a57439db" />
 
-<br><br>
-
 2. Key Modes
 
-- **Hex View:** Raw binary data
-- **Disassembly View:** Instruction-level analysis
-- **IL Views:** Simplified logic representation (useful for understanding flow without deep ASM knowledge)
+| Item | Description |
+|---|---|
+| **Hex View** | Raw binary data |
+| **Disassembly View** | Instruction-level analysis |
+| **IL Views** | Simplified logic representation (useful for understanding flow without deep ASM knowledge) |
 
 <img width="892" height="596" alt="image" src="https://github.com/user-attachments/assets/f2c3319f-5a69-4a13-9251-2cc96101551e" />
+
+<hr>
 
 ## Core Functionalities
 
@@ -58,9 +66,11 @@ It’s used in **malware analysis**, **vulnerability research**, and **reverse e
 
 ### Intermediate Languages (ILs)
 
-- **LLIL** (Low-Level IL): Close to assembly
-- **MLIL** (Medium-Level IL): Easier to read, removes most stack details
-- **HLIL** (High-Level IL): Pseudo-C style for logic tracing
+| Item | Description |
+|---|---|
+| **LLIL (Low-Level IL)** | Close to assembly |
+| **MLIL (Medium-Level IL)** | Easier to read, removes most stack details |
+| **HLIL (High-Level IL)** | Pseudo-C style for logic tracing |
 
 Switch using the toolbar or `View -> IL Mode`
 
@@ -74,6 +84,8 @@ Switch using the toolbar or `View -> IL Mode`
 - Explore imports/exports to identify API usage ( **WinExec**, **InternetOpenA** )
 - Spot suspicious or obfuscated functions
 
+<hr>
+
 ## Scripting and Automation
 
 ### Using the Built-in Python Console
@@ -81,12 +93,14 @@ Switch using the toolbar or `View -> IL Mode`
 Access via View -> Console or **Ctrl+** **`**
 
 Example:
+
 ```python
 for f in bv.functions:
     print(f.name)
 ```
 
 ### Automating Analysis
+
 Sample script to list all network-related strings:
 
 ```python
@@ -99,9 +113,6 @@ for s in bv.strings:
         print(s)
 ```
 
+<hr>
 
----
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_11-malwareForensics/malwareForensics.md)
-
-
-
