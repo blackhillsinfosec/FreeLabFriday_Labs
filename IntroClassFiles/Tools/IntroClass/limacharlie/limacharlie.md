@@ -69,14 +69,6 @@ There may be a small delay while LimaCharlie creates the new company.
 > [!TIP]
 > It is possible to use this tool to manage more than one company or organization at a time.
 
-Once the page finishes loading you will see a menu like the one below:
-
-<img width="550" alt="Select organization" src="attachments/selectorganization.png" />
-
-Select your company.
-
-Once you have selected your fictitious company, you can look around and see all the options this tool has to offer.
-
 ---
 
 ## Step 3: Create an Installation Key
@@ -85,13 +77,9 @@ For this demonstration we will be creating a sensor for our Windows machine, and
 
 After creating your fake organization, you will see this screen pop up:
 
-
 <img width="750" alt="Installation Keys" src="attachments/one.PNG" />
 
-You should then see an option in the center, **"Create Installation Key"**. Select it.
-
-<img width="750" alt="Create Installation Key" src="attachments/two.PNG" />
-
+Choose the **"Create New"** button.
 You will see a few empty fields. You can add any description you like and any relevant tags.
 
 Once you have done that, select **"Create"**.
