@@ -22,7 +22,7 @@ This page introduces interns to the **foundational tools and platforms** used da
 
 <hr>
 
-## LimaCharlie Hands-On
+## LimaCharlie
 
 **LimaCharlie** is a cybersecurity operations and infrastructure platform built to help security teams identify, address, and manage threats at scale. Designed for security engineers and SOC analysts, it provides an adaptable, API-driven alternative to conventional Endpoint Detection and Response (EDR) systems.
 
