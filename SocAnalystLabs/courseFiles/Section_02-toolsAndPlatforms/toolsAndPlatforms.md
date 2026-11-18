@@ -174,6 +174,8 @@ Detection rules define which behavior is suspicious and should generate an alert
 | **Filters / Exceptions** | Known-good behaviors to suppress false positives |
 | **Severity & Tactic** | Classification based on MITRE ATT&CK |
 
+<br>
+
 ### Examples by Rule Format
 
 | Format | Example |
