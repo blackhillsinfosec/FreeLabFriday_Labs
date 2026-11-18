@@ -26,8 +26,6 @@ This page introduces interns to the **foundational tools and platforms** used da
 
 **LimaCharlie** is a cybersecurity operations and infrastructure platform built to help security teams identify, address, and manage threats at scale. Designed for security engineers and SOC analysts, it provides an adaptable, API-driven alternative to conventional Endpoint Detection and Response (EDR) systems.
 
-> **Hands-On Lab:** Try the two-part [LimaCharlie Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/lima_charlie_lab_part1.md).
-
 ### Rule Examples
 
 **DNS request to a known-bad domain**
@@ -93,8 +91,6 @@ actions:
 ## Elastic SIEM
 
 **Elastic SIEM** is part of the Elastic Stack (Elasticsearch, Logstash, and Kibana). It provides a flexible and powerful SIEM solution for log ingestion, search, visualization, and detection. Start with the [Elastic SIEM Docs](/SocAnalystLabs/courseFiles/tools/Elastic_Doc_Cloud.md) to get it set up.
-
-> **Hands-On Labs:** After setup, try the [Cloud Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabCloud.md) to run on our VM, or the [Local Version Lab](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/elasticLabLocal.md) if you want to install it on your own system.
 
 <br>
 
