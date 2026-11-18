@@ -2,19 +2,19 @@
 
 # SQL Injection Lab
 
-# Windows VM
-
+#### Windows VM
 
 If you didn't do the **1st Part**, go [back](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webLabPart1.md)
 
-
 ### We have **4 routes**:
+
 - ``/`` - Vulnerable login
 - ``/secure`` - Secure login
 - ``/logs`` - View the lab's access logs
 - ``/init`` - Reset DB
 
 ### Going into Microsoft Edge you can navigate to to http://100.116.161.87:8000/init
+
 - You will get some credentials like these that will be in the DB
 <img width="479" height="80" alt="image" src="https://github.com/user-attachments/assets/de26d4a4-49ee-42e8-a2b8-be5f9645c2a0" />
 
@@ -33,8 +33,10 @@ If you didn't do the **1st Part**, go [back](/SocAnalystLabs/courseFiles/Section
 
 - In the vulnerable code, this query is sent:
 
-<pre>SELECT * FROM users
-WHERE username = '<USER_INPUT>' AND password = '<USER_INPUT>';</pre>
+```
+SELECT * FROM users
+WHERE username = '<USER_INPUT>' AND password = '<USER_INPUT>';
+```
 
 **Why is this bad?**
 
@@ -50,16 +52,17 @@ A **before** and **after** would look like this for the query
 
 **Result:** ``WHERE`` clause becomes always true -> first row returned -> login succeeds
 
-<br><br>
-
 - Why the secure code works?
 1. We prepare the SQL with placeholders (?, :u, :p)
 2. We **bind** the user inputs as **data**, not as SQL
 3. The database **parses** the query structure first, then **injects the values** safely
 
 **Bindings:**
-<pre>:u = "admin' OR '1'='1' --"
-:p = "anything"</pre>
+
+```
+:u = "admin' OR '1'='1' --"
+:p = "anything"
+```
 
 Because they’re bound as values, the quotes and comment markers are treated as text, not syntax
 
@@ -73,26 +76,30 @@ The WHERE clause remains exactly what we wrote: ``username = <value> AND passwor
 
 <img width="754" height="22" alt="image" src="https://github.com/user-attachments/assets/7f1485d7-7899-4715-8a48-6e54e1251ed8" />
 
+<hr>
+
 ## TL;DR
 
 ### Why /vuln is vulnerable
+
 - User input directly concatenated into SQL
 - Database can’t tell syntax from data
 - Payload rewrites the query -> bypasses auth
 
 ### Prepared statements separate SQL code from user data
+
 - Prepared statements separate SQL code from user data
 - Input is always treated as text, never as instructions
 - Query structure stays intact no matter the payload
 
 ### SOC Detection Tips
+
 - Watch for ``OR 1=1``, ``--``, ``UNION SELECT``, ``sleep()`` in logs
 - Repeated failed logins followed by success with odd input
 - SQLi tools (sqlmap) leave signatures in User-Agent and timing
 
 Also a real world example is [Equifax 2017](https://en.wikipedia.org/wiki/2017_Equifax_data_breach) where there was a Data Breach of 147M Records because of SQLi
 
----
+<hr>
+
 [Back to the section](/SocAnalystLabs/courseFiles/Section_06-webSecurity/webSecurity.md)
-
-
