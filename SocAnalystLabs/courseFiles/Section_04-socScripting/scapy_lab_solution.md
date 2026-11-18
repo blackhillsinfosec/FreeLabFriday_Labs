@@ -2,7 +2,7 @@
 
 This document contains the solution for the Scapy Covert TCP Channel lab. It includes two ready-to-run Python scripts ([sniffer_covert_tcp.py](./sniffer_covert_tcp.py) and [sender_covert_tcp.py](./sender_covert_tcp.py)) and explanations, sample outputs, verification tips, and cleanup instructions.
 
----
+<hr>
 
 ## 1) `sniffer_covert_tcp.py` — sensor / decoder
 
@@ -122,22 +122,25 @@ if __name__ == '__main__':
     sniff(filter='tcp and tcp[13] & 2 != 0', prn=pkt_callback, store=False)
 ```
 
-### Explanation 
+### Explanation
+
 - We use `sniff(filter=..., prn=...)` with a BPF filter to reduce the number of packets Scapy processes (only SYN packets are delivered).
 - Sessions are keyed by `(src_ip, base_port)`; the base port is the value of `src_port_base` the sender uses.
 - The meta packet is recognized when we first see a SYN whose `seq` is a plausible message length (<= 1 MiB here).
 - Chunks are matched by computing `idx = sport - base - 1`. The integer stored in `seq` is interpreted as the 4-byte big-endian chunk value.
 - When all chunks arrive, `reassemble()` constructs the final byte string and we decode as UTF-8 (with replacement to avoid crashes on invalid bytes).
 
-Notes:
+#### Notes
+
 - This sniffer is intentionally simple and focused for the lab. A production detector would need stronger heuristics to avoid false positives.
 - The fallback behavior helps when packets are reordered or some are unseen.
 
----
+<hr>
 
 ## 2) `sender_covert_tcp.py` — sender
 
 Save as `~/scapy_covert_lab/scripts/sender_covert_tcp.py` and make executable.
+
 - Also available here: [sender_covert_tcp.py](./sender_covert_tcp.py)
 
 ```python
@@ -192,14 +195,16 @@ for i in range(num_chunks):
 print('Done :)')
 ```
 
-### Explanation 
+### Explanation
+
 - The sender encodes each 4-byte block of the message into one TCP SYN's `seq` field.
 - The `src` port numbering scheme (`base`, `base+1`, ...) gives ordering metadata (index) without using packet payloads.
 - A short inter-packet delay (default 50 ms) reduces packet loss/reordering in the lab environment.
 
----
+<hr>
 
 ## Example run and expected outputs
+
 1. Start the sniffer in namespace `ns2` (Terminal A):
 
 ```bash
@@ -245,9 +250,10 @@ Starting sniffer — listening for covert SYN packets. Press Ctrl+C to stop.
 
 Exact hex values and chunk boundaries depend on encoding details and message length. The important part is that the sniffer reassemble matches what the sender printed.
 
----
+<hr>
 
 ## Verification with `tcpdump` (optional)
+
 If there is any doubt whether the SYNs arrived, run `tcpdump` inside `ns2`:
 
 ```bash
@@ -258,17 +264,19 @@ Look for the `seq` numbers in the TCP header printed by `tcpdump` and compare th
 
 ![](./attachments/terminal_C.png)
 
----
+<hr>
 
 ## Troubleshooting tips
+
 - If you see `Operation not permitted`, run scripts with `sudo` ;)
 - If the sniffer doesn't see the meta packet, the fallback in the sniffer may create a session when it sees a later packet with a plausible `seq` value.
 - If packets appear out of order, increase the `--inter` delay in the sender.
 - If Scapy's `send()` hangs or prints errors, ensure `conf.verb = 0` or run with a terminal that shows Scapy errors.
 
----
+<hr>
 
 ## Cleanup (when finished!!)
+
 Remove the network namespaces created in the lab setup (run on the host):
 
 ```bash
@@ -276,18 +284,20 @@ sudo ip netns del ns1
 sudo ip netns del ns2
 ```
 
----
+<hr>
 
 ## Extensions / extra credit ideas
+
 - Replace `seq` encoding with TCP options or window size fields to explore different covert channels.
 - Add AES encryption per-chunk to make the covert payload unreadable without the key; modify sniffer to decrypt.
 - Implement timing channels instead of header-based channels (encode bits by inter-packet delays).
 - Feed a recorded pcap into an IDS (Suricata) and craft a rule to detect the repeated-SYN-with-seq pattern.
 - Improve the sniffer's heuristics to reduce false positives (ex: check for consistent chunk sizes, entropy checks on seq values).
 
+<hr>
 
----
 *For the lab, check out [scapy_lab.md](./scapy_lab.md)*
 
----
+<hr>
+
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
