@@ -3,6 +3,8 @@
 **File:** [email01.eml](./email01.eml)\
 **Category:** Phishing / Email Analysis / Threat Detection
 
+<hr>
+
 ## Questions
 
 1. **Sender Address**\
@@ -15,7 +17,7 @@
 
 3. **Obfuscation Technique**\
    Which technique is used by the attachment to deliver or hide the malicious code?\
-   *Answer format:* technique name 
+   *Answer format:* technique name
 
 4. **JavaScript Function**\
    Identify the name of the JavaScript function embedded in the attachment.\
@@ -33,7 +35,7 @@
    Which header indicates the email’s priority, and what is its value?\
    *Answer format:* header name: value
 
----
+<hr>
 
 ## Writeup and Solutions
 
@@ -43,6 +45,7 @@ Below are detailed steps, pointing to where in the `.eml` file or decoded conten
 
 - **Where to look:** The `From:` header near the top of the message.
 - **Header line:**
+
   ```
   From: Human Resources <robert.yi@globalleadership.org>
   ```
@@ -50,6 +53,7 @@ Below are detailed steps, pointing to where in the `.eml` file or decoded conten
 ![](./attachments/email01/q1.png)
 
 - **Answer:**
+
   ```
   robert.yi@globalleadership.org
   ```
@@ -58,10 +62,13 @@ Below are detailed steps, pointing to where in the `.eml` file or decoded conten
 
 - **Where to look:** The MIME part with `Content-Disposition: attachment; filename=...`.
 - **Excerpt:**
+
   ```
   Content-Disposition: attachment; filename="html_smuggling_atob_high_entropy.shtml"
   ```
+
 - **Answer:**
+
   ```
   html_smuggling_atob_high_entropy.shtml
   ```
@@ -73,6 +80,7 @@ Below are detailed steps, pointing to where in the `.eml` file or decoded conten
 - **Where to look:** The attachment payload is an HTML file containing Base64-encoded JavaScript which builds content at runtime.
 - **Technique:** Embedding a script that reconstructs malicious code in the browser is known as **HTML smuggling**.
 - **Answer:**
+
   ```
   HTML smuggling
   ```
@@ -86,6 +94,7 @@ https://attack.mitre.org/techniques/T1027/006/
 ![](./attachments/email01/Base64_and_url_decoded.png)
 
 - **Decoded snippet:**
+
   ```html
   <script>
     function Y_5_4_8(str) {
@@ -94,7 +103,9 @@ https://attack.mitre.org/techniques/T1027/006/
     };
   </script>
   ```
+
 - **Answer:**
+
   ```
   Y_5_4_8
   ```
@@ -107,6 +118,7 @@ https://attack.mitre.org/techniques/T1027/006/
 
 - **Decoding steps:**
   1. The Base64 value assigned to `lp` (`aHR0cHM6Ly93aXRoaGFuZHNtYWtlc3RhbmQuY29tL3N1Ym1pdG9mZmljZS5waHA=`) decodes to:
+
      ```
      https://withhandsmakestand.com/submitoffice.php
      ```
@@ -117,6 +129,7 @@ https://attack.mitre.org/techniques/T1027/006/
   3. The `atob()` call later decodes a second URL, but this is a decoy or additional tracking endpoint.
 - **Reasoning:** The `lp` variable contains the actual malicious endpoint to which stolen data would be submitted. The jQuery include is standard and not considered the payload URL.
 - **Answer:**
+
   ```
   https://withhandsmakestand.com/submitoffice.php
   ```
@@ -125,6 +138,7 @@ https://attack.mitre.org/techniques/T1027/006/
 
 - **Where to look:** The `Content-Type: multipart/mixed; boundary=` header.
 - **Header line:**
+
   ```
   Content-Type: multipart/mixed; boundary=5c881faebd8bc180f75f9d3ea571f76c42568226239c798c9acc899a6a4c
   ```
@@ -132,6 +146,7 @@ https://attack.mitre.org/techniques/T1027/006/
 ![](./attachments/email01/q6.png)
 
 - **Answer:**
+
   ```
   5c881faebd8bc180f75f9d3ea571f76c42568226239c798c9acc899a6a4c
   ```
@@ -140,14 +155,19 @@ https://attack.mitre.org/techniques/T1027/006/
 
 - **Where to look:** Mail client priority headers near the top.
 - **Headers:**
+
   ```
   X-Priority: 1
   Importance: 1
   X-MSmail-Priority: Highest
   ```
+
 - **Answer:**
+
   ```
   X-Priority: 1
   ```
+
 ![](./attachments/email01/q7.png)
----
+
+<hr>
