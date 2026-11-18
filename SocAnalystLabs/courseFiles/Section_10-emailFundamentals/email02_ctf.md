@@ -3,6 +3,8 @@
 **File:** [email01.eml](./email02.eml)\
 **Category:** Phishing / Invoice Scam / URL Analysis
 
+<hr>
+
 ## Questions
 
 1. **DKIM Signing Domain**\
@@ -20,7 +22,7 @@
    Which MIME encoding allows non-ASCII characters in the HTML part?\
    *Answer format:* encoding name (lowercase)
 
----
+<hr>
 
 ## Writeup and Solutions
 
@@ -40,7 +42,7 @@ This indicates the message was signed by `gmail.com`.
 
 ![](./attachments/email02/q1.png)
 
----
+<hr>
 
 ### Q2: SPF Result
 
@@ -56,7 +58,7 @@ The keyword `pass` shows that the sending IP was authorized in the domain’s SP
 
 ![](./attachments/email02/q2.png)
 
----
+<hr>
 
 ### Q3: Social Engineering Cue
 
@@ -72,7 +74,7 @@ This phrase pressures the recipient to call immediately.
 
 ![](./attachments/email02/q3.png)
 
----
+<hr>
 
 ### Q4: Encoding Anomaly
 
