@@ -1,11 +1,10 @@
-
-# Scripting for SOC Tasks 
+# Scripting for SOC Tasks
 
 - Automate repetitive tasks
 
 - analyze logs and events
 
----
+<hr>
 
 ## 1. Basic Python Scripting
 
@@ -14,6 +13,7 @@
 #### Parsing Simple Logs (CSV & JSON)
 
 **CSV (Comma-Separated Values)** logs:
+
 - Common for exported logs from SIEMs (e.g., Splunk, ELK)
 - Handled using Python’s built-in `csv` module
 
@@ -27,6 +27,7 @@ with open("EXAMPLE.csv") as file:
 ```
 
 **JSON (JavaScript Object Notation)** logs:
+
 - Widely used in modern APIs and log formats (e.g., Sysmon, firewall logs)
 - Handled with Python’s `json` module
 
@@ -46,17 +47,21 @@ with open("EXAMPLE.json") as file:
 - `re`: regular expressions module for searching log patterns
 
 ##### Why `requests`?
+
 - Automates querying threat intelligence platforms like AbuseIPDB or VirusTotal
 - Used to send and retrieve data via HTTP(S)
 
 ##### Why `json`?
+
 - Most APIs return JSON responses
 - Essential for parsing returned data like threat scores or verdicts
 
 ##### Why `re`?
+
 - Extracts specific data (ex: IPs, usernames, hashes) from raw text logs
 
 Example pattern:
+
 ```python
 import re
 
@@ -66,7 +71,7 @@ if match:
     print("IP Address found:", match.group())
 ```
 
----
+<hr>
 
 ## 2. Basic PowerShell Scripting
 
@@ -97,10 +102,10 @@ Example: Exporting failed login attempts (Event ID 4625):
 Get-WinEvent -LogName Security | Where-Object { $_.Id -eq 4625 } | Export-Csv failed_logins.csv
 ```
 
-Explanation:
+#### Explanation
+
 - it filters Windows Security logs for failed logins
 - after that, it outputs results to a CSV file for further analysis
-
 
 resources:
 
@@ -112,5 +117,6 @@ resources:
 - https://learn.microsoft.com/en-us/powershell/scripting/learn/ps101/01-getting-started
 - https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.5
 
----
+<hr>
+
 [Back to the Section](/courseFiles/Section_04-socScripting/socScripting.md)
