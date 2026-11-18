@@ -95,28 +95,42 @@ Many failed attempts against **one account**.
 - Windows: a burst of **4625** events (Sub Status `0xC000006A`), often ending in **4740** (lockout)
 - Linux: repeated `Failed password for <user>` from one IP
 
+<br>
+
 ### Password Spraying
 A **few** attempts against **many accounts**, usually with one common password, to avoid lockouts.
 - Windows: 4625 or 4771 events across dozens of usernames from a single source
 - Cloud: many sign-in failures for different users from the same IP or ASN
 
+<br>
+
 ### Credential Stuffing
 Using username/password pairs leaked from other breaches. Look for many different usernames tried from a pool of IPs, with occasional successes.
+
+<br>
 
 ### MFA Fatigue (Push Bombing)
 An attacker who already has the password sends repeated MFA push requests until the user approves one.
 - Look for many MFA denials or timeouts for one user, followed by an approval.
 
+<br>
+
 ### Impossible Travel
 A user signs in from Chicago, then from Frankfurt 20 minutes later. One of those sessions is not the real user.
+
+<br>
 
 ### Kerberoasting
 Attackers request service tickets for accounts with SPNs, then crack them offline.
 - Look for a spike in **4769** events from one account, especially with **Ticket Encryption Type `0x17` (RC4)**.
 
+<br>
+
 ### AS-REP Roasting
 Targets accounts that don't require Kerberos pre-authentication.
 - Look for **4768** events with **Pre-Authentication Type `0`**.
+
+<br>
 
 ### Suspicious Successful Logons
 Sometimes the success is the alert:
