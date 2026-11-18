@@ -2,8 +2,7 @@
 
 > Zeek (formerly Bro) is an event-driven network security engine that passively monitors traffic, parses protocols, extracts metadata and generates rich logs for detection, hunting and incident response. This playbook combines a short, usable cheat-sheet (like your original doc) with the expanded SOC-focused guidance you added later.
 
----
-
+<hr>
 
 ### 1. Quick installs
 
@@ -25,20 +24,23 @@ docker run --rm -it --net=host zeek/zeek zeek -i eth0
 
 - **Appliances / Distros**: Security Onion, Corelight, and other sensors often ship Zeek pre-integrated.
 
----
+<hr>
 
 ### 2. Deployment patterns & capture modes
 
-- **Single-node**: capture + logs locally. Good for labs and small sites.
-- **Clustered**: manager + workers + proxies + logger. Use for scale; coordinate scripts across nodes (zeekctl deploy / zkg).
-- **Sensor + SIEM**: sensors forward logs to central SIEM / Kafka / syslog / Filebeat.
+| Item | Description |
+|---|---|
+| **Single-node** | capture + logs locally. Good for labs and small sites. |
+| **Clustered** | manager + workers + proxies + logger. Use for scale; coordinate scripts across nodes (zeekctl deploy / zkg). |
+| **Sensor + SIEM** | sensors forward logs to central SIEM / Kafka / syslog / Filebeat. |
 
 **Packet capture modes**
+
 - `libpcap` — default, easy.
 - `AF_PACKET` — high-throughput Linux capture.
 - `DPDK` / specialized NIC plugins — very high throughput (requires extra setup).
 
----
+<hr>
 
 ### 3. Core components & frameworks
 
@@ -48,7 +50,7 @@ docker run --rm -it --net=host zeek/zeek zeek -i eth0
 - **Logging framework** — TSV by default; JSON/NDJSON through packages or policies
 - **Frameworks** — Notice, Intel, Logging, Cluster, File Analysis, Input, etc.
 
----
+<hr>
 
 ### 4. Important Zeek logs (SOC priorities)
 
@@ -67,17 +69,19 @@ docker run --rm -it --net=host zeek/zeek zeek -i eth0
 
 Zeek can emit many more logs (SMB, RDP, QUIC, DHCP, NTP, etc.). Enable what you need.
 
----
+<hr>
 
 ### 5. Log formats, rotation & shipping
 
-- **Default format**: TSV with header comments describing fields/types.
-- **JSON/NDJSON**: Use packages or custom policy to emit JSON for direct ingestion into Elastic/Kafka.
-- **Rotation**: Configure rotation intervals and use post-rotate hooks to compress/ship logs.
-- **Shipping pipelines**: Filebeat → Logstash → Elasticsearch, Kafka → consumers, syslog → SIEM. Ensure shipper and Zeek rotation are aligned.
-- **Inspection tool**: `zeek-cut` to extract columns from TSV logs.
+| Item | Description |
+|---|---|
+| **Default format** | TSV with header comments describing fields/types. |
+| **JSON/NDJSON** | Use packages or custom policy to emit JSON for direct ingestion into Elastic/Kafka. |
+| **Rotation** | Configure rotation intervals and use post-rotate hooks to compress/ship logs. |
+| **Shipping pipelines** | Filebeat → Logstash → Elasticsearch, Kafka → consumers, syslog → SIEM. Ensure shipper and Zeek rotation are aligned. |
+| **Inspection tool** | `zeek-cut` to extract columns from TSV logs. |
 
----
+<hr>
 
 ### 6. Enrichment & normalization (SOC needs)
 
@@ -86,30 +90,32 @@ Zeek can emit many more logs (SMB, RDP, QUIC, DHCP, NTP, etc.). Enable what you 
 - Use Community ID / Netflow identifiers to link flows across sensors.
 - Feed threat intel into Zeek's Intelligence Framework for IOC matching in real time.
 
----
+<hr>
 
 ### 7. Zeek scripting essentials (what analysts must know)
 
-- **Event-driven**: handlers like `event connection_established(c: connection)` or `event http_request(c, method, host, uri)` run on events.
-- **Types**: `int`, `string`, `addr`, `port`, `time`, plus `record`, `vector`, `table`, `set`.
-- **redef**: override policy variables or thresholds.
-- **@load / zkg**: load packages and community scripts.
-- **Notice & Logging frameworks**: use them to produce alerts and structured output.
+| Item | Description |
+|---|---|
+| **Event-driven** | handlers like `event connection_established(c: connection)` or `event http_request(c, method, host, uri)` run on events. |
+| **Types** | `int`, `string`, `addr`, `port`, `time`, plus `record`, `vector`, `table`, `set`. |
+| **redef** | override policy variables or thresholds. |
+| **@load / zkg** | load packages and community scripts. |
+| **Notice & Logging frameworks** | use them to produce alerts and structured output. |
 
 **Script placement**: `site/local.zeek` or `site/` under your Zeek prefix; distribute to cluster nodes (zeekctl deploy).
 
----
-
-
+<hr>
 
 ### 8. Testing, debugging & workflows
 
-- **Test against PCAP**: `zeek -Cr capture.pcap site/local.zeek` or `zeek -Cr capture.pcap suspicious-posts.zeek`.
-- **Run live**: `zeek -i eth0 site/local.zeek` (monitor CPU / drops).
-- **zeekctl**: `zeekctl check`, `zeekctl deploy`, `zeekctl status` in ZeekControl-managed setups.
-- **Debug**: `stderr` output, `notice.log`, `weird.log`, and `print()` statements during dev.
+| Item | Description |
+|---|---|
+| **Test against PCAP** | `zeek -Cr capture.pcap site/local.zeek` or `zeek -Cr capture.pcap suspicious-posts.zeek`. |
+| **Run live** | `zeek -i eth0 site/local.zeek` (monitor CPU / drops). |
+| **zeekctl** | `zeekctl check`, `zeekctl deploy`, `zeekctl status` in ZeekControl-managed setups. |
+| **Debug** | `stderr` output, `notice.log`, `weird.log`, and `print()` statements during dev. |
 
----
+<hr>
 
 ### 9. Performance tuning & operating tips
 
@@ -119,16 +125,18 @@ Zeek can emit many more logs (SMB, RDP, QUIC, DHCP, NTP, etc.). Enable what you 
 - Monitor packet drops and queue sizes; dropped packets mean blindspots.
 - Rotate logs and align with your shipper to prevent data loss.
 
----
+<hr>
 
 ### 10. Integrations & community packages
 
-- **zkg (Zeek Package Manager)** — install community packages.
-- **Add-ons**: JSON loggers, Kafka producers, AF_PACKET/DPDK capture plugins.
-- **SIEM**: Filebeat has Zeek modules; Kafka consumers, Logstash Grok patterns for TSV.
-- **Community**: Official repos, Book of Zeek, Zeek mailing lists and Slack/Matrix communities.
+| Item | Description |
+|---|---|
+| **zkg (Zeek Package Manager)** | install community packages. |
+| **Add-ons** | JSON loggers, Kafka producers, AF_PACKET/DPDK capture plugins. |
+| **SIEM** | Filebeat has Zeek modules; Kafka consumers, Logstash Grok patterns for TSV. |
+| **Community** | Official repos, Book of Zeek, Zeek mailing lists and Slack/Matrix communities. |
 
----
+<hr>
 
 ### 11. Cheat-sheet / Useful commands
 
@@ -138,17 +146,19 @@ Zeek can emit many more logs (SMB, RDP, QUIC, DHCP, NTP, etc.). Enable what you 
 - Extract columns: `zeek-cut id.orig_h id.orig_p id.resp_h id.resp_p < conn.log`
 - Install zkg package: `zkg install <package>` then `zkg load <package>`
 
----
+<hr>
 
 ### 12. Hunting recipes (quick mapping)
 
-- **Lateral movement**: `conn.log` (internal IP spikes), `ssh.log` (unusual keys/logins).
-- **DNS tunneling**: `dns.log` with very long qnames, high qps for single host, entropy checks.
-- **C2 beaconing**: regular periodic small connections in `conn.log` / `http.log`; check intervals / jitter.
-- **Exfiltration**: large POST bodies (`http.log` + `files.log`) or unusual transfers in `files.log`.
-- **TLS anomalies**: mismatched CNs, expired/self-signed certs in `x509.log` / `ssl.log`.
+| Item | Description |
+|---|---|
+| **Lateral movement** | `conn.log` (internal IP spikes), `ssh.log` (unusual keys/logins). |
+| **DNS tunneling** | `dns.log` with very long qnames, high qps for single host, entropy checks. |
+| **C2 beaconing** | regular periodic small connections in `conn.log` / `http.log`; check intervals / jitter. |
+| **Exfiltration** | large POST bodies (`http.log` + `files.log`) or unusual transfers in `files.log`. |
+| **TLS anomalies** | mismatched CNs, expired/self-signed certs in `x509.log` / `ssl.log`. |
 
----
+<hr>
 
 ### 13. Governance, retention & privacy
 
@@ -156,8 +166,7 @@ Zeek can emit many more logs (SMB, RDP, QUIC, DHCP, NTP, etc.). Enable what you 
 - Avoid storing raw PII or credentials unless approved — redact/hide or hash before long-term storage.
 - Coordinate with legal/privacy teams if you plan to persist payloads or extracted files.
 
----
-
+<hr>
 
 ### 14. Best Practices
 
@@ -167,15 +176,14 @@ Zeek can emit many more logs (SMB, RDP, QUIC, DHCP, NTP, etc.). Enable what you 
 - Write custom scripts for your use cases
 - Leverage Zeek + Suricata (Security Onion) for layered detection
 
+<hr>
 
----
 ### 15.Documentation & Learning Resources
 
 - [Official Zeek Documentation](https://docs.zeek.org/)
 - [Zeek Scripting Guide](https://docs.zeek.org/en/current/scripting/index.html)
 - [Zeek Package Manager (zkg)](https://docs.zeek.org/projects/package-manager/en/stable/)
 
+<hr>
 
-
----
 [Back to the section](/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
