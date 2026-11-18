@@ -1,10 +1,12 @@
 # Lab 2: PowerShell - Collect Basic System Info and Save to File
 
+<hr>
+
 ## Goal
 
 In this lab, you'll write a PowerShell script to collect essential system information and save it to a `.txt` file. This is especially useful for asset inventory, triage during incident response, and general host profiling.
 
----
+<hr>
 
 ## Why It’s Relevant
 
@@ -12,7 +14,7 @@ In this lab, you'll write a PowerShell script to collect essential system inform
 - Demonstrates **system information gathering** and basic **log collection**.
 - Provides foundational skills for **incident response** and **asset fingerprinting**.
 
----
+<hr>
 
 ## Task
 
@@ -27,7 +29,7 @@ Write a PowerShell script that gathers the following information from the system
 - List of running processes
 - Active network connections
 
----
+<hr>
 
 ## Sample Output (system_info.txt)
 
@@ -49,7 +51,7 @@ TCP 192.168.1.100:50328 93.184.216.34:443 ESTABLISHED
 TCP 192.168.1.100:50329 172.217.9.174:443 ESTABLISHED
 ```
 
----
+<hr>
 
 ## Hints
 
@@ -58,11 +60,12 @@ TCP 192.168.1.100:50329 172.217.9.174:443 ESTABLISHED
 - Use `Get-NetTCPConnection` or `netstat` for active connections.
 - Use `Out-File` or `Set-Content` to write to a file.
 
----
+<hr>
 
 ## Solution
 
 Once you are finished, you can check out the [solution](./lab2_solution_steb_by_step.md). The solution contains step by step guidence!
 
----
+<hr>
+
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
