@@ -2,7 +2,7 @@
 
 # Volatility Part 4
 
-# Ubuntu VM
+#### Ubuntu VM
 
 [Part1](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab1.md)   [Part2](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab2.md)   [Part3](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab3.md)   [Part4](/SocAnalystLabs/courseFiles/Section_09-forensicsFundamentals/volatilityLab4.md)
 
@@ -10,24 +10,29 @@ This lab should be done as a continuation of the [Volatility Documentation](/Soc
 
 This is the 4th of 4 parts
 
-# Setup
+<hr>
+
+## Setup
 
 ```bash
 IMG=~/labs/volatility3/stage4.lime
 ```
+
 ```bash
 SYMS='--remote-isf-url https://github.com/Abyss-W4tcher/volatility3-symbols/raw/master/banners/banners.json'
 ```
 
 The commands will be in this template:
+
 ```bash
 python3 vol.py -f "$IMG" $SYMS linux.something
 ```
 
-## Your turn
-Try to find the malware using the commands in the [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md) and then scroll down to see what you should've looked for
+<hr>
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+## Your turn
+
+Try to find the malware using the commands in the [Volatility Documentation](/SocAnalystLabs/courseFiles/tools/Volatility.md) and then scroll down to see what you should've looked for
 
 Stage 4 is a fake **kworker** ``/tmp/kworker_packet`` opens a raw AF_PACKET socket, filtering traffic for port **5555**
 
@@ -39,7 +44,6 @@ Now using ``linux.sockstat.Sockstat`` is also useless since the malware was edit
 The only way to really find it is by doing ``linux.psaux.PsAux``, there you will see ``kworker_packet`` which if it was System it would be under [], from that we get that the attacker used **sudo** from the interactive bash **(PID 1040)** to run a launcher called ``kworker_packet``
 
 <img width="444" height="143" alt="image" src="https://github.com/user-attachments/assets/7dd3874c-1b75-4f7b-a1cb-a6c2fdd50f84" />
-
 
 So let's pivot off **1071** and **1040** to find what ``kworker_packet`` spawned/renamed
 
@@ -69,11 +73,6 @@ The real payload must be in another PID, let's check processes right after **15:
 
 We see that ``kworker/5:2`` was spawned not even a second later than the launcher, that is our malware, and that is more than enough proof the system was infected
 
-
----
+<hr>
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
-
-
-
-
