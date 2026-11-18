@@ -6,7 +6,8 @@
 
 ## Why Tools Matter
 
-A single Windows host can produce tens of thousands of events per day, and a domain controller can produce millions. Scrolling through Event Viewer one event at a time doesn't scale. Log analysis tools help you:
+A single Windows host can produce tens of thousands of events per day, and a domain controller can produce millions. <br>
+Scrolling through Event Viewer one event at a time doesn't scale. Log analysis tools help you:
 
 - **Parse** raw `.evtx` files into something readable
 - **Apply detection rules** to automatically flag known-bad behavior
