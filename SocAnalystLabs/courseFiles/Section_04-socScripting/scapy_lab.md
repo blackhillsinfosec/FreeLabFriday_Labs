@@ -2,9 +2,9 @@
 
 **This file does NOT include the full solution code**. Use this to write your own `sender_covert_tcp.py` and `sniffer_covert_tcp.py` (or to understand what to look for in the solution).
 
----
+<hr>
 
-# Overview — what you'll build
+## Overview — what you'll build
 
 You will implement two small Python scripts using **Scapy** running inside two Linux network namespaces (both inside one VM):
 
@@ -13,17 +13,21 @@ You will implement two small Python scripts using **Scapy** running inside two L
 
 The exercise is intentionally focused on header-only covert channels (no payload), Scapy usage for send/sniff, and basic session reassembly
 
----
+<hr>
 
-# What you must implement
+## What you must implement
 
 Do **NOT** copy my solution directly — implement these behaviors from scratch to learn best. Below are requirements for each script so you can verify your work:
+
+<hr>
 
 ## A — Common requirements (both scripts)
 
 - Use `scapy` (import from `scapy.all`); make sure to run the scripts as root (ex `sudo ip netns exec ...`).
 - Print clear, human-readable progress/info messages while running (so you can follow what you did).
 - Avoid writing to the network outside the namespaces created by the lab;  // you will run the scripts inside `ns1`/`ns2`
+
+<hr>
 
 ## B — `sender_covert_tcp.py` requirements
 
@@ -54,6 +58,8 @@ Implement a command-line tool that:
   - Use `int.from_bytes(..., 'big')` for conversion and `int.to_bytes(..., 4, 'big')` when needed for printing.
   - Choose sensible validation on `src_port_base` (ex: must be an integer > 1024).
 
+<hr>
+
 ## C — `sniffer_covert_tcp.py` requirements
 
 Implement a sniffing/decoder script that:
@@ -77,9 +83,9 @@ Implement a sniffing/decoder script that:
   - When matching chunks, be mindful of missing chunks (e.g., implement `fallback` behavior or timeouts if you like as an extension).
   - For robustness, clamp seq values with `seq & 0xFFFFFFFF` before converting.
 
----
+<hr>
 
-# Step-by-step setup tasks (what to do now)
+## Step-by-step setup tasks (what to do now)
 
 Below is a precise, *step‑by‑step* run plan you can follow **after** you implement the two scripts. It includes the environment setup, how to run each script in separate terminals, how to test and verify, and how to clean up.
 
@@ -88,39 +94,52 @@ Below is a precise, *step‑by‑step* run plan you can follow **after** you imp
 Run each command as your normal user (use `sudo` where neeeded). It creates two isolated network namespaces and a veth pair so all traffic stays inside the VM.
 
 - create a directory for the lab and enter it
+
 ```bash
 mkdir -p ~/scapy_covert_lab && cd ~/scapy_covert_lab
 ```
+
 - create namespaces
+
 ```bash
 sudo ip netns add ns1
 sudo ip netns add ns2
 ```
+
 - create veth pair
+
 ```bash
 sudo ip link add veth-ns1 type veth peer name veth-ns2
 ```
+
 - move veth ends into namespaces
+
 ```bash
 sudo ip link set veth-ns1 netns ns1
 sudo ip link set veth-ns2 netns ns2
 ```
+
 - configure addresses and bring interfaces up
+
 ```bash
 sudo ip netns exec ns1 ip addr add 10.10.10.1/24 dev veth-ns1
 sudo ip netns exec ns1 ip link set lo up
 sudo ip netns exec ns1 ip link set veth-ns1 up
 ```
+
 ```bash
 sudo ip netns exec ns2 ip addr add 10.10.10.2/24 dev veth-ns2
 sudo ip netns exec ns2 ip link set lo up
 sudo ip netns exec ns2 ip link set veth-ns2 up
 ```
+
 - quick verification of interfaces
+
 ```
 echo 'ns1 interfaces:'
 sudo ip netns exec ns1 ip a
 ```
+
 ```bash
 echo 'ns2 interfaces:'
 sudo ip netns exec ns2 ip a
@@ -138,7 +157,9 @@ mkdir -p ~/scapy_covert_lab/scripts
 nano ~/scapy_covert_lab/scripts/sniffer_covert_tcp.py
 nano ~/scapy_covert_lab/scripts/sender_covert_tcp.py
 ```
+
 - make scripts executable
+
 ```bash
 chmod +x ~/scapy_covert_lab/scripts/*.py
 ```
@@ -148,6 +169,7 @@ chmod +x ~/scapy_covert_lab/scripts/*.py
 Open a new terminal window/tab (Terminal A) and start the sniffer inside `ns2`. Run it as root so Scapy can sniff raw packets.
 
 > Terminal A
+
 ```bash
 sudo ip netns exec ns2 python3 ~/scapy_covert_lab/scripts/sniffer_covert_tcp.py
 ```
@@ -164,6 +186,7 @@ What to expect in Terminal A:
 
 Open another terminal (Terminal B) and run the sender inside `ns1`. Provide a test message and (optionally) the `--src-port-base` and `--dst` values.
 > Terminal B
+
 ```bash
 sudo ip netns exec ns1 python3 ~/scapy_covert_lab/scripts/sender_covert_tcp.py "Hello-Scapy-Covert" --src-port-base 40000 --dst 10.10.10.2
 ```
@@ -176,7 +199,6 @@ What to expect in Terminal B:
 
 ![](./attachments/terminal_B.png)
 
-
 ### Step E — Observe & verify (Terminal A + optional Terminal C)
 
 - In Terminal A (sniffer) you should see chunk receipt logs and a final line like:
@@ -188,15 +210,14 @@ What to expect in Terminal B:
 - Optional: if you want to inspect raw packets, open a third terminal (Terminal C) and run `tcpdump` inside `ns2` while you send the message:
 
 > Terminal C (optional)
+
 ```bash
 sudo ip netns exec ns2 tcpdump -i veth-ns2 -nn -X 'tcp and tcp[13] & 2 != 0'
 ```
 
 Look for the SYN packets and confirm the `seq` values match the sender's printed hex values.
 
-
 ![](./attachments/terminal_C.png)
-
 
 ### Step F — Troubleshooting quick checks
 
@@ -217,9 +238,9 @@ sudo ip netns del ns1
 sudo ip netns del ns2
 ```
 
----
+<hr>
 
-# Checkpoints — how you will know it's correct (tests you should pass)
+## Checkpoints — how you will know it's correct (tests you should pass)
 
 1. When you run the sender you must see a short summary such as: `Sending message of 18 bytes in 5 chunks to 10.10.10.2` and lines for each chunk showing `sport` and `seq` in hex.
 2. The sniffer must log a new session `New session from 10.10.10.1 base_port=40000 total_len=18` (or similar) and the chunk receipt lines.
@@ -230,17 +251,15 @@ sudo ip netns del ns2
 >
 >If one of the checks fails, consult the troubleshooting hints below.
 
----
+<hr>
 
-# Hints & common pitfalls 
+## Hints & common pitfalls
 
 - **SYN flag detection**: TCP flags are bitfields — checking `pkt[TCP].flags & 0x02` is the correct way to test SYN.
 
 - **Byte order**: Use `int.from_bytes(chunk, 'big')` to convert 4 bytes into an integer for the `seq` field. When converting back, use `int.to_bytes(value, 4, 'big')`.
 
-
 - **Padding**: Pad the final chunk with `\x00` bytes to 4 bytes before conversion; remember to slice the reassembled bytes to `total_len`.
-
 
 - **seq limits**: TCP seq is a 32-bit field — mask or clamp values with & 0xFFFFFFFF when reading or storing to avoid sign/overflow surprises.
 
@@ -254,10 +273,10 @@ sudo ip netns del ns2
 
 - **Fallback**: Expect some packet loss in any real test; consider adding a fallback in the sniffer (create a session if chunks appear before the meta packet) or a simple timeout-based cleanup to avoid stale state.
 
----
+<hr>
 
 *For the lab solution, check out [scapy_lab_solution.md](./scapy_lab_solution.md)*
 
+<hr>
 
----
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_04-socScripting/socScripting.md)
