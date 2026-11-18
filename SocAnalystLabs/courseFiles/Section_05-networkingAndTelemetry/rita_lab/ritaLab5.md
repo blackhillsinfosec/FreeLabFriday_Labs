@@ -7,38 +7,34 @@
 During these parts you will be going through 7 datasets and you will have to answer some questions for each, you will find the answers if you keep scrolling down
 
 You can view all of them via
+
 ```bash
 rita list
 ```
 
 <img width="742" height="242" alt="Screenshot From 2026-03-17 10-53-41" src="https://github.com/user-attachments/assets/11c61de5-a251-428c-b6ec-6b94e290eb08" />
 
+<hr>
+
 ## teamviewer
 
 **Dataset description:** TeamViewer — Egress via TCP 443
+
 ```bash
 rita view teamviewer
 ```
 
 1. Which internal host is flagged Critical for TeamViewer activity in teamviewer_view.csv
 
- 
 2. How many connections are recorded for the Critical TeamViewer entry
 
- 
 3. How many total kilobytes are reported for the Critical TeamViewer entry
 
- 
 4. What is the exact Port:Proto:Service string for the Critical TeamViewer entry
 
- 
 5. RITA also shows a High-severity flow from the same host to a public IP over TeamViewer’s well-known port with a 0% beacon score. What destination IP and port are used in that entry
 
- 
 6. How many total megabytes moved over that TeamViewer port (from Q5) in that single entry
-
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
 
 **1. Answer:** 192.168.99.52
 
@@ -52,14 +48,12 @@ rita view teamviewer
 
 **6. Answer:** 796.2
 
-<br><br>
-
-
 Continue with [Part 6](./ritaLab6.md)
 
-<b><i>Looking for a different lab? </br>[Lab Directory](/SocAnalystLabs/coursenavigation.md)</i></b>
+**Looking for a different lab?** [Lab Directory](/SocAnalystLabs/coursenavigation.md)
 
----
+<hr>
+
 [Back to the section](/SocAnalystLabs/courseFiles/Section_05-networkingAndTelemetry/networkingAndTelemetry.md)
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
