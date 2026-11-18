@@ -4,7 +4,10 @@
 
 # Elastic Cloud Lab
 
+<hr>
+
 ## GOAL
+
 - Set up and use Elastic SIEM on your system
 - Learn how to ingest logs and visualize them
 - Learn how to use SIEM (Hosts, Users, Alerts)
@@ -23,23 +26,22 @@
 - On the upper side you can see the traffic density on a specific timeling and a way to filter your logs, say you want to only see the logs coming from syslog, you would want to filter like this `event.dataset: "system.syslog"` since we are using filebeat, it's really easy and intuitive to make whatever filters you want ↓↓↓
 
 <img width="1594" height="267" alt="image" src="https://github.com/user-attachments/assets/02cab47d-9b34-4af7-b4b5-19423754ca74" />
-<br><br>
 
 2. Now go to Security -> Explore, here we can see
 
-- **Hosts** - Check user logins, uptime, etc.
-- **Users** - Auth activity
-- **Network** - IP traffic
+| Item | Description |
+|---|---|
+| **Hosts** | Check user logins, uptime, etc. |
+| **Users** | Auth activity |
+| **Network** | IP traffic |
 
 <img width="1290" height="892" alt="image" src="https://github.com/user-attachments/assets/5ca936bd-6e06-46d7-921c-889d3b75e6d1" />
 
-For now head over to **Hosts** 
+For now head over to **Hosts**
 
 On the lower side you can see details and logs related to Hosts, explore them and try to distinguish one action from another
 
 <img width="1670" height="850" alt="image" src="https://github.com/user-attachments/assets/79cac696-8935-4f50-b3ed-68f62ba83869" />
-
-<br><br>
 
 3. Create a Basic Detection Rule
 - Click on Security -> Rules -> Detection Rules
@@ -53,12 +55,10 @@ On the lower side you can see details and logs related to Hosts, explore them an
 - Default Severity: `Medium`
 - Default risk score: `30` - Continue
 - Runs every: `1 Minutes` - Continue -> Create & enable rule
-<br><br>
 
 Now if you go over to alerts you can see your Rule's work! If you don't see anything try creating different processes like notepad, cmd, etc and give it a minute
 
 <img width="1670" height="904" alt="image" src="https://github.com/user-attachments/assets/c1e3c119-2668-482d-9ca4-0e1ea9cebab3" />
-<br><br>
 
 4. Let's now try to **Investigate Alerts with Timelines**
 - Go to Security -> Alerts if you weren't here already
@@ -67,15 +67,17 @@ Now if you go over to alerts you can see your Rule's work! If you don't see anyt
  <img width="158" height="32" alt="image" src="https://github.com/user-attachments/assets/5e9cb2c4-9505-495b-961b-71158b101e5f" />
 
 ### You can:
+
 - See logs from before and after the alert
 - Use the filter bar to expand your view (e.g. user.name:root)
 - Drag in fields like event.dataset, message, host.name
 - Click the 💾 Save icon to save it
 
 <img width="1894" height="974" alt="image" src="https://github.com/user-attachments/assets/b64b52bc-03fc-4917-8c10-b67b365141e6" />
-<br><br>
 
-## Try to add more rules by yourself or even simulate attacks to better understand the perspectives of both an attacker and a SOC analyst 
+<hr>
+
+## Try to add more rules by yourself or even simulate attacks to better understand the perspectives of both an attacker and a SOC analyst
 
 Some examples of useful rules are
 
@@ -83,15 +85,10 @@ Some examples of useful rules are
 - `event.code: 3 and destination.ip : ( "185.*" or "45.*" )` Match to non-standard IPs or test by pinging a public IP
 - `event.code: 11 and file.path : ("C:\\Users\\Public\\*" or "C:\\Windows\\Temp\\*.exe")` - Dropped executables in Temp or User folders
 
----
+<hr>
+
 [Back to the Section](/SocAnalystLabs/courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
 
-
-
----
+<hr>
 
 > Created By Turcu Știolică Alexandru - Black Hills Information Security
-
-
-
-
