@@ -13,7 +13,7 @@
 - [Authentication Logs](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md#authentication-logs)
 - [Tools to Learn](courseFiles/Section_01-logAnalysis_Basics/logAnalysis_basics.md#tools-to-learn)
 - [Log Analysis Lab](courseFiles/Section_01-logAnalysis_Basics/logAnalysisBasics_Lab.md)
--->
+
 ***
 ### [Security Tools & Foundational Platforms](courseFiles/Section_02-toolsAndPlatforms/toolsAndPlatforms.md)
 
@@ -149,3 +149,4 @@
 - [Start a Blog](courseFiles/Section_13-softSkills/softSkills.md#start-a-blog)
 - [Learn & Teach](courseFiles/Section_13-softSkills/softSkills.md#learn--teach)
 - [Final Exercise](courseFiles/Section_13-softSkills/softSkills.md#final-exercise)
+-->
