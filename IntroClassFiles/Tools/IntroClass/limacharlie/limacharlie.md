@@ -79,10 +79,8 @@ After creating your fake organization, you will see this screen pop up:
 
 <img width="750" alt="Installation Keys" src="attachments/one.PNG" />
 
-Choose the **"Create New"** button.
+Choose the **"Create & Use New"** button.
 You will see a few empty fields. You can add any description you like and any relevant tags.
-
-Once you have done that, select **"Create"**.
 
 <img width="600" alt="Create key" src="attachments/three.PNG" />
 
