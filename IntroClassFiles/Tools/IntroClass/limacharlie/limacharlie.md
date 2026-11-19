@@ -120,7 +120,10 @@ Once it has finished downloading, **copy the string in step 4**.
 -->
 
 
-## Step 5: Install the Sensor
+## Step 4: Adding & Installing the Sensor
+
+After hitting "create" key, you will see this screen:
+
 
 Go to your desktop, right-click **"Windows Terminal"** and select **"Run as administrator"**.
 
