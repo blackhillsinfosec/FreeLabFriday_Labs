@@ -24,7 +24,8 @@ We need to install the Atomic Red Team plugin that LimaCharlie offers.
 
 Start by navigating to the **"Add-ons"** tab in the top right of the web page.
 
-<img width="750" alt="Add-ons" src="attachments/ADDONS.PNG" />
+<img width="1335" height="638" alt="image" src="https://github.com/user-attachments/assets/805983d6-dd84-44ea-ae2c-fc69f8823cf5" />
+
 
 Scroll down until you see the Atomic Red plugin. Click the **"ext-atomic-red-team"** plugin.
 
