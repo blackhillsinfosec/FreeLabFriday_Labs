@@ -149,6 +149,7 @@ Alerts point you toward logs. Knowing what each log type contains tells you wher
 5. **Correlate:** DNS logs show `WS-FINANCE-07` resolved that domain at the same time. Email logs show `jsmith` received a `.docm` attachment minutes earlier.
 6. **Decide:** **True Positive.** Escalate as a likely phishing-based malware infection and isolate the host.
 
+<!--
 <hr>
 
 ## Check Your Understanding
@@ -167,3 +168,4 @@ Alerts point you toward logs. Knowing what each log type contains tells you wher
 4. Malicious activity that did **not** trigger an alert. It's dangerous because nobody knows to investigate it.
 
 </details>
+-->
