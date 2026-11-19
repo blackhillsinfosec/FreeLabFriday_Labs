@@ -86,6 +86,7 @@ You will see a few empty fields. You can add any description you like and any re
 
 ---
 
+<!--
 ## Step 4: Add a Windows Sensor
 
 Once you have created your new installation key, navigate to **"Sensors List"**.
@@ -116,7 +117,8 @@ Once it has finished downloading, **copy the string in step 4**.
 
 <img width="600" alt="Copy the string" src="attachments/eight.PNG" />
 
----
+-->
+
 
 ## Step 5: Install the Sensor
 
