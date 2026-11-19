@@ -51,7 +51,8 @@ After Atomic Red finishes installing, return to your organization and click on y
 
 On the left side of your screen, click on **"Extensions"** to expand the drop-down menu. Select **"Atomic Red Team"**.
 
-<img width="750" alt="Extensions" src="attachments/extensions.png" />
+<img width="1170" height="407" alt="image" src="https://github.com/user-attachments/assets/d78a0902-2d3a-4346-aad6-0c22eee6a304" />
+
 
 On the next screen, click the drop-down next to the side bar at the top. Then, select **your** device.
 
