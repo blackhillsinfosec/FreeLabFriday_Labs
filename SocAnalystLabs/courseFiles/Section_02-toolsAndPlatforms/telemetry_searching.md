@@ -1,9 +1,5 @@
 # Telemetry Searching
 
-> **Hands-On Labs:** [Elastic Cloud Lab](https://freelabfridays.com/labs/socanalystlabs/coursefiles/section-02-toolsandplatforms/elasticlabcloud/) · [LimaCharlie Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/limacharlie/limacharlie/)
-
-<hr>
-
 ## Overview
 
 **Telemetry** is the raw data your tools collect: every process start, network connection, DNS lookup, and logon. **Alerts** are only the small slice of telemetry that matched a rule. To confirm an alert, scope an incident, or hunt for threats that never triggered an alert, analysts need to search the telemetry directly.
