@@ -162,6 +162,7 @@ LCQL queries follow the pattern `time range | sensor selector | event types | fi
 | **Record every query you run** | Your notes become the investigation timeline |
 | **Check data coverage** | "No results" can mean "no attack" **or** "no logs" |
 
+<!--
 <hr>
 
 ## Check Your Understanding
@@ -180,3 +181,4 @@ LCQL queries follow the pattern `time range | sensor selector | event types | fi
 4. There may be no side-loading activity, **or** Sysmon Event ID 7 may not be collected in your environment.
 
 </details>
+-->
