@@ -1,8 +1,6 @@
 # Viewing Alerts & Logs
 
 
-<hr>
-
 ## Overview
 
 Security tools generate **alerts** when something matches a detection rule. An alert is not proof of an attack. It is a signal that something *might* be wrong and needs a human to look at it. SOC analysts spend much of their day reviewing these alerts, deciding whether they are real, and figuring out what happened.
