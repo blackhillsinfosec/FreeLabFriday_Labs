@@ -29,7 +29,7 @@ Start by navigating to the **"Add-ons"** tab in the top right of the web page.
 
 Scroll down until you see the Atomic Red plugin. Click the **"ext-atomic-red-team"** plugin.
 
-<img width="750" alt="ext-atomic-red-team" src="attachments/AR.PNG" />
+<img width="937" height="881" alt="image" src="https://github.com/user-attachments/assets/3647d70a-94a8-4da3-ac46-85a194309a37" />
 
 > [!TIP]
 > Take a minute to look at the different plugins and see the full capabilities and features LimaCharlie has to offer.
