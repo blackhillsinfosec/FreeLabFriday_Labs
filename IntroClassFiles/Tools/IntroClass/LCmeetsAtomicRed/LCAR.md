@@ -56,7 +56,8 @@ On the left side of your screen, click on **"Extensions"** to expand the drop-do
 
 On the next screen, click the drop-down next to the side bar at the top. Then, select **your** device.
 
-<img width="650" alt="Select device" src="attachments/selectdevice.png" />
+<img width="1055" height="377" alt="image" src="https://github.com/user-attachments/assets/a257d941-0f4f-4e39-8794-5d69f3f475b8" />
+
 
 ---
 
