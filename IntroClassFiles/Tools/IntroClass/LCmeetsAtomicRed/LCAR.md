@@ -36,7 +36,8 @@ Scroll down until you see the Atomic Red plugin. Click the **"ext-atomic-red-tea
 
 Locate the subscribe button on the right side of the page, and click **"Subscribe"**.
 
-<img width="919" height="367" alt="image" src="https://github.com/user-attachments/assets/b7ff0b52-278e-4c80-8824-8f6a4b1f7a24" />
+<img width="916" height="363" alt="image" src="https://github.com/user-attachments/assets/1fad7cd0-0ca4-42d2-880e-04db72873378" />
+
 
 
 ---
