@@ -1,9 +1,5 @@
 # Writing & Modifying Basic Detection Rules
 
-> **Hands-On Labs:** [Elastic Cloud Lab](https://freelabfridays.com/labs/socanalystlabs/coursefiles/section-02-toolsandplatforms/elasticlabcloud/) · [LimaCharlie Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/limacharlie/limacharlie/)
-
-<hr>
-
 ## Overview
 
 A **detection rule** describes behavior that should generate an alert. Rules are how a SOC turns raw telemetry into something an analyst can act on. Good rules catch real attacks without flooding the team with noise.
