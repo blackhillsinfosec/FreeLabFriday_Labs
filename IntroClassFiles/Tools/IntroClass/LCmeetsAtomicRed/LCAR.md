@@ -62,7 +62,8 @@ Hit "Run Tests", then select your device:
 Scroll down until you find the **command-and-control** category. Select the box next to the category header and make sure that it selects all of the boxes below.
 Then hit **Run Tests**.
 
-<img width="1029" height="358" alt="image" src="https://github.com/user-attachments/assets/49bc3def-e64a-4173-a2ed-d62451247222" />
+<img width="713" height="778" alt="image" src="https://github.com/user-attachments/assets/0758b314-cd51-4b09-afcf-16786390583e" />
+
 
 <!--
 On the next screen, click the drop-down next to the side bar at the top. Then, select **your** device and hit **Prepare Host**.
