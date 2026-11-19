@@ -46,9 +46,8 @@ Locate the subscribe button on the right side of the page, and click **"Subscrib
 
 After Atomic Red finishes installing, return to your organization and click on your machine.
 
-<img width="750" alt="Navigate to organizations" src="attachments/navtoorganizations.png" />
+<img width="917" height="353" alt="image" src="https://github.com/user-attachments/assets/f433792f-e5c5-4240-b605-cb541e67407c" />
 
-<img width="550" alt="Select organization" src="attachments/selectorganization.png" />
 
 On the left side of your screen, click on **"Extensions"** to expand the drop-down menu. Select **"Atomic Red Team"**.
 
