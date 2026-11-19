@@ -209,6 +209,7 @@ Never assume a rule works just because it looks correct.
 | No testing | A rule with a typo in a field name will silently never fire. |
 | Missing context | An alert with no description wastes the next analyst's time. |
 
+<!--
 <hr>
 
 ## Check Your Understanding
@@ -227,3 +228,4 @@ Never assume a rule works just because it looks correct.
 4. Attackers can rename a binary. Matching on hashes, `OriginalFileName`, or behavior is more reliable.
 
 </details>
+-->
