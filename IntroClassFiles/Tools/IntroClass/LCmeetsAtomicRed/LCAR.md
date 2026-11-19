@@ -54,28 +54,26 @@ On the left side of your screen, click on **"Extensions"** to expand the drop-do
 <img width="1170" height="407" alt="image" src="https://github.com/user-attachments/assets/d78a0902-2d3a-4346-aad6-0c22eee6a304" />
 
 
-On the next screen, click the drop-down next to the side bar at the top. Then, select **your** device and hit **Prepare Host**.
+Hit "Run Tests", then select your device:
 
-<img width="1055" height="377" alt="image" src="https://github.com/user-attachments/assets/bfc511ca-2f20-4708-b3f3-be38a20cf3fe" />
+<img width="735" height="277" alt="image" src="https://github.com/user-attachments/assets/a6191923-e551-47e1-bc3c-70bd3b303f7a" />
 
-
-
----
-
-## Step 3: Run the Atomic Red Team Tests
 
 Scroll down until you find the **command-and-control** category. Select the box next to the category header and make sure that it selects all of the boxes below.
-
-<img width="1029" height="358" alt="image" src="https://github.com/user-attachments/assets/e1c6f50e-20c3-49a8-9664-7851596904ad" />
-
-
-Now, hit **Run Tests**.
+Then hit **Run Tests**.
 
 <img width="1029" height="358" alt="image" src="https://github.com/user-attachments/assets/49bc3def-e64a-4173-a2ed-d62451247222" />
 
+<!--
+On the next screen, click the drop-down next to the side bar at the top. Then, select **your** device and hit **Prepare Host**.
+
+<img width="1055" height="377" alt="image" src="https://github.com/user-attachments/assets/bfc511ca-2f20-4708-b3f3-be38a20cf3fe" />
+-->
+
+
 ---
 
-## Step 4: Review the Detections
+## Step 3: Review the Detections
 
 Move over to the **"Detections"** tab on the left and start going through the event logs.
 
