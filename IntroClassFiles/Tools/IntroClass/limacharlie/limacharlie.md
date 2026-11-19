@@ -134,7 +134,7 @@ Next, open a Powershell window in your Windows VM.
 
 Now paste the command you copied into the Powershell window and run it.
 
-
+<img width="1096" height="145" alt="image" src="https://github.com/user-attachments/assets/c51e5db1-b432-41a4-8a0c-e171021a515f" />
 
 If done correctly, your output should look like this:
 
