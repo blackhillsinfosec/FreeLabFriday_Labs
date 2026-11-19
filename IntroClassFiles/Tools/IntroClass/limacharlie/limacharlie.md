@@ -130,7 +130,7 @@ After hitting "Create and Use" on the window, you will see this screen:
 Click **"Copy Command"**.
 Next, open a Powershell window in your Windows VM.
 
-<img width="453" alt="Run as administrator" src="attachments/nine.PNG" />
+<img width="82" height="89" alt="image" src="https://github.com/user-attachments/assets/e7f1c1be-57b0-41c7-9ff9-1b9beb137976" />
 
 Run the following command to get into the Downloads directory:
 
