@@ -1,6 +1,5 @@
 # Viewing Alerts & Logs
 
-> **Hands-On Labs:** [Elastic Cloud Lab](https://freelabfridays.com/labs/socanalystlabs/coursefiles/section-02-toolsandplatforms/elasticlabcloud/) · [LimaCharlie Lab](https://freelabfridays.com/labs/introclassfiles/tools/introclass/limacharlie/limacharlie/)
 
 <hr>
 
