@@ -132,19 +132,9 @@ Next, open a Powershell window in your Windows VM.
 
 <img width="82" height="89" alt="image" src="https://github.com/user-attachments/assets/e7f1c1be-57b0-41c7-9ff9-1b9beb137976" />
 
-Run the following command to get into the Downloads directory:
+Now paste the command you copied into the Powershell window and run it.
 
-```powershell
-cd .\Downloads
-```
 
-Now enter the beginning of the next command. Tab completion is your friend!
-
-```powershell
-.\hcp_win_x64_release_4.29.2.exe
-```
-
-**[RIGHT CLICK OR CTRL+V TO PASTE]** the string you copied after the command, then hit **Enter** to run it.
 
 If done correctly, your output should look like this:
 
