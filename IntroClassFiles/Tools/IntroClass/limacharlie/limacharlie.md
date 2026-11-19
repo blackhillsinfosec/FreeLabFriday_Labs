@@ -142,7 +142,8 @@ If done correctly, your output should look like this:
 
 Return to the browser window. You should see this message:
 
-<img width="600" alt="Success" src="attachments/success.PNG" />
+<img width="606" height="492" alt="image" src="https://github.com/user-attachments/assets/9c5f3ade-6566-4cf2-a37d-9d96e1eeb81c" />
+
 
 > [!NOTE]
 > The name of your computer will be different!
