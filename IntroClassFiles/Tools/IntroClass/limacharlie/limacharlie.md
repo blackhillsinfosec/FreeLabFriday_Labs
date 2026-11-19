@@ -124,10 +124,11 @@ Once it has finished downloading, **copy the string in step 4**.
 
 After hitting "Create and Use" on the window, you will see this screen:
 
-<img width="1839" height="448" alt="image" src="https://github.com/user-attachments/assets/791ea7dd-e2bb-474d-b383-3e520dcfc5a6" />
+<img width="787" height="339" alt="image" src="https://github.com/user-attachments/assets/a91eb7a0-f4f7-448a-9f69-b6e748d786b0" />
 
 
-Go to your desktop, right-click **"Windows Terminal"** and select **"Run as administrator"**.
+Click **"Copy Command"**.
+Next, open a Powershell window in your Windows VM.
 
 <img width="453" alt="Run as administrator" src="attachments/nine.PNG" />
 
