@@ -54,9 +54,10 @@ On the left side of your screen, click on **"Extensions"** to expand the drop-do
 <img width="1170" height="407" alt="image" src="https://github.com/user-attachments/assets/d78a0902-2d3a-4346-aad6-0c22eee6a304" />
 
 
-On the next screen, click the drop-down next to the side bar at the top. Then, select **your** device.
+On the next screen, click the drop-down next to the side bar at the top. Then, select **your** device and hit **Prepare Host**.
 
-<img width="1055" height="377" alt="image" src="https://github.com/user-attachments/assets/a257d941-0f4f-4e39-8794-5d69f3f475b8" />
+<img width="1055" height="377" alt="image" src="https://github.com/user-attachments/assets/bfc511ca-2f20-4708-b3f3-be38a20cf3fe" />
+
 
 
 ---
