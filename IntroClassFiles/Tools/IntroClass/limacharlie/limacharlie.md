@@ -124,6 +124,7 @@ Once it has finished downloading, **copy the string in step 4**.
 
 After hitting "Create and Use" on the window, you will see this screen:
 
+<img width="1839" height="448" alt="image" src="https://github.com/user-attachments/assets/791ea7dd-e2bb-474d-b383-3e520dcfc5a6" />
 
 
 Go to your desktop, right-click **"Windows Terminal"** and select **"Run as administrator"**.
