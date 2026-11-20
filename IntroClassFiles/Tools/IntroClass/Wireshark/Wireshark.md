@@ -150,19 +150,6 @@ Put the following into the filter bar:
 
 With **Wireshark**, we can search through all our packets looking for specific strings and data.
 
+<hr>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+## Lab Walkthrough with John Strand
