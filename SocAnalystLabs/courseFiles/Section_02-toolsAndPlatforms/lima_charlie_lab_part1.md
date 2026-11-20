@@ -24,16 +24,15 @@ https://app.limacharlie.io/
 
 Click **"Sign up"**:
 
-<img width="601" height="545" alt="image" src="https://github.com/user-attachments/assets/0bc77d14-d6c2-4251-bb28-b422f8be6791" />
+<img width="526" height="465" alt="image" src="https://github.com/user-attachments/assets/d99bf419-484b-45ca-9131-03d6767381ea" />
 
 Fill out the required field and press **"Continue"**, then press **"Add Password"**: 
 
-<img width="615" height="723" alt="image" src="https://github.com/user-attachments/assets/a7d95916-deca-48ed-a6b6-5882b96442d4" />
+<img width="523" height="644" alt="image" src="https://github.com/user-attachments/assets/3d3e3065-bda3-4654-83fe-eab661602f29" />
 
 Fill out the required fields and click **"Sign Up"**.
 
-<img width="627" height="794" alt="image" src="https://github.com/user-attachments/assets/03457146-3649-4647-83f6-b626d690a812" />
-
+<img width="517" height="704" alt="image" src="https://github.com/user-attachments/assets/e1b4c997-6dcc-4d9e-93da-dc1c116b4207" />
 
 Check your email, click the verification link, then return to your browser and refresh the page.
 
@@ -45,17 +44,17 @@ You will be asked questions about your company. Use fictional information.
 
 Enter the following details:
 
-- **What best describes your team/company?** → *Security Operations Center*
-- **What best describes your role?** → *Security Engineer*
-- **What use cases are you exploring?** → *Endpoint Detection & Response*
-- **How did you hear about us?** → *Black Hills Info Sec*
+- **Are you a service provider?** -> *No*
+- **What best describes your role?** -> *Security Engineer*
+- **What use cases are you exploring?** -> *Endpoint Detection & Response*
+- **Please describe the outcome you would like to achieve.** -> *Learn how to monitor endpoints, detect threats, and investigate security events.*
+- **How did you hear about us?** -> *Black Hills Info Sec*
 
-<img width="850" height="860" alt="image" src="https://github.com/user-attachments/assets/c4cc2950-f437-454c-be1f-d69bd99b462d" />
-
+<img width="786" height="845" alt="image" src="https://github.com/user-attachments/assets/406e2852-2309-42b5-8d7e-2964e7b3051c" />
 
 Check the box to agree to the Terms of Service and Privacy Policy.
 
-Click **"Got it"** then **"New Organization"**.
+Click **"Get started"** then **"New Organization"**.
 
 <img width="726" height="355" alt="image" src="https://github.com/user-attachments/assets/61743688-e46a-49bd-97a7-7c5dcd97f008" />
 
@@ -89,7 +88,7 @@ Select your organization to continue.
 
 ## **Step 3: Create a Sensor**
 
-Under the left-hand menu, go to **Sensors → Installation Keys**.
+Under the left-hand menu, go to **Sensors -> Installation Keys**.
 
 <img width="1821" height="871" alt="image" src="https://github.com/user-attachments/assets/7f60c92f-af44-470e-8b2f-1b3f261861bb" />
 
