@@ -54,9 +54,7 @@ Enter the following details:
 
 Check the box to agree to the Terms of Service and Privacy Policy.
 
-Click **"Get started"** then **"New Organization"**.
-
-<img width="726" height="355" alt="image" src="https://github.com/user-attachments/assets/61743688-e46a-49bd-97a7-7c5dcd97f008" />
+Click **"Get started"** then let's set up your first **Organization**.
 
 # An Overview of LimaCharlie.
 
@@ -69,88 +67,34 @@ Before you get set up, here's the basics:
 
 The first step is to create an organization.
 
+In the *Endpoints* tab, fill out your fictional organization’s details.
 
-Fill out your fictional organization’s details.
-
-<img width="899" height="661" alt="image" src="https://github.com/user-attachments/assets/d1aceb8e-ba05-4681-8a7e-d979f5324a3d" />
-
+<img width="1233" height="835" alt="image" src="https://github.com/user-attachments/assets/4bf21504-4edc-410f-87f9-a66bd2e139a6" />
 
 Click **"Create Organization"**.
 
-Wait for the organization to be created. To check, go to **"Organizations"**: 
-
-<img width="1811" height="471" alt="image" src="https://github.com/user-attachments/assets/27667ac6-3a9a-4de8-a6fd-ce40988814f1" />
-
-
-Select your organization to continue.
+Wait for the organization to be created.
 
 ---
 
-## **Step 3: Create a Sensor**
+## **Step 3: Create & Install a Sensor**
 
-Under the left-hand menu, go to **Sensors -> Installation Keys**.
+Once you create an organization, you will be asked to select an *installation key*. An installation key can be used for multiple sensors. 
+Since this is our first organization, we'll create a new key.
 
-<img width="1821" height="871" alt="image" src="https://github.com/user-attachments/assets/7f60c92f-af44-470e-8b2f-1b3f261861bb" />
+<img width="894" height="356" alt="image" src="https://github.com/user-attachments/assets/9d36610f-358d-48a7-ba14-714f474942db" />
 
-Click **"Create Installation Key"**.
+Fill in a description and tags, then click **"Create"**. For the tag, type **demo**, then create the tag. **"Use Public CA"** is not necessary. 
 
-<img width="1841" height="756" alt="image" src="https://github.com/user-attachments/assets/b9648122-55df-47be-9cbe-b13aac6bb3c8" />
+<img width="806" height="448" alt="image" src="https://github.com/user-attachments/assets/eb97ebd6-a1a8-486b-95e1-ea65a956b29a" />
 
+Select *Windows* in the *Install a sensor* section. Open up *Powershell* and run the command to install the sensor. 
 
-Fill in a description and tags, then click **"Create"**. For this lab, **"Use Public CA"** is not necessary.
+<img width="1450" height="660" alt="image" src="https://github.com/user-attachments/assets/aaaf689a-96f5-4fac-a074-39a99b9cc75d" />
 
-<img width="1146" height="646" alt="image" src="https://github.com/user-attachments/assets/960cc9dc-fc93-4c32-91ff-da1fed912112" />
+<img width="370" height="283" alt="image" src="https://github.com/user-attachments/assets/0b7050ae-f960-4460-aee6-1c2f2a2c230b" />
 
-The new sensor should now be visible in the **"Installation Keys"** section.
-Next, go to **Sensors List**.
-
-<img width="1780" height="686" alt="image" src="https://github.com/user-attachments/assets/e73fcd2c-2f7f-4290-8299-0c4bcee6420e" />
-
-
-Click **"Add Sensor"**.
-
-<img width="1830" height="868" alt="image" src="https://github.com/user-attachments/assets/c0cccb96-9d16-49a0-9432-759263e9cc87" />
-
-Scroll down and select the **Windows** sensor.
-
-<img width="1435" height="599" alt="image" src="https://github.com/user-attachments/assets/303af1dc-71ca-4d99-ae6b-7ae1a80cff45" />
-
-From the drop-down, select the installation key created earlier and click **"Select"**.
-
-<img width="1228" height="319" alt="image" src="https://github.com/user-attachments/assets/b9c31db5-4aa7-49a8-a3da-fb4c80b79686" />
-
-
-Choose the architecture: **"86-64 exe"**.
-
-<img width="1390" height="788" alt="image" src="https://github.com/user-attachments/assets/2917d1ca-ed7c-438b-95fb-157a35c40998" />
-
-
-Click **"Download the selected installer"**.
-
-Copy the command string from **Step 3**.
-
-<img width="1377" height="678" alt="image" src="https://github.com/user-attachments/assets/f2ce05de-01c7-497f-80db-0a83b77a8a2f" />
-
-
----
-
-## **Step 4: Install the Sensor**
-
-Go to your desktop, right-click **Windows Terminal**, and select **"Run as administrator"**.
-
-![](attachments/nine.PNG)
-
-Navigate to your Downloads directory:
-
-```
-cd .\Downloads
-```
-
-Begin typing the following command and use **Tab** for auto-completion:
-
-```
-.\hcp_win_x64_release_4.29.2.exe
-```
+<img width="798" height="327" alt="image" src="https://github.com/user-attachments/assets/918ea22b-840a-461b-8b4c-6e68e6d0a916" />
 
 Paste the copied command string and press **Enter**.
 
@@ -158,14 +102,22 @@ If successful, your output will look like this:
 
 ![](attachments/correctoutput.png)
 
-Return to your browser. You should see a confirmation message:
+Return to your browser. You should see a confirmation message. Click on **"DONE"**.
 
-<img width="1042" height="480" alt="image" src="https://github.com/user-attachments/assets/06096160-24a6-420a-9dbf-840c2ac86bb9" />
-
+<img width="899" height="725" alt="image" src="https://github.com/user-attachments/assets/0067705f-b3f0-4b21-9138-4ce6dab0adaf" />
 
 >[!TIP]
 >
 > **Note**: Your computer name will differ.
+
+You will automatically be taken to the **Sensors List**. 
+If you already have a Lima Charlie account, you can add new sensors from here : 
+
+<img width="1667" height="800" alt="image" src="https://github.com/user-attachments/assets/27d87168-a6a3-47bf-bd48-c1d203a25952" />
+
+If you want to create new sensors, click **ADD SENSOR** and select the sensor type (in this case, *"Windows"*). The process is the same. 
+
+<img width="974" height="410" alt="image" src="https://github.com/user-attachments/assets/277ed42a-cffa-4b48-8ae7-d8a261509cd5" />
 
 ---
 
